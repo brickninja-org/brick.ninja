@@ -1,0 +1,31 @@
+{
+  "name": "brick.ninja",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "e2e"
+  ],
+  "scripts": {
+    "dev:web": "FORCE_COLOR=1 NEXT_TELEMETRY_DISABLED=1 turbo run dev --filter=web",
+    "dev:worker": "FORCE_COLOR=1 turbo run dev --filter=worker",
+    "prisma:studio": "npm run prisma:studio -w @brickninja-org/database",
+    "prisma:migrate-dev": "npm run prisma:migrate-dev -w @brickninja-org/database",
+    "build": "turbo run build",
+    "lint": "turbo run lint -- -f gha",
+    "publish-package": "turbo run publish-package",
+    "e2e": "turbo run e2e",
+    "test": "turbo run test"
+  },
+  "devDependencies": {
+    "eslint-formatter-gha": "1.5.0",
+    "turbo": "2.0.9"
+  },
+  "overrides": {
+    "react": "19.0.0-rc-f994737d14-20240522",
+    "react-dom": "19.0.0-rc-f994737d14-20240522",
+    "@types/react": "npm:types-react@19.0.0-rc.0",
+    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.0"
+  },
+  "packageManager": "npm@10.8.2"
+}

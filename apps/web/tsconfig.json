@@ -1,0 +1,17 @@
+{
+  "extends": "@brickninja-org/tsconfig/nextjs",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@/components/*": ["components/*"],
+      "@/lib/*": ["lib/*"],
+      "@/styles/*": ["styles/*"],
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+}

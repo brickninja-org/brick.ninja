@@ -1,0 +1,24 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "extends": [
+    "//"
+  ],
+  "tasks": {
+    "build": {
+      "outputs": [
+        ".next/**",
+        "!.next/cache/**"
+      ]
+    },
+    "dev": {
+      "dependsOn": [
+        "^build",
+        "@brickninja-org/database#prisma:migrate"
+      ]
+    },
+    "lint": {
+      "dependsOn": [
+      ]
+    }
+  }
+}

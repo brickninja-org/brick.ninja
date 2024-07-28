@@ -1,0 +1,45 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "ui": "stream",
+  "tasks": {
+    "build": {
+      "dependsOn": [
+        "^build",
+        "prisma:generate"
+      ]
+    },
+    "lint": {},
+    "prisma:generate": {
+      "cache": false
+    },
+    "prisma:migrate": {
+      "cache": false
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true,
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "publish-package": {
+      "cache": false,
+      "dependsOn": [
+        "build",
+        "@brickninja-org/publish-package#build"
+      ],
+      "env": [
+        "GITHUB_EVENT_NAME",
+        "GITHUB_OUTPUT",
+        "NODE_AUTH_TOKEN",
+        "NPM_CONFIG_PROVENANCE"
+      ]
+    },
+    "e2e": {},
+    "test": {
+      "dependsOn": [
+        "^build"
+      ]
+    }
+  }
+}

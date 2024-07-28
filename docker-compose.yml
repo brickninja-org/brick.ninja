@@ -1,0 +1,53 @@
+version: '4'
+
+services:
+  web:
+    image: brickninja/web
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    restart: unless-stopped
+    environment:
+      - DATABASE_URL=postgresql://brickninja:brickninja@database:5432/brickninja?schema=public
+      - GW2T_NEXT_DOMAIN=brickninja.localhost
+      - HTTPS=0
+      - FORCE_COLOR=1
+    ports:
+      - 3000:3000
+
+  worker:
+    image: brickninja/worker
+    build:
+      context: .
+      dockerfile: apps/worker/Dockerfile
+    restart: unless-stopped
+    depends_on:
+      - database
+    environment:
+      - DATABASE_URL=postgresql://brickninja:brickninja@database:5432/brickninja?schema=public
+    deploy:
+      replicas: 2
+
+  database:
+    image: timescale/timescaledb:2.15.3-pg16
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=brickninja
+      - POSTGRES_PASSWORD=brickninja
+      - POSTGRES_DB=brickninja
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - .docker/database-pg16:/var/lib/postgresql/data
+    ports:
+      - 54326:5432
+
+  database-migration:
+    image: brickninja/database-migration
+    build:
+      context: .
+      dockerfile: apps/database-migration/Dockerfile
+    restart: on-failure
+    depends_on:
+      - database
+    environment:
+      - DATABASE_URL=postgresql://brickninja:brickninja@database:5432/brickninja?schema=public

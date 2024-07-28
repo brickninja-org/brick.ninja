@@ -1,0 +1,118 @@
+generator client {
+  provider = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl-arm64-openssl-3.0.x"]
+  previewFeatures = ["views"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Revision {
+  id String @id @default(uuid())
+
+  entity String?
+
+  schema String
+  data String
+  description String?
+
+  language Language
+}
+
+model Job {
+  id String @id @default(uuid())
+  
+  priority Int @default(1)
+  type String
+  data Json
+
+  state JobState @default(Queued)
+  output String @default("")
+
+  flags String[] @default([])
+
+  cron String?
+  
+  scheduledAt DateTime @default(now())
+  startedAt DateTime?
+  finishedAt DateTime?
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum JobState {
+  Queued
+  Running
+  Success
+  Error
+}
+
+enum Language {
+  en
+  nl
+}
+
+// User
+
+model User {
+  id String @id @default(uuid())
+
+  name  String  @unique
+  email String? @unique
+
+  roles UserRole[] @default([User])
+
+  sessions  UserSession[]  @relation("session")
+  providers UserProvider[] @relation("provider")
+
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
+
+  // reviewsRequested Review[] @relation("requester")
+  // reviewsReviewed  Review[] @relation("reviewer")
+
+  // applications Application[] @relation("application")
+}
+
+enum UserRole {
+  Admin
+  User
+}
+
+model UserSession {
+  id String @id @default(uuid())
+  
+  info String
+
+  user   User @relation("session", fields: [userId], references: [id], onDelete: Cascade)
+  userId String
+
+  createdAt DateTime @default(now())
+  lastUsed  DateTime @default(now())
+}
+
+model UserProvider {
+  provider          String
+  providerAccountId String
+
+  @@id([provider, providerAccountId])
+
+  displayName String
+
+  accessToken          String?
+  accessTokenExpiresAt DateTime?
+  
+  refreshToken          String?
+  refreshTokenExpiresAt DateTime?
+
+  scope String[] @default([])
+
+  userId String
+  user   User   @relation("provider", fields: [userId], references: [id], onDelete: Cascade)
+  
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
+}

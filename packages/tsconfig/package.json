@@ -1,0 +1,28 @@
+{
+  "name": "@brickninja-org/tsconfig",
+  "version": "0.0.1",
+  "description": "Common tsconfig files for brickninja-org projects",
+  "scripts": {
+    "publish-package": "brickninja-org-publish-package"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brickninja-org/brickninja.git"
+  },
+  "keywords": [
+    "brickninja",
+    "tsconfig"
+  ],
+  "files": [
+    "*.json"
+  ],
+  "author": "brickninja-pro",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brickninja-org/brickninja/issues"
+  },
+  "homepage": "https://github.com/brickninja-org/brickninja#readme",
+  "publishConfig": {
+    "access": "public"
+  }
+}

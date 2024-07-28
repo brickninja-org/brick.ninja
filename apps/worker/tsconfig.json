@@ -1,0 +1,12 @@
+{
+  "extends": "@brickninja-org/tsconfig/base",
+  "compilerOptions": {
+    // don't emit anything, tsc is only used to validate types in worker
+    "noEmit": true,
+    "declaration": false,
+
+    // TODO: remove verbatimModuleSyntax override
+    "verbatimModuleSyntax": false
+  },
+  "include": ["./src"],
+}
