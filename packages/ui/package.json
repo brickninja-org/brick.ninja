@@ -25,7 +25,8 @@
   "homepage": "https://github.com/brickninja-org/brick.ninja#readme",
   "dependencies": {
     "client-only": "0.0.1",
-    "server-only": "0.0.1"
+    "server-only": "0.0.1",
+    "tailwind-variants": "^0.2.1"
   },
   "devDependencies": {
     "@types/react": "npm:types-react@19.0.0-rc.0",
