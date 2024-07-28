@@ -1,0 +1,43 @@
+{
+  "name": "@brickninja-org/publish-package",
+  "version": "0.0.1",
+  "description": "brick.ninja publish package script",
+  "bin": {
+    "brickninja-org-publish-package": "dist/index.js"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "npm run clean && tsc && chmod +x dist/index.js && npm install",
+    "clean": "rm -rf dist/",
+    "lint": "eslint src",
+    "dev": "npm run build && GITHUB_EVENT_NAME=pull_request node dist/index.js",
+    "publish-package": "brickninja-org-publish-package"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brickninja-org/brick.ninja.git"
+  },
+  "keywords": [
+    "brickninja",
+    "publish-package"
+  ],
+  "files": [
+    "dist/"
+  ],
+  "author": "@brickninja",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brickninja-org/brick.ninja/issues"
+  },
+  "homepage": "https://github.com/brickninja-org/brick.ninja#readme",
+  "devDependencies": {
+    "@brickninja-org/tsconfig": "*",
+    "@typescript-eslint/eslint-plugin": "7.17.0",
+    "@typescript-eslint/parser": "7.17.0",
+    "eslint": "8.57.0",
+    "typescript": "5.5.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
