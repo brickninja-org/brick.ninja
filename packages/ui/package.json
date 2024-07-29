@@ -30,8 +30,8 @@
     "tailwind-variants": "0.2.1"
   },
   "devDependencies": {
-    "@types/react": "npm:types-react@19.0.0-rc.0",
-    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.0",
+    "@types/react": "npm:types-react@19.0.0-rc.1",
+    "@types/react-dom": "npm:types-react-dom@19.0.0",
     "@typescript-eslint/eslint-plugin": "7.18.0",
     "autoprefixer": "10.4.19",
     "eslint": "8.57.0",
