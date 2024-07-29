@@ -1,21 +1,21 @@
-import "server-only";
+import 'server-only';
 
-import type {ReactNode} from 'react';
-import type { Language } from "@brickninja-org/database";
+import type { ReactNode } from 'react';
+import type { Language } from '@brickninja-org/database';
 
-import {Bitter} from "next/font/google";
+import { Bitter } from 'next/font/google';
 
-import "@/styles/globals.css";
+import '@/styles/globals.css';
 
-import { FormatProvider } from "@/components/format/format-context";	
-import Layout from "@/components/layout/layout";
-import type { Metadata, Viewport } from "next";
+import { FormatProvider } from '@/components/format/format-context';	
+import Layout from '@/components/layout/layout';
+import type { Metadata, Viewport } from 'next';
 
 const bitter = Bitter({
-  subsets: ["latin"],
-  weight: "700",
-  variable: "--font-bitter",
-})
+  subsets: ['latin'],
+  weight: '700',
+  variable: '--font-bitter',
+});
 
 export default function RootLayout({
   children,
@@ -24,38 +24,38 @@ export default function RootLayout({
   children: ReactNode;
   params: {language: Language};
 }) {
-  const {language} = params;
+  const { language } = params;
 
   return (
     <html lang={language} className={bitter.variable}>
-      <head />
+      <head/>
       <body>
         <FormatProvider>
           <Layout language={language}>{children}</Layout>
         </FormatProvider>
       </body>
     </html>
-  )
+  );
 }
 
 export const metadata: Metadata = {
   title: {
-    template: "%s · brick.ninja",
-    default: "",
+    template: '%s · brick.ninja',
+    default: '',
   },
-  description: "Unofficial LEGO® Database and tool collection",
-  applicationName: "brick.ninja",
+  description: 'Unofficial LEGO® Database and tool collection',
+  applicationName: 'brick.ninja',
   appleWebApp: {
     capable: true,
-    title: "brick.ninja",
-    statusBarStyle: "default",
+    title: 'brick.ninja',
+    statusBarStyle: 'default',
   },
-  formatDetection: {address: false, date: false, email: false, telephone: false, url: false},
+  formatDetection: { address: false, date: false, email: false, telephone: false, url: false },
 };
 
 export const viewport: Viewport = {
   themeColor: [
-    {media: "(prefers-color-scheme: light)", color: "white"},
-    {media: "(prefers-color-scheme: dark)", color: "black"},
+    { media: '(prefers-color-scheme: light)', color: 'white' },
+    { media: '(prefers-color-scheme: dark)', color: 'black' },
   ],
 };

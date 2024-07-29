@@ -1,12 +1,13 @@
-import { TableOfContentContext } from "@brickninja-org/ui/components/table-of-content";
-import type { FC, ReactNode } from "react";
+import type { FC, ReactNode } from 'react';
+
+import { TableOfContentContext } from '@brickninja-org/ui/components/table-of-content';
 
 interface PageLayoutProps {
   children: ReactNode;
   toc?: boolean;
 }
 
-export const PageLayout: FC<PageLayoutProps> = ({children, toc = false}) => {
+export const PageLayout: FC<PageLayoutProps> = ({ children, toc = false }) => {
   return toc
     ? (
       <TableOfContentContext>
@@ -26,5 +27,5 @@ export const PageLayout: FC<PageLayoutProps> = ({children, toc = false}) => {
         {children}
       </div>
     </main>
-  )
+  );
 };

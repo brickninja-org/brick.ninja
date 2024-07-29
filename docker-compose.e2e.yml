@@ -1,0 +1,21 @@
+version: '4'
+
+services:
+  e2e:
+    image: brickninja/e2e
+    build:
+      context: .
+      dockerfile: e2e/Dockerfile
+    restart: no
+    environment:
+      - BASE_URL=http://en.brickninja.docker:3000/
+
+  web:
+    environment:
+      - BRICKNINJA_NEXT_DOMAIN=brickninja.docker
+    networks:
+      default:
+        aliases:
+          - brickninja.docker
+          - nl.brickninja.docker
+          - en.brickninja.docker

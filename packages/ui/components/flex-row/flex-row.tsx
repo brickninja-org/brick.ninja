@@ -1,25 +1,25 @@
-import type {FC, ReactNode} from "react";
+import type { FC, ReactNode } from 'react';
 
-import {tv, type VariantProps} from "tailwind-variants";
+import { tv, type VariantProps } from 'tailwind-variants';
 
-import { cn } from "../../lib/tailwind";
+import { cn } from '../../lib';
 
 const flex = tv({
-  base: "flex gap-2 mt-4 items-center",
+  base: 'flex gap-2 mt-4 items-center',
   variants: {
     align: {
-      left: "justify-start",
-      right: "justify-end",
-      center: "justify-center",
-      between: "justify-between",
+      left: 'justify-start',
+      right: 'justify-end',
+      center: 'justify-center',
+      between: 'justify-between',
     },
     wrap: {
-      false: "flex-nowrap",
-      true: "flex-wrap",
+      false: 'flex-nowrap',
+      true: 'flex-wrap',
     },
   },
   defaultVariants: {
-    align: "left",
+    align: 'left',
     wrap: false,
   },
 });
@@ -32,7 +32,7 @@ interface FlexRowProps extends FlexVariants {
 }
 
 export const FlexRow: FC<FlexRowProps> = (props) => {
-  const {children, className, align, wrap} = props;
+  const { children, className, align, wrap } = props;
 
-  return <div className={cn(flex({align, wrap}), className)}>{children}</div>;
+  return <div className={cn(flex({ align, wrap }), className)}>{children}</div>;
 };

@@ -1,26 +1,27 @@
-"use client";
+'use client';
 
-import { cn } from "@/lib/tailwind";
-import { useEffect, useState, type FC, type ReactNode } from "react";
-import { VscMenu } from "react-icons/vsc";
+import { useEffect, useState, type FC, type ReactNode } from 'react';
+import { VscMenu } from 'react-icons/vsc';
+
+import { cn } from '@brickninja-org/ui/lib';
 
 export interface MenuProps {
   children: ReactNode;
   navigation: ReactNode;
 }
 
-export const Menu: FC<MenuProps> = ({children, navigation}) => {
+export const Menu: FC<MenuProps> = ({ children, navigation }) => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolledDown, setScrolledDown] = useState("window" in global && window.scrollY > 0);
+  const [scrolledDown, setScrolledDown] = useState('window' in global && window.scrollY > 0);
 
   useEffect(() => {
     const listener = () => {
       setScrolledDown(window.scrollY > 0);
-    }
+    };
 
-    window.addEventListener("scroll", listener, {passive: true});
+    window.addEventListener('scroll', listener, { passive: true });
 
-    return () => window.removeEventListener("scroll", listener);
+    return () => window.removeEventListener('scroll', listener);
   }, []);
 
   useEffect(() => {
@@ -32,32 +33,35 @@ export const Menu: FC<MenuProps> = ({children, navigation}) => {
   return (
     <div className="[grid-area:_menu]">
       <header className={cn([
-        "fixed top-0 left-0 right-0",
-        "flex items-center gap-8",
-        "h-12 px-4",
-        "bg-white",
-        "z-10",
-        scrolledDown && "[&>a]:translate-x-8",
-      ])}>
+        'fixed top-0 left-0 right-0',
+        'flex items-center gap-8',
+        'h-12 px-4',
+        'bg-white',
+        'z-10',
+        scrolledDown && '[&>a]:translate-x-8',
+      ])}
+      >
         <button type="button" className={cn([
-          "absolute",
-          "h-12 w-12",
-          "bg-transparent",
-          "opacity-0 [transition:_opacity_.1s_ease] delay-0",
-          "cursor-pointer pointer-events-none",
-          scrolledDown && "opacity-100 delay-150 [pointer-events:_all]",
-        ])} onClick={() => setMenuOpen(!menuOpen)} tabIndex={-1} aria-label="Menu">
-          <VscMenu size={16} />
+          'absolute',
+          'h-12 w-12',
+          'bg-transparent',
+          'opacity-0 [transition:_opacity_.1s_ease] delay-0',
+          'cursor-pointer pointer-events-none',
+          scrolledDown && 'opacity-100 delay-150 [pointer-events:_all]',
+        ])} onClick={() => setMenuOpen(!menuOpen)} tabIndex={-1} aria-label="Menu"
+        >
+          <VscMenu size={16}/>
         </button>
         {children}
       </header>
 
       <nav className={cn([
-        "absolute left-0 right-0 mt-12 z-[9]",
-        menuOpen && "fixed border-b border-transparent animate-slide-in",
-      ])}>
+        'absolute left-0 right-0 mt-12 z-[9]',
+        menuOpen && 'fixed border-b border-transparent animate-slide-in',
+      ])}
+      >
         {navigation}
       </nav>
     </div>
-  )
+  );
 };

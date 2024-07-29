@@ -1,10 +1,10 @@
-import { config } from "dotenv";
-config({path: [".env.local", ".env"]});
+import { config } from 'dotenv';
+config({ path: ['.env.local', '.env'] });
 
-import {healthServer} from "./health-server";
-import {registerCronJobs} from "./jobs/cron";
-import { startNewJob } from "./run-job";
-import { worker } from "./worker";
+import { healthServer } from './health-server';
+import { registerCronJobs } from './jobs/cron';
+import { startNewJob } from './run-job';
+import { worker } from './worker';
 
 if (process.argv.length > 2) {
   // run a single job
@@ -24,27 +24,27 @@ let shuttingDown = false;
 
 function shutdownHandler() {
   if (shuttingDown) {
-    console.log("Forcing shutdown");
+    console.log('Forcing shutdown');
     process.exit(1);
   }
 
   shuttingDown = true;
 
   // initiate shutdown
-  console.log("Gracefully shutting down...");
+  console.log('Gracefully shutting down...');
   worker.shutdown();
-  healthServer.close()
+  healthServer.close();
 }
 
-process.on("SIGTERM", shutdownHandler);
-process.on("SIGINT", shutdownHandler);
+process.on('SIGTERM', shutdownHandler);
+process.on('SIGINT', shutdownHandler);
 
-process.on("uncaughtException", (err) => {
-  console.error("Uncaught exception:", err);
+process.on('uncaughtException', (err) => {
+  console.error('Uncaught exception:', err);
   process.exit(1);
 });
 
-process.on("unhandledRejection", (reason, promise) => {
-  console.error("Unhandled rejection:", reason, promise);
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('Unhandled rejection:', reason, promise);
   process.exit(1);
 });

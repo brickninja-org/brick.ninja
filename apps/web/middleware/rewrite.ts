@@ -1,9 +1,9 @@
-import {NextResponse} from 'next/server';
+import { NextResponse } from 'next/server';
 
-import type {NextMiddleware} from './types';
+import type { NextMiddleware } from './types';
 
 export const rewriteMiddleware: NextMiddleware = (request, next, data) => {
-  const {subdomain} = data;
+  const { subdomain } = data;
 
   // skip robots.txt, because next.js requires the corresponding robots.ts in the root directory
   if (request.nextUrl.pathname === '/robots.txt') {
@@ -14,5 +14,5 @@ export const rewriteMiddleware: NextMiddleware = (request, next, data) => {
   const internalUrl = request.nextUrl.clone();
   internalUrl.pathname = `/${subdomain ?? 'www'}${internalUrl.pathname}`;
 
-  return NextResponse.rewrite(internalUrl, {request});
+  return NextResponse.rewrite(internalUrl, { request });
 };

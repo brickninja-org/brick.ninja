@@ -1,22 +1,23 @@
-import { Language } from "@brickninja-org/database";
-import type { NextMiddleware } from "./types";
+import { Language } from '@brickninja-org/database';
+
+import type { NextMiddleware } from './types';
 
 const baseDomain = process.env.BRICKNINJA_NEXT_DOMAIN;
 const languageSubdomains = [...Object.values(Language)];
 
 export const contentSecurityPolicyMiddleware: NextMiddleware = async (request, next, data) => {
-  const {subdomain, url} = data;
+  const { subdomain, url } = data;
 
   // skip CSP for API (api.brick.ninja)
-  if (subdomain === "api") {
+  if (subdomain === 'api') {
     return next(request);
   }
 
   // generate nonce
-  const nonce = Buffer.from(crypto.randomUUID()).toString("base64");
+  const nonce = Buffer.from(crypto.randomUUID()).toString('base64');
 
   // set port if its not a default port (for local development) including `:`
-  const portSuffix = url?.port ? `:${url.port}` : "";
+  const portSuffix = url?.port ? `:${url.port}` : '';
 
   // generate list of alternate language domains
   const alternateLanguageDomains = languageSubdomains
@@ -39,18 +40,18 @@ export const contentSecurityPolicyMiddleware: NextMiddleware = async (request, n
     upgrade-insecure-requests;
     report-uri https://brickninja.report-uri.com/r/d/csp/enforce;
     report-to default;
-  `.replace(/\s{2,}/g, " ");
+  `.replace(/\s{2,}/g, ' ');
 
   // set x-nonce and CSP for internal request
-  request.headers.set("X-Nonce", nonce);
-  request.headers.set("Content-Security-Policy", cspHeader);
+  request.headers.set('X-Nonce', nonce);
+  request.headers.set('Content-Security-Policy', cspHeader);
 
   // get response
   const response = await next(request);
 
   // set outgoing CSP and Reporting headers
-  response.headers.set("Content-Security-Policy", cspHeader);
-  response.headers.set("Reporting-Endpoints", 'default="https://brickninja.report-uri.com/a/d/g"');
+  response.headers.set('Content-Security-Policy', cspHeader);
+  response.headers.set('Reporting-Endpoints', 'default="https://brickninja.report-uri.com/a/d/g"');
 
   return response;
 };

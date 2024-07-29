@@ -1,14 +1,14 @@
-import { redirect } from "next/navigation";
-import {PiCookieLight} from "react-icons/pi";
+import { redirect } from 'next/navigation';
+import { PiCookieLight } from 'react-icons/pi';
 
-import { Headline } from "@brickninja-org/ui/components/headline";
-import { Notice } from "@brickninja-org/ui/components/notice";
+import { Headline } from '@brickninja-org/ui/components/headline';
+import { Notice } from '@brickninja-org/ui/components/notice';
 
-import { getUser } from "@/lib/get-user";
-import { getReturnToUrl } from "@/lib/login-url";
-import { HeroLayout } from "@/components/layout/hero-layout";
-import type { Metadata } from "next";
-import { getAlternateUrls, getCurrentUrl } from "@/lib/url";
+import { getUser } from '@/lib/get-user';
+import { getReturnToUrl, setReturnToUrlCookie } from '@/lib/login-url';
+import { HeroLayout } from '@/components/layout/hero-layout';
+import type { Metadata } from 'next';
+import { getAlternateUrls, getCurrentUrl } from '@/lib/url';
 
 interface LoginPageProps {
   searchParams: {
@@ -19,7 +19,7 @@ interface LoginPageProps {
   }
 }
 
-export default async function LoginPage({searchParams}: LoginPageProps) {
+export default async function LoginPage({ searchParams }: LoginPageProps) {
   const user = await getUser();
 
   if (user) {
@@ -45,56 +45,59 @@ export default async function LoginPage({searchParams}: LoginPageProps) {
       </form>
 
       <div className="flex items-center gap-2 mt-8 py-3 px-4 border rounded-sm">
-        <PiCookieLight size={20} />
+        <PiCookieLight size={20}/>
         <p>By logging in you accept that brick.ninja will store cookies in your browser.</p>
       </div>
     </HeroLayout>
-  )
+  );
 }
 
 export function generateMetadata(): Metadata {
   return {
-    title: "Login",
-    alternates: getAlternateUrls("/login"),
+    title: 'Login',
+    alternates: getAlternateUrls('/login'),
   };
 };
 
+// eslint-disable-next-line require-await
 async function redirectToBnMe(returnTo?: string, additionalScopes?: string) {
-  "use server";
+  'use server';
 
   // build redirect URL
-  const redirect_url = new URL("/auth/callback", getCurrentUrl()).toString();
+  const redirect_url = new URL('/auth/callback', getCurrentUrl()).toString();
 
   // get scopes to request from bn.me
   const scopes = getScopesFromString(additionalScopes);
 
   // get bn.me auth url
-  const url = bnme.getAuthorizationUrl({redirect_url, scopes, include_granted_scopes: true});
+  // const url = bnme.getAuthorizationUrl({redirect_url, scopes, include_granted_scopes: true});
 
   // set cookie with url to return after auth
   setReturnToUrlCookie(returnTo);
 
   // redirect to bn.me
-  redirect(url);
+  redirect('/');
 }
 
 function getScopesFromString(scopeString?: string) {
   // valid scope values to validate the provided scopes against
-  const validScopes: string[] = Object.values(Scope);
+  // const validScopes: string[] = Object.values(Scope);
 
   // default scopes that are always requested
-  const scopes = new Set([Scope.Identify]);
+  // const scopes = new Set([Scope.Identify]);
 
   // parse scopes
-  const parsedScopes = scopeString?.split(",") ?? [];
+  const parsedScopes = scopeString?.split(',') ?? [];
 
   // add all valid scopes to the scopes set
+  /*
   for (const scope of parsedScopes) {
     if (validScopes.includes(scope)) {
       scopes.add(scope as Scope);
     }
   }
+  */
 
   // return the array of scopes to request
-  return Array.from(scopes);
+  // return Array.from(scopes);
 }

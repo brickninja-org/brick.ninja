@@ -1,8 +1,10 @@
-"use client";
+'use client';
 
-import { cn } from "@/lib/tailwind";
-import type { FC } from "react";
-import { useFormatContext } from "./format-context";
+import type { FC } from 'react';
+
+import { cn } from '@brickninja-org/ui/lib';
+
+import { useFormatContext } from './format-context';
 
 interface FormatNumberProps {
   value: number | undefined | null;
@@ -13,14 +15,14 @@ interface FormatNumberProps {
 const format = new Intl.NumberFormat(undefined, { useGrouping: true });
 
 export const FormatNumber: FC<FormatNumberProps> = ({ value, className, unit }) => {
-  const {numberFormat} = useFormatContext();
+  const { numberFormat } = useFormatContext();
 
   return (
-    <data className={cn("", className)} value={value ?? undefined} suppressHydrationWarning>
-      {value != null ? numberFormat.format(value) : "?"}
+    <data className={cn('', className)} value={value ?? undefined} suppressHydrationWarning>
+      {value != null ? numberFormat.format(value) : '?'}
       {unit && `${unit}`}
     </data>
-  )
+  );
 };
 
 export function formatNumber(value: number): string {

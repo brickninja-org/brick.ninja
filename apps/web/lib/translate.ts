@@ -1,11 +1,11 @@
-import "server-only";
+import 'server-only';
 
-import {headers} from "next/headers";
+import { headers } from 'next/headers';
 
-import type {Language} from "@brickninja-org/database";
+import type { Language } from '@brickninja-org/database';
 
 export function getLanguage() {
-  const language = headers().get("x-bn-lang") as Language
+  const language = headers().get('x-bn-lang') as Language;
 
   return language;
 }

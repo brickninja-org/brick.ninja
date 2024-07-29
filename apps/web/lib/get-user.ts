@@ -1,12 +1,12 @@
-import "server-only";
+import 'server-only';
 
-import { cache } from "react";
-import { headers } from "next/headers";
-import { redirect } from "next/navigation";
+import { cache } from 'react';
+import { headers } from 'next/headers';
+import { redirect } from 'next/navigation';
 
-import type { UserRole } from "@brickninja-org/database";
+import type { UserRole } from '@brickninja-org/database';
 
-import { db } from "@/lib/prisma";
+import { db } from '@/lib/prisma';
 
 export interface SessionUser {
   sessionId: string;
@@ -16,14 +16,14 @@ export interface SessionUser {
 }
 
 export const getUser = cache(async function getUser(): Promise<SessionUser | undefined> {
-  const sessionId = headers().get("x-bn-session");
+  const sessionId = headers().get('x-bn-session');
   const session = await getSessionFromDb(sessionId);
 
   if (sessionId && !session) {
-    redirect("/logout");
+    redirect('/logout');
   }
 
-  return session ? {...session.user, sessionId: sessionId!} : undefined;
+  return session ? { ...session.user, sessionId: sessionId! } : undefined;
 });
 
 async function getSessionFromDb(sessionId: string | null) {
@@ -32,14 +32,14 @@ async function getSessionFromDb(sessionId: string | null) {
   }
 
   const update = await db.userSession.updateMany({
-    where: {id: sessionId},
-    data: {lastUsed: new Date()},
+    where: { id: sessionId },
+    data: { lastUsed: new Date() },
   });
 
   if (update.count === 1) {
     return db.userSession.findUnique({
-      where: {id: sessionId},
-      select: {user: {select: {id: true, name: true, roles: true}}}
+      where: { id: sessionId },
+      select: { user: { select: { id: true, name: true, roles: true }}}
     }) ?? undefined;
   }
 

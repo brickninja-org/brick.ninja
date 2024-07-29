@@ -1,12 +1,13 @@
-import { NextResponse, type NextRequest } from "next/server";
+import { NextResponse, type NextRequest } from 'next/server';
 
-import type { NextMiddleware } from "./middleware/types";
-import { realUrlMiddleware } from "./middleware/real-url";
-import { subdomainMiddleware } from "./middleware/subdomain";
-import { languageMiddleware } from "./middleware/locale";
-import { rewriteMiddleware } from "./middleware/rewrite";
-import { corsMiddleware } from "./middleware/cors";
-import { contentSecurityPolicyMiddleware } from "middleware/content-security-policy";
+import type { NextMiddleware } from './middleware/types';
+
+import { realUrlMiddleware } from './middleware/real-url';
+import { subdomainMiddleware } from './middleware/subdomain';
+import { languageMiddleware } from './middleware/locale';
+import { rewriteMiddleware } from './middleware/rewrite';
+import { corsMiddleware } from './middleware/cors';
+import { contentSecurityPolicyMiddleware } from './middleware/content-security-policy';
 
 export async function middleware(request: NextRequest) {
   const middlewares: NextMiddleware[] = [
@@ -26,7 +27,7 @@ export async function middleware(request: NextRequest) {
       return await middlewares[index++](request, next, data);
     }
 
-    return NextResponse.next({request})
+    return NextResponse.next({ request });
   };
 
   const response = await next(request);
