@@ -4,6 +4,7 @@
   "workspaces": [
     "apps/*",
     "packages/*",
+    "packages/**/*",
     "e2e"
   ],
   "scripts": {
@@ -12,7 +13,7 @@
     "prisma:studio": "npm run prisma:studio -w @brickninja-org/database",
     "prisma:migrate-dev": "npm run prisma:migrate-dev -w @brickninja-org/database",
     "build": "turbo run build",
-    "lint": "turbo run lint -- -f gha",
+    "lint": "turbo run lint --continue -- -f gha",
     "publish-package": "turbo run publish-package",
     "e2e": "turbo run e2e",
     "test": "turbo run test"
