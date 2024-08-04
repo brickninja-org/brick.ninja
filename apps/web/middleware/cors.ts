@@ -6,7 +6,7 @@ import type { NextMiddleware } from './types';
 
 const languages = Object.values(Language);
 const baseDomain = process.env.BRICKNINJA_NEXT_DOMAIN;
-const regex = new RegExp(`https?://(${languages.join('|')})\.${baseDomain?.replace('.', '\.')}`);
+const regex = new RegExp(`https?://(${languages.join('|')})\\.${baseDomain?.replace('.', '\\.')}`);
 
 export const corsMiddleware: NextMiddleware = async (request, next, data) => {
   // skip this middleware for API

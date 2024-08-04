@@ -49,8 +49,12 @@ export const FormatProvider: FC<FormatProviderProps> = ({ children }) => {
 
   // load locale from localStorage
   useEffect(() => {
-    localStorage['bn.format.region'] && setRegion(localStorage['bn.format.region']);
-    localStorage['bn.format.language'] && setLanguage(localStorage['bn.format.language']);
+    if (localStorage['bn.format.region']) {
+      setRegion(localStorage['bn.format.region']);
+    }
+    if (localStorage['bn.format.language']) {
+      setLanguage(localStorage['bn.format.language']);
+    }
   }, []);
 
   // save locale to localStorage if it changes after hydration

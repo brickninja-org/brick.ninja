@@ -8,7 +8,7 @@ export interface HeroLayoutProps extends HeroVariants {
   children: ReactNode;
   hero: ReactNode;
   toc?: boolean;
-  skipPreload?: boolean;
+  // skipPreload?: boolean;
 }
 
 const styles = tv({
@@ -27,7 +27,7 @@ const styles = tv({
 
 type HeroVariants = VariantProps<typeof styles>;
 
-export const HeroLayout: FC<HeroLayoutProps> = ({ children, hero, toc, skipPreload, color }) => {
+export const HeroLayout: FC<HeroLayoutProps> = ({ children, hero, toc, color }) => {
   return (
     <div>
       <div className={styles({ color })}>{hero}</div>

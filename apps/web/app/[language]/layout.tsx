@@ -22,7 +22,7 @@ export default function RootLayout({
   params,
 }: {
   children: ReactNode;
-  params: {language: Language};
+  params: { language: Language };
 }) {
   const { language } = params;
 
