@@ -17,8 +17,24 @@ model Revision {
   schema String
   data String
   description String?
+  type RevisionType @default(Updated)
 
   language Language
+
+  createdAt DateTime @default(now())
+
+  @@index([language, type])
+
+  previousRevisionId String? @unique
+  previousRevision   Revision? @relation("previous", fields: [previousRevisionId], references: [id])
+  nextRevision Revision? @relation("previous")
+}
+
+enum RevisionType {
+  Updated
+  Imported
+  Added
+  Removed
 }
 
 model Job {
@@ -48,6 +64,20 @@ enum JobState {
   Running
   Success
   Error
+}
+
+model ApiRequest {
+  id String @id @default(uuid())
+
+  endpoint String
+  queryParameters String
+
+  status Int
+  statusText String
+
+  responseTimeMs Float
+
+  createdAt DateTime @default(now())
 }
 
 enum Language {
