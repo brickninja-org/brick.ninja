@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/brickninja-org/brickninja.git"
+    "url": "git+https://github.com/brickninja-org/brick.ninja.git"
   },
   "keywords": [
     "brickninja",
@@ -20,9 +20,9 @@
   "author": "brickninja-pro",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/brickninja-org/brickninja/issues"
+    "url": "https://github.com/brickninja-org/brick.ninja/issues"
   },
-  "homepage": "https://github.com/brickninja-org/brickninja#readme",
+  "homepage": "https://github.com/brickninja-org/brick.ninja#readme",
   "publishConfig": {
     "access": "restricted"
   }
