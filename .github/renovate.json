@@ -9,11 +9,11 @@
   "packageRules": [
     {
       "matchManagers": ["npm", "dockerfile"],
-      "matchDepNames": ["mcr.microsoft.com/playwright", "@playwright/test"],
+      "matchPackageNames": ["mcr.microsoft.com/playwright", "@playwright/test"],
       "groupName": "playwright"
     }, {
       "matchDatasources": ["npm"],
-      "matchDepNames": ["renovate"],
+      "matchPackageNames": ["renovate"],
       "extends": ["schedule:weekly"]
     }
   ],
