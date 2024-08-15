@@ -1,6 +1,7 @@
 {
   "name": "@brickninja-org/tsconfig",
   "version": "0.0.1",
+  "private": true,
   "description": "Common tsconfig files for brickninja-org projects",
   "scripts": {
     "publish-package": "brickninja-org-publish-package"
@@ -23,6 +24,6 @@
   },
   "homepage": "https://github.com/brickninja-org/brickninja#readme",
   "publishConfig": {
-    "access": "public"
+    "access": "restricted"
   }
 }

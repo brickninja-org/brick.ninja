@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        target: [ web, worker, legacy-importer, database-migration, e2e ]
+        target: [ web, worker, database-migration, e2e ]
     steps:
     - uses: actions/checkout@v4
     - name: Set up QEMU

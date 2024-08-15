@@ -1,6 +1,7 @@
 {
   "name": "@brickninja-org/publish-package",
   "version": "0.0.1",
+  "private": true,
   "description": "brick.ninja publish package script",
   "bin": {
     "brickninja-org-publish-package": "dist/index.js"
@@ -33,12 +34,10 @@
   "devDependencies": {
     "@brickninja-org/eslint-config": "*",
     "@brickninja-org/tsconfig": "*",
-    "@typescript-eslint/eslint-plugin": "7.18.0",
-    "@typescript-eslint/parser": "7.18.0",
     "eslint": "8.57.0",
     "typescript": "5.5.4"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "restricted"
   }
 }

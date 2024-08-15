@@ -15,7 +15,7 @@ env:
   # renovate: datasource=npm packageName=npm
   NPM_VERSION: 10.8.2
   # renovate: datasource=npm packageName=renovate
-  RENOVATE_VERSION: 38.10.0
+  RENOVATE_VERSION: 38.18.12
 
 jobs:
   build-node:
@@ -133,7 +133,7 @@ jobs:
     needs: [success]
     strategy:
       matrix:
-        target: [ web, worker, legacy-importer, database-migration ]
+        target: [ web, worker, database-migration ]
     steps:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
@@ -192,7 +192,7 @@ jobs:
       pull-requests: write
     strategy:
       matrix:
-        target: [ ui, icons, helper, tsconfig, publish-package, eslint-plugin-nextjs ]
+        target: [ ui, helper, tsconfig, publish-package, eslint-plugin-nextjs ]
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4

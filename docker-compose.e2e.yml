@@ -1,5 +1,3 @@
-version: '4'
-
 services:
   e2e:
     image: brickninja/e2e

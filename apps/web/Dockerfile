@@ -45,7 +45,7 @@ COPY --link --from=source /source/out/full/ .
 RUN npm run build -- --filter=web...
 
 # Production image, COPY --link all the files and run next
-FROM --platform=$TARGETPLATFORM node:${node_version} AS runner
+FROM node:${node_version} AS runner
 ARG prisma_version
 RUN apk add --no-cache bind-tools
 WORKDIR /app
@@ -53,8 +53,8 @@ WORKDIR /app
 ENV NODE_ENV production
 ENV NEXT_TELEMETRY_DISABLED 1
 
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 nextjs
+RUN addgroup --system --gid 1001 nodejs \
+  && adduser --system --uid 1001 nextjs
 
 # TODO: is this even needed?
 RUN npm i -g prisma@${prisma_version}
@@ -70,7 +70,7 @@ COPY --link --from=builder --chown=1001:1001 /app/apps/web/public ./apps/web/pub
 COPY --link --from=builder --chown=1001:1001 /app/apps/web/docker-entrypoint.sh ./
 
 # workaround for https://github.com/wooorm/starry-night/issues/9
-# COPY --link --from=builder --chown=1001:1001 /app/node_modules/vscode-oniguruma/release/onig.wasm /app/node_modules/vscode-oniguruma/release/onig.wasm
+COPY --link --from=builder --chown=1001:1001 /app/node_modules/vscode-oniguruma/release/onig.wasm /app/node_modules/vscode-oniguruma/release/onig.wasm
 
 RUN chmod +x ./docker-entrypoint.sh
 

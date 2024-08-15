@@ -18,3 +18,7 @@ images:
 - name: ghcr.io/brickninja-org/brick.ninja/worker
   newTag: latest
   newName: brickninja/worker
+
+- name: ghcr.io/brickninja-org/brick.ninja/database-migration
+  newTag: latest
+  newName: brickninja/database-migration

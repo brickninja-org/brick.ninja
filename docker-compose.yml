@@ -1,5 +1,3 @@
-version: '4'
-
 services:
   web:
     image: brickninja/web
@@ -9,7 +7,7 @@ services:
     restart: unless-stopped
     environment:
       - DATABASE_URL=postgresql://brickninja:brickninja@database:5432/brickninja?schema=public
-      - GW2T_NEXT_DOMAIN=brickninja.localhost
+      - BRICKNINJA_NEXT_DOMAIN=brickninja.localhost
       - HTTPS=0
       - FORCE_COLOR=1
     ports:
@@ -29,7 +27,7 @@ services:
       replicas: 2
 
   database:
-    image: timescale/timescaledb:2.16.0-pg16
+    image: timescale/timescaledb:2.15.3-pg16
     restart: unless-stopped
     environment:
       - POSTGRES_USER=brickninja

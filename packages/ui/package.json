@@ -1,6 +1,7 @@
 {
   "name": "@brickninja-org/ui",
   "version": "0.0.1",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/brickninja-org/brick.ninja.git"
@@ -48,6 +49,6 @@
     "tailwindcss": "^3.4.0"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "restricted"
   }
 }
