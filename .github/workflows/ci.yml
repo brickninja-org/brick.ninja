@@ -15,12 +15,12 @@ env:
   # renovate: datasource=npm packageName=npm
   NPM_VERSION: 10.8.2
   # renovate: datasource=npm packageName=renovate
-  RENOVATE_VERSION: 38.34.0
+  RENOVATE_VERSION: 38.25.1
 
 jobs:
   build-node:
     name: Build / Node ${{ matrix.node }}
-    runs-on: ubuntu-latest
+    runs-on: brick.ninja
     strategy:
       matrix:
         node: [ 18, 20, 22 ]
@@ -192,7 +192,7 @@ jobs:
       pull-requests: write
     strategy:
       matrix:
-        target: [ ui, helper, tsconfig, publish-package, eslint-plugin-nextjs ]
+        target: [ ui, helper, tsconfig, publish-package, eslint-config ]
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
