@@ -20,7 +20,7 @@ env:
 jobs:
   build-node:
     name: Build / Node ${{ matrix.node }}
-    runs-on: ubuntu-latest
+    runs-on: brick.ninja
     strategy:
       matrix:
         node: [ 18, 20, 22 ]
