@@ -1,0 +1,7 @@
+{
+  "extends": "@brickninja-org/tsconfig/base",
+  "compilerOptions": {
+    "outDir": "./dist",
+  },
+  "include": ["./src"]
+}

@@ -1,0 +1,46 @@
+{
+  "name": "@brickninja-org/helper",
+  "version": "0.0.1",
+  "private": true,
+  "description": "brick.ninja utility library",
+  "exports": {
+    "./is": {
+      "types": "./dist/is.d.ts",
+      "default": "./dist/is.js"
+    }
+  },
+  "scripts": {
+    "build": "npm run clean && if test $CI; then npm run build:ci; else npm run build:local; fi",
+    "build:local": "tsc --declarationMap",
+    "build:ci": "tsc",
+    "clean": "rm -rf dist/",
+    "lint": "eslint src",
+    "publish-package": "brickninja-org-publish-package"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brickninja-org/brick.ninja.git"
+  },
+  "keywords": [
+    "brickninja",
+    "helper"
+  ],
+  "files": [
+    "dist/"
+  ],
+  "author": "@brickninja",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brickninja-org/brick.ninja/issues"
+  },
+  "homepage": "https://github.com/brickninja-org/brick.ninja#readme",
+  "devDependencies": {
+    "@brickninja-org/eslint-config": "*",
+    "@brickninja-org/tsconfig": "*",
+    "eslint": "8.57.0",
+    "typescript": "5.5.4"
+  },
+  "publishConfig": {
+    "access": "restricted"
+  }
+}
