@@ -1,7 +1,6 @@
 {
   "name": "@brickninja-org/eslint-config",
   "version": "0.0.1",
-  "private": true,
   "description": "ESLint config for brickninja",
   "exports": {
     ".": "./configs/index.json",
