@@ -39,7 +39,7 @@
     "tslib": "2.6.3"
   },
   "devDependencies": {
-    "@bn2me/client": "file:../../../bn2.me/packages/client",
+    "@bn2me/client": "~0.0.1",
     "@bricklink-api/types": "*",
     "@brickninja-org/eslint-config": "*",
     "@brickninja-org/tsconfig": "*",
