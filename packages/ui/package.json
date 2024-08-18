@@ -28,6 +28,7 @@
     "client-only": "0.0.1",
     "clsx": "2.1.1",
     "server-only": "0.0.1",
+    "tailwind-merge": "^2.5.2",
     "tailwind-variants": "0.2.1"
   },
   "devDependencies": {

@@ -37,7 +37,7 @@ export const TableWrapper: FC<TableWrapperProps> = ({ children }) => {
   useResizeObserver(table, checkOverflow);
 
   return (
-    <div className={wrapperStyles({overflow: isOverflowing})} ref={wrapper}>
+    <div className={wrapperStyles({ overflow: isOverflowing })} ref={wrapper}>
       {cloneElement(Children.only(children), { ref: table })}
     </div>
   );

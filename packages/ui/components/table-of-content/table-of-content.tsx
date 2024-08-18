@@ -28,7 +28,7 @@ type Action = {
 } | {
   type: 'unregister';
   anchor: Anchor;
-}
+};
 
 export const TableOfContentContext: FC<TableOfContentContextProps> = ({ children }) => {
   const [anchors, updateAnchors] = useReducer((state: Anchor[], action: Action): Anchor[] => {
@@ -64,7 +64,7 @@ export const TableOfContentAnchor: FC<TableOfContentAnchorProps> = ({ id, childr
   return <a key={id} id={id} ref={ref} className="" tabIndex={-1}/>;
 };
 
-export const useTableOfContentAnchor = (id: string, { label, enabled = true }: {label?: ReactNode, enabled?: boolean}) => {
+export const useTableOfContentAnchor = (id: string, { label, enabled = true }: { label?: ReactNode, enabled?: boolean }) => {
   const { registerAnchor } = useContext(Context);
   const [element, setElement] = useState<HTMLElement | null>(null);
 
