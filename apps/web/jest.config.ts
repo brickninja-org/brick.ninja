@@ -1,3 +1,5 @@
+// this is a commonjs module
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const nextJest = require('next/jest');
 import type { Config } from 'jest';
 

@@ -11,7 +11,7 @@ import { getAlternateUrls } from '@/lib/url';
 import { FormatNumber } from '@/components/format/format-number';
 import { HeroLayout } from '@/components/layout/hero-layout';
 
-function MarketingPage({ params: { language }}: {params: {language: Language}}) {
+function MarketingPage(/* { params: { language }}: {params: { language: Language }} */) {
   return (
     <HeroLayout hero={(
       <div className="flex flex-col items-center gap-16 p-8">
@@ -31,7 +31,7 @@ function MarketingPage({ params: { language }}: {params: {language: Language}}) 
   );
 }
 
-const Stat: FC<{href: string, title: string, value: number}> = ({ href, title, value }) => {
+const Stat: FC<{ href: string, title: string, value: number }> = ({ href, title, value }) => {
   return (
     <Link href={href} className="text-2xl text-gray-600"><span className="inline font-medium text-4xl"><FormatNumber value={value}/></span> {title}</Link>
   );
@@ -50,7 +50,7 @@ async function DbStats() {
 
 export default MarketingPage;
 
-export function generateMetadata({ params }: {params: {language: Language}}): Metadata {
+export function generateMetadata({ params }: { params: { language: Language }}): Metadata {
   const { language } = params;
 
   return {

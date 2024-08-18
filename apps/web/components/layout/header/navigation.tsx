@@ -5,7 +5,7 @@ interface NavigationProps {
   language: Language;
 }
 
-const Navigation: FC<NavigationProps> = ({ language }) => {
+const Navigation: FC<NavigationProps> = () => {
   return (
     <div>
       <ul className="flex py-1.5 bg-white">

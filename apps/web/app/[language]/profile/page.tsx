@@ -35,7 +35,7 @@ const getUserData = cache(async () => {
 });
 
 export default async function ProfilePage() {
-  const { sessionId, user } = await getUserData();
+  const { user } = await getUserData();
 
   return (
     <HeroLayout hero={<Headline id="profile">{user.name}</Headline>} toc>
