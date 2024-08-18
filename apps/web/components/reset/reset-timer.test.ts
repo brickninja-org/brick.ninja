@@ -1,4 +1,4 @@
-import { getResetDate, type Reset } from './ResetTimer';
+import { getResetDate, type Reset } from './reset-timer';
 
 const testCases: { date: Date, reset: Date, type: Reset }[] = [
   { date: new Date('2024-04-01T00:41:55.931Z'), type: 'current-daily', reset: new Date('2024-04-02T00:00:00.00Z') },
