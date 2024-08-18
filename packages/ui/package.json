@@ -10,6 +10,7 @@
   "types": "index.ts",
   "files": [
     "components/",
+    "lib/",
     "index.ts",
     "tsconfig.json",
     ".eslintrc.json"
