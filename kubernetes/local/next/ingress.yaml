@@ -37,7 +37,7 @@ spec:
             name: next
             port:
               name: http
-  - host: api.nextbrickninja.kubernetes.localhost
+  - host: api.next.brickninja.kubernetes.localhost
     http:
       paths:
       - path: /
