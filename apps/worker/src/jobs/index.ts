@@ -1,12 +1,12 @@
 import { BricklinkApiRequestsCleanup } from './bricklinkapi-requests/cleanup';
-import { ColorsJob } from './colors';
+// import { ColorsJob } from './colors';
 import { Job } from './job';
 import { JobsCleanup } from './jobs/cleanup';
 
 const jobsInternal = {
   'test': { run: () => undefined } as Job,
 
-  'colors': ColorsJob,
+  // 'colors': ColorsJob,
 
   'bricklinkapi-requests.cleanup': BricklinkApiRequestsCleanup,
 

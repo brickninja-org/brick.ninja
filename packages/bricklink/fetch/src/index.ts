@@ -1,6 +1,7 @@
 import type { EndpointType, KnownEndpoint, OptionsByEndpoint } from '@bricklink-api/types/endpoints';
 import type { SchemaVersion } from '@bricklink-api/types/schema';
 
+/*
 type RequiredKeys<T> = { [K in keyof T]-?: object extends Pick<T, K> ? never : K }[keyof T];
 
 // if OptionsByEndpoint<Url> has no required keys, make the options parameter optional
@@ -81,6 +82,7 @@ export async function fetchBricklinkApi<
 
   return json;
 }
+  */
 
 export type FetchBricklinkApiOptions<Schema extends SchemaVersion> = {
   /** The schema to use when making the API request */

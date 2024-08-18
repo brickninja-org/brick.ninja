@@ -1,7 +1,6 @@
 {
   "name": "@brickninja-org/publish-package",
   "version": "0.0.1",
-  "private": true,
   "description": "brick.ninja publish package script",
   "bin": {
     "brickninja-org-publish-package": "dist/index.js"

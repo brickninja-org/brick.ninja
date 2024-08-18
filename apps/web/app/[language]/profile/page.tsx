@@ -3,6 +3,7 @@ import { redirect } from 'next/navigation';
 
 import { FlexRow } from '@brickninja-org/ui/components/flex-row';
 import { Headline } from '@brickninja-org/ui/components/headline';
+import { Table } from '@brickninja-org/ui/components/table';
 
 import { HeroLayout } from '@/components/layout/hero-layout';
 import { getUser } from '@/lib/get-user';
@@ -45,6 +46,15 @@ export default async function ProfilePage() {
       <Headline id="accounts">Accounts</Headline>
 
       <Headline id="sessions">Sessions</Headline>
+      <Table>
+        <thead>
+          <tr>
+            <th>Session</th>
+            <th>Started</th>
+            <th>Last Active</th>
+          </tr>
+        </thead>
+      </Table>
     </HeroLayout>
   );
 }
