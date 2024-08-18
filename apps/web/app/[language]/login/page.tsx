@@ -1,16 +1,16 @@
 import { redirect } from 'next/navigation';
 import { PiCookieLight } from 'react-icons/pi';
 
-import { Scope } from '@bn2me/client/src/types';
+// import { Scope } from '@bn2me/client/src/types';
 import { Headline } from '@brickninja-org/ui/components/headline';
 import { Notice } from '@brickninja-org/ui/components/notice';
 
-import { bn2me } from '@/lib/bn2me';
+// import { bn2me } from '@/lib/bn2me';
 import { getUser } from '@/lib/get-user';
 import { getReturnToUrl, setReturnToUrlCookie } from '@/lib/login-url';
 import { HeroLayout } from '@/components/layout/hero-layout';
 import type { Metadata } from 'next';
-import { getAlternateUrls, getCurrentUrl } from '@/lib/url';
+import { getAlternateUrls /*, getCurrentUrl */ } from '@/lib/url';
 
 interface LoginPageProps {
   searchParams: {
@@ -42,7 +42,7 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
         Login to contribute to brick.ninja and to view your collection, and more.
       </p>
 
-      <form action={redirectToBnMe.bind(null, searchParams.returnTo, searchParams.scopes)}>
+      <form action={redirectToBnMe.bind(null, searchParams.returnTo /*, searchParams.scopes */)}>
         <button type="submit">Login with bn.me</button>
       </form>
 
@@ -62,17 +62,17 @@ export function generateMetadata(): Metadata {
 }
 
 // eslint-disable-next-line require-await
-async function redirectToBnMe(returnTo?: string, additionalScopes?: string) {
+async function redirectToBnMe(returnTo?: string /*, additionalScopes?: string */) {
   'use server';
 
   // build redirect URL
-  const redirect_uri = new URL('/auth/callback', getCurrentUrl()).toString();
+  // const redirect_uri = new URL('/auth/callback', getCurrentUrl()).toString();
 
   // get scopes to request from bn.me
-  const scopes = getScopesFromString(additionalScopes);
+  // const scopes = getScopesFromString(additionalScopes);
 
   // get bn.me auth url
-  const url = bn2me.getAuthorizationUrl({ redirect_uri, scopes, include_granted_scopes: true });
+  const url = ''; // bn2me.getAuthorizationUrl({ redirect_uri, scopes, include_granted_scopes: true });
 
   // set cookie with url to return after auth
   setReturnToUrlCookie(returnTo);
@@ -81,6 +81,7 @@ async function redirectToBnMe(returnTo?: string, additionalScopes?: string) {
   redirect(url);
 }
 
+/*
 function getScopesFromString(scopeString?: string) {
   // valid scope values to validate the provided scopes against
   const validScopes: string[] = Object.values(Scope);
@@ -101,3 +102,4 @@ function getScopesFromString(scopeString?: string) {
   // return the array of scopes to request
   return Array.from(scopes);
 }
+*/
