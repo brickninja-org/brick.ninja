@@ -104,7 +104,7 @@ jobs:
       with:
         platform: ${{ inputs.platform }}
     - name: Import images into k3d
-      run: k3d image import brickninja/web brickninja/worker
+      run: k3d image import brickninja/web brickninja/worker brickninja/database-migration
     - run: kubectl apply -k kubernetes/local
     - run: kubectl rollout status deployment database-pg16 next worker -n brickninja --timeout=180s
     - run: kubectl get deployment -n brickninja
@@ -125,7 +125,7 @@ jobs:
       with:
         platform: ${{ inputs.platform }}
     - name: Start docker compose
-      run: docker compose -f docker-compose.yml -f docker-compose.e2e.yml up -d web database
+      run: docker compose -f docker-compose.yml -f docker-compose.e2e.yml up -d web database database-migration
     - name: Wait for containers to be up
       run: sleep 30
     - name: Run e2e tests
