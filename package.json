@@ -8,7 +8,7 @@
     "e2e"
   ],
   "scripts": {
-    "dev:web": "FORCE_COLOR=1 NEXT_TELEMETRY_DISABLED=1 turbo run dev --filter=web",
+    "dev:web": "FORCE_COLOR=1 turbo run dev --filter=web",
     "dev:worker": "FORCE_COLOR=1 turbo run dev --filter=worker",
     "prisma:studio": "npm run prisma:studio -w @brickninja-org/database",
     "prisma:migrate-dev": "npm run prisma:migrate-dev -w @brickninja-org/database",
