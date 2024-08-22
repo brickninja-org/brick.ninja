@@ -8,9 +8,11 @@ import { languageMiddleware } from './middleware/locale';
 import { rewriteMiddleware } from './middleware/rewrite';
 import { corsMiddleware } from './middleware/cors';
 import { contentSecurityPolicyMiddleware } from './middleware/content-security-policy';
+import { healthMiddleware } from 'middleware/health';
 
 export async function middleware(request: NextRequest) {
   const middlewares: NextMiddleware[] = [
+    healthMiddleware,
     realUrlMiddleware,
     subdomainMiddleware,
     corsMiddleware,
