@@ -51,6 +51,9 @@ export const metadata: Metadata = {
     statusBarStyle: 'default',
   },
   formatDetection: { address: false, date: false, email: false, telephone: false, url: false },
+  icons: {
+    shortcut: { url: '/favicon.ico', type: 'image/x-icon', sizes: 'any' },
+  },
 };
 
 export const viewport: Viewport = {
