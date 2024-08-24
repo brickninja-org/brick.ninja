@@ -16,9 +16,6 @@
         "@brickninja-org/database#prisma:migrate"
       ]
     },
-    "lint": {
-      "dependsOn": [
-      ]
-    }
+    "lint": {}
   }
 }
