@@ -39,7 +39,6 @@
     "tslib": "2.7.0"
   },
   "devDependencies": {
-    "@bricklink-api/types": "*",
     "@brickninja-org/eslint-config": "*",
     "@brickninja-org/tsconfig": "*",
     "@testing-library/jest-dom": "6.5.0",
