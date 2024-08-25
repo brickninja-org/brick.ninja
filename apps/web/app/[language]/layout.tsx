@@ -5,6 +5,8 @@ import type { Language } from '@brickninja-org/database';
 
 import { Bitter } from 'next/font/google';
 
+import { cn } from '@brickninja-org/ui/lib';
+
 import '@/styles/globals.css';
 
 import { FormatProvider } from '@/components/format/format-context';	
@@ -27,7 +29,7 @@ export default function RootLayout({
   const { language } = params;
 
   return (
-    <html lang={language} className={bitter.variable}>
+    <html lang={language} className={cn(bitter.variable)}>
       <head/>
       <body>
         <FormatProvider>
