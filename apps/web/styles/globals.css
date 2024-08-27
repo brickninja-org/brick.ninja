@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .table {
+    @apply w-full border-separate border-spacing-0 border-none;
+
+    :where(thead > tr > th) {
+      @apply sticky top-[var(--table-sticky-top,_48px)] z-[1] px-4 py-2 whitespace-nowrap border-b-[3px] bg-white font-medium text-left;
+    }
+
+    :where(tbody > tr > th, tbody > tr > td) {
+      @apply h-[1px] px-4 py-2 font-normal text-left ltr:text-right;
+    }
+
+    :where(thead > tr > th[align=right], tbody > tr > td[align=right], tbody > tr > th[align=right]) {
+      @apply text-right [font-feature-settings:_"tnum"_1];
+    }
+
+    :where(tbody > tr + tr > td, tbody > tr + tr > th) {
+      @apply border-t;
+    }
+
+    :where(tbody > tr:hover > td, tbody > tr:hover > th) {
+      @apply bg-gray-100;
+    }
+  }
+}

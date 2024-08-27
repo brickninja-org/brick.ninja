@@ -1,10 +1,12 @@
 import type { Config } from 'tailwindcss';
 
-const config: Config = {
+import nextUIConfig from '@brickninja-org/ui/tailwind.config';
+
+const config: Partial<Config> = {
+  presets: [nextUIConfig],
   content: [
     './app/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
-    '../../packages/ui/components/**/*.{ts,tsx}',
   ],
   theme: {
     extend: {
@@ -23,7 +25,6 @@ const config: Config = {
       }
     },
   },
-  plugins: [],
 };
 
 export default config;
