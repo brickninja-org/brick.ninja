@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "eslint-formatter-gha": "1.5.0",
-    "turbo": "2.0.14"
+    "turbo": "2.1.0"
   },
   "overrides": {
     "react": "19.0.0-rc-65903583-20240805",
