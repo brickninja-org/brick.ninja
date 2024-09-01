@@ -33,7 +33,7 @@
   "devDependencies": {
     "@brickninja-org/eslint-config": "*",
     "@brickninja-org/tsconfig": "*",
-    "eslint": "8.57.0",
+    "eslint": "9.9.1",
     "typescript": "5.5.4"
   },
   "publishConfig": {
