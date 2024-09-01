@@ -36,6 +36,13 @@ const thStyles = tv({
     small: {
       true: 'width-[1px]',
     },
+    align: {
+      left: 'text-left',
+      center: 'text-center',
+      right: 'text-right',
+      justify: 'text-justify',
+      char: 'text-center',
+    },
   },
   defaultVariants: {
     small: false,
@@ -56,7 +63,7 @@ Table.HeaderCell = function HeaderCell({ children, small = false, align, sort, o
   return (
     <th className={thStyles({ small })} align={align} aria-sort={sort === 'asc' ? 'ascending' : sort === 'desc' ? 'descending' : undefined}>
       {sort ? (
-        <button className={cn(['block width-[calc(100%_+_32px)] -my-2 -mx-4 py-2 px-4 rounded-sm'])} onClick={onSort}>
+        <button className={cn(['block width-[calc(100%_+_32px)] -my-2 -mx-4 py-2 px-4 rounded-sm [text-align:_inherit]'])} onClick={onSort}>
           {children}
         </button>
       ) : children}

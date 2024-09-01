@@ -7,7 +7,8 @@ import { Bitter } from 'next/font/google';
 
 import { cn } from '@brickninja-org/ui/lib';
 
-import '@/styles/globals.css';
+import '@/styles/app.scss';
+import '@brickninja-org/ui/styles/globals.scss';
 
 import { FormatProvider } from '@/components/format/format-context';	
 import Layout from '@/components/layout/layout';
