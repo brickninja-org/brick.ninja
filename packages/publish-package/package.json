@@ -40,6 +40,6 @@
     "access": "restricted"
   },
   "dependencies": {
-    "@types/node": "^20.16.2"
+    "@types/node": "^20.16.1"
   }
 }
