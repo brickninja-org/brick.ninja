@@ -9,5 +9,5 @@
   },
 
   // eslint can't parse this file (Cannot use 'in' operator to search for 'type' in undefined)
-  "ignorePatterns": ["postcss.config.js"]
+  "ignorePatterns": ["postcss.config.js", "components/table/comparable-properties.ts"]
 }
