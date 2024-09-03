@@ -41,6 +41,7 @@
   "devDependencies": {
     "@brickninja-org/eslint-config": "*",
     "@brickninja-org/tsconfig": "*",
+    "@prisma/nextjs-monorepo-workaround-plugin": "^5.19.1",
     "@testing-library/jest-dom": "6.5.0",
     "@testing-library/react": "16.0.0",
     "@types/jest": "29.5.12",

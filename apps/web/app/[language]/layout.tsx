@@ -1,6 +1,7 @@
 import 'server-only';
 
 import type { ReactNode } from 'react';
+import type { Metadata, Viewport } from 'next';
 import type { Language } from '@brickninja-org/database';
 
 import { Bitter } from 'next/font/google';
@@ -12,7 +13,6 @@ import '@brickninja-org/ui/styles/globals.scss';
 
 import { FormatProvider } from '@/components/format/format-context';	
 import Layout from '@/components/layout/layout';
-import type { Metadata, Viewport } from 'next';
 
 const bitter = Bitter({
   subsets: ['latin'],

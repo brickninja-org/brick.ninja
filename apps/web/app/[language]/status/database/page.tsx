@@ -1,6 +1,6 @@
 import { type ReactNode } from 'react';
 
-import { Prisma } from '@brickninja-org/database';
+// import { Prisma } from '@brickninja-org/database';
 import { createDataTable } from '@brickninja-org/ui/components/table/data-table';
 import { Headline } from '@brickninja-org/ui/components/headline';
 
@@ -10,7 +10,7 @@ import { FormatNumber } from '@/components/format/format-number';
 import { PageLayout } from '@/components/layout/page-layout';
 
 const getDatabaseStats = cache(() => {
-  const hypertables = ['PageView'];
+  // const hypertables = ['PageView'];
 
   return Promise.all([
     db.$queryRaw<{ table_name: string, size: bigint, size_index: bigint, size_total: bigint, rows: number }[]>`
@@ -23,7 +23,7 @@ const getDatabaseStats = cache(() => {
           reltuples as rows
         FROM pg_class c
         JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
-        WHERE relkind = 'r' AND nspname = CURRENT_SCHEMA AND relname NOT LIKE 'User%' AND relname NOT IN (${Prisma.join(hypertables)})
+        WHERE relkind = 'r' AND nspname = CURRENT_SCHEMA AND relname NOT LIKE 'User%'
       )
       ORDER BY table_name;`,
     db.$queryRaw<[{ size: string }]>`SELECT pg_size_pretty(pg_database_size(current_database())) as size;`
