@@ -7,9 +7,9 @@ const nextConfig = {
   experimental: {
     outputFileTracingRoot: path.join(__dirname, '../../'),
     reactCompiler: true,
-    staleTimes: {
-      dynamic: 30,
-    }
+  },
+  eslint: {
+    ignoreDuringBuilds: !!process.env.SKIP_LINT,
   },
   transpilePackages: ['@brickninja-org/ui'],
   output: 'standalone',
