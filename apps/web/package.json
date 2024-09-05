@@ -17,7 +17,7 @@
     "@brickninja-org/ui": "*",
     "@formatjs/intl-localematcher": "0.5.4",
     "@wooorm/starry-night": "3.5.0",
-    "babel-plugin-react-compiler": "^0.0.0-experimental-938cd9a-20240601",
+    "babel-plugin-react-compiler": "0.0.0-experimental-938cd9a-20240601",
     "chalk": "5.3.0",
     "client-only": "0.0.1",
     "clsx": "2.1.1",
@@ -41,7 +41,7 @@
   "devDependencies": {
     "@brickninja-org/eslint-config": "*",
     "@brickninja-org/tsconfig": "*",
-    "@prisma/nextjs-monorepo-workaround-plugin": "^5.19.1",
+    "@prisma/nextjs-monorepo-workaround-plugin": "5.19.1",
     "@testing-library/jest-dom": "6.5.0",
     "@testing-library/react": "16.0.0",
     "@types/jest": "29.5.12",
