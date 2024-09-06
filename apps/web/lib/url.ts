@@ -4,7 +4,7 @@ import { headers } from 'next/headers';
 
 import { Language } from '@brickninja-org/database';
 
-import { getLanguage } from './translate';
+import { getLanguage } from '@/lib/translate';
 
 export function getCurrentUrl() {
   return new URL(headers().get('x-bn-real-url')!);
@@ -37,6 +37,10 @@ export function getUrlFromRequest(request: Request) {
   url.protocol = request.headers.get('X-Forwarded-Proto')?.split(',')[0].concat(':') ?? url.protocol;
 
   return url;
+}
+
+export function absoluteUrl(href: string) {
+  return new URL(href, getCurrentUrl());
 }
 
 const allLanguages = ['x-default', ...Object.values(Language)] as const;
