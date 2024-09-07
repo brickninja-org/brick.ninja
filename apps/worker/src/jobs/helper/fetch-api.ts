@@ -1,4 +1,4 @@
-import type { EndpointType, OptionsByEndpoint } from '@brickset-api/types/endpoints';
+import type { EndpointType, KnownEndpoint, OptionsByEndpoint } from '@brickset-api/types/endpoints';
 
 import chalk from 'chalk';
 import { fetchBricksetApi, type FetchOptions } from '@brickset-api/fetch';
@@ -13,7 +13,7 @@ type Args<Url extends string> = RequiredKeys<OptionsByEndpoint<Url>> extends nev
   ? [url: Url, options?: OptionsByEndpoint<Url>]
   : [url: Url, options: OptionsByEndpoint<Url>];
 
-  export async function fetchApi<Url extends (string & {})>(
+  export async function fetchApi<Url extends KnownEndpoint>(
   ...[url, options]: Args<Url>
 ): Promise<EndpointType<Url>> {
   const startTime = performance.now();
