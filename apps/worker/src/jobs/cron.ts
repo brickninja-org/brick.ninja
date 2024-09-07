@@ -10,6 +10,9 @@ export async function registerCronJobs() {
 
   await registerJob('test', '0 0 * * *');
 
+  await registerJob('items.check', '*/5 * * * *');
+  // await registerJob('items.migrate', '*/6 * * * *');
+
   // await registerJob('colors', '*/5 * * * *');
 
   await registerJob('bricklinkapi-requests.cleanup', '33 3 * * *');

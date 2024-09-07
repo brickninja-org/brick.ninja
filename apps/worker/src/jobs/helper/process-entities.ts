@@ -2,7 +2,6 @@ import { Revision } from '@brickninja-org/database';
 import { JobName } from '..';
 import { db, type PrismaTransaction } from '../../db';
 import { createRevision as createRevisionInDb } from './revision-create';
-import { schema } from './schema';
 import { toId } from './to-id';
 import { batch } from './batch';
 import { createEntityMap } from './map';
@@ -214,22 +213,22 @@ function createRevision<T>(tx: PrismaTransaction, known: T | undefined, update: 
 
   // new
   if (!knownData && updateData) {
-    return createRevisionInDb({ ...base, schema, data: updateData, type: 'Added', description: 'Added to API' }, tx);
+    return createRevisionInDb({ ...base, data: updateData, type: 'Added', description: 'Added to API' }, tx);
   }
 
   // removed
   if (knownData && !updateData && !wasRemoved) {
-    return createRevisionInDb({ ...base, schema, data: knownData, type: 'Removed', description: 'Removed from API' }, tx);
+    return createRevisionInDb({ ...base, data: knownData, type: 'Removed', description: 'Removed from API' }, tx);
   }
 
   // rediscovered
   if (knownData && updateData && wasRemoved) {
-    return createRevisionInDb({ ...base, schema, data: updateData, type: 'Updated', description: 'Resdiscovered in API' }, tx);
+    return createRevisionInDb({ ...base, data: updateData, type: 'Updated', description: 'Resdiscovered in API' }, tx);
   }
 
   // updated
   if (knownData && updateData && knownData !== updateData) {
-    return createRevisionInDb({ ...base, schema, data: updateData, type: 'Updated', description: 'Updated in API' }, tx);
+    return createRevisionInDb({ ...base, data: updateData, type: 'Updated', description: 'Updated in API' }, tx);
   }
 
   return undefined;

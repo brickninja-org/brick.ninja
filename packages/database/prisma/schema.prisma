@@ -9,6 +9,39 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Item {
+  id Int @id
+
+  name_en String
+  name_nl String
+
+  removedFromApi Boolean @default(false)
+
+  current_en Revision @relation("current_en", fields: [currentId_en], references: [id], onDelete: Cascade)
+  currentId_en String @unique
+
+  history ItemHistory[]
+
+  lastCheckedAt DateTime @default(now())
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  version Int @default(0)
+
+  @@index([createdAt])
+}
+
+model ItemHistory {
+  itemId Int
+  revisionId String @unique
+
+  item Item @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  revision Revision @relation(fields: [revisionId], references: [id], onDelete: Cascade)
+
+  @@id([itemId, revisionId])
+}
+
 model Color {
   id Int @id
 
@@ -52,7 +85,6 @@ model Revision {
 
   entity String?
 
-  schema String
   data String
   description String?
   type RevisionType @default(Updated)
@@ -67,8 +99,12 @@ model Revision {
   previousRevision   Revision? @relation("previous", fields: [previousRevisionId], references: [id])
   nextRevision Revision? @relation("previous")
 
+  // items
+  currentItem_en Item? @relation("current_en")
+  itemHistory ItemHistory[]
+
   // colors
-  current_en Color? @relation("current_en")
+  currentColor_en Color? @relation("current_en")
   colorHistory ColorHistory[]
 }
 
