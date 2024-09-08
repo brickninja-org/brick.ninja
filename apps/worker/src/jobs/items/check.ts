@@ -15,7 +15,7 @@ export const ItemsCheck: Job = {
     }
 
     // get item ids from the API
-    const res = await fetchApi('/v3.asmx/getSets', { apiKey: process.env.BRICKSET_API_KEY! });
+    const res = await fetchApi(`/getSets?params=${encodeURIComponent('year=2024')})}` as '/getSets', { apiKey: process.env.BRICKSET_API_KEY! });
 
     if (res.status === 'error' || !res.sets) {
       return;
