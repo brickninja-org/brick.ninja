@@ -1,9 +1,9 @@
-import { forwardRef, type ButtonHTMLAttributes, type HTMLAttributes, type ReactNode } from 'react';
+import { forwardRef, type ButtonHTMLAttributes, type HTMLAttributes, type MouseEventHandler, type ReactNode } from 'react';
 import Link from 'next/link';
 
 import { cn } from '../../lib';
 
-const buttonStyles = 'inline-flex items-center m-0 py-2 px-4 border-none rounded-sm leading-normal'
+const buttonStyles = 'inline-flex items-center m-0 py-2 px-4 border-none rounded-sm leading-normal';
 
 export interface CommonButtonProps extends Pick<HTMLAttributes<HTMLElement>, 'aria-label' | 'className'> {
   children?: ReactNode;
@@ -42,4 +42,4 @@ export const LinkButton = forwardRef<HTMLAnchorElement, LinkButtonProps & Pick<R
       <span>{children}</span>
     </LinkElement>
   );
-})
+});
