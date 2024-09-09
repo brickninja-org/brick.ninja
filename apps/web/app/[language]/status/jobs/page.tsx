@@ -8,6 +8,7 @@ import { db } from '@/lib/prisma';
 import { FormatDate } from '@/components/format/format-date';
 import { FormatNumber } from '@/components/format/format-number';
 import { PageLayout } from '@/components/layout/page-layout';
+import { ReloadCheckbox } from '@/components/reload/reload-checkbox';
 
 const status = tv({
   base: 'mr-2 w-2.5 h-2.5 inline-block rounded-[5px]',
@@ -51,7 +52,7 @@ async function JobsPage() {
 
   return (
     <PageLayout>
-      <Headline id="jobs">
+      <Headline id="jobs" actions={<ReloadCheckbox intervalMs={1000}/>}>
         Active Jobs ({running.length})
       </Headline>
       <Table>
