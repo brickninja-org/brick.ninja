@@ -1,6 +1,6 @@
-import { cache } from "@/lib/cache";
-import { db } from "@/lib/prisma";
-import type { Language } from "@brickninja-org/database";
+import { cache } from '@/lib/cache';
+import { db } from '@/lib/prisma';
+import type { Language } from '@brickninja-org/database';
 
 export const getItem = cache((id: number, language: Language) => {
   return db.item.findUnique({

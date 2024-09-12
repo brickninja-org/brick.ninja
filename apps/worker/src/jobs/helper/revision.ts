@@ -1,8 +1,8 @@
-import { Prisma, Revision } from "@brickninja-org/database";
+import { Prisma, Revision } from '@brickninja-org/database';
 
-import { db } from "../../db";
+import { db } from '../../db';
 
-import { LocalizedObject } from "./types";
+import { LocalizedObject } from './types';
 
 export async function createRevisions(data: LocalizedObject, revision: Omit<Prisma.RevisionUncheckedCreateInput, 'data' | 'language'>): Promise<LocalizedObject<Revision>> {
   const [en, nl] = await Promise.all([
@@ -13,5 +13,5 @@ export async function createRevisions(data: LocalizedObject, revision: Omit<Pris
   return {
     en,
     nl,
-  }
+  };
 }

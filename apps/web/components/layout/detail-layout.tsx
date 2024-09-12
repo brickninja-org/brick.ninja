@@ -19,7 +19,7 @@ const headline = tv({
   base: 'headline [grid-area:_headline] grid p-4 border-b bg-gray-50',
 });
 
-const DetailLayout: FC<DetailLayoutProps> = ({ title, breadcrumbs, children, infobox, className, actions }) => {
+const DetailLayout: FC<DetailLayoutProps> = ({ title, children, infobox }) => {
   return (
     <TableOfContentContext>
       <main className="main [grid-area:_main] grid before:bg-gray-50 before:border-b before:[content:_'']">
@@ -39,7 +39,7 @@ const DetailLayout: FC<DetailLayoutProps> = ({ title, breadcrumbs, children, inf
         </div>
       </main>
     </TableOfContentContext>
-  )
+  );
 };
 
 export default DetailLayout;

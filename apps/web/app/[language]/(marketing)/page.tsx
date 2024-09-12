@@ -48,7 +48,7 @@ function ListFallback({ size }: { size: number }) {
         return (<li key={id}><SkeletonLink/></li>);
       })}
     </ItemList>
-  )
+  );
 }
 
 const getNewItems = cache(

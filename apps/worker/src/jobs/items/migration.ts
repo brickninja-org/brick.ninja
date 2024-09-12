@@ -20,9 +20,11 @@ interface MigratedItem {
   updatedAt?: Date | string;
 }
 
+// eslint-disable-next-line require-await
 export async function createMigrator() {
   // const knownItemIds = (await db.item.findMany({ select: { id: true }})).map(({ id }) => id);
 
+  // eslint-disable-next-line require-await
   return async function migrate({ en }: LocalizedObject<GetSets>, currentVersion = -1) {
     console.log(en);
 

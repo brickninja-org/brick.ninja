@@ -1,6 +1,6 @@
-import { cloneElement, type FC, type ReactElement } from "react";
+import { cloneElement, type FC, type ReactElement } from 'react';
 
-import type { Language } from "@brickninja-org/database";
+import type { Language } from '@brickninja-org/database';
 
 interface LanguageLinksProps {
   link: ReactElement<{ language: string }>;
@@ -13,5 +13,5 @@ export const LanguageLinks: FC<LanguageLinksProps> = ({ link, language }) => {
       {language !== 'en' && (<><div className="text-gray-600">EN</div>{cloneElement(link, { language: 'en' })}</>)}
       {language !== 'nl' && (<><div className="text-gray-600">NL</div>{cloneElement(link, { language: 'nl' })}</>)}
     </div>
-  )
+  );
 };
