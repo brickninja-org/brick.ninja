@@ -22,7 +22,7 @@ const headline = tv({
 const DetailLayout: FC<DetailLayoutProps> = ({ title, children, infobox }) => {
   return (
     <TableOfContentContext>
-      <main className="main [grid-area:_main] grid before:bg-gray-50 before:border-b before:[content:_'']">
+      <main className="main [grid-area:_main] grid before:[grid-area:_padding] before:bg-gray-50 before:border-b before:[content:_'']">
         <div className={headline()}>
           <h1 className="[grid-area:_title] font-bold text-2xl">{title}</h1>
         </div>
