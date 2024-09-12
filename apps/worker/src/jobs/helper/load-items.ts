@@ -1,13 +1,13 @@
 import { console } from 'inspector';
 import { fetchApi } from './fetch-api';
 import { groupLocalizedEntitiesById } from './group-by-id';
-import { Item } from '@brickset-api/types/data/get-sets';
+import { GetSets } from '@brickset-api/types/data/get-sets';
 
 export async function loadItems(ids: number[]) {
   const start = new Date();
 
   const [en] = await Promise.all([
-    fetchApi(`/getSets?params=${encodeURIComponent('year=2024')}` as '/getSets', { apiKey: process.env.BRICKSET_API_KEY! }).then((res) => {
+    fetchApi(`/api/v3.asmx/getSets?params={year:2024,pageSize:5}`, { apiKey: process.env.BRICKSET_API_KEY! }).then((res) => {
       if (res.status === 'error' || !res.sets) {
         return [];
       }
@@ -23,10 +23,10 @@ export async function loadItems(ids: number[]) {
   return groupLocalizedEntitiesById(en, nl);
 }
 
-function normalizeItem(item: Item) {
+function normalizeItem(item: GetSets) {
   return item;
 }
 
-function normalizeItems(items: Item[]) {
-  return items.map(normalizeItem)
+function normalizeItems(items: GetSets[]) {
+  return items.map(normalizeItem);
 }
