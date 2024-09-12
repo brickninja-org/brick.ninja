@@ -1,0 +1,50 @@
+import type { FC } from 'react';
+import { Code } from '@/components/layout/code';
+
+export interface JsonProps {
+  data: object;
+  borderless?: boolean;
+}
+
+const comma = <span style={{ color: '#aaa' }}>, </span>;
+
+function renderJson([key, value]: [string, unknown], index: number, array: unknown[]) {
+  return (
+    <div key={key} style={{ marginLeft: 16 }}>&quot;{key}&quot;: {renderValue(value, index, array)}</div>
+  );
+}
+
+function renderValue(value: unknown, index: number, array: unknown[]) {
+  const maybeComma = index < array.length - 1 && comma;
+
+  switch(typeof value) {
+    case 'string':
+      return (
+        <span key={index} style={{ color: '#009688' }}>
+          &quot;{value.replaceAll('"', '\\"')}&quot;{maybeComma}
+        </span>
+      );
+    case 'number':
+    case 'boolean':
+      return <span key={index} style={{ color: '#e91e63' }}>{value.toString()}{maybeComma}</span>;
+    case 'object':
+      if (value === null) {
+        return <span key={index} style={{ color: '#e91e63' }}>null{maybeComma}</span>;
+      }
+      return Array.isArray(value)
+        ? <span key={index}>[{value.length > 0 && (<div style={{ marginLeft: 16 }}>{value.map(renderValue)}</div>)}]{maybeComma}</span>
+        : <span key={index}>{'{'}{Object.entries(value).map(renderJson)}{'}'}{maybeComma}</span>;
+  }
+
+  return typeof value;
+}
+
+export const Json: FC<JsonProps> = ({ data, borderless = false }) => {
+  return (
+    <Code borderless={borderless}>
+      {'{'}
+      {Object.entries(data).map(renderJson)}
+      {'}'}
+    </Code>
+  );
+};

@@ -1,0 +1,12 @@
+import { cn } from '@brickninja-org/ui/lib';
+import type { FC } from 'react';
+
+export interface SkeletonProps {
+  width?: number | string;
+  height?: number | string;
+  className?: string;
+}
+
+export const Skeleton: FC<SkeletonProps> = ({ width = '100%', height = 16, className }) => {
+  return <span className={cn('inline-block width-[10em] height-[1em] align-bottom text-transparent', className)} style={{ width, height }}/>;
+};

@@ -7,9 +7,15 @@ import { GiNinjaHead } from 'react-icons/gi';
 
 import { Headline } from '@brickninja-org/ui/components/headline';
 
+import { cache } from '@/lib/cache';
+import { db } from '@/lib/prisma';
 import { getAlternateUrls } from '@/lib/url';
+import { FormatDate } from '@/components/format/format-date';
 import { FormatNumber } from '@/components/format/format-number';
 import { HeroLayout } from '@/components/layout/hero-layout';
+import { ItemList } from '@/components/item/item-list';
+import { ItemLink } from '@/components/item/item-link';
+import { SkeletonLink } from '@/components/item/skeleton-link';
 
 function MarketingPage(/* { params: { language }}: {params: { language: Language }} */) {
   return (
@@ -27,9 +33,47 @@ function MarketingPage(/* { params: { language }}: {params: { language: Language
       </Suspense>
 
       <Headline id="new-items">New items</Headline>
+      <Suspense fallback={<ListFallback size={24}/>}>
+        <NewItems/>
+      </Suspense>
     </HeroLayout>
   );
 }
+
+function ListFallback({ size }: { size: number }) {
+  return (
+    <ItemList>
+      {[...new Array(size)].map((_, id) => {
+        // eslint-disable-next-line react/no-array-index-key
+        return (<li key={id}><SkeletonLink/></li>);
+      })}
+    </ItemList>
+  )
+}
+
+const getNewItems = cache(
+  () => db.item.findMany({ take: 24, orderBy: { createdAt: 'desc' }}),
+  ['home-items-new'],
+  { revalidate: 60 },
+);
+
+async function NewItems() {
+  const items = await getNewItems();
+
+  return (
+    <ItemList>
+      {items.map((item) => <li className="inline-flex w-full items-center justify-between gap-8 mb-2 whitespace-nowrap" key={item.id}><ItemLink item={item}/><FormatDate date={item.createdAt} relative/></li>)}
+    </ItemList>
+  );
+}
+
+const getDbStats = cache(async () => {
+  const [items] = await Promise.all([
+    db.item.count(),
+  ]);
+
+  return { items };
+}, ['home-db-stats'], { revalidate: 60 });
 
 const Stat: FC<{ href: string, title: string, value: number }> = ({ href, title, value }) => {
   return (
@@ -39,9 +83,11 @@ const Stat: FC<{ href: string, title: string, value: number }> = ({ href, title,
 
 /* eslint-disable-next-line require-await */
 async function DbStats() {
+  const counts = await getDbStats();
+
   return (
     <div className="flex justify-center gap-[32px_64px] min-h-24 flex-wrap -mt-4 mb-8 -mx-4 py-8 px-4 bg-gray-200">
-      <Stat href="/sets" title="Sets" value={12754}/>
+      <Stat href="/sets" title="Sets" value={counts.items}/>
       <Stat href="/minifigs" title="Minifigures" value={3254}/>
       <Stat href="/parts" title="Parts" value={70251}/>
     </div>

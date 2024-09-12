@@ -11,7 +11,8 @@ import { cn } from '@brickninja-org/ui/lib';
 import '@/styles/app.scss';
 import '@brickninja-org/ui/styles/globals.scss';
 
-import { FormatProvider } from '@/components/format/format-context';	
+import { FormatProvider } from '@/components/format/format-context';
+import { I18nProvider } from '@/components/i18n/i18n-provider';	
 import Layout from '@/components/layout/layout';
 
 const bitter = Bitter({
@@ -33,9 +34,11 @@ export default function RootLayout({
     <html lang={language} className={cn(bitter.variable)}>
       <head/>
       <body>
-        <FormatProvider>
-          <Layout language={language}>{children}</Layout>
-        </FormatProvider>
+        <I18nProvider language={language}>
+          <FormatProvider>
+            <Layout language={language}>{children}</Layout>
+          </FormatProvider>
+        </I18nProvider>
       </body>
     </html>
   );

@@ -1,0 +1,7 @@
+.main {
+  grid-template:
+  "headline infobox padding" min-content
+  "content infobox ." min-content
+  "content toc ." 1fr /
+  calc(100% - clamp(250px, 25%, 360px) - 16px) clamp(250px, 25%, 360px) 16px;
+}
