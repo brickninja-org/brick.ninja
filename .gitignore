@@ -1,3 +1,4 @@
 .docker
 .turbo
 node_modules
+.vercel
