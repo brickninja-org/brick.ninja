@@ -1,6 +1,6 @@
 import type { FC, ReactNode } from 'react';
 
-import './main.css';
+import './detail-layout.css';
 
 import { tv } from 'tailwind-variants';
 
@@ -22,15 +22,15 @@ const headline = tv({
 const DetailLayout: FC<DetailLayoutProps> = ({ title, children, infobox }) => {
   return (
     <TableOfContentContext>
-      <main className="main [grid-area:_main] grid before:[grid-area:_padding] before:bg-gray-50 before:border-b before:[content:_'']">
+      <main className="main [grid-area:_main] grid before:[grid-area:_padding] before:bg-gray-50 before:border-b before:[content:_''] max-[920px]:before:hidden">
         <div className={headline()}>
           <h1 className="[grid-area:_title] font-bold text-2xl">{title}</h1>
         </div>
-        <aside className="[grid-area:_toc]">
+        <aside className="[grid-area:_toc] max-[920px]:hidden">
           <TableOfContent/>
         </aside>
         {infobox && (
-          <aside className="[grid-area:_infobox] grid p-4 border border-t-0">
+          <aside className="[grid-area:_infobox] p-4 border border-t-0 max-[920px]:border-x-0">
             {infobox}
           </aside>
         )}
