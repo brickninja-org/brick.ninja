@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 
-import { linkStyle } from '@/components/entity/entity-link-internal';
 import { Skeleton } from '@/components/skeleton';
+import { cn } from '@brickninja-org/ui/lib';
 
 export interface SkeletonLinkProps {
   icon?: number | 'none';
@@ -13,9 +13,16 @@ export const SkeletonLink: FC<SkeletonLinkProps> = ({ icon = 32 }) => {
   }
 
   return (
-    <div className={linkStyle}>
+    <div className={cn([
+      'inline-flex',
+      'items-center',
+      '[justify-self:_flex-start]',
+      'gap-2',
+      'overflow-hidden',
+    ])}
+    >
       <Skeleton width={icon} height={icon}/>
       <Skeleton/>
     </div>
-  )
+  );
 };
