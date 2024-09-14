@@ -45,7 +45,7 @@ const thStyles = tv({
 
 export type HeaderCellVariants = VariantProps<typeof thStyles>;
 
-const Table: FC<TableProps> & { HeaderCell: FC<HeaderCellProps> } = ({ children, width = 'page' }) => (
+const Table: FC<TableProps> & { HeaderCell: FC<HeaderCellProps> } = ({ children, width }) => (
   <TableWrapper>
     <table className={cn(['table', tableStyles({ width })])}>
       {children}
