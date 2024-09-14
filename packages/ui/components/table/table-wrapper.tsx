@@ -9,10 +9,10 @@ export interface TableWrapperProps {
 }
 
 const wrapperStyles = tv({
-  base: 'overflow-clip w-max min-w-full md:width-[calc(100%_+_32px)] mb-4 -mx-4 px-4',
+  base: 'overflow-clip width-[calc(100%_+_32px)] mb-4 -mx-4 px-4',
   variants: {
     overflow: {
-      true: 'overflow-x-scroll will-change-scroll-position',
+      true: 'overflow-x-scroll will-change-scroll-position [&>table>thead>tr>th]:static',
     },
   },
   defaultVariants: {

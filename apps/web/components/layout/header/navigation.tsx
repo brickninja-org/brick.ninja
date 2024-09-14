@@ -11,7 +11,7 @@ const Navigation: FC<NavigationProps> = () => {
   return (
     <div className="relative overflow-hidden bg-white border-b">
       <ul className="flex m-0 py-1.5 first:border-l-0">
-        <li className="border-l"><LinkButton appearance="menu" href="/sets">Sets</LinkButton></li>
+        <li className="border-l"><LinkButton appearance="menu" href="/item">Sets</LinkButton></li>
         <li className="border-l"><LinkButton appearance="menu" href="/minifigures">Minifigures</LinkButton></li>
       </ul>
     </div>

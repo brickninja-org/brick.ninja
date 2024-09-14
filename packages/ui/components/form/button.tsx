@@ -5,7 +5,7 @@ import { tv } from 'tailwind-variants';
 import { cn } from '../../lib';
 
 const buttonStyles = tv({
-  base: 'w-auto inline-flex items-center gap-3 m-0 py-2 px-4 border-none rounded-sm leading-normal whitespace-nowrap cursor-pointer',
+  base: 'w-auto inline-flex items-center gap-3 m-0 py-2 px-4 border-none rounded-sm leading-5 whitespace-nowrap cursor-pointer',
   variants: {
     appearance: {
       primary: 'bg-primary text-white',

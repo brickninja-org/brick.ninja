@@ -16,22 +16,16 @@ export interface HeaderCellProps extends HeaderCellVariants {
 }
 
 const tableStyles = tv({
-  base: '',
   variants: {
     width: {
       auto: 'w-auto',
-      page: 'max-w-full',
     },
-  },
-  defaultVariants: {
-    width: 'page',
   },
 });
 
 export type TableVariants = VariantProps<typeof tableStyles>;
 
 const thStyles = tv({
-  base: '',
   variants: {
     small: {
       true: 'width-[1px]',
@@ -61,7 +55,7 @@ const Table: FC<TableProps> & { HeaderCell: FC<HeaderCellProps> } = ({ children,
 
 Table.HeaderCell = function HeaderCell({ children, small = false, align, sort, onSort }) {
   return (
-    <th className={thStyles({ small })} align={align} aria-sort={sort === 'asc' ? 'ascending' : sort === 'desc' ? 'descending' : undefined}>
+    <th className={cn(thStyles({ small }))} align={align} aria-sort={sort === 'asc' ? 'ascending' : sort === 'desc' ? 'descending' : undefined}>
       {sort ? (
         <button className={cn(['block [width:_calc(100%_+_32px)] -my-2 -mx-4 py-2 px-4 rounded-sm [text-align:_inherit]'])} onClick={onSort}>
           {children}

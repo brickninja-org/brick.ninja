@@ -108,7 +108,7 @@ model Revision {
 
   // items
   currentItem_en Item? @relation("current_en")
-  itemHistory ItemHistory[]
+  itemHistory ItemHistory?
 
   // colors
   currentColor_en Color? @relation("current_en")

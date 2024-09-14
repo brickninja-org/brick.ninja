@@ -10,7 +10,7 @@ import { EntityLink } from '@/components/entity/entity-link';
 
 export interface ItemLinkProps {
   className?: string;
-  item: Pick<Item, 'id' | 'type' | keyof LocalizedEntity>;
+  item: Pick<Item, 'id' | keyof LocalizedEntity>;
   language?: Language;
   revision?: string;
 }
