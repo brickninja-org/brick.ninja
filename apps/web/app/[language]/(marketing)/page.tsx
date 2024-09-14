@@ -13,7 +13,7 @@ import { getAlternateUrls } from '@/lib/url';
 import { FormatDate } from '@/components/format/format-date';
 import { FormatNumber } from '@/components/format/format-number';
 import { HeroLayout } from '@/components/layout/hero-layout';
-import { ItemList } from '@/components/item/item-list';
+import { ItemList, ItemListItem } from '@/components/item/item-list';
 import { ItemLink } from '@/components/item/item-link';
 import { SkeletonLink } from '@/components/item/skeleton-link';
 
@@ -45,7 +45,7 @@ function ListFallback({ size }: { size: number }) {
     <ItemList>
       {[...new Array(size)].map((_, id) => {
         // eslint-disable-next-line react/no-array-index-key
-        return (<li key={id}><SkeletonLink/></li>);
+        return (<ItemListItem key={id}><SkeletonLink/></ItemListItem>);
       })}
     </ItemList>
   );
@@ -62,7 +62,7 @@ async function NewItems() {
 
   return (
     <ItemList>
-      {items.map((item) => <li className="inline-flex w-full items-center justify-between gap-8 mb-2 whitespace-nowrap" key={item.id}><ItemLink item={item}/><FormatDate date={item.createdAt} relative/></li>)}
+      {items.map((item) => <ItemListItem key={item.id}><ItemLink item={item}/><FormatDate date={item.createdAt} relative/></ItemListItem>)}
     </ItemList>
   );
 }

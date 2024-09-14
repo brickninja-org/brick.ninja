@@ -7,7 +7,7 @@ import { linkProperties } from '@/lib/link-properties';
 import { FormatDate } from '@/components/format/format-date';
 import { HeroLayout } from '@/components/layout/hero-layout';
 import { ItemLink } from '@/components/item/item-link';
-import { ItemList } from '@/components/item/item-list';
+import { ItemList, ItemListItem } from '@/components/item/item-list';
 
 const getItems = cache(async (language: Language) => {
   const [recentlyAdded, recentlyUpdated] = await Promise.all([
@@ -34,12 +34,12 @@ export default async function ItemPage({ params: { language }}: { params: { lang
     <HeroLayout hero={<Headline id="items">Items</Headline>} toc>
       <Headline id="recent">Recently added</Headline>
       <ItemList>
-        {recentlyAdded.map((item) => <li key={item.id}><ItemLink item={item}/><FormatDate date={item.createdAt} relative/></li>)}
+        {recentlyAdded.map((item) => <ItemListItem key={item.id}><ItemLink item={item}/><FormatDate date={item.createdAt} relative/></ItemListItem>)}
       </ItemList>
 
       <Headline id="updated">Recently updated</Headline>
       <ItemList>
-        {recentlyUpdated.map((revision) => <li key={revision.id}><ItemLink item={revision.itemHistory!.item}/><FormatDate date={revision.createdAt} relative/></li>)}
+        {recentlyUpdated.map((revision) => <ItemListItem key={revision.id}><ItemLink item={revision.itemHistory!.item}/><FormatDate date={revision.createdAt} relative/></ItemListItem>)}
       </ItemList>
     </HeroLayout>
   );

@@ -8,7 +8,7 @@ export interface ItemListProps {
 }
 
 const list = tv({
-  base: 'm-0 p-0 list-none columns-1 gap-8',
+  base: 'columns-1 gap-8 last:-mb-2',
   variants: {
     singleColumn: {
       false: 'md:columns-2',
@@ -19,10 +19,22 @@ const list = tv({
   },
 });
 
-export const ItemList: FC<ItemListProps> = ({ children, singleColumn }) => {
+export const ItemList: FC<ItemListProps> = ({ children, singleColumn = false }) => {
   return (
     <ul className={cn(list({ singleColumn }))}>
       {children}
     </ul>
+  );
+};
+
+export interface ItemListItemProps {
+  children: ReactNode[];
+}
+
+export const ItemListItem: FC<ItemListItemProps> = ({ children }) => {
+  return (
+    <li className="inline-flex w-full items-center justify-between mb-2 whitespace-nowrap">
+      {children}
+    </li>
   );
 };
