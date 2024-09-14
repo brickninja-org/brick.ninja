@@ -28,7 +28,7 @@ export const ItemList: FC<ItemListProps> = ({ children, singleColumn = false }) 
 };
 
 export interface ItemListItemProps {
-  children: ReactNode[];
+  children: ReactNode;
 }
 
 export const ItemListItem: FC<ItemListItemProps> = ({ children }) => {
