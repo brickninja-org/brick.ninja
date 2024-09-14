@@ -15,7 +15,7 @@ export const Headline: FC<HeadlineProps> = ({ children, id, noToc, actions }) =>
 
   return (
     <h2 className="flex flex-wrap mt-8 mb-4 [font:_inherit] first:mt-0 last:mb-0" ref={ref} id={id}>
-      <span className="flex-1 mr-4 content-center font-bitter text-xl">
+      <span className="flex-1 mr-4 font-bitter leading-9 text-xl">
         {children}
       </span>
       {actions && <div className="flex flex-wrap gap-2 items-center">{actions}</div>}
