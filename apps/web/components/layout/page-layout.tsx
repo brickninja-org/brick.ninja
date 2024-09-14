@@ -1,6 +1,6 @@
 import type { FC, ReactNode } from 'react';
 
-import { TableOfContentContext } from '@brickninja-org/ui/components/table-of-content';
+import { TableOfContent, TableOfContentContext } from '@brickninja-org/ui/components/table-of-content';
 
 interface PageLayoutProps {
   children: ReactNode;
@@ -13,7 +13,7 @@ export const PageLayout: FC<PageLayoutProps> = ({ children, toc = false }) => {
       <TableOfContentContext>
         <main className="flex gap-4 px-4">
           <aside className="hidden w-1/4 min-w-64 max-w-96 flex-shrink order-1 md:block">
-            Table of Content
+            <TableOfContent/>
           </aside>
           <div className="flex-1 max-w-full w-3/4 py-4">
             {children}
