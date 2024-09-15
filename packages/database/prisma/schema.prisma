@@ -22,6 +22,9 @@ model Item {
   pieceCount Int @default(0)
   minifigureCount Int @default(0)
 
+  // review queue
+  reviews Review[] @relation("itemReview")
+
   removedFromApi Boolean @default(false)
 
   current_en Revision @relation("current_en", fields: [currentId_en], references: [id], onDelete: Cascade)
@@ -174,6 +177,37 @@ enum Language {
   nl
 }
 
+model Review {
+  id String @id @default(uuid())
+
+  requesterId String?
+  requester User? @relation("requester", fields: [requesterId], references: [id], onDelete: SetNull)
+
+  reviewerId String?
+  reviewer User? @relation("reviewer", fields: [reviewerId], references: [id], onDelete: SetNull)
+
+  queue ReviewQueue
+  changes Json
+  state ReviewState @default(Open)
+
+  relatedItemId Int?
+  relatedItem Item? @relation("itemReview", fields: [relatedItemId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  reviewedAt DateTime?
+}
+
+enum ReviewQueue {
+  ContainerContent
+}
+
+enum ReviewState {
+  Open
+  Approved
+  Rejected
+}
+
 // User
 
 model User {
@@ -190,8 +224,8 @@ model User {
   createdAt      DateTime   @default(now())
   updatedAt      DateTime   @updatedAt
 
-  // reviewsRequested Review[] @relation("requester")
-  // reviewsReviewed  Review[] @relation("reviewer")
+  reviewsRequested Review[] @relation("requester")
+  reviewsReviewed  Review[] @relation("reviewer")
 
   // applications Application[] @relation("application")
 }
