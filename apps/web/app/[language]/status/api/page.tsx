@@ -1,15 +1,16 @@
 import { Fragment } from 'react';
 
 import type { ApiRequest } from '@brickninja-org/database';
+import { cn } from '@brickninja-org/ui/lib';
 import { Headline } from '@brickninja-org/ui/components/headline';
 import { Table } from '@brickninja-org/ui/components/table';
 
 import { db } from '@/lib/prisma';
 import { FormatNumber } from '@/components/format/format-number';
 import { PageLayout } from '@/components/layout/page-layout';
+import { ReloadCheckbox } from '@/components/reload/reload-checkbox';
 
 import { availablePeriods } from './available-periods';
-import { cn } from '@brickninja-org/ui/lib';
 
 async function getData(hours: number) {
   const now = new Date();
@@ -52,7 +53,14 @@ export default async function StatusApiPage({ searchParams: { period }}: { searc
   const { endpoints, errors, total, statusCodes } = await getData(hours);
   return (
     <PageLayout>
-      <Headline id="api-status">Brickset API status</Headline>
+      <Headline
+        id="api-status"
+        actions={[
+          <ReloadCheckbox key="reload" intervalMs={1000 * 60}/> // 1 minute
+        ]}
+      >
+        Brickset API status
+      </Headline>
 
       <p>
         <FormatNumber value={total}/> requests and <FormatNumber value={errors}/> errors (<FormatNumber value={errors / total * 100} unit="%"/>) in the last {hours} hours.
