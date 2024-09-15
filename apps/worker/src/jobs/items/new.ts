@@ -24,7 +24,7 @@ export const ItemsNew: Job = {
           ...data,
 
           currentId_en: revisions.en.id,
-          // currentId_nl: revisions.nl.id,
+          currentId_nl: revisions.nl.id,
           history: { createMany: { data: [{ revisionId: revisions.en.id }] }},
         }
       });

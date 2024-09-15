@@ -27,6 +27,9 @@ model Item {
   current_en Revision @relation("current_en", fields: [currentId_en], references: [id], onDelete: Cascade)
   currentId_en String @unique
 
+  current_nl Revision @relation("current_nl", fields: [currentId_nl], references: [id], onDelete: Cascade)
+  currentId_nl String @unique
+
   history ItemHistory[]
 
   lastCheckedAt DateTime @default(now())
@@ -108,6 +111,7 @@ model Revision {
 
   // items
   currentItem_en Item? @relation("current_en")
+  currentItem_nl Item? @relation("current_nl")
   itemHistory ItemHistory?
 
   // colors

@@ -28,15 +28,13 @@ export default function RootLayout({
   children: ReactNode;
   params: { language: Language };
 }) {
-  const { language } = params;
-
   return (
-    <html lang={language} className={cn(bitter.variable)}>
+    <html lang={params.language} className={cn(bitter.variable)}>
       <head/>
       <body>
-        <I18nProvider language={language}>
+        <I18nProvider language={params.language}>
           <FormatProvider>
-            <Layout language={language}>{children}</Layout>
+            <Layout language={params.language}>{children}</Layout>
           </FormatProvider>
         </I18nProvider>
       </body>
