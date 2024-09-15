@@ -14,6 +14,7 @@ import { ItemInfobox } from '@/components/item/item-infobox';
 import { Json } from '@/components/format/json';
 
 import { getItem, getRevision } from './data';
+import { ItemTooltip } from '@/components/item/item-tooltip';
 
 export interface ItemPageComponentProps {
   language: Language;
@@ -60,6 +61,7 @@ export const ItemPageComponent: FC<ItemPageComponentProps> = async ({ language, 
       )}
 
       <TableOfContentAnchor id="tooltip">Tooltip</TableOfContentAnchor>
+      <ItemTooltip item={data} language={language} hideTitle/>
 
       <Headline id="data">Data</Headline>
       <Json data={data} borderless/>
