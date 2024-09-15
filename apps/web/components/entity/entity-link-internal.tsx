@@ -6,7 +6,7 @@ import type { EntityLinkProps } from '@/components/entity/entity-link';
 import { forwardRef } from 'react';
 import NextLink from 'next/link';
 
-import { localizeName } from '@/lib/localized-name';
+import { localizedName } from '@/lib/localized-name';
 import { localizedUrl } from '@/lib/localized-url';
 import { cn } from '@brickninja-org/ui/lib';
 
@@ -37,7 +37,7 @@ export const EntityLinkInternal = forwardRef<HTMLAnchorElement, EntityLinkProps>
         {...linkProps}
       >
         <>
-          <span className="py-0.5 overflow-hidden text-ellipsis underline underline-offset-2 decoration-2 decoration-transparent">{localizeName(entity, language ?? defaultLanguage)}</span>
+          <span className="py-0.5 overflow-hidden text-ellipsis underline underline-offset-2 decoration-2 decoration-transparent">{localizedName(entity, language ?? defaultLanguage)}</span>
         </>
       </NextLink>
     );

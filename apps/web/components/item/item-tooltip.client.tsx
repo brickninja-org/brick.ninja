@@ -10,7 +10,7 @@ export interface ClientItemTooltipProps {
 
 export const ClientItemTooltip: FC<ClientItemTooltipProps> = ({ tooltip, hideTitle }) => {
   const data: ReactNode[] = [
-    tooltip.number && `${tooltip.number}, version ${tooltip.version}`,
+    tooltip.number && `${tooltip.number} v${tooltip.version}`,
     tooltip.theme,
     tooltip.release,
     tooltip.availablility,

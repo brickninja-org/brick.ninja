@@ -7,6 +7,8 @@ import type { Item, Language } from '@brickninja-org/database';
 import type { LocalizedEntity } from '@/lib/localized-name';
 import { getLinkProperties } from '@/lib/link-properties';
 import { EntityLink } from '@/components/entity/entity-link';
+import { ItemLinkTooltip } from '@/components/item/item-link-tooltip';
+import { Tooltip } from '@/components/tooltip/tooltip';
 
 export interface ItemLinkProps {
   className?: string;
@@ -19,12 +21,12 @@ export const ItemLink: FC<ItemLinkProps> = ({ className, item, language, revisio
   const entity = getLinkProperties(item);
 
   return (
-    <div className="min-w-48 max-w-64">
+    <Tooltip content={<ItemLinkTooltip item={entity} language={language} revision={revision}/>}>
       <EntityLink
         className={className}
         entity={entity}
         href={`/item/${entity.id}${revision ? `/${revision}` : ''}`}
         language={language}/>
-    </div>
+    </Tooltip>
   );
 };

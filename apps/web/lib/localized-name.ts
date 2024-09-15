@@ -5,6 +5,6 @@ export interface LocalizedEntity {
   name_nl: string;
 }
 
-export function localizeName(entity: LocalizedEntity, language: Language): string {
+export function localizedName(entity: LocalizedEntity, language: Language): string {
   return entity[`name_${language}`];
 }
