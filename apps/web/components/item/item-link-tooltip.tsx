@@ -30,10 +30,10 @@ export const ItemLinkTooltip: FC<ItemLinkTooltipProps> = ({ item, language, revi
       <ErrorBoundary fallback={<span>Error</span>}>
         {tooltip.loading && (
           <>
-            <div className="">
+            <div className="flex items-center gap-2 mb-2 font-bitter">
               {localizedName(item, language)}
             </div>
-            <div className=""><Skeleton/><br/><Skeleton width={120}/></div>
+            <div className="leading-6"><Skeleton/><br/><Skeleton width={120}/></div>
           </>
         )}
         {!tooltip.loading && <ClientItemTooltip tooltip={tooltip.data}/>}

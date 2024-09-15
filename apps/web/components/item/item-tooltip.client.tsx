@@ -21,14 +21,14 @@ export const ClientItemTooltip: FC<ClientItemTooltipProps> = ({ tooltip, hideTit
   return (
     <div>
       {!hideTitle && (
-        <div className="">
+        <div className="flex items-center gap-2 mb-2 font-bitter">
           {tooltip.name}
         </div>
       )}
 
       {data.filter(isTruthy).map((content, index) => {
         // eslint-disable-next-line react/no-array-index-key
-        return <div className="" key={index}>{content}</div>;
+        return <div className="mt" key={index}>{content}</div>;
       })}
     </div>
   );
