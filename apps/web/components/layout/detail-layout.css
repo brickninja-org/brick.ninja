@@ -6,6 +6,13 @@
     calc(100% - clamp(250px, 25%, 360px) - 16px) clamp(250px, 25%, 360px) 16px;
 }
 
+.headline {
+  grid-template:
+    "icon title actions" 1fr
+    "icon breadcrumb actions" min-content /
+    min-content 1fr min-content;
+}
+
 @media (max-width: 920px) {
   .main {
     grid-template:
