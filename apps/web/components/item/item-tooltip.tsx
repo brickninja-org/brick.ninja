@@ -38,6 +38,8 @@ export function createTooltip(item: GetSets, language: Language) {
     availablility: item.availability,
     pieces: item.pieces,
     minifigures: item.minifigs,
+    ages: item.ageRange.min!,
+    dimensions: item.dimensions!,
   };
 }
 
@@ -50,6 +52,8 @@ export type ItemWithAttributes = LocalizedEntity & {
   availability: string;
   pieces: number;
   minifigures: number;
+  ages: number;
+  dimensions: { height?: number; width?: number; depth?: number, weight?: number };
   // attributes?: { label: string, value: number }[];
   // buff?: string;
 };
@@ -64,4 +68,6 @@ export interface ItemTooltip {
   availablility: string;
   pieces: number;
   minifigures: number;
+  ages: number;
+  dimensions: { height?: number; width?: number; depth?: number, weight?: number };
 }
