@@ -5,7 +5,7 @@ import { tv } from 'tailwind-variants';
 import { cn } from '../../lib';
 
 const buttonStyles = tv({
-  base: 'w-auto inline-flex items-center gap-3 m-0 py-2 px-4 border-none rounded-sm leading-5 whitespace-nowrap cursor-pointer',
+  base: 'w-auto inline-flex items-center gap-3 m-0 py-2 px-4 border-none rounded-sm leading-5 whitespace-nowrap cursor-pointer focus-visible:outline-none focus-visible:shadow-sm',
   variants: {
     appearance: {
       primary: 'bg-primary text-white',
@@ -15,6 +15,9 @@ const buttonStyles = tv({
     },
     flex: {
       true: 'flex-1',
+    },
+    iconOnly: {
+      true: 'p-2 leading-4',
     },
   },
   defaultVariants: {
@@ -35,9 +38,9 @@ export interface ButtonProps extends CommonButtonProps, Pick<ButtonHTMLAttribute
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button({ appearance, flex, children, onClick, className, type = 'button', ...props }, ref) {
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button({ appearance = 'secondary', flex, iconOnly, children, onClick, className, type = 'button', ...props }, ref) {
   return (
-    <button ref={ref} type={type} onClick={onClick} className={cn(buttonStyles({ appearance, flex }), className)} {...props}>
+    <button ref={ref} type={type} onClick={onClick} className={cn(buttonStyles({ appearance, flex, iconOnly }), className)} {...props}>
       {children && <span>{children}</span>}
     </button>
   );
