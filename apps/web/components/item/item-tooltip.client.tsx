@@ -32,7 +32,7 @@ export const ClientItemTooltip: FC<ClientItemTooltipProps> = ({ tooltip, hideTit
     tooltip.minifigures && `${tooltip.minifigures} minifigures`,
     tooltip.ages && `${tooltip.ages}+`,
     tooltip.dimensions && renderDimensions(tooltip.dimensions),
-    tooltip.dimensions && tooltip.dimensions.weight && <FormatNumber value={tooltip.dimensions.weight} unit="g"/>,
+    tooltip.dimensions && tooltip.dimensions.weight && <FormatNumber value={tooltip.dimensions.weight} unit="Kg"/>,
   ];
 
   return (
