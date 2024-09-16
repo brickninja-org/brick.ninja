@@ -10,6 +10,7 @@ import { Menu } from '@/components/layout/header/menu';
 import Navigation from '@/components/layout/header/navigation';
 
 import './layout.css';
+import { LanguageDropdown } from './header/language-dropdown';
 
 interface LayoutProps {
   children: ReactNode;
@@ -27,6 +28,7 @@ const Layout: FC<LayoutProps> = ({ children, language }) => {
           </Link>
           <div className="flex -mr-2 ml-auto">
             <LinkButton appearance="menu" href="/review" aria-label="Review" className="mr-2">Review</LinkButton>
+            <LanguageDropdown/>
           </div>
         </Menu>
         <hr className="[grid-area:_menuShadow] sticky block top-12 h-[1px] bg-transparent z-[2]"/>

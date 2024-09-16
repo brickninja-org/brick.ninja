@@ -26,6 +26,8 @@
   "homepage": "https://github.com/brickninja-org/brick.ninja#readme",
   "dependencies": {
     "@brickninja-org/helper": "*",
+    "@floating-ui/react": "0.26.24",
+    "@floating-ui/react-dom": "2.1.1",
     "@nextui-org/react": "2.4.6",
     "client-only": "0.0.1",
     "clsx": "2.1.1",

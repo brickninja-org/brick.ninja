@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --color-background: rgba(254, 254, 254, 100%);
+  --color-border-dark: rgba(0, 0, 0, 0.1);
+}
