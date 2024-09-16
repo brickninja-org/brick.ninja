@@ -29,7 +29,7 @@ export const contentSecurityPolicyMiddleware: NextMiddleware = async (request, n
     default-src 'self';
     script-src 'self' 'nonce-${nonce}' 'strict-dynamic' ${process.env.NODE_ENV !== 'production' ? '\'unsafe-eval\'' : ''};
     style-src 'self' 'unsafe-inline';
-    img-src 'self' icons-bn.brickninja-cdn.com lego.com;
+    img-src 'self' icons-bn.brickninja-cdn.com images.brickset.com lego.com;
     connect-src 'self' ${alternateLanguageDomains.join(' ')};
     font-src 'self';
     object-src 'none';

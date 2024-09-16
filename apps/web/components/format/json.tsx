@@ -1,4 +1,6 @@
 import type { FC } from 'react';
+
+import { Tip } from '@brickninja-org/ui/components/tip';
 import { Code } from '@/components/layout/code';
 
 export interface JsonProps {
@@ -21,7 +23,11 @@ function renderValue(value: unknown, index: number, array: unknown[]) {
     case 'string':
       return (
         <span key={index} style={{ color: '#009688' }}>
-          &quot;{value.replaceAll('"', '\\"')}&quot;{maybeComma}
+          &quot;{value.startsWith('https://images.brickset.com/')
+            // eslint-disable-next-line @next/next/no-img-element
+            ? <Tip tip={<img src={value} alt="Preview"/>}><a href={value} style={{ color: '#009688' }}>{value}</a></Tip>
+            : value.replaceAll('"', '\\"')
+          }&quot;{maybeComma}
         </span>
       );
     case 'number':
