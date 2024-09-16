@@ -69,7 +69,7 @@ async function NewItems() {
 
 const getDbStats = cache(async () => {
   const [items] = await Promise.all([
-    db.item.count(),
+    db.item.count({ where: { type: 'Set' }}),
   ]);
 
   return { items };
