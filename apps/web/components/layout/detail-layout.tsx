@@ -3,7 +3,11 @@ import type { FC, ReactNode } from 'react';
 import './detail-layout.css';
 
 import { tv } from 'tailwind-variants';
+import { MdOutlineMoreVert } from 'react-icons/md';
 
+import { Button } from '@brickninja-org/ui/components/form/button';
+import { Dropdown } from '@brickninja-org/ui/components/dropdown';
+import { MenuList } from '@brickninja-org/ui/components/layout/menu-list';
 import { TableOfContent, TableOfContentContext } from '@brickninja-org/ui/components/table-of-content';
 
 interface DetailLayoutProps {
@@ -19,13 +23,20 @@ const headline = tv({
   base: 'headline [grid-area:_headline] grid p-4 border-b bg-gray-50',
 });
 
-const DetailLayout: FC<DetailLayoutProps> = ({ title, children, breadcrumb, infobox }) => {
+const DetailLayout: FC<DetailLayoutProps> = ({ title, children, actions, breadcrumb, infobox }) => {
   return (
     <TableOfContentContext>
       <main className="main [grid-area:_main] grid before:[grid-area:_padding] before:bg-gray-50 before:border-b before:[content:_''] max-[920px]:before:hidden">
         <div className={headline()}>
           <h1 className="[grid-area:_title] font-bold text-2xl">{title}</h1>
           {breadcrumb && <div className="[grid-area:_breadcrumb] mt-2 text-sm text-gray-800">{breadcrumb}</div>}
+          {actions && (
+            <div className="[grid-area:_actions] flex flex-col justify-center">
+              <Dropdown button={<Button iconOnly appearance="menu" aria-label="Actions"><MdOutlineMoreVert/></Button>}>
+                <MenuList>{actions}</MenuList>
+              </Dropdown>
+            </div>
+          )}
         </div>
         <aside className="[grid-area:_toc] max-[920px]:hidden">
           <TableOfContent/>

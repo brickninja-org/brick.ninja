@@ -15,6 +15,7 @@ import { Json } from '@/components/format/json';
 
 import { getItem, getRevision } from './data';
 import { ItemTooltip } from '@/components/item/item-tooltip';
+import { EditContents } from './_edit-content/edit-contents';
 
 export interface ItemPageComponentProps {
   language: Language;
@@ -41,6 +42,9 @@ export const ItemPageComponent: FC<ItemPageComponentProps> = async ({ language, 
 
   const fixedRevision = revisionId !== undefined;
 
+  // const showContents = item.type === 'Container';
+  const canHaveContents = item.type === 'Container' || item.type === 'Set';
+
   return (
     <DetailLayout
       title={data.name}
@@ -52,6 +56,9 @@ export const ItemPageComponent: FC<ItemPageComponentProps> = async ({ language, 
         </Breadcrumb>
       )}
       infobox={<ItemInfobox item={item} data={data} language={language}/>}
+      actions={[
+        canHaveContents ? <EditContents key="edit-content" apperance="menu"/> : undefined,
+      ]}
     >
       {item[`currentId_${language}`] !== revision.id && (
         <Notice>You are viewing an old revision of this item. Some data is only available when viewing the latest version. <NextLink href={`/item/${item.id}`}>View latest</NextLink>.</Notice>
