@@ -1,20 +1,27 @@
 import type { FC } from 'react';
-import type { Language } from '@brickninja-org/database';
 
 import NextLink from 'next/link';
 import { notFound } from 'next/navigation';
+import { MdOutlineRemoveRedEye } from 'react-icons/md';
 
+import type { Language } from '@brickninja-org/database';
 import { Headline } from '@brickninja-org/ui/components/headline';
 import { Notice } from '@brickninja-org/ui/components/notice';
+import { Table } from '@brickninja-org/ui/components/table';
 import { TableOfContentAnchor } from '@brickninja-org/ui/components/table-of-content';
+import { Tip } from '@brickninja-org/ui/components/tip';
 
+import { getLinkProperties } from '@/lib/link-properties';
 import DetailLayout from '@/components/layout/detail-layout';
 import { Breadcrumb, BreadcrumbItem } from '@/components/breadcrumb';
+import { FormatDate } from '@/components/format/format-date';
 import { ItemInfobox } from '@/components/item/item-infobox';
+import { ItemLinkTooltip } from '@/components/item/item-link-tooltip';
+import { ItemTooltip } from '@/components/item/item-tooltip';
 import { Json } from '@/components/format/json';
+import { Tooltip } from '@/components/tooltip';
 
 import { getItem, getRevision } from './data';
-import { ItemTooltip } from '@/components/item/item-tooltip';
 import { EditContents } from './_edit-content/edit-contents';
 
 export interface ItemPageComponentProps {
@@ -69,6 +76,34 @@ export const ItemPageComponent: FC<ItemPageComponentProps> = async ({ language, 
 
       <TableOfContentAnchor id="tooltip">Tooltip</TableOfContentAnchor>
       <ItemTooltip item={data} language={language} hideTitle/>
+
+      <Headline id="history">History</Headline>
+      <Table>
+        <thead>
+          <tr>
+            <Table.HeaderCell small/>
+            <Table.HeaderCell>Description</Table.HeaderCell>
+            <Table.HeaderCell small>Date</Table.HeaderCell>
+            <Table.HeaderCell small>Actions</Table.HeaderCell>
+          </tr>
+        </thead>
+        <tbody>
+          {item.history.map((history) => (
+            <tr key={history.revisionId}>
+              <td style={{ paddingRight: 0 }}>{history.revisionId === revision.id && <Tip tip="Currently viewing"><MdOutlineRemoveRedEye/></Tip>}</td>
+              <td>
+                <Tooltip content={<ItemLinkTooltip item={getLinkProperties(item)} language={language} revision={history.revisionId}/>}>
+                  <NextLink href={`/item/${item.id}/${history.revisionId}`}>
+                    {history.revision.description}
+                  </NextLink>
+                </Tooltip>
+              </td>
+              <td><FormatDate date={history.revision.createdAt} relative/></td>
+              <td>{history.revisionId !== revision.id && <NextLink href={`/item/${item.id}/${history.revisionId}`}>View</NextLink>}</td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
 
       <Headline id="data">Data</Headline>
       <Json data={data} borderless/>

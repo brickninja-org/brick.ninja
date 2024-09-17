@@ -8,7 +8,7 @@ import type { LocalizedEntity } from '@/lib/localized-name';
 import { getLinkProperties } from '@/lib/link-properties';
 import { EntityLink } from '@/components/entity/entity-link';
 import { ItemLinkTooltip } from '@/components/item/item-link-tooltip';
-import { Tooltip } from '@/components/tooltip/tooltip';
+import { Tooltip } from '@/components/tooltip';
 
 export interface ItemLinkProps {
   className?: string;
