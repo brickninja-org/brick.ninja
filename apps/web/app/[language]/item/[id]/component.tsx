@@ -64,7 +64,7 @@ export const ItemPageComponent: FC<ItemPageComponentProps> = async ({ language, 
       )}
       infobox={<ItemInfobox item={item} data={data} language={language}/>}
       actions={[
-        canHaveContents ? <EditContents key="edit-content" apperance="menu"/> : undefined,
+        canHaveContents ? <EditContents key="edit-content" itemId={itemId} apperance="menu"/> : undefined,
       ]}
     >
       {item[`currentId_${language}`] !== revision.id && (
