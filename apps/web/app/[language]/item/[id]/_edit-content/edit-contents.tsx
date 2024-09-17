@@ -20,6 +20,7 @@ export interface EditContentsProps {
 export const EditContents: FC<EditContentsProps> = ({ apperance, itemId }) => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [canSubmitState, setCanSubmitState] = useState<CanSubmitResponse>();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [error, setError] = useState<EditContentSubmitError>();
 
   useEffect(() => {
