@@ -4,13 +4,13 @@ import { useCallback, useEffect, useState, type FC } from 'react';
 import NextLink from 'next/link';
 
 import { Button, type ButtonProps } from '@brickninja-org/ui/components/form/button';
-import { Dialog } from '@brickninja-org/ui/components/dialog';
+import { Dialog, DialogActions } from '@brickninja-org/ui/components/dialog';
 import { Notice } from '@brickninja-org/ui/components/notice';
 
 import { Skeleton } from '@/components/skeleton';
 
 import type { CanSubmitResponse, EditContentSubmitError } from './types';
-import { canSubmit } from './actions';
+import { canSubmit, submitToReview } from './actions';
 
 export interface EditContentsProps {
   apperance: ButtonProps['appearance'];
@@ -20,7 +20,6 @@ export interface EditContentsProps {
 export const EditContents: FC<EditContentsProps> = ({ apperance, itemId }) => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [canSubmitState, setCanSubmitState] = useState<CanSubmitResponse>();
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [error, setError] = useState<EditContentSubmitError>();
 
   useEffect(() => {
@@ -33,6 +32,17 @@ export const EditContents: FC<EditContentsProps> = ({ apperance, itemId }) => {
   const toggleDialog = useCallback(() => {
     setDialogOpen((open) => !open);
   }, [setDialogOpen]);
+
+  const handleSubmit = useCallback(async () => {
+    setError(undefined);
+    const submitted = await submitToReview({ itemId });
+
+    if (submitted === true) {
+      setDialogOpen(false);
+    } else {
+      setError(submitted);
+    }
+  }, [itemId]);
 
   return (
     <>
@@ -52,6 +62,10 @@ export const EditContents: FC<EditContentsProps> = ({ apperance, itemId }) => {
           <>
             {error && <Notice color="error">Your changes could not be saved ({error}).</Notice>}
             <p>Noticed something wrong with the contents of this item? You can remove and add items in this dialog.</p>
+
+            <DialogActions description="Your changes will be reviewed before they are applied.">
+              <Button onClick={handleSubmit}>Submit</Button>
+            </DialogActions>
           </>
         )}
       </Dialog>
