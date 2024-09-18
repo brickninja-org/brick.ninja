@@ -206,8 +206,6 @@ jobs:
 
         eval "docker buildx imagetools create $ARGS $SOURCES"
 
-        echo "digest=$(docker buildx imagetools inspect --format '{{json .Manifest}}' ghcr.io/brickninja-org/brick.ninja/web:pr-1526 | jq -cr '.digest')" >> "$GITHUB_OUTPUT"
-
     - name: Attest
       uses: actions/attest-build-provenance@v1.4.3
       with:
