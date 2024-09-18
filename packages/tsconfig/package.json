@@ -21,8 +21,5 @@
   "bugs": {
     "url": "https://github.com/brickninja-org/brick.ninja/issues"
   },
-  "homepage": "https://github.com/brickninja-org/brick.ninja#readme",
-  "publishConfig": {
-    "access": "restricted"
-  }
+  "homepage": "https://github.com/brickninja-org/brick.ninja#readme"
 }

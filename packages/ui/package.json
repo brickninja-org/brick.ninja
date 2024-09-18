@@ -54,8 +54,5 @@
     "react": "^18.2.0 || 19.0.0-rc-f994737d14-20240522",
     "react-dom": "^18.2.0 || 19.0.0-rc-f994737d14-20240522",
     "tailwindcss": "^3.4.0"
-  },
-  "publishConfig": {
-    "access": "restricted"
   }
 }

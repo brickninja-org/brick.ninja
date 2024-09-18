@@ -1,6 +1,7 @@
 import { cache } from '@/lib/cache';
 import { db } from '@/lib/prisma';
 import type { Language } from '@brickninja-org/database';
+import type { GetSets } from '@brickset-api/types/data/get-sets';
 
 export const getItem = cache((id: number, language: Language) => {
   return db.item.findUnique({
@@ -22,6 +23,6 @@ export const getRevision = cache(async (id: number, language: Language, revision
   
   return {
     revision,
-    data: revision ? JSON.parse(revision.data) : undefined,
+    data: revision ? JSON.parse(revision.data) as GetSets : undefined,
   };
 }, ['revision-item'], { revalidate: 60 });
