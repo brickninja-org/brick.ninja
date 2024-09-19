@@ -1,4 +1,4 @@
-import { forwardRef, type ButtonHTMLAttributes, type HTMLAttributes, type MouseEventHandler, type ReactNode } from 'react';
+import React, { forwardRef, type ButtonHTMLAttributes, type HTMLAttributes, type MouseEventHandler, type ReactNode } from 'react';
 import Link from 'next/link';
 import { tv } from 'tailwind-variants';
 
@@ -30,6 +30,7 @@ export interface CommonButtonProps extends Pick<HTMLAttributes<HTMLElement>, 'ar
   appearance?: 'primary' | 'secondary' | 'tertiary' | 'menu';
   flex?: boolean;
   intent?: 'delete';
+  icon?: ReactNode;
   iconOnly?: boolean;
 }
 
@@ -38,9 +39,10 @@ export interface ButtonProps extends CommonButtonProps, Pick<ButtonHTMLAttribute
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button({ appearance = 'secondary', flex, iconOnly, children, onClick, className, type = 'button', ...props }, ref) {
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button({ appearance = 'secondary', flex, icon, iconOnly, children, onClick, className, type = 'button', ...props }, ref) {
   return (
     <button ref={ref} type={type} onClick={onClick} className={cn(buttonStyles({ appearance, flex, iconOnly }), className)} {...props}>
+      {icon}
       {children && <span>{children}</span>}
     </button>
   );
