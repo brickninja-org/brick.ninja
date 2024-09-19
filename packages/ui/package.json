@@ -10,8 +10,8 @@
   "files": [
     "components/",
     "lib/",
-    "styles/",
     "index.ts",
+    "tailwind.config.ts",
     "tsconfig.json",
     ".eslintrc.json"
   ],
