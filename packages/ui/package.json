@@ -1,6 +1,6 @@
 {
   "name": "@brickninja-org/ui",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/brickninja-org/brick.ninja.git"
@@ -10,6 +10,7 @@
   "files": [
     "components/",
     "lib/",
+    "styles/",
     "index.ts",
     "tsconfig.json",
     ".eslintrc.json"
