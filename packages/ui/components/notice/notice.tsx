@@ -7,10 +7,10 @@ const notice = tv({
   },
   variants: {
     color: {
-      default: 'bg-primary-100 border-primary-500',
-      error: 'bg-danger-100 border-danger-500',
-      success: 'bg-success-100 border-success-500',
-      warning: 'bg-warning-100 border-warning-500',
+      default: 'bg-blue-100 border-blue-500',
+      error: 'bgred-100 border-red-500',
+      success: 'bg-green-100 border-green-500',
+      warning: 'bg-yellow-100 border-yellow-500',
     },
   },
   defaultVariants: {
