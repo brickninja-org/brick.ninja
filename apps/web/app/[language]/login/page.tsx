@@ -1,7 +1,9 @@
+import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 import { PiCookieLight } from 'react-icons/pi';
 
 // import { Scope } from '@bn2me/client/src/types';
+import { SubmitButton } from '@brickninja-org/ui/components/form/buttons/submit-button';
 import { Headline } from '@brickninja-org/ui/components/headline';
 import { Notice } from '@brickninja-org/ui/components/notice';
 
@@ -9,7 +11,6 @@ import { Notice } from '@brickninja-org/ui/components/notice';
 import { getUser } from '@/lib/get-user';
 import { getReturnToUrl, setReturnToUrlCookie } from '@/lib/login-url';
 import { HeroLayout } from '@/components/layout/hero-layout';
-import type { Metadata } from 'next';
 import { getAlternateUrls /*, getCurrentUrl */ } from '@/lib/url';
 
 interface LoginPageProps {
@@ -43,7 +44,7 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
       </p>
 
       <form action={redirectToBnMe.bind(null, searchParams.returnTo /*, searchParams.scopes */)}>
-        <button type="submit">Login with bn.me</button>
+        <SubmitButton>Login with bn.me</SubmitButton>
       </form>
 
       <div className="flex items-center gap-2 mt-8 py-3 px-4 border rounded-sm">
