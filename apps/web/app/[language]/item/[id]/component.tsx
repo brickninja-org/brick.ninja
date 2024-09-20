@@ -12,6 +12,7 @@ import { TableOfContentAnchor } from '@brickninja-org/ui/components/table-of-con
 import { Tip } from '@brickninja-org/ui/components/tip';
 
 import { getLinkProperties } from '@/lib/link-properties';
+import { pageView } from '@/lib/page-view';
 import DetailLayout from '@/components/layout/detail-layout';
 import { Breadcrumb, BreadcrumbItem } from '@/components/breadcrumb';
 import { FormatDate } from '@/components/format/format-date';
@@ -40,6 +41,7 @@ export const ItemPageComponent: FC<ItemPageComponentProps> = async ({ language, 
   const [item, { revision, data }] = await Promise.all([
     getItem(itemId, language),
     getRevision(itemId, language, revisionId),
+    pageView('item', itemId),
   ]);
 
   // 404 if item does not exist

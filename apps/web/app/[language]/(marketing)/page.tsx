@@ -15,6 +15,7 @@ import { FormatNumber } from '@/components/format/format-number';
 import { HeroLayout } from '@/components/layout/hero-layout';
 import { ItemList, ItemListItem } from '@/components/item/item-list';
 import { ItemLink } from '@/components/item/item-link';
+import { PageView } from '@/components/page-view/page-view';
 import { SkeletonLink } from '@/components/item/skeleton-link';
 
 function MarketingPage(/* { params: { language }}: {params: { language: Language }} */) {
@@ -28,6 +29,7 @@ function MarketingPage(/* { params: { language }}: {params: { language: Language
       </div>
     )}
     >
+      <PageView page="/"/>
       <Suspense fallback={<div className=""/>}>
         <DbStats/>
       </Suspense>
