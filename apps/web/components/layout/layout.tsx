@@ -6,11 +6,14 @@ import { GiNinjaHead } from 'react-icons/gi';
 
 import { LinkButton } from '@brickninja-org/ui/components/form/button';
 
+import { translateMany } from '@/lib/translate';
+import { LanguageDropdown } from '@/components/layout/header/language-dropdown';
 import { Menu } from '@/components/layout/header/menu';
 import Navigation from '@/components/layout/header/navigation';
+import { Search } from '@/components/search/search';
+import { UserButton } from '@/components/layout/header/user-button';
 
 import './layout.css';
-import { LanguageDropdown } from './header/language-dropdown';
 
 interface LayoutProps {
   children: ReactNode;
@@ -18,6 +21,12 @@ interface LayoutProps {
 }
 
 const Layout: FC<LayoutProps> = ({ children, language }) => {
+  const searchTranslations = translateMany([
+    'search.placeholder',
+    'search.results.items',
+    'search.results.pages',
+  ]);
+
   return (
     <div>
       <div className="layout grid min-h-[100dvh]">
@@ -26,9 +35,11 @@ const Layout: FC<LayoutProps> = ({ children, language }) => {
             <GiNinjaHead fill="#991b1b"/>
             <span className="group-hover:underline">brick.ninja</span>
           </Link>
+          <Search translations={searchTranslations}/>
           <div className="flex -mr-2 ml-auto">
             <LinkButton appearance="menu" href="/review" aria-label="Review" className="mr-2">Review</LinkButton>
             <LanguageDropdown/>
+            <UserButton language={language}/>
           </div>
         </Menu>
         <hr className="[grid-area:_menuShadow] sticky block top-12 h-[1px] bg-transparent z-[2]"/>
