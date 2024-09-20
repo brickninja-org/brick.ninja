@@ -5,13 +5,13 @@ import { tv } from 'tailwind-variants';
 import { cn } from '../../lib';
 
 const buttonStyles = tv({
-  base: 'w-auto inline-flex items-center gap-3 m-0 py-2 px-4 border-none rounded-sm leading-5 whitespace-nowrap cursor-pointer focus-visible:outline-none focus-visible:shadow-sm',
+  base: 'w-auto inline-flex items-center gap-3 m-0 py-2 px-4 border-none rounded-sm shadow-[inset_0_0_0_1px] shadow-gray-300 leading-5 text-black whitespace-nowrap cursor-pointer focus-visible:outline-none focus-visible:shadow-sm',
   variants: {
     appearance: {
-      primary: 'bg-primary text-white',
-      secondary: 'bg-secondary text-white',
-      tertiary: 'bg-background shadow-[0_0_0_1px] shadow-gray-200 hover:bg-gray-100',
-      menu: 'bg-transparent shadow-[0_0_0_1px] shadow-transparent text-left hover:bg-gray-100',
+      primary: 'bg-gray-100 shadow-gray-300 hover:[&:not(:disabled)]:bg-white font-semibold',
+      secondary: 'bg-gray-100 shadow-gray-300 hover:[&:not(:disabled)]:bg-white',
+      tertiary: 'bg-white shadow-gray-200 hover:[&:not(:disabled)]:bg-gray-100 hover:[&:not(:disabled)]:shadow-gray-300',
+      menu: 'bg-transparent shadow-transparent text-left hover:[&:not(:disabled)]:bg-gray-100 hover:[&:not(:disabled)]:shadow-gray-100',
     },
     flex: {
       true: 'flex-1',
@@ -21,7 +21,7 @@ const buttonStyles = tv({
     },
   },
   defaultVariants: {
-    appearance: 'primary',
+    appearance: 'secondary',
   },
 });
 
