@@ -25,7 +25,7 @@ const Layout: FC<LayoutProps> = ({ children, language }) => {
     'search.placeholder',
     'search.results.items',
     'search.results.pages',
-  ]);
+  ], language);
 
   return (
     <div>

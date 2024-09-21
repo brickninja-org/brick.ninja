@@ -7,6 +7,7 @@ import type { Language } from '@brickninja-org/database';
 import { Bitter } from 'next/font/google';
 
 import { cn } from '@brickninja-org/ui/lib';
+import { DataTableContext } from '@brickninja-org/ui/components/table/data-table-context';
 
 import '@/styles/app.scss';
 import '@brickninja-org/ui/styles/globals.scss';
@@ -34,7 +35,9 @@ export default function RootLayout({
       <body>
         <I18nProvider language={params.language}>
           <FormatProvider>
-            <Layout language={params.language}>{children}</Layout>
+            <DataTableContext>
+              <Layout language={params.language}>{children}</Layout>
+            </DataTableContext>
           </FormatProvider>
         </I18nProvider>
       </body>

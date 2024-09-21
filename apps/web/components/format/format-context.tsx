@@ -2,12 +2,15 @@
 
 import { createContext, useContext, useEffect, useMemo, useState, type FC, type ReactNode } from 'react';
 import { useHydrated } from 'hooks/use-hydrated';
+import { useLanguage } from '../i18n/context';
 
 const defaultLocale = new Intl.NumberFormat(undefined).resolvedOptions().locale;
 const defaultRegion = getDefaultRegion();
 
 function getDefaultRegion() {
-  if (typeof window === 'undefined') return 'NL';
+  if (typeof window === 'undefined') {
+    return 'US';
+  }
 
   const localeWithRegionRegex = /^[a-z]{2,4}([_-][a-z]{4})?[_-]([a-z]{2,3})/i;
 
@@ -15,7 +18,7 @@ function getDefaultRegion() {
     .map((locale) => locale.match(localeWithRegionRegex))
     .find((match) => match !== null);
 
-  return localeWithRegionMatch ? localeWithRegionMatch[2] : 'NL';
+  return localeWithRegionMatch ? localeWithRegionMatch[2] : 'US';
 }
 
 interface FormatContextProps {
@@ -42,7 +45,7 @@ export interface FormatProviderProps {
 }
 
 export const FormatProvider: FC<FormatProviderProps> = ({ children }) => {
-  const currentLanguage = 'en';
+  const currentLanguage = useLanguage();
   const [region, setRegion] = useState<string>('browser');
   const [language, setLanguage] = useState<string>('auto');
 
@@ -60,7 +63,9 @@ export const FormatProvider: FC<FormatProviderProps> = ({ children }) => {
 
   // save locale to localStorage if it changes after hydration
   useEffect(() => {
-    if (!hydrated) return;
+    if (!hydrated) {
+      return;
+    }
 
     localStorage.setItem('bn.format.region', region);
     localStorage.setItem('bn.format.language', language);
@@ -68,6 +73,8 @@ export const FormatProvider: FC<FormatProviderProps> = ({ children }) => {
 
   // build locale with language and region and validate it
   const customLocale = `${language === 'auto' ? currentLanguage : language}-${region === 'browser' ? defaultRegion : region}`;
+  console.log(customLocale);
+  console.log(defaultLocale);
   const locale = Intl.DateTimeFormat.supportedLocalesOf([customLocale, defaultLocale])[0];
 
   // creeate context
