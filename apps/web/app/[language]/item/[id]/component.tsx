@@ -108,7 +108,7 @@ export const ItemPageComponent: FC<ItemPageComponentProps> = async ({ language, 
       </Table>
 
       <Headline id="data">Data</Headline>
-      <Json data={data} borderless/>
+      <Json data={data}/>
     </DetailLayout>
   );
 };
