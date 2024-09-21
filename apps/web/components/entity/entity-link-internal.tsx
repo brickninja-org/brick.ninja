@@ -1,17 +1,17 @@
 'use client';
 
-import type { Language } from '@brickninja-org/database';
-import type { EntityLinkProps } from '@/components/entity/entity-link';
-
 import { forwardRef } from 'react';
 import NextLink from 'next/link';
 
-import { localizedName } from '@/lib/localized-name';
-import { localizedUrl } from '@/lib/localized-url';
 import { cn } from '@brickninja-org/ui/lib';
 
+import { localizedName } from '@/lib/localized-name';
+import { localizedUrl } from '@/lib/localized-url';
+import type { EntityLinkProps } from '@/components/entity/entity-link';
+import { useLanguage } from '@/components/i18n/context';
+
 export const EntityLinkInternal = forwardRef<HTMLAnchorElement, EntityLinkProps>(function EntityLinkInternal({ className, entity, href, language, onClick, ...linkProps }: EntityLinkProps, ref) {
-    const defaultLanguage = 'en' as Language;
+    const defaultLanguage = useLanguage();
 
     if (language && defaultLanguage !== language) {
       href = localizedUrl(href, language);
