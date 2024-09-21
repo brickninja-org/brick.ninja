@@ -2,12 +2,13 @@ import { type Language } from '@brickninja-org/database';
 import { Headline } from '@brickninja-org/ui/components/headline';
 
 import { cache } from '@/lib/cache';
-import { db } from '@/lib/prisma';
 import { linkProperties } from '@/lib/link-properties';
+import type { PageProps } from '@/lib/next';
+import { db } from '@/lib/prisma';
 import { FormatDate } from '@/components/format/format-date';
-import { HeroLayout } from '@/components/layout/hero-layout';
 import { ItemLink } from '@/components/item/item-link';
 import { ItemList, ItemListItem } from '@/components/item/item-list';
+import { HeroLayout } from '@/components/layout/hero-layout';
 
 const getItems = cache(async (language: Language) => {
   const [recentlyAdded, recentlyUpdated] = await Promise.all([
@@ -27,7 +28,7 @@ const getItems = cache(async (language: Language) => {
   return { recentlyAdded, recentlyUpdated };
 }, ['items'], { revalidate: 60 });
 
-export default async function ItemPage({ params: { language }}: { params: { language: Language }}) {
+export default async function ItemPage({ params: { language }}: PageProps) {
   const { recentlyAdded, recentlyUpdated } = await getItems(language);
 
   return (

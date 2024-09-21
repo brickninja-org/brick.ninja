@@ -1,6 +1,3 @@
-import type { Language } from '@brickninja-org/database';
-import type { Metadata } from 'next';
-
 import { Suspense, type FC } from 'react';
 import Link from 'next/link';
 import { GiNinjaHead } from 'react-icons/gi';
@@ -8,17 +5,21 @@ import { GiNinjaHead } from 'react-icons/gi';
 import { Headline } from '@brickninja-org/ui/components/headline';
 
 import { cache } from '@/lib/cache';
+import type { PageProps } from '@/lib/next';
 import { db } from '@/lib/prisma';
 import { getAlternateUrls } from '@/lib/url';
 import { FormatDate } from '@/components/format/format-date';
 import { FormatNumber } from '@/components/format/format-number';
-import { HeroLayout } from '@/components/layout/hero-layout';
 import { ItemList, ItemListItem } from '@/components/item/item-list';
 import { ItemLink } from '@/components/item/item-link';
-import { PageView } from '@/components/page-view/page-view';
 import { SkeletonLink } from '@/components/item/skeleton-link';
+import { HeroLayout } from '@/components/layout/hero-layout';
+import { PageView } from '@/components/page-view/page-view';
 
-function MarketingPage(/* { params: { language }}: {params: { language: Language }} */) {
+function MarketingPage({ params: { language }, searchParams }: PageProps) {
+  console.log(searchParams);
+  console.log(language);
+
   return (
     <HeroLayout hero={(
       <div className="flex flex-col items-center gap-16 p-8">
@@ -98,11 +99,9 @@ async function DbStats() {
 
 export default MarketingPage;
 
-export function generateMetadata({ params }: { params: { language: Language }}): Metadata {
-  const { language } = params;
-
+export function generateMetadata({ params }: PageProps) {
   return {
     title: 'Home',
-    alternates: getAlternateUrls('/', language),
+    alternates: getAlternateUrls('/', params.language),
   };
 }

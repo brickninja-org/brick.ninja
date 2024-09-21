@@ -1,18 +1,12 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import type { Language } from '@brickninja-org/database';
+import type { PageProps } from '@/lib/next';
 
 import { ItemPageComponent } from '../component';
 import { getRevision } from '../data';
 
-interface ItemRevisionPageProps {
-  params: {
-    language: Language;
-    id: string;
-    revisionId: string;
-  }
-}
+type ItemRevisionPageProps = PageProps<{ id: string, revisionId: string }>;
 
 export default function ItemRevisionPage({ params: { language, id, revisionId }}: ItemRevisionPageProps) {
   const itemId = Number(id);

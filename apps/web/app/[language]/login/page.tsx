@@ -12,21 +12,14 @@ import { getUser } from '@/lib/get-user';
 import { getReturnToUrl, setReturnToUrlCookie } from '@/lib/login-url';
 import { HeroLayout } from '@/components/layout/hero-layout';
 import { getAlternateUrls /*, getCurrentUrl */ } from '@/lib/url';
+import type { PageProps } from '@/lib/next';
 
-interface LoginPageProps {
-  searchParams: {
-    logout?: string;
-    error?: string;
-    returnTo?: string;
-    scopes?: string;
-  }
-}
-
-export default async function LoginPage({ searchParams }: LoginPageProps) {
+export default async function LoginPage({ searchParams }: PageProps) {
   const user = await getUser();
+  const returnTo = Array.isArray(searchParams.returnTo) ? searchParams.returnTo[0] : searchParams.returnTo;
 
   if (user) {
-    redirect(getReturnToUrl(searchParams.returnTo));
+    redirect(getReturnToUrl(returnTo));
   }
 
   return (
@@ -43,7 +36,7 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
         Login to contribute to brick.ninja and to view your collection, and more.
       </p>
 
-      <form action={redirectToBnMe.bind(null, searchParams.returnTo /*, searchParams.scopes */)}>
+      <form action={redirectToBnMe.bind(null, returnTo /*, searchParams.scopes */)}>
         <SubmitButton>Login with bn.me</SubmitButton>
       </form>
 
