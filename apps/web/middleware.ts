@@ -2,22 +2,30 @@ import { NextResponse, type NextRequest } from 'next/server';
 
 import type { NextMiddleware } from './middleware/types';
 
-import { realUrlMiddleware } from './middleware/real-url';
-import { subdomainMiddleware } from './middleware/subdomain';
-import { languageMiddleware } from './middleware/locale';
-import { rewriteMiddleware } from './middleware/rewrite';
-import { corsMiddleware } from './middleware/cors';
 import { contentSecurityPolicyMiddleware } from './middleware/content-security-policy';
+import { corsMiddleware } from './middleware/cors';
 import { healthMiddleware } from 'middleware/health';
+import { languageMiddleware } from './middleware/language';
+import { logMiddleware } from 'middleware/log';
+import { realUrlMiddleware } from './middleware/real-url';
+import { rewriteMiddleware } from './middleware/rewrite';
+import { sessionMiddleware } from 'middleware/session';
+import { subdomainMiddleware } from './middleware/subdomain';
+import { userAgentMiddleware } from 'middleware/user-agent';
+import { apiKeyMiddleware } from 'middleware/api-key';
 
 export async function middleware(request: NextRequest) {
   const middlewares: NextMiddleware[] = [
+    logMiddleware,
     healthMiddleware,
     realUrlMiddleware,
     subdomainMiddleware,
     corsMiddleware,
     contentSecurityPolicyMiddleware,
     languageMiddleware,
+    userAgentMiddleware,
+    sessionMiddleware,
+    apiKeyMiddleware,
     rewriteMiddleware,
   ];
 
