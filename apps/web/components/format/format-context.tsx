@@ -7,7 +7,7 @@ const defaultLocale = new Intl.NumberFormat(undefined).resolvedOptions().locale;
 const defaultRegion = getDefaultRegion();
 
 function getDefaultRegion() {
-  if (typeof window === 'undefined') return 'US';
+  if (typeof window === 'undefined') return 'NL';
 
   const localeWithRegionRegex = /^[a-z]{2,4}([_-][a-z]{4})?[_-]([a-z]{2,3})/i;
 
@@ -15,7 +15,7 @@ function getDefaultRegion() {
     .map((locale) => locale.match(localeWithRegionRegex))
     .find((match) => match !== null);
 
-  return localeWithRegionMatch ? localeWithRegionMatch[2] : 'US';
+  return localeWithRegionMatch ? localeWithRegionMatch[2] : 'NL';
 }
 
 interface FormatContextProps {
