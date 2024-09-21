@@ -5,7 +5,7 @@ import { tv, type VariantProps } from 'tailwind-variants';
 import { cn } from '../../lib';
 
 const flex = tv({
-  base: 'flex gap-2 mt-4 items-center',
+  base: 'flex gap-2 [&:not(:first-child)]:mt-4 items-center',
   variants: {
     align: {
       left: 'justify-start',
