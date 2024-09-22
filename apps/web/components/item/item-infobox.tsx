@@ -6,9 +6,10 @@ import { FlexRow } from '@brickninja-org/ui/components/flex-row';
 import { LinkButton } from '@brickninja-org/ui/components/form/button';
 import { Headline } from '@brickninja-org/ui/components/headline';
 
+import { translateMany } from '@/lib/translate';
 import { LanguageLinks } from '@/components/info-box/language-links';
 import { ItemLink } from '@/components/item/item-link';
-import { PriceGuide } from '../info-box/price-guide';
+import { PriceGuide } from '@/components/item/price-guide';
 
 interface ItemInfoboxProps {
   item: Item;
@@ -17,12 +18,17 @@ interface ItemInfoboxProps {
 }
 
 export const ItemInfobox: FC<ItemInfoboxProps> = ({ item, data, language }) => {
+  const priceGuideTranslations = translateMany([
+    'priceGuide.official_price',
+    'priceGuide.per_piece',
+  ]);
+
   return (
     <div>
       <LanguageLinks language={language} link={<ItemLink item={item}/>}/>
 
       <Headline id="price-guide" noToc>Price Guide</Headline>
-      <PriceGuide data={data}/>
+      <PriceGuide data={data} translations={priceGuideTranslations}/>
 
       <Headline id="links" noToc>Links</Headline>
       <FlexRow wrap>

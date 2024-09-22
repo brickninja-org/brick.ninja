@@ -4,5 +4,8 @@
   "navigation.items": "Items",
   "search.placeholder": "Search",
   "search.results.items": "Items",
-  "search.results.pages": "Pages"
+  "search.results.pages": "Pages",
+  "priceGuide.title": "Price Guide",
+  "priceGuide.official_price": "Official Price",
+  "priceGuide.per_piece": "Per Piece"
 }

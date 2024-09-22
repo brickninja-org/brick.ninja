@@ -1,5 +1,9 @@
 {
   "search.placeholder": "Zoeken",
   "search.results.items": "Producten",
-  "search.results.pages": "Pagina's"
+  "search.results.pages": "Pagina's",
+  "priceGuide.title": "Prijsgids",
+  "priceGuide.official_price": "Officiële prijs",
+  "priceGuide.per_piece": "per steen"
+
 }
