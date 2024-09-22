@@ -90,7 +90,7 @@ async function DbStats() {
 
   return (
     <div className="flex justify-center gap-[32px_64px] min-h-24 flex-wrap -mt-4 mb-8 -mx-4 py-8 px-4 bg-gray-200">
-      {counts.items.map((i) => <Stat key={i.type} href="/item" title={`${i.type}${i.type !== 'Gear' && 's'}`} value={i._count}/>)}
+      {counts.items.map((i) => <Stat key={i.type} href="/item" title={`${i.type}${i.type !== 'Gear' ? 's' : ''}`} value={i._count}/>)}
     </div>
   );
 }
