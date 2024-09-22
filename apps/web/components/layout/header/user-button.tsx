@@ -37,7 +37,7 @@ const UserButtonLoader: FC<UserButtonProps> = async ({ language }) => {
 const UserButtonInternal: FC<UserButtonInternalProps> = ({ user }) => {
   if (!user) {
     return (
-      <LinkButton appearance="menu" href="/login" aria-label="Login" className="gap-1">
+      <LinkButton appearance="menu" href="/login" aria-label="Login" className="gap-1 px-3">
         <IoPersonOutline size={20}/>
         <span className="hidden md:block">Login</span>
       </LinkButton>

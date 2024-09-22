@@ -39,7 +39,7 @@ export const LanguageDropdown: FC = () => {
         hideTop={false}
         preferredPlacement="bottom"
         button={(
-          <Button appearance="menu" aria-label={localeName} className="gap-1">
+          <Button appearance="menu" aria-label={localeName} className="gap-1 px-3">
             <IoGlobeOutline size={20}/>
             <span className="hidden md:block">{localeName}</span>
           </Button>
