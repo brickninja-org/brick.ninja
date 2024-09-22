@@ -3,7 +3,7 @@ import { Prisma } from '@brickninja-org/database';
 import { LocalizedObject } from '../helper/types';
 import { GetSets } from '@brickset-api/types/data/get-sets';
 
-export const CURRENT_VERSION = 2;
+export const CURRENT_VERSION = 4;
 
 /** @see Prisma.ItemUpdateInput */
 interface MigratedItem {
@@ -29,7 +29,7 @@ export async function createMigrator() {
 
   // eslint-disable-next-line require-await
   return async function migrate({ en }: LocalizedObject<GetSets>, currentVersion = -1) {
-    console.log(en);
+    // console.log(en);
 
     const update: MigratedItem = {
       version: CURRENT_VERSION,
@@ -45,6 +45,18 @@ export async function createMigrator() {
       update.productCode = en.number;
       update.pieceCount = en.pieces;
       update.minifigureCount = en.minifigs;
+    }
+
+    if (currentVersion < 4) {
+      // Books / Magazines
+      if (en.theme === 'Books') {
+        update.type = 'Book';
+        if (en.number.startsWith('BRICKJOURNAL') || en.number.startsWith('BLOCKS')) {
+          update.subtype = 'Magazine';
+        }
+      } else if (en.theme === 'Gear') {
+        update.type = 'Gear';
+      }
     }
 
     return update satisfies Prisma.ItemUpdateInput;

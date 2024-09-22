@@ -1,7 +1,7 @@
 import { JobName } from '..';
 import { db } from '../../db';
 
-export async function queuedJobsForIds(name: JobName, ids: number[], { priority = 2, batchSize = 200 } = {}) {
+export async function queuedJobsForIds(name: JobName, ids: number[] | string [], { priority = 2, batchSize = 200 } = {}) {
   if (ids.length === 0) {
     return;
   }

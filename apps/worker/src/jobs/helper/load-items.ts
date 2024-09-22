@@ -7,7 +7,8 @@ export async function loadItems(ids: number[]) {
   const start = new Date();
 
   const [en] = await Promise.all([
-    fetchApi('/api/v3.asmx/getSets?params={year:2024,pageSize:5}', { apiKey: process.env.BRICKSET_API_KEY! }).then((res) => {
+    fetchApi(`/api/v3.asmx/getSets?params={query:'${ids.join(',')}',extendedData:1}`, { apiKey: process.env.BRICKSET_API_KEY! }).then((res) => {
+      console.log(res);
       if (res.status === 'error' || !res.sets) {
         return [];
       }

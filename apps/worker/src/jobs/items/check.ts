@@ -16,23 +16,23 @@ export const ItemsCheck: Job = {
     }
 
     // get item ids from the API
-    // params=%7B"year"%3A2024%2C"pageSize"%3A5%7D
-    const res = await fetchApi('/api/v3.asmx/getSets?params={year:2024,pageSize:5}', { apiKey: process.env.BRICKSET_API_KEY! }) as { status: string, matches: number, sets: GetSets[] };
-    console.log(res);
+    const res = await fetchApi('/api/v3.asmx/getSets?params={year:2024,extendedData:1,pageSize:500,pageNumber:1}', { apiKey: process.env.BRICKSET_API_KEY! }) as { status: string, matches: number, sets: GetSets[] };
+    // console.log(res);
 
     if (res.status === 'error' || !res.sets) {
       return;
     }
 
-    const ids = res.sets.map((set) => set.setID);
+    // const ids = res.sets.map((set) => set.setID);
 
     // get item ids from the DB
     const knownIds = await db.item.findMany({ select: { id: true }}).then((items) => items.map(({ id }) => id));
 
     // Build new ids
-    const newIds = ids.filter((id) => !knownIds.includes(id));
+    // const newDbIds = ids.filter((id) => !knownIds.includes(id));
+    const newIds = res.sets.filter((set) => !knownIds.includes(set.setID)).map((set) => set.number);
 
-    await queuedJobsForIds('items.new', newIds);
+    await queuedJobsForIds('items.new', newIds, { batchSize: 50 });
 
     dbDebug.log = false;
 
