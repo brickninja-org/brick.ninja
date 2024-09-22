@@ -3,6 +3,7 @@ import type { FC, ReactNode } from 'react';
 
 import Link from 'next/link';
 import { GiNinjaHead } from 'react-icons/gi';
+import { IoDocumentTextOutline } from 'react-icons/io5';
 
 import { LinkButton } from '@brickninja-org/ui/components/form/button';
 
@@ -33,11 +34,11 @@ const Layout: FC<LayoutProps> = ({ children, language }) => {
         <Menu navigation={<Navigation language={language}/>}>
           <Link href="/" aria-label="brick.ninja" className="group relative flex items-center gap-4 mr-8 font-bitter font-bold text-xl [transition:_transform_.3s_ease]">
             <GiNinjaHead fill="#991b1b"/>
-            <span className="group-hover:underline">brick.ninja</span>
+            <span className="hidden group-hover:underline md:block">brick.ninja</span>
           </Link>
           <Search translations={searchTranslations}/>
           <div className="flex -mr-2 ml-auto">
-            <LinkButton appearance="menu" href="/review" aria-label="Review" className="mr-2">Review</LinkButton>
+            <LinkButton appearance="menu" href="/review" aria-label="Review" className="gap-1"><IoDocumentTextOutline size={20}/><span className="hidden md:block">Review</span></LinkButton>
             <LanguageDropdown/>
             <UserButton language={language}/>
           </div>

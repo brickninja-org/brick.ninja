@@ -2,6 +2,7 @@
 
 import { useCallback, useState, type FC } from 'react';
 import { useRouter } from 'next/navigation';
+import { IoGlobeOutline } from 'react-icons/io5';
 
 import type { Language } from '@brickninja-org/database';
 import { Dropdown } from '@brickninja-org/ui/components/dropdown';
@@ -38,8 +39,9 @@ export const LanguageDropdown: FC = () => {
         hideTop={false}
         preferredPlacement="bottom"
         button={(
-          <Button appearance="menu" aria-label={localeName}>
-            {localeName}
+          <Button appearance="menu" aria-label={localeName} className="gap-1">
+            <IoGlobeOutline size={20}/>
+            <span className="hidden md:block">{localeName}</span>
           </Button>
         )}
       >

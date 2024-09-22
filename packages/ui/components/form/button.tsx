@@ -5,7 +5,7 @@ import { tv } from 'tailwind-variants';
 import { cn } from '../../lib';
 
 const buttonStyles = tv({
-  base: 'w-auto inline-flex items-center gap-3 m-0 py-2 px-4 border-none rounded-sm shadow-[inset_0_0_0_1px] shadow-gray-300 leading-5 text-black whitespace-nowrap cursor-pointer focus-visible:outline-none focus-visible:shadow-sm',
+  base: 'w-auto inline-flex items-center gap-3 py-2 px-4 border-none rounded-sm shadow-[inset_0_0_0_1px] shadow-gray-300 leading-5 text-black whitespace-nowrap cursor-pointer focus-visible:outline-none focus-visible:shadow-sm',
   variants: {
     appearance: {
       primary: 'bg-gray-100 shadow-gray-300 hover:[&:not(:disabled)]:bg-white font-semibold',
@@ -43,7 +43,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
   return (
     <button ref={ref} type={type} onClick={onClick} className={cn(buttonStyles({ appearance, flex, iconOnly }), className)} {...props}>
       {icon}
-      {children && <span>{children}</span>}
+      {children}
     </button>
   );
 });
@@ -61,7 +61,7 @@ export const LinkButton = forwardRef<HTMLAnchorElement, LinkButtonProps & Pick<R
 
   return (
     <LinkElement ref={ref} className={cn(buttonStyles({ appearance, flex }), className)} {...props}>
-      <span>{children}</span>
+      {children}
     </LinkElement>
   );
 });

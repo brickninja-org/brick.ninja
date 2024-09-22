@@ -3,12 +3,14 @@
 import { Fragment, useCallback, useEffect, useRef, useState, type ChangeEventHandler, type FC, type KeyboardEventHandler, type ReactElement } from 'react';
 import NextLink from 'next/link';
 import { autoUpdate, offset, shift, size, useDismiss, useFloating, useFocus, useInteractions, useListNavigation } from '@floating-ui/react';
+import { IoSearchOutline } from 'react-icons/io5';
+
+import { cn } from '@brickninja-org/ui/lib';
 
 import { useDebounce } from '@/hooks/use-debounce';
 
-import { usePageResults, useSearchApiResults } from './use-search-results';
 import type { TranslationSubset } from '@/lib/translate';
-import { cn } from '@brickninja-org/ui/lib';
+import { usePageResults, useSearchApiResults } from './use-search-results';
 
 export interface SearchProps {
   translations: TranslationSubset<
@@ -109,12 +111,12 @@ export const Search: FC<SearchProps> = ({ translations }) => {
 
   return (
     <form className="relative flex items-center w-[468px] bg-gray-100 focus-within:bg-white focus-within:shadow sm:shadow-[rgb(0_0_0_/_12%)] rounded-sm" ref={refs.setReference} {...getReferenceProps()}>
-      {/* <Icon icon="search"/> */}
+      <IoSearchOutline size={16} className="mr-2 ml-4 align-[-2px] flex-shrink-0 text-gray-600"/>
       {/* <div className={styles.restriciton}>Item</div> */}
 
       <input
         ref={inputRef}
-        className="flex-1 w-full p-2 bg-transparent focus:outline-none placeholder:text-gray-500"
+        className="flex-1 w-full py-1.5 px-2 bg-transparent focus:outline-none placeholder:text-gray-600"
         placeholder={translations['search.placeholder']}
         autoComplete="off"
         spellCheck="false"
@@ -123,7 +125,7 @@ export const Search: FC<SearchProps> = ({ translations }) => {
         onChange={handleSearchChange}
         onKeyDown={handleKeyDown}/>
 
-      {!loading && !open && (<div className="absolute right-2 rounded-sm text-sm text-gray-500"><kbd className="hidden md:inline-block py-[1px] px-1 rounded-sm border border-gray-300">/</kbd> or <kbd className="hidden md:inline-block py-[1px] px-[3px] rounded-sm border border-gray-300">s</kbd></div>)}
+      {!loading && !open && (<div className="hidden sm:inline-block absolute right-2 rounded-sm text-sm text-gray-600"><kbd className="py-[1px] px-1 rounded-sm border border-gray-300">/</kbd> or <kbd className="hidden md:inline-block py-[1px] px-[3px] rounded-sm border border-gray-300">s</kbd></div>)}
 
       {loading && (open || searchValue) && <div className="block w-4 h-4 rounded-lg ml-4 mr-2 border border-transparent border-t-gray-200 will-change-transform animate-rotate"/>}
 

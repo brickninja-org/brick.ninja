@@ -22,10 +22,10 @@ function MarketingPage({ params: { language }, searchParams }: PageProps) {
 
   return (
     <HeroLayout hero={(
-      <div className="flex flex-col items-center gap-16 p-8">
+      <div className="flex flex-col items-center gap-16 p-4 sm:p-8">
         <div className="flex flex-col z-[1]">
-          <div className="flex items-center gap-4 font-bitter text-6xl text-white"><GiNinjaHead/> brick.ninja</div>
-          <div className="mx-auto pt-2 border-t-2 border-white font-medium text-white"><Translate language={language} id="subtitle"/></div>
+          <div className="flex items-center gap-4 font-bitter text-4xl text-white sm:text-5xl md:text-6xl"><GiNinjaHead/> brick.ninja</div>
+          <div className="mx-auto pt-2 border-t-2 border-white font-medium text-base text-white md:text-lg"><Translate language={language} id="subtitle"/></div>
         </div>
       </div>
     )}
@@ -80,7 +80,7 @@ const getDbStats = cache(async () => {
 
 const Stat: FC<{ href: string, title: string, value: number }> = ({ href, title, value }) => {
   return (
-    <Link href={href} className="text-2xl text-gray-600"><span className="inline font-medium text-4xl"><FormatNumber value={value}/></span> {title}</Link>
+    <Link href={href} className="text-lg text-gray-600 sm:text-2xl"><span className="inline font-medium text-xl sm:text-4xl"><FormatNumber value={value}/></span> {title}</Link>
   );
 };
 
@@ -89,7 +89,7 @@ async function DbStats() {
   const counts = await getDbStats();
 
   return (
-    <div className="flex justify-center gap-[32px_64px] min-h-24 flex-wrap -mt-4 mb-8 -mx-4 py-8 px-4 bg-gray-200">
+    <div className="flex flex-wrap justify-center gap-[16px_32px] min-h-[82px] -mt-4 mb-8 -mx-4 py-8 px-4 bg-gray-200 max-sm:flex-col max-sm:items-center sm:min-h-[100px] sm:gap-[32px_64px]">
       {counts.items.map((i) => <Stat key={i.type} href="/item" title={`${i.type}${i.type !== 'Gear' ? 's' : ''}`} value={i._count}/>)}
     </div>
   );

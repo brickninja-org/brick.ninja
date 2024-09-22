@@ -1,4 +1,5 @@
 import { Suspense, type FC } from 'react';
+import { IoPersonOutline } from 'react-icons/io5';
 
 import type { Language } from '@brickninja-org/database';
 import { Dropdown } from '@brickninja-org/ui/components/dropdown';
@@ -36,8 +37,9 @@ const UserButtonLoader: FC<UserButtonProps> = async ({ language }) => {
 const UserButtonInternal: FC<UserButtonInternalProps> = ({ user }) => {
   if (!user) {
     return (
-      <LinkButton appearance="menu" href="/login" aria-label="Login">
-        <span className="">Login</span>
+      <LinkButton appearance="menu" href="/login" aria-label="Login" className="gap-1">
+        <IoPersonOutline size={20}/>
+        <span className="hidden md:block">Login</span>
       </LinkButton>
     );
   }
