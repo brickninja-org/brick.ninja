@@ -1,4 +1,7 @@
 {
+  "subtitle": "The Unofficial LEGO® Database",
+  "new.items": "New Items",
+  "navigation.items": "Items",
   "search.placeholder": "Search",
   "search.results.items": "Items",
   "search.results.pages": "Pages"

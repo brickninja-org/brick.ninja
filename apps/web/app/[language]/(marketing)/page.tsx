@@ -15,27 +15,27 @@ import { ItemLink } from '@/components/item/item-link';
 import { SkeletonLink } from '@/components/item/skeleton-link';
 import { HeroLayout } from '@/components/layout/hero-layout';
 import { PageView } from '@/components/page-view/page-view';
+import { Translate } from '@/components/i18n/translate';
 
 function MarketingPage({ params: { language }, searchParams }: PageProps) {
   console.log(searchParams);
-  console.log(language);
 
   return (
     <HeroLayout hero={(
       <div className="flex flex-col items-center gap-16 p-8">
         <div className="flex flex-col z-[1]">
           <div className="flex items-center gap-4 font-bitter text-6xl text-white"><GiNinjaHead/> brick.ninja</div>
-          <div className="mx-auto pt-2 border-t-2 border-white font-medium text-white">The Unofficial LEGO&reg; Database</div>
+          <div className="mx-auto pt-2 border-t-2 border-white font-medium text-white"><Translate language={language} id="subtitle"/></div>
         </div>
       </div>
     )}
     >
       <PageView page="/"/>
-      <Suspense fallback={<div className=""/>}>
+      <Suspense fallback={<div className="flex justify-center gap-[32px_64px] min-h-24 flex-wrap -mt-4 mb-8 -mx-4 py-8 px-4 bg-gray-200"/>}>
         <DbStats/>
       </Suspense>
 
-      <Headline id="new-items">New items</Headline>
+      <Headline id="new-items"><Translate language={language} id="new.items"/></Headline>
       <Suspense fallback={<ListFallback size={24}/>}>
         <NewItems/>
       </Suspense>
@@ -90,9 +90,7 @@ async function DbStats() {
 
   return (
     <div className="flex justify-center gap-[32px_64px] min-h-24 flex-wrap -mt-4 mb-8 -mx-4 py-8 px-4 bg-gray-200">
-      <Stat href="/sets" title="Sets" value={counts.items}/>
-      <Stat href="/minifigs" title="Minifigures" value={3254}/>
-      <Stat href="/parts" title="Parts" value={70251}/>
+      <Stat href="/item" title="Sets" value={counts.items}/>
     </div>
   );
 }
