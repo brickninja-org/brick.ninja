@@ -73,8 +73,6 @@ export const FormatProvider: FC<FormatProviderProps> = ({ children }) => {
 
   // build locale with language and region and validate it
   const customLocale = `${language === 'auto' ? currentLanguage : language}-${region === 'browser' ? defaultRegion : region}`;
-  console.log(customLocale);
-  console.log(defaultLocale);
   const locale = Intl.DateTimeFormat.supportedLocalesOf([customLocale, defaultLocale])[0];
 
   // creeate context
@@ -84,8 +82,22 @@ export const FormatProvider: FC<FormatProviderProps> = ({ children }) => {
     localFormat: new Intl.DateTimeFormat(locale, { dateStyle: 'short', timeStyle: 'short' }),
     relativeFormat: new Intl.RelativeTimeFormat(locale, { numeric: 'auto' }),
     numberFormat: new Intl.NumberFormat(locale, { useGrouping: true }),
-    currencyFormat: new Intl.NumberFormat(locale, { style: 'currency', currency: locale === 'en-US' ? 'USD' : 'EUR' }),
+    currencyFormat: new Intl.NumberFormat(locale, { style: 'currency', currency: getCurrencyByRegion(region), currencyDisplay: 'narrowSymbol' }),
   }), [language, region, locale]);
 
   return <FormatContext.Provider value={context}>{children}</FormatContext.Provider>;
 };
+
+function getCurrencyByRegion(region: string) {
+  switch (region) {
+    case 'US':
+      return 'USD';
+    case 'CA':
+      return 'CAD';
+    case 'GB':
+    case 'UK':
+      return 'GBP';
+    default:
+      return 'EUR';
+  }
+}
