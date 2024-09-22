@@ -12,24 +12,6 @@ interface PriceGuideProps {
   data: GetSets;
 }
 
-function getBricksetApiRegion(region: string) {
-  switch (region) {
-    case 'NL':
-    case 'DE':
-    case 'BE':
-      return 'DE';
-    case 'US':
-      return 'US';
-    case 'UK':
-    case 'GB':
-      return 'UK';
-    case 'CA':
-      return 'CA';
-    default:
-      return 'US';
-  }
-}
-
 // Get the retailPrice by region from Brickset API and calculate the price per piece update when region changes
 export function PriceGuide({ data }: PriceGuideProps) {
   const { region } = useFormatContext();
@@ -48,3 +30,20 @@ export function PriceGuide({ data }: PriceGuideProps) {
     ]}/>
   );
 }
+
+function getBricksetApiRegion(region: string) {
+  switch (region) {
+    case 'NL':
+    case 'DE':
+    case 'BE':
+      return 'DE';
+    case 'UK':
+    case 'GB':
+      return 'UK';
+    case 'CA':
+      return 'CA';
+    default:
+      return 'US';
+  }
+}
+

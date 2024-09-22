@@ -90,14 +90,16 @@ export const FormatProvider: FC<FormatProviderProps> = ({ children }) => {
 
 function getCurrencyByRegion(region: string) {
   switch (region) {
-    case 'US':
-      return 'USD';
+    case 'NL':
+    case 'DE':
+    case 'BE':
+      return 'EUR';
     case 'CA':
       return 'CAD';
     case 'GB':
     case 'UK':
       return 'GBP';
     default:
-      return 'EUR';
+      return 'USD';
   }
 }
