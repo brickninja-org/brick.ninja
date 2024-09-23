@@ -18,6 +18,7 @@ const styles = tv({
       blue: 'bg-blue-800 text-white',
       green: 'bg-green-800 text-white',
       red: 'bg-red-800 text-white',
+      yellow: 'bg-yellow-600 text-white',
     },
   },
   defaultVariants: {
