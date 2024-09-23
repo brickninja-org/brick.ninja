@@ -1,4 +1,3 @@
-import { GetSets } from '@brickset-api/types/data/get-sets';
 import { db, dbDebug } from '../../db';
 import { fetchApi } from '../helper/fetch-api';
 import { queuedJobsForIds } from '../helper/queued-job-for-ids';
@@ -16,11 +15,10 @@ export const ItemsCheck: Job = {
     }
 
     // get item ids from the API
-    const res = await fetchApi('/api/v3.asmx/getSets?params={year:2024,extendedData:1,pageSize:500,pageNumber:1}', { apiKey: process.env.BRICKSET_API_KEY! }) as { status: string, matches: number, sets: GetSets[] };
-    // console.log(res);
+    const res = await fetchApi('/api/v3.asmx/getSets?params={year:2020,extendedData:1,pageSize:10,pageNumber:1}', { apiKey: process.env.BRICKSET_API_KEY! });
 
-    if (res.status === 'error' || !res.sets) {
-      return;
+    if (res.status === 'error') {
+      return `Fetch error: ${res.message}`;
     }
 
     // const ids = res.sets.map((set) => set.setID);

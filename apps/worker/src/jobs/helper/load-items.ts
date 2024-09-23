@@ -19,7 +19,10 @@ export async function loadItems(ids: number[]) {
 
   const nl = en;
 
+  const missedIds = ids.filter((id) => !en.find((item) => item.setID === id));
+
   console.log(`Fetched ${ids.length} items in ${(new Date().valueOf() - start.valueOf()) / 1000}s`);
+  console.log(`Missed ${missedIds.length} items: ${missedIds.join(', ')}`);
 
   return groupLocalizedEntitiesById(en, nl);
 }
