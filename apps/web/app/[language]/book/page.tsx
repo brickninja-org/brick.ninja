@@ -12,7 +12,7 @@ import { HeroLayout } from '@/components/layout/hero-layout';
 
 const getBooks = unstable_cache((language: Language) => {
   return db.item.findMany({
-    where: { type: 'book' },
+    where: { type: 'Book' },
     select: {
       id: true,
       name_en: language === 'en',
