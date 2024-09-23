@@ -5,10 +5,10 @@ import { Language } from '@brickninja-org/database';
 import { Headline } from '@brickninja-org/ui/components/headline';
 import { Table } from '@brickninja-org/ui/components/table';
 
-import { localizedName } from '@/lib/localized-name';
 import type { PageProps } from '@/lib/next';
 import { db } from '@/lib/prisma';
 import { HeroLayout } from '@/components/layout/hero-layout';
+import { ItemLink } from '@/components/item/item-link';
 
 const getBooks = unstable_cache((language: Language) => {
   return db.item.findMany({
@@ -32,14 +32,14 @@ export default async function BookPage({ params }: PageProps) {
         <thead>
           <tr>
             <Table.HeaderCell small align="right">ID</Table.HeaderCell>
-            <Table.HeaderCell>Name</Table.HeaderCell>
+            <Table.HeaderCell sort="asc">Name</Table.HeaderCell>
           </tr>
         </thead>
         <tbody>
           {books.map((book) => (
             <tr key={book.id}>
               <td align="right">{book.productCode}</td>
-              <td>{localizedName(book, params.language)}</td>
+              <td><ItemLink item={book}/></td>
             </tr>
           ))}
         </tbody>
