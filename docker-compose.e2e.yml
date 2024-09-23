@@ -1,6 +1,6 @@
 services:
   e2e:
-    image: brickninja/e2e
+    image: brick.ninja/e2e
     build:
       context: .
       dockerfile: e2e/Dockerfile
