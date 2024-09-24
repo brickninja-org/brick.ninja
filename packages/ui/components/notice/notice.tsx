@@ -8,7 +8,7 @@ const notice = tv({
   variants: {
     color: {
       default: 'bg-blue-100 border-blue-500',
-      error: 'bgred-100 border-red-500',
+      error: 'bg-red-100 border-red-500',
       success: 'bg-green-100 border-green-500',
       warning: 'bg-yellow-100 border-yellow-500',
     },

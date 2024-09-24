@@ -13,6 +13,7 @@
     "styles/",
     "index.ts",
     "tailwind.config.ts",
+    "types.d.ts",
     "tsconfig.json",
     ".eslintrc.json"
   ],

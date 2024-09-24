@@ -10,8 +10,8 @@ export interface FormState {
 }
 
 export interface FormProps<State> {
-  action: (state: State, payload: FormData) => Promise<State>;
-  initialState?: State;
+  action: (state: State, payload: FormData) => Promise<State>,
+  initialState?: State,
   children: ReactNode;
   id?: string;
 }
@@ -29,7 +29,7 @@ export const Form: FC<FormProps<FormState>> = ({ action, initialState, children,
         <Notice color="error" ref={showNotice} key={crypto.randomUUID()}>{state.error}</Notice>
       )}
       {state.success && (
-        <Notice color="success" ref={showNotice} key={crypto.randomUUID()}>{state.success}</Notice>
+        <Notice ref={showNotice} key={crypto.randomUUID()}>{state.success}</Notice>
       )}
 
       {children}
