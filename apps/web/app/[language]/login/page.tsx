@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 import { PiCookieLight } from 'react-icons/pi';
+import { IoLockOpen } from 'react-icons/io5';
 
 // import { Scope } from '@bn2me/client/src/types';
 import { SubmitButton } from '@brickninja-org/ui/components/form/buttons/submit-button';
@@ -17,6 +18,7 @@ import type { PageProps } from '@/lib/next';
 export default async function LoginPage({ searchParams }: PageProps) {
   const user = await getUser();
   const returnTo = Array.isArray(searchParams.returnTo) ? searchParams.returnTo[0] : searchParams.returnTo;
+  // const scopes = Array.isArray(searchParams.scopes) ? searchParams.scopes.join(',') : searchParams.scopes;
 
   if (user) {
     redirect(getReturnToUrl(returnTo));
@@ -32,12 +34,12 @@ export default async function LoginPage({ searchParams }: PageProps) {
         <Notice>Logout successful</Notice>
       )}
 
-      <p>
+      <p className="mb-[1.5em]">
         Login to contribute to brick.ninja and to view your collection, and more.
       </p>
 
       <form action={redirectToBnMe.bind(null, returnTo /*, searchParams.scopes */)}>
-        <SubmitButton>Login with bn.me</SubmitButton>
+        <SubmitButton icon={<IoLockOpen fill="#991b1b" width={20}/>}>Login with bn.me</SubmitButton>
       </form>
 
       <div className="flex items-center gap-2 mt-8 py-3 px-4 border rounded-sm">

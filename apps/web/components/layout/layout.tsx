@@ -38,7 +38,7 @@ const Layout: FC<LayoutProps> = ({ children, language }) => {
           </Link>
           <Search translations={searchTranslations}/>
           <div className="flex -mr-2 ml-auto">
-            <LinkButton appearance="menu" href="/review" aria-label="Review" className="gap-1 px-3"><IoDocumentTextOutline size={20}/><span className="hidden md:block">Review</span></LinkButton>
+            <LinkButton appearance="menu" href="/review" aria-label="Review" className="gap-1 px-3" icon={<IoDocumentTextOutline size={20}/>}><span className="hidden md:block">Review</span></LinkButton>
             <LanguageDropdown/>
             <UserButton language={language}/>
           </div>
