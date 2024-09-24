@@ -1,6 +1,6 @@
 services:
   web:
-    image: brick.ninja/web
+    image: brickninja/web
     build:
       context: .
       dockerfile: apps/web/Dockerfile
@@ -14,7 +14,7 @@ services:
       - 3000:3000
 
   worker:
-    image: brick.ninja/worker
+    image: brickninja/worker
     build:
       context: .
       dockerfile: apps/worker/Dockerfile
@@ -41,7 +41,7 @@ services:
       - 54326:5432
 
   database-migration:
-    image: brick.ninja/database-migration
+    image: brickninja/database-migration
     build:
       context: .
       dockerfile: apps/database-migration/Dockerfile

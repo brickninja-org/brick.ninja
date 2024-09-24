@@ -1,9 +1,9 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-namespace: brick.ninja
+namespace: brickninja
 
 commonLabels:
-  app.kubernetes.io/part-of: brick.ninja
+  app.kubernetes.io/part-of: brickninja
 
 resources:
 - ../base
@@ -13,12 +13,12 @@ resources:
 images:
 - name: ghcr.io/brickninja-org/brick.ninja/web
   newTag: latest
-  newName: brick.ninja/web
+  newName: brickninja/web
 
 - name: ghcr.io/brickninja-org/brick.ninja/worker
   newTag: latest
-  newName: brick.ninja/worker
+  newName: brickninja/worker
 
 - name: ghcr.io/brickninja-org/brick.ninja/database-migration
   newTag: latest
-  newName: brick.ninja/database-migration
+  newName: brickninja/database-migration
