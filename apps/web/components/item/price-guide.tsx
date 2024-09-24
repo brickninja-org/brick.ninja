@@ -21,7 +21,7 @@ interface PriceGuideProps {
 export function PriceGuide({ data, translations }: PriceGuideProps) {
   const { region } = useFormatContext();
   
-  const [retailPrice, setRetailPrice] = useState<number | undefined>();
+  const [retailPrice, setRetailPrice] = useState<number | undefined>(undefined);
 
   // Set retail price base
   useEffect(() => {
@@ -30,8 +30,8 @@ export function PriceGuide({ data, translations }: PriceGuideProps) {
 
   return (
     <DataList data={[
-      { label: translations['priceGuide.official_price'], value: <FormatCurrency value={retailPrice}/>, key: 'official-price' },
-      { label: translations['priceGuide.per_piece'], value: <FormatCurrency value={retailPrice && (retailPrice / data.pieces)}/>, key: 'price-per-piece' },
+      retailPrice && retailPrice >= 0 ? { label: translations['priceGuide.official_price'], value: <FormatCurrency value={retailPrice}/>, key: 'official-price' } : false,
+      retailPrice && retailPrice > 0 ? { label: translations['priceGuide.per_piece'], value: <FormatCurrency value={retailPrice && (retailPrice / data.pieces)}/>, key: 'price-per-piece' } : false,
     ]}/>
   );
 }
