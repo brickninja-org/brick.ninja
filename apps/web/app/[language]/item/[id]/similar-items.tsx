@@ -26,7 +26,7 @@ export async function SimilarItems({ item }: { item: Item }) {
   }
 
   return (
-    <ItemTableContext id="similar-items">
+    <ItemTableContext id="similarItems">
       <Headline id="similar" actions={<ItemTableColumnsButton/>}>Similar Items</Headline>
       <ItemTable query={query} collapsed/>
     </ItemTableContext>
