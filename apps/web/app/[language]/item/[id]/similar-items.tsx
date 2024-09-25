@@ -14,6 +14,7 @@ export async function SimilarItems({ item }: { item: Item }) {
         {
           type: item.type,
           subtype: item.subtype,
+          productCode: item.productCode,
         }
       ],
     }

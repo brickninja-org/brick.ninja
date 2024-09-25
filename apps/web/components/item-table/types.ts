@@ -7,7 +7,7 @@ import type { TranslationId } from '@/lib/translate';
 
 import type { Signed } from './query';
 
-export type GlobalColumnId = 'id' | 'item' | 'name_en' | 'name_nl' | 'type';
+export type GlobalColumnId = 'id' | 'item' | 'name_en' | 'name_nl' | 'type' | 'productCode';
 
 export interface ItemTableQuery<Model extends QueryModel = 'item'> {
   model?: Model;

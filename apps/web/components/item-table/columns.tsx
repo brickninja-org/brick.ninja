@@ -10,7 +10,7 @@ import type { TranslationId } from '@/lib/translate';
 import { ItemLink } from '@/components/item/item-link';
 import type { SubType, Type } from '@/components/item/item-type.types';
 import { ItemType } from '@/components/item/item-type';
-import { /* translations, */ type TypeTranslation } from '@/components/item/item-type.translations';
+import { translations, type TypeTranslation } from '@/components/item/item-type.translations';
 
 import type { ColumnModelTypes, ExtraColumn, GlobalColumnId, ItemTableColumn, QueryModel, Result } from './types';
 
@@ -31,29 +31,34 @@ export const globalColumnDefinitions = {
     small: true,
     orderBy: [{ id: 'asc' }, { id: 'desc' }]
   }),
+  productCode: createColumn({
+    id: 'productCode',
+    order: 20,
+    select: { productCode: true },
+  }),
   item: createColumn({
     id: 'item',
-    order: 20,
+    order: 30,
     select: { name_en: true, name_nl: true },
   }),
   name_en: createColumn({
     id: 'name_en',
-    order: 50,
+    order: 40,
     select: { name_en: true },
     orderBy: [{ name_en: 'asc' }, { name_en: 'desc' }]
   }),
   name_nl: createColumn({
     id: 'name_nl',
-    order: 60,
+    order: 50,
     select: { name_nl: true },
     orderBy: [{ name_nl: 'asc' }, { name_nl: 'desc' }]
   }),
   type: createColumn({
     id: 'type',
-    order: 100,
+    order: 60,
     select: { type: true, subtype: true },
     orderBy: [[{ type: 'asc' }, { subtype: 'asc' }], [{ type: 'desc' }, { subtype: 'desc' }]],
-    // translations: translations.long
+    translations: translations.long
   }),
 };
 
@@ -76,6 +81,7 @@ export const globalColumnRenderer: Renderer = {
   // level: (item) => item.level,
   // rarity: (item, t) => <Rarity rarity={item.rarity}>{t[`rarity.${item.rarity}`]}</Rarity>,
   type: (item, t) => <ItemType type={item.type as Type} subtype={item.subtype as SubType<Type>} translations={t as Record<TypeTranslation<Type, SubType<Type>>, string>} display="long"/>,
+  productCode: (item) => item.productCode,
   // vendorValue: (item, t) => item.vendorValue === null ? empty(t['item.flag.NoSell']) : <Coins value={item.vendorValue}/>,
   // buyPrice: (item) => !item.tpTradeable ? empty() : renderPriceWithOptionalWarning(item.tpCheckedAt, item.buyPrice),
   // buyQuantity: (item) => !item.tpTradeable ? empty() : <FormatNumber value={item.buyQuantity ?? 0}/>,
