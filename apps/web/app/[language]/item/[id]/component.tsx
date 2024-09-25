@@ -1,4 +1,4 @@
-import type { FC } from 'react';
+import { Suspense, type FC } from 'react';
 
 import NextLink from 'next/link';
 import { notFound } from 'next/navigation';
@@ -22,8 +22,9 @@ import { ItemTooltip } from '@/components/item/item-tooltip';
 import { Json } from '@/components/format/json';
 import { Tooltip } from '@/components/tooltip';
 
-import { getItem, getRevision } from './data';
 import { EditContents } from './_edit-content/edit-contents';
+import { getItem, getRevision } from './data';
+import { SimilarItems } from './similar-items';
 
 export interface ItemPageComponentProps {
   language: Language;
@@ -106,6 +107,12 @@ export const ItemPageComponent: FC<ItemPageComponentProps> = async ({ language, 
           ))}
         </tbody>
       </Table>
+
+      {!fixedRevision && (
+        <Suspense>
+          <SimilarItems item={item}/>
+        </Suspense>
+      )}
 
       <Headline id="data">Data</Headline>
       <Json data={data}/>

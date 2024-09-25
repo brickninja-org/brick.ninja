@@ -12,7 +12,7 @@ import { FormatDate } from '@/components/format/format-date';
 import { FormatNumber } from '@/components/format/format-number';
 import { ItemList, ItemListItem } from '@/components/item/item-list';
 import { ItemLink } from '@/components/item/item-link';
-import { SkeletonLink } from '@/components/item/skeleton-link';
+import { SkeletonLink } from '@/components/skeleton/skeleton-link';
 import { HeroLayout } from '@/components/layout/hero-layout';
 import { PageView } from '@/components/page-view/page-view';
 import { Translate } from '@/components/i18n/translate';
