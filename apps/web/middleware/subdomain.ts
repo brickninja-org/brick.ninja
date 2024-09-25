@@ -16,7 +16,7 @@ declare module './types' {
 }
 
 export const subdomainMiddleware: NextMiddleware = (request, next, data) => {
-  const { url } = data;
+  const url = data.url;
 
   if (!url) {
     return new NextResponse('Internal Server Error', { status: 500 });

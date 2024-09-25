@@ -6,7 +6,8 @@ const baseDomain = process.env.BRICKNINJA_NEXT_DOMAIN;
 const languageSubdomains = [...Object.values(Language)];
 
 export const contentSecurityPolicyMiddleware: NextMiddleware = async (request, next, data) => {
-  const { subdomain, url } = data;
+  const url = data.url;
+  const subdomain = data.subdomain;
 
   // skip CSP for API (api.brick.ninja)
   if (subdomain === 'api') {
@@ -30,7 +31,7 @@ export const contentSecurityPolicyMiddleware: NextMiddleware = async (request, n
     script-src 'self' 'nonce-${nonce}' 'strict-dynamic' ${process.env.NODE_ENV !== 'production' ? '\'unsafe-eval\'' : ''};
     style-src 'self' 'unsafe-inline';
     img-src 'self' icons-bn.brickninja-cdn.com images.brickset.com lego.com;
-    connect-src 'self' ${alternateLanguageDomains.join(' ')};
+    connect-src 'self' ${alternateLanguageDomains.join(' ')} brickset.com;
     font-src 'self';
     object-src 'none';
     base-uri 'self';
