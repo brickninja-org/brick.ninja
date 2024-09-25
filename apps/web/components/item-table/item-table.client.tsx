@@ -1,7 +1,7 @@
 'use client';
 
 import { createElement, useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { IoChevronDownSharp, IoEllipsisVertical } from 'react-icons/io5';
+import { IoChevronDownSharp, IoEllipsisVertical, IoEyeOutline } from 'react-icons/io5';
 
 import { isEmptyObject } from '@brickninja-org/helper/is';
 import { Dropdown } from '@brickninja-org/ui/components/dropdown';
@@ -151,7 +151,7 @@ export const ItemTable = <ExtraColumnId extends string = never, Model extends Qu
                 <td>
                   <Dropdown button={<Button iconOnly appearance="menu" aria-label={translations['actions']}><IoEllipsisVertical size={24}/></Button>} preferredPlacement="right-start">
                     <MenuList>
-                      <LinkButton appearance="menu" icon="eye" href={`/item/${item.id}`}>{translations['itemTable.viewItem']}</LinkButton>
+                      <LinkButton appearance="menu" icon={<IoEyeOutline size={20}/>} href={`/item/${item.id}`}>{translations['itemTable.viewItem']}</LinkButton>
                       {/* <CopyButton appearance="menu" icon="chatlink" copy={encode('item', item.id) || ''}>{translations['chatlink.copy']}</CopyButton> */}
                     </MenuList>
                   </Dropdown>

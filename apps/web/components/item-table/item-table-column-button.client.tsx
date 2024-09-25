@@ -1,6 +1,7 @@
 'use client';
 
 import type { FC } from 'react';
+import { BiColumns } from 'react-icons/bi';
 import { PiCookieLight } from 'react-icons/pi';
 
 import { Dropdown } from '@brickninja-org/ui/components/dropdown';
@@ -26,10 +27,10 @@ export const ItemTableColumnsButton: FC<ItemTableColumnsButtonProps> = ({ transl
   const values = Object.values(availableColumns);
 
   return (
-    <Dropdown button={<Button icon="columns">{translations['table.columns']}</Button>} preferredPlacement="right-start">
+    <Dropdown button={<BiColumns size={20}>{translations['table.columns']}</BiColumns>} preferredPlacement="right-start">
       <MenuList>
         {!user && (
-          <div style={{ display: 'flex', gap: 12, padding: '4px 16px', maxWidth: 200, alignItems: 'center', background: 'var(--color-background-light)', border: '1px solid var(--color-border-dark)', lineHeight: 1.5, marginBottom: 8, borderRadius: 2 }}>
+          <div className="flex items-center gap-3 mb-2 py-1 px-4 max-w-[200px] rounded-sm border bg-gray-200">
             <PiCookieLight size={20}/>
             Changing columns will store cookies in your browser
           </div>
