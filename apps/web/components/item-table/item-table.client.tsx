@@ -80,7 +80,8 @@ export const ItemTable = <ExtraColumnId extends string = never, Model extends Qu
     const options = {
       columns: columns.map(({ globalColumnId, select }) => globalColumnId ?? select),
       orderBy: orderBy ? columns.find(({ id }) => id === orderBy.column)?.orderBy?.[orderBy.order === 'desc' ? 1 : 0] : undefined,
-      take, skip
+      take,
+      skip,
     };
     setLoading(true);
     const currentRequestId = ++requestId.current;

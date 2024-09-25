@@ -14,6 +14,7 @@ import '@brickninja-org/ui/styles/globals.scss';
 
 import { FormatProvider } from '@/components/format/format-context';
 import { I18nProvider } from '@/components/i18n/i18n-provider';	
+import { ItemTableContext } from '@/components/item-table';
 import Layout from '@/components/layout/layout';
 
 const bitter = Bitter({
@@ -35,9 +36,11 @@ export default function RootLayout({
       <body>
         <I18nProvider language={params.language}>
           <FormatProvider>
-            <DataTableContext>
-              <Layout language={params.language}>{children}</Layout>
-            </DataTableContext>
+            <ItemTableContext global id="global">
+              <DataTableContext>
+                <Layout language={params.language}>{children}</Layout>
+              </DataTableContext>
+            </ItemTableContext>
           </FormatProvider>
         </I18nProvider>
       </body>
