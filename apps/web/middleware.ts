@@ -13,12 +13,14 @@ import { sessionMiddleware } from 'middleware/session';
 import { subdomainMiddleware } from './middleware/subdomain';
 import { userAgentMiddleware } from 'middleware/user-agent';
 import { apiKeyMiddleware } from 'middleware/api-key';
+import { dropSearchParamsMiddleware } from 'middleware/drop-search-params';
 
 export async function middleware(request: NextRequest) {
   const middlewares: NextMiddleware[] = [
     logMiddleware,
     healthMiddleware,
     realUrlMiddleware,
+    dropSearchParamsMiddleware,
     subdomainMiddleware,
     corsMiddleware,
     contentSecurityPolicyMiddleware,
