@@ -30,8 +30,8 @@ export const ItemTableColumnsButton: FC<ItemTableColumnsButtonProps> = ({ transl
     <Dropdown button={<Button icon={<BiColumns size={20}/>}>{translations['table.columns']}</Button>} preferredPlacement="right-start">
       <MenuList>
         {!user && (
-          <div className="flex items-center gap-3 mb-2 py-1 px-4 max-w-[200px] rounded-sm border bg-gray-200">
-            <PiCookieLight size={20}/>
+          <div className="flex items-center gap-3 mb-2 py-1 px-4 max-w-[200px] rounded-sm border bg-gray-100">
+            <PiCookieLight className="w-5" size={20}/>
             Changing columns will store cookies in your browser
           </div>
         )}
