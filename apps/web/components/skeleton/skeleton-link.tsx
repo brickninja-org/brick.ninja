@@ -1,7 +1,8 @@
 import type { FC } from 'react';
 
-import { Skeleton } from '@/components/skeleton';
 import { cn } from '@brickninja-org/ui/lib';
+
+import { Skeleton } from '@/components/skeleton';
 
 export interface SkeletonLinkProps {
   icon?: number | 'none';

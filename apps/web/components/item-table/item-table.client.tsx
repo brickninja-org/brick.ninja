@@ -1,0 +1,193 @@
+'use client';
+
+import { createElement, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { IoChevronDownSharp, IoEllipsisVertical } from 'react-icons/io5';
+
+import { isEmptyObject } from '@brickninja-org/helper/is';
+import { Dropdown } from '@brickninja-org/ui/components/dropdown';
+import { FlexRow } from '@brickninja-org/ui/components/flex-row';
+import { Button, LinkButton } from '@brickninja-org/ui/components/form/button';
+// import { CopyButton } from '@brickninja-org/ui/components/form/buttons/copy-button';
+import { MenuList } from '@brickninja-org/ui/components/layout/menu-list';
+import { Notice } from '@brickninja-org/ui/components/notice';
+import { Table, TableRowButton } from '@brickninja-org/ui/components/table';
+
+import type { TranslationId, TranslationSubset } from '@/lib/translate';
+import { FormatNumber } from '@/components/format/format-number';
+import { Pagination, type PaginationProps } from '@/components/pagination';
+import { Skeleton, SkeletonTable } from '@/components/skeleton';
+
+import type { Signed } from './query';
+import type { ItemTableLoadOptions } from './item-table.actions';
+import type { AvailableColumns, GlobalColumnId, ItemTableQuery, LoadItemsResult, QueryModel } from './types';
+import { globalColumnRenderer } from './columns';
+import { useItemTableContext } from './context';
+import { getHistoryState, updateHistoryState } from './history-state';
+// import { Icon } from '@gw2treasures/ui';
+// import { encode } from 'gw2e-chat-codes';
+
+const LOADING = false;
+type LOADING = typeof LOADING;
+
+export interface ItemTableProps<ExtraColumnId extends string, Model extends QueryModel> {
+  query: Signed<ItemTableQuery<Model>>;
+  defaultColumns?: (GlobalColumnId | ExtraColumnId)[];
+  availableColumns: AvailableColumns<GlobalColumnId | ExtraColumnId>;
+  collapsed?: boolean;
+  translations: PaginationProps['translations'] & TranslationSubset<'itemTable.viewItem' | 'actions'>
+}
+
+const globalDefaultColumns: GlobalColumnId[] = [
+  'item', 'type',
+];
+
+export const ItemTable = <ExtraColumnId extends string = never, Model extends QueryModel = 'item'>({ query, defaultColumns = globalDefaultColumns, availableColumns, collapsed: initialCollapsed, translations }: ItemTableProps<ExtraColumnId, Model>) => {
+  type ColumnId = ExtraColumnId | GlobalColumnId;
+  const { setDefaultColumns, setAvailableColumns, selectedColumns, id, isGlobalContext } = useItemTableContext<ColumnId>();
+
+  const [items, setItems] = useState<{ id: number }[] | LOADING>(LOADING);
+  const [totalItems, setTotalItems] = useState(3);
+  const [page, setPage] = useState(getHistoryState(id).page ?? 0);
+  const [collapsed, setCollapsed] = useState(initialCollapsed && isEmptyObject(getHistoryState(id)));
+  const [loadedColumns, setLoadedColumns] = useState<ColumnId[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [orderBy, setOrderBy] = useState<{ column: ColumnId, order: 'asc' | 'desc' } | undefined>(getHistoryState<ColumnId>(id).orderBy);
+  const [range, setRange] = useState<{ length: number, offset: number }>();
+  const [dynamicTranslations, setDynamicTranslations] = useState<Partial<Record<TranslationId, string>>>({});
+
+  const requestId = useRef(0);
+
+  const pageSize = 10;
+  const collapsedSize = 5;
+
+  useEffect(() => {
+    // show loading skeleton when the query changes
+    setItems(LOADING);
+  }, [query]);
+
+  useEffect(() => setDefaultColumns(defaultColumns), [setDefaultColumns, defaultColumns]);
+  useEffect(() => setAvailableColumns(availableColumns), [setAvailableColumns, availableColumns]);
+
+  const columns = useMemo(() => {
+    return (selectedColumns ?? defaultColumns).map(
+      (id) => availableColumns[id]
+    );
+  }, [availableColumns, selectedColumns, defaultColumns]);
+
+  useEffect(() => {
+    const take = collapsed ? collapsedSize : pageSize;
+    const skip = collapsed ? 0 : pageSize * page;
+    const options = {
+      columns: columns.map(({ globalColumnId, select }) => globalColumnId ?? select),
+      orderBy: orderBy ? columns.find(({ id }) => id === orderBy.column)?.orderBy?.[orderBy.order === 'desc' ? 1 : 0] : undefined,
+      take, skip
+    };
+    setLoading(true);
+    const currentRequestId = ++requestId.current;
+    loadItems(query, options, id).then(({ items, translations: dynamicTranslations }) => {
+      if(currentRequestId !== requestId.current) {
+        return;
+      }
+      setItems(items);
+      setDynamicTranslations(dynamicTranslations);
+      setLoadedColumns(columns.map(({ id }) => id));
+      setLoading(false);
+      setRange({ length: items.length, offset: skip });
+    });
+  }, [collapsed, columns, orderBy, page, query, id]);
+
+  useEffect(() => {
+    loadTotalItemCount(query, id).then(setTotalItems);
+  }, [query, id]);
+
+  useEffect(() => updateHistoryState(id, { page }), [id, page]);
+  useEffect(() => updateHistoryState(id, { orderBy }), [id, orderBy]);
+
+  const handleSort = useCallback((column: ColumnId) => {
+    setCollapsed(false);
+    setOrderBy(
+      (orderBy) => orderBy?.column !== column || orderBy?.order !== 'desc'
+        ? { column, order: orderBy?.column !== column ? 'asc' : 'desc' }
+        : undefined
+    );
+  }, []);
+
+  if(items === LOADING) {
+    return (<SkeletonTable icons columns={columns.map((column) => column.title)} rows={Math.min(totalItems, collapsed ? collapsedSize : pageSize)}/>);
+  }
+
+  return (
+    <>
+      {process.env.NODE_ENV === 'development' && isGlobalContext && (<Notice color="warning">Missing ItemTableContext</Notice>)}
+      <Table>
+        <thead>
+          <tr>
+            {columns.map((column) => (
+              <Table.HeaderCell key={column.id} align={column.align} small={column.small} sort={column.orderBy && (column.id === orderBy?.column ? orderBy?.order : true)} onSort={() => handleSort(column.id)}>
+                {column.title}
+              </Table.HeaderCell>
+            ))}
+            <Table.HeaderCell small/>
+          </tr>
+        </thead>
+        <tbody>
+          {items.map((item) => {
+            const properties = query.data.mapToItem && query.data.model !== undefined && query.data.model !== 'item'
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            ? { item: (item as any)[query.data.mapToItem], [query.data.model]: item, translations: dynamicTranslations }
+            : { item, translations: dynamicTranslations };
+
+            return (
+              <tr key={item.id ?? properties.item.id}>
+                {columns.map((column) => {
+                  return (
+                    <td key={column.id} align={column.align}>
+                      {loadedColumns.includes(column.id) ? (
+                        column.component ? createElement(column.component, properties) : globalColumnRenderer[column.id as GlobalColumnId](properties.item, properties.translations as Record<TranslationId, string>)
+                      ) : <Skeleton width={48}/>}
+                    </td>
+                  );
+                })}
+                <td>
+                  <Dropdown button={<Button iconOnly appearance="menu" aria-label={translations['actions']}><IoEllipsisVertical size={24}/></Button>} preferredPlacement="right-start">
+                    <MenuList>
+                      <LinkButton appearance="menu" icon="eye" href={`/item/${item.id}`}>{translations['itemTable.viewItem']}</LinkButton>
+                      {/* <CopyButton appearance="menu" icon="chatlink" copy={encode('item', item.id) || ''}>{translations['chatlink.copy']}</CopyButton> */}
+                    </MenuList>
+                  </Dropdown>
+                </td>
+              </tr>
+            );
+          })}
+          {collapsed && totalItems > collapsedSize && (
+            <TableRowButton key="show-more" onClick={() => setCollapsed(false)}><IoChevronDownSharp size={24}/> Show <FormatNumber value={totalItems - collapsedSize}/> more</TableRowButton>
+          )}
+        </tbody>
+      </Table>
+      {!collapsed && (
+        <FlexRow align="between">
+          <div>
+            Showing <b><FormatNumber value={range ? range.offset + 1 : 0}/>&ndash;<FormatNumber value={(range?.offset ?? 0) + (range?.length ?? 0)}/></b> of <b><FormatNumber value={totalItems}/></b> items
+          </div>
+          <Pagination disabled={loading} current={page} total={Math.ceil(totalItems / pageSize)} onPageChange={setPage} translations={translations}/>
+        </FlexRow>
+      )}
+    </>
+  );
+};
+
+function loadItems<Model extends QueryModel>(query: Signed<ItemTableQuery<Model>>, options: ItemTableLoadOptions<Model>, id: string): LoadItemsResult {
+  return fetch(`/api/item/item-table?${encodeURIComponent(id)}`, {
+    method: 'POST',
+    body: JSON.stringify({ query, options }),
+    headers: { 'content-type': 'application/json' }
+  }).then((r) => r.json());
+}
+
+function loadTotalItemCount<Model extends QueryModel>(query: Signed<ItemTableQuery<Model>>, id: string): Promise<number> {
+  return fetch(`/api/item/item-table?${encodeURIComponent(id)}&count`, {
+    method: 'POST',
+    body: JSON.stringify({ query }),
+    headers: { 'content-type': 'application/json' }
+  }).then((r) => r.json());
+}

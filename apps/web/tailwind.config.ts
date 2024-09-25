@@ -11,6 +11,9 @@ const config: Partial<Config> = {
   ],
   theme: {
     extend: {
+      featureSettings: {
+        DEFAULT: '"tnum" 1',
+      },
       fontFamily: {
         bitter: ['var(--font-bitter)'],
       },
@@ -20,6 +23,7 @@ const config: Partial<Config> = {
       },
       boxShadow: {
         DEFAULT: '0 0 2px rgba(0,0,0,0.12), 0 4px 8px rgba(0,0,0,0.14)',
+        focus: 'inset 0 0 0 2px #245dc1',
       },
       keyframes: {
         rotate: {
