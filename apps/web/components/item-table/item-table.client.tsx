@@ -149,7 +149,7 @@ export const ItemTable = <ExtraColumnId extends string = never, Model extends Qu
                   );
                 })}
                 <td>
-                  <Dropdown button={<Button iconOnly appearance="menu" aria-label={translations['actions']}><IoEllipsisVertical size={24}/></Button>} preferredPlacement="right-start">
+                  <Dropdown button={<Button iconOnly appearance="menu" aria-label={translations['actions']}><IoEllipsisVertical size={20}/></Button>} preferredPlacement="right-start">
                     <MenuList>
                       <LinkButton appearance="menu" icon={<IoEyeOutline size={20}/>} href={`/item/${item.id}`}>{translations['itemTable.viewItem']}</LinkButton>
                       {/* <CopyButton appearance="menu" icon="chatlink" copy={encode('item', item.id) || ''}>{translations['chatlink.copy']}</CopyButton> */}

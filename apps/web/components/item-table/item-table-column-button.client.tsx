@@ -27,7 +27,7 @@ export const ItemTableColumnsButton: FC<ItemTableColumnsButtonProps> = ({ transl
   const values = Object.values(availableColumns);
 
   return (
-    <Dropdown button={<BiColumns size={20}>{translations['table.columns']}</BiColumns>} preferredPlacement="right-start">
+    <Dropdown button={<Button icon={<BiColumns size={20}/>}>{translations['table.columns']}</Button>} preferredPlacement="right-start">
       <MenuList>
         {!user && (
           <div className="flex items-center gap-3 mb-2 py-1 px-4 max-w-[200px] rounded-sm border bg-gray-200">

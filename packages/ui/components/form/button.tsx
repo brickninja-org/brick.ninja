@@ -61,11 +61,11 @@ export interface LinkButtonProps extends CommonButtonProps {
   external?: boolean;
 }
 
-export const LinkButton = forwardRef<HTMLAnchorElement, LinkButtonProps & Pick<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'target' | 'rel'>>(function Button({ appearance, children, className, icon, external, flex, ...props }, ref) {
+export const LinkButton = forwardRef<HTMLAnchorElement, LinkButtonProps & Pick<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'target' | 'rel'>>(function Button({ appearance, children, className, icon, external, flex, fullWidth, ...props }, ref) {
   const LinkElement = external ? 'a' : Link;
 
   return (
-    <LinkElement ref={ref} className={cn(button({ appearance, flex }), className)} {...props}>
+    <LinkElement ref={ref} className={cn(button({ appearance, flex, fullWidth }), className)} {...props}>
       {icon}
       {children}
     </LinkElement>
