@@ -14,11 +14,19 @@ export const ItemsCheck: Job = {
       return 'Waiting for pending follow up jobs';
     }
 
+    // skip if we reached the limit of 100 API calls today
+    /*
+    const apiCount = await db.apiRequest.count({ where: { createdAt: { gte: new Date(new Date().setHours(0, 0, 0, 0)) }}});
+    if (apiCount >= 100) {
+      return `Reached API limit of ${apiCount} calls today`;
+    }
+    */
+
     // get item ids from the API
-    const res = await fetchApi('/api/v3.asmx/getSets?params={year:2020,extendedData:1,pageSize:10,pageNumber:1}', { apiKey: process.env.BRICKSET_API_KEY! });
+    const res = await fetchApi('/api/v3.asmx/getSets?params={year:2013,extendedData:1,pageSize:500,pageNumber:1}', { apiKey: process.env.BRICKSET_API_KEY! });
 
     if (res.status === 'error') {
-      return `Fetch error: ${res.message}`;
+      return res.message;
     }
 
     // const ids = res.sets.map((set) => set.setID);
