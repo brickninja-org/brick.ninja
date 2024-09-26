@@ -13,6 +13,9 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: !!process.env.SKIP_LINT,
   },
+  typescript: {
+    ignoreBuildErrors: !!process.env.SKIP_TYPES,
+  },
   webpack: (config, { isServer }) => {
     if (isServer) {
       config.plugins = [...config.plugins, new PrismaPlugin()];

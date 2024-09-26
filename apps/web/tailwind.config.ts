@@ -22,8 +22,9 @@ const config: Partial<Config> = {
         'slide-in': 'slide-in .1s ease-out',
       },
       boxShadow: {
-        DEFAULT: '0 0 2px rgba(0,0,0,0.12), 0 4px 8px rgba(0,0,0,0.14)',
+        DEFAULT: '0 0 2px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.14)',
         focus: 'inset 0 0 0 2px #245dc1',
+        inner: 'inset 0 -1px 0 0 rgba(0, 0, 0, 0.14)',
       },
       keyframes: {
         rotate: {

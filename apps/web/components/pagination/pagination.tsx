@@ -1,7 +1,7 @@
 import { type FC, type MouseEventHandler, useCallback } from 'react';
-import { IoChevronBack, IoChevronForward } from 'react-icons/io5';
 
 import { Button } from '@brickninja-org/ui/components/form/button';
+import { Icon } from '@brickninja-org/ui/components/icon';
 import { Tip } from '@brickninja-org/ui/components/tip';
 
 import type { TranslationSubset } from '@/lib/translate';
@@ -26,11 +26,11 @@ export const Pagination: FC<PaginationProps> = ({ current, total, onPageChange, 
   return (
     <div className="flex flex-flex-wrap items-center">
       <Tip tip={translations['pagination.previous']} preferredPlacement="bottom">
-        <Button iconOnly onClick={handlePrev} disabled={disabled || current < 1} aria-label={translations['pagination.previous']}><IoChevronBack size={20}/></Button>
+        <Button iconOnly onClick={handlePrev} disabled={disabled || current < 1} aria-label={translations['pagination.previous']}><Icon icon="chevron-left"/></Button>
       </Tip>
       <span className="inline-block min-w-16 mx-2 text-center feature-settings">{current + 1} / {total}</span>
       <Tip tip={translations['pagination.next']} preferredPlacement="bottom">
-        <Button iconOnly onClick={handleNext} disabled={disabled || current > total - 2} aria-label={translations['pagination.next']}><IoChevronForward size={20}/></Button>
+        <Button iconOnly onClick={handleNext} disabled={disabled || current > total - 2} aria-label={translations['pagination.next']}><Icon icon="chevron-right"/></Button>
       </Tip>
     </div>
   );

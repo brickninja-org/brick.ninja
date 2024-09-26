@@ -3,9 +3,9 @@ import type { FC, ReactNode } from 'react';
 
 import Link from 'next/link';
 import { GiNinjaHead } from 'react-icons/gi';
-import { IoDocumentTextOutline } from 'react-icons/io5';
 
 import { LinkButton } from '@brickninja-org/ui/components/form/button';
+import { Icon } from '@brickninja-org/ui/components/icon';
 
 import { translateMany } from '@/lib/translate';
 import { LanguageDropdown } from '@/components/layout/header/language-dropdown';
@@ -29,7 +29,7 @@ const Layout: FC<LayoutProps> = ({ children, language }) => {
   ], language);
 
   return (
-    <div>
+    <div className="[--icon-size:20px]">
       <div className="layout grid min-h-[100dvh]">
         <Menu navigation={<Navigation language={language}/>}>
           <Link href="/" aria-label="brick.ninja" className="group relative flex items-center gap-4 mr-8 font-bitter font-bold text-xl [transition:_transform_.3s_ease]">
@@ -38,7 +38,7 @@ const Layout: FC<LayoutProps> = ({ children, language }) => {
           </Link>
           <Search translations={searchTranslations}/>
           <div className="flex -mr-2 ml-auto">
-            <LinkButton appearance="menu" href="/review" aria-label="Review" className="gap-1 px-3" icon={<IoDocumentTextOutline size={20}/>}><span className="hidden md:block">Review</span></LinkButton>
+            <LinkButton appearance="menu" href="/review" aria-label="Review" className="gap-1 px-3" icon={<Icon icon="notepad-edit"/>}><span className="hidden md:block">Review</span></LinkButton>
             <LanguageDropdown/>
             <UserButton language={language}/>
           </div>

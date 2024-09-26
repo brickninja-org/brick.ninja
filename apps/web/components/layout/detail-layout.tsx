@@ -3,12 +3,12 @@ import type { FC, ReactNode } from 'react';
 import './detail-layout.css';
 
 import { tv } from 'tailwind-variants';
-import { MdOutlineMoreVert } from 'react-icons/md';
 
 import { Button } from '@brickninja-org/ui/components/form/button';
 import { Dropdown } from '@brickninja-org/ui/components/dropdown';
 import { MenuList } from '@brickninja-org/ui/components/layout/menu-list';
 import { TableOfContent, TableOfContentContext } from '@brickninja-org/ui/components/table-of-content';
+import { Icon } from '@brickninja-org/ui/components/icon';
 
 interface DetailLayoutProps {
   title: ReactNode;
@@ -32,7 +32,7 @@ const DetailLayout: FC<DetailLayoutProps> = ({ title, children, actions, breadcr
           {breadcrumb && <div className="[grid-area:_breadcrumb] mt-2 text-sm text-gray-800">{breadcrumb}</div>}
           {actions && (
             <div className="[grid-area:_actions] flex flex-col justify-center">
-              <Dropdown button={<Button iconOnly appearance="menu" aria-label="Actions"><MdOutlineMoreVert/></Button>}>
+              <Dropdown button={<Button iconOnly appearance="menu" aria-label="Actions"><Icon icon="more-vertical"/></Button>}>
                 <MenuList>{actions}</MenuList>
               </Dropdown>
             </div>

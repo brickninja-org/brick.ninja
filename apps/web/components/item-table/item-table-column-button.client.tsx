@@ -1,12 +1,11 @@
 'use client';
 
 import type { FC } from 'react';
-import { BiColumns } from 'react-icons/bi';
-import { PiCookieLight } from 'react-icons/pi';
 
 import { Dropdown } from '@brickninja-org/ui/components/dropdown';
 import { Button } from '@brickninja-org/ui/components/form/button';
 import { Checkbox } from '@brickninja-org/ui/components/form/checkbox';
+import { Icon } from '@brickninja-org/ui/components/icon';
 import { MenuList } from '@brickninja-org/ui/components/layout/menu-list';
 import { Separator } from '@brickninja-org/ui/components/layout/separator';
 
@@ -27,11 +26,11 @@ export const ItemTableColumnsButton: FC<ItemTableColumnsButtonProps> = ({ transl
   const values = Object.values(availableColumns);
 
   return (
-    <Dropdown button={<Button icon={<BiColumns size={20}/>}>{translations['table.columns']}</Button>} preferredPlacement="right-start">
+    <Dropdown button={<Button icon={<Icon icon="table-insert-column"/>}>{translations['table.columns']}</Button>} preferredPlacement="right-start">
       <MenuList>
         {!user && (
           <div className="flex items-center gap-3 mb-2 py-1 px-4 max-w-[200px] rounded-sm border bg-gray-100">
-            <PiCookieLight className="w-5" size={20}/>
+            <Icon icon="cookie"/>
             Changing columns will store cookies in your browser
           </div>
         )}

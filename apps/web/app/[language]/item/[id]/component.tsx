@@ -2,10 +2,10 @@ import { Suspense, type FC } from 'react';
 
 import NextLink from 'next/link';
 import { notFound } from 'next/navigation';
-import { MdOutlineRemoveRedEye } from 'react-icons/md';
 
 import type { Language } from '@brickninja-org/database';
 import { Headline } from '@brickninja-org/ui/components/headline';
+import { Icon } from '@brickninja-org/ui/components/icon';
 import { Notice } from '@brickninja-org/ui/components/notice';
 import { Table } from '@brickninja-org/ui/components/table';
 import { TableOfContentAnchor } from '@brickninja-org/ui/components/table-of-content';
@@ -93,7 +93,7 @@ export const ItemPageComponent: FC<ItemPageComponentProps> = async ({ language, 
         <tbody>
           {item.history.map((history) => (
             <tr key={history.revisionId}>
-              <td style={{ paddingRight: 0 }}>{history.revisionId === revision.id && <Tip tip="Currently viewing"><MdOutlineRemoveRedEye/></Tip>}</td>
+              <td style={{ paddingRight: 0 }}>{history.revisionId === revision.id && <Tip tip="Currently viewing"><Icon icon="eye"/></Tip>}</td>
               <td>
                 <Tooltip content={<ItemLinkTooltip item={getLinkProperties(item)} language={language} revision={history.revisionId}/>}>
                   <NextLink href={`/item/${item.id}/${history.revisionId}`}>

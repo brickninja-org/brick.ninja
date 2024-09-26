@@ -1,7 +1,7 @@
 import { Suspense, type FC } from 'react';
-import { IoPersonOutline } from 'react-icons/io5';
 
 import type { Language } from '@brickninja-org/database';
+import { Icon } from '@brickninja-org/ui/components/icon';
 import { Dropdown } from '@brickninja-org/ui/components/dropdown';
 import { LinkButton } from '@brickninja-org/ui/components/form/button';
 import { MenuList } from '@brickninja-org/ui/components/layout/menu-list';
@@ -37,7 +37,7 @@ const UserButtonLoader: FC<UserButtonProps> = async ({ language }) => {
 const UserButtonInternal: FC<UserButtonInternalProps> = ({ user }) => {
   if (!user) {
     return (
-      <LinkButton appearance="menu" href="/login" aria-label="Login" className="gap-1 px-3" icon={<IoPersonOutline size={20}/>}>
+      <LinkButton appearance="menu" href="/login" aria-label="Login" className="gap-1 px-3" icon={<Icon icon="person"/>}>
         <span className="hidden md:block">Login</span>
       </LinkButton>
     );

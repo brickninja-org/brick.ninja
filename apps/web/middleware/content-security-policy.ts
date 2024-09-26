@@ -32,7 +32,7 @@ export const contentSecurityPolicyMiddleware: NextMiddleware = async (request, n
     style-src 'self' 'unsafe-inline';
     img-src 'self' icons-bn.brickninja-cdn.com images.brickset.com lego.com;
     connect-src 'self' ${alternateLanguageDomains.join(' ')} brickset.com;
-    font-src 'self' static fonts.gstatic.com;
+    font-src 'self';
     object-src 'none';
     base-uri 'self';
     form-action 'self';

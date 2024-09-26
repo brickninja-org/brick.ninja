@@ -1,11 +1,10 @@
 import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
-import { PiCookieLight } from 'react-icons/pi';
-import { IoLockOpen } from 'react-icons/io5';
 
 // import { Scope } from '@bn2me/client/src/types';
 import { SubmitButton } from '@brickninja-org/ui/components/form/buttons/submit-button';
 import { Headline } from '@brickninja-org/ui/components/headline';
+import { Icon } from '@brickninja-org/ui/components/icon';
 import { Notice } from '@brickninja-org/ui/components/notice';
 
 // import { bn2me } from '@/lib/bn2me';
@@ -39,11 +38,11 @@ export default async function LoginPage({ searchParams }: PageProps) {
       </p>
 
       <form action={redirectToBnMe.bind(null, returnTo /*, searchParams.scopes */)}>
-        <SubmitButton icon={<IoLockOpen fill="#991b1b" width={20}/>}>Login with bn.me</SubmitButton>
+        <SubmitButton icon={<Icon icon="lock-open"/>}>Login with bn.me</SubmitButton>
       </form>
 
       <div className="flex items-center gap-2 mt-8 py-3 px-4 border rounded-sm">
-        <PiCookieLight size={20}/>
+        <Icon icon="cookie"/>
         <p>By logging in you accept that brick.ninja will store cookies in your browser.</p>
       </div>
     </HeroLayout>

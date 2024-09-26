@@ -3,9 +3,9 @@
 import { Fragment, useCallback, useEffect, useRef, useState, type ChangeEventHandler, type FC, type KeyboardEventHandler, type ReactElement } from 'react';
 import NextLink from 'next/link';
 import { autoUpdate, offset, shift, size, useDismiss, useFloating, useFocus, useInteractions, useListNavigation } from '@floating-ui/react';
-import { IoSearchOutline } from 'react-icons/io5';
 
 import { cn } from '@brickninja-org/ui/lib';
+import { Icon } from '@brickninja-org/ui/components/icon';
 
 import { useDebounce } from '@/hooks/use-debounce';
 
@@ -111,7 +111,7 @@ export const Search: FC<SearchProps> = ({ translations }) => {
 
   return (
     <form className="relative flex items-center w-[468px] bg-gray-100 focus-within:bg-white focus-within:shadow sm:shadow-[rgb(0_0_0_/_12%)] rounded-sm" ref={refs.setReference} {...getReferenceProps()}>
-      <IoSearchOutline size={16} className="mr-2 ml-4 align-[-2px] flex-shrink-0 text-gray-600"/>
+      <Icon icon="search" className="mr-2 ml-4 align-[-2px] flex-shrink-0 text-gray-600"/>
       {/* <div className={styles.restriciton}>Item</div> */}
 
       <input

@@ -1,9 +1,9 @@
 'use client';
 
 import { useEffect, useState, type FC, type ReactNode } from 'react';
-import { VscMenu } from 'react-icons/vsc';
 
 import { cn } from '@brickninja-org/ui/lib';
+import { Icon } from '@brickninja-org/ui/components/icon';
 
 export interface MenuProps {
   children: ReactNode;
@@ -50,7 +50,7 @@ export const Menu: FC<MenuProps> = ({ children, navigation }) => {
           scrolledDown && 'opacity-100 delay-150 [pointer-events:_all]',
         ])} onClick={() => setMenuOpen(!menuOpen)} tabIndex={-1} aria-label="Menu"
         >
-          <VscMenu size={16}/>
+          <Icon icon="navigation"/>
         </button>
         {children}
       </header>

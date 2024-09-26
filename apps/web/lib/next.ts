@@ -1,9 +1,18 @@
+/* eslint-disable @typescript-eslint/no-empty-object-type */
+import type { ReactNode } from 'react';
+
 import type { Language } from '@brickninja-org/database';
 
-export interface PageProps<
-  // eslint-disable-next-line @typescript-eslint/no-empty-object-type
-  Params extends Record<string, string | string[] | undefined> = {}
-> {
-  params: Params & { language: Language };
-  searchParams: { [key: string]: string | string[] | undefined };
+import type { SearchParams } from '@/lib/search-params';
+
+type Params = Record<string, string | string[] | undefined>;
+
+export interface PageProps<P extends Params = {}> {
+  params: P & { language: Language };
+  searchParams: SearchParams;
+}
+
+export interface LayoutProps<P extends Params = {}> {
+  params: P & { language: Language };
+  children: ReactNode;
 }

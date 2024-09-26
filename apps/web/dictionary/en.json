@@ -2,6 +2,7 @@
   "subtitle": "The Unofficial LEGO® Database",
   "new.items": "New Items",
   "actions": "Actions",
+  "navigation.catalog": "Catalogue",
   "navigation.items": "Items",
   "pagination.next": "Next",
   "pagination.previous": "Previous",
@@ -25,5 +26,7 @@
   "item.type.Set": "Set",
   "priceGuide.title": "Price Guide",
   "priceGuide.official_price": "Official Price",
-  "priceGuide.per_piece": "Per Piece"
+  "priceGuide.per_piece": "Per Piece",
+  "catalog.books": "Books",
+  "catalog.books.description": "Book description..."
 }

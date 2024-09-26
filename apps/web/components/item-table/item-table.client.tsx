@@ -1,7 +1,6 @@
 'use client';
 
 import { createElement, useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { IoChevronDownSharp, IoEllipsisVertical, IoEyeOutline } from 'react-icons/io5';
 
 import { isEmptyObject } from '@brickninja-org/helper/is';
 import { Dropdown } from '@brickninja-org/ui/components/dropdown';
@@ -23,6 +22,7 @@ import type { AvailableColumns, GlobalColumnId, ItemTableQuery, LoadItemsResult,
 import { globalColumnRenderer } from './columns';
 import { useItemTableContext } from './context';
 import { getHistoryState, updateHistoryState } from './history-state';
+import { Icon } from '@brickninja-org/ui/components/icon';
 // import { Icon } from '@gw2treasures/ui';
 // import { encode } from 'gw2e-chat-codes';
 
@@ -150,9 +150,9 @@ export const ItemTable = <ExtraColumnId extends string = never, Model extends Qu
                   );
                 })}
                 <td>
-                  <Dropdown button={<Button iconOnly appearance="menu" aria-label={translations['actions']}><IoEllipsisVertical size={20}/></Button>} preferredPlacement="right-start">
+                  <Dropdown button={<Button iconOnly appearance="menu" aria-label={translations['actions']}><Icon icon="more-vertical"/></Button>} preferredPlacement="right-start">
                     <MenuList>
-                      <LinkButton appearance="menu" icon={<IoEyeOutline size={20}/>} href={`/item/${item.id}`}>{translations['itemTable.viewItem']}</LinkButton>
+                      <LinkButton appearance="menu" icon={<Icon icon="eye"/>} href={`/item/${item.id}`}>{translations['itemTable.viewItem']}</LinkButton>
                       {/* <CopyButton appearance="menu" icon="chatlink" copy={encode('item', item.id) || ''}>{translations['chatlink.copy']}</CopyButton> */}
                     </MenuList>
                   </Dropdown>
@@ -161,7 +161,7 @@ export const ItemTable = <ExtraColumnId extends string = never, Model extends Qu
             );
           })}
           {collapsed && totalItems > collapsedSize && (
-            <TableRowButton key="show-more" onClick={() => setCollapsed(false)}><IoChevronDownSharp size={24}/> Show <FormatNumber value={totalItems - collapsedSize}/> more</TableRowButton>
+            <TableRowButton key="show-more" onClick={() => setCollapsed(false)}><Icon icon="chevron-down"/> Show <FormatNumber value={totalItems - collapsedSize}/> more</TableRowButton>
           )}
         </tbody>
       </Table>
