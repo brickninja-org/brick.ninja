@@ -44,7 +44,7 @@ const header = tv({
     'py-2 px-4',
     'z-[1]',
     'bg-white border-b-[3px]',
-    'align-left font-medium',
+    'font-medium',
     'whitespace-nowrap',
   ],
   variants: {
@@ -60,6 +60,7 @@ const header = tv({
     },
   },
   defaultVariants: {
+    align: 'left',
     small: false,
   },
 });
