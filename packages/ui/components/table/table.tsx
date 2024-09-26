@@ -38,16 +38,16 @@ const Table: FC<TableProps> & { HeaderCell: FC<HeaderCellProps> } = ({ children,
 );
 
 const header = tv({
+  base: [
+    'sticky',
+    'top-[--table-sticky-top,48px]',
+    'py-2 px-4',
+    'z-[1]',
+    'bg-white border-b-[3px]',
+    'align-left font-medium',
+    'whitespace-nowrap',
+  ],
   variants: {
-    base: [
-      'sticky',
-      'top-[--table-sticky-top,48px]',
-      'py-2 px-4',
-      'z-[1]',
-      'bg-white border-b-[3px]',
-      'align-left font-medium',
-      'whitespace-nowrap',
-    ],
     small: {
       true: 'w-[1px]',
     },
