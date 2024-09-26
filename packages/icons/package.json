@@ -1,0 +1,47 @@
+{
+  "name": "@brickninja-org/icons",
+  "version": "0.0.1",
+  "description": "Icons for brick.ninja",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./sprite.svg": {
+      "default": "./dist/sprite.svg"
+    }
+  },
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "ts-node build",
+    "publish-package": "brickninja-org-publish-package"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GW2Treasures/gw2treasures.com.git"
+  },
+  "keywords": [
+    "gw2treasures",
+    "icons"
+  ],
+  "author": "@brickninja",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brickninja-org/brick.ninja/issues"
+  },
+  "homepage": "https://github.com/brickninja-org/brick.ninja#readme",
+  "devDependencies": {
+    "@brickninja-org/tsconfig": "*",
+    "@types/node": "20.16.9",
+    "rimraf": "6.0.1",
+    "svgo": "3.3.2",
+    "ts-node": "10.9.2",
+    "tslib": "2.7.0"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0 || 19.0.0-rc-f994737d14-20240522",
+    "react-dom": "^18.2.0 || 19.0.0-rc-f994737d14-20240522"
+  }
+}

@@ -1,9 +1,9 @@
 'use client';
 
 import { type FC, forwardRef, useCallback, useEffect, useState } from 'react';
-import { IoCopyOutline } from 'react-icons/io5';
 
 import { Button, type ButtonProps } from '../button';
+import { Icon } from '../../icon';
 
 export interface CopyButtonProps extends Omit<ButtonProps, 'onClick'> {
   copy: string;
@@ -30,7 +30,7 @@ export const CopyButton: FC<CopyButtonProps> = forwardRef<HTMLButtonElement, Cop
     navigator.clipboard.writeText(copy).then(() => setCopied(true));
   }, [copy]);
 
-  const overrideProps: Partial<ButtonProps> = copied && props.icon ? { icon: <IoCopyOutline size={20}/> } : {};
+  const overrideProps: Partial<ButtonProps> = copied && props.icon ? { icon: <Icon icon="copy"/> } : {};
 
   return (
     <Button onClick={handleCopy} {...props} {...overrideProps} ref={ref}/>
