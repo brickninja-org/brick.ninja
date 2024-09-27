@@ -8,6 +8,7 @@ const config: Partial<Config> = {
     './app/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
     '../../node_modules/@brickninja-org/ui/components/**/*.{ts,tsx}',
+    '../../node_modules/@brickninja-org/ui/icons/**/*.{ts,tsx}',
   ],
   theme: {
     extend: {
