@@ -13,11 +13,11 @@ class SigningKeyClient {
     }
 
     // load key from env
-    if(process.env.NEXT_PUBLIC_SIGNING_KEY !== undefined) {
-      const jwk: JsonWebKey = JSON.parse(Buffer.from(process.env.NEXT_PUBLIC_SIGNING_KEY, 'base64').toString('utf-8'));
+    if(process.env.SIGNING_KEY !== undefined) {
+      const jwk: JsonWebKey = JSON.parse(Buffer.from(process.env.SIGNING_KEY, 'base64').toString('utf-8'));
       const imported = await crypto.subtle.importKey('jwk', jwk, { name: 'HMAC', hash: 'SHA-256' }, false, ['sign', 'verify']);
 
-      console.log('Imported NEXT_PUBLIC_SIGNING_KEY');
+      console.log('Imported SIGNING_KEY');
 
       this.#key = imported;
       return imported;
@@ -29,7 +29,7 @@ class SigningKeyClient {
 
     // output generated key for debugging
     console.log(chalk.bgCyan('*** GENERATED SIGNING KEY: ' + Buffer.from(JSON.stringify(exported)).toString('base64') + ' ***'));
-    console.log(chalk.cyan('Set this key as NEXT_PUBLIC_SIGNING_KEY environment variable (.env.local) or signatures will not be valid after restarts.'));
+    console.log(chalk.cyan('Set this key as SIGNING_KEY environment variable (.env.local) or signatures will not be valid after restarts.'));
 
     // store key for later
     this.#key = generated;
