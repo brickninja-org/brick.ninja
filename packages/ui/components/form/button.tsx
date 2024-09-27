@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { tv, type VariantProps } from 'tailwind-variants';
 
 import { cn } from '../../lib';
+import { Icon, type IconColor, type IconProp } from '../icon';
 
 const button = tv({
   base: [
@@ -35,7 +36,8 @@ const button = tv({
 export type ButtonVariantProps = VariantProps<typeof button>;
 
 export interface CommonButtonProps extends Pick<HTMLAttributes<HTMLElement>, 'aria-label' | 'className'>, ButtonVariantProps {
-  icon?: ReactNode;
+  icon?: IconProp;
+  iconColor?: IconColor;
   children?: ReactNode;
 }
 
@@ -44,10 +46,10 @@ export interface ButtonProps extends CommonButtonProps, Pick<ButtonHTMLAttribute
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button({ appearance = 'secondary', flex, icon, iconOnly, children, onClick, className, type = 'button', ...props }, ref) {
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button({ appearance = 'secondary', flex, icon, iconColor, iconOnly, children, onClick, className, type = 'button', ...props }, ref) {
   return (
     <button ref={ref} type={type} onClick={onClick} className={cn(button({ appearance, flex, iconOnly }), className)} {...props}>
-      {icon}
+      {icon && <Icon icon={icon} color={iconColor}/>}
       {children}
     </button>
   );
@@ -61,12 +63,12 @@ export interface LinkButtonProps extends CommonButtonProps {
   external?: boolean;
 }
 
-export const LinkButton = forwardRef<HTMLAnchorElement, LinkButtonProps & Pick<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'target' | 'rel'>>(function Button({ appearance, children, className, icon, external, flex, fullWidth, ...props }, ref) {
+export const LinkButton = forwardRef<HTMLAnchorElement, LinkButtonProps & Pick<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'target' | 'rel'>>(function Button({ appearance, children, className, icon, iconColor, external, flex, fullWidth, ...props }, ref) {
   const LinkElement = external ? 'a' : Link;
 
   return (
     <LinkElement ref={ref} className={cn(button({ appearance, flex, fullWidth }), className)} {...props}>
-      {icon}
+      {icon && <Icon icon={icon} color={iconColor}/>}
       {children}
     </LinkElement>
   );

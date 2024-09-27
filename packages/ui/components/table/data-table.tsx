@@ -15,6 +15,9 @@ export type DataTableRowFilterComponent = FC<DataTableRowFilterComponentProps>;
 export interface DataTableProps<T> {
   children: Array<ColumnReactElement<T> | DynamicColumnsReactElement<T>>;
   rowFilter?: DataTableRowFilterComponent;
+  collapsed?: boolean | number;
+  initialSortBy?: string;
+  initialSortOrder?: 'asc' | 'desc';
 }
 
 type ColumnReactElement<T> = ReactElement<DataTableColumnProps<T>, FC<DataTableColumnProps<T>>>;

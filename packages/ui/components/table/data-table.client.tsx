@@ -2,9 +2,12 @@
 
 import { createContext, use, useCallback, useEffect, useMemo, useState, type FC, type ReactNode, type ThHTMLAttributes } from 'react';
 
+import { Dropdown } from '../dropdown';
+import { Button } from '../form/button';
+import { Checkbox } from '../form/checkbox';
+import { MenuList } from '../layout/menu-list';
 import { DataTableGlobalContext, type AvailableColumn } from './data-table-context';
 import { Table, type HeaderCellProps } from './table';
-import { MenuList } from '../layout/menu-list';
 
 type DataTableContext = { id: string, sortBy: string | undefined, sortOrder: 'asc' | 'desc', visibleColumns: string[] };
 
@@ -110,15 +113,14 @@ export const DataTableClientColumnSelection: FC<DataTableClientColumnSelectionPr
   const { currentAvailableColumns, currentColumns } = useCurrentColumns(id);
 
   return (
-    <div>
-      <button>{children}</button>
+    <Dropdown button={<Button icon="table-insert-column">{children}</Button>} preferredPlacement="right-start">
       <MenuList>
         {currentAvailableColumns.filter((column) => !column.fixed).map((column) => (
-          <input type="checkbox" key={column.id} checked={currentColumns.includes(column.id)} onChange={(checked) => setColumns(id, currentAvailableColumns.map(({ id }) => id).filter((id) => id === column.id ? checked : currentColumns.includes(id)))}>{column.title}</input>
+          <Checkbox key={column.id} checked={currentColumns.includes(column.id)} onChange={(checked) => setColumns(id, currentAvailableColumns.map(({ id }) => id).filter((id) => id === column.id ? checked : currentColumns.includes(id)))}>{column.title}</Checkbox>
       ))}
         <button onClick={() => setColumns(id, undefined)} disabled={columns[id] === undefined}>{reset}</button>
       </MenuList>
-    </div>
+    </Dropdown>
   );
 };
 
