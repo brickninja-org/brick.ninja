@@ -12,6 +12,7 @@ import { FormatDate } from '@/components/format/format-date';
 import { FormatNumber } from '@/components/format/format-number';
 import { useLanguage } from '@/components/i18n/context';
 import { useUser } from '@/components/user/use-user';
+import { Icon } from '@brickninja-org/ui/icons';
 
 export interface FormatConfigDialogProps {
   open: boolean;
@@ -63,7 +64,10 @@ export const FormatConfigDialog: FC<FormatConfigDialogProps> = ({ open, onClose 
       <div className="flex flex-col gap-4">
         {!user && (
           <div className="p-4 rounded-sm border bg-gray-100">
-            <FlexRow>Changing your settings will store cookies in your browser.</FlexRow>
+            <FlexRow>
+              <Icon icon="cookie"/>
+              Changing your settings will store cookies in your browser.
+            </FlexRow>
           </div>
         )}
 
