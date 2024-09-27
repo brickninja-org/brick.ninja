@@ -1,6 +1,6 @@
 import { cloneElement, forwardRef, type FunctionComponent } from 'react';
 
-import { cn } from '../../lib';
+import { cn } from '../lib';
 import { getIcon, type IconColor, type IconProp } from './index';
 
 export interface IconProps {

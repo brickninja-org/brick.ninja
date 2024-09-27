@@ -1,7 +1,7 @@
 import { useId, type FC, type ReactNode } from 'react';
 import { FloatingFocusManager, FloatingOverlay, FloatingPortal, useDismiss, useFloating, useInteractions, useRole, useTransitionStyles } from '@floating-ui/react';
 
-import { Icon } from '../icon';
+import { Icon } from '../../icons';
 import { TableOfContentContext } from '../table-of-content';
 
 export interface DialogProps {

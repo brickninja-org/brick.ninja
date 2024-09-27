@@ -3,7 +3,7 @@
 import { type FC, forwardRef, useCallback, useEffect, useState } from 'react';
 
 import { Button, type ButtonProps } from '../button';
-import { Icon } from '../../icon';
+import { Icon } from '../../../icons';
 
 export interface CopyButtonProps extends Omit<ButtonProps, 'onClick'> {
   copy: string;

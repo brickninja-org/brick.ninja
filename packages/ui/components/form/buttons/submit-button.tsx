@@ -5,8 +5,8 @@ import { useFormStatus } from 'react-dom';
 
 import { Button, type ButtonProps } from '../button';
 
-export const SubmitButton: FC<ButtonProps> = ({ disabled, icon, ...props }) => {
+export const SubmitButton: FC<ButtonProps> = ({ disabled, icon, iconColor, ...props }) => {
   const { pending } = useFormStatus();
 
-  return <Button type="submit" disabled={disabled || pending} icon={pending ? 'loading' : icon} {...props}/>;
+  return <Button type="submit" disabled={disabled || pending} icon={pending ? 'loading' : icon} iconColor={pending ? undefined : iconColor} {...props}/>;
 };

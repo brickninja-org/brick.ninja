@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { tv, type VariantProps } from 'tailwind-variants';
 
 import { cn } from '../../lib';
-import { Icon, type IconColor, type IconProp } from '../icon';
+import { Icon, type IconColor, type IconProp } from '../../icons';
 
 const button = tv({
   base: [
