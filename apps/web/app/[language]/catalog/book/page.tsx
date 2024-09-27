@@ -6,7 +6,6 @@ import { createDataTable } from '@brickninja-org/ui/components/table/data-table'
 
 import type { PageProps } from '@/lib/next';
 import { db } from '@/lib/prisma';
-import { localizedName } from '@/lib/localized-name';
 import { translate } from '@/lib/translate';
 import { getAlternateUrls } from '@/lib/url';
 import { FormatNumber } from '@/components/format/format-number';
