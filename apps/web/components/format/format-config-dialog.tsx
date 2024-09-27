@@ -67,11 +67,11 @@ export const FormatConfigDialog: FC<FormatConfigDialogProps> = ({ open, onClose 
           </div>
         )}
 
-        <div className="flex gap-4">
+        <div className="flex flex-col sm:flex-row gap-4">
           <Label label="language">
             <Select options={[{ label: `Current language (${currentLanguage})`, value: 'auto' }, ...languages]} value={language} onChange={(language) => setLocale(language, region)}/>
           </Label>
-          <div className="mt-6 leading-9">-</div>
+          <div className="hidden sm:block mt-6 leading-9">-</div>
           <Label label="region">
             <Select options={[{ label: `Browser region (${defaultRegion})`, value: 'browser' }, ...regions]} value={region} onChange={(region) => setLocale(language, region)}/>
           </Label>
