@@ -35,7 +35,7 @@ function MarketingPage({ params: { language }, searchParams }: PageProps) {
         <DbStats/>
       </Suspense>
 
-      <Headline id="new-items"><Translate language={language} id="new.items"/></Headline>
+      <Headline id="new-items"><Translate language={language} id="items.new"/></Headline>
       <Suspense fallback={<ListFallback size={24}/>}>
         <NewItems/>
       </Suspense>
