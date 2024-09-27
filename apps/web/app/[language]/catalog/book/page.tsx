@@ -13,6 +13,7 @@ import { FormatNumber } from '@/components/format/format-number';
 import { Translate } from '@/components/i18n/translate';
 import { Description } from '@/components/layout/description';
 import { ColumnSelect } from '@/components/table/column-select';
+import { ItemLink } from '@/components/item/item-link';
 
 const getItems = unstable_cache((language: Language) => {
   return db.item.findMany({
@@ -45,9 +46,9 @@ export default async function CatalogBookPage({ params }: PageProps) {
       <Books.Table>
         <Books.Column id="id" title={<Translate id="itemTable.column.id"/>} align="right" small hidden>{({ id }) => id}</Books.Column> 
         <Books.Column id="productCode" title={<Translate id="itemTable.column.productCode"/>} sortBy="productCode">{({ productCode }) => productCode}</Books.Column>
-        <Books.Column id="name" title={<Translate id="itemTable.column.item"/>} align="left">{(item) => localizedName(item, params.language) }</Books.Column>
-        <Books.Column id="minifigureCount" title={<Translate id="itemTable.column.minifigureCount"/>} align="right" sortBy="minifigureCount">{({ minifigureCount }) => <FormatNumber value={minifigureCount}/>}</Books.Column>
-        <Books.Column id="pieceCount" title={<Translate id="itemTable.column.pieceCount"/>} align="right" sortBy="pieceCount">{({ pieceCount }) => <FormatNumber value={pieceCount}/>}</Books.Column>
+        <Books.Column id="name" title={<Translate id="itemTable.column.item"/>} align="left">{(item) => <ItemLink item={item}/> }</Books.Column>
+        <Books.Column id="minifigureCount" title={<Translate id="itemTable.column.minifigureCount"/>} align="right" sortBy="minifigureCount" small>{({ minifigureCount }) => <FormatNumber value={minifigureCount}/>}</Books.Column>
+        <Books.Column id="pieceCount" title={<Translate id="itemTable.column.pieceCount"/>} align="right" sortBy="pieceCount" small>{({ pieceCount }) => <FormatNumber value={pieceCount}/>}</Books.Column>
       </Books.Table>
     </>
   );
