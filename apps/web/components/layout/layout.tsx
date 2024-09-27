@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { GiNinjaHead } from 'react-icons/gi';
 
 import { LinkButton } from '@brickninja-org/ui/components/form/button';
-import { Icon } from '@brickninja-org/ui/components/icon';
+import { Icon } from '@brickninja-org/ui/icons';
 
 import { translateMany } from '@/lib/translate';
 import { LanguageDropdown } from '@/components/layout/header/language-dropdown';

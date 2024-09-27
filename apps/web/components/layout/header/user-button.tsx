@@ -1,10 +1,10 @@
 import { Suspense, type FC } from 'react';
 
 import type { Language } from '@brickninja-org/database';
-import { Icon } from '@brickninja-org/ui/components/icon';
 import { Dropdown } from '@brickninja-org/ui/components/dropdown';
 import { LinkButton } from '@brickninja-org/ui/components/form/button';
 import { MenuList } from '@brickninja-org/ui/components/layout/menu-list';
+import { Icon } from '@brickninja-org/ui/icons';
 
 import { getUser, type SessionUser } from '@/lib/get-user';
 import { Skeleton } from '@/components/skeleton';

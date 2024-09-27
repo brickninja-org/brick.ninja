@@ -7,9 +7,9 @@ import type { Language } from '@brickninja-org/database';
 import { Dropdown } from '@brickninja-org/ui/components/dropdown';
 import { Button } from '@brickninja-org/ui/components/form/button';
 import { Radiobutton } from '@brickninja-org/ui/components/form/radiobutton';
-import { Icon } from '@brickninja-org/ui/components/icon';
 import { MenuList } from '@brickninja-org/ui/components/layout/menu-list';
 import { Separator } from '@brickninja-org/ui/components/layout/separator';
+import { Icon } from '@brickninja-org/ui/icons';
 
 import { useLanguage } from '@/components/i18n/context';
 import { FormatConfigDialog } from '@/components/format/format-config-dialog';

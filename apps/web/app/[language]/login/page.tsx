@@ -4,8 +4,8 @@ import { redirect } from 'next/navigation';
 // import { Scope } from '@bn2me/client/src/types';
 import { SubmitButton } from '@brickninja-org/ui/components/form/buttons/submit-button';
 import { Headline } from '@brickninja-org/ui/components/headline';
-import { Icon } from '@brickninja-org/ui/components/icon';
 import { Notice } from '@brickninja-org/ui/components/notice';
+import { Icon } from '@brickninja-org/ui/icons';
 
 // import { bn2me } from '@/lib/bn2me';
 import { getUser } from '@/lib/get-user';

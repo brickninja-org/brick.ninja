@@ -1,8 +1,8 @@
 import { type FC, type MouseEventHandler, useCallback } from 'react';
 
 import { Button } from '@brickninja-org/ui/components/form/button';
-import { Icon } from '@brickninja-org/ui/components/icon';
 import { Tip } from '@brickninja-org/ui/components/tip';
+import { Icon } from '@brickninja-org/ui/icons';
 
 import type { TranslationSubset } from '@/lib/translate';
 

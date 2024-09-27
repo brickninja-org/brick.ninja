@@ -22,7 +22,7 @@ import type { AvailableColumns, GlobalColumnId, ItemTableQuery, LoadItemsResult,
 import { globalColumnRenderer } from './columns';
 import { useItemTableContext } from './context';
 import { getHistoryState, updateHistoryState } from './history-state';
-import { Icon } from '@brickninja-org/ui/components/icon';
+import { Icon } from '@brickninja-org/ui/icons';
 // import { Icon } from '@gw2treasures/ui';
 // import { encode } from 'gw2e-chat-codes';
 

@@ -5,11 +5,11 @@ import { notFound } from 'next/navigation';
 
 import type { Language } from '@brickninja-org/database';
 import { Headline } from '@brickninja-org/ui/components/headline';
-import { Icon } from '@brickninja-org/ui/components/icon';
 import { Notice } from '@brickninja-org/ui/components/notice';
 import { Table } from '@brickninja-org/ui/components/table';
 import { TableOfContentAnchor } from '@brickninja-org/ui/components/table-of-content';
 import { Tip } from '@brickninja-org/ui/components/tip';
+import { Icon } from '@brickninja-org/ui/icons';
 
 import { getLinkProperties } from '@/lib/link-properties';
 import { pageView } from '@/lib/page-view';

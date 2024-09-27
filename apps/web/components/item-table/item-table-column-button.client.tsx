@@ -5,9 +5,9 @@ import type { FC } from 'react';
 import { Dropdown } from '@brickninja-org/ui/components/dropdown';
 import { Button } from '@brickninja-org/ui/components/form/button';
 import { Checkbox } from '@brickninja-org/ui/components/form/checkbox';
-import { Icon } from '@brickninja-org/ui/components/icon';
 import { MenuList } from '@brickninja-org/ui/components/layout/menu-list';
 import { Separator } from '@brickninja-org/ui/components/layout/separator';
+import { Icon } from '@brickninja-org/ui/icons';
 
 import type { TranslationSubset } from '@/lib/translate';
 import { useUser } from '@/components/user/use-user';

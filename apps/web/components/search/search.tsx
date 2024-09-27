@@ -5,7 +5,7 @@ import NextLink from 'next/link';
 import { autoUpdate, offset, shift, size, useDismiss, useFloating, useFocus, useInteractions, useListNavigation } from '@floating-ui/react';
 
 import { cn } from '@brickninja-org/ui/lib';
-import { Icon } from '@brickninja-org/ui/components/icon';
+import { Icon } from '@brickninja-org/ui/icons';
 
 import { useDebounce } from '@/hooks/use-debounce';
 

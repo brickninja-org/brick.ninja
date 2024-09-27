@@ -8,7 +8,7 @@ import { Button } from '@brickninja-org/ui/components/form/button';
 import { Dropdown } from '@brickninja-org/ui/components/dropdown';
 import { MenuList } from '@brickninja-org/ui/components/layout/menu-list';
 import { TableOfContent, TableOfContentContext } from '@brickninja-org/ui/components/table-of-content';
-import { Icon } from '@brickninja-org/ui/components/icon';
+import { Icon } from '@brickninja-org/ui/icons';
 
 interface DetailLayoutProps {
   title: ReactNode;
