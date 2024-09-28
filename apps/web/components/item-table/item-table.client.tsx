@@ -119,7 +119,7 @@ export const ItemTable = <ExtraColumnId extends string = never, Model extends Qu
 
   return (
     <>
-      {process.env.NODE_ENV === 'development' && isGlobalContext && (<Notice color="warning">Missing ItemTableContext</Notice>)}
+      {process.env.NODE_ENV === 'development' && isGlobalContext && (<Notice type="warning">Missing ItemTableContext</Notice>)}
       <Table>
         <thead>
           <tr>

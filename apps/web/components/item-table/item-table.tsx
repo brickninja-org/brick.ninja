@@ -24,7 +24,7 @@ export const ItemTable = async <ExtraColumnId extends string = never, Model exte
   const translations = translateMany(['pagination.next', 'pagination.previous', 'itemTable.viewItem', 'actions']);
 
   return (
-    <ErrorBoundary fallback={<Notice color="error">Error loading items.</Notice>}>
+    <ErrorBoundary fallback={<Notice type="error">Error loading items.</Notice>}>
       <ClientComponent query={signedQuery} availableColumns={availableColumns} translations={translations} {...props}/>
     </ErrorBoundary>
   );

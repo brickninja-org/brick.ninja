@@ -26,7 +26,7 @@ export const Form: FC<FormProps<FormState>> = ({ action, initialState, children,
   return (
     <form action={formAction} id={id}>
       {state.error && (
-        <Notice color="error" ref={showNotice} key={crypto.randomUUID()}>{state.error}</Notice>
+        <Notice type="error" ref={showNotice} key={crypto.randomUUID()}>{state.error}</Notice>
       )}
       {state.success && (
         <Notice ref={showNotice} key={crypto.randomUUID()}>{state.success}</Notice>

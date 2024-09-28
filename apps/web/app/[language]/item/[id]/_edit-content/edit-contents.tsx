@@ -60,7 +60,7 @@ export const EditContents: FC<EditContentsProps> = ({ apperance, itemId }) => {
           (<p>Unknown error</p>)
         ) : (
           <>
-            {error && <Notice color="error">Your changes could not be saved ({error}).</Notice>}
+            {error && <Notice type="error">Your changes could not be saved ({error}).</Notice>}
             <p>Noticed something wrong with the contents of this item? You can remove and add items in this dialog.</p>
 
             <DialogActions description="Your changes will be reviewed before they are applied.">

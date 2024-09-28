@@ -26,7 +26,7 @@ export default async function LoginPage({ searchParams }: PageProps) {
   return (
     <HeroLayout hero={<Headline id="login">Login</Headline>}>
       {searchParams.error !== undefined && (
-        <Notice color="error">Unknown error</Notice>
+        <Notice type="error">Unknown error</Notice>
       )}
 
       {searchParams.logout !== undefined && (
