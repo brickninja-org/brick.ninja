@@ -3,6 +3,7 @@ import { BricklinkApiRequestsCleanup } from './bricklinkapi-requests/cleanup';
 import { ItemsCheck } from './items/check';
 import { ItemsMigrate } from './items/migrate';
 import { ItemsNew } from './items/new';
+import { ItemsUpdate } from './items/update';
 import { ItemsView } from './items/views';
 import { Job } from './job';
 import { JobsCleanup } from './jobs/cleanup';
@@ -14,6 +15,7 @@ const jobsInternal = {
   'items.check': ItemsCheck,
   'items.migrate': ItemsMigrate,
   'items.new': ItemsNew,
+  'items.update': ItemsUpdate,
   'items.views': ItemsView,
 
   // 'colors': ColorsJob,

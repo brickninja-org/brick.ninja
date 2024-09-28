@@ -5,7 +5,7 @@ import { Job } from '../job';
 import { createMigrator } from './migration';
 
 export const ItemsNew: Job = {
-  run: async (newIds: number[]) => {
+  run: async (newIds: string[]) => {
     // load items
     const items = await loadItems(newIds);
 
