@@ -14,6 +14,7 @@ const Navigation: FC<NavigationProps> = ({ language }) => {
     <div className="relative overflow-hidden bg-white border-b">
       <Composite render={<ul className="flex m-0 py-1.5 first:border-l-0"/>}>
         <NavigationItem href="/item"><Translate language={language} id="navigation.items"/></NavigationItem>
+        <NavigationItem href="/catalog/book"><Translate language={language} id="navigation.catalog"/></NavigationItem>
       </Composite>
     </div>
   );

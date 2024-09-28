@@ -8,6 +8,7 @@ import type { PageProps } from '@/lib/next';
 import { db } from '@/lib/prisma';
 import { translate } from '@/lib/translate';
 import { getAlternateUrls } from '@/lib/url';
+import { BricklinkAccounts } from '@/components/bn2me/bricklink-accounts';
 import { FormatNumber } from '@/components/format/format-number';
 import { Translate } from '@/components/i18n/translate';
 import { Description } from '@/components/layout/description';
@@ -36,7 +37,8 @@ export default async function CatalogBookPage({ params }: PageProps) {
 
   return (
     <>
-      <p>Login</p>
+      <BricklinkAccounts authorizationMessage="Authorize brick.ninja to view your collections." loading={null}/>
+
       <Description actions={<ColumnSelect table={Books}/>}>
         <Translate id="catalog.books.description"/>
       </Description>
