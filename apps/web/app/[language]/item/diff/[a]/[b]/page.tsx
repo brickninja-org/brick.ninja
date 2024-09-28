@@ -40,8 +40,8 @@ async function ItemDiffPage({ params }: PageProps<{ a: string, b: string }>) {
     <DiffLayout>
       <DiffLayoutHeader
         subtitle={[
-          <Fragment key="a"><FormatDate date={a.createdAt}/> ▪ <Link href={`/item/${a.id}`}>View revision</Link></Fragment>,
-          <Fragment key="b"><FormatDate date={b.createdAt}/> ▪ <Link href={`/item/${b.id}`}>View revision</Link></Fragment>,
+          <Fragment key="a"><FormatDate date={a.createdAt}/> ▪ <Link href={`/item/${dataA.setID}/${a.id}`}>View revision</Link></Fragment>,
+          <Fragment key="b"><FormatDate date={b.createdAt}/> ▪ <Link href={`/item/${dataB.setID}/${b.id}`}>View revision</Link></Fragment>,
         ]}
         title={[dataA.name, dataB.name]}/>
 
