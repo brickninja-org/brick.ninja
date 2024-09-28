@@ -21,11 +21,10 @@ const getItems = unstable_cache((language: Language) => {
       id: true,
       name_en: language === 'en',
       name_nl: language === 'nl',
-      productCode: true,
       minifigureCount: true,
       pieceCount: true,
     },
-    orderBy: { productCode: 'asc' },
+    orderBy: { id: 'desc' },
   });
 }, ['get-books']);
 
@@ -44,7 +43,6 @@ export default async function CatalogBookPage({ params }: PageProps) {
 
       <Books.Table>
         <Books.Column id="id" title={<Translate id="itemTable.column.id"/>} align="right" small hidden>{({ id }) => id}</Books.Column> 
-        <Books.Column id="productCode" title={<Translate id="itemTable.column.productCode"/>} sortBy="productCode">{({ productCode }) => productCode}</Books.Column>
         <Books.Column id="name" title={<Translate id="itemTable.column.item"/>} align="left">{(item) => <ItemLink item={item}/> }</Books.Column>
         <Books.Column id="minifigureCount" title={<Translate id="itemTable.column.minifigureCount"/>} align="right" sortBy="minifigureCount" small>{({ minifigureCount }) => <FormatNumber value={minifigureCount}/>}</Books.Column>
         <Books.Column id="pieceCount" title={<Translate id="itemTable.column.pieceCount"/>} align="right" sortBy="pieceCount" small>{({ pieceCount }) => <FormatNumber value={pieceCount}/>}</Books.Column>
