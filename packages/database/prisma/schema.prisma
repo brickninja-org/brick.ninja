@@ -222,9 +222,11 @@ model User {
   id String @id @default(uuid())
 
   name  String  @unique
-  email String? @unique
 
-  roles UserRole[] @default([User])
+  email String? @unique
+  emailVerified Boolean @default(false)
+
+  roles UserRole[] @default([])
 
   sessions  UserSession[]  @relation("session")
   providers UserProvider[] @relation("provider")
@@ -235,12 +237,11 @@ model User {
   reviewsRequested Review[] @relation("requester")
   reviewsReviewed  Review[] @relation("reviewer")
 
-  // applications Application[] @relation("application")
+  applications Application[] @relation("application")
 }
 
 enum UserRole {
   Admin
-  User
 }
 
 model UserSession {
@@ -276,6 +277,39 @@ model UserProvider {
   
   createdAt      DateTime   @default(now())
   updatedAt      DateTime   @updatedAt
+}
+
+// Application
+
+model Application {
+  id String @id @default(uuid())
+
+  name String
+
+  apiKey String @unique
+
+  origins String[]
+
+  owner   User @relation("application", fields: [ownerId], references: [id], onDelete: Cascade)
+  ownerId String
+
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
+
+  requests ApplicationApiRequest[] @relation()
+}
+
+model ApplicationApiRequest {
+  requestId String
+
+  time DateTime @default(now())
+
+  application   Application @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+  applicationId String
+
+  endpoint String
+
+  @@unique([requestId, time, applicationId, endpoint])
 }
 
 // Views
