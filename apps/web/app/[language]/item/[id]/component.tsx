@@ -25,6 +25,7 @@ import { Tooltip } from '@/components/tooltip';
 import { EditContents } from './_edit-content/edit-contents';
 import { getItem, getRevision } from './data';
 import { SimilarItems } from './similar-items';
+import { FlexRow } from '@brickninja-org/ui/components/flex-row';
 
 export interface ItemPageComponentProps {
   language: Language;
@@ -102,7 +103,14 @@ export const ItemPageComponent: FC<ItemPageComponentProps> = async ({ language, 
                 </Tooltip>
               </td>
               <td><FormatDate date={history.revision.createdAt} relative/></td>
-              <td>{history.revisionId !== revision.id && <NextLink href={`/item/${item.id}/${history.revisionId}`}>View</NextLink>}</td>
+              <td>
+                {history.revisionId !== revision.id && (
+                  <FlexRow>
+                    <NextLink href={`/item/${item.id}/${history.revisionId}`}>View</NextLink> ·
+                    <NextLink href={`/item/diff/${history.revisionId}/${revision.id}`}>Compare</NextLink>
+                  </FlexRow>
+                )}
+              </td>
             </tr>
           ))}
         </tbody>
