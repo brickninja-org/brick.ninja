@@ -1,4 +1,7 @@
+import { forwardRef, type ReactNode } from 'react';
 import { tv, type VariantProps } from 'tailwind-variants';
+
+import { Icon, type IconName } from '../../icons';
 
 const notice = tv({
   slots: {
@@ -6,7 +9,7 @@ const notice = tv({
     content: 'flex-1',
   },
   variants: {
-    color: {
+    type: {
       default: 'bg-blue-100 border-blue-500',
       error: 'bg-red-100 border-red-500',
       success: 'bg-green-100 border-green-500',
@@ -14,25 +17,27 @@ const notice = tv({
     },
   },
   defaultVariants: {
-    color: 'default',
+    type: 'default',
   },
 });
 
 type NoticeVariants = VariantProps<typeof notice>;
 
 export interface NoticeProps extends NoticeVariants {
-  ref?: (element: HTMLDivElement | null) => void;
-  startContent?: React.ReactNode;
-  children: React.ReactNode;
+  icon?: IconName;
+  children: ReactNode;
+
+  /** Hide this notice from Google and other search engines */
+  index?: boolean;
 }
 
-export const Notice: React.FC<NoticeProps> = (props) => {
-  const { color, ref, startContent, children } = props;
+export const Notice = forwardRef<HTMLDivElement, NoticeProps>(function Notice({ type, icon, index, children }, ref) {
+  const { base, content } = notice({ type });
 
   return (
-    <div ref={ref} className={notice({ color }).base()} role="alert">
-      {startContent}
-      <div className={notice().content()}>{children}</div>
+    <div ref={ref} className={base({ type })} data-nosnippet={index === false ? true : undefined}>
+      {icon && <Icon icon={icon} className="text-2xl"/>}
+      <div className={content()}>{children}</div>
     </div>
   );
-};
+});
