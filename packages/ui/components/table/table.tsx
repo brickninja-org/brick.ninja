@@ -17,8 +17,7 @@ export interface HeaderCellProps extends HeaderCellVariants {
 
 const tableStyles = tv({
   base: [
-    'table w-full max-[760px]:w-max max-[760px]:min-w-full',
-    'border-separate border-spacing-0 border-0',
+    'table w-max min-w-full md:w-full',
   ],
   variants: {
     width: {

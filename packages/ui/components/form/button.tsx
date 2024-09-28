@@ -13,7 +13,7 @@ const button = tv({
     appearance: {
       primary: 'bg-gray-100 shadow-gray-300 hover:[&:not(:disabled)]:bg-white font-semibold',
       secondary: 'bg-gray-100 shadow-gray-300 hover:[&:not(:disabled)]:bg-white',
-      tertiary: 'bg-white shadow-gray-200 hover:[&:not(:disabled)]:bg-gray-100 hover:[&:not(:disabled)]:shadow-gray-300',
+      tertiary: 'bg-white hover:shadow-inset hover:[&:not(:disabled)]:bg-gray-200 hover:[&:not(:disabled)]:shadow-gray-300',
       menu: 'bg-transparent shadow-transparent text-left hover:[&:not(:disabled)]:bg-gray-200 hover:[&:not(:disabled)]:shadow-gray-200',
     },
     flex: {
