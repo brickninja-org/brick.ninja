@@ -1,6 +1,7 @@
 {
   "subtitle": "The Unofficial LEGO® Database",
   "actions": "Actions",
+  "login": "Login",
   "navigation.catalog": "Catalogue",
   "navigation.items": "Items",
   "pagination.next": "Next",
@@ -31,5 +32,5 @@
   "priceGuide.official_price": "Official Price",
   "priceGuide.per_piece": "Per Piece",
   "catalog.books": "Books",
-  "catalog.books.description": "Book description..."
+  "catalog.books.description": "Discover a diverse collection of LEGO® books, from adventures within iconic LEGO® themes to inspiring guides filled with unique creations for all ages."
 }

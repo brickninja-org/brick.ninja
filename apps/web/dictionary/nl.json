@@ -1,9 +1,28 @@
 {
+  "login": "Aanmelden",
+  "navigation.catalog": "Catalogus",
+  "pagination.next": "Volgende",
+  "pagination.previous": "Vorige",
   "search.placeholder": "Zoeken",
   "search.results.items": "Producten",
   "search.results.pages": "Pagina's",
+  "table.columns": "Kolommen",
+  "table.columns.reset": "Reset kolommen",
+  "itemTable.column.name_en": "Naam (EN)",
+  "itemTable.column.name_nl": "Naam (NL)",
+  "itemTable.column.productCode": "LEGO®-nummer",
+  "itemTable.column.minifigureCount": "Minifiguren",
+  "itemTable.column.pieceCount": "Stenen",
+  "itemTable.column.year": "Jaar",
+  "itemTable.viewItem": "Bekijk item",
+  "item.type.Book": "Boek",
+  "item.type.Gear": "Accessoires",
+  "item.type.Gear.KeyChain": "Sleutelhanger",
+  "item.type.Minifigure": "Minifiguur",
+  "items.new": "Nieuwe items",
   "priceGuide.title": "Prijsgids",
   "priceGuide.official_price": "Officiële prijs",
-  "priceGuide.per_piece": "per steen"
-
+  "priceGuide.per_piece": "per steen",
+  "catalog.books": "Boeken",
+  "catalog.books.description": "Ontdek een veelzijdige collectie LEGO®-boeken, van avonturen binnen bekende LEGO®-thema’s tot inspirerende gidsen vol unieke creaties voor alle leeftijden."
 }

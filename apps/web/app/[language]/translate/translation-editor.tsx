@@ -59,9 +59,9 @@ export const TranslationEditor: FC<TranslationEditorProps> = ({ dictionaries }) 
       <Table>
         <thead>
           <tr>
-            <th>Key</th>
-            <th>English</th>
-            <th>Dutch</th>
+            <Table.HeaderCell>Key</Table.HeaderCell>
+            <Table.HeaderCell>English</Table.HeaderCell>
+            <Table.HeaderCell>Dutch</Table.HeaderCell>
           </tr>
         </thead>
         <tbody>
@@ -115,8 +115,8 @@ export const TranslationButton: FC<TranslationButtonProps> = ({ language, id, di
   // const isFallback = !isChanged && dictionaries[language][id] !== undefined;
 
   return (
-    <Button appearance="menu" iconOnly onClick={() => onEdit({ language, key: id, value: changes[language][id] ?? dictionaries[language][id] ?? '' })}>
-      <div className="max-w-[calc((100vw_-_700px)_/_4) min-w-[200px] overflow-hidden text-ellipsis">
+    <Button appearance="menu" iconOnly onClick={() => onEdit({ language, key: id, value: changes[language][id] ?? dictionaries[language][id] ?? '' })} className="block w-[calc(100%_+_32px)]">
+      <div className="max-w-[calc((100vw_-_700px)_/_4)] min-w-[200px] overflow-hidden text-ellipsis">
         <span className="">
           {changes[language][id] ?? dictionaries[language][id] ?? dictionaries.en[id]}
         </span>
