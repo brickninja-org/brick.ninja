@@ -22,6 +22,10 @@ model Item {
   pieceCount Int @default(0)
   minifigureCount Int @default(0)
 
+  // categories
+  categories ItemCategory[]
+  categoryIds Int[]
+
   // review queue
   reviews Review[] @relation("itemReview")
 
@@ -53,6 +57,32 @@ model Item {
   @@index([createdAt])
 }
 
+model ItemCategory {
+  id Int @id
+
+  name_en String
+  name_nl String
+
+  items Item[]
+
+  removedFromApi Boolean @default(false)
+
+  current_en Revision @relation("current_en", fields: [currentId_en], references: [id], onDelete: Cascade)
+  currentId_en String @unique
+
+  current_nl Revision @relation("current_nl", fields: [currentId_nl], references: [id], onDelete: Cascade)
+  currentId_nl String @unique
+
+  history ItemCategoryHistory[]
+
+  lastCheckedAt DateTime @default(now())
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  version Int @default(0)
+}
+
 model ItemHistory {
   itemId Int
   revisionId String @unique
@@ -61,6 +91,16 @@ model ItemHistory {
   revision Revision @relation(fields: [revisionId], references: [id], onDelete: Cascade)
 
   @@id([itemId, revisionId])
+}
+
+model ItemCategoryHistory {
+  itemCategoryId Int
+  revisionId String @unique
+
+  itemCategory ItemCategory @relation(fields: [itemCategoryId], references: [id], onDelete: Cascade)
+  revision Revision @relation(fields: [revisionId], references: [id], onDelete: Cascade)
+
+  @@id([itemCategoryId, revisionId])
 }
 
 model Color {
@@ -124,6 +164,10 @@ model Revision {
   currentItem_en Item? @relation("current_en")
   currentItem_nl Item? @relation("current_nl")
   itemHistory ItemHistory?
+
+  cuqrentCategory_en ItemCategory? @relation("current_en")
+  currentCategory_nl ItemCategory? @relation("current_nl")
+  categoryHistory ItemCategoryHistory?
 
   // colors
   currentColor_en Color? @relation("current_en")
