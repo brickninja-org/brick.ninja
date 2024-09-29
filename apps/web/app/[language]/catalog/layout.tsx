@@ -11,8 +11,8 @@ export default function CatalogLayout({ children }: LayoutProps) {
   return (
     <HeroLayout color="yellow" hero={<Headline id="catalog"><Translate id="navigation.catalog"/></Headline>}>
       <Navbar path="/catalog/" items={[
-        { segment: 'set', label: <><Translate id="catalog.sets"/><Badge>New</Badge></> },
-        { segment: 'book', label: <Translate id="catalog.books"/> },
+        { segment: 'sets', label: <><Translate id="catalog.sets"/><Badge>New</Badge></> },
+        { segment: 'books', label: <Translate id="catalog.books"/> },
       ]}/>
       <div>
         {children}
