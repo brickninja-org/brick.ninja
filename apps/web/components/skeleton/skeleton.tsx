@@ -8,5 +8,5 @@ export interface SkeletonProps {
 }
 
 export const Skeleton: FC<SkeletonProps> = ({ width = '100%', height = 16, className }) => {
-  return <span className={cn('inline-block width-[10em] height-[1em] align-bottom text-transparent', className)} style={{ width, height }}/>;
+  return <span className={cn('inline-block width-[10em] height-[1em] bg-gray-200 align-bottom text-transparent animate-pulse', className)} style={{ width, height }}/>;
 };

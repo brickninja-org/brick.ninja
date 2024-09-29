@@ -43,7 +43,7 @@ export const Tip: FC<TipProps> = ({ children, tip, preferredPlacement = 'top' })
         <FloatingPortal>
           <div
             ref={refs.setFloating}
-            className="max-h-[--max-height] rounded-sm shadow border bg-white z-10"
+            className="w-max py-1.5 px-3 rounded-sm shadow bg-white text-sm z-10 opacity-100"
             style={{
               ...transitionStyles,
               ...floatingStyles,
