@@ -10,7 +10,7 @@ import { Translate } from '@/components/i18n/translate';
 import { ItemLink } from '@/components/item/item-link';
 import { Description } from '@/components/layout/description';
 import { ColumnSelect } from '@/components/table/column-select';
-import { SetsRowFilter, SetsTableFilter, SetsTableProvider } from '../catalog.client';
+import { CategoryRowFilter, CategoryTableFilter, CategoryTableProvider } from '../catalog.client';
 import type { Metadata } from 'next';
 import { translate } from '@/lib/translate';
 import { getAlternateUrls } from '@/lib/url';
@@ -48,14 +48,14 @@ export default async function CatalogSetsPage({ params: { language }}: PageProps
 
   return (
     <>
-      <SetsTableProvider categories={setsFiltering}>
+      <CategoryTableProvider categories={setsFiltering}>
         <BricklinkAccounts authorizationMessage="Authorize brick.ninja to view your collections." loading={null}/>
 
-        <Description actions={[<SetsTableFilter key="filter" totalCount={items.length}/>, <ColumnSelect key="columns" table={Sets}/>]}>
+        <Description actions={[<CategoryTableFilter key="filter" totalCount={items.length}/>, <ColumnSelect key="columns" table={Sets}/>]}>
           <Translate id="catalog.sets.description"/>
         </Description>
         
-        <Sets.Table rowFilter={SetsRowFilter}>
+        <Sets.Table rowFilter={CategoryRowFilter}>
           <Sets.Column id="id" title={<Translate id="itemTable.column.id"/>} align="right" small hidden>{({ id }) => id}</Sets.Column>
           <Sets.Column id="productCode" title={<Translate id="itemTable.column.productCode"/>} align="right" small sortBy={({ productCode }) => productCode}>{({ productCode }) => productCode}</Sets.Column>
           <Sets.Column id="name" title={<Translate id="itemTable.column.item"/>} align="left">{(item) => <ItemLink item={item}/> }</Sets.Column>
@@ -63,7 +63,7 @@ export default async function CatalogSetsPage({ params: { language }}: PageProps
           <Sets.Column id="pieceCount" title={<Translate id="itemTable.column.pieceCount"/>} align="right" sortBy="pieceCount" small>{({ pieceCount }) => <FormatNumber value={pieceCount}/>}</Sets.Column>
           <Sets.Column id="minAge" title={<Translate id="itemTable.column.minAge"/>} align="right" sortBy="pieceCount" small hidden>{({ minAge }) => <><FormatNumber value={minAge}/>+</>}</Sets.Column>
         </Sets.Table>
-      </SetsTableProvider>
+      </CategoryTableProvider>
     </>
   );
 }

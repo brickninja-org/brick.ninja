@@ -11,21 +11,21 @@ import { FlexRow } from '@brickninja-org/ui/components/flex-row';
 import { MenuList } from '@brickninja-org/ui/components/layout/menu-list';
 import { Separator } from '@brickninja-org/ui/components/layout/separator';
 
-interface SetsTableContext {
+interface CategoryTableContext {
   filteredRows?: number[] | undefined;
   categoryMap: Map<number, { name: string, itemIndexes: number[] }>;
   categoryIds: number[];
   setCategoryIds: (categoryIds: number[]) => void;
 }
 
-const context = createContext<SetsTableContext>({ filteredRows: undefined, categoryMap: new Map(), categoryIds: [], setCategoryIds: () => {} });
+const context = createContext<CategoryTableContext>({ filteredRows: undefined, categoryMap: new Map(), categoryIds: [], setCategoryIds: () => {} });
 
 export interface SetsTableProviderProps {
   categories: { id: number, name: string, itemIndexes: number[] }[];
   children: ReactNode;
 }
 
-export const SetsTableProvider: FC<SetsTableProviderProps> = ({ categories, children }) => {
+export const CategoryTableProvider: FC<SetsTableProviderProps> = ({ categories, children }) => {
   const categoryMap = new Map(categories.map(({ id, ...category }) => [id, category]));
   const allCategoryIds = categories.map(({ id }) => id);
 
@@ -42,18 +42,18 @@ export const SetsTableProvider: FC<SetsTableProviderProps> = ({ categories, chil
   );
 };
 
-export const SetsRowFilter: DataTableRowFilterComponent = ({ children, index }: DataTableRowFilterComponentProps) => {
+export const CategoryRowFilter: DataTableRowFilterComponent = ({ children, index }: DataTableRowFilterComponentProps) => {
   const { filteredRows } = useContext(context);
   const isVisible = filteredRows === undefined || filteredRows.includes(index);
 
   return <tr hidden={!isVisible}>{children}</tr>;
 };
 
-export interface SetsTableFilterProps {
+export interface CategoryTableFilterProps {
   totalCount: number;
 }
 
-export const SetsTableFilter: FC<SetsTableFilterProps> = ({ totalCount: count }) => {
+export const CategoryTableFilter: FC<CategoryTableFilterProps> = ({ totalCount: count }) => {
   const { categoryIds, setCategoryIds, categoryMap } = useContext(context);
 
   const [isShiftPressed, setIsShiftPressed] = useState(false);
