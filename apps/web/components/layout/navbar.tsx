@@ -40,7 +40,9 @@ export const Navbar: FC<NavbarProps> = ({ items, path = '/' }) => {
         {items.map((item) => (
           <li key={item.segment} className={button({ active: segment === item.segment })}>
             <CompositeItem render={<LinkButton href={`${path}${item.segment}`} appearance="menu" className={link({ active: segment === item.segment })}/>}>
-              {item.label}
+              <span>
+                {item.label}
+              </span>
             </CompositeItem>
           </li>
         ))}

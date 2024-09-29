@@ -1,3 +1,4 @@
+import { Badge } from '@/components/badge/badge';
 import { Translate } from '@/components/i18n/translate';
 import { HeroLayout } from '@/components/layout/hero-layout';
 import { Navbar } from '@/components/layout/navbar';
@@ -10,8 +11,8 @@ export default function CatalogLayout({ children }: LayoutProps) {
   return (
     <HeroLayout color="yellow" hero={<Headline id="catalog"><Translate id="navigation.catalog"/></Headline>}>
       <Navbar path="/catalog/" items={[
-        { label: 'Sets', segment: 'set' },
-        { label: 'Books', segment: 'book' },
+        { segment: 'set', label: <><Translate id="catalog.sets"/><Badge>New</Badge></> },
+        { segment: 'book', label: <Translate id="catalog.books"/> },
       ]}/>
       <div>
         {children}

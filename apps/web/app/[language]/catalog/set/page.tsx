@@ -11,6 +11,9 @@ import { ItemLink } from '@/components/item/item-link';
 import { Description } from '@/components/layout/description';
 import { ColumnSelect } from '@/components/table/column-select';
 import { SetsRowFilter, SetsTableFilter, SetsTableProvider } from '../catalog.client';
+import type { Metadata } from 'next';
+import { translate } from '@/lib/translate';
+import { getAlternateUrls } from '@/lib/url';
 
 const getSets = cache(
   () => db.item.findMany({
@@ -63,4 +66,12 @@ export default async function CatalogSetsPage({ params: { language }}: PageProps
       </SetsTableProvider>
     </>
   );
+}
+
+export function generateMetadata({ params }: PageProps): Metadata {
+  return {
+    title: translate('catalog.sets', params.language),
+    description: translate('catalog.sets.description', params.language),
+    alternates: getAlternateUrls('/catalog/sets'),
+  };
 }
