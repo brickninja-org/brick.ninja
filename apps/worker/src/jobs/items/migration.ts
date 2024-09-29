@@ -3,7 +3,7 @@ import { Prisma } from '@brickninja-org/database';
 import { LocalizedObject } from '../helper/types';
 import { GetSets } from '@brickset-api/types/data/get-sets';
 
-export const CURRENT_VERSION = 4;
+export const CURRENT_VERSION = 5;
 
 /** @see Prisma.ItemUpdateInput */
 interface MigratedItem {
@@ -16,6 +16,9 @@ interface MigratedItem {
   productCode?: string;
   pieceCount?: number;
   minifigureCount?: number;
+  year?: number;
+  released?: boolean;
+  minAge?: number;
   removedFromApi?: boolean;
 
   lastCheckedAt?: Date | string;
@@ -57,6 +60,12 @@ export async function createMigrator() {
       } else if (en.theme === 'Gear') {
         update.type = 'Gear';
       }
+    }
+
+    if (currentVersion < 5) {
+      update.year = en.year;
+      update.released = en.released;
+      update.minAge = en.ageRange?.min;
     }
 
     return update satisfies Prisma.ItemUpdateInput;
