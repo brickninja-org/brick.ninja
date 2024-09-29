@@ -19,8 +19,11 @@ model Item {
   subtype String?
 
   productCode String?
-  pieceCount Int @default(0)
-  minifigureCount Int @default(0)
+  pieceCount Int?
+  minifigureCount Int?
+  year Int?
+  released Boolean @default(false)
+  minAge Int?
 
   // categories
   categories ItemCategory[]
