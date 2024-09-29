@@ -30,8 +30,6 @@ export const RevisionsPrevious: Job = {
     });
 
     for (const item of items) {
-      console.log(item.id);
-
       await db.$transaction(async (tx) => {
         for (let i = 0; i < item.history.length; i++) {
           const history = item.history[i];

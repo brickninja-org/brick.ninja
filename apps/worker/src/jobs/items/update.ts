@@ -5,6 +5,7 @@ import { localeExists } from '../helper/locale-exists';
 import { queuedJobsForIds } from '../helper/queued-job-for-ids';
 import { Job } from '../job';
 import { createMigrator } from './migration';
+import { GetSets } from '@brickset-api/types/data/get-sets';
 
 export const ItemsUpdate: Job = {
   run: async (ids: number[] | Record<string, never>) => {
@@ -45,20 +46,28 @@ export const ItemsUpdate: Job = {
     // load items from API
     const apiItems = await loadItems(itemsToUpdate.map(({ productCode }) => productCode).filter(isTruthy));
 
-    console.log(`Loaded ${apiItems.size} items from API`);
-
     const items = itemsToUpdate.map((existing) => ({
       existing,
       ...apiItems.get(existing.id),
     })).filter(localeExists);
-
-    console.log(`Processing ${items.length} items`);
 
     const migrate = await createMigrator();
 
     let updatedItems = 0;
 
     for(const { existing, en, nl } of items) {
+      // get last updated dates
+      const checkApiLastUpdatedDate = apiItems && new Date(apiItems.get(existing.id)!.en.lastUpdated);
+      const dbLastUpdatedDate = existing.current_en.data && new Date(JSON.parse(existing.current_en.data as GetSets['lastUpdated']).lastUpdated);
+      
+      // check if item was updated in the API
+      if (checkApiLastUpdatedDate.valueOf() === dbLastUpdatedDate.valueOf()) {
+        console.log(`Item ${existing.id} is up to date in the API`);
+
+        await db.item.update({ data: { lastCheckedAt: new Date() }, where: { id: existing.id }});
+        continue;
+      }
+
       const changed_en = existing.current_en.data !== JSON.stringify(en);
       const changed_nl = existing.current_nl.data !== JSON.stringify(nl);
 
