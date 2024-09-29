@@ -14,10 +14,11 @@
   "itemTable.column.id": "ID",
   "itemTable.column.item": "Item",
   "itemTable.column.type": "Type",
+  "itemTable.column.minAge": "Ages",
+  "itemTable.column.minifigureCount": "Minifigures",
   "itemTable.column.name_en": "Name (EN)",
   "itemTable.column.name_nl": "Name (NL)",
   "itemTable.column.productCode": "LEGO® number",
-  "itemTable.column.minifigureCount": "Minifigures",
   "itemTable.column.pieceCount": "Pieces",
   "itemTable.column.year": "Year",
   "itemTable.viewItem": "View Item",
@@ -32,5 +33,6 @@
   "priceGuide.official_price": "Official Price",
   "priceGuide.per_piece": "Per Piece",
   "catalog.books": "Books",
-  "catalog.books.description": "Discover a diverse collection of LEGO® books, from adventures within iconic LEGO® themes to inspiring guides filled with unique creations for all ages."
+  "catalog.books.description": "Discover a diverse collection of LEGO® books, from adventures within iconic LEGO® themes to inspiring guides filled with unique creations for all ages.",
+  "catalog.sets.description": "Explore a wide range of LEGO® sets, from classic themes to the latest releases. Each set includes detailed instructions for building and playing."
 }

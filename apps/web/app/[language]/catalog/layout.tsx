@@ -10,6 +10,7 @@ export default function CatalogLayout({ children }: LayoutProps) {
   return (
     <HeroLayout color="yellow" hero={<Headline id="catalog"><Translate id="navigation.catalog"/></Headline>}>
       <Navbar path="/catalog/" items={[
+        { label: 'Sets', segment: 'set' },
         { label: 'Books', segment: 'book' },
       ]}/>
       <div>
