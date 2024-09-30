@@ -35,12 +35,12 @@ export default async function ItemPage({ params: { language }}: PageProps) {
     <HeroLayout hero={<Headline id="items">Items</Headline>} toc>
       <Headline id="recent">Recently added</Headline>
       <ItemList>
-        {recentlyAdded.map((item) => <ItemListItem key={item.id}><ItemLink item={item}/><FormatDate date={item.createdAt} relative/></ItemListItem>)}
+        {recentlyAdded.length > 0 ? recentlyAdded.map((item) => <ItemListItem key={item.id}><ItemLink item={item}/><FormatDate date={item.createdAt} relative/></ItemListItem>) : []}
       </ItemList>
 
       <Headline id="updated">Recently updated</Headline>
       <ItemList>
-        {recentlyUpdated.map((revision) => <ItemListItem key={revision.id}><ItemLink item={revision.itemHistory!.item}/><FormatDate date={revision.createdAt} relative/></ItemListItem>)}
+        {recentlyUpdated.length > 0 ? recentlyUpdated.map((revision) => <ItemListItem key={revision.id}><ItemLink item={revision.itemHistory!.item}/><FormatDate date={revision.createdAt} relative/></ItemListItem>) : []}
       </ItemList>
     </HeroLayout>
   );
