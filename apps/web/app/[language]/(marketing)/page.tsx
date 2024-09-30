@@ -70,7 +70,7 @@ async function NewItems() {
 
 const getDbStats = cache(async () => {
   const [items] = await Promise.all([
-    db.item.groupBy({ by: ['type'], _count: true }),
+    db.item.groupBy({ where: { type: { not: 'Miscellaneouss' }}, by: ['type'], _count: true }),
   ]);
 
   return { items };
@@ -88,7 +88,7 @@ async function DbStats() {
 
   return (
     <div className="flex flex-wrap justify-center gap-[16px_32px] min-h-[82px] -mt-4 mb-8 -mx-4 py-8 px-4 bg-gray-200 max-sm:flex-col max-sm:items-center sm:min-h-[100px] sm:gap-[32px_64px]">
-      {counts.items.map((i) => i.type !== 'Miscellaneouss' ? <Stat key={i.type} href={`/catalog${i.type !== 'Gear' ? `/${i.type.toLowerCase()}s` : '/item'}`} title={`${i.type}${i.type !== 'Gear' ? 's' : ''}`} value={i._count}/> : null)}
+      {counts.items.map((i) => <Stat key={i.type} href={`/catalog${i.type !== 'Gear' ? `/${i.type.toLowerCase()}s` : '/item'}`} title={`${i.type}${i.type !== 'Gear' ? 's' : ''}`} value={i._count}/>)}
     </div>
   );
 }
