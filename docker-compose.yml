@@ -34,7 +34,7 @@ services:
       - POSTGRES_USER=brickninja
       - POSTGRES_PASSWORD=brickninja
       - POSTGRES_DB=brickninja
-      - PGDATA=/var/lib/postgresql/data/pgdata
+      - PGDATA=/var/lib/postgresql/data/pgdata/bn
     volumes:
       - .docker/database-pg16:/var/lib/postgresql/data
     ports:
