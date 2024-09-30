@@ -70,7 +70,7 @@ async function NewItems() {
 
 const getDbStats = cache(async () => {
   const [items] = await Promise.all([
-    db.item.groupBy({ where: { type: { not: 'Miscellaneouss' }}, by: ['type'], _count: true }),
+    db.item.groupBy({ where: { type: { not: 'Miscellaneous' }}, by: ['type'], _count: true }),
   ]);
 
   return { items };
