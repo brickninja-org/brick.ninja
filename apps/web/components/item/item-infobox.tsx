@@ -10,7 +10,7 @@ import { translateMany } from '@/lib/translate';
 import { LanguageLinks } from '@/components/info-box/language-links';
 import { ItemLink } from '@/components/item/item-link';
 import { PriceGuide } from '@/components/item/price-guide';
-import { FormatNumberPercent } from '../format/format-number';
+import { FormatNumberPercent } from '../format/format-number.percent';
 
 const TOTAL_COUNT_BRICKSET_USERS = 335274;
 

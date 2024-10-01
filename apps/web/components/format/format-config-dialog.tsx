@@ -7,7 +7,7 @@ import { MenuList } from '@brickninja-org/ui/components/layout/menu-list';
 import { Select } from '@brickninja-org/ui/components/form/select';
 
 import { useFormatContext } from '@/components/format/format-context';
-import { FormatCurrency } from '@/components/format/format-currency';
+import { FormatCurrency } from '@/components/format/format-number.currency';
 import { FormatDate } from '@/components/format/format-date';
 import { FormatNumber } from '@/components/format/format-number';
 import { useLanguage } from '@/components/i18n/context';

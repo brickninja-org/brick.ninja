@@ -6,7 +6,7 @@ import type { GetSets } from '@brickset-api/types/data/get-sets';
 
 import type { TranslationSubset } from '@/lib/translate';
 import { useFormatContext } from '@/components/format/format-context';
-import { FormatCurrency } from '@/components/format/format-currency';
+import { FormatCurrency } from '@/components/format/format-number.currency';
 import { DataList } from '@/components/info-box/data-list';
 
 interface PriceGuideProps {
