@@ -10,6 +10,9 @@ import { translateMany } from '@/lib/translate';
 import { LanguageLinks } from '@/components/info-box/language-links';
 import { ItemLink } from '@/components/item/item-link';
 import { PriceGuide } from '@/components/item/price-guide';
+import { FormatNumber } from '../format/format-number';
+
+const TOTAL_COUNT_BRICKSET_USERS = 335274;
 
 interface ItemInfoboxProps {
   item: Item;
@@ -35,6 +38,13 @@ export const ItemInfobox: FC<ItemInfoboxProps> = ({ item, data, language }) => {
         {/* <LinkButton appearance="tertiary" flex external href={`https://brickset.com/api/v3.asmx/getSets?apiKey=${process.env.BRICKSET_API_KEY}&userHash=&params={setID=${item.id}}`} target="api">API</LinkButton> */}
         <LinkButton appearance="tertiary" flex external href={`https://www.lego.com/product/${data.number}`} target="product">LEGO.com</LinkButton>
       </FlexRow>
+
+      {data.collections?.ownedBy && data.collections.ownedBy > 0 && (
+        <>
+          <Headline id="collections" noToc>Collections</Headline>
+          <p>Owned by <FormatNumber value={(data.collections.ownedBy / TOTAL_COUNT_BRICKSET_USERS) * 100}/> of users on Brickset.com</p>
+        </>
+      )}
     </div>
   );
 };

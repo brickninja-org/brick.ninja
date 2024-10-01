@@ -3,11 +3,13 @@ import 'server-only';
 import type { FC } from 'react';
 
 import type { Language } from '@brickninja-org/database';
+import { isTruthy } from '@brickninja-org/helper/is';
 import type { GetSets } from '@brickset-api/types/data/get-sets';
 
 // import { getLinkProperties, type linkProperties } from '@/lib/link-properties';
 import type { LocalizedEntity } from '@/lib/localized-name';
 import { ClientItemTooltip } from '@/components/item/item-tooltip.client';
+import { getTranslate } from '@/lib/translate';
 
 export interface ItemTooltipProps {
   item: GetSets;
@@ -23,18 +25,33 @@ export const ItemTooltip: FC<ItemTooltipProps> = async ({ item, language, hideTi
   );
 };
 
-export function createTooltip(item: GetSets, language: Language) {
-  // const t = await getTranslation(language);
+export async function createTooltip(item: GetSets, language: Language) {
+  const t = await getTranslate(language);
 
-  // type CurrentRevision = { [key in `current_${typeof language}`]: Revision };
+  /*
+  type CurrentRevision = { [key in `current_${typeof language}`]: Revision };
+  const selectCurrentRevision = {
+    current_en: language === 'en' ? { select: { data: true }} : undefined,
+    current_nl: language === 'nl' ? { select: { data: true }} : undefined,
+  };
+  */
+
+  const monthAgo = new Date();
+  monthAgo.setMonth(monthAgo.getMonth() - 1);
+
+  const isNew = item.LEGOCom.US.dateFirstAvailable ? new Date(item.LEGOCom.US.dateFirstAvailable).valueOf() > monthAgo.valueOf() : false;
 
   return {
     language,
-    name: item.name,
+    name: item.name || '???',
     number: item.number,
     version: item.numberVariant,
     theme: item.theme,
-    release: item.year,
+    flags: [
+      isNew && t('item.flag.New'),
+      item.themeGroup.includes('Licensed') && t('item.flag.Licensed'),
+    ].filter(isTruthy),
+    releaseYear: item.year,
     availablility: item.availability,
     pieces: item.pieces,
     minifigures: item.minifigs,
@@ -48,7 +65,7 @@ export type ItemWithAttributes = LocalizedEntity & {
   number: string;
   version: string;
   theme: string;
-  release: number;
+  releaseYear: number;
   availability: string;
   pieces: number;
   minifigures: number;
@@ -64,10 +81,11 @@ export interface ItemTooltip {
   number: string;
   version: string;
   theme: string;
-  release: number;
+  releaseYear: number;
   availablility: string;
   pieces: number;
   minifigures: number;
   ages: number;
   dimensions: { height?: number; width?: number; depth?: number, weight?: number };
+  flags: string[];
 }

@@ -22,6 +22,8 @@
   "itemTable.column.pieceCount": "Pieces",
   "itemTable.column.year": "Year",
   "itemTable.viewItem": "View Item",
+  "item.flag.New": "New",
+  "item.flag.Licensed": "Licensed",
   "item.type.Book": "Book",
   "item.type.Book.Magazine": "Magazine",
   "item.type.Gear": "Gear",

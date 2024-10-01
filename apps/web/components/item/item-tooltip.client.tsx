@@ -26,13 +26,14 @@ export const ClientItemTooltip: FC<ClientItemTooltipProps> = ({ tooltip, hideTit
   const data: ReactNode[] = [
     tooltip.number && `${tooltip.number} v${tooltip.version}`,
     tooltip.theme,
-    tooltip.release,
+    tooltip.releaseYear,
     tooltip.availablility,
     tooltip.pieces && `${tooltip.pieces} pieces`,
     tooltip.minifigures && `${tooltip.minifigures} minifigures`,
     tooltip.ages && `${tooltip.ages}+`,
     tooltip.dimensions && renderDimensions(tooltip.dimensions),
     tooltip.dimensions && tooltip.dimensions.weight && <FormatNumber value={tooltip.dimensions.weight} unit="Kg"/>,
+    ...tooltip.flags,
   ];
 
   return (
