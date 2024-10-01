@@ -42,7 +42,7 @@ export const ItemInfobox: FC<ItemInfoboxProps> = ({ item, data, language }) => {
       {data.collections?.ownedBy && data.collections.ownedBy > 0 && (
         <>
           <Headline id="collections" noToc>Collections</Headline>
-          <p>Owned by <FormatNumberPercent value={(data.collections.ownedBy / TOTAL_COUNT_BRICKSET_USERS) * 100}/> of users on Brickset.com</p>
+          <p>Owned by <FormatNumberPercent value={data.collections.ownedBy / TOTAL_COUNT_BRICKSET_USERS}/> of users on Brickset.com</p>
         </>
       )}
     </div>
