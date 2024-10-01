@@ -33,7 +33,8 @@ interface FormatContextProps {
   localFormat: Intl.DateTimeFormat;
   relativeFormat: Intl.RelativeTimeFormat;
   numberFormat: Intl.NumberFormat;
-  currencyFormat: Intl.NumberFormat;
+  numberFormatCurrency: Intl.NumberFormat;
+  numberFormatPercent: Intl.NumberFormat;
 }
 
 const FormatContext = createContext<FormatContextProps>(null!);
@@ -82,7 +83,8 @@ export const FormatProvider: FC<FormatProviderProps> = ({ children }) => {
     localFormat: new Intl.DateTimeFormat(locale, { dateStyle: 'short', timeStyle: 'short' }),
     relativeFormat: new Intl.RelativeTimeFormat(locale, { numeric: 'auto' }),
     numberFormat: new Intl.NumberFormat(locale, { useGrouping: true }),
-    currencyFormat: new Intl.NumberFormat(locale, { style: 'currency', currency: getCurrencyByRegion(region), currencyDisplay: 'narrowSymbol' }),
+    numberFormatCurrency: new Intl.NumberFormat(locale, { style: 'currency', currency: getCurrencyByRegion(region), currencyDisplay: 'narrowSymbol' }),
+    numberFormatPercent: new Intl.NumberFormat(locale, { style: 'percent', maximumFractionDigits: 3 })
   }), [language, region, locale]);
 
   return <FormatContext.Provider value={context}>{children}</FormatContext.Provider>;

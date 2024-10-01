@@ -10,7 +10,7 @@ import { translateMany } from '@/lib/translate';
 import { LanguageLinks } from '@/components/info-box/language-links';
 import { ItemLink } from '@/components/item/item-link';
 import { PriceGuide } from '@/components/item/price-guide';
-import { FormatNumber } from '../format/format-number';
+import { FormatNumberPercent } from '../format/format-number';
 
 const TOTAL_COUNT_BRICKSET_USERS = 335274;
 
@@ -42,7 +42,7 @@ export const ItemInfobox: FC<ItemInfoboxProps> = ({ item, data, language }) => {
       {data.collections?.ownedBy && data.collections.ownedBy > 0 && (
         <>
           <Headline id="collections" noToc>Collections</Headline>
-          <p>Owned by <FormatNumber value={(data.collections.ownedBy / TOTAL_COUNT_BRICKSET_USERS) * 100}/> of users on Brickset.com</p>
+          <p>Owned by <FormatNumberPercent value={(data.collections.ownedBy / TOTAL_COUNT_BRICKSET_USERS) * 100} unit="percent"/> of users on Brickset.com</p>
         </>
       )}
     </div>

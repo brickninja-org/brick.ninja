@@ -6,23 +6,23 @@ import { cn } from '@brickninja-org/ui/lib';
 
 import { useFormatContext } from './format-context';
 
-interface FormatCurrencyProps {
+interface FormatNumberPercentProps {
   value: number | bigint | undefined | null;
   className?: string;
 }
 
-const format = new Intl.NumberFormat(undefined, { style: 'currency', currency: 'EUR' });
+const format = new Intl.NumberFormat(undefined, { style: 'percent', maximumFractionDigits: 3 });
 
-export const FormatCurrency: FC<FormatCurrencyProps> = ({ value, className }) => {
-  const { numberFormatCurrency } = useFormatContext();
+export const FormatNumber: FC<FormatNumberPercentProps> = ({ value, className }) => {
+  const { numberFormatPercent } = useFormatContext();
 
   return (
     <data className={cn('whitespace-nowrap', className)} value={value?.toString() ?? undefined} suppressHydrationWarning>
-      {value != null && numberFormatCurrency.format(value)}
+      {value != null ? numberFormatPercent.format(value) : '?'}
     </data>
   );
 };
 
-export function formatCurrency(value: number): string {
+export function formatNumber(value: number): string {
   return format.format(value);
 }
