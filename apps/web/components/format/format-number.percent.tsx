@@ -13,7 +13,7 @@ interface FormatNumberPercentProps {
 
 const format = new Intl.NumberFormat(undefined, { style: 'percent', maximumFractionDigits: 3 });
 
-export const FormatNumber: FC<FormatNumberPercentProps> = ({ value, className }) => {
+export const FormatNumberPercent: FC<FormatNumberPercentProps> = ({ value, className }) => {
   const { numberFormatPercent } = useFormatContext();
 
   return (
