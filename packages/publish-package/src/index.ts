@@ -43,12 +43,12 @@ async function run() {
   }
 
   if(githubEventName !== 'push') {
-    execSync('npm publish --dry-run');
+    execSync('npm publish --access=restricted --dry-run');
 
     return;
   }
 
-  execSync('npm publish');
+  execSync('npm publish --access=restricted');
 }
 
 run();

@@ -227,6 +227,7 @@ jobs:
         node-version: 20
         cache: npm
         registry-url: 'https://registry.npmjs.org'
+        scope: '@brickninja-org'
     - name: Install latest npm
       run: |
         npm install --global npm@${{ env.NPM_VERSION }}
