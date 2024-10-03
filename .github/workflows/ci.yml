@@ -219,7 +219,7 @@ jobs:
       pull-requests: write
     strategy:
       matrix:
-        target: [ ui, helper, tsconfig, publish-package, eslint-config ]
+        target: [ ui, icons, helper, tsconfig, publish-package, eslint-config ]
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
