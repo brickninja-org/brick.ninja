@@ -2,7 +2,6 @@
   "$schema": "https://json.schemastore.org/eslintrc",
 
   "plugins": [
-    "@typescript-eslint",
     "@stylistic"
   ],
 

@@ -1,6 +1,6 @@
 {
   "name": "@brickninja-org/ui",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/brickninja-org/brick.ninja.git"
@@ -29,7 +29,6 @@
   },
   "homepage": "https://github.com/brickninja-org/brick.ninja#readme",
   "dependencies": {
-    "@brickninja-org/icons": "*",
     "@floating-ui/react": "0.26.24",
     "@floating-ui/react-dom": "2.1.1",
     "client-only": "0.0.1",
@@ -40,6 +39,7 @@
   },
   "devDependencies": {
     "@brickninja-org/eslint-config": "*",
+    "@brickninja-org/icons": "*",
     "@types/react": "npm:types-react@19.0.0-rc.0",
     "@types/react-dom": "npm:types-react-dom@19.0.0-rc.0",
     "autoprefixer": "10.4.20",
@@ -52,6 +52,7 @@
   },
   "peerDependencies": {
     "@brickninja-org/helper": "~0.0.1",
+    "@brickninja-org/icons": "~0.0.1",
     "@brickninja-org/tsconfig": "~0.0.1",
     "next": "^13.4.0 || ^14.0.0 || 15.0.0-rc.0",
     "react": "^18.2.0 || 19.0.0-rc-f994737d14-20240522",
