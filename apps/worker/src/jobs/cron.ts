@@ -15,6 +15,7 @@ export async function registerCronJobs() {
   await registerJob('items.migrate', '*/6 * * * *');
   await registerJob('items.views', '56 * * * *');
 
+  await registerJob('categories.check', '*/5 * * * *');
   // await registerJob('colors', '*/5 * * * *');
 
   await registerJob('bricklinkapi-requests.cleanup', '33 3 * * *');
