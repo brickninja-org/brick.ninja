@@ -1,5 +1,3 @@
-/// <reference types="react-dom/canary" />
-
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import type * as CSS from 'csstype';
 
