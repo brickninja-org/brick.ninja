@@ -19,7 +19,7 @@
     "@brickset-api/fetch": "0.0.18",
     "@brickset-api/types": "0.0.16",
     "@floating-ui/react": "0.26.24",
-    "@floating-ui/react-dom": "2.1.1",
+    "@floating-ui/react-dom": "2.1.2",
     "@formatjs/intl-localematcher": "0.5.4",
     "@wooorm/starry-night": "3.5.0",
     "babel-plugin-react-compiler": "0.0.0-experimental-938cd9a-20240601",
