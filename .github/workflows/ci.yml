@@ -208,35 +208,6 @@ jobs:
     - name: Inspect image
       run: docker buildx imagetools inspect $(jq -cr '.tags[0]' <<< "$DOCKER_METADATA_OUTPUT_JSON")
 
-  publish-github:
-    name: Publish / GitHub / ${{ matrix.target }}
-    runs-on: ubuntu-latest
-    if: github.event_name != 'merge_group'
-    needs: [success]
-    permissions:
-      contents: read
-      id-token: write
-      pull-requests: write
-      packages: write
-    strategy:
-      matrix:
-        target: [ ui, icons, helper, tsconfig, publish-package, eslint-config ]
-    steps:
-    - uses: actions/checkout@v4
-    # Setup .npmrc file to publish to GitHub Packages
-    - uses: actions/setup-node@v4
-      with:
-        node-version: 20
-        registry-url: 'https://npm.pkg.github.com'
-        scope: '@brickninja-org'
-    - name: Install dependencies
-      run: npm ci
-    - name: Publish package
-      run: npm run publish-package -- --filter=@brickninja-org/${{ matrix.target }}
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        GITHUB_EVENT_NAME: ${{ github.event_name }}
-
   publish-npm:
     name: Publish / npm / ${{ matrix.target }}
     runs-on: ubuntu-latest
