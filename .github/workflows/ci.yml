@@ -232,7 +232,7 @@ jobs:
     - name: Install dependencies
       run: npm ci
     - name: Publish package
-      run: npm run publish-package -- --access restricted --filter=@brickninja-org/${{ matrix.target }}
+      run: npm run publish-package -- --filter=@brickninja-org/${{ matrix.target }}
       env:
         NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GITHUB_EVENT_NAME: ${{ github.event_name }}
