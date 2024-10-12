@@ -1,6 +1,6 @@
 'use client';
 
-import { forwardRef } from 'react';
+import type { FC } from 'react';
 import NextLink from 'next/link';
 
 import { cn } from '@brickninja-org/ui/lib';
@@ -10,36 +10,35 @@ import { localizedUrl } from '@/lib/localized-url';
 import type { EntityLinkProps } from '@/components/entity/entity-link';
 import { useLanguage } from '@/components/i18n/context';
 
-export const EntityLinkInternal = forwardRef<HTMLAnchorElement, EntityLinkProps>(function EntityLinkInternal({ className, entity, href, language, onClick, ...linkProps }: EntityLinkProps, ref) {
-    const defaultLanguage = useLanguage();
+export const EntityLinkInternal: FC<EntityLinkProps> = ({ ref, className, entity, href, language, onClick, ...linkProps }) => {
+  const defaultLanguage = useLanguage();
 
-    if (language && defaultLanguage !== language) {
-      href = localizedUrl(href, language);
-    }
+  if (language && defaultLanguage !== language) {
+    href = localizedUrl(href, language);
+  }
 
-    return (
-      <NextLink
-        suppressHydrationWarning
-        key={href}
-        ref={ref}
-        href={href}
-        hrefLang={language}
-        className={cn([
-          'inline-flex',
-          'items-center',
-          '[justify-self:_flex-start]',
-          'gap-2',
-          'overflow-hidden',
-          'text-blue-600',
-          'hover:[&>span]:decoration-black',
-        ], className)}
-        onClick={onClick}
-        {...linkProps}
-      >
-        <>
-          <span className="py-0.5 overflow-hidden text-ellipsis underline underline-offset-2 decoration-2 decoration-transparent">{localizedName(entity, language ?? defaultLanguage)}</span>
-        </>
-      </NextLink>
-    );
-  },
-);
+  return (
+    <NextLink
+      suppressHydrationWarning
+      key={href}
+      ref={ref}
+      href={href}
+      hrefLang={language}
+      className={cn([
+        'inline-flex',
+        'items-center',
+        '[justify-self:_flex-start]',
+        'gap-2',
+        'overflow-hidden',
+        'text-blue-600',
+        'hover:[&>span]:decoration-black',
+      ], className)}
+      onClick={onClick}
+      {...linkProps}
+    >
+      <>
+        <span className="py-0.5 overflow-hidden text-ellipsis underline underline-offset-2 decoration-2 decoration-transparent">{localizedName(entity, language ?? defaultLanguage)}</span>
+      </>
+    </NextLink>
+  );
+};

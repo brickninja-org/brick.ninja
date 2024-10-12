@@ -1,6 +1,7 @@
-import { forwardRef, type ReactNode } from 'react';
+import type { FC, ReactNode } from 'react';
 import { tv, type VariantProps } from 'tailwind-variants';
 
+import type { RefProp } from '../../lib/react';
 import { Icon, type IconName } from '../../icons';
 
 const notice = tv({
@@ -23,7 +24,7 @@ const notice = tv({
 
 type NoticeVariants = VariantProps<typeof notice>;
 
-export interface NoticeProps extends NoticeVariants {
+export interface NoticeProps extends NoticeVariants, RefProp<HTMLDivElement> {
   icon?: IconName;
   children: ReactNode;
 
@@ -31,7 +32,7 @@ export interface NoticeProps extends NoticeVariants {
   index?: boolean;
 }
 
-export const Notice = forwardRef<HTMLDivElement, NoticeProps>(function Notice({ type, icon, index, children }, ref) {
+export const Notice: FC<NoticeProps> = ({ ref, type, icon, index, children }) => {
   const { base, content } = notice({ type });
 
   return (
@@ -40,4 +41,4 @@ export const Notice = forwardRef<HTMLDivElement, NoticeProps>(function Notice({ 
       <div className={content()}>{children}</div>
     </div>
   );
-});
+};

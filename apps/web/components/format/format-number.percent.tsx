@@ -3,10 +3,11 @@
 import type { FC } from 'react';
 
 import { cn } from '@brickninja-org/ui/lib';
+import type { RefProp } from '@brickninja-org/ui/lib/react';
 
 import { useFormatContext } from './format-context';
 
-interface FormatNumberPercentProps {
+interface FormatNumberPercentProps extends RefProp<HTMLDataElement> {
   value: number | bigint | undefined | null;
   className?: string;
 }

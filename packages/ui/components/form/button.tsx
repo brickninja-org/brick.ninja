@@ -1,8 +1,9 @@
-import React, { forwardRef, type ButtonHTMLAttributes, type HTMLAttributes, type MouseEventHandler, type ReactNode } from 'react';
+import React, { type FC, type ButtonHTMLAttributes, type HTMLAttributes, type MouseEventHandler, type ReactNode } from 'react';
 import Link from 'next/link';
 import { tv, type VariantProps } from 'tailwind-variants';
 
 import { cn } from '../../lib';
+import type { RefProp } from '../../lib/react';
 import { Icon, type IconColor, type IconProp } from '../../icons';
 
 const button = tv({
@@ -41,21 +42,21 @@ export interface CommonButtonProps extends Pick<HTMLAttributes<HTMLElement>, 'ar
   children?: ReactNode;
 }
 
-export interface ButtonProps extends CommonButtonProps, Pick<ButtonHTMLAttributes<HTMLButtonElement>, 'disabled' | 'form' | 'name' | 'value' | 'formAction' | 'aria-label'> {
+export interface ButtonProps extends CommonButtonProps, RefProp<HTMLButtonElement>, Pick<ButtonHTMLAttributes<HTMLButtonElement>, 'disabled' | 'form' | 'name' | 'value' | 'formAction' | 'aria-label'> {
   type?: 'button' | 'submit';
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button({ appearance = 'secondary', flex, icon, iconColor, iconOnly, children, onClick, className, type = 'button', ...props }, ref) {
+export const Button: FC<ButtonProps> = ({ ref, appearance = 'secondary', flex, icon, iconColor, iconOnly, children, onClick, className, type = 'button', ...props }) => {
   return (
     <button ref={ref} type={type} onClick={onClick} className={cn(button({ appearance, flex, iconOnly }), className)} {...props}>
       {icon && <Icon icon={icon} color={iconColor}/>}
       {children}
     </button>
   );
-});
+};
 
-export interface LinkButtonProps extends CommonButtonProps {
+export interface LinkButtonProps extends CommonButtonProps, RefProp<HTMLAnchorElement>, Pick<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'target' | 'rel'> {
   onClick?: MouseEventHandler<HTMLAnchorElement>;
   href: string;
   locale?: string | false;
@@ -63,7 +64,7 @@ export interface LinkButtonProps extends CommonButtonProps {
   external?: boolean;
 }
 
-export const LinkButton = forwardRef<HTMLAnchorElement, LinkButtonProps & Pick<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'target' | 'rel'>>(function Button({ appearance, children, className, icon, iconColor, external, flex, fullWidth, ...props }, ref) {
+export const LinkButton: FC<LinkButtonProps> = ({ ref, appearance, children, className, icon, iconColor, external, flex, fullWidth, ...props }) => {
   const LinkElement = external ? 'a' : Link;
 
   return (
@@ -72,4 +73,4 @@ export const LinkButton = forwardRef<HTMLAnchorElement, LinkButtonProps & Pick<R
       {children}
     </LinkElement>
   );
-});
+};
