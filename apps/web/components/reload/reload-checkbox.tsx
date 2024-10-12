@@ -14,7 +14,7 @@ export const ReloadCheckbox: FC<ReloadProps & RefProp<HTMLLabelElement>> = (({ r
     <>
       {autoRefresh && <Reload {...reloadProps}/>}
       <Checkbox checked={autoRefresh} onChange={setAutorefresh} ref={ref}>
-        Auto refresh
+        Auto Refresh
       </Checkbox>
     </>
   );
