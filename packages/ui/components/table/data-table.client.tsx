@@ -8,6 +8,7 @@ import { Checkbox } from '../form/checkbox';
 import { MenuList } from '../layout/menu-list';
 import { DataTableGlobalContext, type AvailableColumn } from './data-table-context';
 import { Table, type HeaderCellProps } from './table';
+import { Separator } from '../layout/separator';
 
 type DataTableContext = { id: string, sortBy: string | undefined, sortOrder: 'asc' | 'desc', visibleColumns: string[] };
 
@@ -117,8 +118,9 @@ export const DataTableClientColumnSelection: FC<DataTableClientColumnSelectionPr
       <MenuList>
         {currentAvailableColumns.filter((column) => !column.fixed).map((column) => (
           <Checkbox key={column.id} checked={currentColumns.includes(column.id)} onChange={(checked) => setColumns(id, currentAvailableColumns.map(({ id }) => id).filter((id) => id === column.id ? checked : currentColumns.includes(id)))}>{column.title}</Checkbox>
-      ))}
-        <button onClick={() => setColumns(id, undefined)} disabled={columns[id] === undefined}>{reset}</button>
+        ))}
+        <Separator/>
+        <Button appearance="menu" onClick={() => setColumns(id, undefined)} disabled={columns[id] === undefined}>{reset}</Button>
       </MenuList>
     </Dropdown>
   );
