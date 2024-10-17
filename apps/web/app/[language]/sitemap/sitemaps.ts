@@ -1,3 +1,5 @@
+import type { Language } from '@brickninja-org/database';
+
 import { db } from '@/lib/prisma';
 import { getAlternateUrls } from '@/lib/url';
 
@@ -12,7 +14,7 @@ interface SitemapEntry {
 
 interface Sitemap {
   getCount(): number | Promise<number>;
-  getEntries(skip: number, take: number): SitemapEntry[] | Promise<SitemapEntry[]>;
+  getEntries(language: Language, skip: number, take: number): SitemapEntry[] | Promise<SitemapEntry[]>;
 }
 
 export const pageSize = 20_000;
@@ -23,10 +25,11 @@ export const sitemaps: Record<string, Sitemap> = {
       return db.item.count();
     },
 
-    async getEntries(skip, take) {
+    async getEntries(language, skip, take) {
       const items = await db.item.findMany({ skip, take, select: { id: true, updatedAt: true }});
 
       return items.map((item) => getEntryForUrl(
+        language,
         `/items/${item.id}`,
         { lastmod: item.updatedAt },
       ));
@@ -38,7 +41,7 @@ export const sitemaps: Record<string, Sitemap> = {
       return 1;
     },
 
-    getEntries() {
+    getEntries(language) {
       return [
         '/',
         '/status',
@@ -46,13 +49,13 @@ export const sitemaps: Record<string, Sitemap> = {
         '/status/api',
         '/login',
         '/review',
-      ].map((page) => getEntryForUrl(page));
+      ].map((page) => getEntryForUrl(language, page));
     }
   },
 };
 
-function getEntryForUrl(pathname: string, additionalProps: Omit<SitemapEntry, 'url' | 'alternates'> = {}): SitemapEntry {
-  const alternates = getAlternateUrls(pathname);
+function getEntryForUrl(currentLanguage: Language, pathname: string, additionalProps: Omit<SitemapEntry, 'url' | 'alternates'> = {}): SitemapEntry {
+  const alternates = getAlternateUrls(pathname, currentLanguage);
 
   return {
     url: alternates.canonical,

@@ -1,11 +1,13 @@
 import { notFound } from 'next/navigation';
-import { NextRequest } from 'next/server';
 
+import type { RouteHandler } from '@/lib/next';
 import { getCurrentUrl } from '@/lib/url';
 
 import { getSitemapsForType, sitemaps } from '../sitemaps';
 
-export async function GET(_: NextRequest, { params: { type }}: { params: { type: string }}) {
+export const GET: RouteHandler<{ type: string }> = async (_, { params }) => {
+  const { type } = await params;
+
   if(!(type in sitemaps)) {
     notFound();
   }
@@ -20,4 +22,4 @@ export async function GET(_: NextRequest, { params: { type }}: { params: { type:
       'content-type': 'application/xml; charset=utf8'
     }
   });
-}
+};

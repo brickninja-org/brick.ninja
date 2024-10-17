@@ -1,10 +1,11 @@
 import { notFound } from 'next/navigation';
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 
 import type { Language } from '@brickninja-org/database';
 import type { GetSets } from '@brickset-api/types/data/get-sets';
 
 import { cache } from '@/lib/cache';
+import type { RouteHandler } from '@/lib/next';
 import { db } from '@/lib/prisma';
 import { createTooltip } from '@/components/item/item-tooltip';
 
@@ -14,7 +15,8 @@ const getItemRevision = cache(function (id: number, language: Language, revision
     : db.revision.findFirst({ where: { [`currentItem_${language}`]: { id }}});
 }, ['item-tooltip'], { revalidate: 60 });
 
-export async function GET(request: NextRequest, { params: { language, id }}: { params: { language: Language, id: string }}) {
+export const GET: RouteHandler<{ id: string }> = async (request, { params }) => {
+  const { language, id } = await params;
   const itemId = Number(id);
 
   const { searchParams } = new URL(request.url);
@@ -32,4 +34,4 @@ export async function GET(request: NextRequest, { params: { language, id }}: { p
   return NextResponse.json(tooltip, {
     headers: { 'cache-control': 'public, max-age=3600', 'Vary': 'Origin' }
   });
-}
+};

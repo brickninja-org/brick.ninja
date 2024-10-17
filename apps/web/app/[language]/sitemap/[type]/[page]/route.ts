@@ -1,9 +1,12 @@
 import { notFound } from 'next/navigation';
-import { NextRequest } from 'next/server';
+
+import type { RouteHandler } from '@/lib/next';
 
 import { pageSize, sitemaps } from '../../sitemaps';
 
-export async function GET(_: NextRequest, { params: { type, page }}: { params: { type: string, page: string }}) {
+export const GET: RouteHandler<{ type: string, page: string }> = async (_, { params }) => {
+  const { language, type, page } = await params;
+
   if(!(type in sitemaps)) {
     notFound();
   }
@@ -14,7 +17,7 @@ export async function GET(_: NextRequest, { params: { type, page }}: { params: {
     notFound();
   }
 
-  const entries = await sitemaps[type].getEntries(pageSize * currentPage, pageSize);
+  const entries = await sitemaps[type].getEntries(language, pageSize * currentPage, pageSize);
 
   const sitemapXml = entries
     .map((entry) => {
@@ -33,4 +36,4 @@ export async function GET(_: NextRequest, { params: { type, page }}: { params: {
       'content-type': 'application/xml; charset=utf8'
     }
   });
-}
+};
