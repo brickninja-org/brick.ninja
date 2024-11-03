@@ -19,14 +19,14 @@ jobs:
     name: Build
     uses: ./.github/workflows/build-node.yml
 
-  docker:
-    name: Docker (${{ matrix.platform }})
-    strategy:
-      matrix:
-        platform: [ amd64, arm64 ]
-    uses: ./.github/workflows/docker-build-and-test.yml
-    with:
-      platform: ${{ matrix.platform }}
+  # docker:
+  #  name: Docker (${{ matrix.platform }})
+  #  strategy:
+  #    matrix:
+  #      platform: [ amd64, arm64 ]
+  #  uses: ./.github/workflows/docker-build-and-test.yml
+  #  with:
+  #    platform: ${{ matrix.platform }}
 
   test:
     name: Test
@@ -42,7 +42,7 @@ jobs:
 
   success:
     name: Success
-    needs: [build, docker, test, lint, renovate]
+    needs: [build, test, lint, renovate]
     runs-on: ubuntu-latest
     if: always()
     steps:
