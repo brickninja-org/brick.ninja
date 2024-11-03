@@ -4,7 +4,6 @@ on:
   push:
     branches: [ "main" ]
   pull_request:
-    branches: [ "main" ]
   merge_group:
 
 concurrency:
@@ -14,117 +13,36 @@ concurrency:
 env:
   # renovate: datasource=npm packageName=npm
   NPM_VERSION: 10.9.0
-  # renovate: datasource=npm packageName=renovate
-  RENOVATE_VERSION: 38.106.2
-
-  # renovate: datasource=node-version packageName=node
-  NODE_18_VERSION: 18.20.4
-  # renovate: datasource=node-version packageName=node
-  NODE_20_VERSION: 20.17.0
-  # renovate: datasource=node-version packageName=node
-  NODE_22_VERSION: 22.9.0
-
 
 jobs:
-  build-node:
-    name: Build / Node ${{ matrix.node }}
-    runs-on: ubuntu-latest
+  build:
+    name: Build
+    uses: ./.github/workflows/build-node.yml
+
+  docker:
+    name: Docker (${{ matrix.platform }})
     strategy:
       matrix:
-        node: [ 18, 20, 22 ]
-    steps:
-    - uses: actions/checkout@v4
-      with:
-        submodules: true
-    - uses: actions/setup-node@v4
-      with:
-        node-version: ${{ env[format('NODE_{0}_VERSION', matrix.node)] }}
-        cache: npm
-    - name: Install latest npm
-      run: |
-        npm install --global npm@${{ env.NPM_VERSION }}
-        npm -v
-    - name: Install dependencies
-      run: npm ci
-    - name: Cache turbo
-      uses: actions/cache@v4
-      with:
-        path: ./.turbo/cache
-        key: turbo2-cache-build-${{ runner.os }}-${{ github.sha }}
-        restore-keys: |
-          turbo2-cache-build-${{ runner.os }}-
-    - name: Run Build
-      run: npm run build
-      env:
-        SKIP_LINT: true
+        platform: [ amd64, arm64 ]
+    uses: ./.github/workflows/docker-build-and-test.yml
+    with:
+      platform: ${{ matrix.platform }}
 
-  test-unit:
-    name: Test / Unit
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-      with:
-        submodules: true
-    - uses: actions/setup-node@v4
-      with:
-        node-version: 20
-        cache: npm
-    - name: Install latest npm
-      run: |
-        npm install --global npm@${{ env.NPM_VERSION }}
-        npm -v
-    - name: Install dependencies
-      run: npm ci --legacy-peer-deps
-    - name: Cache turbo
-      uses: actions/cache@v4
-      with:
-        path: ./.turbo/cache
-        key: turbo2-cache-test-${{ runner.os }}-${{ github.sha }}
-        restore-keys: |
-          turbo2-cache-test-${{ runner.os }}-
-    - name: Run Test
-      run: npm run test
+  test:
+    name: Test
+    uses: ./.github/workflows/test.yml
 
   lint:
     name: Lint
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-      with:
-        submodules: true
-    - uses: actions/setup-node@v4
-      with:
-        node-version: 20
-        cache: npm
-    - name: Install latest npm
-      run: |
-        npm install --global npm@${{ env.NPM_VERSION }}
-        npm -v
-    - name: Install dependencies
-      run: npm ci
-    - name: Cache turbo
-      uses: actions/cache@v4
-      with:
-        path: ./.turbo/cache
-        key: turbo2-cache-lint-${{ runner.os }}-${{ github.sha }}
-        restore-keys: |
-          turbo2-cache-lint-${{ runner.os }}-
-    - name: Run Lint
-      run: npm run lint
+    uses: ./.github/workflows/lint.yml
 
   renovate:
-    name: Validate renovate config
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - name: Install renovate
-      run: npm i -g renovate@${{ env.RENOVATE_VERSION }}
-    - name: Validate config
-      run: renovate-config-validator --strict
+    name: Renovate
+    uses: ./.github/workflows/renovate.yml
 
   success:
     name: Success
-    needs: [test-unit, build-node, lint, renovate]
+    needs: [build, docker, test, lint, renovate]
     runs-on: ubuntu-latest
     if: always()
     steps:
@@ -134,138 +52,15 @@ jobs:
       run: exit 0
 
   publish-docker:
-    name: Publish / Docker / ${{ matrix.target }}
-    runs-on: ubuntu-latest
+    name: Publish (docker)
     if: github.event_name != 'merge_group'
     needs: [success]
-    permissions:
-      id-token: write
-      attestations: write
-      packages: write
-    strategy:
-      matrix:
-        target: [ web, worker, database-migration ]
-    steps:
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v3
-
-    - name: Generate image name
-      run: |
-        IMAGE_ID=ghcr.io/${{ github.repository }}/${{ matrix.target }}
-        # Change all uppercase to lowercase
-        IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
-        echo "IMAGE_ID=$IMAGE_ID" >> "$GITHUB_ENV"
-
-    - name: Download digests
-      uses: actions/download-artifact@v4
-      with:
-        path: /tmp/digests
-        pattern: docker-digests-*
-        merge-multiple: true
-
-    - name: Docker meta
-      id: meta
-      uses: docker/metadata-action@v5
-      with:
-        images: ${{ env.IMAGE_ID }}
-        flavor: |
-          latest=false
-        tags: |
-          # set latest tag for default branch
-          type=raw,value=latest,enable={{is_default_branch}}
-          type=ref,event=tag
-          type=ref,event=pr
-        annotations: |
-          org.opencontainers.image.description=${{ matrix.target }} image for brick.ninja
-      env:
-        DOCKER_METADATA_ANNOTATIONS_LEVELS: index
-
-    - name: Login to GitHub Container Registry
-      uses: docker/login-action@v3
-      with:
-        registry: ghcr.io
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Merge and push image
-      id: image
-      run: |
-        ARGS=$(jq -cr '(.tags | map("--tag " + (. | @sh))) + (.annotations | map("--annotation " + (. | @sh))) | join(" ")' <<< "$DOCKER_METADATA_OUTPUT_JSON")
-        SOURCES=$(find /tmp/digests/${{ matrix.target }} -type f -printf '${{ env.IMAGE_ID }}@sha256:%f ')
-        echo "$ARGS"
-        echo "$SOURCES"
-
-        eval "docker buildx imagetools create $ARGS $SOURCES"
-
-        echo "digest=$(docker buildx imagetools inspect --format '{{json .Manifest}}' ghcr.io/brickninja-orgbrick.ninja/web:pr-449 | jq -cr '.digest')" >> "$GITHUB_OUTPUT"
-
-    - name: Attest
-      uses: actions/attest-build-provenance@v1.4.3
-      with:
-        subject-name: ${{ env.IMAGE_ID }}
-        subject-digest: ${{ steps.image.outputs.digest }}
-
-    - name: Inspect image
-      run: docker buildx imagetools inspect $(jq -cr '.tags[0]' <<< "$DOCKER_METADATA_OUTPUT_JSON")
+    uses: ./.github/workflows/publish-docker.yml
 
   publish-npm:
-    name: Publish / npm / ${{ matrix.target }}
-    runs-on: ubuntu-latest
+    name: Publish (npm)
     if: github.event_name != 'merge_group'
     needs: [success]
-    permissions:
-      contents: read
-      id-token: write
-      pull-requests: write
-    strategy:
-      matrix:
-        target: [ ui, icons, helper, tsconfig, publish-package, eslint-config ]
-    steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
-      with:
-        node-version: 20
-        cache: npm
-        registry-url: 'https://registry.npmjs.org'
-        scope: '@brickninja-org'
-    - name: Install latest npm
-      run: |
-        npm install --global npm@${{ env.NPM_VERSION }}
-        npm -v
-    - name: Install dependencies
-      run: npm ci
-    - name: Run Publish
-      run: npm run publish-package -- --filter=@brickninja-org/${{ matrix.target }} --env-mode=loose
-      id: publish
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        NPM_CONFIG_PROVENANCE: false
-        GITHUB_EVENT_NAME: ${{ github.event_name }}
-    - name: Find Comment
-      if: github.event_name == 'pull_request'
-      uses: peter-evans/find-comment@v3
-      id: fc
-      with:
-        issue-number: ${{ github.event.pull_request.number }}
-        comment-author: 'github-actions[bot]'
-        body-includes: Publish / npm / ${{ matrix.target }}
-    - name: Delete comment if found but nothing will be published
-      if: github.event_name == 'pull_request' && steps.fc.outputs.comment-id && !steps.publish.outputs.publish
-      uses: actions/github-script@v7
-      with:
-        script: |
-          github.rest.issues.deleteComment({
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            comment_id: ${{ steps.fc.outputs.comment-id }}
-          })
-    - name: Add comment with packages to be published
-      if: github.event_name == 'pull_request' && steps.publish.outputs.publish
-      uses: peter-evans/create-or-update-comment@v4
-      with:
-        comment-id: ${{ steps.fc.outputs.comment-id }}
-        issue-number: ${{ github.event.pull_request.number }}
-        edit-mode: replace
-        body: |
-          **Publish / npm / ${{ matrix.target }}**
-          Merging this PR will publish the npm package `${{ steps.publish.outputs.publish }}`
+    uses: ./.github/workflows/publish-npm.yml
+    secrets:
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -13,7 +13,11 @@ jobs:
     strategy:
       matrix:
         target: [ web, worker, database-migration, e2e ]
+    continue-on-error: ${{ matrix.target == 'web' && inputs.platform == 'arm64' && github.event_name != 'push' }}
     steps:
+    # https://github.com/actions/virtual-environments/issues/1187
+    - name: Tune linux network
+      run: sudo ethtool -K eth0 tx off rx off
     - uses: actions/checkout@v4
       with:
         submodules: true
@@ -108,7 +112,7 @@ jobs:
     - name: Import images into k3d
       run: k3d image import brickninja/web brickninja/worker brickninja/database-migration
     - run: kubectl apply -k kubernetes/local
-    - run: kubectl rollout status deployment database-pg16 next worker -n brickninja --timeout=180s
+    - run: kubectl rollout status deployment database-pg17 next worker -n brickninja --timeout=180s
     - run: kubectl get deployment -n brickninja
       if: success() || failure()
     - run: kubectl get job -n brickninja

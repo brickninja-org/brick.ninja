@@ -1,7 +1,9 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended", ":pinAllExceptPeerDependencies"],
-  "ignorePaths": [],
+  "ignorePaths": [
+    "**/node_modules/**"
+  ],
   "addLabels": ["dependencies"],
   "kubernetes": {
     "fileMatch": ["kubernetes/.+\\.yaml$"]
@@ -15,6 +17,14 @@
       "matchDatasources": ["npm"],
       "matchPackageNames": ["renovate"],
       "extends": ["schedule:weekly"]
+    }, {
+      "description": "Dont't update major node versions in workflows",
+      "matchFileNames": [".github/[workflows,actions]/*.{yml,yaml}"],
+      "matchManagers": ["custom.regex"],
+      "matchDatasources": ["node-version"],
+      "matchPackageNames": ["node"],
+      "matchUpdateTypes": ["major"],
+      "enabled": false
     }
   ],
   "customManagers": [

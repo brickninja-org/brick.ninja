@@ -1,8 +1,8 @@
-# syntax=docker/dockerfile:1.10
+# syntax=docker/dockerfile:1.11
 
-ARG node_version=20.17.0-alpine
+ARG node_version=20.18.0-alpine
 # renovate: datasource=npm packageName=prisma
-ARG prisma_version=5.20.0
+ARG prisma_version=5.21.1
 
 FROM node:${node_version}
 WORKDIR /app
