@@ -38,7 +38,7 @@ jobs:
 
   renovate:
     name: Renovate
-    uses: ./.github/workflows/renovate.yml
+    uses: ./.github/workflows/renovate-validate-config.yml
 
   success:
     name: Success
