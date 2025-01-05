@@ -2,12 +2,14 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended", ":pinAllExceptPeerDependencies"],
   "ignorePaths": [
-    "**/node_modules/**"
+    "**/node_modules/**",
+    "docker-compose.database-migration.yml"
   ],
   "addLabels": ["dependencies"],
   "kubernetes": {
     "fileMatch": ["kubernetes/.+\\.yaml$"]
   },
+  "postUpdateOptions": ["pnpmDedupe"],
   "packageRules": [
     {
       "matchManagers": ["npm", "dockerfile"],

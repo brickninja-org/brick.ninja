@@ -15,6 +15,7 @@
     "@brickninja-org/database": "workspace:*",
     "@brickninja-org/helper": "workspace:*",
     "@brickninja-org/icons": "workspace:*",
+    "@brickninja-org/onig": "workspace:*",
     "@brickninja-org/ui": "workspace:*",
     "@brickset-api/fetch": "0.0.18",
     "@brickset-api/types": "0.0.16",

@@ -5,14 +5,10 @@ on:
       NPM_TOKEN:
         required: true
 
-env:
-  # renovate: datasource=npm packageName=npm
-  NPM_VERSION: 10.9.0
-
 jobs:
   publish:
     name: ${{ matrix.target }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       contents: read
       id-token: write
@@ -29,7 +25,7 @@ jobs:
         # or else the bin is not correctly linked
         cache-key: false
     - name: Run Publish
-      run: npm run publish-package -- --filter=@brickninja-org/${{ matrix.target }} --env-mode=loose
+      run: pnpm run publish-package --filter=@brickninja-org/${{ matrix.target }} --env-mode=loose
       id: publish
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -4,12 +4,12 @@ on:
 
 env:
   # renovate: datasource=npm packageName=renovate
-  RENOVATE_VERSION: 38.133.1
+  RENOVATE_VERSION: 39.88.0
 
 jobs:
   validate-config:
     name: Validate config
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
