@@ -9,12 +9,12 @@
     }
   },
   "scripts": {
-    "build": "npm run clean && if test $CI; then npm run build:ci; else npm run build:local; fi",
+    "build": "pnpm run clean && if test $CI; then pnpm run build:ci; else pnpm run build:local; fi",
     "build:local": "tsc --declarationMap",
     "build:ci": "tsc",
     "clean": "rm -rf dist/",
     "lint": "eslint src",
-    "publish-package": "brickninja-org-publish-package"
+    "publish-package": "brickninja-publish-package"
   },
   "repository": {
     "type": "git",
@@ -34,8 +34,8 @@
   },
   "homepage": "https://github.com/brickninja-org/brick.ninja#readme",
   "devDependencies": {
-    "@brickninja-org/eslint-config": "*",
-    "@brickninja-org/tsconfig": "*",
+    "@brickninja-org/eslint-config": "workspace:*",
+    "@brickninja-org/tsconfig": "workspace:*",
     "eslint": "8.57.1",
     "typescript": "5.6.2"
   }

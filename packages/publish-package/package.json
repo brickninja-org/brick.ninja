@@ -1,17 +1,17 @@
 {
   "name": "@brickninja-org/publish-package",
-  "version": "0.0.1",
+  "version": "0.1.0-rc.0",
   "description": "brick.ninja publish package script",
   "bin": {
-    "brickninja-org-publish-package": "dist/index.js"
+    "brickninja-publish-package": "bin/index.js"
   },
   "type": "module",
   "scripts": {
-    "build": "npm run clean && tsc && chmod +x dist/index.js && npm install",
+    "build": "pnpm run clean && tsc && chmod +x dist/index.js",
     "clean": "rm -rf dist/",
     "lint": "eslint src",
-    "dev": "npm run build && GITHUB_EVENT_NAME=pull_request node dist/index.js",
-    "publish-package": "brickninja-org-publish-package"
+    "dev": "pnpm run build && GITHUB_EVENT_NAME=pull_request node dist/index.js",
+    "publish-package": "brickninja-publish-package"
   },
   "repository": {
     "type": "git",
@@ -22,7 +22,8 @@
     "publish-package"
   ],
   "files": [
-    "dist/"
+    "dist/",
+    "bin/"
   ],
   "author": "@brickninja",
   "license": "MIT",
@@ -31,9 +32,11 @@
   },
   "homepage": "https://github.com/brickninja-org/brick.ninja#readme",
   "devDependencies": {
-    "@brickninja-org/eslint-config": "*",
-    "@brickninja-org/tsconfig": "*",
-    "@types/node": "20.16.10",
+    "@brickninja-org/eslint-config": "workspace:*",
+    "@brickninja-org/tsconfig": "workspace:*",
+    "@eslint/eslintrc": "3.2.0",
+    "@eslint/js": "9.17.0",
+    "@types/node": "22.10.5",
     "eslint": "8.57.1",
     "typescript": "5.6.2"
   }

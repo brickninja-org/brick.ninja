@@ -16,7 +16,7 @@
   ],
   "scripts": {
     "build": "ts-node build",
-    "publish-package": "brickninja-org-publish-package"
+    "publish-package": "brickninja-publish-package"
   },
   "repository": {
     "type": "git",
@@ -33,7 +33,7 @@
   },
   "homepage": "https://github.com/brickninja-org/brick.ninja#readme",
   "devDependencies": {
-    "@brickninja-org/tsconfig": "*",
+    "@brickninja-org/tsconfig": "workspace:*",
     "@types/node": "22.10.2",
     "rimraf": "6.0.1",
     "svgo": "3.3.2",

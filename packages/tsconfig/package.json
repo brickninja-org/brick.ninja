@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Common tsconfig files for brickninja-org projects",
   "scripts": {
-    "publish-package": "brickninja-org-publish-package"
+    "publish-package": "brickninja-publish-package"
   },
   "repository": {
     "type": "git",
@@ -16,10 +16,13 @@
   "files": [
     "*.json"
   ],
-  "author": "brickninja-pro",
+  "author": "@brickninja",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/brickninja-org/brick.ninja/issues"
   },
-  "homepage": "https://github.com/brickninja-org/brick.ninja#readme"
+  "homepage": "https://github.com/brickninja-org/brick.ninja#readme",
+  "publishConfig": {
+    "access": "public"
+  }
 }
