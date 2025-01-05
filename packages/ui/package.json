@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@brickninja-org/eslint-config": "workspace:*",
-    "@brickninja-org/icons": "*",
+    "@brickninja-org/icons": "0.0.1",
     "@types/react": "19.0.2",
     "@types/react-dom": "19.0.2",
     "autoprefixer": "10.4.20",
