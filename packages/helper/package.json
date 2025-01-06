@@ -1,6 +1,6 @@
 {
   "name": "@brickninja-org/helper",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "brick.ninja utility library",
   "exports": {
     "./*": {
@@ -36,7 +36,9 @@
   "devDependencies": {
     "@brickninja-org/eslint-config": "workspace:*",
     "@brickninja-org/tsconfig": "workspace:*",
-    "eslint": "8.57.1",
-    "typescript": "5.6.2"
+    "@eslint/eslintrc": "3.2.0",
+    "@eslint/js": "9.17.0",
+    "eslint": "9.17.0",
+    "typescript": "5.7.2"
   }
 }

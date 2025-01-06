@@ -10,13 +10,16 @@ import { ItemPageComponent } from './component';
 
 export type ItemPageProps = PageProps<{ id: string }>;
 
-export default function ItemPage({ params: { language, id }}: ItemPageProps) {
+export default async function ItemPage({ params}: ItemPageProps) {
+  const { language, id } = await params;
   const itemId = Number(id);
 
   return <ItemPageComponent language={language} itemId={itemId}/>;
 }
 
-export async function generateMetadata({ params: { language, id }}: ItemPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: ItemPageProps): Promise<Metadata> {
+  const { language, id } = await params;
+
   const itemId = Number(id);
   const { data } = await getRevision(itemId, language);
 
@@ -26,6 +29,6 @@ export async function generateMetadata({ params: { language, id }}: ItemPageProp
 
   return {
     title: data.name || id,
-    alternates: getAlternateUrls(`/item/${id}`),
+    alternates: getAlternateUrls(`/item/${id}`, language),
   };
 }

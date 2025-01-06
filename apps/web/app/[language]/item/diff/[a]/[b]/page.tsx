@@ -28,8 +28,8 @@ const getRevisions = cache(async (idA: string, idB: string) => {
 }, ['item-revision-compare']);
 
 async function ItemDiffPage({ params }: PageProps<{ a: string, b: string }>) {
-  const idA = params.a.toString();
-  const idB = params.b.toString();
+  const idA = (await params).a.toString();
+  const idB = (await params).b.toString();
 
   const { a, b } = await getRevisions(idA, idB);
 

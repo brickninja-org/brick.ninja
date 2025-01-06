@@ -4,7 +4,7 @@ import type { FC } from 'react';
 
 import type { Language } from '@brickninja-org/database';
 
-import { translate, type TranslationId } from '@/lib/translate';
+import { getLanguage, translate, type TranslationId } from '@/lib/translate';
 
 export interface TranslateProps {
   id: TranslationId;
@@ -12,6 +12,7 @@ export interface TranslateProps {
 }
 
 export const Translate: FC<TranslateProps> = async ({ id, language }) => {
+  language ??= await getLanguage();
   const translation = await translate(id, language);
 
   return <>{translation}</>;

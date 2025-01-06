@@ -1,5 +1,0 @@
-{
-  "root": true,
-  "extends": ["@brickninja-org/eslint-config/react", "next/core-web-vitals"],
-  "plugins": ["eslint-plugin-react-compiler"]
-}

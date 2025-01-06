@@ -17,7 +17,9 @@ import { HeroLayout } from '@/components/layout/hero-layout';
 import { PageView } from '@/components/page-view/page-view';
 import { Translate } from '@/components/i18n/translate';
 
-function MarketingPage({ params: { language }}: PageProps) {
+async function MarketingPage({ params }: PageProps) {
+  const { language } = await params;
+
   return (
     <HeroLayout hero={(
       <div className="flex flex-col items-center gap-16 p-4 sm:p-8">
@@ -95,9 +97,10 @@ async function DbStats() {
 
 export default MarketingPage;
 
-export function generateMetadata({ params }: PageProps) {
+export async function generateMetadata({ params }: PageProps) {
+  const { language } = await params;
   return {
     title: 'Home',
-    alternates: getAlternateUrls('/', params.language),
+    alternates: getAlternateUrls('/', language),
   };
 }

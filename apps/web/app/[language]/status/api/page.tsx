@@ -11,6 +11,7 @@ import { PageLayout } from '@/components/layout/page-layout';
 import { ReloadCheckbox } from '@/components/reload/reload-checkbox';
 
 import { availablePeriods } from './available-periods';
+import type { PageProps } from '@/lib/next';
 
 async function getData(hours: number) {
   const now = new Date();
@@ -47,7 +48,8 @@ async function getData(hours: number) {
   return { total: apiRequests.length, errors, endpoints, statusCodes, apiRequests };
 }
 
-export default async function StatusApiPage({ searchParams: { period }}: { searchParams: { period?: string }}) {
+export default async function StatusApiPage({ searchParams }: PageProps) {
+  const { period } = await searchParams;
   const hours = availablePeriods.find(({ value }) => value == period)?.hours ?? 24;
 
   const { endpoints, errors, total, statusCodes } = await getData(hours);

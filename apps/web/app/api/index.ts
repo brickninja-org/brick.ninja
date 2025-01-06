@@ -38,14 +38,17 @@ export function publicApi<DynamicRouteSegments extends string = never, ResponseT
   return async (request, { params }) => {
     try {
       // get request id
-      const requestId = headers().get('x-request-id');
+      const header = await headers();
+
+      // get request id
+      const requestId = header.get('x-request-id');
 
       if(!requestId) {
         throw new Error('Missing x-request-id header');
       }
 
       // verify api key
-      const apiKey = headers().get('x-bn-apikey');
+      const apiKey = header.get('x-bn-apikey');
       if(!apiKey) {
         return NextResponse.json(
           { error: 401, text: 'Missing API key' },
@@ -71,7 +74,7 @@ export function publicApi<DynamicRouteSegments extends string = never, ResponseT
         }
       });
 
-      const language = getLanguage();
+      const language = await getLanguage();
 
       const searchParams = request.nextUrl.searchParams;
       searchParams.delete('apiKey');

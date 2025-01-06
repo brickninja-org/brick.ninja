@@ -2,7 +2,6 @@ import 'server-only';
 
 import type { ReactNode } from 'react';
 import type { Metadata, Viewport } from 'next';
-import type { Language } from '@brickninja-org/database';
 
 import { Bitter } from 'next/font/google';
 
@@ -16,6 +15,7 @@ import { FormatProvider } from '@/components/format/format-context';
 import { I18nProvider } from '@/components/i18n/i18n-provider';	
 import { ItemTableContext } from '@/components/item-table';
 import Layout from '@/components/layout/layout';
+import type { LayoutProps } from '@/lib/next';
 
 const bitter = Bitter({
   subsets: ['latin'],
@@ -23,22 +23,18 @@ const bitter = Bitter({
   variable: '--font-bitter',
 });
 
-export default function RootLayout({
-  children,
-  params,
-}: {
-  children: ReactNode;
-  params: { language: Language };
-}) {
+export default async function RootLayout({ children, params }: LayoutProps & { modal?: ReactNode }) {
+  const { language } = await params;
+
   return (
-    <html lang={params.language} className={cn(bitter.variable)}>
+    <html lang={language} className={cn(bitter.variable)}>
       <head/>
       <body>
-        <I18nProvider language={params.language}>
+        <I18nProvider language={language}>
           <FormatProvider>
             <ItemTableContext global id="global">
               <DataTableContext>
-                <Layout language={params.language}>{children}</Layout>
+                <Layout language={language}>{children}</Layout>
               </DataTableContext>
             </ItemTableContext>
           </FormatProvider>

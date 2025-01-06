@@ -2,12 +2,12 @@ import 'server-only';
 
 import type { FC } from 'react';
 
-import { translateMany } from '@/lib/translate';
+import { getLanguage, translateMany } from '@/lib/translate';
 
 import { ItemTableColumnsButton as ClientComponent } from './item-table-column-button.client';
 
-export const ItemTableColumnsButton: FC = () => {
-  const translations = translateMany(['table.columns', 'table.columns.reset']);
+export const ItemTableColumnsButton: FC = async () => {
+  const translations = translateMany(['table.columns', 'table.columns.reset'], await getLanguage());
 
   return <ClientComponent translations={translations}/>;
 };

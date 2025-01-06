@@ -1,6 +1,29 @@
 import { cookies } from 'next/headers';
 
 import { getCurrentUrl } from '@/lib/url';
+import type { UnknownItemProps } from '@/components/item/unknown-item';
+
+export async function getLoginUrlWithReturnTo(scopes?: UnknownItemProps[]) {
+  const url = await getCurrentUrl();
+
+  const parameters = new URLSearchParams();
+  parameters.append('returnTo', url.pathname);
+
+  if(scopes) {
+    parameters.append('scopes', scopes.join(','));
+  }
+
+  return `/login?${parameters.toString()}`;
+}
+
+export async function getReturnToUrlFromCookie(): Promise<string> {
+  const cookieStore = await cookies();
+
+  const cookie = cookieStore.get('RETURN_TO');
+  cookieStore.delete('RETURN_TO');
+
+  return getReturnToUrl(cookie?.value);
+}
 
 export function getReturnToUrl(returnTo?: string) {
   if(returnTo && returnTo.startsWith('/')) {
@@ -13,25 +36,18 @@ export function getReturnToUrl(returnTo?: string) {
   return '/profile';
 }
 
-export function getReturnToUrlFromCookie(): string {
-  const cookie = cookies().get('RETURN_TO');
-  cookies().delete('RETURN_TO');
-
-  return getReturnToUrl(cookie?.value);
-}
-
-export function setReturnToUrlCookie(returnTo?: string) {
-  if (!returnTo) {
+export async function setReturnToUrlCookie(returnTo?: string) {
+  if(!returnTo) {
     return;
   }
 
-  const currentUrl = getCurrentUrl();
+  const currentUrl = await getCurrentUrl();
 
-  cookies().set('RETURN_TO', returnTo, {
-    secure: currentUrl.protocol === 'https:',
+  (await cookies()).set('RETURN_TO', returnTo, {
+    secure: true,
     domain: currentUrl.hostname,
     path: '/auth/callback',
     httpOnly: true,
-    maxAge: 60 * 15, // 15 minutes
+    maxAge: 60 * 15 // 15 minutes
   });
 }

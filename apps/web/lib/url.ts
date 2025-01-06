@@ -4,10 +4,8 @@ import { headers } from 'next/headers';
 
 import { Language } from '@brickninja-org/database';
 
-import { getLanguage } from '@/lib/translate';
-
-export function getCurrentUrl() {
-  return new URL(headers().get('x-bn-real-url')!);
+export async function getCurrentUrl() {
+  return new URL((await headers()).get('x-bn-real-url')!);
 }
 
 /**
@@ -39,18 +37,15 @@ export function getUrlFromRequest(request: Request) {
   return url;
 }
 
-export function absoluteUrl(href: string) {
-  return new URL(href, getCurrentUrl());
+export async function absoluteUrl(href: string) {
+  return new URL(href, await getCurrentUrl());
 }
 
 const allLanguages = ['x-default', ...Object.values(Language)] as const;
 
-export function getAlternateUrls(path: string, currentLanguage?: Language) {
-  // TODO: require `currentLanguage` to be passed in the future
-  currentLanguage ??= getLanguage();
-
+export function getAlternateUrls(path: string, currentLanguage: Language) {
   // build canonical url
-  const canonicalUrl = new URL(path, getBaseUrl(currentLanguage));
+  const canonical = new URL(path, getBaseUrl(currentLanguage));
 
   // build alternate languages
   const alternates = allLanguages.filter(
@@ -59,7 +54,7 @@ export function getAlternateUrls(path: string, currentLanguage?: Language) {
     (language) => [language, language === 'x-default' ? baseDomain : `${language}.${baseDomain}`]
   ).map<[language: string, url: string]>(
     ([language, domain]) => {
-      const url = new URL(canonicalUrl);
+      const url = new URL(canonical);
       url.hostname = domain;
       return [language, url.toString()];
     }
@@ -67,7 +62,7 @@ export function getAlternateUrls(path: string, currentLanguage?: Language) {
 
   // return metadata
   return {
-    canonical: canonicalUrl.toString(),
-    languages: Object.fromEntries(alternates),
+    canonical: canonical.toString(),
+    languages: Object.fromEntries(alternates)
   } satisfies Metadata['alternates'];
 }

@@ -16,7 +16,7 @@ export interface SessionUser {
 }
 
 export const getUser = cache(async function getUser(): Promise<SessionUser | undefined> {
-  const sessionId = headers().get('x-bn-session');
+  const sessionId = (await headers()).get('x-bn-session');
   const session = await getSessionFromDb(sessionId);
 
   if (sessionId && !session) {

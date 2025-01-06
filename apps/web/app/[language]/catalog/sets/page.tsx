@@ -30,7 +30,9 @@ const getSetsCategories = cache(
   ['catalog-sets-categories'], { revalidate: 60 },
 );
 
-export default async function CatalogSetsPage({ params: { language }}: PageProps) {
+export default async function CatalogSetsPage({ params }: PageProps) {
+  const { language } = await params;
+
   const [items, categories] = await Promise.all([
     getSets(),
     getSetsCategories(),
@@ -68,10 +70,12 @@ export default async function CatalogSetsPage({ params: { language }}: PageProps
   );
 }
 
-export function generateMetadata({ params }: PageProps): Metadata {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { language } = await params;
+
   return {
-    title: translate('catalog.sets', params.language),
-    description: translate('catalog.sets.description', params.language),
-    alternates: getAlternateUrls('/catalog/sets'),
+    title: await translate('catalog.sets', language),
+    description: await translate('catalog.sets.description', language),
+    alternates: getAlternateUrls('/catalog/sets', language),
   };
 }

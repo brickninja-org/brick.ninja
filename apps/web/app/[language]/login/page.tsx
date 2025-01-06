@@ -15,8 +15,9 @@ import { getAlternateUrls /*, getCurrentUrl */ } from '@/lib/url';
 import type { PageProps } from '@/lib/next';
 
 export default async function LoginPage({ searchParams }: PageProps) {
+  const { returnTo: returnToParam, scopes: scopesParam, error, logout } = await searchParams;
   const user = await getUser();
-  const returnTo = Array.isArray(searchParams.returnTo) ? searchParams.returnTo[0] : searchParams.returnTo;
+  const returnTo = Array.isArray(returnToParam) ? returnToParam[0] : returnToParam;
   // const scopes = Array.isArray(searchParams.scopes) ? searchParams.scopes.join(',') : searchParams.scopes;
 
   if (user) {
@@ -25,11 +26,11 @@ export default async function LoginPage({ searchParams }: PageProps) {
 
   return (
     <HeroLayout hero={<Headline id="login">Login</Headline>}>
-      {searchParams.error !== undefined && (
+      {error !== undefined && (
         <Notice type="error">Unknown error</Notice>
       )}
 
-      {searchParams.logout !== undefined && (
+      {logout !== undefined && (
         <Notice>Logout successful</Notice>
       )}
 
@@ -49,10 +50,12 @@ export default async function LoginPage({ searchParams }: PageProps) {
   );
 }
 
-export function generateMetadata(): Metadata {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { language } = await params;
+
   return {
     title: 'Login',
-    alternates: getAlternateUrls('/login'),
+    alternates: getAlternateUrls('/login', language),
   };
 }
 

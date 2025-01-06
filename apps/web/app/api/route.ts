@@ -1,15 +1,16 @@
+import { getLanguage } from '@/lib/translate';
 import { getCurrentUrl } from '@/lib/url';
 import { headers } from 'next/headers';
 import { NextResponse } from 'next/server';
 
 const baseDomain = process.env.BRICKNINJA_NEXT_DOMAIN!;
 
-export function GET() {
-  const language = headers().get('x-bn-lang');
+export async function GET() {
+  const language = await getLanguage();
 
-  const documentation = getCurrentUrl();
+  const documentation = await getCurrentUrl();
   documentation.hostname = baseDomain;
-  documentation.pathname = documentation.pathname.replace('/api', '');
+  documentation.pathname = '/dev/api';
 
   return NextResponse.json({ api: true, language, documentation });
 }

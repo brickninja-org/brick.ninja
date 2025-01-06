@@ -12,7 +12,7 @@ export const GET: RouteHandler<{ type: string }> = async (_, { params }) => {
     notFound();
   }
 
-  const url = getCurrentUrl();
+  const url = await getCurrentUrl();
   url.pathname = '/sitemap';
 
   const sitemapXml = await getSitemapsForType(url.toString())(type);

@@ -2,8 +2,8 @@ import type { MetadataRoute } from 'next';
 
 import { getCurrentUrl } from '@/lib/url';
 
-export default function robots(): MetadataRoute.Robots {
-  const sitemapUrl = new URL('/sitemap', getCurrentUrl());
+export default async function robots(): Promise<MetadataRoute.Robots> {
+  const sitemapUrl = new URL('/sitemap', await getCurrentUrl());
 
   return {
     rules: [{

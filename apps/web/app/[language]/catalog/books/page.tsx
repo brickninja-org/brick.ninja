@@ -30,8 +30,10 @@ const getItems = unstable_cache((language: Language) => {
 }, ['get-books']);
 
 export default async function CatalogBookPage({ params }: PageProps) {
+  const { language } = await params;
+
   // get item ids
-  const items = await getItems(params.language);
+  const items = await getItems(language);
 
   const Books = createDataTable(items, ({ id }) => id);
 
@@ -53,10 +55,12 @@ export default async function CatalogBookPage({ params }: PageProps) {
   );
 }
 
-export function generateMetadata({ params }: PageProps): Metadata {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { language } = await params;
+
   return {
-    title: translate('catalog.books', params.language),
-    description: translate('catalog.books.description', params.language),
-    alternates: getAlternateUrls('/catalog/books'),
+    title: await translate('catalog.books', language),
+    description: await translate('catalog.books.description', language),
+    alternates: getAlternateUrls('/catalog/books', language),
   };
 }

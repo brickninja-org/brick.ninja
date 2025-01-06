@@ -24,7 +24,7 @@ export const ItemInfobox: FC<ItemInfoboxProps> = ({ item, data, language }) => {
   const priceGuideTranslations = translateMany([
     'priceGuide.official_price',
     'priceGuide.per_piece',
-  ]);
+  ], language);
 
   return (
     <div>

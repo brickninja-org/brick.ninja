@@ -10,7 +10,7 @@ import type { TODO } from '@/lib/todo';
 import { globalColumnDefinitions } from './columns';
 import type { ColumnModelTypes, GlobalColumnId, ItemTableQuery, LoadItemsResult, OrderBy, QueryModel } from './types';
 import { type Signed, verify } from './query';
-import { getTranslate } from '@/lib/translate';
+import { getLanguage, getTranslate } from '@/lib/translate';
 
 export interface ItemTableLoadOptions<Model extends QueryModel> {
   skip?: number;
@@ -50,7 +50,7 @@ export async function loadItems<Model extends QueryModel>(query: Signed<ItemTabl
     : []
   )));
 
-  const translate = getTranslate();
+  const translate = getTranslate(await getLanguage());
   const translations = Object.fromEntries(
     translationIds.map((translationId) => [translationId, translate(translationId)])
   );
