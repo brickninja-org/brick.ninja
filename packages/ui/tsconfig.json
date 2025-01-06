@@ -5,6 +5,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
+    "postcss.config.js",
     "tailwind.config.ts"
   ]
 }
