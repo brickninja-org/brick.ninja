@@ -105,8 +105,8 @@ importers:
         specifier: 0.33.5
         version: 0.33.5
       tailwind-merge:
-        specifier: 2.5.3
-        version: 2.5.3
+        specifier: 2.6.0
+        version: 2.6.0
       tailwind-variants:
         specifier: 0.2.1
         version: 0.2.1(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.10.5)(typescript@5.7.2)))
@@ -420,8 +420,8 @@ importers:
         specifier: 0.0.1
         version: 0.0.1
       tailwind-merge:
-        specifier: 2.5.3
-        version: 2.5.3
+        specifier: 2.6.0
+        version: 2.6.0
       tailwind-variants:
         specifier: 0.2.1
         version: 0.2.1(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.10.5)(typescript@5.7.2)))
@@ -3653,8 +3653,8 @@ packages:
   tabbable@6.2.0:
     resolution: {integrity: sha512-Cat63mxsVJlzYvN51JmVXIgNoUokrIaT2zLclCXjRd8boZ0004U4KCs/sToJ75C6sdlByWxpYnb5Boif1VSFew==}
 
-  tailwind-merge@2.5.3:
-    resolution: {integrity: sha512-d9ZolCAIzom1nf/5p4LdD5zvjmgSxY0BGgdSvmXIoMYAiPdAW/dSpP7joCDYFY7r/HkEa2qmPtkgsu0xjQeQtw==}
+  tailwind-merge@2.6.0:
+    resolution: {integrity: sha512-P+Vu1qXfzediirmHOC3xKGAYeZtPcV9g76X+xg2FD4tYgR71ewMA35Y3sCz3zhiN/dwefRpJX0yBcgwi1fXNQA==}
 
   tailwind-variants@0.2.1:
     resolution: {integrity: sha512-2xmhAf4UIc3PijOUcJPA1LP4AbxhpcHuHM2C26xM0k81r0maAO6uoUSHl3APmvHZcY5cZCY/bYuJdfFa4eGoaw==}
@@ -7903,11 +7903,11 @@ snapshots:
 
   tabbable@6.2.0: {}
 
-  tailwind-merge@2.5.3: {}
+  tailwind-merge@2.6.0: {}
 
   tailwind-variants@0.2.1(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.10.5)(typescript@5.7.2))):
     dependencies:
-      tailwind-merge: 2.5.3
+      tailwind-merge: 2.6.0
       tailwindcss: 3.4.17(ts-node@10.9.2(@types/node@22.10.5)(typescript@5.7.2))
 
   tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.10.5)(typescript@5.7.2)):
