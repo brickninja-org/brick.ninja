@@ -124,8 +124,8 @@ importers:
         specifier: 9.17.0
         version: 9.17.0
       '@prisma/nextjs-monorepo-workaround-plugin':
-        specifier: 5.20.0
-        version: 5.20.0
+        specifier: 6.1.0
+        version: 6.1.0
       '@testing-library/jest-dom':
         specifier: 6.5.0
         version: 6.5.0
@@ -1075,8 +1075,8 @@ packages:
   '@prisma/get-platform@6.1.0':
     resolution: {integrity: sha512-ia8bNjboBoHkmKGGaWtqtlgQOhCi7+f85aOkPJKgNwWvYrT6l78KgojLekE8zMhVk0R9lWcifV0Pf8l3/15V0Q==}
 
-  '@prisma/nextjs-monorepo-workaround-plugin@5.20.0':
-    resolution: {integrity: sha512-q0Lf7WktcApMRel4xZ6fyOZj8VF2mVRQa7C2QuqVmrutMWA3ZzFtSOADntH36Dz/UUe5ntuQaNrxJITL0r3WNA==}
+  '@prisma/nextjs-monorepo-workaround-plugin@6.1.0':
+    resolution: {integrity: sha512-hB+yI820xSAFFVljV7CzhJaT7FJNZagGIMUjFFTcyJAjA1Qb0VQ6Y598j6g8GBKwyPiasN1ehDYDIfTJI9kA/A==}
 
   '@rtsao/scc@1.1.0':
     resolution: {integrity: sha512-zt6OdqaDoOnJ1ZYsCYGt9YmWzDXl4vQdKTyJev62gFhRGKdx7mcT54V9KIjg+d2wi9EXsPvAPKe7i7WjfVWB8g==}
@@ -4633,7 +4633,7 @@ snapshots:
     dependencies:
       '@prisma/debug': 6.1.0
 
-  '@prisma/nextjs-monorepo-workaround-plugin@5.20.0': {}
+  '@prisma/nextjs-monorepo-workaround-plugin@6.1.0': {}
 
   '@rtsao/scc@1.1.0': {}
 
