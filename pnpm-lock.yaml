@@ -93,8 +93,8 @@ importers:
         specifier: 19.0.0
         version: 19.0.0(react@19.0.0)
       react-error-boundary:
-        specifier: 4.0.13
-        version: 4.0.13(react@19.0.0)
+        specifier: 4.1.2
+        version: 4.1.2(react@19.0.0)
       react-icons:
         specifier: 5.3.0
         version: 5.3.0(react@19.0.0)
@@ -3319,8 +3319,8 @@ packages:
     peerDependencies:
       react: 19.0.0
 
-  react-error-boundary@4.0.13:
-    resolution: {integrity: sha512-b6PwbdSv8XeOSYvjt8LpgpKrZ0yGdtZokYwkwV2wlcZbxgopHX/hgPl5VgpnoVOWd868n1hktM8Qm4b+02MiLQ==}
+  react-error-boundary@4.1.2:
+    resolution: {integrity: sha512-GQDxZ5Jd+Aq/qUxbCm1UtzmL/s++V7zKgE8yMktJiCQXCCFZnMZh9ng+6/Ne6PjNSXH0L9CjeOEREfRnq6Duag==}
     peerDependencies:
       react: 19.0.0
 
@@ -7511,7 +7511,7 @@ snapshots:
       react: 19.0.0
       scheduler: 0.25.0
 
-  react-error-boundary@4.0.13(react@19.0.0):
+  react-error-boundary@4.1.2(react@19.0.0):
     dependencies:
       '@babel/runtime': 7.26.0
       react: 19.0.0
