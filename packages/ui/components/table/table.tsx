@@ -28,7 +28,7 @@ const tableStyles = tv({
 
 export type TableVariants = VariantProps<typeof tableStyles>;
 
-const Table: FC<TableProps> & { HeaderCell: FC<HeaderCellProps> } = ({ children, width }) => (
+const Table: FC<TableProps> & { HeaderCell: FC<HeaderCellProps> } = ({ children, width }: TableProps) => (
   <TableWrapper>
     <table className={cn(['table', tableStyles({ width })])}>
       {children}
@@ -66,7 +66,7 @@ const header = tv({
 
 export type HeaderCellVariants = VariantProps<typeof header>;
 
-Table.HeaderCell = function HeaderCell({ children, small = false, align, sort, onSort }) {
+Table.HeaderCell = function HeaderCell({ children, small = false, align, sort, onSort }: HeaderCellProps) {
   return (
     <th className={cn(header({ small, align }))} align={align} aria-sort={sort === 'asc' ? 'ascending' : sort === 'desc' ? 'descending' : undefined}>
       {sort ? (
