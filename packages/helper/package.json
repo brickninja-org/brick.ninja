@@ -1,6 +1,6 @@
 {
   "name": "@brickninja-org/helper",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "description": "brick.ninja utility library",
   "exports": {
     "./*": {
