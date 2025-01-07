@@ -1,6 +1,6 @@
 {
   "name": "@brickninja-org/publish-package",
-  "version": "0.0.1",
+  "version": "0.0.1-rc.0",
   "description": "brick.ninja publish package script",
   "bin": {
     "brickninja-publish-package": "bin/index.js"
@@ -41,6 +41,7 @@
     "typescript": "5.7.2"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "tag": "latest"
   }
 }
