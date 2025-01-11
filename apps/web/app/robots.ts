@@ -14,7 +14,7 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
       ],
       crawlDelay: 5,
     }, {
-      userAgent: ['barkrowler'],
+      userAgent: ['AhrefsBot', 'barkrowler', 'BLEXBot'],
       crawlDelay: 60,
     }],
     sitemap: sitemapUrl.toString(),
