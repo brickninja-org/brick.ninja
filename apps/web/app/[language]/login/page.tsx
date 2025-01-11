@@ -15,7 +15,7 @@ import { getAlternateUrls /*, getCurrentUrl */ } from '@/lib/url';
 import type { PageProps } from '@/lib/next';
 
 export default async function LoginPage({ searchParams }: PageProps) {
-  const { returnTo: returnToParam, scopes: scopesParam, error, logout } = await searchParams;
+  const { returnTo: returnToParam, /* scopes: scopesParam, */ error, logout } = await searchParams;
   const user = await getUser();
   const returnTo = Array.isArray(returnToParam) ? returnToParam[0] : returnToParam;
   // const scopes = Array.isArray(searchParams.scopes) ? searchParams.scopes.join(',') : searchParams.scopes;

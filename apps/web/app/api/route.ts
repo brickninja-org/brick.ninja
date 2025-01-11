@@ -1,6 +1,5 @@
 import { getLanguage } from '@/lib/translate';
 import { getCurrentUrl } from '@/lib/url';
-import { headers } from 'next/headers';
 import { NextResponse } from 'next/server';
 
 const baseDomain = process.env.BRICKNINJA_NEXT_DOMAIN!;
