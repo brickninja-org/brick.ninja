@@ -7,7 +7,7 @@ import { translate } from '@/lib/translate';
 import { Headline } from '@brickninja-org/ui/components/headline';
 import type { Metadata } from 'next';
 
-export default async function CatalogLayout({ children }: LayoutProps) {
+export default function CatalogLayout({ children }: LayoutProps) {
   return (
     <HeroLayout color="yellow" hero={<Headline id="catalog"><Translate id="navigation.catalog"/></Headline>}>
       <Navbar path="/catalog/" items={[

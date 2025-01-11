@@ -15,7 +15,7 @@ export default async function ItemRevisionPage({ params }: ItemRevisionPageProps
   return <ItemPageComponent language={language} itemId={itemId} revisionId={revisionId}/>;
 }
 
-export async function generateMetadata({ params}: ItemRevisionPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: ItemRevisionPageProps): Promise<Metadata> {
   const { language, id, revisionId } = await params;
   const itemId = Number(id);
 

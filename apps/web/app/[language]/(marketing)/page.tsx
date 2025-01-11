@@ -84,7 +84,6 @@ const Stat: FC<{ href: string, title: string, value: number }> = ({ href, title,
   );
 };
 
-/* eslint-disable-next-line require-await */
 async function DbStats() {
   const counts = await getDbStats();
 

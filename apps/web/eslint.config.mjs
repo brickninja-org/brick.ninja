@@ -11,7 +11,7 @@ const compat = new FlatCompat({
 
 export default tseslint.config(
   { ignores: ['.next'] },
-  ...compat.extends('next/core-web-vitals'),
+  ...compat.extends('next/core-web-vitals', '@brickninja-org/eslint-config/react'),
   {
     plugins: {
       'react-compiler': reactCompiler,
@@ -19,6 +19,7 @@ export default tseslint.config(
   },
   {
     files: ['eslint.config.mjs'],
+    // eslint-disable-next-line import/no-named-as-default-member
     extends: [tseslint.configs.disableTypeChecked],
   },
 );

@@ -10,7 +10,7 @@ import { ItemPageComponent } from './component';
 
 export type ItemPageProps = PageProps<{ id: string }>;
 
-export default async function ItemPage({ params}: ItemPageProps) {
+export default async function ItemPage({ params }: ItemPageProps) {
   const { language, id } = await params;
   const itemId = Number(id);
 
