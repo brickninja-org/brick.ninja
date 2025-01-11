@@ -17,6 +17,8 @@
     "@brickninja-org/helper": "workspace:*",
     "@brickset-api/fetch": "0.0.18",
     "@brickset-api/types": "0.0.16",
+    "@rebrickableapi/fetch": "0.0.5",
+    "@rebrickableapi/types": "0.0.4",
     "chalk": "5.4.1",
     "cron-parser": "4.9.0",
     "dotenv": "16.4.7",
