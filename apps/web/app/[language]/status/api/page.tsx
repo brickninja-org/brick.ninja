@@ -3,7 +3,7 @@ import { Fragment } from 'react';
 import type { ApiRequest } from '@brickninja-org/database';
 import { cn } from '@brickninja-org/ui/lib';
 import { Headline } from '@brickninja-org/ui/components/headline';
-import { Table } from '@brickninja-org/ui/components/table';
+import { table, Table } from '@brickninja-org/ui/components/table';
 
 import { db } from '@/lib/prisma';
 import { FormatNumber } from '@/components/format/format-number';
@@ -53,6 +53,9 @@ export default async function StatusApiPage({ searchParams }: PageProps) {
   const hours = availablePeriods.find(({ value }) => value == period)?.hours ?? 24;
 
   const { endpoints, errors, total, statusCodes } = await getData(hours);
+
+  const { td, th, tr } = table();
+
   return (
     <PageLayout>
       <Headline
@@ -85,23 +88,23 @@ export default async function StatusApiPage({ searchParams }: PageProps) {
       <Table>
         <thead>
           <tr>
-            <th>Endpoint</th>
-            <th align="right">Avg. Response Time</th>
-            <th align="right">Requests</th>
-            <th>Errors</th>
+            <Table.HeaderCell>Endpoint</Table.HeaderCell>
+            <Table.HeaderCell align="end">Avg. Response Time</Table.HeaderCell>
+            <Table.HeaderCell align="end">Requests</Table.HeaderCell>
+            <Table.HeaderCell>Errors</Table.HeaderCell>
           </tr>
         </thead>
         <tbody>
           {Object.entries(endpoints).sort(([a], [b]) => a.localeCompare(b)).map(([ endpoint, data ]) => (
-            <tr key={endpoint}>
-              <th>{endpoint}</th>
-              <td align="right">
+            <tr key={endpoint} className={tr()}>
+              <th className={th()}>{endpoint}</th>
+              <td className={td({ align: 'end' })}>
                 <FormatNumber value={Math.round(data.totalResponseTimeMs / data.requestCount)} unit="ms"/>
               </td>
-              <td align="right">
+              <td className={td({ align: 'end' })}>
                 <FormatNumber value={data.requestCount}/>
               </td>
-              <td>
+              <td className={td()}>
                 <FormatNumber value={data.errors}/> (<FormatNumber value={data.errors / data.requestCount * 100} unit="%"/>)
               </td>
             </tr>

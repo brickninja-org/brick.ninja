@@ -44,16 +44,16 @@ export default async function StatusDatabasePage() {
         <DatabaseStats.Column id="table" title="Table">
           {({ table_name }) => table_name}
         </DatabaseStats.Column>
-        <DatabaseStats.Column id="rows" align="right" title="Row Estimate" sortBy="rows">
-          {({ rows }) => rows === -1 ? <span style={{ color: 'text-gray-600' }}>?</span> : <FormatNumber value={rows}/>}
+        <DatabaseStats.Column id="rows" align="end" title="Row Estimate" sortBy="rows">
+          {({ rows }) => rows === -1 ? <span className="text-gray-600">?</span> : <FormatNumber value={rows}/>}
         </DatabaseStats.Column>
-        <DatabaseStats.Column id="data" align="right" title="Size (Data)" sortBy="size">
+        <DatabaseStats.Column id="data" align="end" title="Size (Data)" sortBy="size">
           {({ size }) => formatSize(size)}
         </DatabaseStats.Column>
-        <DatabaseStats.Column id="index" align="right" title="Size (Index)" sortBy="size_index">
+        <DatabaseStats.Column id="index" align="end" title="Size (Index)" sortBy="size_index">
           {({ size_index }) => formatSize(size_index)}
         </DatabaseStats.Column>
-        <DatabaseStats.Column id="total" align="right" title="Size (Total)" sortBy="size_total">
+        <DatabaseStats.Column id="total" align="end" title="Size (Total)" sortBy="size_total">
           {({ size_total }) => formatSize(size_total)}
         </DatabaseStats.Column>
       </DatabaseStats.Table>

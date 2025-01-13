@@ -1,7 +1,7 @@
 import { tv, type VariantProps } from 'tailwind-variants';
 
 import { Headline } from '@brickninja-org/ui/components/headline';
-import { Table } from '@brickninja-org/ui/components/table';
+import { table, Table } from '@brickninja-org/ui/components/table';
 
 import { cache } from '@/lib/cache';
 import { db } from '@/lib/prisma';
@@ -50,6 +50,8 @@ function formatTime(totalSeconds: number) {
 async function JobsPage() {
   const { running, finished, now } = await getJobs();
 
+  const { td, tr } = table();
+
   return (
     <PageLayout>
       <Headline id="jobs" actions={<ReloadCheckbox intervalMs={1000}/>}>
@@ -60,17 +62,17 @@ async function JobsPage() {
           <tr>
             <Table.HeaderCell small>Status</Table.HeaderCell>
             <Table.HeaderCell>Job</Table.HeaderCell>
-            <Table.HeaderCell small align="right">Runtime</Table.HeaderCell>
-            <Table.HeaderCell small align="right">Scheduled</Table.HeaderCell>
+            <Table.HeaderCell small align="end">Runtime</Table.HeaderCell>
+            <Table.HeaderCell small align="end">Scheduled</Table.HeaderCell>
           </tr>
         </thead>
-        <tbody className="">
+        <tbody>
           {running.map((job) => (
-            <tr key={job.id} className="&>td:border-t">
-              <td style={{ whiteSpace: 'nowrap' }}><span className={status({ color: job.state === 'Running' ? 'success' : 'default' })}/>{job.state === 'Running' ? 'Running' : 'Queued'}</td>
-              <th><strong>{job.type}</strong></th>
-              <td style={{ whiteSpace: 'nowrap' }} align="right">{job.state === 'Running' ? formatTime(Math.round((now.valueOf() - job.startedAt!.valueOf()) / 1000)) : '-'}</td>
-              <td align="right"><FormatDate key={job.id} date={job.scheduledAt} relative/></td>
+            <tr key={job.id} className={tr()}>
+              <td className={td()} style={{ whiteSpace: 'nowrap' }}><span className={status({ color: job.state === 'Running' ? 'success' : 'default' })}/>{job.state === 'Running' ? 'Running' : 'Queued'}</td>
+              <th scope="row" className={td()}><b>{job.type}</b></th>
+              <td className={td({ align: 'end' })} style={{ whiteSpace: 'nowrap' }} align="right">{job.state === 'Running' ? formatTime(Math.round((now.valueOf() - job.startedAt!.valueOf()) / 1000)) : '-'}</td>
+              <td className={td({ align: 'end' })}><FormatDate key={job.id} date={job.scheduledAt} relative/></td>
             </tr>
           ))}
           {running.length === 0 && <tr><td colSpan={5} style={{ textAlign: 'center' }}>No jobs currently running</td></tr>}
@@ -83,18 +85,18 @@ async function JobsPage() {
             <Table.HeaderCell small>Status</Table.HeaderCell>
             <Table.HeaderCell small>Job</Table.HeaderCell>
             <Table.HeaderCell>Output</Table.HeaderCell>
-            <Table.HeaderCell small align="right">Runtime</Table.HeaderCell>
-            <Table.HeaderCell small align="right">Finished</Table.HeaderCell>
+            <Table.HeaderCell small align="end">Runtime</Table.HeaderCell>
+            <Table.HeaderCell small align="end">Finished</Table.HeaderCell>
           </tr>
         </thead>
         <tbody>
           {finished.map((job) => (
-            <tr key={job.id}>
-              <td style={{ whiteSpace: 'nowrap' }}><span className={status({ color: job.state === 'Error' ? 'error' : 'success' })}/>{job.state}</td>
-              <th><strong>{job.type}</strong></th>
-              <td style={{ whiteSpace: 'pre-wrap', wordBreak: 'break-word' }}>{job.output}</td>
-              <td align="right" style={{ whiteSpace: 'nowrap' }}>{formatTime((job.finishedAt!.valueOf() - job.startedAt!.valueOf()) / 1000)}</td>
-              <td align="right"><FormatDate date={job.finishedAt} relative/></td>
+            <tr key={job.id} className={tr()}>
+              <td className={td()} style={{ whiteSpace: 'nowrap' }}><span className={status({ color: job.state === 'Error' ? 'error' : 'success' })}/>{job.state}</td>
+              <th scope="row" className={td()}><b>{job.type}</b></th>
+              <td className={td()} style={{ whiteSpace: 'pre-wrap', wordBreak: 'break-word' }}>{job.output}</td>
+              <td className={td({ align: 'end' })} style={{ whiteSpace: 'nowrap' }}>{formatTime((job.finishedAt!.valueOf() - job.startedAt!.valueOf()) / 1000)}</td>
+              <td className={td({ align: 'end' })}><FormatDate date={job.finishedAt} relative/></td>
             </tr>
           ))}
         </tbody>

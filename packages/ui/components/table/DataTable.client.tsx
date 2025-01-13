@@ -1,13 +1,13 @@
 'use client';
 
-import { createContext, use, useCallback, useEffect, useMemo, useState, type FC, type ReactNode, type ThHTMLAttributes } from 'react';
+import { createContext, use, useCallback, useEffect, useMemo, useState, type FC, type ReactNode } from 'react';
 
 import { Dropdown } from '../dropdown';
 import { Button } from '../form/button';
 import { Checkbox } from '../form/checkbox';
 import { MenuList } from '../layout/menu-list';
 import { DataTableGlobalContext, type AvailableColumn } from './data-table-context';
-import { Table, type HeaderCellProps } from './table';
+import { table, Table, type HeaderCellProps, type TableVariantProps } from './Table';
 import { Separator } from '../layout/separator';
 
 type DataTableContext = { id: string, sortBy: string | undefined, sortOrder: 'asc' | 'desc', visibleColumns: string[] };
@@ -92,7 +92,7 @@ export const DataTableClientColumn: FC<DataTableClientColumnProps> = ({ id, chil
 
 export interface DataTableClientCellProps {
   columnId: string;
-  align: ThHTMLAttributes<HTMLTableCellElement>['align'];
+  align: TableVariantProps['align'];
   children: ReactNode;
 }
 
@@ -100,7 +100,9 @@ export const DataTableClientCell: FC<DataTableClientCellProps> = ({ columnId, ch
   const { state: { visibleColumns }} = use(DataTableContext);
   const isVisible = visibleColumns.includes(columnId);
 
-  return <td hidden={!isVisible} align={align}>{children}</td>;
+  const { td } = table({ align });
+
+  return <td className={td()} hidden={!isVisible}>{children}</td>;
 };
 
 export interface DataTableClientColumnSelectionProps {

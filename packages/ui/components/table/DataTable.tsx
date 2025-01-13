@@ -5,8 +5,8 @@ import { Fragment, type FC, type Key, type ReactElement, type ReactNode } from '
 import { isDefined } from '@brickninja-org/helper/is';
 
 import type { Comparable, ComparableProperties } from './comparable-properties';
-import { Table, type HeaderCellProps } from './table';
-import { DataTableClient, DataTableClientCell, DataTableClientColumn, DataTableClientColumnSelection, DataTableClientRows } from './data-table.client';
+import { table, Table, type HeaderCellProps } from './Table';
+import { DataTableClient, DataTableClientCell, DataTableClientColumn, DataTableClientColumnSelection, DataTableClientRows } from './DataTable.client';
 
 export type DataTableRowFilterComponentProps = { children: ReactNode, index: number };
 export type DataTableRowFilterComponent = FC<DataTableRowFilterComponentProps>;
@@ -66,6 +66,8 @@ export function createDataTable<T>(rows: T[], getRowKey: (row: T, index: number)
     return child.type === Column;
   }
 
+  const { tr } = table();
+
   return {
     Table: function DataTable({ children, rowFilter }: DataTableProps<T>) {
       const columns = children;
@@ -112,7 +114,7 @@ export function createDataTable<T>(rows: T[], getRowKey: (row: T, index: number)
                   const Row = rowFilter ?? 'tr';
 
                   return (
-                    <Row key={getRowKey(row, index)} index={index}>
+                    <Row className={tr()} key={getRowKey(row, index)} index={index}>
                       {columns.map((column) => isStaticColumn(column) ? (
                         <DataTableClientCell key={column.props.id} columnId={column.props.id} align={column.props.align}>
                           {column.props.children(row, index)}
