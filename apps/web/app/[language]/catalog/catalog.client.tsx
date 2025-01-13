@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useEffect, useState, type FC, type ReactNode } from 'react';
 
-import type { DataTableRowFilterComponent, DataTableRowFilterComponentProps } from '@brickninja-org/ui/components/table/data-table';
+import type { DataTableRowFilterComponent, DataTableRowFilterComponentProps } from '@brickninja-org/ui/components/table/DataTable';
 import { cn } from '@brickninja-org/ui/lib';
 import { Dropdown } from '@brickninja-org/ui/components/dropdown';
 import { Button } from '@brickninja-org/ui/components/form/button';
