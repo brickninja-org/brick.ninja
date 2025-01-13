@@ -27,7 +27,7 @@ export const globalColumnDefinitions = {
     id: 'id',
     order: 10,
     select: {},
-    align: 'right',
+    align: 'end',
     small: true,
     orderBy: [{ id: 'asc' }, { id: 'desc' }]
   }),

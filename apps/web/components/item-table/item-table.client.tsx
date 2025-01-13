@@ -9,7 +9,7 @@ import { Button, LinkButton } from '@brickninja-org/ui/components/form/button';
 // import { CopyButton } from '@brickninja-org/ui/components/form/buttons/copy-button';
 import { MenuList } from '@brickninja-org/ui/components/layout/menu-list';
 import { Notice } from '@brickninja-org/ui/components/notice';
-import { Table, TableRowButton } from '@brickninja-org/ui/components/table';
+import { table, Table, TableRowButton } from '@brickninja-org/ui/components/table';
 
 import type { TranslationId, TranslationSubset } from '@/lib/translate';
 import { FormatNumber } from '@/components/format/format-number';
@@ -117,6 +117,8 @@ export const ItemTable = <ExtraColumnId extends string = never, Model extends Qu
     return (<SkeletonTable icons columns={columns.map((column) => column.title)} rows={Math.min(totalItems, collapsed ? collapsedSize : pageSize)}/>);
   }
 
+  const { td, tr } = table();
+
   return (
     <>
       {process.env.NODE_ENV === 'development' && isGlobalContext && (<Notice type="warning">Missing ItemTableContext</Notice>)}
@@ -139,17 +141,17 @@ export const ItemTable = <ExtraColumnId extends string = never, Model extends Qu
             : { item, translations: dynamicTranslations };
 
             return (
-              <tr key={item.id ?? properties.item.id}>
+              <tr key={item.id ?? properties.item.id} className={tr()}>
                 {columns.map((column) => {
                   return (
-                    <td key={column.id} align={column.align}>
+                    <td className={td({ align: column.align })} key={column.id}>
                       {loadedColumns.includes(column.id) ? (
                         column.component ? createElement(column.component, properties) : globalColumnRenderer[column.id as GlobalColumnId](properties.item, properties.translations as Record<TranslationId, string>)
                       ) : <Skeleton width={48}/>}
                     </td>
                   );
                 })}
-                <td>
+                <td className={td()}>
                   <Dropdown button={<Button iconOnly appearance="menu" aria-label={translations['actions']}><Icon icon="more-vertical"/></Button>} preferredPlacement="right-start">
                     <MenuList>
                       <LinkButton appearance="menu" icon={<Icon icon="eye"/>} href={`/item/${item.id}`}>{translations['itemTable.viewItem']}</LinkButton>

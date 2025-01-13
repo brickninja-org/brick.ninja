@@ -1,6 +1,6 @@
 import type { FC, ReactNode } from 'react';
 
-import type { DataTableColumnSelectionProps } from '@brickninja-org/ui/components/table/data-table';
+import type { DataTableColumnSelectionProps } from '@brickninja-org/ui/components/table/DataTable';
 
 import { Translate } from '@/components/i18n/translate';
 

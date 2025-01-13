@@ -26,7 +26,7 @@ export interface ItemTableColumn<Select extends Prisma.ItemSelect, Translations 
   id: GlobalColumnId,
   order?: number,
   select: Select,
-  align?: 'right',
+  align?: 'end',
   small?: boolean,
   orderBy?: [asc: OrderBy, desc: OrderBy],
   translations?: Translations[]
@@ -44,7 +44,7 @@ export interface ExtraColumn<Id extends string, Model extends QueryModel, Select
   title: string;
   order?: number,
   component: FC<{ item: Result<Select & { id: true }> }>
-  align?: 'right',
+  align?: 'end',
   small?: boolean,
   orderBy?: [asc: OrderBy<ColumnModelTypes[Model]['orderBy']>, desc: OrderBy<ColumnModelTypes[Model]['orderBy']>]
 }
@@ -55,7 +55,7 @@ export type AvailableColumn<ColumnId extends string, Model extends QueryModel = 
   title: string,
   select: Signed<Select>,
   orderBy?: [asc: Signed<OrderBy<ColumnModelTypes[Model]['orderBy']>>, desc: Signed<OrderBy<ColumnModelTypes[Model]['orderBy']>>],
-  align?: 'right',
+  align?: 'end',
   small?: boolean,
   component?: FC<{ item: Result<Select & { id: true }> }>
 };
