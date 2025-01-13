@@ -1,7 +1,7 @@
 import { type ReactNode } from 'react';
 
 // import { Prisma } from '@brickninja-org/database';
-import { createDataTable } from '@brickninja-org/ui/components/table/data-table';
+import { createDataTable } from '@brickninja-org/ui/components/table/DataTable';
 import { Headline } from '@brickninja-org/ui/components/headline';
 
 import { cache } from '@/lib/cache';

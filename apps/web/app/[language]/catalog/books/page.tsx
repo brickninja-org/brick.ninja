@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { unstable_cache } from 'next/cache';
 
 import type { Language } from '@brickninja-org/database';
-import { createDataTable } from '@brickninja-org/ui/components/table/data-table';
+import { createDataTable } from '@brickninja-org/ui/components/table/DataTable';
 
 import type { PageProps } from '@/lib/next';
 import { db } from '@/lib/prisma';
@@ -46,10 +46,10 @@ export default async function CatalogBookPage({ params }: PageProps) {
       </Description>
 
       <Books.Table>
-        <Books.Column id="id" title={<Translate id="itemTable.column.id"/>} align="right" small hidden>{({ id }) => id}</Books.Column> 
-        <Books.Column id="name" title={<Translate id="itemTable.column.item"/>} align="left">{(item) => <ItemLink item={item}/> }</Books.Column>
-        <Books.Column id="minifigureCount" title={<Translate id="itemTable.column.minifigureCount"/>} align="right" sortBy="minifigureCount" small>{({ minifigureCount }) => <FormatNumber value={minifigureCount}/>}</Books.Column>
-        <Books.Column id="pieceCount" title={<Translate id="itemTable.column.pieceCount"/>} align="right" sortBy="pieceCount" small>{({ pieceCount }) => <FormatNumber value={pieceCount}/>}</Books.Column>
+        <Books.Column id="id" title={<Translate id="itemTable.column.id"/>} align="end" small hidden>{({ id }) => id}</Books.Column> 
+        <Books.Column id="name" title={<Translate id="itemTable.column.item"/>} align="end">{(item) => <ItemLink item={item}/> }</Books.Column>
+        <Books.Column id="minifigureCount" title={<Translate id="itemTable.column.minifigureCount"/>} align="end" sortBy="minifigureCount" small>{({ minifigureCount }) => <FormatNumber value={minifigureCount}/>}</Books.Column>
+        <Books.Column id="pieceCount" title={<Translate id="itemTable.column.pieceCount"/>} align="end" sortBy="pieceCount" small>{({ pieceCount }) => <FormatNumber value={pieceCount}/>}</Books.Column>
       </Books.Table>
     </>
   );

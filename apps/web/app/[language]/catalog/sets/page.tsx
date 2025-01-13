@@ -1,4 +1,4 @@
-import { createDataTable } from '@brickninja-org/ui/components/table/data-table';
+import { createDataTable } from '@brickninja-org/ui/components/table/DataTable';
 
 import { cache } from '@/lib/cache';
 import { localizedName } from '@/lib/localized-name';
@@ -58,12 +58,12 @@ export default async function CatalogSetsPage({ params }: PageProps) {
         </Description>
         
         <Sets.Table rowFilter={CategoryRowFilter}>
-          <Sets.Column id="id" title={<Translate id="itemTable.column.id"/>} align="right" small hidden>{({ id }) => id}</Sets.Column>
-          <Sets.Column id="productCode" title={<Translate id="itemTable.column.productCode"/>} align="right" small sortBy={({ productCode }) => productCode}>{({ productCode }) => productCode}</Sets.Column>
-          <Sets.Column id="name" title={<Translate id="itemTable.column.item"/>} align="left">{(item) => <ItemLink item={item}/> }</Sets.Column>
-          <Sets.Column id="minifigureCount" title={<Translate id="itemTable.column.minifigureCount"/>} align="right" sortBy="minifigureCount" small>{({ minifigureCount }) => <FormatNumber value={minifigureCount}/>}</Sets.Column>
-          <Sets.Column id="pieceCount" title={<Translate id="itemTable.column.pieceCount"/>} align="right" sortBy="pieceCount" small>{({ pieceCount }) => <FormatNumber value={pieceCount}/>}</Sets.Column>
-          <Sets.Column id="minAge" title={<Translate id="itemTable.column.minAge"/>} align="right" sortBy="pieceCount" small hidden>{({ minAge }) => <><FormatNumber value={minAge}/>+</>}</Sets.Column>
+          <Sets.Column id="id" title={<Translate id="itemTable.column.id"/>} align="end" small hidden>{({ id }) => id}</Sets.Column>
+          <Sets.Column id="productCode" title={<Translate id="itemTable.column.productCode"/>} align="end" small sortBy={({ productCode }) => productCode}>{({ productCode }) => productCode}</Sets.Column>
+          <Sets.Column id="name" title={<Translate id="itemTable.column.item"/>} align="start">{(item) => <ItemLink item={item}/> }</Sets.Column>
+          <Sets.Column id="minifigureCount" title={<Translate id="itemTable.column.minifigureCount"/>} align="end" sortBy="minifigureCount" small>{({ minifigureCount }) => <FormatNumber value={minifigureCount}/>}</Sets.Column>
+          <Sets.Column id="pieceCount" title={<Translate id="itemTable.column.pieceCount"/>} align="end" sortBy="pieceCount" small>{({ pieceCount }) => <FormatNumber value={pieceCount}/>}</Sets.Column>
+          <Sets.Column id="minAge" title={<Translate id="itemTable.column.minAge"/>} align="end" sortBy="pieceCount" small hidden>{({ minAge }) => <><FormatNumber value={minAge}/>+</>}</Sets.Column>
         </Sets.Table>
       </CategoryTableProvider>
     </>
