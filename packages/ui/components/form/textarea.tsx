@@ -15,5 +15,5 @@ export const Textarea: FC<TextareaProps> = ({ onChange, ...props }) => {
     onChange?.(e.target.value);
   }, [onChange]);
 
-  return <textarea className="w-full min-h-24 py-2 px-4 rounded border bg-white resize-y focus:outline-none" onChange={onChange && handleChange} {...props}/>;
+  return <textarea className="w-full min-h-24 py-2 px-4 rounded-sm border bg-white resize-y focus:outline-hidden" onChange={onChange && handleChange} {...props}/>;
 };

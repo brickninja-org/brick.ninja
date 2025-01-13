@@ -11,8 +11,8 @@ interface NavigationProps {
 
 const Navigation: FC<NavigationProps> = ({ language }) => {
   return (
-    <div className="relative overflow-hidden bg-white border-b">
-      <Composite render={<ul className="flex m-0 py-1.5 first:border-l-0"/>}>
+    <div className="relative overflow-hidden border-b">
+      <Composite render={<ul className="flex py-1.5 bg-background first:border-l-0"/>}>
         <NavigationItem href="/item"><Translate language={language} id="navigation.items"/></NavigationItem>
         <NavigationItem href="/catalog/sets"><Translate language={language} id="navigation.catalog"/></NavigationItem>
       </Composite>

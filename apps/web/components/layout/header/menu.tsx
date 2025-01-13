@@ -32,33 +32,41 @@ export const Menu: FC<MenuProps> = ({ children, navigation }) => {
 
   return (
     <div className="[grid-area:_menu]">
-      <header className={cn([
-        'fixed top-0 left-0 right-0',
-        'flex items-center gap-4 md:gap-8',
-        'h-12 px-4',
-        'bg-white',
-        'z-10',
-        scrolledDown && '[&>a]:translate-x-8',
-      ])}
+      <header
+        className={cn([
+          'fixed top-0 left-0 right-0',
+          'flex items-center gap-4 md:gap-8',
+          'h-12 px-4',
+          'bg-background',
+          'z-10',
+          scrolledDown && '[&>a]:translate-x-8',
+        ])}
+        suppressHydrationWarning
       >
-        <button type="button" className={cn([
-          'absolute',
-          'h-12 w-12',
-          'bg-transparent',
-          'opacity-0 [transition:_opacity_.1s_ease] delay-0',
-          'cursor-pointer pointer-events-none',
-          scrolledDown && 'opacity-100 delay-150 [pointer-events:_all]',
-        ])} onClick={() => setMenuOpen(!menuOpen)} tabIndex={-1} aria-label="Menu"
+        <button
+          className={cn([
+            'absolute',
+            'h-12 w-12',
+            'bg-transparent',
+            'opacity-0 [transition:_opacity_.1s_ease] delay-0',
+            'cursor-pointer pointer-events-none',
+            '[--icon-size:1.2em]',
+            scrolledDown && 'opacity-100 delay-150 pointer-events-auto',
+          ])}
+          onClick={() => setMenuOpen(!menuOpen)}
+          tabIndex={-1}
+          aria-label="Menu"
         >
           <Icon icon="navigation"/>
         </button>
         {children}
       </header>
 
-      <nav className={cn([
-        'absolute left-0 right-0 mt-12 z-[9]',
-        menuOpen && 'fixed border-b border-transparent animate-slide-in',
-      ])}
+      <nav
+        className={cn([
+        'absolute left-0 right-0 mt-12 z-9',
+          menuOpen && 'fixed border-b border-transparent animate-slide-in',
+        ])}
       >
         {navigation}
       </nav>

@@ -4,10 +4,11 @@ import type { Language } from '@brickninja-org/database';
 import { Dropdown } from '@brickninja-org/ui/components/dropdown';
 import { LinkButton } from '@brickninja-org/ui/components/form/button';
 import { MenuList } from '@brickninja-org/ui/components/layout/menu-list';
-import { Icon } from '@brickninja-org/ui/icons';
 
 import { getUser, type SessionUser } from '@/lib/get-user';
 import { Skeleton } from '@/components/skeleton';
+import { getTranslate } from '@/lib/translate';
+import { Translate } from '@/components/i18n/translate';
 
 export interface UserButtonProps {
   language: Language;
@@ -34,17 +35,19 @@ const UserButtonLoader: FC<UserButtonProps> = async ({ language }) => {
 };
 
 // internal component to show loader | user | login
-const UserButtonInternal: FC<UserButtonInternalProps> = ({ user }) => {
+const UserButtonInternal: FC<UserButtonInternalProps> = ({ user, language }) => {
+  const t = getTranslate(language);
+
   if (!user) {
     return (
-      <LinkButton appearance="menu" href="/login" aria-label="Login" className="gap-1 px-3" icon={<Icon icon="person"/>}>
-        <span className="hidden md:block">Login</span>
+      <LinkButton appearance="menu" href="/login" aria-label={t('login')} className="gap-1 px-3" icon="person">
+        <span className="hidden md:block"><Translate id="login" language={language}/></span>
       </LinkButton>
     );
   }
 
   const button = (
-    <LinkButton appearance="menu" href="/profile" aria-label={user === 'loading' ? undefined : user.name}>
+    <LinkButton appearance="menu" href="/profile" aria-label={user === 'loading' ? undefined : user.name} icon="person">
       <span className="">{user === 'loading' ? <Skeleton width={90}/> : user.name}</span>
     </LinkButton>
   );
@@ -52,7 +55,7 @@ const UserButtonInternal: FC<UserButtonInternalProps> = ({ user }) => {
   return (
     <Dropdown hideTop={false} button={button} preferredPlacement="bottom">
       <MenuList>
-        <LinkButton appearance="menu" href="/profile">Profile</LinkButton>
+        <LinkButton appearance="menu" href="/profile" icon="person">Profile</LinkButton>
         {user !== 'loading' && user.roles.includes('Admin') && (
           <LinkButton appearance="menu" href="/admin/users">Admin</LinkButton>
         )}

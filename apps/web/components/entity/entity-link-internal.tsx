@@ -31,7 +31,7 @@ export const EntityLinkInternal: FC<EntityLinkProps> = ({ ref, className, entity
         'gap-2',
         'overflow-hidden',
         'text-blue-600',
-        'hover:[&>span]:decoration-black',
+        '[&>span]:hover:decoration-black',
       ], className)}
       onClick={onClick}
       {...linkProps}

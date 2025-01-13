@@ -97,7 +97,7 @@ export const CategoryTableFilter: FC<CategoryTableFilterProps> = ({ totalCount: 
             </FlexRow>
           </Checkbox>
         ))}
-        <span className="py-2 px-4 text-gray-600">Tip: Hold <kbd className="py-[1px] px-[3px] border border-gray-300 rounded-sm">Shift</kbd> to select a single category</span>
+        <span className="py-2 px-4 text-gray-600">Tip: Hold <kbd className="py-[1px] px-[3px] border border-gray-300 rounded-xs">Shift</kbd> to select a single category</span>
       </MenuList>
     </Dropdown>
   );

@@ -50,7 +50,7 @@ export const Dropdown: FC<DropdownProps> = ({ children, button, preferredPlaceme
         <FloatingPortal>
           <div
             ref={refs.setFloating}
-            className="max-h-[--max-height] rounded-sm shadow border bg-white z-10"
+            className="max-h-(--max-height) rounded-xs shadow border bg-white z-10"
             style={{
               ...transitionStyles,
               ...floatingStyles,

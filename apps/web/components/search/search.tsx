@@ -110,13 +110,13 @@ export const Search: FC<SearchProps> = ({ translations }) => {
   }, []);
 
   return (
-    <form className="relative flex items-center w-[468px] bg-gray-100 focus-within:bg-white focus-within:shadow sm:shadow-[rgb(0_0_0_/_12%)] rounded-sm" ref={refs.setReference} {...getReferenceProps()}>
-      <Icon icon="search" className="mr-2 ml-4 align-[-2px] flex-shrink-0 text-gray-600"/>
+    <form className="relative flex items-center w-[468px] bg-gray-100 focus-within:bg-white focus-within:shadow-sm rounded-xs [--icon-size:20px]" ref={refs.setReference} {...getReferenceProps()}>
+      <Icon icon="search" className="mr-2 ml-4 align-[-2px] shrink-0 text-gray-600"/>
       {/* <div className={styles.restriciton}>Item</div> */}
 
       <input
         ref={inputRef}
-        className="flex-1 w-full py-1.5 px-2 bg-transparent focus:outline-none placeholder:text-gray-600"
+        className="flex-1 w-full py-1.5 px-2 bg-transparent focus:outline-hidden placeholder:text-gray-600"
         placeholder={translations['search.placeholder']}
         autoComplete="off"
         spellCheck="false"
@@ -125,12 +125,12 @@ export const Search: FC<SearchProps> = ({ translations }) => {
         onChange={handleSearchChange}
         onKeyDown={handleKeyDown}/>
 
-      {!loading && !open && (<div className="hidden sm:inline-block absolute right-2 rounded-sm text-sm text-gray-600"><kbd className="py-[1px] px-1 rounded-sm border border-gray-300">/</kbd> or <kbd className="hidden md:inline-block py-[1px] px-[3px] rounded-sm border border-gray-300">s</kbd></div>)}
+      {!loading && !open && (<div className="hidden sm:inline-block absolute right-2 rounded-xs text-sm text-gray-600"><kbd className="py-0.25 px-0.75 rounded-xs border border-gray-300">/</kbd> or <kbd className="py-0.25 px-0.75 rounded-xs border border-gray-300">s</kbd></div>)}
 
       {loading && (open || searchValue) && <div className="block w-4 h-4 rounded-lg ml-4 mr-2 border border-transparent border-t-gray-200 will-change-transform animate-rotate"/>}
 
       {open && (
-        <div className="absolute top-0 left-0 right-0 w-[max-content] max-h-[calc(100vh_-_56px)] p-2 rounded-sm shadow border bg-white text-base overflow-y-auto overscroll-contain transition-opacity [scrollbar-width:_thin] z-10" ref={refs.setFloating} {...getFloatingProps()} style={{
+        <div className="absolute top-0 left-0 right-0 w-max max-h-[calc(100vh_-_56px)] p-2 rounded-xs shadow-md border bg-background text-base overflow-y-auto overscroll-contain transition-opacity [scrollbar-width:_thin] z-10" ref={refs.setFloating} {...getFloatingProps()} style={{
           top: y ?? 0,
           left: x ?? 0,
         }}
@@ -149,7 +149,7 @@ export const Search: FC<SearchProps> = ({ translations }) => {
                     tabIndex={-1}
                     href={result.href}
                     key={result.href}
-                    className={cn([/*'grid gap-[0_8px] grid-cols-[32px,1fr,auto]',*/ 'flex flex-col py-2 px-4 rounded-2', activeIndex === currentIndex && 'bg-gray-100'])}
+                    className={cn([/*'grid gap-[0_8px] grid-cols-[32px_1fr_auto]',*/ 'flex flex-col py-2 px-4 rounded-2', activeIndex === currentIndex && 'bg-gray-100'])}
                     id={result.href}
                     target={isExternal ? '_blank' : undefined}
                     rel={isExternal ? 'noreferrer noopener' : undefined}

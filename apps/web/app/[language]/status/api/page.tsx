@@ -74,7 +74,7 @@ export default async function StatusApiPage({ searchParams }: PageProps) {
           <Fragment key={statusCode}>
             <div className="p-2 border-r-2 font-medium">{statusCode}</div>
             <div className="relative flex items-center p-2">
-              <div style={{ width: `${amount / total * 100}%` }} className={cn(['h-4 rounded-sm', statusCode === '200' ? 'bg-green-600' : 'bg-red-600'])}/>
+              <div style={{ width: `${amount / total * 100}%` }} className={cn(['h-4 rounded-xs', statusCode === '200' ? 'bg-green-600' : 'bg-red-600'])}/>
               <div className="ml-2">{amount}</div>
             </div>
           </Fragment>

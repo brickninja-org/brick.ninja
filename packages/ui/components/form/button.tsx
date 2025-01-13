@@ -8,14 +8,14 @@ import { Icon, type IconColor, type IconProp } from '../../icons';
 
 const button = tv({
   base: [
-    'group min-w-max inline-flex items-center gap-3 py-2 px-4 border-none rounded-sm shadow-[inset_0_0_0_1px] shadow-gray-300 leading-5 text-black whitespace-nowrap cursor-pointer focus-visible:outline-none focus-visible:shadow-sm',
+    'group min-w-max inline-flex items-center gap-3 py-2 px-4 border-none rounded-xs shadow-[inset_0_0_0_1px] shadow-gray-300 leading-5 text-black whitespace-nowrap cursor-pointer focus-visible:outline-hidden focus-visible:shadow-xs',
   ],
   variants: {
     appearance: {
-      primary: 'bg-gray-100 shadow-gray-300 hover:[&:not(:disabled)]:bg-white font-semibold',
-      secondary: 'bg-gray-100 shadow-gray-300 hover:[&:not(:disabled)]:bg-white',
-      tertiary: 'bg-white hover:shadow-inset hover:[&:not(:disabled)]:bg-gray-200 hover:[&:not(:disabled)]:shadow-gray-300',
-      menu: 'bg-transparent shadow-transparent text-left hover:[&:not(:disabled)]:bg-gray-200 hover:[&:not(:disabled)]:shadow-gray-200',
+      primary: 'bg-gray-100 shadow-gray-300 hover:not-disabled:bg-white font-semibold',
+      secondary: 'bg-gray-100 shadow-gray-300 hover:not-disabled:bg-white',
+      tertiary: 'bg-white hover:shadow-inset hover:not-disabled:bg-gray-200 hover:not-disabled:shadow-gray-300',
+      menu: 'bg-transparent shadow-transparent text-left hover:not-disabled:bg-gray-100 hover:not-disabled:shadow-gray-100',
     },
     flex: {
       true: 'flex-1',

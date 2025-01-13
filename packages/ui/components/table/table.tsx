@@ -39,9 +39,9 @@ const Table: FC<TableProps> & { HeaderCell: FC<HeaderCellProps> } = ({ children,
 const header = tv({
   base: [
     'sticky',
-    'top-[--table-sticky-top,48px]',
+    'top-(--table-sticky-top,48px)',
     'py-2 px-4',
-    'z-[1]',
+    'z-1',
     'bg-white border-b-[3px]',
     'font-medium',
     'whitespace-nowrap',
@@ -70,7 +70,7 @@ Table.HeaderCell = function HeaderCell({ children, small = false, align, sort, o
   return (
     <th className={cn(header({ small, align }))} align={align} aria-sort={sort === 'asc' ? 'ascending' : sort === 'desc' ? 'descending' : undefined}>
       {sort ? (
-        <button className={cn(['block [width:_calc(100%_+_32px)] -my-2 -mx-4 py-2 px-4 rounded-sm [text-align:_inherit]'])} onClick={onSort}>
+        <button className={cn(['block [width:_calc(100%_+_32px)] -my-2 -mx-4 py-2 px-4 rounded-xs [text-align:_inherit]'])} onClick={onSort}>
           {children}
         </button>
       ) : children}

@@ -29,7 +29,7 @@ export const ItemTableColumnsButton: FC<ItemTableColumnsButtonProps> = ({ transl
     <Dropdown button={<Button icon={<Icon icon="table-insert-column"/>}>{translations['table.columns']}</Button>} preferredPlacement="right-start">
       <MenuList>
         {!user && (
-          <div className="flex items-center gap-3 mb-2 py-1 px-4 max-w-[200px] rounded-sm border bg-gray-100">
+          <div className="flex items-center gap-3 mb-2 py-1 px-4 max-w-[200px] rounded-xs border bg-gray-100">
             <Icon icon="cookie"/>
             Changing columns will store cookies in your browser
           </div>

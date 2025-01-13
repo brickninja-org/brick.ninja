@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@source "../../node_modules/@brickninja-org/ui/components";
+@source "../../node_modules/@brickninja-org/ui/icons";
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+@theme {
+  --font-bitter: var(--font-bitter);
+
+  --color-muted: var(--color-gray-600);
+
+  --color-background: rgba(254, 254, 254, 100%);
+  --color-border-dark: rgba(0, 0, 0, 0.1);
+
+  --icon-size: 1rem;
+
+  --animate-slide-in: slideIn 0.1s ease-out;
+
+  @keyframes slide-in {
+    0% { tranform: translateY(-48px) }
+  }
+}
