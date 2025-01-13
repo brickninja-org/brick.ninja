@@ -2,6 +2,10 @@
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "files.associations": {
-    "**/packages/eslint-config/configs/*.json": "jsonc"
-  }
+    "**/packages/eslint-config/configs/*.json": "jsonc",
+    "*.css": "tailwindcss"
+  },
+  "tailwindCSS.experimental.classRegex": [
+    ["tv\\(\\{([\\s\\S]*?)\\}\\)", "['\"`]([^'\"`]*)['\"`]"]
+  ]
 }
