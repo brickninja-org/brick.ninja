@@ -63,7 +63,7 @@ export const FormatConfigDialog: FC<FormatConfigDialogProps> = ({ open, onClose 
     <Dialog title="Formatting Settings" onClose={onClose} open={open}>
       <div className="flex flex-col gap-4">
         {!user && (
-          <div className="p-4 rounded-sm border bg-gray-100">
+          <div className="p-4 rounded-xs border bg-gray-100">
             <FlexRow>
               <Icon icon="cookie"/>
               Changing your settings will store cookies in your browser.
@@ -81,7 +81,7 @@ export const FormatConfigDialog: FC<FormatConfigDialogProps> = ({ open, onClose 
           </Label>
         </div>
 
-        <div className="p-4 rounded-sm border bg-gray-100">
+        <div className="p-4 rounded-xs border bg-gray-100">
           <MenuList>
             <div className="flex justify-between py-0.5 px-2">Locale <span>{locale}</span></div>
             <div className="flex justify-between py-0.5 px-2">Date <FormatDate date={new Date()}/></div>

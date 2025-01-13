@@ -8,8 +8,7 @@ import { Bitter } from 'next/font/google';
 import { cn } from '@brickninja-org/ui/lib';
 import { DataTableContext } from '@brickninja-org/ui/components/table/data-table-context';
 
-import '@/styles/app.scss';
-import '@brickninja-org/ui/styles/globals.scss';
+import './globals.css';
 
 import { FormatProvider } from '@/components/format/format-context';
 import { I18nProvider } from '@/components/i18n/i18n-provider';	

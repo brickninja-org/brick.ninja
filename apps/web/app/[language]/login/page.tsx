@@ -42,7 +42,7 @@ export default async function LoginPage({ searchParams }: PageProps) {
         <SubmitButton icon={<Icon icon="lock-open"/>}>Login with bn.me</SubmitButton>
       </form>
 
-      <div className="flex items-center gap-2 mt-8 py-3 px-4 border rounded-sm">
+      <div className="flex items-center gap-2 mt-8 py-3 px-4 border rounded-xs">
         <Icon icon="cookie"/>
         <p>By logging in you accept that brick.ninja will store cookies in your browser.</p>
       </div>

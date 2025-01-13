@@ -18,6 +18,6 @@ export const NumberInput: FC<NumberInputProps> = ({ value, defaultValue, placeho
   }, [onChange]);
 
   return (
-    <input className="flex-1 py-1.5 px-4 rounded-sm border-2 bg-white" type="number" value={value ?? ''} defaultValue={defaultValue} placeholder={placeholder} name={name} readOnly={readOnly} min={min} max={max} onChange={onChange && handleChange}/>
+    <input className="flex-1 py-1.5 px-4 rounded-xs border-2 bg-white" type="number" value={value ?? ''} defaultValue={defaultValue} placeholder={placeholder} name={name} readOnly={readOnly} min={min} max={max} onChange={onChange && handleChange}/>
   );
 };

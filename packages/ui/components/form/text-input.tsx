@@ -18,6 +18,6 @@ export const TextInput: FC<TextInputProps> = ({ type = 'text', onChange, ...prop
   }, [onChange]);
 
   return (
-    <input className="flex-1 py-1.5 px-4 rounded-sm border-2 bg-white" type={type} onChange={onChange && handleChange} {...props}/>
+    <input className="flex-1 py-1.5 px-4 rounded-xs border-2 bg-white" type={type} onChange={onChange && handleChange} {...props}/>
   );
 };

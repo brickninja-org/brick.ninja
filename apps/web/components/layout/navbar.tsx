@@ -17,13 +17,13 @@ const nav = tv({
     base: '-mt-4 mb-4 -mx-4 bg-gray-100 shadow-inner shadow-gray-200',
     list: 'inline-flex items-start gap-2 mx-4 pt-2 list-none',
     button: 'block m-0 pb-2 rounded-t-sm border border-b-0 border-transparent',
-    link: 'hover:[&:not(:disabled)]:bg-gray-200',
+    link: 'hover:not-disabled:bg-gray-200',
   },
   variants: {
     active: {
       true: {
         button: 'border-gray-300 border-b-white bg-white',
-        link: '!shadow-none hover:[&:not(:disabled)]:bg-transparent',
+        link: 'shadow-none! hover:not-disabled:bg-transparent',
       },
     },
   },

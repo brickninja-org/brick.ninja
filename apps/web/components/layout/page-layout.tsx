@@ -12,7 +12,7 @@ export const PageLayout: FC<PageLayoutProps> = ({ children, toc = false }) => {
     ? (
       <TableOfContentContext>
         <main className="flex gap-4 px-4">
-          <aside className="hidden w-1/4 min-w-64 max-w-96 flex-shrink order-1 md:block">
+          <aside className="hidden w-1/4 min-w-64 max-w-96 shrink order-1 md:block">
             <TableOfContent/>
           </aside>
           <div className="flex-1 max-w-full w-3/4 py-4">
