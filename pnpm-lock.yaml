@@ -7,7 +7,7 @@ settings:
 overrides:
   react: 19.0.0
   react-dom: 19.0.0
-  '@types/react': 19.0.6
+  '@types/react': 19.0.7
   '@types/react-dom': 19.0.3
 
 importers:
@@ -134,7 +134,7 @@ importers:
         version: 6.6.3
       '@testing-library/react':
         specifier: 16.1.0
-        version: 16.1.0(@testing-library/dom@10.4.0)(@types/react-dom@19.0.3(@types/react@19.0.6))(@types/react@19.0.6)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        version: 16.1.0(@testing-library/dom@10.4.0)(@types/react-dom@19.0.3(@types/react@19.0.7))(@types/react@19.0.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@types/jest':
         specifier: 29.5.14
         version: 29.5.14
@@ -145,11 +145,11 @@ importers:
         specifier: 22.10.5
         version: 22.10.5
       '@types/react':
-        specifier: 19.0.6
-        version: 19.0.6
+        specifier: 19.0.7
+        version: 19.0.7
       '@types/react-dom':
         specifier: 19.0.3
-        version: 19.0.3(@types/react@19.0.6)
+        version: 19.0.3(@types/react@19.0.7)
       babel-plugin-react-compiler:
         specifier: 19.0.0-beta-e552027-20250112
         version: 19.0.0-beta-e552027-20250112
@@ -442,11 +442,11 @@ importers:
         specifier: 9.18.0
         version: 9.18.0
       '@types/react':
-        specifier: 19.0.6
-        version: 19.0.6
+        specifier: 19.0.7
+        version: 19.0.7
       '@types/react-dom':
         specifier: 19.0.3
-        version: 19.0.3(@types/react@19.0.6)
+        version: 19.0.3(@types/react@19.0.7)
       autoprefixer:
         specifier: 10.4.20
         version: 10.4.20(postcss@8.5.0)
@@ -1291,7 +1291,7 @@ packages:
     engines: {node: '>=18'}
     peerDependencies:
       '@testing-library/dom': ^10.0.0
-      '@types/react': 19.0.6
+      '@types/react': 19.0.7
       '@types/react-dom': 19.0.3
       react: 19.0.0
       react-dom: 19.0.0
@@ -1390,10 +1390,10 @@ packages:
   '@types/react-dom@19.0.3':
     resolution: {integrity: sha512-0Knk+HJiMP/qOZgMyNFamlIjw9OFCsyC2ZbigmEEyXXixgre6IQpm/4V+r3qH4GC1JPvRJKInw+on2rV6YZLeA==}
     peerDependencies:
-      '@types/react': 19.0.6
+      '@types/react': 19.0.7
 
-  '@types/react@19.0.6':
-    resolution: {integrity: sha512-gIlMztcTeDgXCUj0vCBOqEuSEhX//63fW9SZtCJ+agxoQTOklwDfiEMlTWn4mR/C/UK5VHlpwsCsOyf7/hc4lw==}
+  '@types/react@19.0.7':
+    resolution: {integrity: sha512-MoFsEJKkAtZCrC1r6CM8U22GzhG7u2Wir8ons/aCKH6MBdD1ibV24zOSSkdZVUKqN5i396zG5VKLYZ3yaUZdLA==}
 
   '@types/stack-utils@2.0.3':
     resolution: {integrity: sha512-9aEbYZ3TbYMznPdcdr3SmIrLXwC/AKZXQeCf9Pgao5CKb8CyHuEX5jzWPTkvregvhRJHcpRO6BFoGW9ycaOkYw==}
@@ -5055,15 +5055,15 @@ snapshots:
       lodash: 4.17.21
       redent: 3.0.0
 
-  '@testing-library/react@16.1.0(@testing-library/dom@10.4.0)(@types/react-dom@19.0.3(@types/react@19.0.6))(@types/react@19.0.6)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+  '@testing-library/react@16.1.0(@testing-library/dom@10.4.0)(@types/react-dom@19.0.3(@types/react@19.0.7))(@types/react@19.0.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@babel/runtime': 7.26.0
       '@testing-library/dom': 10.4.0
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
     optionalDependencies:
-      '@types/react': 19.0.6
-      '@types/react-dom': 19.0.3(@types/react@19.0.6)
+      '@types/react': 19.0.7
+      '@types/react-dom': 19.0.3(@types/react@19.0.7)
 
   '@tootallnate/once@2.0.0': {}
 
@@ -5159,11 +5159,11 @@ snapshots:
     dependencies:
       undici-types: 6.20.0
 
-  '@types/react-dom@19.0.3(@types/react@19.0.6)':
+  '@types/react-dom@19.0.3(@types/react@19.0.7)':
     dependencies:
-      '@types/react': 19.0.6
+      '@types/react': 19.0.7
 
-  '@types/react@19.0.6':
+  '@types/react@19.0.7':
     dependencies:
       csstype: 3.1.3
 
