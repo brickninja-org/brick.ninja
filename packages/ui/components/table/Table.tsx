@@ -7,7 +7,7 @@ import { cn } from '../../lib/tailwind';
 import { Icon } from '../../icons';
 import { TableWrapper } from './table-wrapper';
 
-export interface TableProps extends Pick<TableVariantProps, 'layout'> {
+export interface TableProps extends Pick<TableVariantProps, 'layout' | 'fullWidth'> {
   children: ReactNode;
 }
 
@@ -15,6 +15,10 @@ export interface HeaderCellProps extends TableVariantProps {
   children?: ReactNode;
   sort?: boolean | 'asc' | 'desc';
   onSort?: () => void;
+}
+
+export interface BodyRowProps {
+  children: ReactNode;
 }
 
 const table = tv({
@@ -67,6 +71,7 @@ const table = tv({
     layout: 'auto',
     fullWidth: true,
     align: 'start',
+    small: false,
   },
 });
 
@@ -76,7 +81,7 @@ export type TableReturnType = ReturnType<typeof table>;
 
 export { table };
 
-const Table: FC<TableProps> & { HeaderCell: FC<HeaderCellProps> } = ({ children, layout }: TableProps) => {
+const Table: FC<TableProps> & { HeaderCell: FC<HeaderCellProps>, BodyRow: FC<BodyRowProps> } = ({ children, layout }: TableProps) => {
   const { table: style } = table();
   return (
     <TableWrapper>
@@ -98,6 +103,16 @@ Table.HeaderCell = function HeaderCell({ children, small = false, align, sort, o
         </button>
       ) : children}
     </th>
+  );
+};
+
+Table.BodyRow = function BodyRow({ children }: BodyRowProps) {
+  const { tr } = table();
+
+  return (
+    <tr className={cn(tr())}>
+      {children}
+    </tr>
   );
 };
 
