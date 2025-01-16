@@ -77,5 +77,5 @@ function formatSize(size: bigint | null): ReactNode {
     units.shift();
   }
 
-  return <FormatNumber value={size} unit={units[0]}/>;
+  return <FormatNumber value={size} unit={units[0]} variant="tabular-nums"/>;
 }
