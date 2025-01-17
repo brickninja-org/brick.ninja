@@ -48,7 +48,7 @@
     "@prisma/nextjs-monorepo-workaround-plugin": "6.2.1",
     "@tailwindcss/postcss": "4.0.0-beta.9",
     "@testing-library/jest-dom": "6.6.3",
-    "@testing-library/react": "16.1.0",
+    "@testing-library/react": "16.2.0",
     "@types/jest": "29.5.14",
     "@types/negotiator": "0.6.3",
     "@types/node": "22.10.5",
