@@ -1,6 +1,6 @@
-import { notFound } from 'next/navigation';
-
 import type { RouteHandler } from '@/lib/next';
+
+import { notFound } from 'next/navigation';
 
 import { pageSize, sitemaps } from '../../sitemaps';
 

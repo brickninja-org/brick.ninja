@@ -1,12 +1,12 @@
 import NextLink from 'next/link';
 
 import { ReviewQueue } from '@brickninja-org/database';
-import { Headline } from '@brickninja-org/ui/components/headline';
-import { Table } from '@brickninja-org/ui/components/table';
+import { Headline } from '@brickninja-org/ui/components/headline/Headline';
+import { Table } from '@brickninja-org/ui/components/table/Table';
 
 import { db } from '@/lib/prisma';
-import { HeroLayout } from '@/components/layout/hero-layout';
-import { FormatNumber } from '@/components/format/format-number';
+import { HeroLayout } from '@/components/layout/HeroLayout';
+import { FormatNumber } from '@/components/format/FormatNumber';
 
 const getQueues = async function getQueues() {
   const queues = await db.review.groupBy({

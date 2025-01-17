@@ -1,14 +1,19 @@
 'use client';
 
-import { createContext, use, useCallback, useEffect, useMemo, useState, type FC, type ReactNode } from 'react';
+import type { FC, ReactNode } from 'react';
+import type { AvailableColumn } from './DataTable.context';
+import type { HeaderCellProps, TableVariantProps } from './Table';
 
-import { Dropdown } from '../dropdown';
-import { Button } from '../form/button';
-import { Checkbox } from '../form/checkbox';
-import { MenuList } from '../layout/menu-list';
-import { DataTableGlobalContext, type AvailableColumn } from './data-table-context';
-import { table, Table, type HeaderCellProps, type TableVariantProps } from './Table';
-import { Separator } from '../layout/separator';
+import { createContext, use, useCallback, useEffect, useMemo, useState } from 'react';
+
+import { Dropdown } from '../dropdown/Dropdown';
+import { Button } from '../form/Button';
+import { Checkbox } from '../form/Checkbox';
+import { MenuList } from '../layout/MenuList';
+import { Separator } from '../layout/Separator';
+
+import { DataTableGlobalContext } from './DataTable.context';
+import { table, Table } from './Table';
 
 type DataTableContext = { id: string, sortBy: string | undefined, sortOrder: 'asc' | 'desc', visibleColumns: string[] };
 

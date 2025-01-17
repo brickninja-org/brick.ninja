@@ -1,7 +1,8 @@
+import type { UnknownItemProps } from '@/components/item/UknownItem';
+
 import { cookies } from 'next/headers';
 
 import { getCurrentUrl } from '@/lib/url';
-import type { UnknownItemProps } from '@/components/item/unknown-item';
 
 export async function getLoginUrlWithReturnTo(scopes?: UnknownItemProps[]) {
   const url = await getCurrentUrl();

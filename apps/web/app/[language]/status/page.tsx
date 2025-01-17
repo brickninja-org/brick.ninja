@@ -3,12 +3,12 @@ import type { Metadata } from 'next';
 
 import Link from 'next/link';
 
-import { Headline } from '@brickninja-org/ui/components/headline';
+import { cn } from '@brickninja-org/ui/lib';
+import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 
 import { db } from '@/lib/prisma';
-import { HeroLayout } from '@/components/layout/hero-layout';
-import { FormatNumber } from '@/components/format/format-number';
-import { cn } from '@brickninja-org/ui/lib';
+import { HeroLayout } from '@/components/layout/HeroLayout';
+import { FormatNumber } from '@/components/format/FormatNumber';
 
 function getStatus() {
   const last30minutes = new Date();

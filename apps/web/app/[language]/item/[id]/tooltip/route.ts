@@ -1,13 +1,13 @@
+import type { Language } from '@brickninja-org/database';
+import type { GetSets } from '@brickset-api/types/data/get-sets';
+import type { RouteHandler } from '@/lib/next';
+
 import { notFound } from 'next/navigation';
 import { NextResponse } from 'next/server';
 
-import type { Language } from '@brickninja-org/database';
-import type { GetSets } from '@brickset-api/types/data/get-sets';
-
 import { cache } from '@/lib/cache';
-import type { RouteHandler } from '@/lib/next';
 import { db } from '@/lib/prisma';
-import { createTooltip } from '@/components/item/item-tooltip';
+import { createTooltip } from '@/components/item/ItemTooltip';
 
 const getItemRevision = cache(function (id: number, language: Language, revisionId?: string) {
   return revisionId

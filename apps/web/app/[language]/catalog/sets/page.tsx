@@ -1,19 +1,20 @@
+import type { Metadata } from 'next';
+import type { PageProps } from '@/lib/next';
+
 import { createDataTable } from '@brickninja-org/ui/components/table/DataTable';
 
 import { cache } from '@/lib/cache';
 import { localizedName } from '@/lib/localized-name';
-import type { PageProps } from '@/lib/next';
 import { db } from '@/lib/prisma';
-import { BricklinkAccounts } from '@/components/bn2me/bricklink-accounts';
-import { FormatNumber } from '@/components/format/format-number';
-import { Translate } from '@/components/i18n/translate';
-import { ItemLink } from '@/components/item/item-link';
-import { Description } from '@/components/layout/description';
-import { ColumnSelect } from '@/components/table/column-select';
-import { CategoryRowFilter, CategoryTableFilter, CategoryTableProvider } from '../catalog.client';
-import type { Metadata } from 'next';
 import { translate } from '@/lib/translate';
 import { getAlternateUrls } from '@/lib/url';
+import { BricklinkAccounts } from '@/components/bn2me/bricklink-accounts';
+import { FormatNumber } from '@/components/format/FormatNumber';
+import { Translate } from '@/components/i18n/Translate';
+import { ItemLink } from '@/components/item/ItemLink';
+import { Description } from '@/components/layout/Description';
+import { ColumnSelect } from '@/components/table/ColumnSelect';
+import { CategoryRowFilter, CategoryTableFilter, CategoryTableProvider } from '../catalog.client';
 
 const getSets = cache(
   () => db.item.findMany({

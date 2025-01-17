@@ -1,4 +1,7 @@
-import { type FC, Fragment, type Key, memo, type ReactNode, useCallback, useMemo, useState } from 'react';
+import type { FC, Key, ReactNode } from 'react';
+
+import { Fragment, useState, useMemo, useCallback, memo } from 'react';
+
 import { Table } from './Table';
 
 export interface DataTableColumn<T> {

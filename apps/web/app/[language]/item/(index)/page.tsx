@@ -1,14 +1,15 @@
-import { type Language } from '@brickninja-org/database';
-import { Headline } from '@brickninja-org/ui/components/headline';
+import type { Language } from '@brickninja-org/database';
+import type { PageProps } from '@/lib/next';
+
+import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 
 import { cache } from '@/lib/cache';
 import { linkProperties } from '@/lib/link-properties';
-import type { PageProps } from '@/lib/next';
 import { db } from '@/lib/prisma';
-import { FormatDate } from '@/components/format/format-date';
-import { ItemLink } from '@/components/item/item-link';
-import { ItemList, ItemListItem } from '@/components/item/item-list';
-import { HeroLayout } from '@/components/layout/hero-layout';
+import { FormatDate } from '@/components/format/FormatDate';
+import { ItemLink } from '@/components/item/ItemLink';
+import { ItemList, ItemListItem } from '@/components/item/ItemList';
+import { HeroLayout } from '@/components/layout/HeroLayout';
 
 const getItems = cache(async (language: Language) => {
   const [recentlyAdded, recentlyUpdated] = await Promise.all([

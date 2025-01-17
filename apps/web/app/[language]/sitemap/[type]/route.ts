@@ -1,6 +1,7 @@
+import type { RouteHandler } from '@/lib/next';
+
 import { notFound } from 'next/navigation';
 
-import type { RouteHandler } from '@/lib/next';
 import { getCurrentUrl } from '@/lib/url';
 
 import { getSitemapsForType, sitemaps } from '../sitemaps';

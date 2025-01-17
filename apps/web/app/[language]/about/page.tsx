@@ -1,8 +1,9 @@
-import { Headline } from '@brickninja-org/ui/components/headline';
-
-import { HeroLayout } from '@/components/layout/hero-layout';
-import { TableOfContentAnchor } from '@brickninja-org/ui/components/table-of-content';
 import type { Metadata } from 'next';
+
+import { Headline } from '@brickninja-org/ui/components/headline/Headline';
+import { TableOfContentAnchor } from '@brickninja-org/ui/components/table-of-content/TableOfContents';
+
+import { HeroLayout } from '@/components/layout/HeroLayout';
 
 export default function AboutPage() {
   return (

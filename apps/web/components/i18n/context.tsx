@@ -1,6 +1,8 @@
 'use client';
 
-import { createContext, type FC, type ReactNode, useContext } from 'react';
+import type { FC, ReactNode } from 'react';
+
+import { createContext, useContext } from 'react';
 
 import type { Language } from '@brickninja-org/database';
 

@@ -1,18 +1,19 @@
 import type { Metadata } from 'next';
+import type { PageProps } from '@/lib/next';
+
 import { redirect } from 'next/navigation';
 
 // import { Scope } from '@bn2me/client/src/types';
-import { SubmitButton } from '@brickninja-org/ui/components/form/buttons/submit-button';
-import { Headline } from '@brickninja-org/ui/components/headline';
-import { Notice } from '@brickninja-org/ui/components/notice';
+import { SubmitButton } from '@brickninja-org/ui/components/form/buttons/SubmitButton';
+import { Headline } from '@brickninja-org/ui/components/headline/Headline';
+import { Notice } from '@brickninja-org/ui/components/notice/Notice';
 import { Icon } from '@brickninja-org/ui/icons';
 
 // import { bn2me } from '@/lib/bn2me';
 import { getUser } from '@/lib/get-user';
-import { getReturnToUrl, setReturnToUrlCookie } from '@/lib/login-url';
-import { HeroLayout } from '@/components/layout/hero-layout';
 import { getAlternateUrls /*, getCurrentUrl */ } from '@/lib/url';
-import type { PageProps } from '@/lib/next';
+import { getReturnToUrl, setReturnToUrlCookie } from '@/lib/login-url';
+import { HeroLayout } from '@/components/layout/HeroLayout';
 
 export default async function LoginPage({ searchParams }: PageProps) {
   const { returnTo: returnToParam, /* scopes: scopesParam, */ error, logout } = await searchParams;

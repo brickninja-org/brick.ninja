@@ -1,13 +1,13 @@
 import { cache } from 'react';
 import { redirect } from 'next/navigation';
 
-import { FlexRow } from '@brickninja-org/ui/components/flex-row';
-import { Headline } from '@brickninja-org/ui/components/headline';
-import { Table } from '@brickninja-org/ui/components/table';
+import { FlexRow } from '@brickninja-org/ui/components/flex-row/FlexRow';
+import { Headline } from '@brickninja-org/ui/components/headline/Headline';
+import { Table } from '@brickninja-org/ui/components/table/Table';
 
-import { HeroLayout } from '@/components/layout/hero-layout';
 import { getUser } from '@/lib/get-user';
 import { db } from '@/lib/prisma';
+import { HeroLayout } from '@/components/layout/HeroLayout';
 
 const getUserData = cache(async () => {
   const session = await getUser();

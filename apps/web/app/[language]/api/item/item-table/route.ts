@@ -2,7 +2,7 @@ import { NextResponse, NextRequest } from 'next/server';
 
 import type { Signed } from '@/components/item-table/query';
 import type { ItemTableQuery, QueryModel } from '@/components/item-table/types';
-import { loadItems, loadTotalItemCount, type ItemTableLoadOptions } from '@/components/item-table/item-table.actions';
+import { loadItems, loadTotalItemCount, type ItemTableLoadOptions } from '@/components/item-table/ItemTable.actions';
 
 export async function POST(request: NextRequest) {
   const body: {

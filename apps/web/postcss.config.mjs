@@ -1,8 +1,3 @@
-//** @type {import('postcss-load-config').Config} */
-const config = {
-  plugins: {
-    '@tailwindcss/postcss': {},
-  },
-};
+import config from '@brickninja-org/ui/postcss.config.mjs';
 
 export default config;

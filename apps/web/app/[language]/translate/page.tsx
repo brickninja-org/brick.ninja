@@ -3,12 +3,12 @@ import nl from '../../../dictionary/nl.json';
 
 import Link from 'next/link';
 
-import { Headline } from '@brickninja-org/ui/components/headline';
-import { List } from '@brickninja-org/ui/components/layout/list';
+import { Headline } from '@brickninja-org/ui/components/headline/Headline';
+import { List } from '@brickninja-org/ui/components/layout/List';
 
-import { PageLayout } from '@/components/layout/page-layout';
+import { PageLayout } from '@/components/layout/PageLayout';
 
-import { TranslationEditor } from './translation-editor';
+import { TranslationEditor } from './TranslationEditor';
 
 const dictionaries = { en, nl };
 

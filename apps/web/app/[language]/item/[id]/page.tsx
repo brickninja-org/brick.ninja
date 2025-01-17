@@ -6,7 +6,7 @@ import type { PageProps } from '@/lib/next';
 import { getAlternateUrls } from '@/lib/url';
 
 import { getRevision } from './data';
-import { ItemPageComponent } from './component';
+import { ItemPageComponent } from './Component';
 
 export type ItemPageProps = PageProps<{ id: string }>;
 

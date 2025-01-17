@@ -1,11 +1,11 @@
 'use client';
 
 import type { ReactElement, ReactNode } from 'react';
-
 import type { GetAccountOptions } from './bricklink-api-context';
 import type { BricklinkAccount } from './types';
-import { useUser } from '../user/use-user';
-import { Skeleton } from '../skeleton';
+
+import { useUser } from '@/components/user/use-user';
+import { Skeleton } from '@/components/skeleton/Skeleton';
 import { BricklinkAccountLoginNotice } from './bricklink-account-login-notice';
 
 export interface BricklinkAccountsProps {

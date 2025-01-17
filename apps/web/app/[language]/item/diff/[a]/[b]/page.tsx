@@ -1,17 +1,18 @@
-import { Fragment } from 'react';
 import type { Metadata } from 'next';
+import type { GetSets } from '@brickset-api/types/data/get-sets';
+import type { PageProps } from '@/lib/next';
+
+import { Fragment } from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
-import { Separator } from '@brickninja-org/ui/components/layout/separator';
-import { Notice } from '@brickninja-org/ui/components/notice';
-import type { GetSets } from '@brickset-api/types/data/get-sets';
+import { Separator } from '@brickninja-org/ui/components/layout/Separator';
+import { Notice } from '@brickninja-org/ui/components/notice/Notice';
 
 import { cache } from '@/lib/cache';
-import type { PageProps } from '@/lib/next';
 import { db } from '@/lib/prisma';
-import { FormatDate } from '@/components/format/format-date';
-import { Json } from '@/components/format/json';
+import { FormatDate } from '@/components/format/FormatDate';
+import { Json } from '@/components/format/Json';
 import { DiffLayout, DiffLayoutHeader, DiffLayoutRow } from '@/components/layout/DiffLayout';
 
 const getRevisions = cache(async (idA: string, idB: string) => {

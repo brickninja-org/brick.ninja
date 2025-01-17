@@ -1,8 +1,8 @@
 import type { FC, ReactNode } from 'react';
 
-import { FlexRow } from '@brickninja-org/ui/components/flex-row';
-import { LinkButton } from '@brickninja-org/ui/components/form/button';
-import { Notice } from '@brickninja-org/ui/components/notice';
+import { FlexRow } from '@brickninja-org/ui/components/flex-row/FlexRow';
+import { LinkButton } from '@brickninja-org/ui/components/form/Button';
+import { Notice } from '@brickninja-org/ui/components/notice/Notice';
 
 export interface BricklinkAccountLoginNoticeProps {
   children?: ReactNode;

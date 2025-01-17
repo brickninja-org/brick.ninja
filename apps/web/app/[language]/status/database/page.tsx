@@ -1,13 +1,13 @@
-import { type ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 // import { Prisma } from '@brickninja-org/database';
 import { createDataTable } from '@brickninja-org/ui/components/table/DataTable';
-import { Headline } from '@brickninja-org/ui/components/headline';
+import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 
 import { cache } from '@/lib/cache';
 import { db } from '@/lib/prisma';
-import { FormatNumber } from '@/components/format/format-number';
-import { PageLayout } from '@/components/layout/page-layout';
+import { FormatNumber } from '@/components/format/FormatNumber';
+import { PageLayout } from '@/components/layout/PageLayout';
 
 const getDatabaseStats = cache(() => {
   // const hypertables = ['PageView'];

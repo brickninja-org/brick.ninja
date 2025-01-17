@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 
 import Link from 'next/link';
 
-import { Headline } from '@brickninja-org/ui/components/headline';
+import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 
-import { HeroLayout } from '@/components/layout/hero-layout';
+import { HeroLayout } from '@/components/layout/HeroLayout';
 
 export default function NotFound() {
   return (

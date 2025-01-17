@@ -1,13 +1,16 @@
 'use server';
 
+import type { Prisma } from '@brickninja-org/database';
+import type { CanSubmitResponse } from './types';
+
 import { revalidateTag } from 'next/cache';
 
-import { Prisma, ReviewState } from '@brickninja-org/database';
+import { ReviewState } from '@brickninja-org/database';
 
 import { db } from '@/lib/prisma';
 import { getUser } from '@/lib/get-user';
 
-import { EditContentSubmitError, type CanSubmitResponse } from './types';
+import { EditContentSubmitError } from './types';
 
 export async function submitToReview({ itemId }: { itemId: number }): Promise<EditContentSubmitError | true> {
   const preConditions = await canSubmit(itemId);

@@ -1,21 +1,23 @@
-import { Suspense, type FC } from 'react';
+import type { FC } from 'react';
+import type { PageProps } from '@/lib/next';
+
+import { Suspense } from 'react';
 import Link from 'next/link';
 import { GiNinjaHead } from 'react-icons/gi';
 
-import { Headline } from '@brickninja-org/ui/components/headline';
+import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 
 import { cache } from '@/lib/cache';
-import type { PageProps } from '@/lib/next';
 import { db } from '@/lib/prisma';
 import { getAlternateUrls } from '@/lib/url';
-import { FormatDate } from '@/components/format/format-date';
-import { FormatNumber } from '@/components/format/format-number';
-import { ItemList, ItemListItem } from '@/components/item/item-list';
-import { ItemLink } from '@/components/item/item-link';
-import { SkeletonLink } from '@/components/skeleton/skeleton-link';
-import { HeroLayout } from '@/components/layout/hero-layout';
-import { PageView } from '@/components/page-view/page-view';
-import { Translate } from '@/components/i18n/translate';
+import { FormatDate } from '@/components/format/FormatDate';
+import { FormatNumber } from '@/components/format/FormatNumber';
+import { ItemList, ItemListItem } from '@/components/item/ItemList';
+import { ItemLink } from '@/components/item/ItemLink';
+import { SkeletonLink } from '@/components/skeleton/SkeletonLink';
+import { HeroLayout } from '@/components/layout/HeroLayout';
+import { PageView } from '@/components/page-view/PageView';
+import { Translate } from '@/components/i18n/Translate';
 
 async function MarketingPage({ params }: PageProps) {
   const { language } = await params;

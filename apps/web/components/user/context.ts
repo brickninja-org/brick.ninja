@@ -1,6 +1,6 @@
-import { createContext } from 'react';
-
 import type { SessionUser } from '@/lib/get-user';
+
+import { createContext } from 'react';
 
 export interface UserContext {
   user: SessionUser | undefined;

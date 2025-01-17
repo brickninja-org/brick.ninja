@@ -1,11 +1,13 @@
-import { Badge } from '@/components/badge/badge';
-import { Translate } from '@/components/i18n/translate';
-import { HeroLayout } from '@/components/layout/hero-layout';
-import { Navbar } from '@/components/layout/navbar';
-import type { LayoutProps } from '@/lib/next';
-import { translate } from '@/lib/translate';
-import { Headline } from '@brickninja-org/ui/components/headline';
 import type { Metadata } from 'next';
+import type { LayoutProps } from '@/lib/next';
+
+import { Headline } from '@brickninja-org/ui/components/headline/Headline';
+
+import { translate } from '@/lib/translate';
+import { Badge } from '@/components/badge/Badge';
+import { Translate } from '@/components/i18n/Translate';
+import { HeroLayout } from '@/components/layout/HeroLayout';
+import { Navbar } from '@/components/layout/Navbar';
 
 export default function CatalogLayout({ children }: LayoutProps) {
   return (

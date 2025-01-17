@@ -1,6 +1,8 @@
 import 'server-only';
 
-import { Fragment, type FC, type Key, type ReactElement, type ReactNode } from 'react';
+import type { FC, Key, ReactElement, ReactNode } from 'react';
+
+import { Fragment } from 'react';
 
 import { isDefined } from '@brickninja-org/helper/is';
 

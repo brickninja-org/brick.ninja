@@ -1,5 +1,6 @@
-import { signingKey } from './signing-key';
 import type { ItemTableQuery } from './types';
+
+import { signingKey } from './signing-key';
 
 export interface Signed<T> {
   /** @deprecated Don't access `data` directly. Use `verify` instead */

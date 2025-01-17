@@ -1,4 +1,5 @@
-import { type FC, type ReactNode } from 'react';
+import type { FC, ReactNode } from 'react';
+
 import { cn } from '@brickninja-org/ui/lib';
 import { tv } from 'tailwind-variants';
 

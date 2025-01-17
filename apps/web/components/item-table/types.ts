@@ -1,10 +1,7 @@
 import type { FC } from 'react';
-
-import { Prisma } from '@brickninja-org/database';
-
+import type { Prisma } from '@brickninja-org/database';
 import type { db } from '@/lib/prisma';
 import type { TranslationId } from '@/lib/translate';
-
 import type { Signed } from './query';
 
 export type GlobalColumnId = 'id' | 'item' | 'name_en' | 'name_nl' | 'type' | 'productCode';

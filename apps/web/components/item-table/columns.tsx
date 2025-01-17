@@ -1,4 +1,6 @@
 import type { ReactNode } from 'react';
+import type { SubType, Type } from '@/components/item/ItemType.types';
+import type { TypeTranslation } from '@/components/item/ItemType.translations';
 
 import { Prisma } from '@brickninja-org/database';
 // import { FlexRow } from '@brickninja-org/ui/components/flex-row';
@@ -7,10 +9,9 @@ import { Prisma } from '@brickninja-org/database';
 import type { TranslationId } from '@/lib/translate';
 // import { FormatNumber } from '@/components/format/format-number';
 // import { FormatDate } from '@/components/format/format-date';
-import { ItemLink } from '@/components/item/item-link';
-import type { SubType, Type } from '@/components/item/item-type.types';
-import { ItemType } from '@/components/item/item-type';
-import { translations, type TypeTranslation } from '@/components/item/item-type.translations';
+import { ItemLink } from '@/components/item/ItemLink';
+import { ItemType } from '@/components/item/ItemType';
+import { translations } from '@/components/item/ItemType.translations';
 
 import type { ColumnModelTypes, ExtraColumn, GlobalColumnId, ItemTableColumn, QueryModel, Result } from './types';
 

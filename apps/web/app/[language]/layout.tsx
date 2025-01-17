@@ -2,19 +2,18 @@ import 'server-only';
 
 import type { ReactNode } from 'react';
 import type { Metadata, Viewport } from 'next';
+import type { LayoutProps } from '@/lib/next';
 
+import './globals.css';
 import { Bitter } from 'next/font/google';
 
 import { cn } from '@brickninja-org/ui/lib';
-import { DataTableContext } from '@brickninja-org/ui/components/table/data-table-context';
+import { DataTableContext } from '@brickninja-org/ui/components/table/DataTable.context';
 
-import './globals.css';
-
-import { FormatProvider } from '@/components/format/format-context';
-import { I18nProvider } from '@/components/i18n/i18n-provider';	
-import { ItemTableContext } from '@/components/item-table';
-import Layout from '@/components/layout/layout';
-import type { LayoutProps } from '@/lib/next';
+import { FormatProvider } from '@/components/format/Format.context';
+import { I18nProvider } from '@/components/i18n/I18nProvider';	
+import { ItemTableContext } from '@/components/item-table/ItemTable.context';
+import Layout from '@/components/layout/Layout';
 
 const bitter = Bitter({
   subsets: ['latin'],

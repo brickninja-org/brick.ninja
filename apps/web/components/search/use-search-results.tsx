@@ -1,14 +1,13 @@
-import { type HTMLProps, type ReactElement, type ReactNode } from 'react';
+import type { HTMLProps, ReactElement, ReactNode } from 'react';
+import type { ApiSearchResponse } from 'app/[language]/api/search/route';
 
 import { useJsonFetch, useStaleJsonResponse } from '@/hooks/use-fetch';
 import { getLinkProperties } from '@/lib/link-properties';
 import { localizedName } from '@/lib/localized-name';
 
 import { useLanguage } from '@/components/i18n/context';
-import { ItemLinkTooltip } from '@/components/item/item-link-tooltip';
-import { Tooltip } from '@/components/tooltip';
-
-import type { ApiSearchResponse } from 'app/[language]/api/search/route';
+import { ItemLinkTooltip } from '@/components/item/ItemLinkTooltip';
+import { Tooltip } from '@/components/tooltip/Tooltip';
 
 export interface SearchResults<Id extends string> {
   id: Id;

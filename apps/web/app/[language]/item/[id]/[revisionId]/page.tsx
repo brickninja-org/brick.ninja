@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-
 import type { PageProps } from '@/lib/next';
 
-import { ItemPageComponent } from '../component';
+import { notFound } from 'next/navigation';
+
+
+import { ItemPageComponent } from '../Component';
 import { getRevision } from '../data';
 
 type ItemRevisionPageProps = PageProps<{ id: string, revisionId: string }>;

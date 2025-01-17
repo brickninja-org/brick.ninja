@@ -1,0 +1,37 @@
+import type { Item } from '@brickninja-org/database';
+
+import { Headline } from '@brickninja-org/ui/components/headline/Headline';
+
+import { db } from '@/lib/prisma';
+import { ItemTable } from '@/components/item-table/ItemTable';
+import { ItemTableContext } from '@/components/item-table/ItemTable.context';
+import { ItemTableColumnsButton } from '@/components/item-table/ItemTableColumnsButton';
+
+export async function SimilarItems({ item }: { item: Item }) {
+  const query = {
+    where: {
+      id: { not: item.id },
+      OR: [
+        { name_en: item.name_en },
+        { name_nl: item.name_nl },
+        {
+          type: item.type,
+          subtype: item.subtype,
+        },
+      ],
+    }
+  };
+
+  const count = await db.item.count(query);
+
+  if (count === 0) {
+    return null;
+  }
+
+  return (
+    <ItemTableContext id="similarItems">
+      <Headline id="similar" actions={<ItemTableColumnsButton/>}>Similar Items</Headline>
+      <ItemTable query={query} collapsed/>
+    </ItemTableContext>
+  );
+}

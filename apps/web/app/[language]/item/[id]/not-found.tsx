@@ -1,6 +1,8 @@
-import { HeroLayout } from '@/components/layout/hero-layout';
-import { Headline } from '@brickninja-org/ui/components/headline';
 import type { Metadata } from 'next';
+
+import { Headline } from '@brickninja-org/ui/components/headline/Headline';
+
+import { HeroLayout } from '@/components/layout/HeroLayout';
 
 export default function ItemNotFound() {
   return (

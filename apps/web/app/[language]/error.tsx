@@ -1,7 +1,8 @@
 'use client';
 
-import { HeroLayout } from '@/components/layout/hero-layout';
-import { Headline } from '@brickninja-org/ui/components/headline';
+import { Headline } from '@brickninja-org/ui/components/headline/Headline';
+
+import { HeroLayout } from '@/components/layout/HeroLayout';
 
 export default function Error({ error }: { error: Error; }) {
   return (

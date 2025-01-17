@@ -5,7 +5,7 @@ import { tv } from 'tailwind-variants';
 
 import { cn } from '../../lib/tailwind';
 import { Icon } from '../../icons';
-import { TableWrapper } from './table-wrapper';
+import { TableWrapper } from './TableWrapper';
 
 export interface TableProps extends Pick<TableVariantProps, 'layout' | 'fullWidth'> {
   children: ReactNode;

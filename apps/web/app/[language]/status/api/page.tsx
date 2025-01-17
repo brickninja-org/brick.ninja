@@ -1,17 +1,18 @@
+import type { ApiRequest } from '@brickninja-org/database';
+import type { PageProps } from '@/lib/next';
+
 import { Fragment } from 'react';
 
-import type { ApiRequest } from '@brickninja-org/database';
 import { cn } from '@brickninja-org/ui/lib';
-import { Headline } from '@brickninja-org/ui/components/headline';
-import { table, Table } from '@brickninja-org/ui/components/table';
+import { Headline } from '@brickninja-org/ui/components/headline/Headline';
+import { table, Table } from '@brickninja-org/ui/components/table/Table';
 
 import { db } from '@/lib/prisma';
-import { FormatNumber } from '@/components/format/format-number';
-import { PageLayout } from '@/components/layout/page-layout';
-import { ReloadCheckbox } from '@/components/reload/reload-checkbox';
+import { FormatNumber } from '@/components/format/FormatNumber';
+import { PageLayout } from '@/components/layout/PageLayout';
+import { ReloadCheckbox } from '@/components/reload/ReloadCheckbox';
 
 import { availablePeriods } from './available-periods';
-import type { PageProps } from '@/lib/next';
 
 async function getData(hours: number) {
   const now = new Date();
