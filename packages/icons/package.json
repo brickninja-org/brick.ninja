@@ -1,6 +1,6 @@
 {
   "name": "@brickninja-org/icons",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Icons for brick.ninja",
   "exports": {
     ".": {
