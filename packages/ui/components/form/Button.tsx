@@ -11,11 +11,17 @@ import { Icon } from '../../icons';
 
 const button = tv({
   base: [
-    'group min-w-max inline-flex items-center gap-3 py-2 px-4 border-none rounded-xs shadow-[inset_0_0_0_1px] shadow-gray-300 leading-5 text-black whitespace-nowrap cursor-pointer focus-visible:outline-hidden focus-visible:shadow-xs',
+    'group min-w-max inline-flex items-center gap-3 py-2 px-4',
+    'text-foreground whitespace-nowrap',
+    'cursor-pointer',
+    'border-none rounded-xs leading-5 shadow-[inset_0_0_0_1px] shadow-gray-300',
+    'hover:no-underline',
+    'disabled:cursor-not-allowed disabled:opacity-50',
+    'focus-visible:outline-hidden focus-visible:shadow-xs',
   ],
   variants: {
     appearance: {
-      primary: 'bg-gray-100 shadow-gray-300 hover:not-disabled:bg-white font-semibold',
+      primary: 'bg-gray-100 shadow-gray-300 hover:not-disabled:bg-background font-semibold',
       secondary: 'bg-gray-100 shadow-gray-300 hover:not-disabled:bg-white',
       tertiary: 'bg-white hover:shadow-inset hover:not-disabled:bg-gray-200 hover:not-disabled:shadow-gray-300',
       menu: 'bg-transparent shadow-transparent text-left hover:not-disabled:bg-gray-100 hover:not-disabled:shadow-gray-100',
