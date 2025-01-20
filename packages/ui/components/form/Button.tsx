@@ -12,10 +12,10 @@ import { Icon } from '../../icons';
 const button = tv({
   base: [
     'group min-w-max inline-flex items-center gap-3 py-2 px-4',
-    'text-foreground whitespace-nowrap',
+    'text-foreground align-baseline whitespace-nowrap',
     'cursor-pointer',
-    'border-none rounded-xs leading-5 shadow-[inset_0_0_0_1px] shadow-gray-300',
-    'hover:no-underline',
+    'border-none rounded-xs leading-5 shadow-[inset_0_0_0_1px] outline-none shadow-gray-300',
+    'no-underline hover:no-underline',
     'disabled:cursor-not-allowed disabled:opacity-50',
     'focus-visible:outline-hidden focus-visible:shadow-xs',
   ],
