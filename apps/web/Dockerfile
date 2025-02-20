@@ -1,4 +1,4 @@
-# syntax=docker/dockerfile:1.12
+# syntax=docker/dockerfile:1.14
 
 ARG node_version=22.13.0-alpine3.20
 # renovate: datasource=npm packageName=turb
