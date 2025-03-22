@@ -43,7 +43,7 @@
   "devDependencies": {
     "@brickninja-org/eslint-config": "workspace:*",
     "@brickninja-org/tsconfig": "workspace:*",
-    "@eslint/eslintrc": "3.2.0",
+    "@eslint/eslintrc": "3.3.1",
     "@eslint/js": "9.18.0",
     "@prisma/nextjs-monorepo-workaround-plugin": "6.2.1",
     "@tailwindcss/postcss": "4.0.15",
