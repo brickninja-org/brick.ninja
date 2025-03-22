@@ -28,7 +28,7 @@
     "clsx": "2.1.1",
     "deepmerge": "4.3.1",
     "hast-util-to-jsx-runtime": "2.3.6",
-    "isbot": "5.1.21",
+    "isbot": "5.1.25",
     "negotiator": "1.0.0",
     "next": "15.2.3",
     "react": "19.0.0",
