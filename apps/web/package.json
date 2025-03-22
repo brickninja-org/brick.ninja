@@ -22,7 +22,7 @@
     "@floating-ui/react": "0.27.5",
     "@floating-ui/react-dom": "2.1.2",
     "@formatjs/intl-localematcher": "0.5.10",
-    "@wooorm/starry-night": "3.6.0",
+    "@wooorm/starry-night": "3.7.0",
     "chalk": "5.4.1",
     "client-only": "0.0.1",
     "clsx": "2.1.1",
