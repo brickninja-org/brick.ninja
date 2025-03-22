@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@brickninja-org/eslint-config": "workspace:*",
-    "@eslint/eslintrc": "3.2.0",
+    "@eslint/eslintrc": "3.3.1",
     "@eslint/js": "9.18.0",
     "@types/react": "19.0.12",
     "@types/react-dom": "19.0.4",
