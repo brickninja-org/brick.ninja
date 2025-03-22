@@ -45,7 +45,7 @@
     "@brickninja-org/tsconfig": "workspace:*",
     "@eslint/eslintrc": "3.2.0",
     "@eslint/js": "9.18.0",
-    "@prisma/nextjs-monorepo-workaround-plugin": "6.2.1",
+    "@prisma/nextjs-monorepo-workaround-plugin": "6.5.0",
     "@tailwindcss/postcss": "4.0.0-beta.9",
     "@testing-library/jest-dom": "6.6.3",
     "@testing-library/react": "16.2.0",
