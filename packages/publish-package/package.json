@@ -36,7 +36,7 @@
     "@brickninja-org/tsconfig": "workspace:*",
     "@eslint/eslintrc": "3.3.1",
     "@eslint/js": "9.18.0",
-    "@types/node": "22.10.5",
+    "@types/node": "22.13.11",
     "eslint": "9.18.0",
     "typescript": "5.8.2"
   },

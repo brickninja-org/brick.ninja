@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1.14
 
-ARG node_version=22.13.0-alpine3.20
+ARG node_version=22.14.0-alpine3.20
 # renovate: datasource=npm packageName=turbo
 ARG turbo_version=2.4.4
 # renovate: datasource=npm packageName=sharp
