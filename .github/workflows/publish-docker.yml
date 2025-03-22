@@ -68,7 +68,7 @@ jobs:
         echo "digest=$(docker buildx imagetools inspect --format '{{json .Manifest}}' ghcr.io/brickninja-org/brick.ninja/web:pr-1526 | jq -cr '.digest')" >> "$GITHUB_OUTPUT"
 
     - name: Attest
-      uses: actions/attest-build-provenance@v2.1.0
+      uses: actions/attest-build-provenance@v2.2.3
       with:
         subject-name: ${{ env.IMAGE_ID }}
         subject-digest: ${{ steps.image.outputs.digest }}
