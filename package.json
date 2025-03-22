@@ -23,7 +23,7 @@
     "node": "20 || >=22",
     "npm": "please-use-pnpm",
     "yarn": "please-use-pnpm",
-    "pnpm": "9.15.9"
+    "pnpm": "10.6.5"
   },
   "pnpm": {
     "overrides": {
@@ -33,5 +33,5 @@
       "@types/react-dom": "19.0.4"
     }
   },
-  "packageManager": "pnpm@9.15.9"
+  "packageManager": "pnpm@10.6.5"
 }
