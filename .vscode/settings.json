@@ -5,6 +5,9 @@
     "**/packages/eslint-config/configs/*.json": "jsonc",
     "*.css": "tailwindcss"
   },
+  "eslint.workingDirectories": [
+    { "mode": "auto" }
+  ],
   "tailwindCSS.experimental.classRegex": [
     ["tv\\(\\{([\\s\\S]*?)\\}\\)", "['\"`]([^'\"`]*)['\"`]"]
   ]
