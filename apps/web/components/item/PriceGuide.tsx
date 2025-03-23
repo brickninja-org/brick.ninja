@@ -6,7 +6,7 @@ import type { TranslationSubset } from '@/lib/translate';
 import { useEffect, useState } from 'react';
 
 import { useFormatContext } from '@/components/format/Format.context';
-import { FormatCurrency } from '@/components/format/FormatCurrency';
+import { FormatNumber } from '@/components/format/FormatNumber';
 import { DataList } from '@/components/info-box/DataList';
 
 interface PriceGuideProps {
@@ -19,8 +19,8 @@ interface PriceGuideProps {
 
 // Get the retailPrice by region from Brickset API and calculate the price per piece update when region changes
 export function PriceGuide({ data, translations }: PriceGuideProps) {
-  const { region } = useFormatContext();
-  
+  const { currency, region } = useFormatContext();
+
   const [retailPrice, setRetailPrice] = useState<number | undefined>(undefined);
 
   // Set retail price base
@@ -30,8 +30,8 @@ export function PriceGuide({ data, translations }: PriceGuideProps) {
 
   return (
     <DataList data={[
-      retailPrice && retailPrice >= 0 ? { label: translations['priceGuide.official_price'], value: <FormatCurrency value={retailPrice}/>, key: 'official-price' } : false,
-      retailPrice && retailPrice > 0 ? { label: translations['priceGuide.per_piece'], value: <FormatCurrency value={retailPrice && (retailPrice / data.pieces)}/>, key: 'price-per-piece' } : false,
+      retailPrice && retailPrice >= 0 ? { label: translations['priceGuide.official_price'], value: <FormatNumber value={retailPrice} options={{ style: 'currency', currency, currencyDisplay: 'narrowSymbol' }}/>, key: 'official-price' } : false,
+      retailPrice && retailPrice > 0 ? { label: translations['priceGuide.per_piece'], value: <FormatNumber value={retailPrice && (retailPrice / data.pieces)} options={{ style: 'currency', currency, currencyDisplay: 'narrowSymbol' }}/>, key: 'price-per-piece' } : false,
     ]}/>
   );
 }
@@ -51,4 +51,3 @@ function getBricksetApiRegion(region: string) {
       return 'US';
   }
 }
-

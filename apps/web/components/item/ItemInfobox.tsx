@@ -7,10 +7,10 @@ import { LinkButton } from '@brickninja-org/ui/components/form/Button';
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 
 import { translateMany } from '@/lib/translate';
-import { FormatPercent } from '@/components/format/FormatPercent';
 import { LanguageLinks } from '@/components/info-box/LanguageLinks';
 import { ItemLink } from '@/components/item/ItemLink';
 import { PriceGuide } from '@/components/item/PriceGuide';
+import { FormatNumber } from '../format/FormatNumber';
 
 const TOTAL_COUNT_BRICKSET_USERS = 335274;
 
@@ -42,7 +42,7 @@ export const ItemInfobox: FC<ItemInfoboxProps> = ({ item, data, language }) => {
       {data.collections?.ownedBy && data.collections.ownedBy > 0 && (
         <>
           <Headline id="collections" noToc>Collections</Headline>
-          <p>Owned by <FormatPercent value={data.collections.ownedBy / TOTAL_COUNT_BRICKSET_USERS}/> of users on Brickset.com</p>
+          <p>Owned by <FormatNumber value={data.collections.ownedBy / TOTAL_COUNT_BRICKSET_USERS} options={{ style: 'percent', maximumFractionDigits: 3 }}/> of users on Brickset.com</p>
         </>
       )}
     </div>

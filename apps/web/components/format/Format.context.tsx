@@ -31,13 +31,12 @@ interface FormatContextProps {
   setLocale: (language: string | 'auto', region: string) => void;
   defaultLocale: string;
   defaultRegion: string;
+  currency: string;
 
   utcFormat: Intl.DateTimeFormat;
   localFormat: Intl.DateTimeFormat;
   relativeFormat: Intl.RelativeTimeFormat;
   numberFormat: Intl.NumberFormat;
-  numberFormatCurrency: Intl.NumberFormat;
-  numberFormatPercent: Intl.NumberFormat;
 }
 
 const FormatContext = createContext<FormatContextProps>(null!);
@@ -78,17 +77,16 @@ export const FormatProvider: FC<FormatProviderProps> = ({ children }) => {
   // build locale with language and region and validate it
   const customLocale = `${language === 'auto' ? currentLanguage : language}-${region === 'browser' ? defaultRegion : region}`;
   const locale = Intl.DateTimeFormat.supportedLocalesOf([customLocale, defaultLocale])[0];
+  const currency = getCurrencyByRegion(region);
 
   // creeate context
   const context: FormatContextProps = useMemo(() => ({
-    language, region, locale, setLocale: (language, region) => { setLanguage(language); setRegion(region); }, defaultLocale, defaultRegion,
+    language, region, locale, setLocale: (language, region) => { setLanguage(language); setRegion(region); }, defaultLocale, defaultRegion, currency,
     utcFormat: new Intl.DateTimeFormat(locale, { timeZone: 'UTC', dateStyle: 'short', timeStyle: 'short' }),
     localFormat: new Intl.DateTimeFormat(locale, { dateStyle: 'short', timeStyle: 'short' }),
     relativeFormat: new Intl.RelativeTimeFormat(locale, { numeric: 'auto' }),
     numberFormat: new Intl.NumberFormat(locale, { useGrouping: true }),
-    numberFormatCurrency: new Intl.NumberFormat(locale, { style: 'currency', currency: getCurrencyByRegion(region), currencyDisplay: 'narrowSymbol' }),
-    numberFormatPercent: new Intl.NumberFormat(locale, { style: 'percent', maximumFractionDigits: 3 })
-  }), [language, region, locale]);
+  }), [language, region, locale, currency]);
 
   return <FormatContext.Provider value={context}>{children}</FormatContext.Provider>;
 };

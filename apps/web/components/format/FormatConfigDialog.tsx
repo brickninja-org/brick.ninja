@@ -10,7 +10,6 @@ import { Select } from '@brickninja-org/ui/components/form/Select';
 import { Icon } from '@brickninja-org/ui/icons';
 
 import { useFormatContext } from '@/components/format/Format.context';
-import { FormatCurrency } from '@/components/format/FormatCurrency';
 import { FormatDate } from '@/components/format/FormatDate';
 import { FormatNumber } from '@/components/format/FormatNumber';
 import { useLanguage } from '@/components/i18n/context';
@@ -44,7 +43,7 @@ const { languages: availableLanguages, regions: availableRegions } = typeof wind
   }, defaultLocales);
 
 export const FormatConfigDialog: FC<FormatConfigDialogProps> = ({ open, onClose }) => {
-  const { locale, language, region, setLocale, defaultRegion } = useFormatContext();
+  const { locale, language, region, setLocale, defaultRegion, currency } = useFormatContext();
   const currentLanguage = useLanguage();
 
   const languages = useMemo(() => {
@@ -89,7 +88,7 @@ export const FormatConfigDialog: FC<FormatConfigDialogProps> = ({ open, onClose 
             <div className="flex justify-between py-0.5 px-2">Date <FormatDate date={new Date()}/></div>
             <div className="flex justify-between py-0.5 px-2">Relative Date <FormatDate relative date={new Date()}/></div>
             <div className="flex justify-between py-0.5 px-2">Number <span><FormatNumber value={123456.89}/></span></div>
-            <div className="flex justify-between py-0.5 px-2">Currency <span><FormatCurrency value={123456.89}/></span></div>
+            <div className="flex justify-between py-0.5 px-2">Currency <span><FormatNumber value={123456.89} options={{ style: 'currency', currency}}/></span></div>
           </MenuList>
         </div>
       </div>
