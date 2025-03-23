@@ -5,7 +5,6 @@ import type { GetAccountOptions } from './bricklink-api-context';
 import type { BricklinkAccount } from './types';
 
 import { useUser } from '@/components/user/use-user';
-import { Skeleton } from '@/components/skeleton/Skeleton';
 import { BricklinkAccountLoginNotice } from './bricklink-account-login-notice';
 
 export interface BricklinkAccountsProps {
@@ -15,24 +14,23 @@ export interface BricklinkAccountsProps {
   options?: GetAccountOptions;
   loading?: ReactNode;
   authorizationMessage?: ReactNode;
+  loginMessage?: ReactNode;
 }
 
-export const BricklinkAccounts = ({ children, /*, options, */ loading, authorizationMessage }: BricklinkAccountsProps) => {
+export const BricklinkAccounts = ({ children, /*, options, */ loading, authorizationMessage, loginMessage }: BricklinkAccountsProps) => {
   const user = useUser();
-  user.loading = false; // TODO: remove this line
-  // const accounts = useBricklinkAccounts(requiredScopes, optionalScopes, options);
 
-  if (user.loading /* || accounts.loading */) {
-    return loading !== undefined ? loading : <Skeleton/>;
-  }
-
-  if (!user.user) {
-    return (
+  if (!user) {
+    return loginMessage === null ? null : (
       <BricklinkAccountLoginNotice requiredScopes={[]} optionalScopes={[]}>
-        {authorizationMessage}
+        {loginMessage ?? authorizationMessage}
       </BricklinkAccountLoginNotice>
-    );
+    )
   }
 
-  return children?.([] /* accounts.accounts, accounts.scopes */);
+  if (typeof children === 'function') {
+    return children?.([] /* accounts.accounts, accounts.scopes */);
+  }
+
+  return children;
 };
