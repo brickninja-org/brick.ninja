@@ -12,6 +12,7 @@ import { getUser } from '@/lib/get-user';
 import { getTranslate } from '@/lib/translate';
 import { Skeleton } from '@/components/skeleton/Skeleton';
 import { Translate } from '@/components/i18n/Translate';
+import { SubmitButton } from '@brickninja-org/ui/components/form/buttons/SubmitButton';
 
 export interface UserButtonProps {
   language: Language;
@@ -60,9 +61,11 @@ const UserButtonInternal: FC<UserButtonInternalProps> = ({ user, language }) => 
       <MenuList>
         <LinkButton appearance="menu" href="/profile" icon="person">Profile</LinkButton>
         {user !== 'loading' && user.roles.includes('Admin') && (
-          <LinkButton appearance="menu" href="/admin/users">Admin</LinkButton>
+          <LinkButton appearance="menu" icon="developer" href="/admin/users">Admin</LinkButton>
         )}
-        <LinkButton appearance="menu" external href="/logout">Logout</LinkButton>
+        <form action="/logout" method="POST" className="flex">
+          <SubmitButton appearance="menu" icon="logout" flex>Logout</SubmitButton>
+        </form>
       </MenuList>
     </Dropdown>
   );
