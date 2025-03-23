@@ -1,11 +1,11 @@
 'use server';
 
-import { cookies } from "next/headers";
+import { cookies } from 'next/headers';
 
-import { authCookie, expiresIn } from "@/lib/auth/cookie";
-import { expiresAtFromExpiresIn } from "@/lib/expires-at-from-expires-in";
-import { getUser } from "@/lib/get-user";
-import { db } from "@/lib/prisma";
+import { authCookie, expiresIn } from '@/lib/auth/cookie';
+import { expiresAtFromExpiresIn } from '@/lib/expires-at-from-expires-in';
+import { getUser } from '@/lib/get-user';
+import { db } from '@/lib/prisma';
 
 export async function extendUserSessionAction() {
   const user = await getUser();

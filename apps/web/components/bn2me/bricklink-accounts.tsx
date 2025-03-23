@@ -17,7 +17,7 @@ export interface BricklinkAccountsProps {
   loginMessage?: ReactNode;
 }
 
-export const BricklinkAccounts = ({ children, /*, options, */ loading, authorizationMessage, loginMessage }: BricklinkAccountsProps) => {
+export const BricklinkAccounts = ({ children, /*, options, loading, */ authorizationMessage, loginMessage }: BricklinkAccountsProps) => {
   const user = useUser();
 
   if (!user) {
@@ -25,7 +25,7 @@ export const BricklinkAccounts = ({ children, /*, options, */ loading, authoriza
       <BricklinkAccountLoginNotice requiredScopes={[]} optionalScopes={[]}>
         {loginMessage ?? authorizationMessage}
       </BricklinkAccountLoginNotice>
-    )
+    );
   }
 
   if (typeof children === 'function') {

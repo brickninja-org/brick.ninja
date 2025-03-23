@@ -1,10 +1,10 @@
 'use client';
 
 import type { FC } from 'react';
-import type { ButtonProps } from "@brickninja-org/ui/components/form/Button";
+import type { ButtonProps } from '@brickninja-org/ui/components/form/Button';
 
-import { useCallback, useEffect, useState } from "react";
-import { Button } from "@brickninja-org/ui/components/form/Button";
+import { useCallback, useEffect, useState } from 'react';
+import { Button } from '@brickninja-org/ui/components/form/Button';
 
 export interface ShareButtonProps {
   data: ShareData;

@@ -77,7 +77,7 @@ export const FormatConfigDialog: FC<FormatConfigDialogProps> = ({ open, onClose 
             <div className="flex justify-between py-0.5 px-2">Date <FormatDate date={new Date()}/></div>
             <div className="flex justify-between py-0.5 px-2">Relative Date <FormatDate relative date={new Date()}/></div>
             <div className="flex justify-between py-0.5 px-2">Number <span><FormatNumber value={123456.89}/></span></div>
-            <div className="flex justify-between py-0.5 px-2">Currency <span><FormatNumber value={123456.89} options={{ style: 'currency', currency}}/></span></div>
+            <div className="flex justify-between py-0.5 px-2">Currency <span><FormatNumber value={123456.89} options={{ style: 'currency', currency }}/></span></div>
           </MenuList>
         </div>
       </div>

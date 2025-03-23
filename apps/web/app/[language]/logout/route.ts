@@ -1,11 +1,8 @@
-import type { NextRequest } from 'next/server';
-
 import { redirect } from 'next/navigation';
 import { cookies } from 'next/headers';
 
-import { authCookie, authCookieSettings, SessionCookieName } from '@/lib/auth/cookie';
+import { authCookieSettings, SessionCookieName } from '@/lib/auth/cookie';
 import { db } from '@/lib/prisma';
-import { getCurrentUrl } from '@/lib/url';
 
 export async function POST() {
   const cookieStore = await cookies();

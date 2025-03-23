@@ -7,5 +7,5 @@ export function useUser() {
 }
 
 export function useUserPromise() {
-  return use(UserContext)
+  return use(UserContext);
 }

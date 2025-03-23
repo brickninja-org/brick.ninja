@@ -1,12 +1,12 @@
 'use client';
 
-import type { FC, ReactNode } from "react";
-import type { SessionUser } from "@/lib/get-user";
+import type { FC, ReactNode } from 'react';
+import type { SessionUser } from '@/lib/get-user';
 
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
-import { extendUserSessionAction } from "./UserProvider.actions";
-import { UserContext } from "./context";
+import { UserContext } from './context';
+import { extendUserSessionAction } from './UserProvider.actions';
 
 interface UserProviderProps {
   children: ReactNode;
@@ -31,7 +31,7 @@ function useExtendSession(user: UserProviderProps['user']) {
       if (user && expiresSoon(user.session.expiresAt)) {
         extendUserSessionAction();
       }
-    })
+    });
   });
 }
 
