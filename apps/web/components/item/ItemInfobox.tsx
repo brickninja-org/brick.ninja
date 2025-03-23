@@ -11,6 +11,9 @@ import { LanguageLinks } from '@/components/info-box/LanguageLinks';
 import { ItemLink } from '@/components/item/ItemLink';
 import { PriceGuide } from '@/components/item/PriceGuide';
 import { FormatNumber } from '../format/FormatNumber';
+import { ShareButton } from '../share-button/ShareButton';
+import { localizedName } from '@/lib/localized-name';
+import { getCurrentUrl } from '@/lib/url';
 
 const TOTAL_COUNT_BRICKSET_USERS = 335274;
 
@@ -20,7 +23,9 @@ interface ItemInfoboxProps {
   language: Language;
 }
 
-export const ItemInfobox: FC<ItemInfoboxProps> = ({ item, data, language }) => {
+export const ItemInfobox: FC<ItemInfoboxProps> = async ({ item, data, language }) => {
+  const currentUrl = await getCurrentUrl();
+
   const priceGuideTranslations = translateMany([
     'priceGuide.official_price',
     'priceGuide.per_piece',
@@ -37,6 +42,7 @@ export const ItemInfobox: FC<ItemInfoboxProps> = ({ item, data, language }) => {
       <FlexRow wrap>
         {/* <LinkButton appearance="tertiary" flex external href={`https://brickset.com/api/v3.asmx/getSets?apiKey=${process.env.BRICKSET_API_KEY}&userHash=&params={setID=${item.id}}`} target="api">API</LinkButton> */}
         <LinkButton appearance="tertiary" flex external href={`https://www.lego.com/product/${data.number}`} target="product">LEGO.com</LinkButton>
+        <ShareButton appearance="tertiary" flex data={{ title: localizedName(item, language), url: currentUrl.toString() }}/>
       </FlexRow>
 
       {data.collections?.ownedBy && data.collections.ownedBy > 0 && (
