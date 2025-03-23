@@ -14,6 +14,7 @@ import { FormatProvider } from '@/components/format/Format.context';
 import { I18nProvider } from '@/components/i18n/I18nProvider';	
 import { ItemTableContext } from '@/components/item-table/ItemTable.context';
 import Layout from '@/components/layout/Layout';
+import { UserProvider } from '@/components/user/UserProvider';
 
 const bitter = Bitter({
   subsets: ['latin'],
@@ -32,7 +33,9 @@ export default async function RootLayout({ children, params }: LayoutProps & { m
           <FormatProvider>
             <ItemTableContext global id="global">
               <DataTableContext>
-                <Layout language={language}>{children}</Layout>
+                <UserProvider>
+                  <Layout language={language}>{children}</Layout>
+                </UserProvider>
               </DataTableContext>
             </ItemTableContext>
           </FormatProvider>

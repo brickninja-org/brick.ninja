@@ -271,7 +271,7 @@ model User {
 
   name  String  @unique
 
-  email String? @unique
+  email String?
   emailVerified Boolean @default(false)
 
   roles UserRole[] @default([])
@@ -301,7 +301,8 @@ model UserSession {
   userId String
 
   createdAt DateTime @default(now())
-  lastUsed  DateTime @default(now())
+  lastUsedAt  DateTime @default(now())
+  expiresAt DateTime? @default(dbgenerated("(now() + '1 year'::interval)"))
 }
 
 model UserProvider {
@@ -325,6 +326,18 @@ model UserProvider {
   
   createdAt      DateTime   @default(now())
   updatedAt      DateTime   @updatedAt
+}
+
+model AuthorizationRequest {
+  id String @id @default(uuid())
+
+  state String @unique
+  code_verifier String
+
+  returnTo String?
+
+  createdAt DateTime @default(now())
+  expiresAt DateTime
 }
 
 // Application

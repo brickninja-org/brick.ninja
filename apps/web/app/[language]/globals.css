@@ -26,8 +26,9 @@
 
   --color-muted: var(--color-gray-600);
 
-  --color-background: rgba(254, 254, 254, 100%);
-  --color-border-dark: rgba(0, 0, 0, 0.1);
+  --color-background: var(--color-white);
+  --color-background-light: var(--color-gray-100);
+  --color-border-dark: var(--color-gray-300);
 
   --icon-size: 1rem;
 

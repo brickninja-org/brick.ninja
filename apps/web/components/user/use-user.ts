@@ -3,5 +3,9 @@ import { use } from 'react';
 import { UserContext } from './context';
 
 export function useUser() {
-  return use(UserContext);
+  return use(useUserPromise());
+}
+
+export function useUserPromise() {
+  return use(UserContext)
 }

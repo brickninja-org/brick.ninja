@@ -3,17 +3,15 @@ import type { FC } from 'react';
 import { useMemo } from 'react';
 
 import { Dialog } from '@brickninja-org/ui/components/dialog/Dialog';
-import { FlexRow } from '@brickninja-org/ui/components/flex-row/FlexRow';
 import { Label } from '@brickninja-org/ui/components/form/Label';
 import { MenuList } from '@brickninja-org/ui/components/layout/MenuList';
 import { Select } from '@brickninja-org/ui/components/form/Select';
-import { Icon } from '@brickninja-org/ui/icons';
 
 import { useFormatContext } from '@/components/format/Format.context';
 import { FormatDate } from '@/components/format/FormatDate';
 import { FormatNumber } from '@/components/format/FormatNumber';
 import { useLanguage } from '@/components/i18n/context';
-import { useUser } from '@/components/user/use-user';
+import { CookieNotification } from '@/components/user/CookieNotification';
 
 export interface FormatConfigDialogProps {
   open: boolean;
@@ -58,31 +56,22 @@ export const FormatConfigDialog: FC<FormatConfigDialogProps> = ({ open, onClose 
     return availableRegions.map((region) => ({ value: region, label: `${formatter.of(region)} (${region})` }));
   }, [currentLanguage]);
 
-  const { user } = useUser();
-
   return (
     <Dialog title="Formatting Settings" onClose={onClose} open={open}>
       <div className="flex flex-col gap-4">
-        {!user && (
-          <div className="p-4 rounded-xs border bg-gray-100">
-            <FlexRow>
-              <Icon icon="cookie"/>
-              Changing your settings will store cookies in your browser.
-            </FlexRow>
-          </div>
-        )}
+        <CookieNotification/>
 
         <div className="flex flex-col sm:flex-row gap-4">
-          <Label label="language">
+          <Label label="Language">
             <Select options={[{ label: `Current language (${currentLanguage})`, value: 'auto' }, ...languages]} value={language} onChange={(language) => setLocale(language, region)}/>
           </Label>
           <div className="hidden sm:block mt-6 leading-9">-</div>
-          <Label label="region">
+          <Label label="Region">
             <Select options={[{ label: `Browser region (${defaultRegion})`, value: 'browser' }, ...regions]} value={region} onChange={(region) => setLocale(language, region)}/>
           </Label>
         </div>
 
-        <div className="p-4 rounded-xs border bg-gray-100">
+        <div className="p-4 rounded-xs border bg-(--color-background-light) border-(--color-border-dark)">
           <MenuList>
             <div className="flex justify-between py-0.5 px-2">Locale <span>{locale}</span></div>
             <div className="flex justify-between py-0.5 px-2">Date <FormatDate date={new Date()}/></div>

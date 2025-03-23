@@ -1,29 +1,38 @@
 import 'server-only';
 
 import { cache } from 'react';
-import { headers } from 'next/headers';
+import { cookies, headers } from 'next/headers';
 import { redirect } from 'next/navigation';
 
 import type { UserRole } from '@brickninja-org/database';
 
+import { authCookieSettings } from '@/lib/auth/cookie';
 import { db } from '@/lib/prisma';
 
 export interface SessionUser {
-  sessionId: string;
   id: string;
   name: string;
   roles: UserRole[];
+  session: {
+    id: string;
+    expiresAt?: Date;
+  };
 }
 
 export const getUser = cache(async function getUser(): Promise<SessionUser | undefined> {
   const sessionId = (await headers()).get('x-bn-session');
   const session = await getSessionFromDb(sessionId);
 
+  // if a session id is set but the session was not found in the db,
+  // delete the cookie and redirect to login page
   if (sessionId && !session) {
-    redirect('/logout');
+    (await cookies()).delete(authCookieSettings);
+    redirect('/login');
   }
 
-  return session ? { ...session.user, sessionId: sessionId! } : undefined;
+  return session
+    ? { ...session.user, session: { id: sessionId!, expiresAt: session.expiresAt ?? undefined }}
+    : undefined;
 });
 
 async function getSessionFromDb(sessionId: string | null) {
@@ -31,17 +40,17 @@ async function getSessionFromDb(sessionId: string | null) {
     return undefined;
   }
 
-  const update = await db.userSession.updateMany({
-    where: { id: sessionId },
-    data: { lastUsed: new Date() },
+  // get the current date
+  const now = new Date();
+
+  // find matching session that is not expired,
+  // update lastUsedAt timestamp,
+  // and return the user data
+  const [session] = await db.userSession.updateManyAndReturn({
+    where: { id: sessionId, OR: [{ expiresAt: { gte: now }}, { expiresAt: null }] },
+    data: { lastUsedAt: now },
+    select: { expiresAt: true, user: { select: { id: true, name: true, roles: true }}},
   });
 
-  if (update.count === 1) {
-    return db.userSession.findUnique({
-      where: { id: sessionId },
-      select: { user: { select: { id: true, name: true, roles: true }}}
-    }) ?? undefined;
-  }
-
-  return undefined;
+  return session;
 }
