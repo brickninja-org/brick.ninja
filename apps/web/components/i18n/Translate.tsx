@@ -13,7 +13,7 @@ export interface TranslateProps {
 
 export const Translate: FC<TranslateProps> = async ({ id, language }) => {
   language ??= await getLanguage();
-  const translation = await translate(id, language);
+  const translation = translate(id, language);
 
   return <>{translation}</>;
 };
