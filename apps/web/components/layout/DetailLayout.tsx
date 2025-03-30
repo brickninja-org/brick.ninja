@@ -32,7 +32,7 @@ const DetailLayout: FC<DetailLayoutProps> = ({ title, children, actions, breadcr
           {breadcrumb && <div className="[grid-area:_breadcrumb] mt-2 text-sm text-gray-800">{breadcrumb}</div>}
           {actions && (
             <div className="[grid-area:_actions] flex flex-col justify-center">
-              <Dropdown button={<Button iconOnly appearance="menu" aria-label="Actions"><Icon icon="more-vertical"/></Button>}>
+              <Dropdown button={<Button iconOnly appearance="menu" aria-label="Actions"><Icon icon="more"/></Button>}>
                 <MenuList>{actions}</MenuList>
               </Dropdown>
             </div>

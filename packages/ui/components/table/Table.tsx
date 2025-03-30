@@ -99,7 +99,7 @@ Table.HeaderCell = function HeaderCell({ children, small = false, align, sort, o
       {sort ? (
         <button className={cn(['block [width:_calc(100%_+_32px)] -my-2 -mx-4 py-2 px-4 rounded-xs [text-align:inherit] cursor-pointer'])} onClick={onSort}>
           {children}
-          <Icon className="inline-block ml-2 text-gray-600" icon={sort === 'desc' ? 'arrow-sort-down' : sort === 'asc' ? 'arrow-sort-up' : 'arrow-sort'}/>
+          <Icon className="inline-block ml-2 text-gray-600" icon={sort === 'desc' ? 'sort-desc' : sort === 'asc' ? 'sort-asc' : 'sort'}/>
         </button>
       ) : children}
     </th>
