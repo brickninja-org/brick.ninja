@@ -2,16 +2,16 @@
   "name": "brick.ninja",
   "private": true,
   "scripts": {
-    "dev:web": "FORCE_COLOR=1 turbo run dev --filter=web",
-    "dev:worker": "FORCE_COLOR=1 turbo run dev --filter=worker",
-    "prisma:studio": "pnpm run --filter @brickninja-org/database prisma:studio",
-    "prisma:migrate-dev": "pnpm run --filter @brickninja-org/database prisma:migrate-dev",
-    "build": "turbo run build",
-    "build:icons": "turbo run build --filter=@brickninja-org/icons",
-    "lint": "turbo run lint --continue -- -f gha",
-    "publish-package": "turbo run publish-package",
-    "e2e": "turbo run e2e",
-    "test": "turbo run test"
+    "dev:web": "PNPM_VERIFY_DEPS_BEFORE_RUN=false FORCE_COLOR=1 turbo run dev --filter=web",
+    "dev:worker": "PNPM_VERIFY_DEPS_BEFORE_RUN=false FORCE_COLOR=1 turbo run dev --filter=worker",
+    "prisma:studio": "PNPM_VERIFY_DEPS_BEFORE_RUN=false pnpm run --filter @brickninja-org/database prisma:studio",
+    "prisma:migrate-dev": "PNPM_VERIFY_DEPS_BEFORE_RUN=false pnpm run --filter @brickninja-org/database prisma:migrate-dev",
+    "build": "PNPM_VERIFY_DEPS_BEFORE_RUN=false turbo run build",
+    "build:icons": "PNPM_VERIFY_DEPS_BEFORE_RUN=false turbo run build --filter=@brickninja-org/icons",
+    "lint": "PNPM_VERIFY_DEPS_BEFORE_RUN=false turbo run lint --continue -- -f gha",
+    "publish-package": "PNPM_VERIFY_DEPS_BEFORE_RUN=false turbo run publish-package",
+    "e2e": "PNPM_VERIFY_DEPS_BEFORE_RUN=false turbo run e2e",
+    "test": "PNPM_VERIFY_DEPS_BEFORE_RUN=false turbo run test"
   },
   "devDependencies": {
     "@brickninja-org/publish-package": "workspace:*",
@@ -31,7 +31,14 @@
       "react-dom": "19.0.0",
       "@types/react": "19.0.12",
       "@types/react-dom": "19.0.4"
-    }
+    },
+    "onlyBuiltDependencies": [
+      "@prisma/client",
+      "@prisma/engines",
+      "esbuild",
+      "prisma",
+      "sharp"
+    ]
   },
   "packageManager": "pnpm@10.6.5"
 }

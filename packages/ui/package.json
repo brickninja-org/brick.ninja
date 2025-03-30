@@ -1,6 +1,6 @@
 {
   "name": "@brickninja-org/ui",
-  "version": "0.0.23",
+  "version": "0.0.24",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/brickninja-org/brick.ninja.git"
@@ -50,13 +50,13 @@
   },
   "peerDependencies": {
     "@brickninja-org/helper": "workspace:~0.0.1",
-    "@brickninja-org/icons": "workspace:~0.0.1",
+    "@brickninja-org/icons": "workspace:~0.0.5",
     "@brickninja-org/tsconfig": "workspace:~0.0.1",
-    "@tailwindcss/postcss": "^4.0.0-beta",
+    "@tailwindcss/postcss": "^4.0.0",
     "next": "^15.0.0",
     "postcss": "^8.5.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "tailwindcss": "^4.0.0-beta"
+    "tailwindcss": "^4.0.0"
   }
 }

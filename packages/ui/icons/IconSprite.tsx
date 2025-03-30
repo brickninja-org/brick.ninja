@@ -1,6 +1,7 @@
 import type { FC, SVGAttributes } from 'react';
 import type { IconName } from '@brickninja-org/icons';
 import type { RefProp } from '../lib/react';
+import { cn } from '../lib';
 
 export interface IconSpriteProps extends SVGAttributes<SVGSVGElement>, RefProp<SVGSVGElement> {
   icon: IconName,
@@ -15,8 +16,8 @@ export const IconSprite: FC<IconSpriteProps> = ({ ref, icon, ...props }) => {
   // reactDOM.preload(sprite, { as: 'image' });
 
   return (
-    <svg ref={ref} viewBox="0 0 20 20" {...props}>
-      <use href={`${sprite}#${icon}`} className=""/>
+    <svg ref={ref} viewBox="0 0 16 16" {...props}>
+      <use href={`${sprite}#${icon}`} className={cn(icon === 'loading' && 'animate-spin')}/>
     </svg>
   );
 };

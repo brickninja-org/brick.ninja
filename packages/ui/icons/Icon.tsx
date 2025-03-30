@@ -16,5 +16,5 @@ export interface IconProps extends RefProp {
 export const Icon: FC<IconProps> = ({ ref, icon, color, className }) => {
   const c = getIcon(icon);
 
-  return c ? cloneElement(c, { className: cn('shrink-0 w-(--icon-size,1rem) h-(--icon-size,1rem) -vertical-[2px]', className), style: { '--icon-color': color }, ref }) : null;
+  return c ? cloneElement(c, { className: cn('shrink-0 w-(--icon-size,16px) h-(--icon-size,16px) -vertical-[2px] text-(--icon-color,currentColor)', className), style: { '--icon-color': color }, ref }) : null;
 };
