@@ -1,4 +1,3 @@
-import type { CSSProperties } from 'react';
 import type { IconName } from '@brickninja-org/icons';
 import type { IconSpriteProps } from './IconSprite';
 
@@ -6,10 +5,10 @@ import { icons } from '@brickninja-org/icons';
 import { createElement } from 'react';
 import { IconSprite } from './IconSprite';
 
-export { type IconName } from '@brickninja-org/icons';
+export type { IconName } from '@brickninja-org/icons';
 
 export type IconProp = IconName | React.JSX.Element;
-export type IconColor = CSSProperties['--icon-color'];
+export type IconColor = string;
 
 export function getIcon(icon: IconName): React.ReactElement<IconSpriteProps>;
 export function getIcon(icon?: IconProp): React.JSX.Element | undefined;
