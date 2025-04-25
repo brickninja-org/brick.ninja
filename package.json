@@ -16,21 +16,21 @@
   "devDependencies": {
     "@brickninja-org/publish-package": "workspace:*",
     "eslint-formatter-gha": "1.5.2",
-    "turbo": "2.4.4",
-    "typescript": "5.8.2"
+    "turbo": "2.5.0",
+    "typescript": "5.8.3"
   },
   "engines": {
     "node": "20 || >=22",
     "npm": "please-use-pnpm",
     "yarn": "please-use-pnpm",
-    "pnpm": "10.6.5"
+    "pnpm": "10.8.1"
   },
   "pnpm": {
     "overrides": {
-      "react": "19.0.0",
-      "react-dom": "19.0.0",
-      "@types/react": "19.0.12",
-      "@types/react-dom": "19.0.4"
+      "react": "19.1.0",
+      "react-dom": "19.1.0",
+      "@types/react": "19.1.1",
+      "@types/react-dom": "19.1.2"
     },
     "onlyBuiltDependencies": [
       "@prisma/client",
@@ -40,5 +40,5 @@
       "sharp"
     ]
   },
-  "packageManager": "pnpm@10.6.5"
+  "packageManager": "pnpm@10.8.1"
 }
