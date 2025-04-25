@@ -1,25 +1,24 @@
-import { FlatCompat } from '@eslint/eslintrc';
-import js from '@eslint/js';
-import tseslint from 'typescript-eslint';
+import { flatConfig as nextConfig } from '@next/eslint-plugin-next';
+import reactConfig from '@brickninja-org/eslint-config/react';
 import reactCompiler from 'eslint-plugin-react-compiler';
-
-const compat = new FlatCompat({
-  baseDirectory: import.meta.url,
-  recommendedConfig: js.configs.recommended,
-  allConfig: js.configs.all,
-});
+import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
+  // ignore all files in .next
   { ignores: ['.next'] },
-  ...compat.extends('next/core-web-vitals', '@brickninja-org/eslint-config/react'),
+
+  // extends next/core-web-vitals
+  nextConfig.coreWebVitals,
+
+  // extend @gw2treasures/eslint-config/react
+  ...reactConfig,
+
+  // enable enable react-compiler plugin (no flat preset yet)
   {
-    plugins: {
-      'react-compiler': reactCompiler,
-    },
+    plugins: { 'react-compiler': reactCompiler },
+    rules: reactCompiler.configs.recommended.rules
   },
-  {
-    files: ['eslint.config.mjs'],
-    // eslint-disable-next-line import/no-named-as-default-member
-    extends: [tseslint.configs.disableTypeChecked],
-  },
+  
+  // enable @brickninja-org/nextjs plugin for page.tsx files (no flat preset yet)
+  // nextJsPlugin.configs.recommended,
 );
