@@ -30,7 +30,7 @@
     "hast-util-to-jsx-runtime": "2.3.6",
     "isbot": "5.1.25",
     "negotiator": "1.0.0",
-    "next": "15.2.3",
+    "next": "15.2.4",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-error-boundary": "5.0.0",
