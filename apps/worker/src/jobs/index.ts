@@ -9,12 +9,12 @@ import { ItemsNew } from './items/new';
 import { ItemsRediscovered } from './items/rediscovered';
 import { ItemsRemoved } from './items/removed';
 import { ItemsUpdate } from './items/update';
-import { ItemsView } from './items/views';
+// import { ItemsView } from './items/views';
 import { Job } from './job';
 import { JobsCleanup } from './jobs/cleanup';
 import { ProductsJob } from './products';
 import { ProductCategoriesJob } from './products/product-categories';
-import { ProductViews } from './products/views';
+// import { ProductViews } from './products/views';
 import { RevisionsPrevious } from './revisions/previous';
 
 const jobsInternal = {
@@ -27,11 +27,11 @@ const jobsInternal = {
   'items.update': ItemsUpdate,
   'items.migrate': ItemsMigrate,
   'items.container-content': ItemContainerContent,
-  'items.views': ItemsView,
+  // 'items.views': ItemsView,
 
   'products': ProductsJob,
   'product.categories': ProductCategoriesJob,
-  'product.views': ProductViews,
+  // 'product.views': ProductViews,
 
   'colors': ColorsJob,
 
