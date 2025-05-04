@@ -37,7 +37,7 @@
     "@brickninja-org/eslint-config": "workspace:*",
     "@brickninja-org/tsconfig": "workspace:*",
     "eslint": "9.24.0",
-    "typescript": "5.8.2"
+    "typescript": "5.8.3"
   },
   "publishConfig": {
     "access": "public"
