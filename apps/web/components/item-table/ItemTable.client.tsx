@@ -38,6 +38,7 @@ export interface ItemTableProps<ExtraColumnId extends string, Model extends Quer
   defaultColumns?: (GlobalColumnId | ExtraColumnId)[];
   availableColumns: AvailableColumns<GlobalColumnId | ExtraColumnId>;
   collapsed?: boolean;
+  pageSize?: number;
   translations: PaginationProps['translations'] & TranslationSubset<'itemTable.viewItem' | 'actions'>
 }
 
@@ -45,7 +46,7 @@ const globalDefaultColumns: GlobalColumnId[] = [
   'item', 'type',
 ];
 
-export const ItemTable = <ExtraColumnId extends string = never, Model extends QueryModel = 'item'>({ query, defaultColumns = globalDefaultColumns, availableColumns, collapsed: initialCollapsed, translations }: ItemTableProps<ExtraColumnId, Model>) => {
+export const ItemTable = <ExtraColumnId extends string = never, Model extends QueryModel = 'item'>({ query, defaultColumns = globalDefaultColumns, availableColumns, collapsed: initialCollapsed, translations, pageSize = 10 }: ItemTableProps<ExtraColumnId, Model>) => {
   type ColumnId = ExtraColumnId | GlobalColumnId;
   const { setDefaultColumns, setAvailableColumns, selectedColumns, id, isGlobalContext } = useItemTableContext<ColumnId>();
 
@@ -61,7 +62,6 @@ export const ItemTable = <ExtraColumnId extends string = never, Model extends Qu
 
   const requestId = useRef(0);
 
-  const pageSize = 10;
   const collapsedSize = 5;
 
   useEffect(() => {
@@ -99,7 +99,7 @@ export const ItemTable = <ExtraColumnId extends string = never, Model extends Qu
       setLoading(false);
       setRange({ length: items.length, offset: skip });
     });
-  }, [collapsed, columns, orderBy, page, query, id]);
+  }, [collapsed, columns, orderBy, page, query, id, pageSize]);
 
   useEffect(() => {
     loadTotalItemCount(query, id).then(setTotalItems);
@@ -156,9 +156,9 @@ export const ItemTable = <ExtraColumnId extends string = never, Model extends Qu
                   );
                 })}
                 <td className={td()}>
-                  <Dropdown button={<Button iconOnly appearance="menu" aria-label={translations['actions']}><Icon icon="more-vertical"/></Button>} preferredPlacement="right-start">
+                  <Dropdown button={<Button iconOnly appearance="menu" aria-label={translations['actions']}><Icon icon="more"/></Button>} preferredPlacement="right-start">
                     <MenuList>
-                      <LinkButton appearance="menu" icon={<Icon icon="eye"/>} href={`/item/${item.id}`}>{translations['itemTable.viewItem']}</LinkButton>
+                      <LinkButton appearance="menu" icon={<Icon icon="eye"/>} href={`/item/${item.id ?? properties.item.id}`}>{translations['itemTable.viewItem']}</LinkButton>
                       {/* <CopyButton appearance="menu" icon="chatlink" copy={encode('item', item.id) || ''}>{translations['chatlink.copy']}</CopyButton> */}
                     </MenuList>
                   </Dropdown>

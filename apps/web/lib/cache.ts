@@ -8,7 +8,7 @@ export function cache<Args extends unknown[], Return>(cb: (...args: Args) => Pro
   const cached = nextCache(
     async (...args: Args) => JSON.stringify(await cb(...args), serialize),
     [...keyParts, cb.toString()],
-    options
+    options,
   );
 
   return async (...args: Args) => JSON.parse(await cached(...args), deserialize);

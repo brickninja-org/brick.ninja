@@ -6,13 +6,16 @@ import { Suspense } from 'react';
 
 import { Dropdown } from '@brickninja-org/ui/components/dropdown/Dropdown';
 import { LinkButton } from '@brickninja-org/ui/components/form/Button';
+import { SubmitButton } from '@brickninja-org/ui/components/form/buttons/SubmitButton';
 import { MenuList } from '@brickninja-org/ui/components/layout/MenuList';
+import { Separator } from '@brickninja-org/ui/components/layout/Separator';
+import { Icon } from '@brickninja-org/ui/icons';
 
 import { getUser } from '@/lib/get-user';
 import { getTranslate } from '@/lib/translate';
+import { reauthorize } from '@/components/bn2-api/reauthorize';
 import { Skeleton } from '@/components/skeleton/Skeleton';
 import { Translate } from '@/components/i18n/Translate';
-import { SubmitButton } from '@brickninja-org/ui/components/form/buttons/SubmitButton';
 
 export interface UserButtonProps {
   language: Language;
@@ -44,27 +47,31 @@ const UserButtonInternal: FC<UserButtonInternalProps> = ({ user, language }) => 
 
   if (!user) {
     return (
-      <LinkButton appearance="menu" href="/login" aria-label={t('login')} className="gap-1 px-3" icon="person">
-        <span className="hidden md:block"><Translate id="login" language={language}/></span>
+      <LinkButton appearance="menu" href="/login" aria-label={t('login')}>
+        <Icon icon="user"/><span className="hidden md:block"> <Translate id="login" language={language}/></span>
       </LinkButton>
     );
   }
 
   const button = (
-    <LinkButton appearance="menu" href="/profile" aria-label={user === 'loading' ? undefined : user.name} icon="person">
-      <span className="">{user === 'loading' ? <Skeleton width={90}/> : user.name}</span>
+    <LinkButton appearance="menu" href="/profile" aria-label={user === 'loading' ? undefined : user.name}>
+      <Icon icon="user"/><span className="">{user === 'loading' ? <Skeleton width={90}/> : user.name}</span>
     </LinkButton>
   );
 
   return (
     <Dropdown hideTop={false} button={button} preferredPlacement="bottom">
       <MenuList>
-        <LinkButton appearance="menu" href="/profile" icon="person">Profile</LinkButton>
+        <LinkButton appearance="menu" href="/profile" icon="user">Profile</LinkButton>
         {user !== 'loading' && user.roles.includes('Admin') && (
           <LinkButton appearance="menu" icon="developer" href="/admin/users">Admin</LinkButton>
         )}
         <form action="/logout" method="POST" className="flex">
           <SubmitButton appearance="menu" icon="logout" flex>Logout</SubmitButton>
+        </form>
+        <Separator/>
+        <form action={reauthorize.bind(null, [], 'consent')} className="flex">
+          <SubmitButton appearance="menu" icon="unlock" flex>Manage Accounts</SubmitButton>
         </form>
       </MenuList>
     </Dropdown>

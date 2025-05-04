@@ -1,4 +1,4 @@
-import type { FC } from 'react';
+import type { FC, ReactNode } from 'react';
 import type { PageProps } from '@/lib/next';
 
 import { Suspense } from 'react';
@@ -18,6 +18,7 @@ import { SkeletonLink } from '@/components/skeleton/SkeletonLink';
 import { HeroLayout } from '@/components/layout/HeroLayout';
 import { PageView } from '@/components/page-view/PageView';
 import { Translate } from '@/components/i18n/Translate';
+import { ProductLink } from '@/components/product/ProductLink';
 
 async function MarketingPage({ params }: PageProps) {
   const { language } = await params;
@@ -40,6 +41,11 @@ async function MarketingPage({ params }: PageProps) {
       <Headline id="new-items"><Translate language={language} id="items.new"/></Headline>
       <Suspense fallback={<ListFallback size={24}/>}>
         <NewItems/>
+      </Suspense>
+
+      <Headline id="new-products"><Translate id="products.new"/></Headline>
+      <Suspense fallback={<ListFallback size={24}/>}>
+        <NewProducts/>
       </Suspense>
     </HeroLayout>
   );
@@ -72,15 +78,33 @@ async function NewItems() {
   );
 }
 
+const getNewProducts = cache(
+  () => db.product.findMany({ take: 24, include: { icon: true }, orderBy: { createdAt: 'desc' }}),
+  ['home-products-new'],
+  { revalidate: 60 },
+);
+
+async function NewProducts() {
+  const products = await getNewProducts();
+
+  return (
+    <ItemList>
+      {products.map((product) => <ItemListItem key={product.id}><ProductLink product={product}/><FormatDate date={product.createdAt} relative/></ItemListItem>)}
+    </ItemList>
+  );
+}
+
 const getDbStats = cache(async () => {
-  const [items] = await Promise.all([
-    db.item.groupBy({ where: { type: { not: 'Miscellaneous' }}, by: ['type'], _count: true }),
+  const [items, products] = await Promise.all([
+    // db.item.groupBy({ where: { type: { not: 'Miscellaneous' }}, by: ['type'], _count: true }),
+    db.item.count(),
+    db.product.count(),
   ]);
 
-  return { items };
+  return { items, products };
 }, ['home-db-stats'], { revalidate: 60 });
 
-const Stat: FC<{ href: string, title: string, value: number }> = ({ href, title, value }) => {
+const Stat: FC<{ href: string, title: ReactNode, value: number }> = ({ href, title, value }) => {
   return (
     <Link href={href} className="text-lg text-gray-600 sm:text-2xl"><span className="inline font-medium text-xl sm:text-4xl"><FormatNumber value={value}/></span> {title}</Link>
   );
@@ -91,7 +115,9 @@ async function DbStats() {
 
   return (
     <div className="flex flex-wrap justify-center gap-[16px_32px] min-h-[82px] -mt-4 mb-8 -mx-4 py-8 px-4 bg-gray-200 max-sm:flex-col max-sm:items-center sm:min-h-[100px] sm:gap-[32px_64px]">
-      {counts.items.map((i) => <Stat key={i.type} href={`/catalog${i.type !== 'Gear' ? `/${i.type.toLowerCase()}s` : '/item'}`} title={`${i.type}${i.type !== 'Gear' ? 's' : ''}`} value={i._count}/>)}
+      {/* counts.items.map((i) => <Stat key={i.type} href={`/catalog${i.type !== 'Gear' ? `/${i.type.toLowerCase()}s` : '/item'}`} title={`${i.type}${i.type !== 'Gear' ? 's' : ''}`} value={i._count}/>) */}
+      <Stat href="/item" title={<Translate id="navigation.items"/>} value={counts.items}/>
+      <Stat href="/products" title={<Translate id="navigation.products"/>} value={counts.products}/>
     </div>
   );
 }
@@ -100,6 +126,7 @@ export default MarketingPage;
 
 export async function generateMetadata({ params }: PageProps) {
   const { language } = await params;
+
   return {
     title: 'Home',
     alternates: getAlternateUrls('/', language),

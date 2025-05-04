@@ -8,3 +8,11 @@ export interface LocalizedEntity {
 export function localizedName(entity: LocalizedEntity, language: Language): string {
   return entity[`name_${language}`];
 }
+
+export const compareLocalizedName = (language: Language) =>
+  (a: LocalizedEntity, b: LocalizedEntity) => {
+    const nameA = localizedName(a, language);
+    const nameB = localizedName(b, language);
+
+    return nameA.localeCompare(nameB, language, { numeric: true, usage: 'sort' });
+  };

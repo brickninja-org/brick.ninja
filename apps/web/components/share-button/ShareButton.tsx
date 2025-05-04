@@ -29,5 +29,5 @@ export const ShareButton: FC<ShareButtonProps> = ({ data, appearance, flex }) =>
     <Button appearance={appearance} flex={flex} onClick={handleShare} icon="external">
       Share
     </Button>
-  )
+  );
 };

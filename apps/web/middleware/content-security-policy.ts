@@ -30,8 +30,8 @@ export const contentSecurityPolicyMiddleware: NextMiddleware = async (request, n
     default-src 'self';
     script-src 'self' 'nonce-${nonce}' 'strict-dynamic' ${process.env.NODE_ENV !== 'production' ? '\'unsafe-eval\'' : ''};
     style-src 'self' 'unsafe-inline';
-    img-src 'self' icons-bn.brickninja-cdn.com images.brickset.com cdn.rebrickable.com lego.com;
-    connect-src 'self' ${alternateLanguageDomains.join(' ')} brickset.com rebrickable.com;
+    img-src 'self' images.brickset.com cdn.rebrickable.com www.lego.com;
+    connect-src 'self' ${alternateLanguageDomains.join(' ')} brickset.com rebrickable.com bn2me.vercel.app;
     font-src 'self';
     object-src 'none';
     base-uri 'self';
@@ -39,8 +39,6 @@ export const contentSecurityPolicyMiddleware: NextMiddleware = async (request, n
     frame-ancestors 'none';
     block-all-mixed-content;
     upgrade-insecure-requests;
-    report-uri https://brickninja.report-uri.com/r/d/csp/enforce;
-    report-to default;
   `.replace(/\s{2,}/g, ' ');
 
   // set x-nonce and CSP for internal request
@@ -52,7 +50,6 @@ export const contentSecurityPolicyMiddleware: NextMiddleware = async (request, n
 
   // set outgoing CSP and Reporting headers
   response.headers.set('Content-Security-Policy', cspHeader);
-  response.headers.set('Reporting-Endpoints', 'default="https://brickninja.report-uri.com/a/d/g"');
 
   return response;
 };

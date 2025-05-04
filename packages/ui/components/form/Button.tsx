@@ -35,6 +35,9 @@ const button = tv({
     iconOnly: {
       true: 'p-2 leading-4',
     },
+    intent: {
+      delete: 'text-error'
+    },
   },
   defaultVariants: {
     appearance: 'secondary',

@@ -1,0 +1,4759 @@
+{
+  "products": [
+    {
+      "categories": [7, 25],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 756
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
+      "icon": "https://www.lego.com/cdn/cs/set/assets/blt53711dac56e01b36/10280_Prod.png",
+      "id": 10280,
+      "itemIds": [6332921, 6332924],
+      "name": "Flower Bouquet",
+      "type": "Set"
+    },
+    {
+      "categories": [7, 25],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 878
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
+      "id": 10281,
+      "itemIds": [],
+      "name": "Bonsai Tree",
+      "type": "Set"
+    },
+    {
+      "categories": [25],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 9090
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
+      "id": 10294,
+      "itemIds": [],
+      "name": "LEGO® Titanic",
+      "type": "Set"
+    },
+    {
+      "categories": [25],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1458
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
+      "id": 10295,
+      "itemIds": [],
+      "name": "Porsche 911",
+      "type": "Set"
+    },
+    {
+      "categories": [25],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1022
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 7
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
+      "id": 10297,
+      "itemIds": [],
+      "name": "Boutique Hotel",
+      "type": "Set"
+    },
+    {
+      "categories": [25],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1107
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
+      "id": 10298,
+      "itemIds": [],
+      "name": "Vespa 125",
+      "type": "Set"
+    },
+    {
+      "categories": [25],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1868
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 2
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
+      "id": 10300,
+      "itemIds": [],
+      "name": "Back to the Future Time Machine",
+      "type": "Set"
+    },
+    {
+      "categories": [25],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1508
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
+      "id": 10302,
+      "itemIds": [],
+      "name": "Optimus Prime",
+      "type": "Set"
+    },
+    {
+      "categories": [25],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 4514
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 22
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
+      "id": 10305,
+      "itemIds": [],
+      "name": "Lion Knights' Castle",
+      "type": "Set"
+    },
+    {
+      "categories": [25],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 10001
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
+      "id": 10307,
+      "itemIds": [],
+      "name": "Eiffel tower",
+      "type": "Set"
+    },
+    {
+      "categories": [7, 25],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 771
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
+      "id": 10309,
+      "itemIds": [],
+      "name": "Succulents",
+      "type": "Set"
+    },
+    {
+      "categories": [7, 25],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 608
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
+      "id": 10311,
+      "itemIds": [],
+      "name": "Orchid",
+      "type": "Set"
+    },
+    {
+      "categories": [25],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 2899
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 8
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
+      "id": 10312,
+      "itemIds": [],
+      "name": "Jazz Club",
+      "type": "Set"
+    },
+    {
+      "categories": [7, 25],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 939
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
+      "id": 10313,
+      "itemIds": [],
+      "name": "Wildflower Bouquet",
+      "type": "Set"
+    },
+    {
+      "categories": [25],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1363
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
+      "id": 10315,
+      "itemIds": [],
+      "name": "Tranquil Garden",
+      "type": "Set"
+    },
+    {
+      "categories": [28, 25],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 6167
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 15
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
+      "id": 10316,
+      "itemIds": [],
+      "name": "THE LORD OF THE RINGS: RIVENDELL™",
+      "type": "Set"
+    },
+    {
+      "categories": [25],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 2336
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
+      "id": 10317,
+      "itemIds": [],
+      "name": "Land Rover Classic Defender 90",
+      "type": "Set"
+    },
+    {
+      "categories": [25],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 2083
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
+      "id": 10318,
+      "itemIds": [],
+      "name": "Concorde",
+      "type": "Set"
+    },
+    {
+      "categories": [25],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 2651
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 1
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
+      "id": 10323,
+      "itemIds": [],
+      "name": "PAC-MAN Arcade",
+      "type": "Set"
+    },
+    {
+      "categories": [25],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1517
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 5
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
+      "id": 10325,
+      "itemIds": [],
+      "name": "Alpine Lodge",
+      "type": "Set"
+    },
+    {
+      "categories": [25],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 4014
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 7
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
+      "id": 10326,
+      "itemIds": [],
+      "name": "Natural History Museum",
+      "type": "Set"
+    },
+    {
+      "categories": [25],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1369
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 8
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
+      "id": 10327,
+      "itemIds": [],
+      "name": "Dune Atreides Royal Ornithopter",
+      "type": "Set"
+    },
+    {
+      "categories": [7, 25],
+      "details": {},
+      "id": 10328,
+      "itemIds": [],
+      "name": "Bouquet of Roses",
+      "type": "Set"
+    },
+    {
+      "categories": [7, 25],
+      "details": {},
+      "id": 10329,
+      "itemIds": [],
+      "name": "Tiny Plants",
+      "type": "Set"
+    },
+    {
+      "categories": [25],
+      "details": {},
+      "id": 10330,
+      "itemIds": [],
+      "name": "McLaren MP4/4 & Ayrton Senna",
+      "type": "Set"
+    },
+    {
+      "categories": [25],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 834
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 0
+          }
+        ]
+      },
+      "id": 10331,
+      "itemIds": [
+        6474623,
+        6474624
+      ],
+      "name": "Kingfisher Bird",
+      "type": "Set"
+    },
+    {
+      "categories": [25],
+      "details": {},
+      "id": 10332,
+      "itemIds": [],
+      "name": "Medieval Town Square",
+      "type": "Set"
+    },
+    {
+      "categories": [28, 25],
+      "details": {},
+      "id": 10333,
+      "itemIds": [],
+      "name": "The Lord of the Rings: Barad-dûr™",
+      "type": "Set"
+    },
+    {
+      "categories": [25],
+      "details": {},
+      "id": 10334,
+      "itemIds": [],
+      "name": "Retro Radio",
+      "type": "Set"
+    },
+    {
+      "categories": [25],
+      "details": {},
+      "id": 10335,
+      "itemIds": [],
+      "name": "The Endurance",
+      "type": "Set"
+    },
+    {
+      "categories": [25],
+      "details": {},
+      "id": 10337,
+      "itemIds": [],
+      "name": "Lamborghini Countach 5000 Quattrovalvole",
+      "type": "Set"
+    },
+    {
+      "categories": [25],
+      "details": {},
+      "id": 10338,
+      "itemIds": [],
+      "name": "Bumblebee",
+      "type": "Set"
+    },
+    {
+      "categories": [25],
+      "details": {},
+      "id": 10339,
+      "itemIds": [],
+      "name": "Santa's Post Office",
+      "type": "Set"
+    },
+    {
+      "categories": [7, 25],
+      "details": {},
+      "id": 10340,
+      "itemIds": [],
+      "name": "Wreath",
+      "type": "Set"
+    },
+    {
+      "categories": [25],
+      "details": {},
+      "id": 10341,
+      "itemIds": [],
+      "name": "NASA Artemis Space Launch System",
+      "type": "Set"
+    },
+    {
+      "categories": [7],
+      "details": {},
+      "id": 10342,
+      "itemIds": [],
+      "name": "Pretty Pink Flower Bouquet",
+      "type": "Set"
+    },
+    {
+      "categories": [7],
+      "details": {},
+      "id": 10343,
+      "itemIds": [],
+      "name": "Mini Orchid",
+      "type": "Set"
+    },
+    {
+      "categories": [7],
+      "details": {},
+      "id": 10344,
+      "itemIds": [],
+      "name": "Lucky Bamboo",
+      "type": "Set"
+    },
+    {
+      "categories": [7],
+      "details": {},
+      "id": 10345,
+      "itemIds": [],
+      "name": "Flower Arrangement",
+      "type": "Set"
+    },
+    {
+      "categories": [7],
+      "details": {},
+      "id": 10347,
+      "itemIds": [],
+      "name": "Petite Sunny Bouquet",
+      "type": "Set"
+    },
+    {
+      "categories": [25],
+      "details": {},
+      "id": 10350,
+      "itemIds": [],
+      "name": "Tudor Corner",
+      "type": "Set"
+    },
+    {
+      "categories": [25],
+      "details": {},
+      "id": 10353,
+      "itemIds": [],
+      "name": "Williams Racing FW14B & Nigel Mansell",
+      "type": "Set"
+    },
+    {
+      "categories": [28, 25],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 2017
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 9
+          }
+        ]
+      },
+      "id": 10354,
+      "itemIds": [
+        6530073,
+        6530074
+      ],
+      "name": "The Lord of the Rings: The Shire™",
+      "type": "Set"
+    },
+    {
+      "categories": [25],
+      "details": {},
+      "id": 10355,
+      "itemIds": [],
+      "name": "Blacktron Renegade",
+      "type": "Set"
+    },
+    {
+      "categories": [25],
+      "details": {},
+      "id": 10359,
+      "itemIds": [],
+      "name": "Fountain Garden",
+      "type": "Set"
+    },
+    {
+      "categories": [25],
+      "details": {},
+      "id": 10362,
+      "itemIds": [],
+      "name": "French Café",
+      "type": "Set"
+    },
+    {
+      "categories": [25],
+      "details": {},
+      "id": 10363,
+      "itemIds": [],
+      "name": "Leonardo da Vinci's Flying Machine",
+      "type": "Set"
+    },
+    {
+      "categories": [7, 25],
+      "details": {},
+      "id": 10368,
+      "itemIds": [],
+      "name": "Chrysanthemum",
+      "type": "Set"
+    },
+    {
+      "categories": [7],
+      "details": {},
+      "id": 10369,
+      "itemIds": [],
+      "name": "Plum Blossom",
+      "type": "Set"
+    },
+    {
+      "categories": [7, 25],
+      "details": {},
+      "id": 10370,
+      "itemIds": [],
+      "name": "Poinsettia",
+      "type": "Set"
+    },
+    {
+      "categories": [25],
+      "details": {},
+      "id": 10391,
+      "itemIds": [],
+      "name": "Over the Moon with Pharrell Williams",
+      "type": "Set"
+    },
+    {
+      "categories": [18],
+      "details": {},
+      "id": 10412,
+      "itemIds": [],
+      "name": "Animal Train",
+      "type": "Set"
+    },
+    {
+      "categories": [18],
+      "details": {},
+      "id": 10413,
+      "itemIds": [],
+      "name": "Daily Routines: Bath Time",
+      "type": "Set"
+    },
+    {
+      "categories": [18],
+      "details": {},
+      "id": 10414,
+      "itemIds": [],
+      "name": "Daily Routines: Eating & Bedtime",
+      "type": "Set"
+    },
+    {
+      "categories": [18],
+      "details": {},
+      "id": 10415,
+      "itemIds": [],
+      "name": "Big Feelings & Emotions",
+      "type": "Set"
+    },
+    {
+      "categories": [18],
+      "details": {},
+      "id": 10416,
+      "itemIds": [],
+      "name": "Caring for Animals at the Farm",
+      "type": "Set"
+    },
+    {
+      "categories": [15,18],
+      "details": {},
+      "id": 10417,
+      "itemIds": [],
+      "name": "Mack at the Race",
+      "type": "Set"
+    },
+    {
+      "categories": [15, 18],
+      "details": {},
+      "id": 10418,
+      "itemIds": [],
+      "name": "Elsa & Bruni in the Enchanted Forest",
+      "type": "Set"
+    },
+    {
+      "categories": [18],
+      "details": {},
+      "id": 10419,
+      "itemIds": [],
+      "name": "Caring for Bees & Beehives",
+      "type": "Set"
+    },
+    {
+      "categories": [18],
+      "details": {},
+      "id": 10421,
+      "itemIds": [],
+      "name": "Alphabet Truck",
+      "type": "Set"
+    },
+    {
+      "categories": [18],
+      "details": {},
+      "id": 10423,
+      "itemIds": [],
+      "name": "Buildable People with Big Emotions",
+      "type": "Set"
+    },
+    {
+      "categories": [18, 29],
+      "details": {},
+      "id": 10424,
+      "itemIds": [],
+      "name": "Spin's Motorcycle Adventure",
+      "type": "Set"
+    },
+    {
+      "categories": [18],
+      "details": {},
+      "id": 10425,
+      "itemIds": [],
+      "name": "Train Tunnel and Tracks Expansion Set",
+      "type": "Set"
+    },
+    {
+      "categories": [18],
+      "details": {},
+      "id": 10426,
+      "itemIds": [],
+      "name": "Train Bridge and Tracks Expansion Set",
+      "type": "Set"
+    },
+    {
+      "categories": [18],
+      "details": {},
+      "id": 10428,
+      "itemIds": [],
+      "name": "Big Interactive Community Train",
+      "type": "Set"
+    },
+    {
+      "categories": [19, 18],
+      "details": {},
+      "id": 10431,
+      "itemIds": [],
+      "name": "Peppa Pig Garden and Tree House",
+      "type": "Set"
+    },
+    {
+      "categories": [19, 18],
+      "details": {},
+      "id": 10432,
+      "itemIds": [],
+      "name": "Peppa Pig Boat Trip",
+      "type": "Set"
+    },
+    {
+      "categories": [19, 18],
+      "details": {},
+      "id": 10433,
+      "itemIds": [],
+      "name": "Peppa Pig Birthday House",
+      "type": "Set"
+    },
+    {
+      "categories": [19, 18],
+      "details": {},
+      "id": 10434,
+      "itemIds": [],
+      "name": "Peppa Pig Supermarket",
+      "type": "Set"
+    },
+    {
+      "categories": [18, 15],
+      "details": {},
+      "id": 10435,
+      "itemIds": [],
+      "name": "Ariel's Magical Underwater Palace",
+      "type": "Set"
+    },
+    {
+      "categories": [18],
+      "details": {},
+      "id": 10439,
+      "itemIds": [],
+      "name": "Cars and Trucks Brick Box",
+      "type": "Set"
+    },
+    {
+      "categories": [18],
+      "details": {},
+      "id": 10440,
+      "itemIds": [],
+      "name": "Balancing & Stacking Tree",
+      "type": "Set"
+    },
+    {
+      "categories": [18],
+      "details": {},
+      "id": 10442,
+      "itemIds": [],
+      "name": "Wild Animal Families: Penguins & Lions",
+      "type": "Set"
+    },
+    {
+      "categories": [18],
+      "details": {},
+      "id": 10444,
+      "itemIds": [],
+      "name": "Creative Garden & Flowers",
+      "type": "Set"
+    },
+    {
+      "categories": [18],
+      "details": {},
+      "id": 10445,
+      "itemIds": [],
+      "name": "F1® Team Race Cars & Drivers",
+      "type": "Set"
+    },
+    {
+      "categories": [18],
+      "details": {},
+      "id": 10446,
+      "itemIds": [],
+      "name": "3in1 Wild Animal Families",
+      "type": "Set"
+    },
+    {
+      "categories": [18],
+      "details": {},
+      "id": 10447,
+      "itemIds": [],
+      "name": "Ambulance & Driver",
+      "type": "Set"
+    },
+    {
+      "categories": [18],
+      "details": {},
+      "id": 10449,
+      "itemIds": [],
+      "name": "First Time: Visit with the Doctor",
+      "type": "Set"
+    },
+    {
+      "categories": [19, 18],
+      "details": {},
+      "id": 10452,
+      "itemIds": [],
+      "name": "Camping Trip",
+      "type": "Set"
+    },
+    {
+      "categories": [19, 18],
+      "details": {},
+      "id": 10453,
+      "itemIds": [],
+      "name": "Funfair",
+      "type": "Set"
+    },
+    {
+      "categories": [15, 18],
+      "details": {},
+      "id": 10454,
+      "itemIds": [],
+      "name": "Mickey Mouse Clubhouse & Car",
+      "type": "Set"
+    },
+    {
+      "categories": [15, 18],
+      "details": {},
+      "id": 10457,
+      "itemIds": [],
+      "name": "Winnie the Pooh's Birthday Party",
+      "type": "Set"
+    },
+    {
+      "categories": [6, 18],
+      "details": {},
+      "id": 10458,
+      "itemIds": [],
+      "name": "Ice Cream Trip with Bluey",
+      "type": "Set"
+    },
+    {
+      "categories": [6, 18],
+      "details": {},
+      "id": 10459,
+      "itemIds": [],
+      "name": "Bluey's Family House with Memory Game",
+      "type": "Set"
+    },
+    {
+      "categories": [18],
+      "details": {},
+      "id": 10460,
+      "itemIds": [],
+      "name": "Green Building Plate",
+      "type": "Set"
+    },
+    {
+      "categories": [11],
+      "details": {},
+      "id": 10696,
+      "itemIds": [],
+      "name": "LEGO® Medium Creative Brick Box",
+      "type": "Set"
+    },
+    {
+      "categories": [11],
+      "details": {},
+      "id": 10698,
+      "itemIds": [],
+      "name": "LEGO® Large Creative Brick Box",
+      "type": "Set"
+    },
+    {
+      "categories": [11],
+      "details": {},
+      "id": 10713,
+      "itemIds": [],
+      "name": "Creative Suitcase",
+      "type": "Set"
+    },
+    {
+      "categories": [23],
+      "details": {},
+      "id": 10788,
+      "itemIds": [],
+      "name": "Gabby's Dollhouse",
+      "type": "Set"
+    },
+    {
+      "categories": [29],
+      "details": {},
+      "id": 10789,
+      "itemIds": [],
+      "name": "Spider-Man's Car and Doc Ock",
+      "type": "Set"
+    },
+    {
+      "categories": [23],
+      "details": {},
+      "id": 10795,
+      "itemIds": [],
+      "name": "Crafting with Baby Box",
+      "type": "Set"
+    },
+    {
+      "categories": [23],
+      "details": {},
+      "id": 10796,
+      "itemIds": [],
+      "name": "Gabby's Kitty Care Ear",
+      "type": "Set"
+    },
+    {
+      "categories": [23],
+      "details": {},
+      "id": 10797,
+      "itemIds": [],
+      "name": "Gabby's Party Room",
+      "type": "Set"
+    },
+    {
+      "categories": [18],
+      "details": {},
+      "id": 10875,
+      "itemIds": [],
+      "name": "Cargo Train",
+      "type": "Set"
+    },
+    {
+      "categories": [18],
+      "details": {},
+      "id": 10913,
+      "itemIds": [],
+      "name": "Brick Box",
+      "type": "Set"
+    },
+    {
+      "categories": [18],
+      "details": {},
+      "id": 10914,
+      "itemIds": [],
+      "name": "Deluxe Brick Box",
+      "type": "Set"
+    },
+    {
+      "categories": [18],
+      "details": {},
+      "id": 10931,
+      "itemIds": [],
+      "name": "Truck & Tracked Excavator",
+      "type": "Set"
+    },
+    {
+      "categories": [18],
+      "details": {},
+      "id": 10935,
+      "itemIds": [],
+      "name": "Alphabet Town",
+      "type": "Set"
+    },
+    {
+      "categories": [15, 18],
+      "details": {},
+      "id": 10941,
+      "itemIds": [],
+      "name": "Mickey & Minnie Birthday Train",
+      "type": "Set"
+    },
+    {
+      "categories": [18],
+      "details": {},
+      "id": 10954,
+      "itemIds": [],
+      "name": "Number Train - Learn To Count",
+      "type": "Set"
+    },
+    {
+      "categories": [18],
+      "details": {},
+      "id": 10965,
+      "itemIds": [],
+      "name": "Bath Time Fun: Floating Animal Train",
+      "type": "Set"
+    },
+    {
+      "categories": [18],
+      "details": {},
+      "id": 10967,
+      "itemIds": [],
+      "name": "Police Motorcycle",
+      "type": "Set"
+    },
+    {
+      "categories": [18],
+      "details": {},
+      "id": 10969,
+      "itemIds": [],
+      "name": "Fire Engine",
+      "type": "Set"
+    },
+    {
+      "categories": [18],
+      "details": {},
+      "id": 10989,
+      "itemIds": [],
+      "name": "Water Park",
+      "type": "Set"
+    },
+    {
+      "categories": [18],
+      "details": {},
+      "id": 10993,
+      "itemIds": [],
+      "name": "3in1 Tree House",
+      "type": "Set"
+    },
+    {
+      "categories": [18],
+      "details": {},
+      "id": 10994,
+      "itemIds": [],
+      "name": "3in1 Family House",
+      "type": "Set"
+    },
+    {
+      "categories": [11],
+      "details": {},
+      "id": 11023,
+      "itemIds": [],
+      "name": "Green Baseplate",
+      "type": "Set"
+    },
+    {
+      "categories": [11],
+      "details": {},
+      "id": 11024,
+      "itemIds": [],
+      "name": "Gray Baseplate",
+      "type": "Set"
+    },
+    {
+      "categories": [11],
+      "details": {},
+      "id": 11025,
+      "itemIds": [],
+      "name": "Blue Baseplate",
+      "type": "Set"
+    },
+    {
+      "categories": [11],
+      "details": {},
+      "id": 11026,
+      "itemIds": [],
+      "name": "White Baseplate",
+      "type": "Set"
+    },
+    {
+      "categories": [11],
+      "details": {},
+      "id": 11034,
+      "itemIds": [],
+      "name": "Creative Pets",
+      "type": "Set"
+    },
+    {
+      "categories": [11],
+      "details": {},
+      "id": 11035,
+      "itemIds": [],
+      "name": "Creative Houses",
+      "type": "Set"
+    },
+    {
+      "categories": [11],
+      "details": {},
+      "id": 11036,
+      "itemIds": [],
+      "name": "Creative Vehicles",
+      "type": "Set"
+    },
+    {
+      "categories": [11],
+      "details": {},
+      "id": 11037,
+      "itemIds": [],
+      "name": "Creative Space Planets",
+      "type": "Set"
+    },
+    {
+      "categories": [11],
+      "details": {},
+      "id": 11038,
+      "itemIds": [],
+      "name": "Vibrant Creative Brick Box",
+      "type": "Set"
+    },
+    {
+      "categories": [11],
+      "details": {},
+      "id": 11039,
+      "itemIds": [],
+      "name": "Creative Food Friends",
+      "type": "Set"
+    },
+    {
+      "categories": [11],
+      "details": {},
+      "id": 11040,
+      "itemIds": [],
+      "name": "Magical Transparent Box",
+      "type": "Set"
+    },
+    {
+      "categories": [11],
+      "details": {},
+      "id": 11041,
+      "itemIds": [],
+      "name": "Creative Dinosaurs",
+      "type": "Set"
+    },
+    {
+      "categories": [11],
+      "details": {},
+      "id": 11042,
+      "itemIds": [],
+      "name": "Creative Happy Box",
+      "type": "Set"
+    },
+    {
+      "categories": [11],
+      "details": {},
+      "id": 11043,
+      "itemIds": [],
+      "name": "Cool Creative Box",
+      "type": "Set"
+    },
+    {
+      "categories": [11],
+      "details": {},
+      "id": 11044,
+      "itemIds": [],
+      "name": "Creative Build-and-Play Box",
+      "type": "Set"
+    },
+    {
+      "categories": [6],
+      "details": {},
+      "id": 11201,
+      "itemIds": [],
+      "name": "Playground Fun with Bluey and Chloe",
+      "type": "Set"
+    },
+    {
+      "categories": [6],
+      "details": {},
+      "id": 11202,
+      "itemIds": [],
+      "name": "Bluey's Beach & Family Car Trip",
+      "type": "Set"
+    },
+    {
+      "categories": [6],
+      "details": {},
+      "id": 11203,
+      "itemIds": [],
+      "name": "Bluey's Family House",
+      "type": "Set"
+    },
+    {
+      "categories": [2],
+      "details": {},
+      "id": 21028,
+      "itemIds": [],
+      "name": "New York City",
+      "type": "Set"
+    },
+    {
+      "categories": [2],
+      "details": {},
+      "id": 21034,
+      "itemIds": [],
+      "name": "London",
+      "type": "Set"
+    },
+    {
+      "categories": [2],
+      "details": {},
+      "id": 21042,
+      "itemIds": [],
+      "name": "Statue of Liberty",
+      "type": "Set"
+    },
+    {
+      "categories": [2],
+      "details": {},
+      "id": 21044,
+      "itemIds": [],
+      "name": "Paris",
+      "type": "Set"
+    },
+    {
+      "categories": [2],
+      "details": {},
+      "id": 21058,
+      "itemIds": [],
+      "name": "Great Pyramid of Giza",
+      "type": "Set"
+    },
+    {
+      "categories": [2],
+      "details": {},
+      "id": 21060,
+      "itemIds": [],
+      "name": "Himeji Castle",
+      "type": "Set"
+    },
+    {
+      "categories": [2],
+      "details": {},
+      "id": 21061,
+      "itemIds": [],
+      "name": "Notre-Dame de Paris",
+      "type": "Set"
+    },
+    {
+      "categories": [2],
+      "details": {},
+      "id": 21062,
+      "itemIds": [],
+      "name": "Trevi Fountain",
+      "type": "Set"
+    },
+    {
+      "categories": [26],
+      "details": {},
+      "id": 21323,
+      "itemIds": [],
+      "name": "Grand Piano",
+      "type": "Set"
+    },
+    {
+      "categories": [26],
+      "details": {},
+      "id": 21330,
+      "itemIds": [],
+      "name": "LEGO® Ideas Home Alone",
+      "type": "Set"
+    },
+    {
+      "categories": [26],
+      "details": {},
+      "id": 21333,
+      "itemIds": [],
+      "name": "Vincent van Gogh - The Starry Night",
+      "type": "Set"
+    },
+    {
+      "categories": [26],
+      "details": {},
+      "id": 21335,
+      "itemIds": [],
+      "name": "Motorised Lighthouse",
+      "type": "Set"
+    },
+    {
+      "categories": [26, 15],
+      "details": {},
+      "id": 21341,
+      "itemIds": [],
+      "name": "Disney Hocus Pocus: The Sanderson Sisters' Cottage",
+      "type": "Set"
+    },
+    {
+      "categories": [26],
+      "details": {},
+      "id": 21342,
+      "itemIds": [],
+      "name": "The Insect Collection",
+      "type": "Set"
+    },
+    {
+      "categories": [26],
+      "details": {},
+      "id": 21343,
+      "itemIds": [],
+      "name": "Viking Village",
+      "type": "Set"
+    },
+    {
+      "categories": [26],
+      "details": {},
+      "id": 21344,
+      "itemIds": [],
+      "name": "The Orient Express Train",
+      "type": "Set"
+    },
+    {
+      "categories": [26],
+      "details": {},
+      "id": 21345,
+      "itemIds": [],
+      "name": "Polaroid OneStep SX-70 Camera",
+      "type": "Set"
+    },
+    {
+      "categories": [26],
+      "details": {},
+      "id": 21346,
+      "itemIds": [],
+      "name": "Family Tree",
+      "type": "Set"
+    },
+    {
+      "categories": [26],
+      "details": {},
+      "id": 21347,
+      "itemIds": [],
+      "name": "Red London Telephone Box",
+      "type": "Set"
+    },
+    {
+      "categories": [26],
+      "details": {},
+      "id": 21348,
+      "itemIds": [],
+      "name": "Dungeons & Dragons: Red Dragon's Tale",
+      "type": "Set"
+    },
+    {
+      "categories": [26],
+      "details": {},
+      "id": 21349,
+      "itemIds": [],
+      "name": "Tuxedo Cat",
+      "type": "Set"
+    },
+    {
+      "categories": [26],
+      "details": {},
+      "id": 21350,
+      "itemIds": [],
+      "name": "Jaws",
+      "type": "Set"
+    },
+    {
+      "categories": [26, 15],
+      "details": {},
+      "id": 21351,
+      "itemIds": [],
+      "name": "Disney Tim Burton's The Nightmare Before Christmas",
+      "type": "Set"
+    },
+    {
+      "categories": [26, 15],
+      "details": {},
+      "id": 21352,
+      "itemIds": [],
+      "name": "Magic of Disney",
+      "type": "Set"
+    },
+    {
+      "categories": [26],
+      "details": {},
+      "id": 21353,
+      "itemIds": [],
+      "name": "The Botanical Garden",
+      "type": "Set"
+    },
+    {
+      "categories": [26],
+      "details": {},
+      "id": 21354,
+      "itemIds": [],
+      "name": "Twilight The Cullen House",
+      "type": "Set"
+    },
+    {
+      "categories": [26],
+      "details": {},
+      "id": 21355,
+      "itemIds": [],
+      "name": "The Evolution of STEM",
+      "type": "Set"
+    },
+    {
+      "categories": [26],
+      "details": {},
+      "id": 21356,
+      "itemIds": [],
+      "name": "River Steamboat",
+      "type": "Set"
+    },
+    {
+      "categories": [12],
+      "details": {},
+      "id": 31058,
+      "itemIds": [],
+      "name": "Mighty Dinosaurs",
+      "type": "Set"
+    },
+    {
+      "categories": [12],
+      "details": {},
+      "id": 31109,
+      "itemIds": [],
+      "name": "Pirate Ship",
+      "type": "Set"
+    },
+    {
+      "categories": [12],
+      "details": {},
+      "id": 31134,
+      "itemIds": [],
+      "name": "Space Shuttle",
+      "type": "Set"
+    },
+    {
+      "categories": [12],
+      "details": {},
+      "id": 31136,
+      "itemIds": [],
+      "name": "Exotic Parrot",
+      "type": "Set"
+    },
+    {
+      "categories": [12],
+      "details": {},
+      "id": 31137,
+      "itemIds": [],
+      "name": "Adorable Dogs",
+      "type": "Set"
+    },
+    {
+      "categories": [12],
+      "details": {},
+      "id": 31139,
+      "itemIds": [],
+      "name": "Cozy House",
+      "type": "Set"
+    },
+    {
+      "categories": [12],
+      "details": {},
+      "id": 31142,
+      "itemIds": [],
+      "name": "Space Roller Coaster",
+      "type": "Set"
+    },
+    {
+      "categories": [12],
+      "details": {},
+      "id": 31145,
+      "itemIds": [],
+      "name": "Red Dragon",
+      "type": "Set"
+    },
+    {
+      "categories": [12],
+      "details": {},
+      "id": 31146,
+      "itemIds": [],
+      "name": "Flatbed Truck with Helicopter",
+      "type": "Set"
+    },
+    {
+      "categories": [12],
+      "details": {},
+      "id": 31147,
+      "itemIds": [],
+      "name": "Retro Camera",
+      "type": "Set"
+    },
+    {
+      "categories": [12],
+      "details": {},
+      "id": 31148,
+      "itemIds": [],
+      "name": "Retro Roller Skate",
+      "type": "Set"
+    },
+    {
+      "categories": [12],
+      "details": {},
+      "id": 31149,
+      "itemIds": [],
+      "name": "Flowers in Watering Can",
+      "type": "Set"
+    },
+    {
+      "categories": [12],
+      "details": {},
+      "id": 31150,
+      "itemIds": [],
+      "name": "Wild Safari Animals",
+      "type": "Set"
+    },
+    {
+      "categories": [12],
+      "details": {},
+      "id": 31151,
+      "itemIds": [],
+      "name": "T. rex",
+      "type": "Set"
+    },
+    {
+      "categories": [12],
+      "details": {},
+      "id": 31152,
+      "itemIds": [],
+      "name": "Space Astronaut",
+      "type": "Set"
+    },
+    {
+      "categories": [12],
+      "details": {},
+      "id": 31153,
+      "itemIds": [],
+      "name": "Modern House",
+      "type": "Set"
+    },
+    {
+      "categories": [12],
+      "details": {},
+      "id": 31154,
+      "itemIds": [],
+      "name": "Forest Animals: Red Fox",
+      "type": "Set"
+    },
+    {
+      "categories": [12],
+      "details": {},
+      "id": 31155,
+      "itemIds": [],
+      "name": "Hamster Wheel",
+      "type": "Set"
+    },
+    {
+      "categories": [12],
+      "details": {},
+      "id": 31156,
+      "itemIds": [],
+      "name": "Tropical Ukulele",
+      "type": "Set"
+    },
+    {
+      "categories": [12],
+      "details": {},
+      "id": 31157,
+      "itemIds": [],
+      "name": "Exotic Peacock",
+      "type": "Set"
+    },
+    {
+      "categories": [12],
+      "details": {},
+      "id": 31158,
+      "itemIds": [],
+      "name": "Sea Animals",
+      "type": "Set"
+    },
+    {
+      "categories": [12],
+      "details": {},
+      "id": 31159,
+      "itemIds": [],
+      "name": "Wild Animals: Surprising Spider",
+      "type": "Set"
+    },
+    {
+      "categories": [12],
+      "details": {},
+      "id": 31160,
+      "itemIds": [],
+      "name": "Aircraft: Race Plane",
+      "type": "Set"
+    },
+    {
+      "categories": [12],
+      "details": {},
+      "id": 31161,
+      "itemIds": [],
+      "name": "Medieval Dragon",
+      "type": "Set"
+    },
+    {
+      "categories": [12],
+      "details": {},
+      "id": 31162,
+      "itemIds": [],
+      "name": "Cute Bunny",
+      "type": "Set"
+    },
+    {
+      "categories": [12],
+      "details": {},
+      "id": 31163,
+      "itemIds": [],
+      "name": "Playful Cat",
+      "type": "Set"
+    },
+    {
+      "categories": [12],
+      "details": {},
+      "id": 31164,
+      "itemIds": [],
+      "name": "Space Robot",
+      "type": "Set"
+    },
+    {
+      "categories": [12],
+      "details": {},
+      "id": 31165,
+      "itemIds": [],
+      "name": "Wild Animals: Panda Family",
+      "type": "Set"
+    },
+    {
+      "categories": [12],
+      "details": {},
+      "id": 31169,
+      "itemIds": [],
+      "name": "Typewriter with Flowers",
+      "type": "Set"
+    },
+    {
+      "categories": [12],
+      "details": {},
+      "id": 31170,
+      "itemIds": [],
+      "name": "Wild Animals: Pink Flamingo",
+      "type": "Set"
+    },
+    {
+      "categories": [12],
+      "details": {},
+      "id": 31172,
+      "itemIds": [],
+      "name": "Record Player with Flowers",
+      "type": "Set"
+    },
+    {
+      "categories": [3],
+      "details": {},
+      "id": 31208,
+      "itemIds": [],
+      "name": "Hokusai – The Great Wave",
+      "type": "Set"
+    },
+    {
+      "categories": [3],
+      "details": {},
+      "id": 31212,
+      "itemIds": [],
+      "name": "The Milky Way Galaxy",
+      "type": "Set"
+    },
+    {
+      "categories": [3],
+      "details": {},
+      "id": 31213,
+      "itemIds": [],
+      "name": "Mona Lisa",
+      "type": "Set"
+    },
+    {
+      "categories": [3],
+      "details": {},
+      "id": 31214,
+      "itemIds": [],
+      "name": "LOVE",
+      "type": "Set"
+    },
+    {
+      "categories": [3],
+      "details": {},
+      "id": 31215,
+      "itemIds": [],
+      "name": "Vincent van Gogh – Sunflowers",
+      "type": "Set"
+    },
+    {
+      "categories": [-1, 7],
+      "details": {},
+      "id": 40460,
+      "itemIds": [],
+      "name": "Roses",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
+      "details": {},
+      "id": 40478,
+      "itemIds": [],
+      "name": "Mini Disney Castle",
+      "type": "Set"
+    },
+    {
+      "categories": [-1, 7],
+      "details": {},
+      "id": 40524,
+      "itemIds": [],
+      "name": "Sunflowers",
+      "type": "Set"
+    },
+    {
+      "categories": [37, 9],
+      "details": {},
+      "id": 40547,
+      "itemIds": [],
+      "name": "Obi-Wan Kenobi™ & Darth Vader™",
+      "type": "Set"
+    },
+    {
+      "categories": [9, 15],
+      "details": {},
+      "id": 40619,
+      "itemIds": [],
+      "name": "EVE & WALL•E",
+      "type": "Set"
+    },
+    {
+      "categories": [-1, 7],
+      "details": {},
+      "id": 40647,
+      "itemIds": [],
+      "name": "Lotus Flowers",
+      "type": "Set"
+    },
+    {
+      "categories": [-1, 8],
+      "details": {},
+      "id": 40655,
+      "itemIds": [],
+      "name": "Play with Braille – French",
+      "type": "Set"
+    },
+    {
+      "categories": [-1, 8],
+      "details": {},
+      "id": 40656,
+      "itemIds": [],
+      "name": "Play with Braille – English",
+      "type": "Set"
+    },
+    {
+      "categories": [29, 9],
+      "details": {},
+      "id": 40668,
+      "itemIds": [],
+      "name": "Captain America & Red Hulk Figures",
+      "type": "Set"
+    },
+    {
+      "categories": [29, 9],
+      "details": {},
+      "id": 40669,
+      "itemIds": [],
+      "name": "Iron Man MK5 Figure",
+      "type": "Set"
+    },
+    {
+      "categories": [29, 9],
+      "details": {},
+      "id": 40670,
+      "itemIds": [],
+      "name": "Iron Spider-Man",
+      "type": "Set"
+    },
+    {
+      "categories": [29, 9],
+      "details": {},
+      "id": 40671,
+      "itemIds": [],
+      "name": "Potted Groot",
+      "type": "Set"
+    },
+    {
+      "categories": [9, 15],
+      "details": {},
+      "id": 40674,
+      "itemIds": [],
+      "name": "Stitch",
+      "type": "Set"
+    },
+    {
+      "categories": [37, 9],
+      "details": {},
+      "id": 40675,
+      "itemIds": [],
+      "name": "Clone Commander Cody™",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
+      "details": {},
+      "id": 40708,
+      "itemIds": [],
+      "name": "Mini Disney Ariel's Castle",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
+      "details": {},
+      "id": 40720,
+      "itemIds": [],
+      "name": "Mini Disney Sleeping Beauty Castle",
+      "type": "Set"
+    },
+    {
+      "categories": [-1, 8],
+      "details": {},
+      "id": 40722,
+      "itemIds": [],
+      "name": "Play with Braille – German Alphabet",
+      "type": "Set"
+    },
+    {
+      "categories": [-1, 8],
+      "details": {},
+      "id": 40723,
+      "itemIds": [],
+      "name": "Play with Braille – Italian Alphabet",
+      "type": "Set"
+    },
+    {
+      "categories": [-1, 8],
+      "details": {},
+      "id": 40724,
+      "itemIds": [],
+      "name": "Play with Braille – Spanish Alphabet",
+      "type": "Set"
+    },
+    {
+      "categories": [-1, 7],
+      "details": {},
+      "id": 40725,
+      "itemIds": [],
+      "name": "Cherry Blossoms",
+      "type": "Set"
+    },
+    {
+      "categories": [-1, 7],
+      "details": {},
+      "id": 40743,
+      "itemIds": [],
+      "name": "Christmas Table Decoration",
+      "type": "Set"
+    },
+    {
+      "categories": [-1, 7],
+      "details": {},
+      "id": 40747,
+      "itemIds": [],
+      "name": "Daffodils",
+      "type": "Set"
+    },
+    {
+      "categories": [5, 9, 13],
+      "details": {},
+      "id": 40748,
+      "itemIds": [],
+      "name": "Batman™ 8in1 Figure",
+      "type": "Set"
+    },
+    {
+      "categories": [9, 15],
+      "details": {},
+      "id": 40749,
+      "itemIds": [],
+      "name": "Joy, Sadness & Anxiety",
+      "type": "Set"
+    },
+    {
+      "categories": [41, 9],
+      "details": {},
+      "id": 40750,
+      "itemIds": [],
+      "name": "Wednesday & Enid",
+      "type": "Set"
+    },
+    {
+      "categories": [9, 15],
+      "details": {},
+      "id": 40752,
+      "itemIds": [],
+      "name": "Carl, Russell & Kevin",
+      "type": "Set"
+    },
+    {
+      "categories": [9, 15],
+      "details": {},
+      "id": 40792,
+      "itemIds": [],
+      "name": "Dumbo",
+      "type": "Set"
+    },
+    {
+      "categories": [9],
+      "details": {},
+      "id": 40793,
+      "itemIds": [],
+      "name": "Tom & Jerry Figures",
+      "type": "Set"
+    },
+    {
+      "categories": [9, 15],
+      "details": {},
+      "id": 40797,
+      "itemIds": [],
+      "name": "Eeyore",
+      "type": "Set"
+    },
+    {
+      "categories": [9],
+      "details": {},
+      "id": 40798,
+      "itemIds": [],
+      "name": "Red Panda Mei",
+      "type": "Set"
+    },
+    {
+      "categories": [9],
+      "details": {},
+      "id": 40803,
+      "itemIds": [],
+      "name": "Optimus Prime Robot & Vehicle",
+      "type": "Set"
+    },
+    {
+      "categories": [9],
+      "details": {},
+      "id": 40804,
+      "itemIds": [],
+      "name": "Bumblebee Robot & Vehicle",
+      "type": "Set"
+    },
+    {
+      "categories": [21],
+      "details": {},
+      "id": 41748,
+      "itemIds": [],
+      "name": "Heartlake City Community Center",
+      "type": "Set"
+    },
+    {
+      "categories": [21],
+      "details": {},
+      "id": 42603,
+      "itemIds": [],
+      "name": "Stargazing Camping Vehicle",
+      "type": "Set"
+    },
+    {
+      "categories": [21],
+      "details": {},
+      "id": 42604,
+      "itemIds": [],
+      "name": "Heartlake City Shopping Mall",
+      "type": "Set"
+    },
+    {
+      "categories": [21],
+      "details": {},
+      "id": 42606,
+      "itemIds": [],
+      "name": "Mobile Bakery Food Cart",
+      "type": "Set"
+    },
+    {
+      "categories": [21],
+      "details": {},
+      "id": 42610,
+      "itemIds": [],
+      "name": "Karaoke Music Party",
+      "type": "Set"
+    },
+    {
+      "categories": [21],
+      "details": {},
+      "id": 42614,
+      "itemIds": [],
+      "name": "Vintage Fashion Store",
+      "type": "Set"
+    },
+    {
+      "categories": [21],
+      "details": {},
+      "id": 42618,
+      "itemIds": [],
+      "name": "Heartlake City Café",
+      "type": "Set"
+    },
+    {
+      "categories": [21],
+      "details": {},
+      "id": 42621,
+      "itemIds": [],
+      "name": "Heartlake City Hospital",
+      "type": "Set"
+    },
+    {
+      "categories": [21],
+      "details": {},
+      "id": 42620,
+      "itemIds": [],
+      "name": "Olly and Paisley's Family Houses",
+      "type": "Set"
+    },
+    {
+      "categories": [21],
+      "details": {},
+      "id": 42622,
+      "itemIds": [],
+      "name": "Adventure Camp Archery Range",
+      "type": "Set"
+    },
+    {
+      "categories": [21],
+      "details": {},
+      "id": 42623,
+      "itemIds": [],
+      "name": "Beach Water Scooter",
+      "type": "Set"
+    },
+    {
+      "categories": [21],
+      "details": {},
+      "id": 42624,
+      "itemIds": [],
+      "name": "Adventure Camp Cozy Cabins",
+      "type": "Set"
+    },
+    {
+      "categories": [21],
+      "details": {},
+      "id": 42625,
+      "itemIds": [],
+      "name": "Beach Smoothie Stand",
+      "type": "Set"
+    },
+    {
+      "categories": [21],
+      "details": {},
+      "id": 42626,
+      "itemIds": [],
+      "name": "Adventure Camp Water Sports",
+      "type": "Set"
+    },
+    {
+      "categories": [21],
+      "details": {},
+      "id": 42630,
+      "itemIds": [],
+      "name": "Heartlake City Water Park",
+      "type": "Set"
+    },
+    {
+      "categories": [21],
+      "details": {},
+      "id": 42631,
+      "itemIds": [],
+      "name": "Adventure Camp Tree House",
+      "type": "Set"
+    },
+    {
+      "categories": [21],
+      "details": {},
+      "id":42634,
+      "itemIds": [],
+      "name": "Horse and Pony Trailer",
+      "type": "Set"
+    },
+    {
+      "categories": [21],
+      "details": {},
+      "id": 42635,
+      "itemIds": [],
+      "name": "Dog-Grooming Car",
+      "type": "Set"
+    },
+    {
+      "categories": [21],
+      "details": {},
+      "id": 42637,
+      "itemIds": [],
+      "name": "LEGO® Friends Advent Calendar 2024",
+      "type": "Set"
+    },
+    {
+      "categories": [21],
+      "details": {},
+      "id": 42638,
+      "itemIds": [],
+      "name": "Castle Bed and Breakfast",
+      "type": "Set"
+    },
+    {
+      "categories": [21],
+      "details": {},
+      "id": 42639,
+      "itemIds": [],
+      "name": "Andrea's Modern Mansion",
+      "type": "Set"
+    },
+    {
+      "categories": [21],
+      "details": {},
+      "id": 42640,
+      "itemIds": [],
+      "name": "Guinea Pig Playground",
+      "type": "Set"
+    },
+    {
+      "categories": [21],
+      "details": {},
+      "id": 42641,
+      "itemIds": [],
+      "name": "Surfing Dogs and Scooter Adventure",
+      "type": "Set"
+    },
+    {
+      "categories": [21],
+      "details": {},
+      "id": 42643,
+      "itemIds": [],
+      "name": "Cotton Candy Stand and Scooter",
+      "type": "Set"
+    },
+    {
+      "categories": [21],
+      "details": {},
+      "id": 42644,
+      "itemIds": [],
+      "name": "Heartlake City Ice Cream Truck",
+      "type": "Set"
+    },
+    {
+      "categories": [21],
+      "details": {},
+      "id": 42645,
+      "itemIds": [],
+      "name": "Aliya's Baby Sister's Playroom",
+      "type": "Set"
+    },
+    {
+      "categories": [21],
+      "details": {},
+      "id": 42646,
+      "itemIds": [],
+      "name": "Autumn’s Room",
+      "type": "Set"
+    },
+    {
+      "categories": [21],
+      "details": {},
+      "id": 42647,
+      "itemIds": [],
+      "name": "Paisley's Room",
+      "type": "Set"
+    },
+    {
+      "categories": [21],
+      "details": {},
+      "id": 42649,
+      "itemIds": [],
+      "name": "Heartlake City Sweet Shop",
+      "type": "Set"
+    },
+    {
+      "categories": [21],
+      "details": {},
+      "id": 42650,
+      "itemIds": [],
+      "name": "Pet Accessories Shop",
+      "type": "Set"
+    },
+    {
+      "categories": [21],
+      "details": {},
+      "id": 42651,
+      "itemIds": [],
+      "name": "Horse and Pet Vet Clinic",
+      "type": "Set"
+    },
+    {
+      "categories": [21],
+      "details": {},
+      "id": 42652,
+      "itemIds": [],
+      "name": "Friendship Tree House Hangout",
+      "type": "Set"
+    },
+    {
+      "categories": [21],
+      "details": {},
+      "id": 42655,
+      "itemIds": [],
+      "name": "Restaurant and Cooking School",
+      "type": "Set"
+    },
+    {
+      "categories": [21],
+      "details": {},
+      "id": 42656,
+      "itemIds": [],
+      "name": "Heartlake City Airport and Airplane",
+      "type": "Set"
+    },
+    {
+      "categories": [21],
+      "details": {},
+      "id": 42662,
+      "itemIds": [],
+      "name": "Hair Salon and Accessories Store",
+      "type": "Set"
+    },
+    {
+      "categories": [21],
+      "details": {},
+      "id": 42663,
+      "itemIds": [],
+      "name": "Friendship Camper Van Adventure",
+      "type": "Set"
+    },
+    {
+      "categories": [21],
+      "details": {},
+      "id": 42669,
+      "itemIds": [],
+      "name": "Beekeepers' House and Flower Garden",
+      "type": "Set"
+    },
+    {
+      "categories": [21],
+      "details": {},
+      "id": 42670,
+      "itemIds": [],
+      "name": "Heartlake City Apartments and Stores",
+      "type": "Set"
+    },
+    {
+      "categories": [21],
+      "details": {},
+      "id": 42672,
+      "itemIds": [],
+      "name": "Creative Beach and Travel Suitcase",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
+      "details": {},
+      "id": 43217,
+      "itemIds": [],
+      "name": "‘Up’ House​",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
+      "details": {},
+      "id": 43221,
+      "itemIds": [],
+      "name": "100 Years of Disney Animation Icons",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
+      "details": {},
+      "id": 43222,
+      "itemIds": [],
+      "name": "Disney Castle",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
+      "details": {},
+      "id": 43224,
+      "itemIds": [],
+      "name": "King Magnifico's Castle",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
+      "details": {},
+      "id": 43230,
+      "itemIds": [],
+      "name": "Walt Disney Tribute Camera",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
+      "details": {},
+      "id": 43235,
+      "itemIds": [],
+      "name": "Ariel's Music Stage",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
+      "details": {},
+      "id": 43237,
+      "itemIds": [],
+      "name": "Isabela's Flowerpot",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
+      "details": {},
+      "id": 43238,
+      "itemIds": [],
+      "name": "Elsa's Frozen Castle",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
+      "details": {},
+      "id": 43240,
+      "itemIds": [],
+      "name": "Maleficent’s Dragon Form",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
+      "details": {},
+      "id": 43242,
+      "itemIds": [],
+      "name": "Snow White and the Seven Dwarfs' Cottage",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
+      "details": {},
+      "id": 43243,
+      "itemIds": [],
+      "name": "Simba the Lion King Cub",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
+      "details": {},
+      "id": 43244,
+      "itemIds": [],
+      "name": "Elsa's Ice Palace",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
+      "details": {},
+      "id": 43245,
+      "itemIds": [],
+      "name": "The Magical Madrigal House",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
+      "details": {},
+      "id": 43246,
+      "itemIds": [],
+      "name": "Disney Princess Market Adventure",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
+      "details": {},
+      "id": 43247,
+      "itemIds": [],
+      "name": "Young Simba the Lion King",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
+      "details": {},
+      "id": 43248,
+      "itemIds": [],
+      "name": "Inside Out 2 Mood Cubes",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
+      "details": {},
+      "id": 43251,
+      "itemIds": [],
+      "name": "Antonio's Animal Sanctuary",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
+      "details": {},
+      "id": 43252,
+      "itemIds": [],
+      "name": "Moana's Flowerpot",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
+      "details": {},
+      "id": 43253,
+      "itemIds": [],
+      "name": "LEGO® ǀ Disney Advent Calendar 2024",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
+      "details": {},
+      "id": 43254,
+      "itemIds": [],
+      "name": "Ariel's Crystal Cavern",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
+      "details": {},
+      "id": 43256,
+      "itemIds": [],
+      "name": "Anna's Sleigh Adventure",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
+      "details": {},
+      "id": 43258,
+      "itemIds": [],
+      "name": "Kakamora Barge",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
+      "details": {},
+      "id": 43259,
+      "itemIds": [],
+      "name": "Twirling Ariel",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
+      "details": {},
+      "id": 43260,
+      "itemIds": [],
+      "name": "Moana's Island Fun",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
+      "details": {},
+      "id": 43261,
+      "itemIds": [],
+      "name": "Encanto Mini House",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
+      "details": {},
+      "id": 43262,
+      "itemIds": [],
+      "name": "Maleficent's and Cruella De Vil's Dresses",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
+      "details": {},
+      "id": 43263,
+      "itemIds": [],
+      "name": "Beauty and the Beast Castle",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
+      "details": {},
+      "id": 43265,
+      "itemIds": [],
+      "name": "Arendelle Frozen Castle",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
+      "details": {},
+      "id": 43266,
+      "itemIds": [],
+      "name": "Cinderella's Dress",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
+      "details": {},
+      "id": 43268,
+      "itemIds": [],
+      "name": "Lilo and Stitch Beach House",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
+      "details": {},
+      "id": 43270,
+      "itemIds": [],
+      "name": "Moana's Adventure Canoe",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
+      "details": {},
+      "id": 43272,
+      "itemIds": [],
+      "name": "Heihei",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
+      "details": {},
+      "id": 43275,
+      "itemIds": [],
+      "name": "Cinderella's Castle & Horse Carriage",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
+      "details": {},
+      "id": 43276,
+      "itemIds": [],
+      "name": "Snow White's Jewelry Box",
+      "type": "Set"
+    },
+    {
+      "categories": [20, 18],
+      "details": {},
+      "id": 45005,
+      "itemIds": [],
+      "name": "StoryTales",
+      "type": "Set"
+    },
+    {
+      "categories": [20, 18],
+      "details": {},
+      "id": 45024,
+      "itemIds": [],
+      "name": "STEAM Park",
+      "type": "Set"
+    },
+    {
+      "categories": [20, 18],
+      "details": {},
+      "id": 45025,
+      "itemIds": [],
+      "name": "Coding Express",
+      "type": "Set"
+    },
+    {
+      "categories": [18, 20],
+      "details": {},
+      "id": 45028,
+      "itemIds": [],
+      "name": "LEGO® Education My XL World",
+      "type": "Set"
+    },
+    {
+      "categories": [20],
+      "details": {},
+      "id": 45345,
+      "itemIds": [],
+      "name": "LEGO® Education SPIKE™ Essential Set",
+      "type": "Set"
+    },
+    {
+      "categories": [20],
+      "details": {},
+      "id": 45400,
+      "itemIds": [],
+      "name": "LEGO® Education BricQ Motion Prime Set",
+      "type": "Set"
+    },
+    {
+      "categories": [20],
+      "details": {},
+      "id": 45401,
+      "itemIds": [],
+      "name": "LEGO® Education BricQ Motion Essential Set",
+      "type": "Set"
+    },
+    {
+      "categories": [20],
+      "details": {},
+      "id": 45609,
+      "itemIds": [],
+      "name": "LEGO® Education BricQ Motion Prime Set",
+      "type": "Set"
+    },
+    {
+      "categories": [20],
+      "details": {},
+      "id": 45612,
+      "itemIds": [],
+      "name": "LEGO® Technic™ Small Hub Battery",
+      "type": "Set"
+    },
+    {
+      "categories": [20],
+      "details": {},
+      "id": 45678,
+      "itemIds": [],
+      "name": "LEGO® Education SPIKE™ Prime Set",
+      "type": "Set"
+    },
+    {
+      "categories": [20],
+      "details": {},
+      "id": 45681,
+      "itemIds": [],
+      "name": "LEGO® Education SPIKE™ Prime Expansion Set",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60198,
+      "itemIds": [],
+      "name": "Cargo Train",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60205,
+      "itemIds": [],
+      "name": "Tracks",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60238,
+      "itemIds": [],
+      "name": "Switch Tracks",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60304,
+      "itemIds": [],
+      "name": "Road Plates",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60312,
+      "itemIds": [],
+      "name": "Police Car",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60316,
+      "itemIds": [],
+      "name": "Police Station",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60337,
+      "itemIds": [],
+      "name": "Express Passenger Train",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60367,
+      "itemIds": [],
+      "name": "Passenger Airplane",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60368,
+      "itemIds": [],
+      "name": "Arctic Explorer Ship",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60369,
+      "itemIds": [],
+      "name": "Mobile Police Dog Training",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60373,
+      "itemIds": [],
+      "name": "Fire Rescue Boat",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60374,
+      "itemIds": [],
+      "name": "Fire Command Truck",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60391,
+      "itemIds": [],
+      "name": "Construction Trucks and Wrecking Ball Crane",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60400,
+      "itemIds": [],
+      "name": "Go-Karts and Race Drivers",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60402,
+      "itemIds": [],
+      "name": "Blue Monster Truck",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60404,
+      "itemIds": [],
+      "name": "Burger Truck",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60406,
+      "itemIds": [],
+      "name": "Race Car and Car Carrier Truck",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60407,
+      "itemIds": [],
+      "name": "Red Double-Decker Sightseeing Bus",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60408,
+      "itemIds": [],
+      "name": "Car Transporter Truck with Sports Cars",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60409,
+      "itemIds": [],
+      "name": "Yellow Mobile Construction Crane",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60411,
+      "itemIds": [],
+      "name": "Fire Rescue Helicopter",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60412,
+      "itemIds": [],
+      "name": "4x4 Fire Truck with Rescue Boat",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60413,
+      "itemIds": [],
+      "name": "Fire Rescue Plane",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60414,
+      "itemIds": [],
+      "name": "Fire Station with Fire Truck",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60415,
+      "itemIds": [],
+      "name": "Police Car and Muscle Car Chase",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60418,
+      "itemIds": [],
+      "name": "Police Mobile Crime Lab Truck",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60419,
+      "itemIds": [],
+      "name": "Police Prison Island",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60420,
+      "itemIds": [],
+      "name": "Yellow Construction Excavator",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60421,
+      "itemIds": [],
+      "name": "Robot World Roller-Coaster Park",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60422,
+      "itemIds": [],
+      "name": "Seaside Harbor with Cargo Ship",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60423,
+      "itemIds": [],
+      "name": "Downtown Streetcar and Station",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60426,
+      "itemIds": [],
+      "name": "Jungle Explorer Off-Road Truck",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60429,
+      "itemIds": [],
+      "name": "Spaceship and Asteroid Discovery",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60430,
+      "itemIds": [],
+      "name": "Interstellar Spaceship",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60431,
+      "itemIds": [],
+      "name": "Space Explorer Rover and Alien Life",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60433,
+      "itemIds": [],
+      "name": "Modular Space Station",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60434,
+      "itemIds": [],
+      "name": "Space Base and Rocket Launchpad",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60435,
+      "itemIds": [],
+      "name": "Tow Truck and Sports Car Repair",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60437,
+      "itemIds": [],
+      "name": "Jungle Explorer Helicopter at Base Camp",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60439,
+      "itemIds": [],
+      "name": "Space Science Lab",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60440,
+      "itemIds": [],
+      "name": "Yellow Delivery Truck",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60442,
+      "itemIds": [],
+      "name": "F1® Driver with McLaren Race Car",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60443,
+      "itemIds": [],
+      "name": "F1® Pit Stop & Pit Crew with Ferrari Car",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60444,
+      "itemIds": [],
+      "name": "F1® Garage & Mercedes-AMG & Alpine Cars",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60445,
+      "itemIds": [],
+      "name": "F1® Truck with RB20 & AMR24 F1® Car",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60446,
+      "itemIds": [],
+      "name": "Modular Galactic Spaceship",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60447,
+      "itemIds": [],
+      "name": "Off-Road 4x4 Mountain Truck",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60448,
+      "itemIds": [],
+      "name": "Red Sports Car",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60449,
+      "itemIds": [],
+      "name": "Off-Road Police Car Chase",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60450,
+      "itemIds": [],
+      "name": "Yellow Construction Wheel Loader",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60451,
+      "itemIds": [],
+      "name": "Emergency Ambulance",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60452,
+      "itemIds": [],
+      "name": "Donut Truck",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60453,
+      "itemIds": [],
+      "name": "Lifeguard Beach Rescue Truck",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60454,
+      "itemIds": [],
+      "name": "Holiday Adventure Camper Van",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60458,
+      "itemIds": [],
+      "name": "Pizza vs. Fire Truck Race Car Pack",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60459,
+      "itemIds": [],
+      "name": "Airplane vs. Hospital Bed Race Car Pack",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60460,
+      "itemIds": [],
+      "name": "No Limits: Race Car Ramp Track",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60461,
+      "itemIds": [],
+      "name": "Red Farm Tractor with Trailer & Sheep",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60462,
+      "itemIds": [],
+      "name": "Helicopter, Fire Truck & Submarine Remix",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60463,
+      "itemIds": [],
+      "name": "Fire Ladder Truck",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60464,
+      "itemIds": [],
+      "name": "F1® Williams Racing & Haas F1® Race Cars",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60472,
+      "itemIds": [],
+      "name": "Scrapyard with Cars",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 60474,
+      "itemIds": [],
+      "name": "F1® Grid with VCARB & Sauber Race Car",
+      "type": "Set"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 71043,
+      "itemIds": [],
+      "name": "Hogwarts™ Castle",
+      "type": "Set"
+    },
+    {
+      "categories": [17],
+      "details": {},
+      "id": 71478,
+      "itemIds": [],
+      "name": "The Never Witch's Midnight Raven",
+      "type": "Set"
+    },
+    {
+      "categories": [17],
+      "details": {},
+      "id": 71479,
+      "itemIds": [],
+      "name": "Zoey's Cat Motorcycle",
+      "type": "Set"
+    },
+    {
+      "categories": [17],
+      "details": {},
+      "id": 71480,
+      "itemIds": [],
+      "name": "Logan the Mighty Panda",
+      "type": "Set"
+    },
+    {
+      "categories": [17],
+      "details": {},
+      "id": 71481,
+      "itemIds": [],
+      "name": "Izzie's Dream Animals",
+      "type": "Set"
+    },
+    {
+      "categories": [17],
+      "details": {},
+      "id": 71483,
+      "itemIds": [],
+      "name": "The Never Witch's Nightmare Creatures",
+      "type": "Set"
+    },
+    {
+      "categories": [17],
+      "details": {},
+      "id": 71484,
+      "itemIds": [],
+      "name": "Cooper's Robot Dinosaur C-Rex",
+      "type": "Set"
+    },
+    {
+      "categories": [17],
+      "details": {},
+      "id": 71485,
+      "itemIds": [],
+      "name": "Mateo and Z-Blob the Knight Battle Mech",
+      "type": "Set"
+    },
+    {
+      "categories": [17],
+      "details": {},
+      "id": 71486,
+      "itemIds": [],
+      "name": "Castle Nocturnia",
+      "type": "Set"
+    },
+    {
+      "categories": [17],
+      "details": {},
+      "id": 71487,
+      "itemIds": [],
+      "name": "Z-Blob's Robot and Vehicle Adventures",
+      "type": "Set"
+    },
+    {
+      "categories": [17],
+      "details": {},
+      "id": 71488,
+      "itemIds": [],
+      "name": "Bunchu's Creative Animal Adventures",
+      "type": "Set"
+    },
+    {
+      "categories": [17],
+      "details": {},
+      "id": 71489,
+      "itemIds": [],
+      "name": "Cooper's Gaming Controller Jet",
+      "type": "Set"
+    },
+    {
+      "categories": [17],
+      "details": {},
+      "id": 71490,
+      "itemIds": [],
+      "name": "Izzie and Bunchurro the Gaming Bunny",
+      "type": "Set"
+    },
+    {
+      "categories": [17],
+      "details": {},
+      "id": 71491,
+      "itemIds": [],
+      "name": "Mateo and the Z-Blob Action Race Car",
+      "type": "Set"
+    },
+    {
+      "categories": [17],
+      "details": {},
+      "id": 71497,
+      "itemIds": [],
+      "name": "Cooper's Tiger Mech & Zero's Hot Rod Car",
+      "type": "Set"
+    },
+    {
+      "categories": [4],
+      "details": {},
+      "id": 75579,
+      "itemIds": [],
+      "name": "Payakan the Tulkun & Crabsuit",
+      "type": "Set"
+    },
+    {
+      "categories": [14],
+      "details": {},
+      "id": 75580,
+      "itemIds": [],
+      "name": "Minions and Banana Car",
+      "type": "Set"
+    },
+    {
+      "categories": [14],
+      "details": {},
+      "id": 75581,
+      "itemIds": [],
+      "name": "Minions' Music Party Bus",
+      "type": "Set"
+    },
+    {
+      "categories": [14],
+      "details": {},
+      "id": 75582,
+      "itemIds": [],
+      "name": "Brick-Built Gru and Minions",
+      "type": "Set"
+    },
+    {
+      "categories": [14],
+      "details": {},
+      "id": 75583,
+      "itemIds": [],
+      "name": "Minions and Gru's Family Mansion",
+      "type": "Set"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 75978,
+      "itemIds": [],
+      "name": "Diagon Alley™",
+      "type": "Set"
+    },
+    {
+      "categories": [29],
+      "details": {},
+      "id": 76178,
+      "itemIds": [],
+      "name": "Daily Bugle",
+      "type": "Set"
+    },
+    {
+      "categories": [29],
+      "details": {},
+      "id": 76191,
+      "itemIds": [],
+      "name": "Infinity Gauntlet",
+      "type": "Set"
+    },
+    {
+      "categories": [29],
+      "details": {},
+      "id": 76244,
+      "itemIds": [],
+      "name": "Miles Morales vs. Morbius",
+      "type": "Set"
+    },
+    {
+      "categories": [29],
+      "details": {},
+      "id": 76257,
+      "itemIds": [],
+      "name": "Wolverine Construction Figure",
+      "type": "Set"
+    },
+    {
+      "categories": [29],
+      "details": {},
+      "id": 76261,
+      "itemIds": [],
+      "name": "Spider-Man Final Battle",
+      "type": "Set"
+    },
+    {
+      "categories": [29],
+      "details": {},
+      "id": 76269,
+      "itemIds": [],
+      "name": "Avengers Tower",
+      "type": "Set"
+    },
+    {
+      "categories": [5, 13],
+      "details": {},
+      "id": 76270,
+      "itemIds": [],
+      "name": "Batman™ Mech Armour",
+      "type": "Set"
+    },
+    {
+      "categories": [5, 13],
+      "details": {},
+      "id": 76271,
+      "itemIds": [],
+      "name": "Batman: The Animated Series Gotham City™",
+      "type": "Set"
+    },
+    {
+      "categories": [5, 13],
+      "details": {},
+      "id": 76273,
+      "itemIds": [],
+      "name": "Batman™ Construction Figure and the Bat-Pod Bike",
+      "type": "Set"
+    },
+    
+    {
+      "categories": [5, 13],
+      "details": {},
+      "id": 76274,
+      "itemIds": [],
+      "name": "Batman™ with the Batmobile™ vs. Harley Quinn™ and Mr. Freeze™",
+      "type": "Set"
+    },
+    {
+      "categories": [29],
+      "details": {},
+      "id": 76285,
+      "itemIds": [],
+      "name": "Spider-Man's Mask",
+      "type": "Set"
+    },
+    {
+      "categories": [5, 13],
+      "details": {},
+      "id": 76301,
+      "itemIds": [],
+      "name": "Batman™ & Batmobile™ vs. Mr. Freeze™",
+      "type": "Set"
+    },
+    {
+      "categories": [13],
+      "details": {},
+      "id": 76302,
+      "itemIds": [],
+      "name": "Superman™ Mech vs. Lex Luthor™",
+      "type": "Set"
+    },
+    {
+      "categories": [5, 13],
+      "details": {},
+      "id": 76303,
+      "itemIds": [],
+      "name": "Batman™ Tumbler vs. Two-Face™ & The Joker™",
+      "type": "Set"
+    },
+    {
+      "categories": [29],
+      "details": {},
+      "id": 76307,
+      "itemIds": [],
+      "name": "Iron Man Mech vs. Ultron",
+      "type": "Set"
+    },
+    {
+      "categories": [29],
+      "details": {},
+      "id": 76308,
+      "itemIds": [],
+      "name": "Spider-Man Mech vs. Anti-Venom",
+      "type": "Set"
+    },
+    {
+      "categories": [29],
+      "details": {},
+      "id": 76311,
+      "itemIds": [],
+      "name": "Spider-Verse: Miles Morales vs. The Spot",
+      "type": "Set"
+    },
+    {
+      "categories": [29],
+      "details": {},
+      "id": 76312,
+      "itemIds": [],
+      "name": "The Hulk Truck vs. Thanos",
+      "type": "Set"
+    },
+    {
+      "categories": [29],
+      "details": {},
+      "id": 76313,
+      "itemIds": [],
+      "name": "MARVEL Logo & Minifigures",
+      "type": "Set"
+    },
+    {
+      "categories": [29],
+      "details": {},
+      "id": 76314,
+      "itemIds": [],
+      "name": "Captain America: Civil War Action Battle",
+      "type": "Set"
+    },
+    {
+      "categories": [29],
+      "details": {},
+      "id": 76315,
+      "itemIds": [],
+      "name": "Iron Man's Laboratory: Hall of Armor",
+      "type": "Set"
+    },
+    {
+      "categories": [29],
+      "details": {},
+      "id": 76323,
+      "itemIds": [],
+      "name": "Avengers: Endgame Final Battle",
+      "type": "Set"
+    },
+    {
+      "categories": [29],
+      "details": {},
+      "id": 76326,
+      "itemIds": [],
+      "name": "Iron Spider-Man Bust",
+      "type": "Set"
+    },
+    {
+      "categories": [29],
+      "details": {},
+      "id": 76327,
+      "itemIds": [],
+      "name": "Iron Man MK4 Bust",
+      "type": "Set"
+    },
+    {
+      "categories": [13, 5],
+      "details": {},
+      "id": 76328,
+      "itemIds": [],
+      "name": "Batman™: The Classic TV Series Batmobile™",
+      "type": "Set"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 76391,
+      "itemIds": [],
+      "name": "Hogwarts™ Icons - Collectors' Edition",
+      "type": "Set"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 76417,
+      "itemIds": [],
+      "name": "Gringotts™ Wizarding Bank – Collectors' Edition",
+      "type": "Set"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 76419,
+      "itemIds": [],
+      "name": "Hogwarts™ Castle and Grounds",
+      "type": "Set"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 76421,
+      "itemIds": [],
+      "name": "Dobby™ the House-Elf",
+      "type": "Set"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 76423,
+      "itemIds": [],
+      "name": "Hogwarts Express ™ Train Set with Hogsmeade Station™",
+      "type": "Set"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 76424,
+      "itemIds": [],
+      "name": "Flying Ford Anglia™",
+      "type": "Set"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 76425,
+      "itemIds": [],
+      "name": "Hedwig™ at 4 Privet Drive",
+      "type": "Set"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 76427,
+      "itemIds": [],
+      "name": "Buckbeak™",
+      "type": "Set"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 76428,
+      "itemIds": [],
+      "name": "Hagrid's Hut: An Unexpected Visit",
+      "type": "Set"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 76429,
+      "itemIds": [],
+      "name": "Talking Sorting Hat™",
+      "type": "Set"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 76431,
+      "itemIds": [],
+      "name": "Hogwarts™ Castle: Potions Class",
+      "type": "Set"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 76433,
+      "itemIds": [],
+      "name": "Mandrake",
+      "type": "Set"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 76434,
+      "itemIds": [],
+      "name": "Aragog in the Forbidden Forest™",
+      "type": "Set"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 76435,
+      "itemIds": [],
+      "name": "Hogwarts™ Castle: The Great Hall",
+      "type": "Set"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 76437,
+      "itemIds": [],
+      "name": "The Burrow – Collectors' Edition",
+      "type": "Set"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 76440,
+      "itemIds": [],
+      "name": "Triwizard Tournament: The Arrival",
+      "type": "Set"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 76441,
+      "itemIds": [],
+      "name": "Hogwarts™ Castle: Dueling Club",
+      "type": "Set"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 76442,
+      "itemIds": [],
+      "name": "Hogwarts™ Castle: Charms Class",
+      "type": "Set"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 76443,
+      "itemIds": [],
+      "name": "Hagrid™ & Harry's Motorcycle Ride",
+      "type": "Set"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 76444,
+      "itemIds": [],
+      "name": "Diagon Alley™ Wizarding Shops",
+      "type": "Set"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 76446,
+      "itemIds": [],
+      "name": "Knight Bus™ Adventure",
+      "type": "Set"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 76447,
+      "itemIds": [],
+      "name": "Hogwarts™ Castle: Flying Lessons",
+      "type": "Set"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 76453,
+      "itemIds": [],
+      "name": "Malfoy Manor",
+      "type": "Set"
+    },
+    {
+      "categories": [27],
+      "details": {},
+      "id": 76962,
+      "itemIds": [],
+      "name": "Baby Bumpy: Ankylosaurus",
+      "type": "Set"
+    },
+    {
+      "categories": [27],
+      "details": {},
+      "id": 76963,
+      "itemIds": [],
+      "name": "Baby Dinosaur Rescue Center",
+      "type": "Set"
+    },
+    {
+      "categories": [27],
+      "details": {},
+      "id": 76964,
+      "itemIds": [],
+      "name": "Dinosaur Fossils: T. rex Skull",
+      "type": "Set"
+    },
+    {
+      "categories": [27],
+      "details": {},
+      "id": 76965,
+      "itemIds": [],
+      "name": "Dinosaur Missions: Stegosaurus Discovery",
+      "type": "Set"
+    },
+    {
+      "categories": [27],
+      "details": {},
+      "id": 76966,
+      "itemIds": [],
+      "name": "Dinosaur Missions: Allosaurus Transport Truck",
+      "type": "Set"
+    },
+    {
+      "categories": [27],
+      "details": {},
+      "id": 76967,
+      "itemIds": [],
+      "name": "Little Eatie: T. rex",
+      "type": "Set"
+    },
+    {
+      "categories": [27],
+      "details": {},
+      "id": 76968,
+      "itemIds": [],
+      "name": "Dinosaur Fossils: Tyrannosaurus rex",
+      "type": "Set"
+    },
+    {
+      "categories": [27],
+      "details": {},
+      "id": 76969,
+      "itemIds": [],
+      "name": "Dinosaur Fossils: Triceratops Skull",
+      "type": "Set"
+    },
+    {
+      "categories": [27],
+      "details": {},
+      "id": 76970,
+      "itemIds": [],
+      "name": "Baby Dinosaur Dolores: Aquilops",
+      "type": "Set"
+    },
+    {
+      "categories": [27],
+      "details": {},
+      "id": 76972,
+      "itemIds": [],
+      "name": "Raptor Off-Road Escape",
+      "type": "Set"
+    },
+    {
+      "categories": [27],
+      "details": {},
+      "id": 76973,
+      "itemIds": [],
+      "name": "Raptor & Titanosaurus Tracking Mission",
+      "type": "Set"
+    },
+    {
+      "categories": [27],
+      "details": {},
+      "id": 76974,
+      "itemIds": [],
+      "name": "Brick-Built Mosasaurus Boat Mission",
+      "type": "Set"
+    },
+    {
+      "categories": [27],
+      "details": {},
+      "id": 76975,
+      "itemIds": [],
+      "name": "T. rex River Escape",
+      "type": "Set"
+    },
+    {
+      "categories": [27],
+      "details": {},
+      "id": 76976,
+      "itemIds": [],
+      "name": "Spinosaurus & Quetzalcoatlus Air Mission",
+      "type": "Set"
+    },
+    {
+      "categories": [-1],
+      "details": {
+        "attributes": [
+          {
+            "name": "pieceCount",
+            "type": "Integer",
+            "value": 768
+          },
+          {
+            "name": "minifigureCount",
+            "type": "Integer",
+            "value": 2
+          }
+        ]
+      },
+      "id": 77037,
+      "itemIds": [
+        6471337,
+        6471338
+      ],
+      "name": "Aloy & Varl vs. Shell-Walker & Sawtooth",
+      "type": "Set"
+    },
+    {
+      "categories": [1],
+      "details": {},
+      "id": 77046,
+      "itemIds": [],
+      "name": "Julian's Birthday Party",
+      "type": "Set"
+    },
+    {
+      "categories": [1],
+      "details": {},
+      "id": 77047,
+      "itemIds": [],
+      "name": "Bunnie's Outdoor Activities",
+      "type": "Set"
+    },
+    {
+      "categories": [1],
+      "details": {},
+      "id": 77048,
+      "itemIds": [],
+      "name": "Kapp'n's Island Boat Tour",
+      "type": "Set"
+    },
+    {
+      "categories": [1],
+      "details": {},
+      "id": 77049,
+      "itemIds": [],
+      "name": "Isabelle's House Visit",
+      "type": "Set"
+    },
+    {
+      "categories": [1],
+      "details": {},
+      "id": 77050,
+      "itemIds": [],
+      "name": "Nook's Cranny & Rosie's House",
+      "type": "Set"
+    },
+    {
+      "categories": [1],
+      "details": {},
+      "id": 77051,
+      "itemIds": [],
+      "name": "Fly with Dodo Airlines",
+      "type": "Set"
+    },
+    {
+      "categories": [1],
+      "details": {
+        "attributes": [
+          {
+            "name": "pieceCount",
+            "type": "Integer",
+            "value": 550
+          },
+          {
+            "name": "minifigureCount",
+            "type": "Integer",
+            "value": 3
+          }
+        ]
+      },
+      "id": 77052,
+      "itemIds": [
+        6471357,
+        6471358
+      ],
+      "name": "K.K.'s Concert at the Plaza",
+      "type": "Set"
+    },
+    {
+      "categories": [1],
+      "details": {
+        "attributes": [
+          {
+            "name": "pieceCount",
+            "type": "Integer",
+            "value": 78
+          },
+          {
+            "name": "minifigureCount",
+            "type": "Integer",
+            "value": 1
+          }
+        ]
+      },
+      "icon": "https://www.lego.com/cdn/cs/set/assets/blt33848390c8122840/77053_Prod.png",
+      "id": 77053,
+      "itemIds": [
+        6526386,
+        6526387
+      ],
+      "name": "Stargazing with Celeste",
+      "type": "Set"
+    },
+    {
+      "categories": [1],
+      "details": {
+        "attributes": [
+          {
+            "name": "pieceCount",
+            "type": "Integer",
+            "value": 263
+          },
+          {
+            "name": "minifigureCount",
+            "type": "Integer",
+            "value": 2
+          }
+        ]
+      },
+      "id": 77054,
+      "itemIds": [
+        6526389,
+        6526390
+      ],
+      "name": "Leif's Caravan & Garden Shop",
+      "type": "Set"
+    },
+    {
+      "categories": [1],
+      "details": {
+        "attributes": [
+          {
+            "name": "pieceCount",
+            "type": "Integer",
+            "value": 322
+          },
+          {
+            "name": "minifigureCount",
+            "type": "Integer",
+            "value": 2
+          }
+        ]
+      },
+      "id": 77055,
+      "itemIds": [
+        6526392,
+        6526393
+      ],
+      "name": "Able Sisters Clothing Shop",
+      "type": "Set"
+    },
+    {
+      "categories": [22],
+      "details": {},
+      "id": 77070,
+      "itemIds": [],
+      "name": "Durrr Burger",
+      "type": "Set"
+    },
+    {
+      "categories": [22],
+      "details": {},
+      "id": 77071,
+      "itemIds": [],
+      "name": "Supply Llama",
+      "type": "Set"
+    },
+    {
+      "categories": [22],
+      "details": {},
+      "id": 77072,
+      "itemIds": [],
+      "name": "Peely Bone",
+      "type": "Set"
+    },
+    {
+      "categories": [22],
+      "details": {},
+      "id": 77073,
+      "itemIds": [],
+      "name": "Battle Bus",
+      "type": "Set"
+    },
+    {
+      "categories": [13],
+      "details": {
+        "type": "Keyring"
+      },
+      "id": 853952,
+      "itemIds": [],
+      "name": "Superman™ Keyring",
+      "type": "Gear"
+    },
+    {
+      "categories": [15],
+      "details": {
+        "type": "Keyring"
+      },
+      "id": 853968,
+      "itemIds": [],
+      "name": "LEGO® ǀ Disney Frozen 2 Elsa Keyring",
+      "type": "Gear"
+    },
+    {
+      "categories": [15],
+      "details": {
+        "type": "Keyring"
+      },
+      "id": 853998,
+      "itemIds": [],
+      "name": "Mickey Key Chain",
+      "type": "Gear"
+    },
+    {
+      "categories": [15],
+      "details": {
+        "type": "Keyring"
+      },
+      "id": 853999,
+      "itemIds": [],
+      "name": "Minnie Key Chain",
+      "type": "Gear"
+    },
+    {
+      "categories": [15],
+      "details": {
+        "type": "Keyring"
+      },
+      "id": 854111,
+      "itemIds": [],
+      "name": "Donald Duck Keyring",
+      "type": "Gear"
+    },
+    {
+      "categories": [15],
+      "details": {
+        "type": "Keyring"
+      },
+      "id": 854112,
+      "itemIds": [],
+      "name": "Daisy Duck Keyring",
+      "type": "Gear"
+    },
+    {
+      "categories": [24],
+      "details": {
+        "type": "Keyring"
+      },
+      "id": 854114,
+      "itemIds": [],
+      "name": "Harry Potter™ Keyring",
+      "type": "Gear"
+    },
+    {
+      "categories": [24],
+      "details": {
+        "type": "Keyring"
+      },
+      "id": 854115,
+      "itemIds": [],
+      "name": "Hermione Keyring",
+      "type": "Gear"
+    },
+    {
+      "categories": [15],
+      "details": {
+        "type": "Keyring"
+      },
+      "id": 854191,
+      "itemIds": [],
+      "name": "Winnie the Pooh Keyring",
+      "type": "Gear"
+    },
+    {
+      "categories": [15],
+      "details": {
+        "type": "Keyring"
+      },
+      "id": 854196,
+      "itemIds": [],
+      "name": "Goofy Keyring",
+      "type": "Gear"
+    },
+    {
+      "categories": [15],
+      "details": {
+        "type": "Keyring"
+      },
+      "id": 854203,
+      "itemIds": [],
+      "name": "Eeyore Keyring",
+      "type": "Gear"
+    },
+    {
+      "categories": [5, 13],
+      "details": {
+        "type": "Keyring"
+      },
+      "id": 854235,
+      "itemIds": [],
+      "name": "Batman™ Keyring",
+      "type": "Gear"
+    },
+    {
+      "categories": [5, 13],
+      "details": {
+        "type": "Keyring"
+      },
+      "id": 854238,
+      "itemIds": [],
+      "name": "Harley Quinn™ Keyring",
+      "type": "Gear"
+    },
+    {
+      "categories": [15],
+      "details": {
+        "type": "Keyring"
+      },
+      "id": 854286,
+      "itemIds": [],
+      "name": "Snow White Key Chain",
+      "type": "Gear"
+    },
+    {
+      "categories": [15],
+      "details": {
+        "type": "Keyring"
+      },
+      "id": 854287,
+      "itemIds": [],
+      "name": "Mirabel Key Chain",
+      "type": "Gear"
+    },
+    {
+      "categories": [17],
+      "details": {
+        "type": "Sword"
+      },
+      "id": 854307,
+      "itemIds": [],
+      "name": "Mateo's Z-Blob Sword",
+      "type": "Gear"
+    },
+    {
+      "categories": [17],
+      "details": {
+        "type": "Sword"
+      },
+      "id": 854308,
+      "itemIds": [],
+      "name": "Izzie's Sword",
+      "type": "Gear"
+    },
+    {
+      "categories": [27],
+      "details": {
+        "type": "Keyring"
+      },
+      "id": 854316,
+      "itemIds": [],
+      "name": "Baby Ankylosaurus Key Chain",
+      "type": "Gear"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 5005905,
+      "itemIds": [],
+      "name": "Harry Potter™ – Build your own adventure",
+      "type": "Book"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 5006806,
+      "itemIds": [],
+      "name": "Build Your Own Adventure",
+      "type": "Book"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 5006810,
+      "itemIds": [],
+      "name": "Magical Treasury",
+      "type": "Book"
+    },
+    {
+      "categories": [27],
+      "details": {},
+      "id": 5007368,
+      "itemIds": [],
+      "name": "Dinosaur Adventures Book",
+      "type": "Book"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 5007369,
+      "itemIds": [],
+      "name": "Stop the Fire!",
+      "type": "Book"
+    },
+    {
+      "categories": [10],
+      "details": {},
+      "id": 5007370,
+      "itemIds": [],
+      "name": "Happy to Help!",
+      "type": "Book"
+    },
+    {
+      "categories": [12],
+      "details": {},
+      "id": 5007371,
+      "itemIds": [],
+      "name": "Build and Stick",
+      "type": "Book"
+    },
+    {
+      "categories": [24],
+      "details": {
+        "type": "Plush"
+      },
+      "id": 5007453,
+      "itemIds": [],
+      "name": "Hermione Granger™ Plush",
+      "type": "Gear"
+    },
+    {
+      "categories": [24],
+      "details": {
+        "type": "Plush"
+      },
+      "id": 5007454,
+      "itemIds": [],
+      "name": "Albus Dumbledore™ Plush",
+      "type": "Gear"
+    },
+    {
+      "categories": [24],
+      "details": {
+        "type": "Plush"
+      },
+      "id": 5007455,
+      "itemIds": [],
+      "name": "Harry Potter™ Plush",
+      "type": "Gear"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 5007493,
+      "itemIds": [],
+      "name": "Hedwig™ Plush",
+      "type": "Gear"
+    },
+    {
+      "categories": [24],
+      "details": {
+        "type": "Plush"
+      },
+      "id": 5007494,
+      "itemIds": [],
+      "name": "Hagrid™ Plush",
+      "type": "Gear"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 5007554,
+      "itemIds": [],
+      "name": "5-Minute Harry Potter™ Builds Book",
+      "type": "Book"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 5007615,
+      "itemIds": [],
+      "name": "A Spellbinding Guide to Hogwarts™ Houses",
+      "type": "Book"
+    },
+    {
+      "categories": [5],
+      "details": {},
+      "id": 5007860,
+      "itemIds": [],
+      "name": "GOTHAM CITY's New Defender Book",
+      "type": "Book"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 5007883,
+      "itemIds": [],
+      "name": "Minifigure Display Case 16 – Harry Potter™",
+      "type": "Gear"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 5007884,
+      "itemIds": [],
+      "name": "Play and Display Case – Harry Potter™ Hogwarts™",
+      "type": "Gear"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 5007887,
+      "itemIds": [],
+      "name": "Sorting Box – Harry Potter™",
+      "type": "Gear"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 5007890,
+      "itemIds": [],
+      "name": "Gryffindor™ Lunch Box",
+      "type": "Gear"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 5007891,
+      "itemIds": [],
+      "name": "Hogwarts™ Lunch Box",
+      "type": "Gear"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 5007892,
+      "itemIds": [],
+      "name": "Gryffindor™ Drinking Bottle",
+      "type": "Gear"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 5007893,
+      "itemIds": [],
+      "name": "Hogwarts™ Drinking Bottle",
+      "type": "Gear"
+    },
+    {
+      "categories": [24],
+      "details": {
+        "type": "Notebook"
+      },
+      "id": 5007897,
+      "itemIds": [],
+      "name": "Harry Potter™ Notebook",
+      "type": "Gear"
+    },
+    {
+      "categories": [27],
+      "details": {},
+      "id": 5007898,
+      "itemIds": [],
+      "name": "Jurassic World Activity Landscape Box",
+      "type": "Book"
+    },
+    {
+      "categories": [27],
+      "details": {},
+      "id": 5007899,
+      "itemIds": [],
+      "name": "Alan Grant's Missions",
+      "type": "Book"
+    },
+    {
+      "categories": [24],
+      "details": {
+        "type": "Keyring"
+      },
+      "id": 5007905,
+      "itemIds": [],
+      "name": "Harry Potter™ Key Light",
+      "type": "Gear"
+    },
+    {
+      "categories": [24],
+      "details": {
+        "type": "Keyring"
+      },
+      "id": 5007906,
+      "itemIds": [],
+      "name": "Hermione Granger™ Key Light",
+      "type": "Gear"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 5007907,
+      "itemIds": [],
+      "name": "Ron Weasley™ Key Light",
+      "type": "Gear"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 5008032,
+      "itemIds": [],
+      "name": "Harry Potter™ T-Shirt – Burgundy Red",
+      "type": "Clothing"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 5008033,
+      "itemIds": [],
+      "name": "Harry Potter™ T-Shirt Gray",
+      "type": "Clothing"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 5008086,
+      "itemIds": [],
+      "name": "Hermione Granger™ Bag Tag",
+      "type": "Gear"
+    },
+    {
+      "categories": [24],
+      "details": {
+        "type": "BagTag"
+      },
+      "id": 5008087,
+      "itemIds": [],
+      "name": "Ron Weasley™ Bag Tag"
+    },
+    {
+      "categories": [5, 13],
+      "details": {
+        "type": "Keyring"
+      },
+      "id": 5008091,
+      "itemIds": [],
+      "name": "The Joker™ Key Light",
+      "type": "Gear"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 5008093,
+      "itemIds": [],
+      "name": "Expelliarmus Magnet",
+      "type": "Gear"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 5008094,
+      "itemIds": [],
+      "name": "Expecto Patronum Magnet",
+      "type": "Gear"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 5008095,
+      "itemIds": [],
+      "name": "Leviosa Magnet",
+      "type": "Gear"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 5008098,
+      "itemIds": [],
+      "name": "Knight Bus™ Magnet",
+      "type": "Gear"
+    },
+    {
+      "categories": [5, 13],
+      "details": {
+        "type": "BagTag"
+      },
+      "id": 5008099,
+      "itemIds": [],
+      "name": "The Joker™ Bag Tag",
+      "type": "Gear"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 5008100,
+      "itemIds": [],
+      "name": "Harry Potter™ Diary Box Set",
+      "type": "Gear"
+    },
+    {
+      "categories": [5, 13],
+      "details": {
+        "type": "BagTag"
+      },
+      "id": 5008101,
+      "itemIds": [],
+      "name": "Batman™ Bag Tag",
+      "type": "Gear"
+    },
+    {
+      "categories": [24],
+      "details": {
+        "type": "BagTag"
+      },
+      "id": 5008102,
+      "itemIds": [],
+      "name": "Harry Potter™ Quidditch™ Bag Tag",
+      "type": "Gear"
+    },
+    {
+      "categories": [18],
+      "details": {
+        "type": "Bagpack"
+      },
+      "id": 5008680,
+      "itemIds": [],
+      "name": "Backpack – Monkey",
+      "type": "Gear"
+    },
+    {
+      "categories": [18],
+      "details": {
+        "type": "Bagpack"
+      },
+      "id": 5008682,
+      "itemIds": [],
+      "name": "Backpack – Citrus",
+      "type": "Gear"
+    },
+    {
+      "categories": [7],
+      "details": {},
+      "id": 5008877,
+      "itemIds": [],
+      "name": "Botanical Almanac Book",
+      "type": "Book"
+    },
+    {
+      "categories": [24],
+      "details": {},
+      "id": 5009117,
+      "itemIds": [],
+      "name": "Kids Pyjamas – Dark Navy",
+      "type": "Clothing"
+    }
+  ]
+}

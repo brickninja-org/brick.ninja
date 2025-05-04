@@ -1,4 +1,5 @@
 .docker
 .turbo
 node_modules
+.pnpm-store
 .vercel

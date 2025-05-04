@@ -8,10 +8,10 @@ interface ListProps {
 }
 
 const list = tv({
-  base: 'my-2 pl-0 list-none [counter-reset:_list]',
+  base: 'my-2 pl-0 list-disc',
   variants: {
     numbered: {
-      true: 'p-6',
+      true: 'p-6 list-decimal',
     }
   },
 });

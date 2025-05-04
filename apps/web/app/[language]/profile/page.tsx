@@ -1,7 +1,6 @@
-import { cache } from 'react';
+import { cache, Suspense } from 'react';
 import { redirect } from 'next/navigation';
 
-import { FlexRow } from '@brickninja-org/ui/components/flex-row/FlexRow';
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 import { Table } from '@brickninja-org/ui/components/table/Table';
 
@@ -13,6 +12,9 @@ import { FormatDate } from '@/components/format/FormatDate';
 import type { Metadata } from 'next';
 import { revalidatePath } from 'next/cache';
 import { SubmitButton } from '@brickninja-org/ui/components/form/buttons/SubmitButton';
+import { ExternalLink } from '@brickninja-org/ui/components/link/ExternalLink';
+import { Skeleton } from '@/components/skeleton/Skeleton';
+import { Accounts } from './Accounts';
 
 const getUserData = cache(async () => {
   const userSession = await getUser();
@@ -44,11 +46,14 @@ export default async function ProfilePage() {
 
   return (
     <HeroLayout hero={<Headline id="profile">{user.name}</Headline>} toc>
-      <FlexRow align="between">
-        Buttons here...
-      </FlexRow>
+      <p>
+        You can change your username on your <ExternalLink href="https://bn2me.vercel.app">bn2.me Profile</ExternalLink>.
+      </p>
 
       <Headline id="accounts">Accounts</Headline>
+      <Suspense fallback={<Skeleton/>}>
+        <Accounts/>
+      </Suspense>
 
       <Headline id="sessions" actions={<form action={revokeAllSessions}><SubmitButton icon="delete">Revoke all</SubmitButton></form>}>Sessions</Headline>
       <Table>

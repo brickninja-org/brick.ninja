@@ -16,6 +16,7 @@ export const DiffLayout: FC<DiffLayoutProps> = ({ children }) => {
 };
 
 interface DiffLayoutHeaderProps {
+  icons: [ a: ReactNode | undefined, b: ReactNode | undefined ],
   title: [ a: ReactNode, b: ReactNode ],
   subtitle: [ a: ReactNode, b: ReactNode ],
 }
@@ -26,7 +27,7 @@ const diff = tv({
     row: 'flex flex-col md:flex-row last:flex-1', // diffRow, variant
     header: '[grid-area:_headline] border-b border-gray-200', // header
     title: '[grid-area:_title] font-bitter font-bold text-lg lg:text-2xl', // title
-    breadcrumb: '[grid-area:_breadcrumb] text-sm text-gray-600', // breadcrumb
+    breadcrumb: '[grid-area:_breadcrumb] text-sm text-muted', // breadcrumb
     column: '', // right | left
    },
   variants: {
@@ -108,15 +109,17 @@ const diff = tv({
   defaultVariants: {},
 });
 
-export const DiffLayoutHeader: FC<DiffLayoutHeaderProps> = ({ title, subtitle }) => {
+export const DiffLayoutHeader: FC<DiffLayoutHeaderProps> = ({ title, subtitle, icons }) => {
   const { base, title: name, header, breadcrumb } = diff();
   return (
     <div className={base()}>
       <div className={cn(header(), 'py-4')}>
+        {icons[0]}
         <div className={name()}>{title[0]}</div>
         <div className={breadcrumb()}>{subtitle[0]}</div>
       </div>
       <div className={cn(header({ right: true }))}>
+        {icons[1]}
         <div className={name()}>{title[1]}</div>
         <div className={breadcrumb()}>{subtitle[1]}</div>
       </div>

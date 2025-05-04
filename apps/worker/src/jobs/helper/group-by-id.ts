@@ -1,13 +1,13 @@
 import { LocalizedObject } from './types';
 
-export function groupLocalizedEntitiesById<T extends { setID: string | number }>(entitiesEn: T[], entitiesNl: T[]): Map<T['setID'], LocalizedObject<T>> {
-  const map = new Map<T['setID'], LocalizedObject<T>>();
+export function groupLocalizedEntitiesById<T extends { id: string | number }>(entitiesEn: T[], entitiesNl: T[]): Map<T['id'], LocalizedObject<T>> {
+  const map = new Map<T['id'], LocalizedObject<T>>();
 
   for(const en of entitiesEn) {
-    const nl = entitiesNl.find(({ setID }) => setID === en.setID);
+    const nl = entitiesNl.find(({ id }) => id === en.id);
 
     if (nl !== undefined) {
-      map.set(en.setID, { en, nl });
+      map.set(en.id, { en, nl });
     }
   }
 

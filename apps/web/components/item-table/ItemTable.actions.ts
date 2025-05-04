@@ -44,6 +44,7 @@ export async function loadItems<Model extends QueryModel>(query: Signed<ItemTabl
   const findManyArgs = { where, skip, take, select: select as TODO, orderBy: orderBy as TODO ?? defaultSort };
 
   const items: TODO =
+    model === 'content' ? await db.content.findMany(findManyArgs as TODO) :
     model === 'item' ? await db.item.findMany(findManyArgs as TODO) :
     undefined;
 
@@ -65,6 +66,7 @@ export async function loadTotalItemCount<Model extends QueryModel>(query: Signed
 
   switch(model) {
     case 'item': return db.item.count({ where } as TODO);
+    case 'content': return db.content.count({ where } as TODO);
     default: throw new Error('Unsupported query model');
   }
 }

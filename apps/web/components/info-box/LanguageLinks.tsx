@@ -10,9 +10,9 @@ interface LanguageLinksProps {
 
 export const LanguageLinks: FC<LanguageLinksProps> = ({ link, language }) => {
   return (
-    <div className="grid grid-cols-[auto__1fr] items-baseline gap-[0px_8px] leading-6">
-      {language !== 'en' && (<><div className="text-gray-600">EN</div>{cloneElement(link, { language: 'en' })}</>)}
-      {language !== 'nl' && (<><div className="text-gray-600">NL</div>{cloneElement(link, { language: 'nl' })}</>)}
+    <div className="grid grid-cols-[auto_1fr] items-baseline gap-[0px_8px] leading-normal">
+      {language !== 'en' && (<><div className="text-muted">EN</div>{cloneElement(link, { language: 'en' })}</>)}
+      {language !== 'nl' && (<><div className="text-muted">NL</div>{cloneElement(link, { language: 'nl' })}</>)}
     </div>
   );
 };

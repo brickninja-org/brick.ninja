@@ -8,12 +8,14 @@ import { PageLayout } from '@/components/layout/PageLayout';
 export interface HeroLayoutProps extends HeroVariants {
   children: ReactNode;
   hero: ReactNode;
+  navbar?: ReactNode;
   toc?: boolean;
   // skipPreload?: boolean;
+  skipLayout?: boolean;
 }
 
 const styles = tv({
-  base: 'relative -mt-[1px] py-8 px-4 border-b border-transparent',
+  base: 'relative -mt-0.25 py-8 px-4 border-b border-transparent',
   variants: {
     color: {
       blue: 'bg-blue-800 text-white',
@@ -29,11 +31,14 @@ const styles = tv({
 
 type HeroVariants = VariantProps<typeof styles>;
 
-export const HeroLayout: FC<HeroLayoutProps> = ({ children, hero, toc, color }) => {
+export const HeroLayout: FC<HeroLayoutProps> = ({ children, hero, navbar, toc, color, skipLayout }) => {
   return (
     <div>
       <div className={styles({ color })}>{hero}</div>
-      <PageLayout toc={toc}>{children}</PageLayout>
+      {navbar}
+      {skipLayout ? children : (
+        <PageLayout toc={toc}>{children}</PageLayout>
+      )}
     </div>
   );
 };

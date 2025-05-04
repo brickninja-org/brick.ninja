@@ -3,7 +3,7 @@ import type { NextConfig } from 'next';
 import path from 'path';
 
 // @ts-expect-error no types available
-import  { PrismaPlugin } from '@prisma/nextjs-monorepo-workaround-plugin';
+import { PrismaPlugin } from '@prisma/nextjs-monorepo-workaround-plugin';
 
 const nextConfig: NextConfig = {
   // publish as standalone docker images

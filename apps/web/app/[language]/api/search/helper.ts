@@ -1,4 +1,5 @@
 import type { Prisma } from '@brickninja-org/database';
+
 import { isDefined, isTruthy } from '@brickninja-org/helper/is';
 
 import { cache } from '@/lib/cache';
@@ -56,7 +57,6 @@ export type ItemFilters = {
   iconId?: number | null,
   type?: string,
   subtype?: string | null,
-  productCode?: string | null,
 };
 
 export const searchItems = cache(async (terms: string[], filter?: ItemFilters) => {
@@ -72,9 +72,8 @@ export const searchItems = cache(async (terms: string[], filter?: ItemFilters) =
         { name_en: { equals: joinedTerms, mode: 'insensitive' as const }},
         { name_nl: { equals: joinedTerms, mode: 'insensitive' as const }},
         { id: { in: numberTerms }},
-        { productCode: { equals: joinedTerms, mode: 'insensitive' as const }},
-      ]
-    }
+      ],
+    },
   ].filter(isDefined);
 
   const containsTermsWhere = [
@@ -86,6 +85,7 @@ export const searchItems = cache(async (terms: string[], filter?: ItemFilters) =
   const exactNameMatches = terms.length > 0 ? await db.item.findMany({
     where: { AND: exactWhere },
     take: 50,
+    include: { icon: true },
     orderBy: { relevancy: 'desc' }
   }) : [];
 
@@ -93,8 +93,28 @@ export const searchItems = cache(async (terms: string[], filter?: ItemFilters) =
   const termMatches = exactNameMatches.length < 5 ? await db.item.findMany({
     where: { AND: [...containsTermsWhere, { id: { notIn: exactNameMatches.map(({ id }) => id) }}] },
     take: 5 - exactNameMatches.length,
+    include: { icon: true },
     orderBy: { relevancy: 'desc' }
   }) : [];
 
   return [...exactNameMatches, ...termMatches];
 }, ['search', 'search-items'], { revalidate: 60 });
+
+export const searchProducts = cache(async (terms: string[]) => {
+  const nameQueries = nameQuery(terms);
+
+ const [products, productCategories] = await Promise.all([
+  db.product.findMany({
+    where: terms.length > 0 ? { OR: nameQueries } : undefined,
+    take: 5,
+    include: { icon: true, categories: true },
+    orderBy: { views: 'desc' },
+  }),
+  db.category.findMany({
+    where: terms.length > 0 ? { OR: nameQueries } : undefined,
+    take: 5,
+  })
+ ]);
+
+ return { products, productCategories };
+}, ['search', 'search-products'], { revalidate: 60 });

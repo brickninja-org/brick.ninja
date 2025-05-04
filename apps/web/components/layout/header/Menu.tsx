@@ -49,10 +49,10 @@ export const Menu: FC<MenuProps> = ({ children, navigation }) => {
           className={cn([
             'absolute',
             'h-12 w-12',
+            '-mx-4',
             'bg-transparent',
             'opacity-0 [transition:_opacity_.1s_ease] delay-0',
             'cursor-pointer pointer-events-none',
-            '[--icon-size:1.2em]',
             scrolledDown && 'opacity-100 delay-150 pointer-events-auto',
           ])}
           onClick={() => setMenuOpen(!menuOpen)}

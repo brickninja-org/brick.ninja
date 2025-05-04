@@ -1,6 +1,8 @@
 'use client';
 
 import type { FC, ChangeEventHandler, KeyboardEventHandler, ReactElement } from 'react';
+import type { TranslationSubset } from '@/lib/translate';
+import type { translations as itemTypeTranslations } from '@/components/item/ItemType.translations';
 
 import { Fragment, useCallback, useEffect, useRef, useState } from 'react';
 import NextLink from 'next/link';
@@ -10,14 +12,16 @@ import { cn } from '@brickninja-org/ui/lib';
 import { Icon } from '@brickninja-org/ui/icons';
 
 import { useDebounce } from '@/hooks/use-debounce';
-import type { TranslationSubset } from '@/lib/translate';
 import { usePageResults, useSearchApiResults } from './use-search-results';
 
 export interface SearchProps {
   translations: TranslationSubset<
     | 'search.placeholder'
     | 'search.results.items'
+    | 'search.results.products'
+    | 'search.results.product.categories'
     | 'search.results.pages'
+    | typeof itemTypeTranslations.short[0]
   >;
 }
 
@@ -64,7 +68,7 @@ export const Search: FC<SearchProps> = ({ translations }) => {
   ]);
 
   const searchResults = [
-    ...useSearchApiResults(searchValue),
+    ...useSearchApiResults(searchValue, translations),
     usePageResults(searchValue),
   ];
 
@@ -111,13 +115,14 @@ export const Search: FC<SearchProps> = ({ translations }) => {
   }, []);
 
   return (
-    <form className="relative flex items-center w-[468px] bg-gray-100 focus-within:bg-white focus-within:shadow-sm rounded-xs [--icon-size:20px]" ref={refs.setReference} {...getReferenceProps()}>
+    <form className="relative flex items-center w-[468px] bg-gray-100 focus-within:bg-background focus-within:shadow-base rounded-xs [--icon-size:20px]" ref={refs.setReference} {...getReferenceProps()}>
       <Icon icon="search" className="mr-2 ml-4 align-[-2px] shrink-0 text-gray-600"/>
       {/* <div className={styles.restriciton}>Item</div> */}
 
       <input
+        id="search"
         ref={inputRef}
-        className="flex-1 w-full py-1.5 px-2 bg-transparent focus:outline-hidden placeholder:text-gray-600"
+        className="flex-1 w-full py-1.5 px-2 bg-transparent focus:outline-hidden placeholder:text-muted"
         placeholder={translations['search.placeholder']}
         autoComplete="off"
         spellCheck="false"
@@ -126,12 +131,12 @@ export const Search: FC<SearchProps> = ({ translations }) => {
         onChange={handleSearchChange}
         onKeyDown={handleKeyDown}/>
 
-      {!loading && !open && (<div className="hidden sm:inline-block absolute right-2 rounded-xs text-sm text-gray-600"><kbd className="py-0.25 px-0.75 rounded-xs border border-gray-300">/</kbd> or <kbd className="py-0.25 px-0.75 rounded-xs border border-gray-300">s</kbd></div>)}
+      {!loading && !open && (<div className="hidden sm:inline-block absolute right-2 rounded-xs text-sm text-muted"><kbd className="py-0.25 px-0.75 rounded-xs border border-(--color-border-dark)">/</kbd> or <kbd className="py-0.25 px-0.75 rounded-xs border border-(--color-border-dark)">s</kbd></div>)}
 
-      {loading && (open || searchValue) && <div className="block w-4 h-4 rounded-lg ml-4 mr-2 border border-transparent border-t-gray-200 will-change-transform animate-rotate"/>}
+      {loading && (open || searchValue) && <div className="block w-4 h-4 rounded-lg ml-4 mr-2 border border-transparent border-t-(--color-border) will-change-transform animate-rotate"/>}
 
       {open && (
-        <div className="absolute top-0 left-0 right-0 w-max max-h-[calc(100vh_-_56px)] p-2 rounded-xs shadow-md border bg-background text-base overflow-y-auto overscroll-contain transition-opacity [scrollbar-width:_thin] z-10" ref={refs.setFloating} {...getFloatingProps()} style={{
+        <div className="absolute top-0 left-0 w-max max-h-[calc(100vh-56px)] p-2 rounded-xs shadow-md border bg-background text-base overflow-y-auto overscroll-contain transition-opacity [scrollbar-width:thin] z-10" ref={refs.setFloating} {...getFloatingProps()} style={{
           top: y ?? 0,
           left: x ?? 0,
         }}
@@ -150,7 +155,7 @@ export const Search: FC<SearchProps> = ({ translations }) => {
                     tabIndex={-1}
                     href={result.href}
                     key={result.href}
-                    className={cn([/*'grid gap-[0_8px] grid-cols-[32px_1fr_auto]',*/ 'flex flex-col py-2 px-4 rounded-2', activeIndex === currentIndex && 'bg-gray-100'])}
+                    className={cn([/*'grid gap-[0_8px] grid-cols-[32px_1fr_auto]',*/ 'flex flex-col py-2 px-4 rounded-2 text-foreground no-underline', activeIndex === currentIndex && 'bg-background-light'])}
                     id={result.href}
                     target={isExternal ? '_blank' : undefined}
                     rel={isExternal ? 'noreferrer noopener' : undefined}
@@ -160,15 +165,15 @@ export const Search: FC<SearchProps> = ({ translations }) => {
                     })}
                   >
                     {/* result.icon */}
-                    <div className="[grid-area:_title] line-clamp-1">
+                    <div className="[grid-area:title] line-clamp-1">
                       {result.title}
                     </div>
                     {result.subtitle && (
-                      <div className="[grid-area:_subtitle] text-sm text-gray-600">
+                      <div className="[grid-area:subtitle] text-sm text-muted">
                         {result.subtitle}
                       </div>
                     )}
-                    {isExternal && <span className="[grid-area:_external] ml-2 text-gray-600">External</span>}
+                    {isExternal && <span className="[grid-area:external] ml-2 text-muted">External</span>}
                   </NextLink>
                 );
               })}

@@ -1,10 +1,10 @@
 import 'server-only';
 
+import type { UserRole } from '@brickninja-org/database';
+
 import { cache } from 'react';
 import { cookies, headers } from 'next/headers';
 import { redirect } from 'next/navigation';
-
-import type { UserRole } from '@brickninja-org/database';
 
 import { authCookieSettings } from '@/lib/auth/cookie';
 import { db } from '@/lib/prisma';

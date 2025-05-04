@@ -10,11 +10,14 @@ import { Bitter } from 'next/font/google';
 import { cn } from '@brickninja-org/ui/lib';
 import { DataTableContext } from '@brickninja-org/ui/components/table/DataTable.context';
 
+import { client_id } from '@/lib/bn2me';
+import { Bn2MeProvider } from '@/components/bn2me/Bn2Me.context';
 import { FormatProvider } from '@/components/format/Format.context';
-import { I18nProvider } from '@/components/i18n/I18nProvider';	
+import { I18nProvider } from '@/components/i18n/I18nProvider';
 import { ItemTableContext } from '@/components/item-table/ItemTable.context';
 import Layout from '@/components/layout/Layout';
 import { UserProvider } from '@/components/user/UserProvider';
+import { Bn2APIProvider } from '@/components/bn2-api/Bn2APIProvider';
 
 const bitter = Bitter({
   subsets: ['latin'],
@@ -22,7 +25,7 @@ const bitter = Bitter({
   variable: '--font-bitter',
 });
 
-export default async function RootLayout({ children, params }: LayoutProps & { modal?: ReactNode }) {
+export default async function RootLayout({ children, modal, params }: LayoutProps & { modal?: ReactNode }) {
   const { language } = await params;
 
   return (
@@ -34,7 +37,12 @@ export default async function RootLayout({ children, params }: LayoutProps & { m
             <ItemTableContext global id="global">
               <DataTableContext>
                 <UserProvider>
-                  <Layout language={language}>{children}</Layout>
+                  <Bn2MeProvider clientId={client_id} baseUrl={process.env.BN2ME_URL}>
+                    <Bn2APIProvider>
+                      <Layout language={language}>{children}</Layout>
+                      {modal}
+                    </Bn2APIProvider>
+                  </Bn2MeProvider>
                 </UserProvider>
               </DataTableContext>
             </ItemTableContext>
@@ -51,6 +59,8 @@ export const metadata: Metadata = {
     default: '',
   },
   description: 'Unofficial LEGO® Database and tool collection',
+  keywords: ['lego', 'brick', 'part', 'element', 'set', 'minifigure', 'collection'],
+  manifest: '/site.webmanifest',
   applicationName: 'brick.ninja',
   appleWebApp: {
     capable: true,

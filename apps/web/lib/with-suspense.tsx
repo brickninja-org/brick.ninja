@@ -3,7 +3,7 @@ import type { FC, ReactNode } from 'react';
 import { createElement, Suspense } from 'react';
 
 export function withSuspense<T extends object>(Component: FC<T>, fallback?: ReactNode): FC<T> {
-  const wrapped: FC<T> = (props) => (
+  const wrapped: FC<T> = (props: T) => (
     <Suspense fallback={fallback}>
       {createElement(Component, props)}
     </Suspense>

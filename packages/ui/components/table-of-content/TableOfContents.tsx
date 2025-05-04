@@ -83,12 +83,12 @@ const toc = tv({
   slots: {
     base: 'sticky top-12 m-0 py-4 list-none',
     jumpItem: 'h-0 overflow-hidden focus-within:h-[initial] focus-within:overflow-[initial]',
-    link: 'block py-1 pl-3 border-l-4 cursor-pointer hover:bg-gray-50 hover:border-l-gray-400',
+    link: 'block py-1 pl-3 border-l-4 border-l-(--color-border) text-inherit no-underline cursor-pointer hover:bg-background-light hover:border-l-(--color-border-dark) focus-visible:outline-none focus-visible:shadow-focus',
   },
   variants: {
     active: {
       true: {
-        link: 'border-yellow-600 hover:border-yellow-600',
+        link: 'border-(--hero-color,_var(--color-foreground)) hover:border-(--hero-color,_var(--color-foreground))',
       },
     }
   }

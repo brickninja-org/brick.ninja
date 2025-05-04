@@ -10,7 +10,7 @@ export const pageView = cache(async function pageView(page: string, pageId?: num
   }
 
   // get AS number (header set by cloudflare in prod)
-  const asn = parseInt(header.get('x-asn')!) || null;
+  // const asn = parseInt(header.get('x-asn')!) || null;
 
-  await db.pageView.create({ data: { page, pageId, asn }});
+  await db.pageView.create({ data: { page, pageId }});
 });

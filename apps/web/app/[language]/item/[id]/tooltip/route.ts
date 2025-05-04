@@ -1,6 +1,7 @@
 import type { Language } from '@brickninja-org/database';
-import type { GetSets } from '@brickset-api/types/data/get-sets';
+// import type { GetSets } from '@brickset-api/types/data/get-sets';
 import type { RouteHandler } from '@/lib/next';
+import type { Item } from 'types/item';
 
 import { notFound } from 'next/navigation';
 import { NextResponse } from 'next/server';
@@ -28,7 +29,7 @@ export const GET: RouteHandler<{ id: string }> = async (request, { params }) => 
     notFound();
   }
 
-  const data: GetSets = JSON.parse(revision.data);
+  const data: Item = JSON.parse(revision.data);
   const tooltip = await createTooltip(data, language);
 
   return NextResponse.json(tooltip, {

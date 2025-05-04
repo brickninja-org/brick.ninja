@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
+import type { PageProps } from '@/lib/next';
 
 import { notFound } from 'next/navigation';
 
-import type { PageProps } from '@/lib/next';
 import { getAlternateUrls } from '@/lib/url';
 
 import { getRevision } from './data';

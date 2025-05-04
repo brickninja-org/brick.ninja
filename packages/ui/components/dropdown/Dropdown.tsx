@@ -13,9 +13,10 @@ export interface DropdownProps {
   children: ReactNode;
   preferredPlacement?: Placement;
   hideTop?: boolean;
+  arrowColor?: string;
 }
 
-export const Dropdown: FC<DropdownProps> = ({ children, button, preferredPlacement = 'bottom-end', hideTop = true }) => {
+export const Dropdown: FC<DropdownProps> = ({ children, button, preferredPlacement = 'bottom-end', hideTop = true, arrowColor }) => {
   const [open, setOpen] = useState(false);
   const arrowRef = useRef<SVGSVGElement>(null);
   const padding = { top: 48 + 8, bottom: 8, left: 8, right: 8 };
@@ -53,7 +54,7 @@ export const Dropdown: FC<DropdownProps> = ({ children, button, preferredPlaceme
         <FloatingPortal>
           <div
             ref={refs.setFloating}
-            className="max-h-(--max-height) rounded-xs shadow border bg-white z-10"
+            className="max-h-(--max-height) rounded-xs shadow-base border bg-background z-10"
             style={{
               ...transitionStyles,
               ...floatingStyles,
@@ -62,11 +63,11 @@ export const Dropdown: FC<DropdownProps> = ({ children, button, preferredPlaceme
             {...getFloatingProps()}
           >
             <FloatingFocusManager context={context} modal={false}>
-              <div className="max-h-[calc(var(--max-height)_-_2px)] p-2 overflow-y-auto overscroll-y-contain">
+              <div className="max-h-[calc(var(--max-height)-2px)] p-2 overflow-y-auto overscroll-y-contain">
                 {children}
               </div>
             </FloatingFocusManager>
-            <FloatingArrow context={context} ref={arrowRef} width={12} height={6} tipRadius={1} fill="var(--color-background)" stroke="var(--color-border-dark)" strokeWidth={1}/>
+            <FloatingArrow context={context} ref={arrowRef} width={12} height={6} tipRadius={1} fill={arrowColor ?? 'var(--color-background)'} stroke="var(--color-border-dark)" strokeWidth={1}/>
           </div>
         </FloatingPortal>
       )}

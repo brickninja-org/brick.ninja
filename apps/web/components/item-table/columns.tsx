@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import type { SubType, Type } from '@/components/item/ItemType.types';
 import type { TypeTranslation } from '@/components/item/ItemType.translations';
+import type { ColumnModelTypes, ExtraColumn, GlobalColumnId, ItemTableColumn, QueryModel, Result } from './types';
 
 import { Prisma } from '@brickninja-org/database';
 // import { FlexRow } from '@brickninja-org/ui/components/flex-row';
@@ -12,8 +13,7 @@ import type { TranslationId } from '@/lib/translate';
 import { ItemLink } from '@/components/item/ItemLink';
 import { ItemType } from '@/components/item/ItemType';
 import { translations } from '@/components/item/ItemType.translations';
-
-import type { ColumnModelTypes, ExtraColumn, GlobalColumnId, ItemTableColumn, QueryModel, Result } from './types';
+import { EntityIcon } from '../entity/EntityIcon';
 
 // typehelper
 function createColumn<Select extends Prisma.ItemSelect, Translations extends TranslationId = never>(column: ItemTableColumn<Select, Translations>) {
@@ -32,15 +32,15 @@ export const globalColumnDefinitions = {
     small: true,
     orderBy: [{ id: 'asc' }, { id: 'desc' }]
   }),
-  productCode: createColumn({
-    id: 'productCode',
-    order: 20,
-    select: { productCode: true },
-  }),
   item: createColumn({
     id: 'item',
+    order: 20,
+    select: { name_en: true, name_nl: true, icon: true },
+  }),
+  icon: createColumn({
+    id: 'icon',
     order: 30,
-    select: { name_en: true, name_nl: true },
+    select: { icon: true },
   }),
   name_en: createColumn({
     id: 'name_en',
@@ -56,7 +56,7 @@ export const globalColumnDefinitions = {
   }),
   type: createColumn({
     id: 'type',
-    order: 60,
+    order: 100,
     select: { type: true, subtype: true },
     orderBy: [[{ type: 'asc' }, { subtype: 'asc' }], [{ type: 'desc' }, { subtype: 'desc' }]],
     translations: translations.long
@@ -75,14 +75,13 @@ type Renderer = {
 export const globalColumnRenderer: Renderer = {
   id: (item) => item.id,
   item: (item) => <ItemLink item={item}/>,
-  // icon: (item) => item.icon && <EntityIcon size={32} icon={item.icon}/>,
+  icon: (item) => item.icon && <EntityIcon size={32} icon={item.icon}/>,
   name_en: (item) => item.name_en,
   name_nl: (item) => item.name_nl,
   // name_fr: (item) => item.name_fr,
   // level: (item) => item.level,
   // rarity: (item, t) => <Rarity rarity={item.rarity}>{t[`rarity.${item.rarity}`]}</Rarity>,
   type: (item, t) => <ItemType type={item.type as Type} subtype={item.subtype as SubType<Type>} translations={t as Record<TypeTranslation<Type, SubType<Type>>, string>} display="long"/>,
-  productCode: (item) => item.productCode,
   // vendorValue: (item, t) => item.vendorValue === null ? empty(t['item.flag.NoSell']) : <Coins value={item.vendorValue}/>,
   // buyPrice: (item) => !item.tpTradeable ? empty() : renderPriceWithOptionalWarning(item.tpCheckedAt, item.buyPrice),
   // buyQuantity: (item) => !item.tpTradeable ? empty() : <FormatNumber value={item.buyQuantity ?? 0}/>,

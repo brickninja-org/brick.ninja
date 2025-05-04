@@ -1,4 +1,7 @@
 import type { HTMLProps, ReactElement, ReactNode } from 'react';
+import type { TranslationSubset } from '@/lib/translate';
+import type { translations as itemTypeTranslations, TypeTranslation } from '@/components/item/ItemType.translations';
+import type { SubType, Type } from '@/components/item/ItemType.types';
 import type { ApiSearchResponse } from 'app/[language]/api/search/route';
 
 import { useJsonFetch, useStaleJsonResponse } from '@/hooks/use-fetch';
@@ -7,7 +10,10 @@ import { localizedName } from '@/lib/localized-name';
 
 import { useLanguage } from '@/components/i18n/context';
 import { ItemLinkTooltip } from '@/components/item/ItemLinkTooltip';
+import { ItemType } from '@/components/item/ItemType';
 import { Tooltip } from '@/components/tooltip/Tooltip';
+import { EntityIcon } from '../entity/EntityIcon';
+import { ProductLinkTooltip } from '../product/ProductLinkTooltip';
 
 export interface SearchResults<Id extends string> {
   id: Id;
@@ -18,26 +24,49 @@ export interface SearchResults<Id extends string> {
 export interface SearchResult {
   href: string;
   title: ReactNode;
+  icon?: ReactNode;
   subtitle?: ReactNode;
   render?: (link: ReactElement<HTMLProps<HTMLElement>>) => ReactNode;
 }
 
-export function useSearchApiResults(searchValue: string) {
+export function useSearchApiResults(searchValue: string, translations: TranslationSubset<typeof itemTypeTranslations.short[0]>) {
   const fetchResponse = useJsonFetch<ApiSearchResponse>(`/api/search?q=${encodeURIComponent(searchValue)}`);
   const response = useStaleJsonResponse(fetchResponse);
   const language = useLanguage();
 
   const items = response.loading ? [] : response.data.items.map<SearchResult>((item) => ({
     title: localizedName(item, language),
-    subtitle: <>{item.productCode} ▪ {item.type}</>,
+    icon: item.icon && <EntityIcon icon={item.icon} size={32}/>,
+    subtitle: <>{item.id} ▪ <ItemType type={item.type as Type} subtype={item.subtype as SubType<Type>} translations={translations as unknown as Record<TypeTranslation<Type, SubType<Type>>, string>}/></>,
     href: `/item/${item.id}`,
     render: (link) => <Tooltip content={<ItemLinkTooltip item={getLinkProperties(item)}/>} key={link.key}>{link}</Tooltip>
+  }));
+
+  const products = response.loading ? [] : response.data.products.map<SearchResult>((product) => ({
+    title: localizedName(product, language),
+    icon: product.icon && <EntityIcon icon={product.icon} size={32}/>,
+    subtitle: (
+      <>
+        {product.id}
+        {product.categories && product.categories.length > 0 && (<> ▪ {localizedName(product.categories[0], language)}</>)}
+      </>
+    ),
+    href: `/product/${product.id}`,
+    render: (link) => <Tooltip content={<ProductLinkTooltip product={getLinkProperties(product)}/>} key={link.key}>{link}</Tooltip>
+  }));
+
+  const categories = response.loading ? [] : response.data.productCategories.map<SearchResult>((category) => ({
+    title: localizedName(category, language),
+    href: `/products/category/${category.id}`,
+    subtitle: 'Category',
   }));
 
   const results = <Id extends string>(id: Id, results: SearchResult[]): SearchResults<Id> => ({ id, results, loading: fetchResponse.loading });
 
   return [
     results('items', items),
+    results('products', products),
+    results('product.categories', categories),
   ];
 }
 
@@ -54,6 +83,7 @@ const pages: Page[] = [
   { href: '/review', title: 'Review Queues' },
 
   { href: '/item', title: 'Items' },
+  { href: '/products', title: 'Products' },
 
   { href: '/dev', title: 'Developer' },
   { href: '/dev/api', title: 'Developer / API' },

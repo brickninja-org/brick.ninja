@@ -55,12 +55,12 @@ export async function runJob(job: Job) {
         state: 'Error',
         finishedAt: new Date(),
         output: (error as Error).stack || (error as Error).toString() || 'Unknown Error'
-      }
+      },
     });
   } finally {
     // if the job is a cron job, schedule again
     if(job.cron) {
-      const interval = CronExpressionParser.parse(job.cron, {tz: 'utc' });
+      const interval = CronExpressionParser.parse(job.cron, { tz: 'utc' });
 
       await db.job.update({
         where: { id: job.id },

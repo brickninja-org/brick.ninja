@@ -32,10 +32,10 @@ const code = tv({
     inline: false,
   },
   compoundVariants: [
-    { borderless: false, inline: true, class: 'px-1 rounded-xs border border-gray-200 bg-gray-100' }, // inlineBorder
+    { borderless: false, inline: true, class: 'px-1 rounded-xs border border-(--color-border) bg-background-light' }, // inlineBorder
     { borderless: true, inline: true, class: '' }, // inline
     { borderless: true, inline: false, class: 'my-4 overflow-x-auto' }, // code
-    { borderless: false, inline: false, class: 'my-4 -ml-4 p-4 rounded-e-sm border border-l-0 border-gray-200 bg-gray-100 overflow-x-auto' }, // codeBorder
+    { borderless: false, inline: false, class: 'my-4 -ml-4 p-4 rounded-e-sm border border-l-0 border-(--color-border) bg-background-light overflow-x-auto' }, // codeBorder
   ],
 });
 

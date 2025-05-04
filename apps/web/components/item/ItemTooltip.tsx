@@ -2,17 +2,18 @@ import 'server-only';
 
 import type { FC } from 'react';
 import type { Language } from '@brickninja-org/database';
-import type { GetSets } from '@brickset-api/types/data/get-sets';
-import type { LocalizedEntity } from '@/lib/localized-name';
+// import type { GetSets } from '@brickset-api/types/data/get-sets';
+import { localizedName, type LocalizedEntity } from '@/lib/localized-name';
 
-import { isTruthy } from '@brickninja-org/helper/is';
-
-// import { getLinkProperties, type linkProperties } from '@/lib/link-properties';
-import { ClientItemTooltip } from '@/components/item/ItemTootip.client';
-import { getTranslate } from '@/lib/translate';
+import { parseIcon } from '@/lib/parse-icon';
+import { ClientItemTooltip } from '@/components/item/ItemTooltip.client';
+import { getTranslate, type TranslationId } from '@/lib/translate';
+import type { Item } from 'types/item';
+// import { isTruthy } from '@brickninja-org/helper/is';
+import { db } from '@/lib/prisma';
 
 export interface ItemTooltipProps {
-  item: GetSets;
+  item: Item;
   language: Language;
   hideTitle?: boolean;
 }
@@ -25,8 +26,13 @@ export const ItemTooltip: FC<ItemTooltipProps> = async ({ item, language, hideTi
   );
 };
 
-export async function createTooltip(item: GetSets, language: Language) {
+export async function createTooltip(item: Item, language: Language) {
   const t = await getTranslate(language);
+
+  // get element color
+  const elementColor = item.type === 'Element' && item.details?.color_id
+    ? await db.color.findUnique({ where: { id: item.details.color_id }})
+    : undefined; 
 
   /*
   type CurrentRevision = { [key in `current_${typeof language}`]: Revision };
@@ -39,11 +45,22 @@ export async function createTooltip(item: GetSets, language: Language) {
   const monthAgo = new Date();
   monthAgo.setMonth(monthAgo.getMonth() - 1);
 
-  const isNew = item.LEGOCom.US.dateFirstAvailable ? new Date(item.LEGOCom.US.dateFirstAvailable).valueOf() > monthAgo.valueOf() : false;
+  // const isNew = item.LEGOCom.US.dateFirstAvailable ? new Date(item.LEGOCom.US.dateFirstAvailable).valueOf() > monthAgo.valueOf() : false;
+
+  // get item icon
+  const icon = parseIcon(item.icon);
 
   return {
     language,
     name: item.name || '???',
+    icon,
+    type: item.details?.type ? t(`item.type.short.${item.type}.${item.details.type}` as TranslationId) : t(`item.type.${item.type}`),
+    elementId: item.details?.design_id ? `${item.id.toString()}/${item.details.design_id.toString()}` : undefined,
+    color: elementColor ? { id: elementColor.id, name: localizedName(elementColor, language), code: elementColor.plastic_code } : undefined,
+    /*
+    flags: [
+      item.flags.includes('NoInstructions') && t('item.flag.NoInstructions'),
+    ].filter(isTruthy),
     number: item.number,
     version: item.numberVariant,
     theme: item.theme,
@@ -57,11 +74,13 @@ export async function createTooltip(item: GetSets, language: Language) {
     minifigures: item.minifigs,
     ages: item.ageRange.min!,
     dimensions: item.dimensions!,
+    */
   };
 }
 
 export type ItemWithAttributes = LocalizedEntity & {
   id: number;
+  /*
   number: string;
   version: string;
   theme: string;
@@ -71,6 +90,7 @@ export type ItemWithAttributes = LocalizedEntity & {
   minifigures: number;
   ages: number;
   dimensions: { height?: number; width?: number; depth?: number, weight?: number };
+  */
   // attributes?: { label: string, value: number }[];
   // buff?: string;
 };
@@ -78,6 +98,12 @@ export type ItemWithAttributes = LocalizedEntity & {
 export interface ItemTooltip {
   language: Language;
   name: string;
+  icon?: { id: number; signature: string; };
+  type?: string;
+  elementId?: string;
+  color?: { id: number; name: string; code: string | null; };
+  // flags: string[];
+  /*
   number: string;
   version: string;
   theme: string;
@@ -87,5 +113,5 @@ export interface ItemTooltip {
   minifigures: number;
   ages: number;
   dimensions: { height?: number; width?: number; depth?: number, weight?: number };
-  flags: string[];
+  */
 }

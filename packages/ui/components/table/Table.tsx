@@ -13,6 +13,7 @@ export interface TableProps extends Pick<TableVariantProps, 'layout' | 'fullWidt
 
 export interface HeaderCellProps extends TableVariantProps {
   children?: ReactNode;
+  colSpan?: number;
   sort?: boolean | 'asc' | 'desc';
   onSort?: () => void;
 }
@@ -28,8 +29,8 @@ const table = tv({
     table: 'max-content min-w-full md:w-full border-separate border-spacing-0 border-none',
     tbody: '',
     tr: ['group/tr', 'first:border-t-0', 'outline-none'],
-    th: ['group/th', 'sticky', 'top-(--table-sticky-top,48px)', 'py-2', 'px-4', 'border-b-2', 'bg-background', 'font-medium', 'text-left', 'whitespace-nowrap', 'z-1'],
-    td: ['py-2 px-4', 'border-t', 'font-normal', 'leading-normal text-left', 'transition-colors duration-100 ease-linear', 'group-hover/tr:bg-gray-100', 'h-[1px]'], //set height to 1px. this get ignored by browsers, but allows childs to use height: 100%
+    th: ['group/th', 'sticky', 'top-(--table-sticky-top,_48px)', 'py-2', 'px-4', 'border-b-2', 'bg-background', 'font-medium', 'text-left', 'whitespace-nowrap', 'z-1'],
+    td: ['py-2 px-4', 'border-t', 'font-normal', 'leading-normal text-left', 'transition-colors duration-100 ease-linear', 'group-hover/tr:bg-background-light', 'h-0.25'], //set height to 1px. this get ignored by browsers, but allows childs to use height: 100%
   },
   variants: {
     layout: {
@@ -63,7 +64,7 @@ const table = tv({
     },
     small: {
       true: {
-        th: 'w-[1px]',
+        th: 'w-0.25',
       }
     },
   },
@@ -92,14 +93,14 @@ const Table: FC<TableProps> & { HeaderCell: FC<HeaderCellProps>, BodyRow: FC<Bod
   );
 };
 
-Table.HeaderCell = function HeaderCell({ children, small = false, align, sort, onSort }: HeaderCellProps) {
+Table.HeaderCell = function HeaderCell({ children, small = false, align, colSpan, sort, onSort }: HeaderCellProps) {
   const { th } = table();
   return (
-    <th scope="col" className={cn(th({ small, align }))} aria-sort={sort === 'asc' ? 'ascending' : sort === 'desc' ? 'descending' : undefined}>
+    <th scope="col" colSpan={colSpan} className={cn(th({ small, align }))} aria-sort={sort === 'asc' ? 'ascending' : sort === 'desc' ? 'descending' : undefined}>
       {sort ? (
-        <button className={cn(['block [width:_calc(100%_+_32px)] -my-2 -mx-4 py-2 px-4 rounded-xs [text-align:inherit] cursor-pointer'])} onClick={onSort}>
+        <button className={cn(['block [width:calc(100%+32px)] -my-2 -mx-4 py-2 px-4 rounded-xs [text-align:inherit] cursor-pointer'])} onClick={onSort}>
           {children}
-          <Icon className="inline-block ml-2 text-gray-600" icon={sort === 'desc' ? 'sort-desc' : sort === 'asc' ? 'sort-asc' : 'sort'}/>
+          <Icon className="inline-block ml-2 text-muted" icon={sort === 'desc' ? 'sort-desc' : sort === 'asc' ? 'sort-asc' : 'sort'}/>
         </button>
       ) : children}
     </th>

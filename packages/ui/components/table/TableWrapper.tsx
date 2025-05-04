@@ -11,7 +11,7 @@ export interface TableWrapperProps {
 }
 
 const wrapperStyles = tv({
-  base: 'overflow-clip width-[calc(100%_+_32px)] mb-4 -mx-4 px-4',
+  base: 'overflow-clip width-[calc(100%+32px)] mb-4 -mx-4 px-4',
   variants: {
     overflow: {
       true: 'overflow-x-scroll will-change-scroll-position [&>table>thead>tr>th]:static',
@@ -38,8 +38,14 @@ export const TableWrapper: FC<TableWrapperProps> = ({ children }) => {
   useResizeObserver(wrapper, checkOverflow);
   useResizeObserver(table, checkOverflow);
 
+  // @ts-expect-error this is a workaround, because react@19 somehow broke passing children elements (TableWrapper is a client component, children is usually a server component)
+  //   before react@19 `children` was `<Lazy/>`, now it is `{ $$typeof: Symbol(react.lazy) }`.
+  //   We need access to the component props (especially ref) for the tooltip to function correctly
+  //   This seems to work for now, but I need to create a reproduction for this and report it to get it fixed.
+  if(children.$$typeof === Symbol.for('react.lazy')) { children = use(children._payload); }
+
   return (
-    <div className={wrapperStyles({ overflow: isOverflowing })} ref={wrapper}>
+    <div className={wrapperStyles({ overflow: isOverflowing })} ref={wrapper} data-table-overflow={isOverflowing ? '' : undefined}>
       {cloneElement(Children.only(children), { ref: table })}
     </div>
   );
