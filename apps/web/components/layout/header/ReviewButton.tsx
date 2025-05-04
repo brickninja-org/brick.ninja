@@ -52,7 +52,7 @@ const InternalReviewButton: FC<InternalReviewButtonProps> = ({ language, data })
 
   const button = (
     <LinkButton appearance="menu" href="/review" aria-label="Review">
-      <Icon icon="review-queue"/><span className="responsive"><Translate language={language} id="review"/><ReviewCountBadge count={reviewCounts?._total} hideEmpty/></span>
+      <Icon icon="review-queue"/><span className="hidden md:block"><Translate language={language} id="review"/><ReviewCountBadge count={reviewCounts?._total} hideEmpty/></span>
     </LinkButton>
   );
 
