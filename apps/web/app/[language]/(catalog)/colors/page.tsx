@@ -18,6 +18,7 @@ const getColors = unstable_cache((language: Language) => {
       id: true,
       name_en: language === 'en',
       name_nl: language === 'nl',
+      color_family: true,
       plastic_code: true,
     },
     orderBy: { id: 'asc' },
@@ -42,6 +43,9 @@ export default async function ColorsPage({ params }: PageProps) {
         </Colors.Column>
         <Colors.Column id="name" title={<Translate id="itemTable.column.name"/>} sort={compareLocalizedName(language)}>
           {(name) => localizedName(name, language)}
+        </Colors.Column>
+        <Colors.Column id="family" title={<Translate id="colors.family"/>} sortBy="color_family">
+          {({ color_family }) => color_family}
         </Colors.Column>
         <Colors.Column id="plastic" title={<Translate id="colors.plastic"/>} small>
           {({ plastic_code }) => <DyeColor color={hexToRgb(plastic_code)}/>}

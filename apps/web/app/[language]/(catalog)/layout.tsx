@@ -20,6 +20,7 @@ export default function CatalogLayout({ children }: LayoutProps) {
             { segment: 'sets', icon: 'decoration', label: <Translate id="navigation.sets"/> },
             { segment: 'gear', icon: 'settings', label: <Translate id="navigation.gear"/> },
             { segment: 'books', icon: 'notepad-edit', label: <Translate id="navigation.books"/> },
+            { segment: 'colors', icon: 'color', label: <Translate id="navigation.colors"/> },
           ]}/>
       )}
     >
