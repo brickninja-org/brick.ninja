@@ -70,7 +70,7 @@ export const ProductPageComponent: FC<ProductPageComponentProps> = async ({ lang
         <Notice icon="revision">You are viewing an old revision of this product. <Link href={`/product/${product.id}`}>View Current</Link>.</Notice>
       )}
       {product[`currentId_${language}`] === revision.id && fixedRevision && (
-        <Notice icon="revision">You are viewing this product at a fixed revision. <Link href={`/skill/${product.id}`}>View current.</Link></Notice>
+        <Notice icon="revision">You are viewing this product at a fixed revision. <Link href={`/product/${product.id}`}>View current.</Link></Notice>
       )}
 
       <TableOfContentAnchor id="tooltip">Tooltip</TableOfContentAnchor>
