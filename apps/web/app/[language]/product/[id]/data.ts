@@ -1,4 +1,5 @@
 import type { Language } from '@brickninja-org/database';
+import type { Product as ApiProduct } from 'types/product';
 
 import { notFound } from 'next/navigation';
 
@@ -33,6 +34,6 @@ export const getRevision = cache(async (id: number, language: Language, revision
 
   return {
     revision,
-    data: revision ? JSON.parse(revision.data) : undefined,
+    data: revision ? JSON.parse(revision.data) as ApiProduct : undefined,
   };
 }, ['revision-product'], { revalidate: 60 });
