@@ -112,7 +112,8 @@
   "colors.description": "All the available colors.",
   "colors.family": "Color Family",
   "colors.plastic": "Plastic",
-  "product.attributes.ageRange": "Ages",
-  "product.attributes.figureCount": "Figures",
-  "product.attributes.pieceCount": "Pieces"
+  "product.attributes.Ages": "Ages",
+  "product.attributes.Figures": "Figures",
+  "product.attributes.Minifigures": "Minifigures",
+  "product.attributes.Pieces": "Pieces"
 }

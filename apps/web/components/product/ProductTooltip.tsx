@@ -33,7 +33,7 @@ export async function createTooltip(product: ApiProduct, language: Language): Pr
     language,
     name: product.name,
     attributes: product.details?.attributes && product.details.attributes.length > 0
-      ? product.details.attributes.map(({ type, value }) => ({ label: t(`product.attributes.${type}` as TranslationId), value: type === 'ageRange' ? `${value}+` : value, type }))
+      ? product.details.attributes.map(({ text, type, value }) => ({ label: t(`product.attributes.${text}` as TranslationId), value: type === 'ageRange' ? `${value}+` : value, type }))
       : undefined,
   };
 }
