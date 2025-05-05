@@ -46,7 +46,7 @@ export const ProductsJob: Job = {
           type: product.en.type,
           subtype: product.en.details?.type ?? undefined,
           pieceCount: product.en.details?.attributes?.find((a) => a.type === 'pieceCount')?.value ?? undefined,
-          minifigureCount: product.en.details?.attributes?.find((a) => a.type === 'minifigureCount')?.value ?? undefined,
+          figureCount: product.en.details?.attributes?.find((a) => a.type === 'figureCount')?.value ?? undefined,
 
           items,
 

@@ -12,7 +12,7 @@
   "itemTable.column.name_nl": "Naam (NL)",
   "itemTable.column.productCode": "LEGO®-nummer",
   "itemTable.column.minAge": "Leeftijden",
-  "itemTable.column.minifigureCount": "Minifiguren",
+  "itemTable.column.figureCount": "Minifiguren",
   "itemTable.column.pieceCount": "Stenen",
   "itemTable.column.year": "Jaar",
   "itemTable.viewItem": "Bekijk item",

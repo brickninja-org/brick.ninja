@@ -17,7 +17,7 @@ import { Translate } from '@/components/i18n/Translate';
 import { TableFilterRow } from '@/components/table/TableFilter';
 import { FormatNumber } from '@/components/format/FormatNumber';
 
-export function createProductTable(products: Pick<WithIcon<Product & { categories: Category[] }>, keyof LocalizedEntity | 'id' | 'type' | 'subtype' | 'icon' | 'pieceCount' | 'minifigureCount' | 'categories'>[]) {
+export function createProductTable(products: Pick<WithIcon<Product & { categories: Category[] }>, keyof LocalizedEntity | 'id' | 'type' | 'subtype' | 'icon' | 'pieceCount' | 'figureCount' | 'categories'>[]) {
   return createDataTable(products, ({ id }) => id);
 }
 
@@ -42,8 +42,8 @@ export const CatalogProductDataTable: FC<CatalogProductTableProps> = ({ language
       <products.Column id="pieces" title={<Translate id="catalog.product.pieces"/>} align="end" small sortBy="pieceCount">
         {({ pieceCount }) => <FormatNumber value={pieceCount ?? 0}/>}
       </products.Column>
-      <products.Column id="minifigures" title={<Translate id="catalog.product.minifigs"/>} align="end" small sortBy="minifigureCount">
-        {({ minifigureCount }) => <FormatNumber value={minifigureCount ?? 0}/>}
+      <products.Column id="figures" title={<Translate id="catalog.product.figures"/>} align="end" small sortBy="figureCount">
+        {({ figureCount }) => <FormatNumber value={figureCount ?? 0}/>}
       </products.Column>
       <products.Column id="actions" title="" small fixed>
         {({ id }) => (
