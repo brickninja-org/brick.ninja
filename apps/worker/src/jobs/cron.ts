@@ -10,10 +10,10 @@ export async function registerCronJobs() {
 
   await registerJob('test', '0 0 * * *');
 
-  await registerJob('items.check', '*/5 * * * *');
-  await registerJob('items.update', '*/3 * * * *');
-  await registerJob('items.migrate', '*/6 * * * *');
-  await registerJob('items.container-content', '47 11 * * *');
+  // await registerJob('items.check', '*/5 * * * *');
+  // await registerJob('items.update', '*/3 * * * *');
+  // await registerJob('items.migrate', '*/6 * * * *');
+  // await registerJob('items.container-content', '47 11 * * *');
   // await registerJob('items.views', '56 * * * *');
 
   await registerJob('products', '*/5 * * * *');
@@ -26,7 +26,7 @@ export async function registerCronJobs() {
 
   await registerJob('bricklinkapi-requests.cleanup', '33 3 * * *');
 
-  await registerJob('icon.colors', '37 * * * * ');
+  // await registerJob('icon.colors', '37 * * * * ');
 
   await registerJob('jobs.cleanup', '8 * * * *');
 }
