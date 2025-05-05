@@ -94,7 +94,7 @@
       "id": 102,
       "name": "Medium Blue",
       "plastic": {
-        "rgb": [0, 0, 153]
+        "rgb": [90, 147, 219]
       },
       "type": "Solid",
       "family": "Blue"
@@ -103,7 +103,7 @@
       "id": 106,
       "name": "Bright Orange",
       "plastic": {
-        "rgb": [255, 102, 0]
+        "rgb": [254, 138, 24]
       },
       "type": "Solid",
       "family": "Orange"
@@ -112,7 +112,7 @@
       "id": 107,
       "name": "Bright Bluish Green",
       "plastic": {
-        "rgb": [0, 204, 153]
+        "rgb": [0, 143, 155]
       },
       "type": "Solid",
       "family": "Green"
@@ -130,7 +130,7 @@
       "id": 124,
       "name": "Bright Reddish Violet",
       "plastic": {
-        "rgb": [153, 0, 153]
+        "rgb": [146, 57, 120]
       },
       "type": "Solid",
       "family": "Purple"
@@ -182,7 +182,7 @@
     },
     {
       "id": 154,
-      "name": "Dark Red",
+      "name": "New Dark Red",
       "plastic": {
         "rgb": [114, 14, 15]
       },
@@ -247,7 +247,7 @@
       "id": 222,
       "name": "Light Purple",
       "plastic": {
-        "rgb": [204, 153, 255]
+        "rgb": [228, 173, 200]
       },
       "type": "Solid",
       "family": "Purple"
@@ -256,7 +256,7 @@
       "id": 226,
       "name": "Cool Yellow",
       "plastic": {
-        "rgb": [255, 255, 153]
+        "rgb": [251, 230, 150]
       },
       "type": "Solid",
       "family": "Yellow"
@@ -265,7 +265,7 @@
       "id": 268,
       "name": "Medium Lilac",
       "plastic": {
-        "rgb": [153, 102, 204]
+        "rgb": [63, 54, 145]
       },
       "type": "Solid",
       "family": "Purple"
@@ -285,7 +285,7 @@
       "plastic": {
         "rgb": [170, 127, 46]
       },
-      "type": "Metallic",
+      "type": "Unknown",
       "family": "Metallic"
     },
     {
@@ -301,10 +301,28 @@
       "id": 312,
       "name": "Medium Nougat",
       "plastic": {
-        "rgb": [204, 112, 42]
+        "rgb": [170, 125, 85]
       },
       "type": "Solid",
       "family": "Brown"
+    },
+    {
+      "id": 315,
+      "name": "Silver Metallic",
+      "plastic": {
+        "rgb": [137, 135, 136]
+      },
+      "type": "Unknown",
+      "family": "Metallic"
+    },
+    {
+      "id": 316,
+      "name": "Titanium Metallic",
+      "plastic": {
+        "rgb": [62, 60, 57]
+      },
+      "type": "Unknown",
+      "family": "Grey"
     },
     {
       "id": 321,
@@ -328,7 +346,7 @@
       "id": 323,
       "name": "Aqua",
       "plastic": {
-        "rgb": [179, 215, 209]
+        "rgb": [173, 195, 192]
       },
       "type": "Solid",
       "family": "Blue"
@@ -361,6 +379,15 @@
       "family": "Green"
     },
     {
+      "id": 329,
+      "name": "White Glow",
+      "plastic": {
+        "rgb": [217, 217, 217]
+      },
+      "type": "Unknown",
+      "family": "White"
+    },
+    {
       "id": 330,
       "name": "Olive Green",
       "plastic": {
@@ -368,6 +395,87 @@
       },
       "type": "Solid",
       "family": "Green"
+    },
+    {
+      "id": 335,
+      "name": "Gold Ink",
+      "plastic": {
+        "rgb": [219, 172, 52]
+      },
+      "type": "Unknown",
+      "family": "Metallic"
+    },
+    {
+      "id": 336,
+      "name": "Siver Ink",
+      "plastic": {
+        "rgb": [165, 169, 180]
+      },
+      "type": "Unknown",
+      "family": "Metallic"
+    },
+    {
+      "id": 353,
+      "name": "Vibrant Coral",
+      "plastic": {
+        "rgb": [255, 105, 143]
+      },
+      "type": "Solid",
+      "family": "Orange"
+    },
+    {
+      "id": 368,
+      "name": "Vibrant Yellow",
+      "plastic": {
+        "rgb": [255, 240, 58]
+      },
+      "type": "Solid",
+      "family": "Yellow"
+    },
+    {
+      "id": 370,
+      "name": "Medium Brown",
+      "plastic": {
+        "rgb": [117, 89, 69]
+      },
+      "type": "Solid",
+      "family": "Brown"
+    },
+    {
+      "id": 371,
+      "name": "Warm Tan",
+      "plastic": {
+        "rgb": [204, 163, 115]
+      },
+      "type": "Solid",
+      "family": "Orange"
+    },
+    {
+      "id": 402,
+      "name": "Reddish Orange",
+      "plastic": {
+        "rgb": [202, 76, 11]
+      },
+      "type": "Solid",
+      "family": "Orange"
+    },
+    {
+      "id": 422,
+      "name": "Sienna Brown",
+      "plastic": {
+        "rgb": [145, 92, 60]
+      },
+      "type": "Solid",
+      "family": "Brown"
+    },
+    {
+      "id": 423,
+      "name": "Umber Brown",
+      "plastic": {
+        "rgb": [94, 63, 51]
+      },
+      "type": "Solid",
+      "family": "Grey"
     }
   ]
 }

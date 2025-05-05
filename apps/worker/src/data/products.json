@@ -532,7 +532,21 @@
     },
     {
       "categories": [7, 25],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 822
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10328,
       "itemIds": [],
       "name": "Bouquet of Roses",
@@ -540,7 +554,21 @@
     },
     {
       "categories": [7, 25],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 758
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10329,
       "itemIds": [],
       "name": "Tiny Plants",
@@ -548,7 +576,26 @@
     },
     {
       "categories": [25],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 693
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 1
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 10330,
       "itemIds": [],
       "name": "McLaren MP4/4 & Ayrton Senna",
@@ -570,6 +617,7 @@
           }
         ]
       },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10331,
       "itemIds": [
         6474623,
@@ -580,7 +628,26 @@
     },
     {
       "categories": [25],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 3304
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 8
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 10332,
       "itemIds": [],
       "name": "Medieval Town Square",
@@ -588,7 +655,26 @@
     },
     {
       "categories": [28, 25],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 5471
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 10
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 10333,
       "itemIds": [],
       "name": "The Lord of the Rings: Barad-dûr™",
@@ -596,7 +682,21 @@
     },
     {
       "categories": [25],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 906
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10334,
       "itemIds": [],
       "name": "Retro Radio",
@@ -604,7 +704,21 @@
     },
     {
       "categories": [25],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 3011
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10335,
       "itemIds": [],
       "name": "The Endurance",
@@ -612,7 +726,21 @@
     },
     {
       "categories": [25],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1506
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10337,
       "itemIds": [],
       "name": "Lamborghini Countach 5000 Quattrovalvole",
@@ -620,7 +748,21 @@
     },
     {
       "categories": [25],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 950
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10338,
       "itemIds": [],
       "name": "Bumblebee",
@@ -628,7 +770,26 @@
     },
     {
       "categories": [25],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1440
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 5
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 10339,
       "itemIds": [],
       "name": "Santa's Post Office",
@@ -636,7 +797,21 @@
     },
     {
       "categories": [7, 25],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1194
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10340,
       "itemIds": [],
       "name": "Wreath",
@@ -644,7 +819,21 @@
     },
     {
       "categories": [25],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 3601
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10341,
       "itemIds": [],
       "name": "NASA Artemis Space Launch System",
@@ -652,7 +841,21 @@
     },
     {
       "categories": [7],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 749
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10342,
       "itemIds": [],
       "name": "Pretty Pink Flower Bouquet",
@@ -660,7 +863,21 @@
     },
     {
       "categories": [7],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 274
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10343,
       "itemIds": [],
       "name": "Mini Orchid",
@@ -668,7 +885,21 @@
     },
     {
       "categories": [7],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 325
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10344,
       "itemIds": [],
       "name": "Lucky Bamboo",
@@ -676,7 +907,21 @@
     },
     {
       "categories": [7],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1161
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10345,
       "itemIds": [],
       "name": "Flower Arrangement",
@@ -684,7 +929,21 @@
     },
     {
       "categories": [7],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 373
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10347,
       "itemIds": [],
       "name": "Petite Sunny Bouquet",
@@ -692,7 +951,26 @@
     },
     {
       "categories": [25],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 3266
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 8
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 10350,
       "itemIds": [],
       "name": "Tudor Corner",
@@ -700,7 +978,26 @@
     },
     {
       "categories": [25],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 799
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 1
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 10353,
       "itemIds": [],
       "name": "Williams Racing FW14B & Nigel Mansell",
@@ -719,9 +1016,15 @@
             "text": "Minifigures",
             "type": "minifigureCount",
             "value": 9
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
           }
         ]
       },
+      "flags": ["ShowInCatalog"],
       "id": 10354,
       "itemIds": [
         6530073,
@@ -732,7 +1035,26 @@
     },
     {
       "categories": [25],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1151
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 3
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 10355,
       "itemIds": [],
       "name": "Blacktron Renegade",
@@ -740,7 +1062,21 @@
     },
     {
       "categories": [25],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1302
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10359,
       "itemIds": [],
       "name": "Fountain Garden",
@@ -748,7 +1084,21 @@
     },
     {
       "categories": [25],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1101
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10362,
       "itemIds": [],
       "name": "French Café",
@@ -756,7 +1106,25 @@
     },
     {
       "categories": [25],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 493
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 1
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
       "id": 10363,
       "itemIds": [],
       "name": "Leonardo da Vinci's Flying Machine",
@@ -764,7 +1132,21 @@
     },
     {
       "categories": [7, 25],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 278
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10368,
       "itemIds": [],
       "name": "Chrysanthemum",
@@ -772,7 +1154,21 @@
     },
     {
       "categories": [7],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 327
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10369,
       "itemIds": [],
       "name": "Plum Blossom",
@@ -780,7 +1176,21 @@
     },
     {
       "categories": [7, 25],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 608
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10370,
       "itemIds": [],
       "name": "Poinsettia",
@@ -788,7 +1198,26 @@
     },
     {
       "categories": [25],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 966
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 2
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 10391,
       "itemIds": [],
       "name": "Over the Moon with Pharrell Williams",
@@ -796,7 +1225,21 @@
     },
     {
       "categories": [18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 19
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 1.5
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10412,
       "itemIds": [],
       "name": "Animal Train",
@@ -804,7 +1247,21 @@
     },
     {
       "categories": [18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 15
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 1.5
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10413,
       "itemIds": [],
       "name": "Daily Routines: Bath Time",
@@ -812,7 +1269,21 @@
     },
     {
       "categories": [18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 28
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 1.5
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10414,
       "itemIds": [],
       "name": "Daily Routines: Eating & Bedtime",
@@ -820,7 +1291,21 @@
     },
     {
       "categories": [18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 23
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 1.5
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10415,
       "itemIds": [],
       "name": "Big Feelings & Emotions",
@@ -828,7 +1313,26 @@
     },
     {
       "categories": [18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 74
+          },
+          {
+            "text": "Figures",
+            "type": "minifigureCount",
+            "value": 8
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 2
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10416,
       "itemIds": [],
       "name": "Caring for Animals at the Farm",
@@ -836,7 +1340,21 @@
     },
     {
       "categories": [15,18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 14
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 2
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10417,
       "itemIds": [],
       "name": "Mack at the Race",
@@ -844,7 +1362,26 @@
     },
     {
       "categories": [15, 18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 31
+          },
+          {
+            "text": "Figures",
+            "type": "minifigureCount",
+            "value": 3
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 2
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10418,
       "itemIds": [],
       "name": "Elsa & Bruni in the Enchanted Forest",
@@ -852,7 +1389,26 @@
     },
     {
       "categories": [18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 22
+          },
+          {
+            "text": "Figures",
+            "type": "minifigureCount",
+            "value": 4
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 2
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10419,
       "itemIds": [],
       "name": "Caring for Bees & Beehives",
@@ -860,7 +1416,26 @@
     },
     {
       "categories": [18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 36
+          },
+          {
+            "text": "Figures",
+            "type": "minifigureCount",
+            "value": 2
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 2
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10421,
       "itemIds": [],
       "name": "Alphabet Truck",
@@ -868,7 +1443,21 @@
     },
     {
       "categories": [18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 71
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 2
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10423,
       "itemIds": [],
       "name": "Buildable People with Big Emotions",
@@ -876,7 +1465,26 @@
     },
     {
       "categories": [18, 29],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 24
+          },
+          {
+            "text": "Figures",
+            "type": "minifigureCount",
+            "value": 2
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 2
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10424,
       "itemIds": [],
       "name": "Spin's Motorcycle Adventure",
@@ -884,7 +1492,21 @@
     },
     {
       "categories": [18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 20
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 2
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10425,
       "itemIds": [],
       "name": "Train Tunnel and Tracks Expansion Set",
@@ -892,7 +1514,26 @@
     },
     {
       "categories": [18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 20
+          },
+          {
+            "text": "Figures",
+            "type": "minifigureCount",
+            "value": 1
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 2
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10426,
       "itemIds": [],
       "name": "Train Bridge and Tracks Expansion Set",
@@ -900,7 +1541,26 @@
     },
     {
       "categories": [18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 103
+          },
+          {
+            "text": "Figures",
+            "type": "minifigureCount",
+            "value": 5
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 2
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10428,
       "itemIds": [],
       "name": "Big Interactive Community Train",
@@ -908,7 +1568,26 @@
     },
     {
       "categories": [19, 18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 20
+          },
+          {
+            "text": "Figures",
+            "type": "minifigureCount",
+            "value": 2
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 2
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10431,
       "itemIds": [],
       "name": "Peppa Pig Garden and Tree House",
@@ -916,7 +1595,26 @@
     },
     {
       "categories": [19, 18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 23
+          },
+          {
+            "text": "Figures",
+            "type": "minifigureCount",
+            "value": 2
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 2
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10432,
       "itemIds": [],
       "name": "Peppa Pig Boat Trip",
@@ -924,7 +1622,26 @@
     },
     {
       "categories": [19, 18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 59
+          },
+          {
+            "text": "Figures",
+            "type": "minifigureCount",
+            "value": 3
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 2
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10433,
       "itemIds": [],
       "name": "Peppa Pig Birthday House",
@@ -932,7 +1649,26 @@
     },
     {
       "categories": [19, 18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 7
+          },
+          {
+            "text": "Figures",
+            "type": "minifigureCount",
+            "value": 4
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 2
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10434,
       "itemIds": [],
       "name": "Peppa Pig Supermarket",
@@ -940,7 +1676,26 @@
     },
     {
       "categories": [18, 15],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 116
+          },
+          {
+            "text": "Figures",
+            "type": "minifigureCount",
+            "value": 3
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 2
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10435,
       "itemIds": [],
       "name": "Ariel's Magical Underwater Palace",
@@ -948,7 +1703,26 @@
     },
     {
       "categories": [18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 80
+          },
+          {
+            "text": "Figures",
+            "type": "minifigureCount",
+            "value": 3
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 1.5
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10439,
       "itemIds": [],
       "name": "Cars and Trucks Brick Box",
@@ -956,7 +1730,26 @@
     },
     {
       "categories": [18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 27
+          },
+          {
+            "text": "Figures",
+            "type": "minifigureCount",
+            "value": 2
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 1.5
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10440,
       "itemIds": [],
       "name": "Balancing & Stacking Tree",
@@ -964,7 +1757,26 @@
     },
     {
       "categories": [18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 10
+          },
+          {
+            "text": "Figures",
+            "type": "minifigureCount",
+            "value": 4
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 2
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10442,
       "itemIds": [],
       "name": "Wild Animal Families: Penguins & Lions",
@@ -972,7 +1784,21 @@
     },
     {
       "categories": [18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 45
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 2
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10444,
       "itemIds": [],
       "name": "Creative Garden & Flowers",
@@ -980,7 +1806,21 @@
     },
     {
       "categories": [18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 70
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 2
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10445,
       "itemIds": [],
       "name": "F1® Team Race Cars & Drivers",
@@ -988,7 +1828,26 @@
     },
     {
       "categories": [18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 92
+          },
+          {
+            "text": "Figures",
+            "type": "minifigureCount",
+            "value": 10
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 2
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10446,
       "itemIds": [],
       "name": "3in1 Wild Animal Families",
@@ -996,7 +1855,26 @@
     },
     {
       "categories": [18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 19
+          },
+          {
+            "text": "Figures",
+            "type": "minifigureCount",
+            "value": 2
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 2
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10447,
       "itemIds": [],
       "name": "Ambulance & Driver",
@@ -1004,7 +1882,26 @@
     },
     {
       "categories": [18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 65
+          },
+          {
+            "text": "Figures",
+            "type": "minifigureCount",
+            "value": 4
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 2
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10449,
       "itemIds": [],
       "name": "First Time: Visit with the Doctor",
@@ -1012,7 +1909,26 @@
     },
     {
       "categories": [19, 18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 32
+          },
+          {
+            "text": "Figures",
+            "type": "minifigureCount",
+            "value": 2
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 2
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10452,
       "itemIds": [],
       "name": "Camping Trip",
@@ -1020,7 +1936,26 @@
     },
     {
       "categories": [19, 18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 53
+          },
+          {
+            "text": "Figures",
+            "type": "minifigureCount",
+            "value": 3
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 2
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10453,
       "itemIds": [],
       "name": "Funfair",
@@ -1028,7 +1963,26 @@
     },
     {
       "categories": [15, 18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 27
+          },
+          {
+            "text": "Figures",
+            "type": "minifigureCount",
+            "value": 1
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 2
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10454,
       "itemIds": [],
       "name": "Mickey Mouse Clubhouse & Car",
@@ -1036,7 +1990,26 @@
     },
     {
       "categories": [15, 18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 22
+          },
+          {
+            "text": "Figures",
+            "type": "minifigureCount",
+            "value": 3
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 1.5
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10457,
       "itemIds": [],
       "name": "Winnie the Pooh's Birthday Party",
@@ -1044,7 +2017,26 @@
     },
     {
       "categories": [6, 18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 22
+          },
+          {
+            "text": "Figures",
+            "type": "minifigureCount",
+            "value": 2
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 2
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10458,
       "itemIds": [],
       "name": "Ice Cream Trip with Bluey",
@@ -1052,7 +2044,26 @@
     },
     {
       "categories": [6, 18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 83
+          },
+          {
+            "text": "Figures",
+            "type": "minifigureCount",
+            "value": 3
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 3
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10459,
       "itemIds": [],
       "name": "Bluey's Family House with Memory Game",
@@ -1060,7 +2071,21 @@
     },
     {
       "categories": [18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 1.5
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10460,
       "itemIds": [],
       "name": "Green Building Plate",
@@ -1068,7 +2093,21 @@
     },
     {
       "categories": [11],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 484
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 4
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10696,
       "itemIds": [],
       "name": "LEGO® Medium Creative Brick Box",
@@ -1076,7 +2115,21 @@
     },
     {
       "categories": [11],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 790
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 4
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10698,
       "itemIds": [],
       "name": "LEGO® Large Creative Brick Box",
@@ -1084,7 +2137,21 @@
     },
     {
       "categories": [11],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 213
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 4
+          }
+        ]
+      },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 10713,
       "itemIds": [],
       "name": "Creative Suitcase",
@@ -4724,6 +5791,7 @@
       "details": {
         "type": "Bagpack"
       },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 5008680,
       "itemIds": [],
       "name": "Backpack – Monkey",
@@ -4734,6 +5802,7 @@
       "details": {
         "type": "Bagpack"
       },
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 5008682,
       "itemIds": [],
       "name": "Backpack – Citrus",
@@ -4742,6 +5811,7 @@
     {
       "categories": [7],
       "details": {},
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 5008877,
       "itemIds": [],
       "name": "Botanical Almanac Book",
@@ -4750,6 +5820,7 @@
     {
       "categories": [24],
       "details": {},
+      "flags": ["NoMinifigures", "ShowInCatalog"],
       "id": 5009117,
       "itemIds": [],
       "name": "Kids Pyjamas – Dark Navy",
