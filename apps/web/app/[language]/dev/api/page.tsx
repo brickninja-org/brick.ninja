@@ -1,17 +1,9 @@
 import { Code } from '@/components/layout/Code';
 import { HeroLayout } from '@/components/layout/HeroLayout';
-import { Highlight } from '@/components/layout/Highlight';
 import { getCurrentUrl } from '@/lib/url';
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 import { ExternalLink } from '@brickninja-org/ui/components/link/ExternalLink';
 import Link from 'next/link';
-
-const exampleCodeFetchWithAuthorizationHeader =
-`fetch('https://api.brick.ninja/items', {
-  headers: {
-    Authorization: \`Bearer \${apiKey}\`,
-  },
-})`;
 
 export default async function DeveloperApiPage() {
   const apiUrl = await getCurrentUrl();
@@ -42,8 +34,6 @@ export default async function DeveloperApiPage() {
         additional <ExternalLink href="https://developer.mozilla.org/en-US/docs/Glossary/Preflight_request">CORS preflight</ExternalLink> request,
         so you should prefer the query parameter when making client-side requests.
       </p>
-
-      <Code><Highlight language="javascript" code={exampleCodeFetchWithAuthorizationHeader}/></Code>
     </HeroLayout>
   );
 }
