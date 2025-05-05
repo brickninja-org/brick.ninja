@@ -103,11 +103,9 @@ export const searchItems = cache(async (terms: string[], filter?: ItemFilters) =
 export const searchProducts = cache(async (terms: string[]) => {
   const nameQueries = nameQuery(terms);
 
-  const numberTerms = terms.map(toNumber).filter(isTruthy);
-
   const [products, productCategories] = await Promise.all([
     db.product.findMany({
-      where: terms.length > 0 ? { OR: nameQueries } : numberTerms.length > 0 ? { OR: [{ id: { in: numberTerms }}] } : undefined,
+      where: terms.length > 0 ? { OR: nameQueries } : undefined,
       take: 5,
       include: { icon: true, categories: true },
       orderBy: { views: 'desc' },
