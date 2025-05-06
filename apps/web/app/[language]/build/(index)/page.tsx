@@ -7,7 +7,8 @@ import { BuildTable } from './BuildTable';
 
 const getBuilds = cache(async (language: Language) => {
   const builds = await db.build.findMany({
-    where: { id: { not: 0 }}
+    where: { id: { not: 0 }},
+    orderBy: { id: 'desc' },
   });
 
   const updates = await db.revision.groupBy({
