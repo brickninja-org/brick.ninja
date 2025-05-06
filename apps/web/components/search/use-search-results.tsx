@@ -78,8 +78,8 @@ const pages: Page[] = [
   { href: '/status/api', title: 'API Status' },
   { href: '/status/database', title: 'Database Status' },
   { href: '/about', title: 'About' },
-  { href: '/about/legal', title: 'Legal Notice' },
-  { href: '/about/privacy', title: 'Privacy Policy' },
+  { href: '//legal/legal-notice', title: 'Legal Notice' },
+  { href: '/legal/privacy-policy', title: 'Privacy Policy' },
   { href: '/review', title: 'Review Queues' },
 
   { href: '/item', title: 'Items' },
@@ -90,13 +90,10 @@ const pages: Page[] = [
   { href: '/dev#applications', title: 'Developer / Your Applications' },
 
   { href: '/build', title: 'Builds' },
-  { href: '/currency', title: 'Currencies' },
   { href: '/color', title: 'Colors' },
 
   { href: '/item/random', title: 'Random Item' },
   { href: '/item/empty-containers', title: 'Empty containers' },
-  { href: '/achievement/random', title: 'Random Achievement' },
-  { href: '/achievement/uncategorized', title: 'Uncategorized Achievements' },
 ];
 
 export function usePageResults(searchValue: string): SearchResults<'pages'> {
