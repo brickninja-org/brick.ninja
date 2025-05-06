@@ -26,7 +26,7 @@ function renderValue(value: unknown, index: number, array: unknown[]) {
         <span key={index} className="text-[#009688]">
           &quot;{value.startsWith('https://www.lego.com/cdn/')
             // eslint-disable-next-line @next/next/no-img-element
-            ? <Tip tip={<img src={value} alt="Preview"/>}><a href={value} style={{ color: '#009688' }}>{value}</a></Tip>
+            ? <Tip tip={<img className="max-w-[190px] max-h-[190px]" src={value} alt="Preview"/>}><a href={value} style={{ color: '#009688' }}>{value}</a></Tip>
             : value.replaceAll('"', '\\"')
           }&quot;{maybeComma}
         </span>
