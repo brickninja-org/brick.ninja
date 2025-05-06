@@ -4,7 +4,7 @@ ARG node_version=22.14.0-alpine3.20
 # renovate: datasource=npm packageName=turb
 ARG turbo_version=2.3.3
 # renovate: datasource=npm packageName=sharp
-ARG sharp_version=0.33.5
+ARG sharp_version=0.34.1
 
 
 # common base for all stages
