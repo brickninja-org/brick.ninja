@@ -7,7 +7,10 @@
   ],
   "addLabels": ["dependencies"],
   "kubernetes": {
-    "fileMatch": ["kubernetes/.+\\.yaml$"]
+    "managerFilePatterns": ["/kubernetes/.+\\.yaml$/"]
+  },
+  "git-submodules": {
+    "enabled": true
   },
   "postUpdateOptions": ["pnpmDedupe"],
   "packageRules": [
@@ -24,8 +27,8 @@
       "matchPackageNames": ["renovate"],
       "extends": ["schedule:weekly"]
     }, {
-      "description": "Dont't update major node versions in workflows",
-      "matchFileNames": [".github/[workflows,actions]/*.{yml,yaml}"],
+      "description": "Don't update major node versions in workflows",
+      "matchFileNames": [".github/{workflows,actions}/*.{yml,yaml}"],
       "matchManagers": ["custom.regex"],
       "matchDatasources": ["node-version"],
       "matchPackageNames": ["node"],
