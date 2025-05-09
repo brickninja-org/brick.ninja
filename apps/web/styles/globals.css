@@ -1,7 +1,11 @@
 @import "tailwindcss" theme(static);
+@plugin "./heroui.ts";
 
+@source '../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
 @source "../../node_modules/@brickninja-org/ui/components";
 @source "../../node_modules/@brickninja-org/ui/icons";
+
+@custom-variant dark (&:is(.dark *));
 
 /*
   The default border color has changed to `currentColor` in Tailwind CSS v4,

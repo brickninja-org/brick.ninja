@@ -4,7 +4,7 @@ import type { ReactNode } from 'react';
 import type { Metadata, Viewport } from 'next';
 import type { LayoutProps } from '@/lib/next';
 
-import './globals.css';
+import '@/styles/globals.css';
 import { Bitter } from 'next/font/google';
 
 import { cn } from '@brickninja-org/ui/lib';
@@ -18,6 +18,7 @@ import { ItemTableContext } from '@/components/item-table/ItemTable.context';
 import Layout from '@/components/layout/Layout';
 import { UserProvider } from '@/components/user/UserProvider';
 import { Bn2APIProvider } from '@/components/bn2-api/Bn2APIProvider';
+import { HeroUIProvider } from '@/components/heoui/HeroUIProvider';
 
 const bitter = Bitter({
   subsets: ['latin'],
@@ -32,22 +33,24 @@ export default async function RootLayout({ children, modal, params }: LayoutProp
     <html lang={language} className={cn(bitter.variable)}>
       <head/>
       <body>
-        <I18nProvider language={language}>
-          <FormatProvider>
-            <ItemTableContext global id="global">
-              <DataTableContext>
-                <UserProvider>
-                  <Bn2MeProvider clientId={client_id} baseUrl={process.env.BN2ME_URL}>
-                    <Bn2APIProvider>
-                      <Layout language={language}>{children}</Layout>
-                      {modal}
-                    </Bn2APIProvider>
-                  </Bn2MeProvider>
-                </UserProvider>
-              </DataTableContext>
-            </ItemTableContext>
-          </FormatProvider>
-        </I18nProvider>
+        <HeroUIProvider>
+          <I18nProvider language={language}>
+            <FormatProvider>
+              <ItemTableContext global id="global">
+                <DataTableContext>
+                  <UserProvider>
+                    <Bn2MeProvider clientId={client_id} baseUrl={process.env.BN2ME_URL}>
+                      <Bn2APIProvider>
+                        <Layout language={language}>{children}</Layout>
+                        {modal}
+                      </Bn2APIProvider>
+                    </Bn2MeProvider>
+                  </UserProvider>
+                </DataTableContext>
+              </ItemTableContext>
+            </FormatProvider>
+          </I18nProvider>
+        </HeroUIProvider>
       </body>
     </html>
   );

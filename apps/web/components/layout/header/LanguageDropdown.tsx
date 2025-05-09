@@ -7,7 +7,7 @@ import { useCallback, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 import { Dropdown } from '@brickninja-org/ui/components/dropdown/Dropdown';
-import { Button } from '@brickninja-org/ui/components/form/Button';
+import { Button } from '@heroui/react';
 import { Radiobutton } from '@brickninja-org/ui/components/form/Radiobutton';
 import { MenuList } from '@brickninja-org/ui/components/layout/MenuList';
 import { Separator } from '@brickninja-org/ui/components/layout/Separator';
@@ -41,7 +41,7 @@ export const LanguageDropdown: FC = () => {
         hideTop={false}
         preferredPlacement="bottom"
         button={(
-          <Button appearance="menu" aria-label={localeName} className="gap-1 px-3" icon={<Icon icon="globe"/>}>
+          <Button variant="light" aria-label={localeName} className="gap-1 px-3" startContent={<Icon icon="globe"/>}>
             <span className="hidden md:block">{localeName}</span>
           </Button>
         )}
@@ -50,7 +50,7 @@ export const LanguageDropdown: FC = () => {
           <Radiobutton checked={language === 'en'} onChange={() => changeLanguage('en')}>{languages.en}</Radiobutton>
           <Radiobutton checked={language === 'nl'} onChange={() => changeLanguage('nl')}>{languages.nl}</Radiobutton>
           <Separator/>
-          <Button onClick={() => setFormatDialogOpen(true)} appearance="menu">Formatting Settings</Button>
+          <Button onPress={() => setFormatDialogOpen(true)} variant="light">Formatting Settings</Button>
         </MenuList>
       </Dropdown>
 
