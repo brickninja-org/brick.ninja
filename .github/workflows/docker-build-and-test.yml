@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     name: 'Build: ${{ matrix.target }}'
-    runs-on: ubuntu-24.04
+    runs-on: ${{ inputs.platform == 'arm64' && 'ubuntu-22.04-arm' || 'ubuntu-24.04' }}
     strategy:
       matrix:
         target: [ web, worker, database-migration, e2e ]
@@ -21,8 +21,6 @@ jobs:
     - uses: actions/checkout@v4
       with:
         submodules: true
-    - name: Set up QEMU
-      uses: docker/setup-qemu-action@v3
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
     - name: Login to GitHub Container Registry
