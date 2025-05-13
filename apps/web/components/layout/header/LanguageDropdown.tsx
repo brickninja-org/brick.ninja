@@ -41,7 +41,7 @@ export const LanguageDropdown: FC = () => {
         hideTop={false}
         preferredPlacement="bottom"
         button={(
-          <Button variant="light" aria-label={localeName} className="gap-1 px-3" startContent={<Icon icon="globe"/>}>
+          <Button radius="sm" variant="light" aria-label={localeName} className="gap-1 px-3" startContent={<Icon icon="globe"/>}>
             <span className="hidden md:block">{localeName}</span>
           </Button>
         )}
@@ -50,7 +50,7 @@ export const LanguageDropdown: FC = () => {
           <Radiobutton checked={language === 'en'} onChange={() => changeLanguage('en')}>{languages.en}</Radiobutton>
           <Radiobutton checked={language === 'nl'} onChange={() => changeLanguage('nl')}>{languages.nl}</Radiobutton>
           <Separator/>
-          <Button onPress={() => setFormatDialogOpen(true)} variant="light">Formatting Settings</Button>
+          <Button radius="sm" variant="light" onPress={() => setFormatDialogOpen(true)}>Formatting Settings</Button>
         </MenuList>
       </Dropdown>
 
