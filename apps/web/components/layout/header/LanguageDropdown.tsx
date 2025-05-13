@@ -41,7 +41,7 @@ export const LanguageDropdown: FC = () => {
         hideTop={false}
         preferredPlacement="bottom"
         button={(
-          <Button radius="sm" variant="light" aria-label={localeName} className="min-w-10 w-10 md:min-w-20" startContent={<Icon icon="globe"/>}>
+          <Button radius="sm" variant="light" aria-label={localeName} className="min-w-10 w-10 md:min-w-20 md:w-fit" startContent={<Icon icon="globe"/>}>
             <span className="hidden md:block">{localeName}</span>
           </Button>
         )}
