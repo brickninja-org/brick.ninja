@@ -27,7 +27,7 @@ const nextConfig: NextConfig = {
 
   // transpile @gw2treasures/ui package
   outputFileTracingRoot: path.join(__dirname, '../../'),
-  transpilePackages: ['@heroui/react', '@brickninja-org/ui'],
+  transpilePackages: ['@brickninja-org/ui', '@heroui/react', '@heroui/theme'],
   
   webpack: (config, { isServer }) => {
     if (isServer) {
