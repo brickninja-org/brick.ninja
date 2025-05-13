@@ -5,9 +5,9 @@ import type { Language } from '@brickninja-org/database';
 
 import { useCallback, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { Button } from '@heroui/react';
 
 import { Dropdown } from '@brickninja-org/ui/components/dropdown/Dropdown';
-import { Button } from '@heroui/react';
 import { Radiobutton } from '@brickninja-org/ui/components/form/Radiobutton';
 import { MenuList } from '@brickninja-org/ui/components/layout/MenuList';
 import { Separator } from '@brickninja-org/ui/components/layout/Separator';
@@ -41,7 +41,7 @@ export const LanguageDropdown: FC = () => {
         hideTop={false}
         preferredPlacement="bottom"
         button={(
-          <Button radius="sm" variant="light" aria-label={localeName} className="gap-1 px-3" startContent={<Icon icon="globe"/>}>
+          <Button radius="sm" variant="light" aria-label={localeName} className="gap-1 px-3" startContent={<Icon icon="globe" className="min-w-10 w-10 md:min-w-20"/>}>
             <span className="hidden md:block">{localeName}</span>
           </Button>
         )}

@@ -3,6 +3,7 @@ import type { Language } from '@brickninja-org/database';
 import type { SessionUser } from '@/lib/get-user';
 
 import { Suspense } from 'react';
+import { Button, Link } from '@heroui/react';
 
 import { Dropdown } from '@brickninja-org/ui/components/dropdown/Dropdown';
 import { LinkButton } from '@brickninja-org/ui/components/form/Button';
@@ -47,16 +48,16 @@ const UserButtonInternal: FC<UserButtonInternalProps> = ({ user, language }) => 
 
   if (!user) {
     return (
-      <LinkButton appearance="menu" href="/login" aria-label={t('login')}>
+      <Button as={Link} radius="sm" variant="light" href="/login" className="min-w-10 w-10 md:min-w-20" aria-label={t('login')}>
         <Icon icon="user"/><span className="hidden md:block"> <Translate id="login" language={language}/></span>
-      </LinkButton>
+      </Button>
     );
   }
 
   const button = (
-    <LinkButton appearance="menu" href="/profile" aria-label={user === 'loading' ? undefined : user.name}>
-      <Icon icon="user"/><span className="">{user === 'loading' ? <Skeleton width={90}/> : user.name}</span>
-    </LinkButton>
+    <Button as={Link} startContent={<Icon icon="user"/>} radius="sm" variant="light" href="/profile" className="min-w-10 w-10 md:min-w-20" aria-label={user === 'loading' ? undefined : user.name}>
+      <span className="hidden md:block">{user === 'loading' ? <Skeleton width={90}/> : user.name}</span>
+    </Button>
   );
 
   return (
