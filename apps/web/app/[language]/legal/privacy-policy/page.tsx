@@ -5,7 +5,7 @@ import { HeroLayout } from '@/components/layout/HeroLayout';
 export default function PrivacyPolicyPage() {
   return (
     <HeroLayout hero={<Headline id="privacy-policy">Privacy Policy</Headline>} toc>
-      <div className="w-full prose prose-neutral">
+      <div className="max-w-full prose prose-neutral">
         <p>Last updated May 4, 2025</p>
 
         <p>At brick.ninja one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by brick.ninja and how we use it.</p>
