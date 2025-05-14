@@ -1,3 +1,9 @@
 import { heroui } from '@heroui/react';
 
-export default heroui();
+export default heroui({
+  layout: {
+    radius: {
+      small: '0.5rem', 
+    },
+  },
+});
