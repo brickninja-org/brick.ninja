@@ -1,12 +1,12 @@
 # syntax=docker/dockerfile:1.15
 
-ARG node_version=22.15.0-alpine3.21
+ARG node_version=22.15.1-alpine3.21
 # renovate: datasource=npm packageName=turbo
 ARG turbo_version=2.5.3
 # renovate: datasource=npm packageName=sharp
 ARG sharp_version=0.34.1
 # renovate: datasource=npm packageName=pnpm
-ARG pnpm_version=10.10.0
+ARG pnpm_version=10.11.0
 
 
 # common base for all stages
@@ -30,6 +30,7 @@ RUN turbo prune worker --docker
 
 # Rebuild the source code only when needed
 FROM base AS builder
+ARG pnpm_version
 WORKDIR /app
 
 # add package.json and lockfile

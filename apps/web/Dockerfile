@@ -1,12 +1,12 @@
 # syntax=docker/dockerfile:1.15
 
-ARG node_version=22.15.0-alpine3.21
-# renovate: datasource=npm packageName=turb
+ARG node_version=22.15.1-alpine3.21
+# renovate: datasource=npm packageName=turbo
 ARG turbo_version=2.5.3
 # renovate: datasource=npm packageName=sharp
 ARG sharp_version=0.34.1
 # renovate: datasource=npm packageName=pnpm
-ARG pnpm_version=10.10.0
+ARG pnpm_version=10.11.0
 
 
 # common base for all stages
@@ -68,7 +68,7 @@ RUN addgroup --system --gid 1001 nodejs \
   && adduser --system --uid 1001 nextjs
 
 RUN npm install sharp@${sharp_version} && npm cache clean --force
-  
+
 COPY --link --from=builder /app/apps/web/package.json .
 
 # Automatically leverage output traces to reduce image size
