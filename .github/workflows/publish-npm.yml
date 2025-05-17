@@ -5,6 +5,7 @@ on:
       NPM_TOKEN:
         required: true
 
+
 jobs:
   publish:
     name: ${{ matrix.target }}
