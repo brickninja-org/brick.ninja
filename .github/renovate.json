@@ -10,7 +10,7 @@
     "managerFilePatterns": ["/kubernetes/.+\\.yaml$/"]
   },
   "git-submodules": {
-    "enabled": true
+    "enabled": false
   },
   "postUpdateOptions": ["pnpmDedupe"],
   "packageRules": [

@@ -19,7 +19,7 @@ jobs:
       run: sudo ethtool -K eth0 tx off rx off
     - uses: actions/checkout@v4
       with:
-        submodules: true
+        submodules: false
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
     - name: Login to GitHub Container Registry
