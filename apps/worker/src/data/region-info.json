@@ -1,0 +1,6 @@
+{
+  "region-info": [
+    { "productId": 10280, "US": { "release": "2021-03-01", "price": 5999 }, "EU": { "release": "2021-03-01", "price": 5999 }, "UK": { "release": "2021-03-01", "price": 5499 }, "AU": { "release": "2021-03-01", "price": 9999 } },
+    { "productId": 10281, "US": { "release": "2021-03-01", "price": 4999 }, "EU": { "release": "2021-03-01", "price": 4999 }, "UK": { "release": "2021-03-01", "price": 4499 }, "AU": { "release": "2021-03-01", "price": 8999 } }
+  ]
+}

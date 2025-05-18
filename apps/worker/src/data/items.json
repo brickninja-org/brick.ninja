@@ -2263,7 +2263,8 @@
       "barcode": "673419340526",
       "default_product": 10280,
       "details": {
-        "type": "Default"
+        "type": "Default",
+        "instruction_item_ids": [6532379]
       },
       "flags": [],
       "icon": "",
@@ -2275,7 +2276,8 @@
       "barcode": "5702016913767",
       "default_product": 10280,
       "details": {
-        "type": "Default"
+        "type": "Default",
+        "instruction_item_ids": [6403262]
       },
       "flags": [],
       "icon": "",
@@ -2696,6 +2698,24 @@
       "id": 6530074,
       "name": "10354 The Lord of the Rings: The Sh...™ V39",
       "type": "Container"
+    },
+    {
+      "details": {
+        "type": "Instruction"
+      },
+      "flags": [],
+      "id": 6532378,
+      "name": "Flower Bouquet (1/1)",
+      "type": "Product"
+    },
+    {
+      "details": {
+        "type": "Instruction"
+      },
+      "flags": [],
+      "id": 6532379,
+      "name": "Flower Bouquet (1/1)",
+      "type": "Product"
     },
     {
       "details": {

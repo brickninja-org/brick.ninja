@@ -43,5 +43,21 @@
     { "name": "LEGO® Wednesday", "id": 41 },
     { "name": "LEGO® Wicked", "id": 42 },
     { "name": "Other", "id": -1 }
+  ],
+  "categories": [
+    { "name": "Animals and Nature", "id": 8 },
+    { "name": "Baseplates", "id": 4 },
+    { "name": "Bricks", "id": 1 },
+    { "name": "Buildings and Furniture", "id": 5 },
+    { "name": "Cables, Hoses & Strings", "id": 10 },
+    { "name": "Connectors", "id": 13 },
+    { "name": "Fabric & Textiles", "id": 12 },
+    { "name": "Minifigure Accessories", "id": 6 },
+    { "name": "Minifigure Parts", "id": 7 },
+    { "name": "Miscellabeous", "id": 14 },
+    { "name": "Plates", "id": 3 },
+    { "name": "Power functions", "id": 11 },
+    { "name": "Technic Beams", "id": -1 },
+    { "name": "Vehicles & Transportation", "id": 9 }
   ]
 }
