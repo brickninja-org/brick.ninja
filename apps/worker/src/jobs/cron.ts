@@ -5,30 +5,37 @@ import { JobName } from '.';
 import { db } from '../db';
 import { toId } from './helper/to-id';
 
+const schedule = {
+  daily: 'H H * * *',
+  hourly: 'H * * * *',
+  every5Minutes: 'H/5 * * * *',
+  every10Minutes: 'H/10 * * * *',
+} as const;
+
 export async function registerCronJobs() {
   console.log('Registering cron jobs...');
 
   await registerJob('test', '0 0 * * *');
 
-  // await registerJob('items.check', '*/5 * * * *');
-  // await registerJob('items.update', '*/3 * * * *');
-  // await registerJob('items.migrate', '*/6 * * * *');
-  // await registerJob('items.container-content', '47 11 * * *');
-  // await registerJob('items.views', '56 * * * *');
+  await registerJob('items.check', schedule.every5Minutes);
+  await registerJob('items.update', 'H/3 * * * *');
+  await registerJob('items.migrate', 'H/6 * * * *');
+  await registerJob('items.container-content', schedule.daily);
+  // await registerJob('items.views', schedule.hourly);
 
-  await registerJob('products', '*/5 * * * *');
-  await registerJob('product.categories', '*/10 * * * *');
-  // await registerJob('product.views', '49 * * * *');
+  await registerJob('products', schedule.every5Minutes);
+  await registerJob('product.categories', schedule.every10Minutes);
+  // await registerJob('product.views', schedule.hourly);
 
-  await registerJob('colors', '*/5 * * * *');
+  await registerJob('colors', schedule.every5Minutes);
 
   // await registerJob('categories.check', '*/5 * * * *');
 
-  await registerJob('bricklinkapi-requests.cleanup', '33 3 * * *');
+  await registerJob('bricklinkapi-requests.cleanup', 'H 3 * * *');
 
   // await registerJob('icon.colors', '37 * * * * ');
 
-  await registerJob('jobs.cleanup', '8 * * * *');
+  await registerJob('jobs.cleanup', schedule.hourly);
 }
 
 async function registerJob(name: JobName, cron: string, data: Prisma.InputJsonValue = {}) {
@@ -45,7 +52,7 @@ async function registerJob(name: JobName, cron: string, data: Prisma.InputJsonVa
     // add new cron job
     console.log(`Registering new cron job ${chalk.blue(name)}.`);
 
-    const scheduledAt = CronExpressionParser.parse(cron, { tz: 'utc' }).next().toDate();
+    const scheduledAt = CronExpressionParser.parse(cron, { tz: 'utc', hashSeed: name }).next().toDate();
     await db.job.create({ data: { type: name, data, cron, scheduledAt }});
     return;
   }
@@ -55,7 +62,7 @@ async function registerJob(name: JobName, cron: string, data: Prisma.InputJsonVa
     if(jobs[0].cron !== cron || JSON.stringify(jobs[0].data) !== JSON.stringify(data)) {
       console.log(`Updating cron job ${chalk.blue(name)}.`);
 
-      const scheduledAt = CronExpressionParser.parse(cron, { tz: 'utc' }).next().toDate();
+      const scheduledAt = CronExpressionParser.parse(cron, { tz: 'utc', hashSeed: name }).next().toDate();
       await db.job.update({ where: { id: jobs[0].id }, data: { data, cron, scheduledAt }});
     }
 

@@ -7,6 +7,7 @@ import { ItemContainerContent } from './items/container-content';
 import { ItemsMigrate } from './items/migrate';
 import { ItemsNew } from './items/new';
 import { ItemsRediscovered } from './items/rediscovered';
+import { ItemsRelevancy } from './items/relevancy';
 import { ItemsRemoved } from './items/removed';
 import { ItemsUpdate } from './items/update';
 // import { ItemsView } from './items/views';
@@ -27,6 +28,7 @@ const jobsInternal = {
   'items.update': ItemsUpdate,
   'items.migrate': ItemsMigrate,
   'items.container-content': ItemContainerContent,
+  'items.relevancy': ItemsRelevancy,
   // 'items.views': ItemsView,
 
   'products': ProductsJob,
