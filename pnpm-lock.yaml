@@ -49,10 +49,10 @@ importers:
         version: link:../../packages/ui
       '@brickset-api/fetch':
         specifier: 0.0.18
-        version: 0.0.18(@brickset-api/types@0.0.16)
+        version: 0.0.18(@brickset-api/types@0.0.17)
       '@brickset-api/types':
-        specifier: 0.0.16
-        version: 0.0.16
+        specifier: 0.0.17
+        version: 0.0.17
       '@dnd-kit/abstract':
         specifier: 0.1.13
         version: 0.1.13
@@ -269,10 +269,10 @@ importers:
         version: link:../../packages/helper
       '@brickset-api/fetch':
         specifier: 0.0.18
-        version: 0.0.18(@brickset-api/types@0.0.16)
+        version: 0.0.18(@brickset-api/types@0.0.17)
       '@brickset-api/types':
-        specifier: 0.0.16
-        version: 0.0.16
+        specifier: 0.0.17
+        version: 0.0.17
       '@rebrickableapi/fetch':
         specifier: 0.0.5
         version: 0.0.5(@rebrickableapi/types@0.0.4)
@@ -732,8 +732,8 @@ packages:
     peerDependencies:
       '@brickset-api/types': ~0.0.16
 
-  '@brickset-api/types@0.0.16':
-    resolution: {integrity: sha512-Kl4pUMb/M10qhu53kRmZrSt8SazUEHBVhrLdk5Ke3bWOguYWbM4wxPDt+SqvhPcCJRdqZ9X/Xcl0HcJiX8SzHg==}
+  '@brickset-api/types@0.0.17':
+    resolution: {integrity: sha512-FXPQ+TT0/bv0ga6uxbn75Gbap3hDrniFgbpSoKXro2HjxewtvQRsGe0x1/N2LNmD9oBw2pzGnIeVrOBdovd5QQ==}
 
   '@cspotcode/source-map-support@0.8.1':
     resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==}
@@ -6013,11 +6013,11 @@ snapshots:
 
   '@bn2me/client@0.2.1': {}
 
-  '@brickset-api/fetch@0.0.18(@brickset-api/types@0.0.16)':
+  '@brickset-api/fetch@0.0.18(@brickset-api/types@0.0.17)':
     dependencies:
-      '@brickset-api/types': 0.0.16
+      '@brickset-api/types': 0.0.17
 
-  '@brickset-api/types@0.0.16': {}
+  '@brickset-api/types@0.0.17': {}
 
   '@cspotcode/source-map-support@0.8.1':
     dependencies:
