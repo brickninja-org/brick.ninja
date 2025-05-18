@@ -50,3 +50,7 @@ services:
       - database
     environment:
       - DATABASE_URL=postgresql://brickninja:brickninja@database:5432/brickninja?schema=public
+
+networks:
+  default:
+    driver: bridge
