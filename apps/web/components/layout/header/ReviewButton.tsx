@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import type { Language, ReviewQueue } from '@brickninja-org/database';
 
 import { Suspense, use } from 'react';
-import { Button } from '@heroui/react';
+import { Button, Link } from '@heroui/react';
 
 import { groupByUnique } from '@brickninja-org/helper/group-by';
 import { Icon } from '@brickninja-org/ui/icons';
@@ -63,7 +63,7 @@ const InternalReviewButton: FC<InternalReviewButtonProps> = ({ language, data })
         <div className="max-w-[320px] -mt-2 -mx-2 mb-3 py-4 px-6 bg-background-light border-b border-(--color-border-dark) leading-normal">
           <Translate language={language} id="review.description"/>
         </div>
-        <Button radius="sm" variant="light" className="flex-1 flex items-center justify-between gap-4" href="/review/container-content"><Translate language={language} id="review.queue.ContainerContent"/> <ReviewCountBadge count={reviewCounts?.ContainerContent}/></Button>
+        <Button as={Link} radius="sm" variant="light" className="flex-1 flex items-center justify-between gap-4" href="/review/container-content"><Translate language={language} id="review.queue.ContainerContent"/> <ReviewCountBadge count={reviewCounts?.ContainerContent}/></Button>
       </MenuList>
     </Dropdown>
   );
