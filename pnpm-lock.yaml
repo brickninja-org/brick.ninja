@@ -275,10 +275,10 @@ importers:
         version: 0.0.16
       '@rebrickableapi/fetch':
         specifier: 0.0.5
-        version: 0.0.5(@rebrickableapi/types@0.0.4)
+        version: 0.0.5(@rebrickableapi/types@0.0.11)
       '@rebrickableapi/types':
-        specifier: 0.0.4
-        version: 0.0.4
+        specifier: 0.0.11
+        version: 0.0.11
       chalk:
         specifier: 5.4.1
         version: 5.4.1
@@ -2465,8 +2465,8 @@ packages:
     peerDependencies:
       '@rebrickableapi/types': ~0.0.4
 
-  '@rebrickableapi/types@0.0.4':
-    resolution: {integrity: sha512-9RH16Z/EonCHfNGncSC3tpHWP3dRXycmS8adDtcahKDWHxxTuOBYm3uOSH5PDjTQFPj7fEM0MtHOAYm63mBbNQ==}
+  '@rebrickableapi/types@0.0.11':
+    resolution: {integrity: sha512-u4QbDDdJNI4YMx/nqOjYvQswU43ee5PB/jX/V1VKaLmAaOS41EUpkAdHRNRykWgbGd8Z5kYgy0A+eLJe7uwLnw==}
 
   '@rtsao/scc@1.1.0':
     resolution: {integrity: sha512-zt6OdqaDoOnJ1ZYsCYGt9YmWzDXl4vQdKTyJev62gFhRGKdx7mcT54V9KIjg+d2wi9EXsPvAPKe7i7WjfVWB8g==}
@@ -8635,11 +8635,11 @@ snapshots:
       '@react-types/shared': 3.29.0(react@19.1.0)
       react: 19.1.0
 
-  '@rebrickableapi/fetch@0.0.5(@rebrickableapi/types@0.0.4)':
+  '@rebrickableapi/fetch@0.0.5(@rebrickableapi/types@0.0.11)':
     dependencies:
-      '@rebrickableapi/types': 0.0.4
+      '@rebrickableapi/types': 0.0.11
 
-  '@rebrickableapi/types@0.0.4': {}
+  '@rebrickableapi/types@0.0.11': {}
 
   '@rtsao/scc@1.1.0': {}
 
