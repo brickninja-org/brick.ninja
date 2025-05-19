@@ -56,7 +56,7 @@ export default async function ProductPage({ params }: PageProps) {
   return (
     <>
       <TableFilterProvider filter={productFilter} searchIndex={productSearchIndex}>
-        <Notice color="primary">This is a preview page and more features will be added in the future.</Notice>
+        <Notice color="primary" radius="sm" className="mb-2">This is a preview page and more features will be added in the future.</Notice>
         <Description
           actions={[
             <TableSearchInput key="search"/>,

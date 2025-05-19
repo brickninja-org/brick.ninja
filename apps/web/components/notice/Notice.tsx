@@ -37,11 +37,10 @@ export const Notice: FC<AlertProps> = ({ children, variant = 'faded', color = 's
             'rounded-l-none border-l-0',
             colorClass,
           ],
-          classNames.base,
+          classNames?.base,
           className,
         ),
-        mainWrapper: cn('pt-1', classNames.mainWrapper),
-        iconWrapper: cn('dark:bg-transparent', classNames.iconWrapper),
+        iconWrapper: cn('dark:bg-transparent', classNames?.iconWrapper),
       }}
       color={color}
       variant={variant}
