@@ -2,6 +2,8 @@ import type { FC } from 'react';
 import type { Language, ReviewQueue } from '@brickninja-org/database';
 
 import { Suspense, use } from 'react';
+import { Button } from '@heroui/react';
+
 import { groupByUnique } from '@brickninja-org/helper/group-by';
 import { Icon } from '@brickninja-org/ui/icons';
 import { Dropdown } from '@brickninja-org/ui/components/dropdown/Dropdown';
@@ -51,9 +53,9 @@ const InternalReviewButton: FC<InternalReviewButtonProps> = ({ language, data })
   const reviewCounts = data ? use(data) : undefined;
 
   const button = (
-    <LinkButton appearance="menu" href="/review" aria-label="Review">
-      <Icon icon="review-queue"/><span className="hidden md:block"><Translate language={language} id="review"/><ReviewCountBadge count={reviewCounts?._total} hideEmpty/></span>
-    </LinkButton>
+    <Button radius="sm" variant="light" href="/review" startContent={<Icon icon="review-queue"/>} className="min-w-10 w-10 md:min-w-20 md:w-fit" aria-label="Review">
+      <span className="hidden md:block"><Translate language={language} id="review"/><ReviewCountBadge count={reviewCounts?._total} hideEmpty/></span>
+    </Button>
   );
 
   return (
