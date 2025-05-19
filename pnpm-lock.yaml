@@ -48,8 +48,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/ui
       '@brickset-api/fetch':
-        specifier: 0.0.18
-        version: 0.0.18(@brickset-api/types@0.0.16)
+        specifier: 0.0.19
+        version: 0.0.19(@brickset-api/types@0.0.16)
       '@brickset-api/types':
         specifier: 0.0.16
         version: 0.0.16
@@ -268,8 +268,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/helper
       '@brickset-api/fetch':
-        specifier: 0.0.18
-        version: 0.0.18(@brickset-api/types@0.0.16)
+        specifier: 0.0.19
+        version: 0.0.19(@brickset-api/types@0.0.16)
       '@brickset-api/types':
         specifier: 0.0.16
         version: 0.0.16
@@ -727,10 +727,10 @@ packages:
   '@bn2me/client@0.2.1':
     resolution: {integrity: sha512-yVls4fOEbvKLPAfIC5GOka+Grq87LWmiThKVmSKSdpNVFTPDedKhmPNrlCGaiCfXtitLJuVzxO0w0ir5qXRyQw==}
 
-  '@brickset-api/fetch@0.0.18':
-    resolution: {integrity: sha512-0w1yGsBHusfVhdTTb0R7B03VY3a2yeAj5xrbFUmdrEoPNHeIK+6ChthzpvA43ISqBjQE7xvMnrbAQR7Rg66ctA==}
+  '@brickset-api/fetch@0.0.19':
+    resolution: {integrity: sha512-vNPbIJIdrJZcVBOxjucBnxC4oxIahOYEjPtyELFDfwUgGOZKOgn2N2tnRSDvN80AXEXATWGGBnb/pihpmlxFvA==}
     peerDependencies:
-      '@brickset-api/types': ~0.0.16
+      '@brickset-api/types': ~0.0.17
 
   '@brickset-api/types@0.0.16':
     resolution: {integrity: sha512-Kl4pUMb/M10qhu53kRmZrSt8SazUEHBVhrLdk5Ke3bWOguYWbM4wxPDt+SqvhPcCJRdqZ9X/Xcl0HcJiX8SzHg==}
@@ -6037,7 +6037,7 @@ snapshots:
 
   '@bn2me/client@0.2.1': {}
 
-  '@brickset-api/fetch@0.0.18(@brickset-api/types@0.0.16)':
+  '@brickset-api/fetch@0.0.19(@brickset-api/types@0.0.16)':
     dependencies:
       '@brickset-api/types': 0.0.16
 
