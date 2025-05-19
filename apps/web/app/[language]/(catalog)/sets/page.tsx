@@ -10,7 +10,7 @@ import { Description } from '@/components/layout/Description';
 import { ColumnSelect } from '@/components/table/ColumnSelect';
 import { translate } from '@/lib/translate';
 import { getAlternateUrls } from '@/lib/url';
-import { Notice } from '@brickninja-org/ui/components/notice/Notice';
+import { Notice } from '@/components/notice/Notice';
 import { CatalogProductDataTable, createProductTable } from '../Table';
 
 const getSets = cache(
@@ -56,7 +56,7 @@ export default async function ProductPage({ params }: PageProps) {
   return (
     <>
       <TableFilterProvider filter={productFilter} searchIndex={productSearchIndex}>
-        <Notice icon="eye" index={false}>This is a preview page and more features will be added in the future.</Notice>
+        <Notice color="primary">This is a preview page and more features will be added in the future.</Notice>
         <Description
           actions={[
             <TableSearchInput key="search"/>,
