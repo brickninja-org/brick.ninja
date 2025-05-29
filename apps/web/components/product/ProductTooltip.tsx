@@ -22,7 +22,7 @@ export const ProductTooltip: FC<ProductTooltipProps> = async ({ product, languag
 export interface ProductTooltip {
   language: Language;
   name: string;
-  icon?: { id: number, signature: string };
+  icon?: { id: number, signature: string; extension: string };
   attributes?: { label: string, type: string, value: number | string }[],
 }
 
