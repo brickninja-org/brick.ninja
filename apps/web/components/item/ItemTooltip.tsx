@@ -98,7 +98,7 @@ export type ItemWithAttributes = LocalizedEntity & {
 export interface ItemTooltip {
   language: Language;
   name: string;
-  icon?: { id: number; signature: string; };
+  icon?: { id: number; signature: string; extension: string; };
   type?: string;
   elementId?: string;
   color?: { id: number; name: string; code: string | null; };
