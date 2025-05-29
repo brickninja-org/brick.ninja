@@ -1,6 +1,6 @@
-const regex = /^https:\/\/www.lego.com\/cdn\/product-assets\/(?<signature>[^/]*)\/(?<id>[^/]*)\.(jpg|png)$/;
+const regex = /^https:\/\/www.lego.com\/cdn\/product-assets\/(?<signature>[^/]*)\/(?<id>[^/]*)\.(?<extension>jpg|png)$/;
 
-export function parseIcon(url: string | undefined): { id: number, signature: string } | undefined {
+export function parseIcon(url: string | undefined): { id: number, signature: string, extension: string } | undefined {
   if (typeof url !== 'string') {
     return;
   }
@@ -8,6 +8,6 @@ export function parseIcon(url: string | undefined): { id: number, signature: str
   const match = url.match(regex)?.groups;
 
   return match
-    ? { id: Number(match.id), signature: match.signature }
+    ? { id: Number(match.id), signature: match.signature, extension: match.extension }
     : undefined;
 }
