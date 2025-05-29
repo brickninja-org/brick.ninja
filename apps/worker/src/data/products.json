@@ -13,6 +13,11 @@
             "text": "Ages",
             "type": "ageRange",
             "value": 18
+          },
+          {
+            "text": "Weight",
+            "type": "weightInGrams",
+            "value": 760
           }
         ]
       },
@@ -36,10 +41,16 @@
             "text": "Ages",
             "type": "ageRange",
             "value": 18
+          },
+          {
+            "text": "Weight",
+            "type": "weightInGrams",
+            "value": 760
           }
         ]
       },
       "flags": ["NoFigures", "ShowInCatalog"],
+      "icon": "https://www.lego.com/cdn/product-assets/product.img.pri/10281_Prod.png",
       "id": 10281,
       "itemIds": [],
       "name": "Bonsai Tree",
@@ -58,10 +69,16 @@
             "text": "Ages",
             "type": "ageRange",
             "value": 18
+          },
+          {
+            "text": "Weight",
+            "type": "weightInGrams",
+            "value": 14000
           }
         ]
       },
       "flags": ["NoFigures", "ShowInCatalog"],
+      "icon": "https://www.lego.com/cdn/product-assets/product.img.pri/10294_Prod.jpg",
       "id": 10294,
       "itemIds": [],
       "name": "LEGO® Titanic",
@@ -2186,7 +2203,25 @@
     },
     {
       "categories": [29],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 48
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 2
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 4
+          }
+        ]
+      },
       "id": 10789,
       "itemIds": [],
       "name": "Spider-Man's Car and Doc Ock",
@@ -2194,7 +2229,25 @@
     },
     {
       "categories": [23],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 60
+          },
+          {
+            "text": "Figures",
+            "type": "figureCount",
+            "value": 2
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 4
+          }
+        ]
+      },
       "id": 10795,
       "itemIds": [],
       "name": "Crafting with Baby Box",
@@ -2202,7 +2255,25 @@
     },
     {
       "categories": [23],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 165
+          },
+          {
+            "text": "Figures",
+            "type": "figureCount",
+            "value": 6
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 4
+          }
+        ]
+      },
       "id": 10796,
       "itemIds": [],
       "name": "Gabby's Kitty Care Ear",
@@ -2210,7 +2281,25 @@
     },
     {
       "categories": [23],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 252
+          },
+          {
+            "text": "Figures",
+            "type": "figureCount",
+            "value": 4
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 4
+          }
+        ]
+      },
       "id": 10797,
       "itemIds": [],
       "name": "Gabby's Party Room",
@@ -2218,7 +2307,25 @@
     },
     {
       "categories": [18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 105
+          },
+          {
+            "text": "Figures",
+            "type": "figureCount",
+            "value": 3
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 2
+          }
+        ]
+      },
       "id": 10875,
       "itemIds": [],
       "name": "Cargo Train",
@@ -2226,7 +2333,25 @@
     },
     {
       "categories": [18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 225
+          },
+          {
+            "text": "Figures",
+            "type": "figureCount",
+            "value": 2
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 1.5
+          }
+        ]
+      },
       "id": 10913,
       "itemIds": [],
       "name": "Brick Box",
@@ -2234,7 +2359,25 @@
     },
     {
       "categories": [18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 85
+          },
+          {
+            "text": "Figures",
+            "type": "figureCount",
+            "value": 2
+          },
+         {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 1.5
+          }
+        ]
+      },
       "id": 10914,
       "itemIds": [],
       "name": "Deluxe Brick Box",

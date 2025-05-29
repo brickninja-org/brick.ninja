@@ -81,6 +81,7 @@ enum Availability {
 model Icon {
   id Int @id
   signature String
+  extension String @default("")
 
   color String?
 
@@ -212,6 +213,8 @@ model Product {
 
   // migration version
   version Int @default(0)
+
+  @@index([createdAt])
 }
 
 model ProductHistory {
@@ -478,5 +481,18 @@ model PageView {
   page String
   pageId Int @default(0)
 
+  asn Int?
+
   @@unique([time, page, pageId])
+}
+
+view PageView_daily {
+  bucket DateTime @default(now())
+
+  page   String
+  pageId Int
+
+  count Int
+
+  @@unique([bucket, page, pageId])
 }

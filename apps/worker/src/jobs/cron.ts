@@ -21,11 +21,11 @@ export async function registerCronJobs() {
   await registerJob('items.update', 'H/3 * * * *');
   await registerJob('items.migrate', 'H/6 * * * *');
   await registerJob('items.container-content', schedule.daily);
-  // await registerJob('items.views', schedule.hourly);
+  await registerJob('items.views', schedule.hourly);
 
   await registerJob('products', schedule.every5Minutes);
   await registerJob('product.categories', schedule.every10Minutes);
-  // await registerJob('product.views', schedule.hourly);
+  await registerJob('product.views', schedule.hourly);
 
   await registerJob('colors', schedule.every5Minutes);
 
@@ -33,12 +33,14 @@ export async function registerCronJobs() {
 
   await registerJob('bricklinkapi-requests.cleanup', 'H 3 * * *');
 
-  // await registerJob('icon.colors', '37 * * * * ');
+  await registerJob('icon.colors', '37 * * * * ');
 
   await registerJob('jobs.cleanup', schedule.hourly);
 }
 
 async function registerJob(name: JobName, cron: string, data: Prisma.InputJsonValue = {}) {
+  cron = fixCronJitter(cron, name);
+
   // check if a matching job exists
   const jobs = await db.job.findMany({ where: { type: name, cron: { not: '' }}});
 
@@ -68,4 +70,23 @@ async function registerJob(name: JobName, cron: string, data: Prisma.InputJsonVa
 
     return;
   }
+}
+
+// Fix handling hash steps in cron expression (see https://github.com/harrisiirak/cron-parser/issues/381)
+function fixCronJitter(cron: string, seed: string) {
+  // this only handles `H/x` at the start (minutes) of the cron expression
+  const match = cron.match(/^H\/(\d+) /);
+
+  // return the unchanged expression if no match was found
+  if(!match) {
+    return cron;
+  }
+
+  // generate a random value based on the name. This is not a great "hash" function, but we just need values between 0-5 or 0-10 and this is good enough
+  const random = seed.split('').reduce((s, c) => s + c.charCodeAt(0), 0);
+
+  // generate the offset (for H/5 the offset should be between 0 and 4)
+  const offset = random % Number(match[1]);
+
+  return offset + cron.substring(1);
 }
