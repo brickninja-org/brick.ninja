@@ -63,8 +63,8 @@ importers:
         specifier: 0.1.18
         version: 0.1.18(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@floating-ui/react':
-        specifier: 0.27.8
-        version: 0.27.8(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        specifier: 0.27.12
+        version: 0.27.12(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@floating-ui/react-dom':
         specifier: 2.1.2
         version: 2.1.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -450,8 +450,8 @@ importers:
         specifier: workspace:~0.0.1
         version: link:../tsconfig
       '@floating-ui/react':
-        specifier: 0.27.8
-        version: 0.27.8(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        specifier: 0.27.12
+        version: 0.27.12(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@floating-ui/react-dom':
         specifier: 2.1.2
         version: 2.1.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -822,8 +822,14 @@ packages:
       react: 19.1.0
       react-dom: 19.1.0
 
-  '@floating-ui/react@0.27.8':
-    resolution: {integrity: sha512-EQJ4Th328y2wyHR3KzOUOoTW2UKjFk53fmyahfwExnFQ8vnsMYqKc+fFPOkeYtj5tcp1DUMiNJ7BFhed7e9ONw==}
+  '@floating-ui/react-dom@2.1.3':
+    resolution: {integrity: sha512-huMBfiU9UnQ2oBwIhgzyIiSpVgvlDstU8CX0AF+wS+KzmYMs0J2a3GwuFHV1Lz+jlrQGeC1fF+Nv0QoumyV0bA==}
+    peerDependencies:
+      react: 19.1.0
+      react-dom: 19.1.0
+
+  '@floating-ui/react@0.27.12':
+    resolution: {integrity: sha512-kKlWNrpIQxF1B/a2MZvE0/uyKby4960yjO91W7nVyNKmmfNi62xU9HCjL1M1eWzx/LFj/VPSwJVbwQk9Pq/68A==}
     peerDependencies:
       react: 19.1.0
       react-dom: 19.1.0
@@ -6016,9 +6022,15 @@ snapshots:
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
 
-  '@floating-ui/react@0.27.8(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+  '@floating-ui/react-dom@2.1.3(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
-      '@floating-ui/react-dom': 2.1.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@floating-ui/dom': 1.6.13
+      react: 19.1.0
+      react-dom: 19.1.0(react@19.1.0)
+
+  '@floating-ui/react@0.27.12(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+    dependencies:
+      '@floating-ui/react-dom': 2.1.3(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@floating-ui/utils': 0.2.9
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
