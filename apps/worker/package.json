@@ -23,7 +23,7 @@
     "cron-parser": "5.2.0",
     "dotenv": "16.5.0",
     "fast-average-color-node": "3.1.0",
-    "sharp": "0.34.1"
+    "sharp": "0.34.2"
   },
   "devDependencies": {
     "@brickninja-org/eslint-config": "workspace:*",
