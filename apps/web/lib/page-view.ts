@@ -1,5 +1,7 @@
-import { headers } from 'next/headers';
 import { cache } from 'react';
+import { headers } from 'next/headers';
+import { after } from 'next/server';
+
 import { db } from './prisma';
 
 export const pageView = cache(async function pageView(page: string, pageId?: number) {
@@ -10,7 +12,12 @@ export const pageView = cache(async function pageView(page: string, pageId?: num
   }
 
   // get AS number (header set by cloudflare in prod)
-  // const asn = parseInt(header.get('x-asn')!) || null;
+  const asn = parseInt(header.get('x-asn')!) || null;
 
-  await db.pageView.create({ data: { page, pageId }});
+  try {
+    after(() => db.pageView.create({ data: { page, pageId, asn }}));
+  } catch (e) {
+    // we can ignore this error, page views are not critical
+    console.log(e);
+  }
 });
