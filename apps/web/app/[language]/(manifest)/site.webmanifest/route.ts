@@ -10,11 +10,13 @@ export async function GET() {
 
   return NextResponse.json({
     id: '/',
-    name: 'brick.ninja',
-    short_name: 'brick.ninja',
+    name: 'brick-catalog.eu',
+    short_name: 'brick-catalog.eu',
     start_url: '/',
+    theme_color: '#b7000d',
+    background_color: '#ffffff',
     display: 'standalone',
-    scope_extensions: Object.values(Language).map((language) => ({ origin: `${protocol}//${language}.${process.env.BRICKNINJA_NEXT_DOMAIN}` })),
+    scope_extensions: Object.values(Language).map((language) => ({ type: 'origin', origin: `${protocol}//${language}.${process.env.BRICKNINJA_NEXT_DOMAIN}` })),
   }, {
     headers: {
       'Content-Type': 'application/manifest+json',
