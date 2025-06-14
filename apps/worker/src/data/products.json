@@ -2222,6 +2222,7 @@
           }
         ]
       },
+      "flags": ["ShowInCatalog"],
       "id": 10789,
       "itemIds": [],
       "name": "Spider-Man's Car and Doc Ock",
@@ -2248,6 +2249,7 @@
           }
         ]
       },
+      "flags": ["ShowInCatalog"],
       "id": 10795,
       "itemIds": [],
       "name": "Crafting with Baby Box",
@@ -2274,6 +2276,7 @@
           }
         ]
       },
+      "flags": ["ShowInCatalog"],
       "id": 10796,
       "itemIds": [],
       "name": "Gabby's Kitty Care Ear",
@@ -2300,6 +2303,7 @@
           }
         ]
       },
+      "flags": ["ShowInCatalog"],
       "id": 10797,
       "itemIds": [],
       "name": "Gabby's Party Room",
@@ -2326,6 +2330,7 @@
           }
         ]
       },
+      "flags": ["ShowInCatalog"],
       "id": 10875,
       "itemIds": [],
       "name": "Cargo Train",
@@ -2352,6 +2357,7 @@
           }
         ]
       },
+      "flags": ["ShowInCatalog"],
       "id": 10913,
       "itemIds": [],
       "name": "Brick Box",
@@ -2378,6 +2384,7 @@
           }
         ]
       },
+      "flags": ["ShowInCatalog"],
       "id": 10914,
       "itemIds": [],
       "name": "Deluxe Brick Box",
@@ -2385,7 +2392,26 @@
     },
     {
       "categories": [18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 20
+          },
+          {
+            "text": "Figures",
+            "type": "figureCount",
+            "value": 2
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 2
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 10931,
       "itemIds": [],
       "name": "Truck & Tracked Excavator",
@@ -2393,7 +2419,26 @@
     },
     {
       "categories": [18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 87
+          },
+          {
+            "text": "Figures",
+            "type": "figureCount",
+            "value": 3
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 1.5
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 10935,
       "itemIds": [],
       "name": "Alphabet Town",
@@ -2401,7 +2446,26 @@
     },
     {
       "categories": [15, 18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 22
+          },
+          {
+            "text": "Figures",
+            "type": "figureCount",
+            "value": 3
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 2
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 10941,
       "itemIds": [],
       "name": "Mickey & Minnie Birthday Train",
@@ -2409,7 +2473,26 @@
     },
     {
       "categories": [18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 23
+          },
+          {
+            "text": "Figures",
+            "type": "figureCount",
+            "value": 3
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 1.5
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 10954,
       "itemIds": [],
       "name": "Number Train - Learn To Count",
@@ -2417,7 +2500,21 @@
     },
     {
       "categories": [18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 14
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 1.5
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 10965,
       "itemIds": [],
       "name": "Bath Time Fun: Floating Animal Train",
