@@ -1,0 +1,35 @@
+model Category {
+  id Int @id
+
+  name_en String
+  name_nl String
+
+  products Product[]
+
+  removedFromApi Boolean @default(false)
+
+  current_en Revision @relation("current_en", fields: [currentId_en], references: [id], onDelete: Cascade)
+  currentId_en String @unique
+
+  current_nl Revision @relation("current_nl", fields: [currentId_nl], references: [id], onDelete: Cascade)
+  currentId_nl String @unique
+
+  history CategoryHistory[]
+
+  lastCheckedAt DateTime @default(now())
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  version Int @default(0)
+}
+
+model CategoryHistory {
+  categoryId Int
+  revisionId String @unique
+
+  category Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  revision Revision @relation(fields: [revisionId], references: [id], onDelete: Cascade)
+
+  @@id([categoryId, revisionId])
+}

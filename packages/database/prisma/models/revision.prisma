@@ -1,0 +1,49 @@
+model Revision {
+  id String @id @default(uuid())
+
+  entity String?
+
+  data String
+  description String?
+  type RevisionType @default(Updated)
+
+  language Language
+
+  build Build @relation(fields: [buildId], references: [id])
+  buildId Int
+
+  createdAt DateTime @default(now())
+
+  previousRevisionId String? @unique
+  previousRevision   Revision? @relation("previous", fields: [previousRevisionId], references: [id])
+  nextRevision Revision? @relation("previous")
+
+  // items
+  currentItem_en Item? @relation("current_en")
+  currentItem_nl Item? @relation("current_nl")
+  itemHistory ItemHistory?
+
+  // products
+  currentProduct_en Product? @relation("current_en")
+  currentProduct_nl Product? @relation("current_nl")
+  productHistory ProductHistory[]
+
+  // categories
+  currentCategory_en Category? @relation("current_en")
+  currentCategory_nl Category? @relation("current_nl")
+  categoryHistory CategoryHistory?
+
+  // colors
+  currentColor_en Color? @relation("current_en")
+  currentColor_nl Color? @relation("current_nl")
+  colorHistory ColorHistory[]
+
+  @@index([language, type])
+}
+
+enum RevisionType {
+  Updated
+  Imported
+  Added
+  Removed
+}

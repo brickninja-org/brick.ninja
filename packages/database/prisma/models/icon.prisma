@@ -1,0 +1,10 @@
+model Icon {
+  id Int @id
+  signature String
+  extension String @default("")
+
+  color String?
+
+  items Item[]
+  products Product[]
+}

@@ -1,0 +1,50 @@
+model Product {
+  id Int @id
+
+  name_en String
+  name_nl String
+
+  icon Icon? @relation(fields: [iconId], references: [id])
+  iconId Int?
+
+  type String @default("")
+  subtype String?
+  pieceCount Int?
+  figureCount Int?
+
+  items Item[]
+
+  categories Category[]
+  categoryIds Int[]
+
+  removedFromApi Boolean @default(false)
+
+  views Int @default(0)
+
+  current_en Revision @relation("current_en", fields: [currentId_en], references: [id], onDelete: Cascade)
+  currentId_en String @unique
+  current_nl Revision @relation("current_nl", fields: [currentId_nl], references: [id], onDelete: Cascade)
+  currentId_nl String @unique
+
+  history ProductHistory[]
+
+  lastCheckedAt DateTime @default(now())
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // migration version
+  version Int @default(0)
+
+  @@index([createdAt])
+}
+
+model ProductHistory {
+  productId Int
+  revisionId String @unique
+
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  revision Revision @relation(fields: [revisionId], references: [id], onDelete: Cascade)
+
+  @@id([productId, revisionId])
+}

@@ -1,0 +1,11 @@
+model Content {
+  containerItemId Int
+  contentItemId Int
+
+  quantity Int
+
+  containerItem Item @relation("contains", fields: [containerItemId], references: [id])
+  contentItem Item @relation("containedIn", fields: [contentItemId], references: [id])
+
+  @@id([containerItemId, contentItemId])
+}

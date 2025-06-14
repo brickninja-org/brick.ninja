@@ -1,0 +1,58 @@
+model Item {
+  id Int @id
+
+  name_en String
+  name_nl String
+
+  icon Icon? @relation(fields: [iconId], references: [id])
+  iconId Int?
+
+  type String @default("")
+  subtype String?
+
+  products Product[]
+  productIds Int[]
+
+  contains Content[] @relation("contains")
+  containedIn Content[] @relation("containedIn")
+
+  // review queue
+  reviews Review[] @relation("itemReview")
+
+  // flag if the item is no longer available in the API
+  removedFromApi Boolean @default(false)
+
+  // item views (last 7 days) snd relevancy score
+  views Int @default(0)
+  relevancy Float @default(0)
+
+  // history
+  current_en Revision @relation("current_en", fields: [currentId_en], references: [id], onDelete: Cascade)
+  currentId_en String @unique
+
+  current_nl Revision @relation("current_nl", fields: [currentId_nl], references: [id], onDelete: Cascade)
+  currentId_nl String @unique
+
+  history ItemHistory[]
+
+  // last time checked for updates
+  lastCheckedAt DateTime @default(now())
+  // common timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // migration version
+  version Int @default(0)
+
+  @@index([createdAt])
+}
+
+model ItemHistory {
+  itemId Int
+  revisionId String @unique
+
+  item Item @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  revision Revision @relation(fields: [revisionId], references: [id], onDelete: Cascade)
+
+  @@id([itemId, revisionId])
+}
