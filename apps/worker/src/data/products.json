@@ -2522,7 +2522,26 @@
     },
     {
       "categories": [18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 5
+          },
+          {
+            "text": "Figures",
+            "type": "figureCount",
+            "value": 2
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 2
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 10967,
       "itemIds": [],
       "name": "Police Motorcycle",
@@ -2530,7 +2549,26 @@
     },
     {
       "categories": [18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 21
+          },
+          {
+            "text": "Figures",
+            "type": "figureCount",
+            "value": 2
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 2
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 10969,
       "itemIds": [],
       "name": "Fire Engine",
@@ -2538,7 +2576,26 @@
     },
     {
       "categories": [18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 19
+          },
+          {
+            "text": "Figures",
+            "type": "figureCount",
+            "value": 2
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 2
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 10989,
       "itemIds": [],
       "name": "Water Park",
@@ -2546,7 +2603,26 @@
     },
     {
       "categories": [18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 126
+          },
+          {
+            "text": "Figures",
+            "type": "figureCount",
+            "value": 8
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 3
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 10993,
       "itemIds": [],
       "name": "3in1 Tree House",
@@ -2554,7 +2630,26 @@
     },
     {
       "categories": [18],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 218
+          },
+          {
+            "text": "Figures",
+            "type": "figureCount",
+            "value": 7
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 3
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 10994,
       "itemIds": [],
       "name": "3in1 Family House",
@@ -2562,7 +2657,21 @@
     },
     {
       "categories": [11],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 4
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 11023,
       "itemIds": [],
       "name": "Green Baseplate",
@@ -2570,7 +2679,21 @@
     },
     {
       "categories": [11],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 4
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 11024,
       "itemIds": [],
       "name": "Gray Baseplate",
@@ -2578,7 +2701,21 @@
     },
     {
       "categories": [11],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 4
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 11025,
       "itemIds": [],
       "name": "Blue Baseplate",
@@ -2586,7 +2723,21 @@
     },
     {
       "categories": [11],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 4
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 11026,
       "itemIds": [],
       "name": "White Baseplate",
@@ -2594,7 +2745,21 @@
     },
     {
       "categories": [11],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 450
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 5
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 11034,
       "itemIds": [],
       "name": "Creative Pets",
@@ -2602,7 +2767,21 @@
     },
     {
       "categories": [11],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 850
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 4
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 11035,
       "itemIds": [],
       "name": "Creative Houses",
@@ -2610,7 +2789,21 @@
     },
     {
       "categories": [11],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 900
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 5
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 11036,
       "itemIds": [],
       "name": "Creative Vehicles",
@@ -2618,7 +2811,21 @@
     },
     {
       "categories": [11],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 450
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 5
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 11037,
       "itemIds": [],
       "name": "Creative Space Planets",
@@ -2626,7 +2833,21 @@
     },
     {
       "categories": [11],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 850
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 4
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 11038,
       "itemIds": [],
       "name": "Vibrant Creative Brick Box",
@@ -2634,7 +2855,21 @@
     },
     {
       "categories": [11],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 150
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 4
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 11039,
       "itemIds": [],
       "name": "Creative Food Friends",
@@ -2642,7 +2877,21 @@
     },
     {
       "categories": [11],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 340
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 5
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 11040,
       "itemIds": [],
       "name": "Magical Transparent Box",
@@ -2650,7 +2899,21 @@
     },
     {
       "categories": [11],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 450
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 5
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 11041,
       "itemIds": [],
       "name": "Creative Dinosaurs",
@@ -2658,7 +2921,21 @@
     },
     {
       "categories": [11],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 680
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 5
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 11042,
       "itemIds": [],
       "name": "Creative Happy Box",
@@ -2666,7 +2943,21 @@
     },
     {
       "categories": [11],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 510
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 5
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 11043,
       "itemIds": [],
       "name": "Cool Creative Box",
@@ -2674,7 +2965,21 @@
     },
     {
       "categories": [11],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 750
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 5
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 11044,
       "itemIds": [],
       "name": "Creative Build-and-Play Box",
@@ -2682,7 +2987,26 @@
     },
     {
       "categories": [6],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 104
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 2
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 4
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 11201,
       "itemIds": [],
       "name": "Playground Fun with Bluey and Chloe",
@@ -2690,7 +3014,26 @@
     },
     {
       "categories": [6],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 133
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 3
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 4
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 11202,
       "itemIds": [],
       "name": "Bluey's Beach & Family Car Trip",
@@ -2698,7 +3041,26 @@
     },
     {
       "categories": [6],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 382
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 4
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 4
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 11203,
       "itemIds": [],
       "name": "Bluey's Family House",
@@ -2706,7 +3068,21 @@
     },
     {
       "categories": [2],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 598
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 12
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 21028,
       "itemIds": [],
       "name": "New York City",
@@ -2714,7 +3090,21 @@
     },
     {
       "categories": [2],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 468
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 12
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 21034,
       "itemIds": [],
       "name": "London",
@@ -2722,7 +3112,21 @@
     },
     {
       "categories": [2],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1685
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 16
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 21042,
       "itemIds": [],
       "name": "Statue of Liberty",
@@ -2730,7 +3134,21 @@
     },
     {
       "categories": [2],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 649
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 12
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 21044,
       "itemIds": [],
       "name": "Paris",
