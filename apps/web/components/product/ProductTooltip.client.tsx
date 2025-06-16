@@ -2,6 +2,7 @@ import { Fragment, type FC, type ReactNode } from 'react';
 import type { ProductTooltip } from './ProductTooltip';
 import { isTruthy } from '@brickninja-org/helper/is';
 import { FormatNumber } from '../format/FormatNumber';
+import { FormatWeight } from '../format/FormatWeight';
 import { EntityIcon } from '../entity/EntityIcon';
 
 export interface ClientProductTooltipProps {
@@ -16,9 +17,13 @@ function renderAttributes(attributes: ProductTooltip['attributes']) {
 
   return (
     <dl className="grid grid-cols-[auto_1fr] leading-5">
-      {attributes.map(({ label, value }) => (
+      {attributes.map(({ label, value, type }) => (
         <Fragment key={label}>
-          <dt className="text-right">{typeof value === 'number' ? <FormatNumber value={value}/> : value}</dt>
+          <dt className="text-right">{typeof value === 'number'
+            ? type === 'weightInGrams' ? <FormatWeight grams={value}/> : <FormatNumber value={value}/>
+            : value
+          }
+          </dt>
           <dd className="ml-2">{label}</dd>
         </Fragment>
       ))}
