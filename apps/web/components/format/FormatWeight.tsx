@@ -1,3 +1,5 @@
+'use client';
+
 import { useFormatContext } from './Format.context';
 import { FormatNumber } from './FormatNumber';
 
