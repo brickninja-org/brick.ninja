@@ -3156,7 +3156,21 @@
     },
     {
       "categories": [2],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1476
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 21058,
       "itemIds": [],
       "name": "Great Pyramid of Giza",
@@ -3164,7 +3178,21 @@
     },
     {
       "categories": [2],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 2125
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 21060,
       "itemIds": [],
       "name": "Himeji Castle",
@@ -3172,7 +3200,21 @@
     },
     {
       "categories": [2],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 4383
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 21061,
       "itemIds": [],
       "name": "Notre-Dame de Paris",
@@ -3180,7 +3222,21 @@
     },
     {
       "categories": [2],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1880
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 21062,
       "itemIds": [],
       "name": "Trevi Fountain",
@@ -3188,7 +3244,21 @@
     },
     {
       "categories": [26],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 3662
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 21323,
       "itemIds": [],
       "name": "Grand Piano",
@@ -3196,7 +3266,26 @@
     },
     {
       "categories": [26],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 3955
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 5
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 21330,
       "itemIds": [],
       "name": "LEGO® Ideas Home Alone",
@@ -3204,7 +3293,26 @@
     },
     {
       "categories": [26],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 2316
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 1
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 21333,
       "itemIds": [],
       "name": "Vincent van Gogh - The Starry Night",
@@ -3212,7 +3320,26 @@
     },
     {
       "categories": [26],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 2065
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 2
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 21335,
       "itemIds": [],
       "name": "Motorised Lighthouse",
@@ -3220,7 +3347,26 @@
     },
     {
       "categories": [26, 15],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 2316
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 6
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 21341,
       "itemIds": [],
       "name": "Disney Hocus Pocus: The Sanderson Sisters' Cottage",
@@ -3228,7 +3374,21 @@
     },
     {
       "categories": [26],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1111
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 21342,
       "itemIds": [],
       "name": "The Insect Collection",
@@ -3236,7 +3396,26 @@
     },
     {
       "categories": [26],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 2103
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 4
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 21343,
       "itemIds": [],
       "name": "Viking Village",
@@ -3244,7 +3423,26 @@
     },
     {
       "categories": [26],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 2540
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 8
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 21344,
       "itemIds": [],
       "name": "The Orient Express Train",
@@ -3252,7 +3450,21 @@
     },
     {
       "categories": [26],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 516
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 21345,
       "itemIds": [],
       "name": "Polaroid OneStep SX-70 Camera",
@@ -3260,7 +3472,21 @@
     },
     {
       "categories": [26],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1040
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 21346,
       "itemIds": [],
       "name": "Family Tree",
@@ -3268,7 +3494,21 @@
     },
     {
       "categories": [26],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1460
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 21347,
       "itemIds": [],
       "name": "Red London Telephone Box",
@@ -3276,7 +3516,26 @@
     },
     {
       "categories": [26],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 3745
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 6
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 21348,
       "itemIds": [],
       "name": "Dungeons & Dragons: Red Dragon's Tale",
@@ -3284,7 +3543,21 @@
     },
     {
       "categories": [26],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1710
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 21349,
       "itemIds": [],
       "name": "Tuxedo Cat",
@@ -3292,7 +3565,26 @@
     },
     {
       "categories": [26],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1503
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 3
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 21350,
       "itemIds": [],
       "name": "Jaws",
@@ -3300,7 +3592,26 @@
     },
     {
       "categories": [26, 15],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 2193
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 6
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 21351,
       "itemIds": [],
       "name": "Disney Tim Burton's The Nightmare Before Christmas",
@@ -3308,7 +3619,26 @@
     },
     {
       "categories": [26, 15],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1103
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 7
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 21352,
       "itemIds": [],
       "name": "Magic of Disney",
@@ -3316,7 +3646,26 @@
     },
     {
       "categories": [26],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 3792
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 12
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 21353,
       "itemIds": [],
       "name": "The Botanical Garden",
@@ -3324,7 +3673,26 @@
     },
     {
       "categories": [26],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 2001
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 7
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 21354,
       "itemIds": [],
       "name": "Twilight The Cullen House",
@@ -3332,7 +3700,26 @@
     },
     {
       "categories": [26],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 879
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 3
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 21355,
       "itemIds": [],
       "name": "The Evolution of STEM",
@@ -3340,7 +3727,21 @@
     },
     {
       "categories": [26],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 4090
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 21356,
       "itemIds": [],
       "name": "River Steamboat",
