@@ -115,5 +115,6 @@
   "product.attributes.Ages": "Ages",
   "product.attributes.Figures": "Figures",
   "product.attributes.Minifigures": "Minifigures",
-  "product.attributes.Pieces": "Pieces"
+  "product.attributes.Pieces": "Pieces",
+  "product.attributes.Weight": "Weight"
 }
