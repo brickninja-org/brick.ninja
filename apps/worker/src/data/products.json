@@ -5349,7 +5349,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1226
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 6
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 6
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60198,
       "itemIds": [],
       "name": "Cargo Train",
@@ -5357,7 +5376,21 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 20
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 5
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 60205,
       "itemIds": [],
       "name": "Tracks",
@@ -5365,7 +5398,21 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 8
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 5
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 60238,
       "itemIds": [],
       "name": "Switch Tracks",
@@ -5373,7 +5420,21 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 112
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 5
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 60304,
       "itemIds": [],
       "name": "Road Plates",
@@ -5381,7 +5442,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 94
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 1
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 5
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60312,
       "itemIds": [],
       "name": "Police Car",
@@ -5389,7 +5469,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 668
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 5
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 6
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60316,
       "itemIds": [],
       "name": "Police Station",
@@ -5397,7 +5496,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 764
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 6
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 7
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60337,
       "itemIds": [],
       "name": "Express Passenger Train",
@@ -5405,7 +5523,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 913
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 9
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 7
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60367,
       "itemIds": [],
       "name": "Passenger Airplane",
@@ -5413,7 +5550,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 815
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 7
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 7
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60368,
       "itemIds": [],
       "name": "Arctic Explorer Ship",
@@ -5421,7 +5577,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 197
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 2
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 5
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60369,
       "itemIds": [],
       "name": "Mobile Police Dog Training",
@@ -5429,7 +5604,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 144
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 3
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 5
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60373,
       "itemIds": [],
       "name": "Fire Rescue Boat",
@@ -5437,7 +5631,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 502
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 3
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 7
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60374,
       "itemIds": [],
       "name": "Fire Command Truck",
@@ -5445,7 +5658,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 235
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 3
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 4
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60391,
       "itemIds": [],
       "name": "Construction Trucks and Wrecking Ball Crane",
@@ -5453,7 +5685,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 99
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 2
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 5
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60400,
       "itemIds": [],
       "name": "Go-Karts and Race Drivers",
@@ -5461,7 +5712,53 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 78
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 1
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 5
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
+      "id": 60401,
+      "itemIds": [],
+      "name": "Construction Steamroller",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 148
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 1
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 5
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60402,
       "itemIds": [],
       "name": "Blue Monster Truck",
@@ -5469,7 +5766,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 194
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 2
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 5
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60404,
       "itemIds": [],
       "name": "Burger Truck",
@@ -5477,7 +5793,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 328
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 2
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 6
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60406,
       "itemIds": [],
       "name": "Race Car and Car Carrier Truck",
@@ -5485,7 +5820,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 384
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 5
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 7
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60407,
       "itemIds": [],
       "name": "Red Double-Decker Sightseeing Bus",
@@ -5493,7 +5847,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 998
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 4
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 7
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60408,
       "itemIds": [],
       "name": "Car Transporter Truck with Sports Cars",
@@ -5501,7 +5874,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 116
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 4
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 9
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60409,
       "itemIds": [],
       "name": "Yellow Mobile Construction Crane",
@@ -5509,7 +5901,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 85
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 1
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 5
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60411,
       "itemIds": [],
       "name": "Fire Rescue Helicopter",
@@ -5517,7 +5928,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 301
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 3
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 5
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60412,
       "itemIds": [],
       "name": "4x4 Fire Truck with Rescue Boat",
@@ -5525,7 +5955,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 478
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 3
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 6
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60413,
       "itemIds": [],
       "name": "Fire Rescue Plane",
@@ -5533,7 +5982,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 843
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 5
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 6
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60414,
       "itemIds": [],
       "name": "Fire Station with Fire Truck",
@@ -5541,7 +6009,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 213
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 2
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 6
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60415,
       "itemIds": [],
       "name": "Police Car and Muscle Car Chase",
@@ -5549,7 +6036,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 674
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 5
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 7
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60418,
       "itemIds": [],
       "name": "Police Mobile Crime Lab Truck",
@@ -5557,7 +6063,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 980
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 7
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 7
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60419,
       "itemIds": [],
       "name": "Police Prison Island",
@@ -5565,7 +6090,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 633
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 3
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 8
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60420,
       "itemIds": [],
       "name": "Yellow Construction Excavator",
@@ -5573,7 +6117,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 986
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 8
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 8
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60421,
       "itemIds": [],
       "name": "Robot World Roller-Coaster Park",
@@ -5581,7 +6144,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1226
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 8
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 8
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60422,
       "itemIds": [],
       "name": "Seaside Harbor with Cargo Ship",
@@ -5589,7 +6171,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 811
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 6
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 7
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60423,
       "itemIds": [],
       "name": "Downtown Streetcar and Station",
@@ -5597,7 +6198,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 314
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 3
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 6
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60426,
       "itemIds": [],
       "name": "Jungle Explorer Off-Road Truck",
@@ -5605,7 +6225,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 126
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 2
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 4
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60429,
       "itemIds": [],
       "name": "Spaceship and Asteroid Discovery",
@@ -5613,7 +6252,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 240
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 1
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 6
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60430,
       "itemIds": [],
       "name": "Interstellar Spaceship",
@@ -5621,7 +6279,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 311
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 2
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 6
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60431,
       "itemIds": [],
       "name": "Space Explorer Rover and Alien Life",
@@ -5629,7 +6306,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1097
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 6
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 7
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60433,
       "itemIds": [],
       "name": "Modular Space Station",
@@ -5637,7 +6333,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1422
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 6
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 8
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60434,
       "itemIds": [],
       "name": "Space Base and Rocket Launchpad",
@@ -5645,7 +6360,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 101
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 2
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 4
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60435,
       "itemIds": [],
       "name": "Tow Truck and Sports Car Repair",
@@ -5653,7 +6387,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 881
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 5
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 8
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60437,
       "itemIds": [],
       "name": "Jungle Explorer Helicopter at Base Camp",
@@ -5661,7 +6414,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 560
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 3
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 6
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60439,
       "itemIds": [],
       "name": "Space Science Lab",
@@ -5669,7 +6441,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1061
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 4
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 8
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60440,
       "itemIds": [],
       "name": "Yellow Delivery Truck",
@@ -5677,7 +6468,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 86
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 1
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 6
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60442,
       "itemIds": [],
       "name": "F1® Driver with McLaren Race Car",
@@ -5685,7 +6495,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 322
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 5
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 6
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60443,
       "itemIds": [],
       "name": "F1® Pit Stop & Pit Crew with Ferrari Car",
@@ -5693,7 +6522,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 678
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 6
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 7
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60444,
       "itemIds": [],
       "name": "F1® Garage & Mercedes-AMG & Alpine Cars",
@@ -5701,7 +6549,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1086
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 5
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 8
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60445,
       "itemIds": [],
       "name": "F1® Truck with RB20 & AMR24 F1® Car",
@@ -5709,7 +6576,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 717
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 5
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 7
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60446,
       "itemIds": [],
       "name": "Modular Galactic Spaceship",
@@ -5717,7 +6603,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 221
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 1
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 6
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60447,
       "itemIds": [],
       "name": "Off-Road 4x4 Mountain Truck",
@@ -5725,7 +6630,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 109
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 1
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 5
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60448,
       "itemIds": [],
       "name": "Red Sports Car",
@@ -5733,7 +6657,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 467
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 4
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 6
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60449,
       "itemIds": [],
       "name": "Off-Road Police Car Chase",
@@ -5741,7 +6684,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 81
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 2
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 4
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60450,
       "itemIds": [],
       "name": "Yellow Construction Wheel Loader",
@@ -5749,7 +6711,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 184
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 2
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 5
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60451,
       "itemIds": [],
       "name": "Emergency Ambulance",
@@ -5757,7 +6738,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 196
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 2
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 5
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60452,
       "itemIds": [],
       "name": "Donut Truck",
@@ -5765,7 +6765,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 214
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 2
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 6
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60453,
       "itemIds": [],
       "name": "Lifeguard Beach Rescue Truck",
@@ -5773,7 +6792,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 385
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 3
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 6
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60454,
       "itemIds": [],
       "name": "Holiday Adventure Camper Van",
@@ -5781,7 +6819,107 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 65
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 2
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 4
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
+      "id": 60455,
+      "itemIds": [],
+      "name": "Police Motorcycle Chase",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 264
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 3
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 6
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
+      "id": 60456,
+      "itemIds": [],
+      "name": "Police Boat Chase",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 489
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 4
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 6
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
+      "id": 60457,
+      "itemIds": [],
+      "name": "Custom Police Car Garage",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 70
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 2
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 5
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60458,
       "itemIds": [],
       "name": "Pizza vs. Fire Truck Race Car Pack",
@@ -5789,7 +6927,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 70
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 2
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 5
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60459,
       "itemIds": [],
       "name": "Airplane vs. Hospital Bed Race Car Pack",
@@ -5797,7 +6954,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 436
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 4
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 6
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60460,
       "itemIds": [],
       "name": "No Limits: Race Car Ramp Track",
@@ -5805,7 +6981,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 116
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 2
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 4
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60461,
       "itemIds": [],
       "name": "Red Farm Tractor with Trailer & Sheep",
@@ -5813,7 +7008,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 874
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 3
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 7
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60462,
       "itemIds": [],
       "name": "Helicopter, Fire Truck & Submarine Remix",
@@ -5821,7 +7035,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 82
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 2
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 4
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60463,
       "itemIds": [],
       "name": "Fire Ladder Truck",
@@ -5829,7 +7062,26 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 92
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 2
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 4
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60464,
       "itemIds": [],
       "name": "F1® Williams Racing & Haas F1® Race Cars",
@@ -5837,7 +7089,187 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 403
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 4
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 6
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
+      "id": 60465,
+      "itemIds": [],
+      "name": "Emergency Air Ambulance Airplane",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 682
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 3
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 8
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
+      "id": 60466,
+      "itemIds": [],
+      "name": "Yellow Bulldozer",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 793
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 3
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 8
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
+      "id": 60467,
+      "itemIds": [],
+      "name": "Heavy-Duty Recovery Tow Truck with Crane",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 752
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 7
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 7
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
+      "id": 60469,
+      "itemIds": [],
+      "name": "Central Train Station",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1517
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 6
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 7
+          }
+        ]
+      },
+      "id": 60470,
+      "itemIds": [],
+      "name": "Explorers' Arctic Polar Express Train",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1064
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 5
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 8
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
+      "id": 60471,
+      "itemIds": [],
+      "name": "Arctic Explorer Science Lab Truck",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 871
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 4
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 7
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60472,
       "itemIds": [],
       "name": "Scrapyard with Cars",
@@ -5845,7 +7277,53 @@
     },
     {
       "categories": [10],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1941
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 7
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 8
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
+      "id": 60473,
+      "itemIds": [],
+      "name": "The City Tower",
+      "type": "Set"
+    },
+    {
+      "categories": [10],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 313
+          },
+          {
+            "text": "Minifigures",
+            "type": "minifigureCount",
+            "value": 3
+          },
+          {
+            "text": "Age",
+            "type": "ageRange",
+            "value": 6
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 60474,
       "itemIds": [],
       "name": "F1® Grid with VCARB & Sauber Race Car",
