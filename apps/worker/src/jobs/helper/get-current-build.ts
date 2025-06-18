@@ -17,7 +17,7 @@ export async function getCurrentBuild(): Promise<Build> {
 
 // eslint-disable-next-line require-await
 async function getBuildFromApi() {
-  const content = '115808 1806 2025 0036 0070'; // Simulated API response
+  const content = '115809 1806 2025 2034 0071'; // Simulated API response
 
   if (!content.match(/^\d+ \d+ \d+ \d+ \d+$/)) {
     throw new Error('Got invalid build id response from API.');

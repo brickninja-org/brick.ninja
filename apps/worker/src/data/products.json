@@ -3749,7 +3749,21 @@
     },
     {
       "categories": [12],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 174
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 7
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 31058,
       "itemIds": [],
       "name": "Mighty Dinosaurs",
@@ -3757,7 +3771,26 @@
     },
     {
       "categories": [12],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1264
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 3
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 9
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 31109,
       "itemIds": [],
       "name": "Pirate Ship",
@@ -3765,7 +3798,43 @@
     },
     {
       "categories": [12],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 755
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 9
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
+      "id": 31129,
+      "itemIds": [],
+      "name": "Majestic Tiger",
+      "type": "Set"
+    },
+    {
+      "categories": [12],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 144
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 6
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 31134,
       "itemIds": [],
       "name": "Space Shuttle",
@@ -3773,7 +3842,21 @@
     },
     {
       "categories": [12],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 253
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 7
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 31136,
       "itemIds": [],
       "name": "Exotic Parrot",
@@ -3781,7 +3864,21 @@
     },
     {
       "categories": [12],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 475
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 7
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 31137,
       "itemIds": [],
       "name": "Adorable Dogs",
@@ -3789,7 +3886,26 @@
     },
     {
       "categories": [12],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 808
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 3
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 8
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 31139,
       "itemIds": [],
       "name": "Cozy House",
@@ -3797,7 +3913,48 @@
     },
     {
       "categories": [12],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 145
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 7
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
+      "id": 31140,
+      "itemIds": [],
+      "name": "Magical Unicorn",
+      "type": "Set"
+    },
+    {
+      "categories": [12],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 874
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 5
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 9
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 31142,
       "itemIds": [],
       "name": "Space Roller Coaster",
@@ -3805,7 +3962,21 @@
     },
     {
       "categories": [12],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 149
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 6
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 31145,
       "itemIds": [],
       "name": "Red Dragon",
@@ -3813,7 +3984,21 @@
     },
     {
       "categories": [12],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 270
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 7
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 31146,
       "itemIds": [],
       "name": "Flatbed Truck with Helicopter",
@@ -3821,7 +4006,21 @@
     },
     {
       "categories": [12],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 261
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 8
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 31147,
       "itemIds": [],
       "name": "Retro Camera",
@@ -3829,7 +4028,21 @@
     },
     {
       "categories": [12],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 342
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 8
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 31148,
       "itemIds": [],
       "name": "Retro Roller Skate",
@@ -3837,7 +4050,21 @@
     },
     {
       "categories": [12],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 420
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 8
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 31149,
       "itemIds": [],
       "name": "Flowers in Watering Can",
@@ -3845,7 +4072,21 @@
     },
     {
       "categories": [12],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 780
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 9
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 31150,
       "itemIds": [],
       "name": "Wild Safari Animals",
@@ -3853,7 +4094,21 @@
     },
     {
       "categories": [12],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 626
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 9
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 31151,
       "itemIds": [],
       "name": "T. rex",
@@ -3861,7 +4116,21 @@
     },
     {
       "categories": [12],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 647
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 9
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 31152,
       "itemIds": [],
       "name": "Space Astronaut",
@@ -3869,7 +4138,26 @@
     },
     {
       "categories": [12],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 939
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 2
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 9
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 31153,
       "itemIds": [],
       "name": "Modern House",
@@ -3877,7 +4165,21 @@
     },
     {
       "categories": [12],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 667
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 9
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 31154,
       "itemIds": [],
       "name": "Forest Animals: Red Fox",
@@ -3885,7 +4187,21 @@
     },
     {
       "categories": [12],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 416
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 8
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 31155,
       "itemIds": [],
       "name": "Hamster Wheel",
@@ -3893,7 +4209,21 @@
     },
     {
       "categories": [12],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 387
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 8
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 31156,
       "itemIds": [],
       "name": "Tropical Ukulele",
@@ -3901,7 +4231,21 @@
     },
     {
       "categories": [12],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 355
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 7
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 31157,
       "itemIds": [],
       "name": "Exotic Peacock",
@@ -3909,7 +4253,21 @@
     },
     {
       "categories": [12],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 421
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 8
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 31158,
       "itemIds": [],
       "name": "Sea Animals",
@@ -3917,7 +4275,21 @@
     },
     {
       "categories": [12],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 153
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 7
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 31159,
       "itemIds": [],
       "name": "Wild Animals: Surprising Spider",
@@ -3925,7 +4297,21 @@
     },
     {
       "categories": [12],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 178
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 7
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 31160,
       "itemIds": [],
       "name": "Aircraft: Race Plane",
@@ -3933,7 +4319,21 @@
     },
     {
       "categories": [12],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 715
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 9
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 31161,
       "itemIds": [],
       "name": "Medieval Dragon",
@@ -3941,7 +4341,21 @@
     },
     {
       "categories": [12],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 326
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 8
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 31162,
       "itemIds": [],
       "name": "Cute Bunny",
@@ -3949,7 +4363,21 @@
     },
     {
       "categories": [12],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 407
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 8
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 31163,
       "itemIds": [],
       "name": "Playful Cat",
@@ -3957,7 +4385,21 @@
     },
     {
       "categories": [12],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 281
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 8
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 31164,
       "itemIds": [],
       "name": "Space Robot",
@@ -3965,7 +4407,21 @@
     },
     {
       "categories": [12],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 626
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 8
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 31165,
       "itemIds": [],
       "name": "Wild Animals: Panda Family",
@@ -3973,7 +4429,95 @@
     },
     {
       "categories": [12],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 685
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 9
+          }
+        ]
+      },
+      "id": 31166,
+      "itemIds": [],
+      "name": "Beautiful Horse",
+      "type": "Set"
+    },
+    {
+      "categories": [12],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 736
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 5
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 9
+          }
+        ]
+      },
+      "id": 31167,
+      "itemIds": [],
+      "name": "Haunted Mansion",
+      "type": "Set"
+    },
+    {
+      "categories": [12],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1371
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 6
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 9
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
+      "id": 31168,
+      "itemIds": [],
+      "name": "Medieval Horse Knight Castle",
+      "type": "Set"
+    },
+    {
+      "categories": [12],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 363
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 8
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 31169,
       "itemIds": [],
       "name": "Typewriter with Flowers",
@@ -3981,7 +4525,21 @@
     },
     {
       "categories": [12],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 288
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 8
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 31170,
       "itemIds": [],
       "name": "Wild Animals: Pink Flamingo",
@@ -3989,10 +4547,90 @@
     },
     {
       "categories": [12],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 366
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 8
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 31172,
       "itemIds": [],
       "name": "Record Player with Flowers",
+      "type": "Set"
+    },
+    {
+      "categories": [12],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 225
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 7
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
+      "id": 31173,
+      "itemIds": [],
+      "name": "Wild Animals: Tropical Toucan",
+      "type": "Set"
+    },
+    {
+      "categories": [12],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 383
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 8
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
+      "id": 31174,
+      "itemIds": [],
+      "name": "Retro Telephone",
+      "type": "Set"
+    },
+    {
+      "categories": [12],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 390
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 8
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
+      "id": 31175,
+      "itemIds": [],
+      "name": "Unicorn Castle",
       "type": "Set"
     },
     {
@@ -7459,7 +8097,26 @@
     },
     {
       "categories": [14],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 136
+          },
+          {
+            "text": "Figures",
+            "type": "figureCount",
+            "value": 4
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 6
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 75580,
       "itemIds": [],
       "name": "Minions and Banana Car",
@@ -7467,7 +8124,26 @@
     },
     {
       "categories": [14],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 379
+          },
+          {
+            "text": "Figures",
+            "type": "figureCount",
+            "value": 4
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 7
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 75581,
       "itemIds": [],
       "name": "Minions' Music Party Bus",
@@ -7475,7 +8151,21 @@
     },
     {
       "categories": [14],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 839
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 9
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 75582,
       "itemIds": [],
       "name": "Brick-Built Gru and Minions",
@@ -7483,7 +8173,26 @@
     },
     {
       "categories": [14],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 868
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 6
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 8
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 75583,
       "itemIds": [],
       "name": "Minions and Gru's Family Mansion",
@@ -7547,7 +8256,26 @@
     },
     {
       "categories": [5, 13],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 140
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 1
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 6
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 76270,
       "itemIds": [],
       "name": "Batman™ Mech Armour",
@@ -7555,7 +8283,26 @@
     },
     {
       "categories": [5, 13],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 4210
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 4
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 76271,
       "itemIds": [],
       "name": "Batman: The Animated Series Gotham City™",
@@ -7563,7 +8310,21 @@
     },
     {
       "categories": [5, 13],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 713
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 12
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
       "id": 76273,
       "itemIds": [],
       "name": "Batman™ Construction Figure and the Bat-Pod Bike",
@@ -7572,7 +8333,26 @@
     
     {
       "categories": [5, 13],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 435
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 3
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 8
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 76274,
       "itemIds": [],
       "name": "Batman™ with the Batmobile™ vs. Harley Quinn™ and Mr. Freeze™",
@@ -7588,7 +8368,26 @@
     },
     {
       "categories": [5, 13],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 63
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 2
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 4
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 76301,
       "itemIds": [],
       "name": "Batman™ & Batmobile™ vs. Mr. Freeze™",
@@ -7596,7 +8395,26 @@
     },
     {
       "categories": [13],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 120
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 2
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 6
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 76302,
       "itemIds": [],
       "name": "Superman™ Mech vs. Lex Luthor™",
@@ -7604,7 +8422,26 @@
     },
     {
       "categories": [5, 13],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 429
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 3
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 8
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 76303,
       "itemIds": [],
       "name": "Batman™ Tumbler vs. Two-Face™ & The Joker™",
@@ -7718,7 +8555,26 @@
     },
     {
       "categories": [13, 5],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1822
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 1
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 76328,
       "itemIds": [],
       "name": "Batman™: The Classic TV Series Batmobile™",
