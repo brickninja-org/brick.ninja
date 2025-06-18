@@ -3748,6 +3748,72 @@
       "type": "Set"
     },
     {
+      "categories": [12, 15],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 613
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
+      "id": 21357,
+      "itemIds": [],
+      "name": "Disney Pixar Luxo Jr.",
+      "type": "Set"
+    },
+    {
+      "categories": [12],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 128
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 4
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
+      "id": 31034,
+      "itemIds": [],
+      "name": "Penguin",
+      "type": "Set"
+    },
+    {
+      "categories": [12],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 139
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 4
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
+      "id": 31035,
+      "itemIds": [],
+      "name": "T-Rex Dinosaur Fossil Exhibition",
+      "type": "Set"
+    },
+    {
       "categories": [12],
       "details": {
         "attributes": [
@@ -5795,7 +5861,48 @@
     },
     {
       "categories": [15],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 784
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 9
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
+      "id": 43257,
+      "itemIds": [],
+      "name": "Angel",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 572
+          },
+          {
+            "text": "Minidolls",
+            "type": "figureCount",
+            "value": 2
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 7
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 43258,
       "itemIds": [],
       "name": "Kakamora Barge",
@@ -5803,7 +5910,26 @@
     },
     {
       "categories": [15],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 93
+          },
+          {
+            "text": "Minidolls",
+            "type": "figureCount",
+            "value": 1
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 5
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 43259,
       "itemIds": [],
       "name": "Twirling Ariel",
@@ -5811,7 +5937,26 @@
     },
     {
       "categories": [15],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 175
+          },
+          {
+            "text": "Minidolls",
+            "type": "figureCount",
+            "value": 2
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 5
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 43260,
       "itemIds": [],
       "name": "Moana's Island Fun",
@@ -5819,7 +5964,26 @@
     },
     {
       "categories": [15],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 186
+          },
+          {
+            "text": "Minidolls",
+            "type": "figureCount",
+            "value": 2
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 5
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 43261,
       "itemIds": [],
       "name": "Encanto Mini House",
@@ -5827,7 +5991,26 @@
     },
     {
       "categories": [15],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 524
+          },
+          {
+            "text": "Minidolls",
+            "type": "figureCount",
+            "value": 2
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 9
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 43262,
       "itemIds": [],
       "name": "Maleficent's and Cruella De Vil's Dresses",
@@ -5835,7 +6018,26 @@
     },
     {
       "categories": [15],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 2916
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 10
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 43263,
       "itemIds": [],
       "name": "Beauty and the Beast Castle",
@@ -5843,7 +6045,53 @@
     },
     {
       "categories": [15],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 206
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 4
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 4
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
+      "id": 43264,
+      "itemIds": [],
+      "name": "Disney Princess Castle",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 77
+          },
+          {
+            "text": "Minidolls",
+            "type": "figureCount",
+            "value": 2
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 5
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 43265,
       "itemIds": [],
       "name": "Arendelle Frozen Castle",
@@ -5851,7 +6099,26 @@
     },
     {
       "categories": [15],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 474
+          },
+          {
+            "text": "Minidolls",
+            "type": "figureCount",
+            "value": 1
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 9
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 43266,
       "itemIds": [],
       "name": "Cinderella's Dress",
@@ -5859,10 +6126,78 @@
     },
     {
       "categories": [15],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 787
+          },
+          {
+            "text": "Minidolls",
+            "type": "figureCount",
+            "value": 5
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 6
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
+      "id": 43267,
+      "itemIds": [],
+      "name": "Princess Castle & Royal Pets",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 834
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 5
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 9
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 43268,
       "itemIds": [],
       "name": "Lilo and Stitch Beach House",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1722
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 18
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
+      "id": 43269,
+      "itemIds": [],
+      "name": "101 Dalmatians Puppy",
       "type": "Set"
     },
     {
@@ -5875,6 +6210,28 @@
     },
     {
       "categories": [15],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 268
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 6
+          }
+        ]
+      },
+      "flags": ["NoFigures", "ShowInCatalog"],
+      "id": 43271,
+      "itemIds": [],
+      "name": "Lucky & Penny 101 Dalmatians Puppies",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
       "details": {},
       "id": 43272,
       "itemIds": [],
@@ -5883,7 +6240,53 @@
     },
     {
       "categories": [15],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 231
+          },
+          {
+            "text": "Minidolls",
+            "type": "figureCount",
+            "value": 3
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 5
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
+      "id": 43273,
+      "itemIds": [],
+      "name": "Advent Calendar 2025",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 596
+          },
+          {
+            "text": "Minidolls",
+            "type": "figureCount",
+            "value": 2
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 6
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 43275,
       "itemIds": [],
       "name": "Cinderella's Castle & Horse Carriage",
@@ -5895,6 +6298,60 @@
       "id": 43276,
       "itemIds": [],
       "name": "Snow White's Jewelry Box",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 378
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 1
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 9
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
+      "id": 43277,
+      "itemIds": [],
+      "name": "Cruella De Vil's Car",
+      "type": "Set"
+    },
+    {
+      "categories": [15],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 306
+          },
+          {
+            "text": "Minidolls",
+            "type": "figureCount",
+            "value": 8
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 5
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
+      "id": 43278,
+      "itemIds": [],
+      "name": "Mini Arendelle Castle & Elsa's Ice Palace",
       "type": "Set"
     },
     {
@@ -7977,7 +8434,26 @@
     },
     {
       "categories": [17],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1203
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 5
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 9
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 71478,
       "itemIds": [],
       "name": "The Never Witch's Midnight Raven",
@@ -7985,7 +8461,26 @@
     },
     {
       "categories": [17],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 226
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 2
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 7
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 71479,
       "itemIds": [],
       "name": "Zoey's Cat Motorcycle",
@@ -7993,7 +8488,26 @@
     },
     {
       "categories": [17],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 342
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 2
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 7
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 71480,
       "itemIds": [],
       "name": "Logan the Mighty Panda",
@@ -8001,7 +8515,26 @@
     },
     {
       "categories": [17],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 328
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 2
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 8
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 71481,
       "itemIds": [],
       "name": "Izzie's Dream Animals",
@@ -8009,7 +8542,26 @@
     },
     {
       "categories": [17],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 457
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 5
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 9
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 71483,
       "itemIds": [],
       "name": "The Never Witch's Nightmare Creatures",
@@ -8017,7 +8569,26 @@
     },
     {
       "categories": [17],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 917
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 4
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 9
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 71484,
       "itemIds": [],
       "name": "Cooper's Robot Dinosaur C-Rex",
@@ -8025,7 +8596,26 @@
     },
     {
       "categories": [17],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1333
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 4
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 10
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 71485,
       "itemIds": [],
       "name": "Mateo and Z-Blob the Knight Battle Mech",
@@ -8033,7 +8623,26 @@
     },
     {
       "categories": [17],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1742
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 6
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 10
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 71486,
       "itemIds": [],
       "name": "Castle Nocturnia",
@@ -8041,7 +8650,26 @@
     },
     {
       "categories": [17],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 121
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 1
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 7
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 71487,
       "itemIds": [],
       "name": "Z-Blob's Robot and Vehicle Adventures",
@@ -8049,7 +8677,26 @@
     },
     {
       "categories": [17],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 143
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 1
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 7
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 71488,
       "itemIds": [],
       "name": "Bunchu's Creative Animal Adventures",
@@ -8057,7 +8704,26 @@
     },
     {
       "categories": [17],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 266
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 1
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 7
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 71489,
       "itemIds": [],
       "name": "Cooper's Gaming Controller Jet",
@@ -8065,7 +8731,26 @@
     },
     {
       "categories": [17],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 252
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 1
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 7
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 71490,
       "itemIds": [],
       "name": "Izzie and Bunchurro the Gaming Bunny",
@@ -8073,7 +8758,26 @@
     },
     {
       "categories": [17],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 485
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 2
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 8
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 71491,
       "itemIds": [],
       "name": "Mateo and the Z-Blob Action Race Car",
@@ -8081,10 +8785,164 @@
     },
     {
       "categories": [17],
-      "details": {},
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 443
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 2
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 7
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
+      "id": 71492,
+      "itemIds": [],
+      "name": "Mateo's Fire Chameleon",
+      "type": "Set"
+    },
+    {
+      "categories": [17],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 359
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 1
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 8
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
+      "id": 71494,
+      "itemIds": [],
+      "name": "Zoey's Time Owl",
+      "type": "Set"
+    },
+    {
+      "categories": [17],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 368
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 1
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 8
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
+      "id": 71495,
+      "itemIds": [],
+      "name": "Mateo vs. Cyber Brain Mech",
+      "type": "Set"
+    },
+    {
+      "categories": [17],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1006
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 3
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 9
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
       "id": 71497,
       "itemIds": [],
       "name": "Cooper's Tiger Mech & Zero's Hot Rod Car",
+      "type": "Set"
+    },
+    {
+      "categories": [17],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 929
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 6
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 9
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
+      "id": 71499,
+      "itemIds": [],
+      "name": "Mateo's Spray Paint Truck",
+      "type": "Set"
+    },
+    {
+      "categories": [17],
+      "details": {
+        "attributes": [
+          {
+            "text": "Pieces",
+            "type": "pieceCount",
+            "value": 1413
+          },
+          {
+            "text": "Minifigures",
+            "type": "figureCount",
+            "value": 5
+          },
+          {
+            "text": "Ages",
+            "type": "ageRange",
+            "value": 9
+          }
+        ]
+      },
+      "flags": ["ShowInCatalog"],
+      "id": 71500,
+      "itemIds": [],
+      "name": "Nightmare Shark Submarine",
       "type": "Set"
     },
     {
