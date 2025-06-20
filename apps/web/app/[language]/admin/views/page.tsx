@@ -9,6 +9,7 @@ import { db } from '@/lib/prisma';
 import { PageLayout } from '@/components/layout/PageLayout';
 import { ensureUserIsAdmin } from '../admin';
 import { Chart } from '@/components/chart/Chart';
+import { Table } from '@brickninja-org/ui/components/table/Table';
 
 type Interval = 'hour' | 'day';
 type Days = '7' | '30';
@@ -19,7 +20,7 @@ const getViews = cache(async function getViews(interval: Interval, days: Days) {
 
   const intervalSize = interval === 'hour' ? '1 hour' : '1 day';
 
-  const [views] = await Promise.all([
+  const [views, mostViewed] = await Promise.all([
     // db.pageView_daily.groupBy({
     //   by: 'bucket',
     //   _sum: { count: true },
@@ -34,7 +35,6 @@ const getViews = cache(async function getViews(interval: Interval, days: Days) {
       WHERE time >= ${daysAgo} AND time <= NOW()
       GROUP BY 1
       ORDER BY 1`,
-    /*
     db.pageView_daily.groupBy({
       by: ['page', 'pageId'],
       _sum: { count: true },
@@ -42,10 +42,9 @@ const getViews = cache(async function getViews(interval: Interval, days: Days) {
       orderBy: { _sum: { count: 'desc' }},
       take: 25,
     }),
-    */
   ]);
 
-  return { views };
+  return { views, mostViewed };
 });
 
 export default async function AdminViewsPage({ searchParams }: PageProps) {
@@ -55,7 +54,7 @@ export default async function AdminViewsPage({ searchParams }: PageProps) {
   const interval = (['hour', 'day']).includes(intervalParam as string) ? intervalParam as 'hour' | 'day' : 'hour';
   const days = (['7', '30']).includes(daysParam as string) ? daysParam as '7' | '30' : '7';
 
-  const { views } = await getViews(interval, days);
+  const { views, mostViewed } = await getViews(interval, days);
 
   return (
     <PageLayout>
@@ -73,6 +72,28 @@ export default async function AdminViewsPage({ searchParams }: PageProps) {
         Page Views (last {days} days)
       </Headline>
       <Chart lines={[['Page Views', views]]}/>
+
+      <Headline id="most-viewed">
+        Most Viewed Pages
+      </Headline>
+      <Table>
+        <thead>
+          <tr>
+            <th>Page</th>
+            <th>ID</th>
+            <th>Views</th>
+          </tr>
+        </thead>
+        <tbody>
+          {mostViewed.map((view) => (
+            <tr key={`${view.page}-${view.pageId}`}>
+              <td>{view.page}</td>
+              <td>{view.pageId}</td>
+              <td>{view._sum.count}</td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
     </PageLayout>
   );
 }
