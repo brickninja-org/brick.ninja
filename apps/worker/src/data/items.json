@@ -2677,6 +2677,19 @@
       "type": "Container"
     },
     {
+      "details": {
+        "color_id": 28,
+        "design_id": 5264,
+        "piece_type": "LEGO",
+        "type": "Connector"
+      },
+      "flags": [],
+      "icon": "https://www.lego.com/cdn/product-assets/element.img.photoreal.192x192/6527025.jpg",
+      "id": 6527025,
+      "name": "3.2 HOLDER, W/ KNOB",
+      "type": "Element"
+    },
+    {
       "barcode": "5702017829135",
       "default_product": 10354,
       "details": {

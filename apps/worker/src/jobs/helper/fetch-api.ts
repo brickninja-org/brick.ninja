@@ -1,7 +1,7 @@
-import type { EndpointType, OptionsByEndpoint } from '@brickset-api/types/endpoints';
+import type { EndpointType, OptionsByEndpoint } from '@brickninjaapi/types/endpoints';
 
 import chalk from 'chalk';
-import { fetchBricksetApi, type FetchOptions } from '@brickset-api/fetch';
+import { fetchBricksetApi, type FetchOptions } from '@brickninjaapi/fetch';
 
 import { db } from '../../db';
 
