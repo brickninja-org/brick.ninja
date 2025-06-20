@@ -29,8 +29,6 @@ export async function registerCronJobs() {
 
   await registerJob('colors', schedule.every5Minutes);
 
-  // await registerJob('categories.check', '*/5 * * * *');
-
   await registerJob('bricklinkapi-requests.cleanup', 'H 3 * * *');
 
   await registerJob('icon.colors', '37 * * * * ');

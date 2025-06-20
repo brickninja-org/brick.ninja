@@ -1,5 +1,4 @@
 import { BricklinkApiRequestsCleanup } from './bricklinkapi-requests/cleanup';
-import { CategoriesCheck } from './categories/check';
 import { ColorsJob } from './colors';
 import { IconColors } from './icons/colors';
 import { ItemsCheck } from './items/check';
@@ -36,8 +35,6 @@ const jobsInternal = {
   'product.views': ProductViews,
 
   'colors': ColorsJob,
-
-  'categories.check': CategoriesCheck,
 
   'revisions.previous': RevisionsPrevious,
 
