@@ -1,7 +1,8 @@
 import type { EndpointType, OptionsByEndpoint } from '@brickninjaapi/types/endpoints';
+import type { FetchOptions } from '@brickninjaapi/fetch';
 
 import chalk from 'chalk';
-import { fetchBricksetApi, type FetchOptions } from '@brickninjaapi/fetch';
+import { fetchBrickNinjaApi } from '@brickninjaapi/fetch';
 
 import { db } from '../../db';
 
@@ -21,7 +22,7 @@ type Args<Url extends string> = RequiredKeys<OptionsByEndpoint<Url>> extends nev
   let rawResponse: Response | undefined = undefined as Response | undefined;
 
   try {
-    return await fetchBricksetApi<Url>(url, {
+    return await fetchBrickNinjaApi<Url>(url, {
       onResponse: (r) => { rawResponse = r; },
       ...(options as OptionsByEndpoint<Url>),
       ...fetchOptions,
