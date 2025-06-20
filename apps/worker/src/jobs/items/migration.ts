@@ -45,7 +45,7 @@ export async function createMigrator() {
 
     // version 1: add products
     if (currentVersion < 1) {
-      const products = [en.default_product, ...(en.details?.products ?? [])].filter(isDefined).map(Number);
+      const products = [en.default_product /*, ...(en.details?.products ?? []) */].filter(isDefined).map(Number);
 
       update.productIds = products;
       update.products = { connect: products.filter((id) => knownProductIds.includes(id)).map((id) => ({ id })) };
