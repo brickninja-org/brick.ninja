@@ -1,9 +1,7 @@
 import { db, dbDebug } from '../../db';
 import { fetchApi } from '../helper/fetch-api';
 import { queuedJobsForIds } from '../helper/queued-job-for-ids';
-import { toId } from '../helper/to-id';
 import { Job } from '../job';
-// import data from '../../data/items.json';
 
 export const ItemsCheck: Job = {
   run: async () => {
@@ -16,29 +14,12 @@ export const ItemsCheck: Job = {
       return 'Waiting for pending follow up jobs';
     }
 
-    // skip if we reached the limit of 100 API calls today
-    /*
-    const apiCount = await db.apiRequest.count({ where: { createdAt: { gte: new Date(new Date().setHours(0, 0, 0, 0)) }}});
-    if (apiCount >= 100) {
-      return `Reached API limit of ${apiCount} calls today`;
-    }
-    */
-
     // get item ids from the API
     const ids = await fetchApi('/v1/items');
-    /*
-    const res = await fetchApi('/api/v3.asmx/getSets?params={year:2025,extendedData:1,pageSize:500,pageNumber:1}', { apiKey: process.env.BRICKSET_API_KEY! });
-
-    if (res.status === 'error') {
-      return res.message;
-    }
-    */
-
-    //const ids = data.items.map(toId);
 
     // get item ids from the DB
-    const knownIds = await db.item.findMany({ select: { id: true }}).then((items) => items.map(toId));
-    const knownRemovedIds = await db.item.findMany({ select: { id: true }, where: { removedFromApi: true }}).then((items) => items.map(toId));
+    const knownIds = await db.item.findMany({ select: { id: true }}).then((items) => items.map(({ id }) => id));
+    const knownRemovedIds = await db.item.findMany({ select: { id: true }, where: { removedFromApi: true }}).then((items) => items.map(({ id }) => id));
 
     // Build new ids
     const newIds = ids.filter((id) => !knownIds.includes(id));
