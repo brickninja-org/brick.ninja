@@ -27,7 +27,7 @@ async function MarketingPage({ params }: PageProps) {
     <HeroLayout hero={(
       <div className="flex flex-col items-center gap-16 p-4 sm:p-8">
         <div className="flex flex-col z-1">
-          <div className="flex items-center gap-4 font-bitter text-4xl text-white sm:text-5xl md:text-6xl"><GiNinjaHead/> brick.ninja</div>
+          <div className="flex items-center gap-4 font-bitter text-4xl text-white sm:text-5xl md:text-6xl"><GiNinjaHead/> brick-catalog.eu</div>
           <div className="mx-auto pt-2 border-t-2 border-white font-medium text-base text-white md:text-lg"><Translate language={language} id="subtitle"/></div>
         </div>
       </div>
