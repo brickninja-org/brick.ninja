@@ -265,11 +265,11 @@ importers:
         specifier: workspace:*
         version: link:../../packages/helper
       '@brickninjaapi/fetch':
-        specifier: 0.0.3
-        version: 0.0.3(@brickninjaapi/types@0.0.3)
+        specifier: 0.0.4
+        version: 0.0.4(@brickninjaapi/types@0.0.4)
       '@brickninjaapi/types':
-        specifier: 0.0.3
-        version: 0.0.3
+        specifier: 0.0.4
+        version: 0.0.4
       '@brickset-api/fetch':
         specifier: 0.0.18
         version: 0.0.18(@brickset-api/types@0.0.16)
@@ -742,13 +742,13 @@ packages:
   '@bn2me/client@0.2.1':
     resolution: {integrity: sha512-yVls4fOEbvKLPAfIC5GOka+Grq87LWmiThKVmSKSdpNVFTPDedKhmPNrlCGaiCfXtitLJuVzxO0w0ir5qXRyQw==}
 
-  '@brickninjaapi/fetch@0.0.3':
-    resolution: {integrity: sha512-UQabPDQ0VcHHuQmUMSFnqowayo+7Af1K2+yPssJqK+4JrCZZwOOVm9qFgRKhJGOKpa4TB749S2w35OsaCLEizQ==}
+  '@brickninjaapi/fetch@0.0.4':
+    resolution: {integrity: sha512-8rJtoK3KgxN8F7JVySZkBrk86qaw7HsS1QRn1gG2TxYYR+ZKjEQWH4C0RmKIl/rTI9DsSAPdltWkTkn2BNn9aQ==}
     peerDependencies:
       '@brickninjaapi/types': ~0.0.1
 
-  '@brickninjaapi/types@0.0.3':
-    resolution: {integrity: sha512-EvRg2GVAT97UlVkA34EX7tkHavXF4sWyBP6jQt6n4XmwpvC2RnZsJtSLVR2H+Co3b0/YzVBAnPqfhOPOXfvXag==}
+  '@brickninjaapi/types@0.0.4':
+    resolution: {integrity: sha512-ImOLJx+Ni3HXtgF+U8khgHR6lHFX2SciZHMO7+zzLwHwVMXOv9BUdVIvqjDBLnXzmw3k5bue47c0rDfcZh5+kw==}
 
   '@brickset-api/fetch@0.0.18':
     resolution: {integrity: sha512-0w1yGsBHusfVhdTTb0R7B03VY3a2yeAj5xrbFUmdrEoPNHeIK+6ChthzpvA43ISqBjQE7xvMnrbAQR7Rg66ctA==}
@@ -5935,11 +5935,11 @@ snapshots:
 
   '@bn2me/client@0.2.1': {}
 
-  '@brickninjaapi/fetch@0.0.3(@brickninjaapi/types@0.0.3)':
+  '@brickninjaapi/fetch@0.0.4(@brickninjaapi/types@0.0.4)':
     dependencies:
-      '@brickninjaapi/types': 0.0.3
+      '@brickninjaapi/types': 0.0.4
 
-  '@brickninjaapi/types@0.0.3': {}
+  '@brickninjaapi/types@0.0.4': {}
 
   '@brickset-api/fetch@0.0.18(@brickset-api/types@0.0.16)':
     dependencies:
