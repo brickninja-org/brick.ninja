@@ -1,7 +1,8 @@
+import type { Item } from '@brickninjaapi/types/data/item';
+
 import { Prisma } from '@brickninja-org/database';
 // import { db } from '../../db';
 import { LocalizedObject } from '../helper/types';
-import { Item } from '../helper/load-items';
 import { db } from '../../db';
 import { toId } from '../helper/to-id';
 import { isDefined } from '@brickninja-org/helper/is';

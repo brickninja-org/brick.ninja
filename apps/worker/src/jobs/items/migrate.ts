@@ -1,10 +1,12 @@
+import { Item } from '@brickninjaapi/types/data/item';
+
 // import { GetSets } from '@brickset-api/types/data/get-sets';
 import { db } from '../../db';
 import { queuedJobsForIds } from '../helper/queued-job-for-ids';
 import { Job } from '../job';
 import { createMigrator, CURRENT_VERSION } from './migration';
-import { Item } from '../helper/load-items';
 import { toId } from '../helper/to-id';
+import { SchemaVersion } from '../helper/schema';
 
 export { CURRENT_VERSION } from './migration';
 
@@ -39,8 +41,8 @@ export const ItemsMigrate: Job = {
     const migrate = await createMigrator();
 
     for (const item of itemsToMigrate) {
-      const en: Item = JSON.parse(item.current_en.data);
-      const nl: Item = JSON.parse(item.current_nl.data);
+      const en: Item<SchemaVersion> = JSON.parse(item.current_en.data);
+      const nl: Item<SchemaVersion> = JSON.parse(item.current_nl.data);
 
       const data = await migrate({ en, nl }, item.version);
 
