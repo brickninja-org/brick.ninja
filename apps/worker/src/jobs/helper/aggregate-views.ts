@@ -3,7 +3,7 @@ import { toId } from './to-id';
 import { db } from '../../db';
 import { batch } from './batch';
 
-const findManyArgs = {
+const findManyArg = {
   select: { id: true },
   where: { views: { gt: 0 }},
 };
@@ -15,14 +15,14 @@ type UpdateManyArgs = {
 
 export async function aggregateViews(
   table: 'item' | 'product',
-  findMany: (arg: typeof findManyArgs) => PrismaPromise<{ id: number }[]>,
+  findMany: (arg: typeof findManyArg) => PrismaPromise<{ id: number }[]>,
   updateMany: (arg: UpdateManyArgs) => PrismaPromise<unknown>,
 ) {
   // get date 7 days ago
   const pastWeek = new Date();
   pastWeek.setDate(pastWeek.getDate() - 7);
 
-  // get all ids with > 0 page views, because we potentially have to set those to 0
+  // get all ids with >0 page views, because we potentially have to set those to 0
   const withExistingPageViews = await findMany({
     select: { id: true },
     where: { views: { gt: 0 }},
@@ -45,7 +45,7 @@ export async function aggregateViews(
   const idsWithoutViews = withExistingPageViews.filter((id) => !idsWithViews.includes(id));
 
   // set all ids with 0 views to 0 views
-  console.log(`  Setting ${idsWithoutViews.length} ${table} views to 0`);
+  console.log(`  Setting ${idsWithoutViews.length} views to 0`);
   if (idsWithoutViews.length > 0) {
     await db.$transaction(batch(idsWithoutViews, 5000).map(
       (ids) => updateMany({
@@ -55,8 +55,8 @@ export async function aggregateViews(
     ));
   }
 
-  // update views for all archievements that had views
-  console.log(`  Updating ${idsWithViews.length} ${table} views`);
+  // update views for all achievements that had views
+  console.log(`  Updating ${idsWithViews.length} views`);
   if (idsWithViews.length > 0) {
     for (const ids of batch(idsWithViews, 500)) {
       await db.$transaction(ids.map((id) =>
