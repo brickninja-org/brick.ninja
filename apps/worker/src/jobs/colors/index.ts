@@ -25,7 +25,7 @@ export const ColorsJob: Job = {
       data,
       'Color',
       (ids) => loadLocalizedEntities('/v1/colors', ids),
-      (id, revisionId) => ({ id_revisionId: { id, revisionId }}),
+      (colorId, revisionId) => ({ colorId_revisionId: { revisionId, colorId }}),
       (color) => {
         // if this is a new color lets check if there are items waiting for it
         

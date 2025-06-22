@@ -14,7 +14,7 @@ jest.mock('./revision-create', () => ({
   createRevision: (data: Prisma.RevisionUncheckedCreateInput) => Promise.resolve({ id: `test-${data.type}-${randomUUID()}` })
 }));
 
-jest.mock('./getCurrentBuild', () => ({
+jest.mock('./get-current-build', () => ({
   getCurrentBuild: () => Promise.resolve({ id: 1, createdAt: new Date(), updatedAt: new Date() } satisfies Build)
 }));
 
@@ -95,13 +95,13 @@ describe('process-entities', () => {
   test('updated', async () => {
     const data = await testProcessLocalizedEntities({}, { updated: true });
     expect(data?.update).toBeDefined();
-    expect(data?.update.currentId_en).toMatch(/^test-Update-/);
+    expect(data?.update.currentId_en).toMatch(/^test-Updated-/);
   });
 
   test('rediscovered', async () => {
     const data = await testProcessLocalizedEntities({ removedFromApi: true }, { updated: true });
     expect(data?.update).toMatchObject({ removedFromApi: false });
-    expect(data?.update.currentId_en).toMatch(/^test-Update-/);
+    expect(data?.update.currentId_en).toMatch(/^test-Updated-/);
   });
 
   test('migration', async () => {
