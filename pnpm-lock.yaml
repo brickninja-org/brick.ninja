@@ -266,10 +266,10 @@ importers:
         version: link:../../packages/helper
       '@brickninjaapi/fetch':
         specifier: 0.0.4
-        version: 0.0.4(@brickninjaapi/types@0.0.4)
+        version: 0.0.4(@brickninjaapi/types@0.0.5)
       '@brickninjaapi/types':
-        specifier: 0.0.4
-        version: 0.0.4
+        specifier: 0.0.5
+        version: 0.0.5
       '@brickset-api/fetch':
         specifier: 0.0.18
         version: 0.0.18(@brickset-api/types@0.0.16)
@@ -735,8 +735,8 @@ packages:
     peerDependencies:
       '@brickninjaapi/types': ~0.0.1
 
-  '@brickninjaapi/types@0.0.4':
-    resolution: {integrity: sha512-ImOLJx+Ni3HXtgF+U8khgHR6lHFX2SciZHMO7+zzLwHwVMXOv9BUdVIvqjDBLnXzmw3k5bue47c0rDfcZh5+kw==}
+  '@brickninjaapi/types@0.0.5':
+    resolution: {integrity: sha512-OR82CXUzKEcUPCNjjppwgJmrBzVsE8vW6tPMUwN4Uu26nG889AmFj/4YWKN6r9mzrEucAWsv8+GfQRlRQfHZoQ==}
 
   '@brickset-api/fetch@0.0.18':
     resolution: {integrity: sha512-0w1yGsBHusfVhdTTb0R7B03VY3a2yeAj5xrbFUmdrEoPNHeIK+6ChthzpvA43ISqBjQE7xvMnrbAQR7Rg66ctA==}
@@ -5931,11 +5931,11 @@ snapshots:
 
   '@bn2me/client@0.2.1': {}
 
-  '@brickninjaapi/fetch@0.0.4(@brickninjaapi/types@0.0.4)':
+  '@brickninjaapi/fetch@0.0.4(@brickninjaapi/types@0.0.5)':
     dependencies:
-      '@brickninjaapi/types': 0.0.4
+      '@brickninjaapi/types': 0.0.5
 
-  '@brickninjaapi/types@0.0.4': {}
+  '@brickninjaapi/types@0.0.5': {}
 
   '@brickset-api/fetch@0.0.18(@brickset-api/types@0.0.16)':
     dependencies:
