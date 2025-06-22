@@ -1,4 +1,4 @@
-import { LocalizedObject } from './types';
+import type { LocalizedObject } from './types';
 
 export function groupLocalizedEntitiesById<T extends { id: string | number }>(entitiesEn: T[], entitiesNl: T[]): Map<T['id'], LocalizedObject<T>> {
   const map = new Map<T['id'], LocalizedObject<T>>();

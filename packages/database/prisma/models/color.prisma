@@ -4,10 +4,9 @@ model Color {
   name_en String
   name_nl String
 
-  type String @default("")
-
-  plastic_code String
-  color_family String?
+  plastic_code String @default("")
+  foil_code String  @default("")
+  rubber_code String  @default("")
 
   removedFromApi Boolean @default(false)
 

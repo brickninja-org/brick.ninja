@@ -1,4 +1,4 @@
-import type { EndpointType, KnownLocalizedEndpoint, OptionsByEndpoint } from '@brickninjaapi/types/endpoints';
+import type { EndpointType, KnownEndpoint, OptionsByEndpoint } from '@brickninjaapi/types/endpoints';
 import type { FetchOptions } from '@brickninjaapi/fetch';
 
 import chalk from 'chalk';
@@ -15,7 +15,7 @@ type Args<Url extends string> = RequiredKeys<OptionsByEndpoint<Url>> extends nev
   ? [url: Url, options?: OptionsByEndpoint<Url>]
   : [url: Url, options: OptionsByEndpoint<Url>];
 
-export async function fetchApi<Url extends KnownLocalizedEndpoint | (string & {})>(
+export async function fetchApi<Url extends KnownEndpoint | (string & {})>(
   ...[url, options]: Args<Url>
 ): Promise<EndpointType<Url, SchemaVersion>> {
   const startTime = performance.now();

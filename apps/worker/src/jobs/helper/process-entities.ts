@@ -1,12 +1,14 @@
-import { Revision } from '@brickninja-org/database';
-import { JobName } from '..';
-import { db, type PrismaTransaction } from '../../db';
+import type { Revision } from '@brickninja-org/database';
+import type { PrismaTransaction } from '../../db';
+import type { JobName } from '..';
+import type { LocalizedObject } from './types';
+
+import { db } from '../../db';
+import { batch } from './batch';
+import { getCurrentBuild } from './get-current-build';
+import { createEntityMap } from './map';
 import { createRevision as createRevisionInDb } from './revision-create';
 import { toId } from './to-id';
-import { batch } from './batch';
-import { createEntityMap } from './map';
-import { LocalizedObject } from './types';
-import { getCurrentBuild } from './get-current-build';
 import { getUpdateCheckpoint } from './update-checkpoint';
 
 type FindManyArgs<Id extends string | number> = {
@@ -178,10 +180,10 @@ export enum Changes {
 export async function processLocalizedEntities<Id extends string | number, DbEntity extends DbLocalizedEntityBase<Id>, ApiEntity extends { id: Id }, HistoryId, ExtraData>(
   data: ProcessEntitiesData<Id>,
   entityName: string,
+  getEntitiesFromApi: (ids: Id[]) => Promise<Map<Id, LocalizedObject<ApiEntity>>>,
   createHistoryId: (id: Id, revisionId: string) => HistoryId,
   migrate: (entity: LocalizedObject<ApiEntity>, version: number, changes: Changes) => ExtraData | Promise<ExtraData>,
   getEntitiesFromDb: (args: GetLocalizedEntitiesArgs<Id>) => Promise<DbEntity[]>,
-  getEntitiesFromApi: (ids: Id[]) => Promise<Map<Id, LocalizedObject<ApiEntity>>>,
   create: (tx: PrismaTransaction, data: CreateInputLocalized<Id, HistoryId, ExtraData>) => Promise<unknown>,
   update: (tx: PrismaTransaction, data: UpdateInputLocalized<Id, HistoryId, ExtraData>) => Promise<unknown>,
   currentVersion: number,
@@ -255,7 +257,7 @@ export async function processLocalizedEntities<Id extends string | number, DbEnt
           connectOrCreate: [
             { where: createHistoryId(id, revision_en.id), create: { revisionId: revision_en.id }},
             { where: createHistoryId(id, revision_nl.id), create: { revisionId: revision_nl.id }},
-          ],
+          ]
         },
 
         lastCheckedAt: new Date(),
@@ -274,17 +276,17 @@ export async function processLocalizedEntities<Id extends string | number, DbEnt
     });
   }
 
-  return `Updated ${processedEntityCount}/${data.ids.length} ${entityName.toLocaleLowerCase()}s`;
+  return `Updated ${processedEntityCount}/${data.ids.length}`;
 }
 
 // TODO: refactor processEntities and processLocalizedEntities to share more code
 export async function processEntities<Id extends string | number, DbEntity extends DbEntityBase<Id>, ApiEntity extends { id: Id }, HistoryId, ExtraData>(
   data: ProcessEntitiesData<Id>,
   entityName: string,
+  getEntitiesFromApi: (ids: Id[]) => Promise<Map<Id, ApiEntity>>,
   createHistoryId: (id: Id, revisionId: string) => HistoryId,
   migrate: (entity: ApiEntity, version: number, changes: Changes) => ExtraData | Promise<ExtraData>,
   getEntitiesFromDb: (args: GetEntitiesArgs<Id>) => Promise<DbEntity[]>,
-  getEntitiesFromApi: (ids: Id[]) => Promise<Map<Id, ApiEntity>>,
   create: (tx: PrismaTransaction, data: CreateInput<Id, HistoryId, ExtraData>) => Promise<unknown>,
   update: (tx: PrismaTransaction, data: UpdateInput<Id, HistoryId, ExtraData>) => Promise<unknown>,
   currentVersion: number,
