@@ -1,7 +1,7 @@
 import { Job } from '../job';
 import { db } from '../../db';
 
-export const BricklinkApiRequestsCleanup: Job = {
+export const BrickNinjaApiRequestsCleanup: Job = {
   run: async () => {
     const sevenDaysAgo = new Date();
     sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);

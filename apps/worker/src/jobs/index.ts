@@ -1,4 +1,4 @@
-import { BricklinkApiRequestsCleanup } from './bricklinkapi-requests/cleanup';
+import { BrickNinjaApiRequestsCleanup } from './brickninjaapi-requests/cleanup';
 import { ColorsJob } from './colors';
 import { IconColors } from './icons/colors';
 import { ItemsCheck } from './items/check';
@@ -38,7 +38,7 @@ const jobsInternal = {
 
   'revisions.previous': RevisionsPrevious,
 
-  'bricklinkapi-requests.cleanup': BricklinkApiRequestsCleanup,
+  'brickninjaapi-requests.cleanup': BrickNinjaApiRequestsCleanup,
 
   'icon.colors': IconColors,
 
