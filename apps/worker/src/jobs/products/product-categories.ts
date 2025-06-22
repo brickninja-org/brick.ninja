@@ -26,6 +26,7 @@ export const ProductCategoriesJob: Job = {
     processLocalizedEntities(
       data,
       'ProductCategory',
+      loadThemes,
       (categoryId, revisionId) => ({ categoryId_revisionId: { revisionId, categoryId }}),
       async (category, _, change) => {
         return {
@@ -38,7 +39,6 @@ export const ProductCategoriesJob: Job = {
         } satisfies Partial<Prisma.CategoryUncheckedCreateInput>;
       },
       db.category.findMany,
-      loadThemes,
       (tx, data) => tx.category.create(data),
       (tx, data) => tx.category.update(data),
       CURRENT_VERSION,

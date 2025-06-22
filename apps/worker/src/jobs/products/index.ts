@@ -29,6 +29,7 @@ export const ProductsJob: Job = {
     return processLocalizedEntities(
       data,
       'Product',
+      loadProducts,
       (productId, revisionId) => ({ productId_revisionId: { revisionId, productId }}),
       async (product, version, changes) => {
         const names = getNamesWithFallback(product, product.en.name);
@@ -55,7 +56,6 @@ export const ProductsJob: Job = {
         };
       },
       db.product.findMany,
-      loadProducts,
       (tx, data) => tx.product.create(data),
       (tx, data) => tx.product.update(data),
       CURRENT_VERSION,
