@@ -4,6 +4,7 @@ import type { Product as ApiProduct } from 'types/product';
 
 import { FlexRow } from '@brickninja-org/ui/components/flex-row/FlexRow';
 import { LinkButton } from '@brickninja-org/ui/components/form/Button';
+import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 
 import { localizedName } from '@/lib/localized-name';
 import { getCurrentUrl } from '@/lib/url';
@@ -12,7 +13,6 @@ import { LanguageLinks } from '@/components/info-box/LanguageLinks';
 import { ShareButton } from '@/components/share-button/ShareButton';
 
 import { ProductLink } from './ProductLink';
-import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 
 interface ProductInfoboxProps {
   product: Product;
@@ -34,6 +34,7 @@ export const ProductInfobox: FC<ProductInfoboxProps> = async ({ product, data, l
 
       <Headline id="links" noToc>Links</Headline>
       <FlexRow wrap>
+        {product.type === 'Set' && <LinkButton appearance="tertiary" flex icon="external" external href={`https://www.lego.com/pick-and-build/pick-a-brick?appearsIn=${product.id}`} target="_blank">Pick a Brick</LinkButton>}
         <LinkButton appearance="tertiary" flex icon="external" external href={`https://www.lego.com/product/${product.id}`} target="product">LEGO.com</LinkButton>
         <ShareButton appearance="tertiary" flex data={{ title: localizedName(product, language), url: currentUrl.toString() }}/>
       </FlexRow>
