@@ -3,7 +3,7 @@ import { db } from '../../db';
 export async function createIcon(url: string | undefined) {
   // https://www.lego.com/cdn/product-assets/product.bi.core.img/6554691.png || https://www.lego.com/cdn/product-assets/product.img.pri/10280_Prod.jpg
   // get signature and id(numeric) and extension (jpg or png) from url
-  const icon = url?.match(/\/(?<signature>product\.[^/]+)\/(?<id>\d+)(?:_[^/.]+)?\.(?<extension>jpg|png)$/)?.groups as {
+  const icon = url?.match(/\/(?<signature>product(?:\.[^/]+)*)\/(?<id>\d+)(?:_[^/.]+)?\.(?<extension>jpg|png)$/)?.groups as {
     signature: string;
     id: number; // parsed as number if needed
     extension: 'jpg' | 'png';
