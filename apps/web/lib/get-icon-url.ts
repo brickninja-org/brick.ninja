@@ -4,9 +4,10 @@ import type { Icon } from '@brickninja-org/database';
 export type FixedIconSize = 16 | 32 | 64;
 export type IconSize = FixedIconSize | (number & {});
 
-export function getIconUrl({ id, signature }: Pick<Icon, 'id'> & Partial<Pick<Icon, 'signature'>>, size: FixedIconSize, type?: EntityIconType) {
-  return signature && type === 'product'
-    ? `https://www.lego.com/cdn/cs/set/assets/${signature}/${id}.png?format=webply&fit=crop&quality=80&width=${size}&height=${size}`
+ 
+export function getIconUrl({ id, signature, extension }: Pick<Icon, 'id'> & Partial<Pick<Icon, 'signature' | 'extension'>>, size: FixedIconSize, type?: EntityIconType) {
+  return signature && extension && (type === 'product' || type === 'element')
+    ? `https://www.lego.com/cdn/product-assets/${signature}/${id}.${extension}`
     : `https://www.lego.com/cdn/product-assets/element.img.photoreal.192x192/${id}.jpg`;
 }
 

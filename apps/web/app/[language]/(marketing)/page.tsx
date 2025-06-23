@@ -63,7 +63,7 @@ function ListFallback({ size }: { size: number }) {
 }
 
 const getNewItems = cache(
-  () => db.item.findMany({ take: 24, orderBy: { createdAt: 'desc' }}),
+  () => db.item.findMany({ take: 24, include: { icon: true }, orderBy: { createdAt: 'desc' }}),
   ['home-items-new'],
   { revalidate: 60 },
 );
