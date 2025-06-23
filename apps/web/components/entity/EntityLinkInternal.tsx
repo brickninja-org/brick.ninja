@@ -13,7 +13,7 @@ import { useLanguage } from '@/components/i18n/context';
 import { EntityIcon } from './EntityIcon';
 import { EntityIconMissing } from './EntityIconMissing';
 
-export const EntityLinkInternal: FC<EntityLinkProps> = ({ ref, className, entity, icon = 32, iconType, href, language, onClick, ...linkProps }) => {
+export const EntityLinkInternal: FC<EntityLinkProps> = ({ ref, className, entity, icon = 32, iconType, href, language, ...props }) => {
   const defaultLanguage = useLanguage();
 
   if (language && defaultLanguage !== language) {
@@ -36,8 +36,7 @@ export const EntityLinkInternal: FC<EntityLinkProps> = ({ ref, className, entity
         'text-focus',
         '[&>span]:hover:decoration-black',
       ], className)}
-      onClick={onClick}
-      {...linkProps}
+      {...props}
     >
       <>
         {icon !== 'none' && (typeof icon === 'number' ? (entity.icon ? <EntityIcon icon={entity.icon} size={icon} type={iconType}/> : <EntityIconMissing size={icon}/>) : icon)}
