@@ -3,12 +3,11 @@ import { Changes, createSubJobs, processLocalizedEntities } from '../helper/proc
 
 import { isEmptyObject } from '@brickninja-org/helper/is';
 
-import rawData from '../../data/categories.json';
-import { loadThemes } from '../helper/load-themes';
 import { Job } from '../job';
 import { db } from '../../db';
 import { Prisma } from '@brickninja-org/database';
-import { toId } from '../helper/to-id';
+import { fetchApi } from '../helper/fetch-api';
+import { loadLocalizedEntities } from '../helper/load-entities';
 
 export const ProductCategoriesJob: Job = {
   run(data: ProcessEntitiesData<number> | Record<string, never>) {
@@ -17,7 +16,7 @@ export const ProductCategoriesJob: Job = {
     if (isEmptyObject(data)) {
       return createSubJobs(
         'product.categories',
-        () => new Promise((resolve) => resolve(rawData.themes.map(toId))) as unknown as Promise<number[]>,
+        () => fetchApi('/v1/products/categories'),
         db.category.findMany,
         CURRENT_VERSION,
       );
@@ -26,7 +25,7 @@ export const ProductCategoriesJob: Job = {
     processLocalizedEntities(
       data,
       'ProductCategory',
-      loadThemes,
+      (ids) => loadLocalizedEntities('/v1/colors', ids),
       (categoryId, revisionId) => ({ categoryId_revisionId: { revisionId, categoryId }}),
       async (category, _, change) => {
         return {
