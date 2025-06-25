@@ -12,7 +12,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@bn2me/client": "0.2.1",
+    "@bn2me/client": "0.3.0",
     "@brickninja-org/database": "workspace:*",
     "@brickninja-org/helper": "workspace:*",
     "@brickninja-org/icons": "workspace:*",
