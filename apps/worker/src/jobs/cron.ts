@@ -1,6 +1,7 @@
 import { Prisma } from '@brickninja-org/database';
 import chalk from 'chalk';
 import { CronExpressionParser } from 'cron-parser';
+
 import { JobName } from '.';
 import { db } from '../db';
 import { toId } from './helper/to-id';
@@ -29,6 +30,7 @@ export async function registerCronJobs() {
 
   await registerJob('colors', schedule.every5Minutes);
 
+  await unregisterJob('bricklinkapi-requests.cleanup');
   await registerJob('brickninjaapi-requests.cleanup', 'H 3 * * *');
 
   await registerJob('icon.colors', '37 * * * * ');
@@ -37,8 +39,6 @@ export async function registerCronJobs() {
 }
 
 async function registerJob(name: JobName, cron: string, data: Prisma.InputJsonValue = {}) {
-  cron = fixCronJitter(cron, name);
-
   // check if a matching job exists
   const jobs = await db.job.findMany({ where: { type: name, cron: { not: '' }}});
 
@@ -70,21 +70,16 @@ async function registerJob(name: JobName, cron: string, data: Prisma.InputJsonVa
   }
 }
 
-// Fix handling hash steps in cron expression (see https://github.com/harrisiirak/cron-parser/issues/381)
-function fixCronJitter(cron: string, seed: string) {
-  // this only handles `H/x` at the start (minutes) of the cron expression
-  const match = cron.match(/^H\/(\d+) /);
+async function unregisterJob(name: string) {
+  // check if a matching job exists
+  const jobs = await db.job.findMany({ where: { type: name, cron: { not: '' }}});
 
-  // return the unchanged expression if no match was found
-  if(!match) {
-    return cron;
+  if(jobs.length === 0) {
+    console.warn(`No cron job found for ${chalk.blue(name)}.`);
+    return;
   }
 
-  // generate a random value based on the name. This is not a great "hash" function, but we just need values between 0-5 or 0-10 and this is good enough
-  const random = seed.split('').reduce((s, c) => s + c.charCodeAt(0), 0);
+  console.log(`Unregistering cron job ${chalk.blue(name)}.`);
 
-  // generate the offset (for H/5 the offset should be between 0 and 4)
-  const offset = random % Number(match[1]);
-
-  return offset + cron.substring(1);
+  await db.job.deleteMany({ where: { id: { in: jobs.map(toId) }}});
 }
