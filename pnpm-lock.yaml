@@ -30,8 +30,8 @@ importers:
   apps/web:
     dependencies:
       '@bn2me/client':
-        specifier: 0.2.1
-        version: 0.2.1
+        specifier: 0.3.0
+        version: 0.3.0
       '@brickninja-org/database':
         specifier: workspace:*
         version: link:../../packages/database
@@ -727,8 +727,8 @@ packages:
   '@bcoe/v8-coverage@0.2.3':
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
 
-  '@bn2me/client@0.2.1':
-    resolution: {integrity: sha512-yVls4fOEbvKLPAfIC5GOka+Grq87LWmiThKVmSKSdpNVFTPDedKhmPNrlCGaiCfXtitLJuVzxO0w0ir5qXRyQw==}
+  '@bn2me/client@0.3.0':
+    resolution: {integrity: sha512-w0nuxwKiV667k3qDiy/2pQxzWrErnI12RhxZp2RbX9LStymv0Y06nphy1eeGo7kcfFUIjn6SrxsHXq0JfTU6ag==}
 
   '@brickninjaapi/fetch@0.0.7':
     resolution: {integrity: sha512-1a39AyjlP4yyn3tz8spZwpBOHLyFWDnbIIvwS8mBBWIwZKe/qM3iWmGKYKJJ9QP0/E/u+eNN17sys5Tr2fbFLA==}
@@ -5928,7 +5928,7 @@ snapshots:
 
   '@bcoe/v8-coverage@0.2.3': {}
 
-  '@bn2me/client@0.2.1': {}
+  '@bn2me/client@0.3.0': {}
 
   '@brickninjaapi/fetch@0.0.7(@brickninjaapi/types@0.0.10)':
     dependencies:
