@@ -1,10 +1,11 @@
 'use client';
 
 import type { FC, FormEventHandler } from 'react';
-import { Scope } from '@bn2me/client';
+import type { TranslationSubset } from '@/lib/translate';
 
 import { useCallback, useEffect, useState } from 'react';
 
+import { Scope } from '@bn2me/client';
 import { SubmitButton } from '@brickninja-org/ui/components/form/buttons/SubmitButton';
 
 import { useBn2MeClient } from '@/components/bn2me/Bn2Me.context';
@@ -12,7 +13,7 @@ import { useFedCM } from '@/components/bn2me/FedCM.context';
 import { redirectToBn2Me } from './Login.action';
 import { Checkbox } from '@brickninja-org/ui/components/form/Checkbox';
 
-const allScopes = [
+const fullScopes = [
   Scope.Identify,
   Scope.Accounts,
   Scope.Accounts_DisplayName
@@ -23,9 +24,11 @@ export interface LoginButtonProps {
   returnTo?: string;
 
   logout: boolean;
+
+  translations: TranslationSubset<'login.button' | 'login.grant-all' | 'login.grant-all.hint'>;
 }
 
-export const LoginButton: FC<LoginButtonProps> = ({ scopes, returnTo, logout }) => {
+export const LoginButton: FC<LoginButtonProps> = ({ scopes, returnTo, logout, translations }) => {
   const bn2me = useBn2MeClient();
   const triggerFedCM = useFedCM();
   const [fullPermissions, setFullPermissions] = useState(true);
@@ -42,7 +45,7 @@ export const LoginButton: FC<LoginButtonProps> = ({ scopes, returnTo, logout }) 
       const abort = new AbortController();
 
       triggerFedCM({
-        scopes: fullPermissions ? allScopes : scopes,
+        scopes: fullPermissions ? fullScopes : scopes,
         mediation: 'optional',
         signal: abort.signal,
         mode: 'passive',
@@ -51,7 +54,7 @@ export const LoginButton: FC<LoginButtonProps> = ({ scopes, returnTo, logout }) 
 
       return () => abort.abort();
     }
-  }, [bn2me.fedCM, logout, returnTo, fullPermissions, scopes, triggerFedCM]);
+  }, [bn2me.fedCM, fullPermissions, logout, returnTo, scopes, triggerFedCM]);
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = useCallback((e) => {
     // only handle submit if FedCM is supported
@@ -63,28 +66,26 @@ export const LoginButton: FC<LoginButtonProps> = ({ scopes, returnTo, logout }) 
     e.preventDefault();
 
     triggerFedCM({
-      scopes: fullPermissions ? allScopes : scopes,
+      scopes: fullPermissions ? fullScopes : scopes,
       mediation: 'optional',
       mode: 'active',
       returnTo,
     });
-  }, [bn2me.fedCM, returnTo, fullPermissions, scopes, triggerFedCM]);
+  }, [bn2me.fedCM, fullPermissions, returnTo, scopes, triggerFedCM]);
 
   return (
     <>
       <Checkbox checked={fullPermissions} onChange={setFullPermissions}>
-        <span className="relative top-[-1] leading-normal">
-          Grant brick.ninja permissions to access your bn2.me account data required for all pages.
-        </span>
+        <span className="relative top-[-1] leading-normal">{translations['login.grant-all']}</span>
       </Checkbox>
       {!fullPermissions && (
-        <div className="mt-4 text-[15px] text-muted leading-tight">
-          You might have to reauthorize again later to use some features.
-        </div>
+        <div className="mt-4 text-[15px] text-muted leading-tight">{translations['login.grant-all.hint']}</div>
       )}
 
-      <form action={redirectToBn2Me.bind(null, returnTo, fullPermissions ? allScopes.join(' ') : scopes.join(' '))} onSubmit={handleSubmit}>
-        <SubmitButton className="w-full justify-center mt-8 py-3 px-4" icon="user" iconColor="(--icon-color:color-red-600)" type="submit">Login with bn2.me</SubmitButton>
+      <form action={redirectToBn2Me.bind(null, returnTo, (fullPermissions ? fullScopes : scopes).join(' '))} onSubmit={handleSubmit}>
+        <SubmitButton className="w-full justify-center mt-8 py-3 px-4" icon="user" iconColor="(--icon-color:color-red-600)" type="submit">
+          {translations['login.button']}
+        </SubmitButton>
       </form>
     </>
   );

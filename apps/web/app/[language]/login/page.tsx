@@ -15,13 +15,17 @@ import { getAlternateUrls } from '@/lib/url';
 import { LoginButton } from './Login.client';
 import { Translate } from '@/components/i18n/Translate';
 import { PageLayout } from '@/components/layout/PageLayout';
+import { translateMany } from '@/lib/translate';
 
-export default async function LoginPage({ searchParams }: PageProps) {
+export default async function LoginPage({ searchParams, params }: PageProps) {
+  const { language } = await params;
   const { returnTo: returnToParam, scopes: scopesParam, error } = await searchParams;
   const returnTo = Array.isArray(returnToParam) ? returnToParam[0] : returnToParam;
 
+  // get user
   const user = await getUser();
 
+  // if the user already has a session, redirect to the returnTo URL
   if (user) {
     redirect(getReturnToUrl(returnTo));
   }
@@ -41,20 +45,21 @@ export default async function LoginPage({ searchParams }: PageProps) {
         )}
 
         {showLogoutMessage && (
-          <Notice>Logout successful</Notice>
+          <Notice><Translate id="logout.success"/></Notice>
         )}
 
         <Headline id="login"><Translate id="login"/></Headline>
-
         <p className="mb-[1.5em]">
           Login to contribute to brick.ninja and to view your collection, and more.
         </p>
-
-        <LoginButton scopes={scopes} returnTo={returnTo} logout={showLogoutMessage}/>
-
+        <LoginButton
+          scopes={scopes}
+          returnTo={returnTo}
+          logout={showLogoutMessage}
+          translations={translateMany(['login.button', 'login.grant-all', 'login.grant-all.hint'], language)}/>
         <div className="flex items-center gap-4 mt-8 -mb-6 -mx-8 py-3 px-8 border-t border-(--color-border-dark) bg-background-light text-[15px] text-muted">
           <Icon icon="cookie"/>
-          <p>By logging in you accept that brick.ninja will store cookies in your browser.</p>
+          <p><Translate id="login.cookies"/></p>
         </div>
       </div>
     </PageLayout>
