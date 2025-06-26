@@ -30,7 +30,6 @@ export async function registerCronJobs() {
 
   await registerJob('colors', schedule.every5Minutes);
 
-  await unregisterJob('bricklinkapi-requests.cleanup');
   await registerJob('brickninjaapi-requests.cleanup', 'H 3 * * *');
 
   await registerJob('icon.colors', '37 * * * * ');
@@ -68,18 +67,4 @@ async function registerJob(name: JobName, cron: string, data: Prisma.InputJsonVa
 
     return;
   }
-}
-
-async function unregisterJob(name: string) {
-  // check if a matching job exists
-  const jobs = await db.job.findMany({ where: { type: name, cron: { not: '' }}});
-
-  if(jobs.length === 0) {
-    console.warn(`No cron job found for ${chalk.blue(name)}.`);
-    return;
-  }
-
-  console.log(`Unregistering cron job ${chalk.blue(name)}.`);
-
-  await db.job.deleteMany({ where: { id: { in: jobs.map(toId) }}});
 }

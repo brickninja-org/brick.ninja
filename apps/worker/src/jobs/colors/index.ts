@@ -33,7 +33,7 @@ export const ColorsJob: Job = {
           name_en: color.en.name,
           name_nl: color.nl.name,
 
-          plastic_code: rgbToHex(color.en.plastic.rgb as [number, number, number]),
+          plastic_code: rgbToHex(color.en.plastic.rgb),
           color_family: color.en.categories[0],
         };
       },
