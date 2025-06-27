@@ -25,7 +25,7 @@ export const ProductCategoriesJob: Job = {
     processLocalizedEntities(
       data,
       'ProductCategory',
-      (ids) => loadLocalizedEntities('/v1/colors', ids),
+      (ids) => loadLocalizedEntities('/v1/products/categories', ids),
       (categoryId, revisionId) => ({ categoryId_revisionId: { revisionId, categoryId }}),
       async (category, _, change) => {
         return {
