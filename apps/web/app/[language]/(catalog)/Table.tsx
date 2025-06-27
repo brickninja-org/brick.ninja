@@ -33,7 +33,7 @@ export const CatalogProductDataTable: FC<CatalogProductTableProps> = ({ language
       <products.Column id="id" title={<Translate id="itemTable.column.id"/>} small align="end">{({ id }) => id}</products.Column>
       <products.Column id="name" title={<Translate id="itemTable.column.name"/>} sortBy={(product) => product[`name_${language}`]}>
         {({ icon, ...product }) => (
-          <FlexRow>{icon ? <EntityIcon icon={icon} size={32}/> : <EntityIconMissing size={32}/>} <span>{product[`name_${language}`]}</span></FlexRow>
+          <FlexRow>{icon ? <EntityIcon icon={icon} size={32} type="product"/> : <EntityIconMissing size={32}/>} <span>{product[`name_${language}`]}</span></FlexRow>
         )}
       </products.Column>
       <products.Column id="categories" title={<Translate id="catalog.product.categories"/>}>

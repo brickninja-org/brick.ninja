@@ -12,7 +12,7 @@ import { cn } from '@brickninja-org/ui/lib';
 export type EntityIconType = 'product';
 
 export interface EntityIconProps {
-  icon: Omit<Icon, 'color' | 'signature'> & Partial<Pick<Icon, 'color' | 'signature'>>;
+  icon: Omit<Icon, 'color' | 'signature' | 'extension'> & Partial<Pick<Icon, 'color' | 'signature' | 'extension'>>;
   size?: IconSize;
   type?: EntityIconType;
   className?: string;
