@@ -7,7 +7,7 @@ export type IconSize = FixedIconSize | (number & {});
  
 export function getIconUrl({ id, signature, extension }: Pick<Icon, 'id'> & Partial<Pick<Icon, 'signature' | 'extension'>>, size: FixedIconSize, type?: EntityIconType) {
   return signature && extension && (type === 'product' || type === 'element')
-    ? `https://www.lego.com/cdn/product-assets/${signature}/${id}.${extension}`
+    ? `https://www.lego.com/cdn/product-assets/${signature}/${type === 'product' ? `${id}_Prod` : id}.${extension}`
     : `https://www.lego.com/cdn/product-assets/element.img.photoreal.192x192/${id}.jpg`;
 }
 
