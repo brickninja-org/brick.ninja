@@ -13,6 +13,8 @@ import { LanguageLinks } from '@/components/info-box/LanguageLinks';
 import { ShareButton } from '@/components/share-button/ShareButton';
 
 import { ProductLink } from './ProductLink';
+import { translateMany } from '@/lib/translate';
+import { PriceGuide } from './PriceGuide';
 
 interface ProductInfoboxProps {
   product: Product;
@@ -23,6 +25,8 @@ interface ProductInfoboxProps {
 export const ProductInfobox: FC<ProductInfoboxProps> = async ({ product, data, language }) => {
   const currentUrl = await getCurrentUrl();
 
+  const priceGuideTranslations = translateMany(['priceGuide.rrp', 'priceGuide.ppp'], language);
+
   return (
     <div>
       <LanguageLinks link={<ProductLink product={product} icon="none"/>} language={language}/>
@@ -31,6 +35,9 @@ export const ProductInfobox: FC<ProductInfoboxProps> = async ({ product, data, l
       <DataList data={[
         data.type && { key: 'type', label: 'Type', value: data.type },
       ]}/>
+
+      <Headline id="price-guide" noToc>Price Guide</Headline>
+      <PriceGuide data={data} translations={priceGuideTranslations}/>
 
       <Headline id="links" noToc>Links</Headline>
       <FlexRow wrap>
