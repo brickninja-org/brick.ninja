@@ -1,6 +1,11 @@
+/* eslint-disable react/no-array-index-key */
+
 import type { FC } from 'react';
 import type { ProductTooltip } from './ProductTooltip';
-import { EntityIcon } from '../entity/EntityIcon';
+
+import { EntityIcon } from '@/components/entity/EntityIcon';
+
+import { Attribute } from './ProductTooltip';
 
 export interface ClientProductTooltipProps {
   tooltip: ProductTooltip;
@@ -16,6 +21,8 @@ export const ClientProductTooltip: FC<ClientProductTooltipProps> = ({ tooltip, h
           {tooltip.name}
         </div>
       )}
+
+      {tooltip.attributes?.map((attribute, index) => (attribute.type !== 'dimensionsInMillimeters') && <Attribute key={index} attribute={attribute}/>)}
     </div>
   );
 };

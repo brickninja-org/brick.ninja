@@ -55,11 +55,13 @@ export const Attribute: FC<AttributeProps> = ({ attribute }) => {
 function renderText(attribute: ProductAttribute) {
   switch (attribute.type) {
     case 'ageRange':
-      return `${attribute.value}+`;
+      return (<span><FormatNumber value={Number(attribute.value)}/>+ {attribute.text.toLocaleLowerCase()}</span>);
     case 'figureCount':
     case 'pieceCount':
-      return <FormatNumber value={Number(attribute.value)} unit={attribute.text.toLowerCase()}/>;
+      return (<span><FormatNumber value={Number(attribute.value)}/> {attribute.text.toLocaleLowerCase()}</span>);
     case 'weightInGrams':
       return <FormatWeight grams={Number(attribute.value)}/>;
+    default:
+      return;
   }
 }
