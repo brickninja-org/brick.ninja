@@ -1,3 +1,5 @@
+'use client';
+
 import type { FC } from 'react';
 import type { Product } from '@brickninjaapi/types/data/product';
 import type { TranslationSubset } from '@/lib/translate';
