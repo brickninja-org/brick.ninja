@@ -1,6 +1,6 @@
 import type { Language } from '@brickninja-org/database';
 import type { RouteHandler } from '@/lib/next';
-import type { Product as ApiProduct } from 'types/product';
+import type { Product as ApiProduct } from '@brickninjaapi/types/data/product';
 
 import { notFound } from 'next/navigation';
 import { NextResponse } from 'next/server';
