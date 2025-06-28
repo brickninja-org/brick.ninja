@@ -20,7 +20,7 @@ export const ProductLink: FC<ProductLinkProps> = ({ product, icon = 32, language
 
   return (
     <Tooltip content={<ProductLinkTooltip product={product} language={language} revision={revision}/>}>
-      <EntityLink href={`/product/${product.id}`} entity={entity} icon={icon} language={language}/>
+      <EntityLink href={`/product/${product.id}`} entity={entity} icon={icon} language={language} type="product"/>
     </Tooltip>
   );
 };
