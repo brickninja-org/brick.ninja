@@ -1,19 +1,9 @@
 import type { FC } from 'react';
 import type { Language } from '@brickninja-org/database';
-import type { Product } from '@brickninjaapi/types/data/product';
+import type { Product as ApiProduct } from '@brickninjaapi/types/data/product';
 
 import { ClientProductTooltip } from './ProductTooltip.client';
 import { getTranslate, type TranslationId } from '@/lib/translate';
-
-interface ApiProduct extends Omit<Product, 'details'> {
-  details?: {
-    attributes?: Array<{
-      text: string;
-      type: string;
-      value: number | string | Array<number>;
-    }>;
-  };
-}
 
 export interface ProductTooltipProps {
   product: ApiProduct;
@@ -47,8 +37,8 @@ export async function createTooltip(product: ApiProduct, language: Language): Pr
       ? product.details.attributes.map(({ text, type, value }) => {
         let formattedValue: string | number | undefined = '';
 
-        if (type === 'dimensionsInMillimeter' && Array.isArray(value)) {
-          const [h, b, d] = value;
+        if (type === 'dimensionsInMillimeters' && Array.isArray(value)) {
+          const [h, b, d] = value as [number, number, number];
 
           const format = (mm: number): string => {
             const cm = Math.round(mm / 10);
