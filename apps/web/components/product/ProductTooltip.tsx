@@ -1,9 +1,11 @@
 import type { FC } from 'react';
 import type { Language } from '@brickninja-org/database';
-import type { Product as ApiProduct } from '@brickninjaapi/types/data/product';
+import type { Product as ApiProduct, ProductAttribute } from '@brickninjaapi/types/data/product';
 
 import { ClientProductTooltip } from './ProductTooltip.client';
-import { getTranslate, type TranslationId } from '@/lib/translate';
+import { parseIcon } from '@/lib/parse-icon';
+import { FormatNumber } from '../format/FormatNumber';
+import { FormatWeight } from '../format/FormatWeight';
 
 export interface ProductTooltipProps {
   product: ApiProduct;
@@ -23,44 +25,41 @@ export interface ProductTooltip {
   language: Language;
   name: string;
   icon?: { id: number, signature: string; extension: string };
-  attributes?: { label: string, type: string, value: number | string | [number, number, number] }[],
+  attributes?: ProductAttribute[];
 }
 
 // eslint-disable-next-line require-await
 export async function createTooltip(product: ApiProduct, language: Language): Promise<ProductTooltip> {
-  const t = getTranslate(language);
+  const icon = parseIcon(product.icon);
 
   return {
     language,
     name: product.name,
-    attributes: product.details?.attributes && product.details.attributes.length > 0
-      ? product.details.attributes.map(({ text, type, value }) => {
-        let formattedValue: string | number | undefined = '';
-
-        if (type === 'dimensionsInMillimeters' && Array.isArray(value)) {
-          const [h, b, d] = value as [number, number, number];
-
-          const format = (mm: number): string => {
-            const cm = Math.round(mm / 10);
-            const inch = Math.round((cm / 2.54) * 10) / 10;
-            return `${inch}" (${cm}cm)`;
-          };
-
-          formattedValue = [
-            `H: ${format(h)}`,
-            `B: ${format(b)}`,
-            `D: ${format(d)}`
-          ].join('\n');
-        } else if (type === 'ageRange' && typeof value === 'number') {
-          formattedValue = `${value}+`;
-        }
- 
-        return {
-          label: t(`product.attributes.${text}` as TranslationId),
-          value: formattedValue,
-          type
-        };
-      })
-      : undefined,
+    icon,
+    attributes: product.details?.attributes
   };
+}
+
+export interface AttributeProps {
+  attribute: ProductAttribute;
+}
+
+export const Attribute: FC<AttributeProps> = ({ attribute }) => {
+  return (
+    <div>
+      {renderText(attribute)}
+    </div>
+  );
+};
+
+function renderText(attribute: ProductAttribute) {
+  switch (attribute.type) {
+    case 'ageRange':
+      return `${attribute.value}+`;
+    case 'figureCount':
+    case 'pieceCount':
+      return <FormatNumber value={Number(attribute.value)} unit={attribute.text.toLowerCase()}/>;
+    case 'weightInGrams':
+      return <FormatWeight grams={Number(attribute.value)}/>;
+  }
 }
