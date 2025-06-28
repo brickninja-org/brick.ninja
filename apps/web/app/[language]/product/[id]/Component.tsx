@@ -62,7 +62,7 @@ export const ProductPageComponent: FC<ProductPageComponentProps> = async ({ lang
   return (
     <DetailLayout
       title={data.name}
-      icon={icon}
+      icon={icon?.id === product.icon?.id ? product.icon : (icon ? { ...icon, color: null } : null)}
       iconType="product"
       breadcrumb={breadcrumb}
       infobox={<ProductInfobox product={product} data={data} language={language}/>}
