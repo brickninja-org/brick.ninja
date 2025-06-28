@@ -20,6 +20,14 @@
       "groupName": "playwright"
     }, {
       "matchManagers": ["npm"],
+      "matchPackageNames": ["@floating-ui/**"],
+      "groupName": "floating-ui"
+    }, {
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["@heroui/**"],
+      "groupName": "herouiui"
+    }, {
+      "matchManagers": ["npm"],
       "matchPackageNames": ["@dnd-kit/**"],
       "groupName": "dnd-kit"
     }, {
