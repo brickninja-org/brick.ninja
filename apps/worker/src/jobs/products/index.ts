@@ -46,10 +46,8 @@ export const ProductsJob: Job = {
 
           type: product.en.type,
           subtype: product.en.details?.type ?? undefined,
-          // @ts-expect-error TypeScript doesn't know that product.en.details?.attributes is an array
-          pieceCount: product.en.details?.attributes?.find((a) => a.type === 'pieceCount')?.value ?? undefined,
-          // @ts-expect-error TypeScript doesn't know that product.en.details?.attributes is an array
-          figureCount: product.en.details?.attributes?.find((a) => a.type === 'figureCount')?.value ?? undefined,
+          pieceCount: product.en.details?.attributes?.find((a) => a.type === 'pieceCount')?.value as number ?? undefined,
+          figureCount: product.en.details?.attributes?.find((a) => a.type === 'figureCount')?.value as number ?? undefined,
 
           items,
 
