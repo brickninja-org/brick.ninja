@@ -15,6 +15,7 @@ import { Tip } from '@brickninja-org/ui/components/tip/Tip';
 import { getLinkProperties } from '@/lib/link-properties';
 import { localizedName } from '@/lib/localized-name';
 import { pageView } from '@/lib/page-view';
+import { parseIcon } from '@/lib/parse-icon';
 import { getTranslate } from '@/lib/translate';
 import { FormatDate } from '@/components/format/FormatDate';
 import { Json } from '@/components/format/Json';

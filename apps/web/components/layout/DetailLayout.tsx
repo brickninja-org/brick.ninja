@@ -17,7 +17,7 @@ import { EntityIcon } from '@/components/entity/EntityIcon';
 
 interface DetailLayoutProps {
   title: ReactNode;
-  icon?: Icon | ReactElement<{ className: string }> | null;
+  icon?: Omit<Icon, 'color'> | ReactElement<{ className: string }> | null;
   iconType?: EntityIconType;
   breadcrumb?: ReactNode;
   children: ReactNode;
