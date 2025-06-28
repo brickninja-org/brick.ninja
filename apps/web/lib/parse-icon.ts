@@ -1,4 +1,4 @@
-const regex = /^https:\/\/www.lego.com\/cdn\/product-assets\/(?<signature>[^/]*)\/(?<id>[^/]*)\.(?<extension>jpg|png)$/;
+const regex = /\/(?<signature>(?:product|element)(?:\.[^/]+)*)\/(?<id>\d+)(?:_[^/.]+)?\.(?<extension>jpg|png)$/;
 
 export function parseIcon(url: string | undefined): { id: number, signature: string, extension: string } | undefined {
   if (typeof url !== 'string') {
