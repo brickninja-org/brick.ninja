@@ -4,42 +4,42 @@ import type { TranslationId } from '@/lib/translate';
 import type { TODO } from '@/lib/todo';
 
 import { Suspense } from 'react';
-
 import NextLink from 'next/link';
 import { notFound } from 'next/navigation';
+import { cn } from '@heroui/react';
 
 import { FlexRow } from '@brickninja-org/ui/components/flex-row/FlexRow';
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 import { Notice } from '@brickninja-org/ui/components/notice/Notice';
-import { Table } from '@brickninja-org/ui/components/table/Table';
+import { table, Table } from '@brickninja-org/ui/components/table/Table';
 import { TableOfContentAnchor } from '@brickninja-org/ui/components/table-of-content/TableOfContents';
 import { Tip } from '@brickninja-org/ui/components/tip/Tip';
 import { Icon } from '@brickninja-org/ui/icons';
 
 import { getLinkProperties } from '@/lib/link-properties';
 import { pageView } from '@/lib/page-view';
-import DetailLayout from '@/components/layout/DetailLayout';
+import { parseIcon } from '@/lib/parse-icon';
+import { getTranslate } from '@/lib/translate';
 import { Breadcrumb, BreadcrumbItem } from '@/components/breadcrumb/Breadcrumb';
+import { EntityIconMissing } from '@/components/entity/EntityIconMissing';
 import { FormatDate } from '@/components/format/FormatDate';
 import { ItemInfobox } from '@/components/item/ItemInfobox';
 import { ItemLinkTooltip } from '@/components/item/ItemLinkTooltip';
+import { ItemList, ItemListItem } from '@/components/item/ItemList';
 import { ItemTooltip } from '@/components/item/ItemTooltip';
+import { extraColumn } from '@/components/item-table/columns';
+import { ItemTableContext } from '@/components/item-table/ItemTable.context';
+import { ItemTableColumnsButton } from '@/components/item-table/ItemTableColumnsButton';
+import { ItemTable } from '@/components/item-table/ItemTable';
 import { Json } from '@/components/format/Json';
+import DetailLayout from '@/components/layout/DetailLayout';
+import { ProductTable } from '@/components/product/ProductTable';
 import { Tooltip } from '@/components/tooltip/Tooltip';
 
 import { EditContents } from './_edit-content/EditContents';
 import { getItem, getRevision } from './data';
 import { SimilarItems } from './SimilarItems';
-import { ItemTableContext } from '@/components/item-table/ItemTable.context';
-import { ItemTableColumnsButton } from '@/components/item-table/ItemTableColumnsButton';
-import { ItemTable } from '@/components/item-table/ItemTable';
-import { getTranslate } from '@/lib/translate';
-import { extraColumn } from '@/components/item-table/columns';
 import { ContentQuantityColumn } from './ExtraColumns';
-import { ItemList, ItemListItem } from '@/components/item/ItemList';
-import { ProductTable } from '@/components/product/ProductTable';
-import { parseIcon } from '@/lib/parse-icon';
-import { EntityIconMissing } from '@/components/entity/EntityIconMissing';
 
 export interface ItemPageComponentProps {
   language: Language;
@@ -81,6 +81,8 @@ export const ItemPageComponent: FC<ItemPageComponentProps> = async ({ language, 
   }, 0);
 
   const icon = parseIcon(data.icon);
+
+  const { tr, td } = table();
 
   const t = getTranslate(language);
 
@@ -164,6 +166,7 @@ export const ItemPageComponent: FC<ItemPageComponentProps> = async ({ language, 
         <thead>
           <tr>
             <Table.HeaderCell small/>
+            <Table.HeaderCell small>Build</Table.HeaderCell>
             <Table.HeaderCell>Description</Table.HeaderCell>
             <Table.HeaderCell small>Date</Table.HeaderCell>
             <Table.HeaderCell small>Actions</Table.HeaderCell>
@@ -171,17 +174,18 @@ export const ItemPageComponent: FC<ItemPageComponentProps> = async ({ language, 
         </thead>
         <tbody>
           {item.history.map((history) => (
-            <tr key={history.revisionId}>
-              <td style={{ paddingRight: 0 }}>{history.revisionId === revision.id && <Tip tip="Currently viewing"><Icon icon="eye"/></Tip>}</td>
-              <td>
+            <tr key={history.revisionId} className={tr()}>
+              <td className={cn([td({ small: true }), 'pr-0'])}>{history.revisionId === revision.id && <Tip tip="Currently viewing"><Icon icon="eye"/></Tip>}</td>
+              <td className={td()}>{history.revision.buildId !== 0 ? (<NextLink href={`/build/${history.revision.buildId}`}>{history.revision.buildId}</NextLink>) : '-'}</td>
+              <td className={td()}>
                 <Tooltip content={<ItemLinkTooltip item={getLinkProperties(item)} language={language} revision={history.revisionId}/>}>
                   <NextLink href={`/item/${item.id}/${history.revisionId}`}>
                     {history.revision.description}
                   </NextLink>
                 </Tooltip>
               </td>
-              <td><FormatDate date={history.revision.createdAt} relative/></td>
-              <td>
+              <td className={td({ small: true })}><FormatDate date={history.revision.createdAt} relative/></td>
+              <td className={td({ small: true })}>
                 {history.revisionId !== revision.id && (
                   <FlexRow>
                     <NextLink href={`/item/${item.id}/${history.revisionId}`}>View</NextLink> ·
