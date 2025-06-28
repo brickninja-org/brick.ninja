@@ -39,7 +39,7 @@ jobs:
 
   success:
     name: Success
-    needs: [build, docker, test, lint, renovate]
+    needs: [build, docker, test, lint]
     runs-on: ubuntu-24.04
     if: always()
     steps:
