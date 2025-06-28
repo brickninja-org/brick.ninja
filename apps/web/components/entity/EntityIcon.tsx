@@ -37,7 +37,7 @@ export const EntityIcon: FC<EntityIconProps> = ({ icon, size = 64, type, classNa
   const style = useMemo(() => icon.color ? { '--loading-color': icon.color } : undefined, [icon.color]);
 
   return (
-    <span className={cn('[grid-area:icon] inline-block w-fit shrink-0 rounded-xs aspect-square overflow-hidden', className)} data-icon-type={type}>
+    <span className={cn('[grid-area:icon] inline-block w-fit shrink-0 rounded-xs aspect-auto overflow-hidden', className)} data-icon-type={type}>
       <img
         loading="lazy"
         decoding="async"

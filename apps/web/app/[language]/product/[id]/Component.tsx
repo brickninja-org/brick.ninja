@@ -54,14 +54,14 @@ export const ProductPageComponent: FC<ProductPageComponentProps> = async ({ lang
     localizedName(product.categories[0], language),
   ].filter(Boolean).join(' › ');
 
-  //const icon = parseIcon(data.icon);
+  const icon = parseIcon(data.icon);
 
   const styles = table();
 
   return (
     <DetailLayout
       title={data.name}
-      icon={null}
+      icon={icon}
       iconType="product"
       breadcrumb={breadcrumb}
       infobox={<ProductInfobox product={product} data={data} language={language}/>}
