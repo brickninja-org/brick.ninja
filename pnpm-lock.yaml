@@ -47,6 +47,9 @@ importers:
       '@brickninja-org/ui':
         specifier: workspace:*
         version: link:../../packages/ui
+      '@brickninjaapi/types':
+        specifier: 0.0.10
+        version: 0.0.10
       '@brickset-api/fetch':
         specifier: 0.0.18
         version: 0.0.18(@brickset-api/types@0.0.16)
