@@ -2,7 +2,7 @@
 
 import type { FC, ReactElement, ReactNode, HTMLProps } from 'react';
 
-import { Children, cloneElement, useMemo, useState } from 'react';
+import { Children, cloneElement, use, useMemo, useState } from 'react';
 import { autoUpdate, flip, FloatingPortal, offset, shift, useClick, useClientPoint, useDismiss, useFloating, useHover, useInteractions, useMergeRefs, useRole, useTransitionStyles } from '@floating-ui/react';
 
 export interface TooltipProps {
