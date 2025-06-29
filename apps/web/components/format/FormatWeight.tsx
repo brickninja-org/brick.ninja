@@ -15,7 +15,6 @@ export function FormatWeight({ grams }: { grams: number }) {
   return (
     <FormatNumber
       value={parseFloat(value)}
-      unit={unit}
       options={{
         style: 'unit',
         unit,

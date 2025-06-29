@@ -27,7 +27,7 @@ export const PriceGuide: FC<PriceGuideProps> = ({ data, translations }) => {
   const [rrp, setRrp] = useState<number | undefined>(undefined);
 
   useEffect(() => {
-    setRrp(data.details?.region_info && data.details.region_info[getApiRegion(region)]?.price);
+    setRrp(data.details?.region_info && (data.details.region_info[getApiRegion(region)]?.price / 100) || undefined);
   }, [data, region]);
 
   return (
