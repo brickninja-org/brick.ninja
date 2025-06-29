@@ -1,4 +1,5 @@
-import { JobName } from '..';
+import type { JobName } from '..';
+
 import { db } from '../../db';
 
 export async function queuedJobsForIds(name: JobName, ids: number[] | string [], { priority = 2, batchSize = 200 } = {}) {

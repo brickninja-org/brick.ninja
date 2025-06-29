@@ -1,9 +1,10 @@
 import type { LocalizedObject } from './types';
+import type { InputDataLocalized } from './process-entities';
 
 import { randomUUID } from 'crypto';
 import { Build, Prisma, Revision } from '@brickninja-org/database';
 
-import { InputDataLocalized, processLocalizedEntities } from './process-entities';
+import { processLocalizedEntities } from './process-entities';
 import { db } from '../../db';
 
 function loadFromApi<T extends { id: number }>(entity: T) {

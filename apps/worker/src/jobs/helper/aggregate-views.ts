@@ -37,7 +37,7 @@ export async function aggregateViews(
 
   // create id => views record
   const viewsById: Record<number, number> = Object.fromEntries(views.map(
-    ({ pageId, _sum }) => [pageId, _sum.count ?? 0]
+    ({ pageId, _sum }) => [pageId, _sum.count ?? 0],
   ));
 
   // get all ids that have views

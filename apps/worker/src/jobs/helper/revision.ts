@@ -1,4 +1,4 @@
-import { Prisma, Revision } from '@brickninja-org/database';
+import type { Prisma, Revision } from '@brickninja-org/database';
 
 import { db } from '../../db';
 
@@ -10,8 +10,5 @@ export async function createRevisions(data: LocalizedObject, revision: Omit<Pris
     db.revision.create({ data: { data: JSON.stringify(data.nl), language: 'nl', ...revision }}),
   ]);
 
-  return {
-    en,
-    nl,
-  };
+  return { en, nl };
 }
