@@ -37,6 +37,7 @@ export const ProductInfobox: FC<ProductInfoboxProps> = async ({ product, data, l
       ]}/>
 
       <Headline id="price-guide" noToc>Price Guide</Headline>
+      { /** @ts-expect-error Fix API types */}
       <PriceGuide data={data} translations={priceGuideTranslations}/>
 
       <Headline id="links" noToc>Links</Headline>

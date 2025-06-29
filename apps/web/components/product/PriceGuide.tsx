@@ -10,7 +10,12 @@ import { DataList } from '@/components/info-box/DataList';
 import { FormatNumber } from '../format/FormatNumber';
 
 interface PriceGuideProps {
-  data: Product;
+  data: Product & {
+    details: {
+      region_info?: Record<string, { price: number }>;
+      attributes?: Array<{ type: string; value: number }>;
+    };
+  };
   translations: TranslationSubset<
     | 'priceGuide.rrp'
     | 'priceGuide.ppp'
@@ -22,7 +27,7 @@ export const PriceGuide: FC<PriceGuideProps> = ({ data, translations }) => {
   const [rrp, setRrp] = useState<number | undefined>(undefined);
 
   useEffect(() => {
-    setRrp(data.region_info && data.region_info[getApiRegion(region)]?.price);
+    setRrp(data.details?.region_info && data.details.region_info[getApiRegion(region)]?.price);
   }, [data, region]);
 
   return (
