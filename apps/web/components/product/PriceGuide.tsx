@@ -33,7 +33,7 @@ export const PriceGuide: FC<PriceGuideProps> = ({ data, translations }) => {
   return (
     <DataList data={[
       rrp && rrp >= 0 ? { label: translations['priceGuide.rrp'], value: <FormatNumber value={rrp} options={{ style: 'currency', currency, currencyDisplay: 'narrowSymbol' }}/>, key: 'rrp' } : false,
-      rrp && rrp > 0 && data.details?.attributes ? { label: translations['priceGuide.ppp'], value: <FormatNumber value={(data.details.attributes.find((attr) => attr.type === 'pieceCount')?.value as number) / rrp} options={{ style: 'currency', currency, currencyDisplay: 'narrowSymbol' }}/>, key: 'ppp' } : false
+      rrp && rrp > 0 && data.details?.attributes ? { label: translations['priceGuide.ppp'], value: <FormatNumber value={rrp / (data.details.attributes.find((attr) => attr.type === 'pieceCount')?.value as number)} options={{ style: 'currency', maximumFractionDigits: 3, currency, currencyDisplay: 'narrowSymbol' }}/>, key: 'ppp' } : false,
     ]}/>
   );
 };
