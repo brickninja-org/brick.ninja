@@ -32,6 +32,6 @@ export const GET: RouteHandler<{ id: string }> = async (request, { params }) => 
   const tooltip = await createTooltip(data, language);
 
   return NextResponse.json(tooltip, {
-    headers: { 'cache-control': 'public max-age=3600', 'Vary': 'Origin' },
+    headers: { 'cache-control': 'public, max-age=3600', 'Vary': 'Origin' },
   });
 };
