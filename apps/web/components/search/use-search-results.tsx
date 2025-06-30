@@ -1,4 +1,5 @@
 import type { HTMLProps, ReactElement, ReactNode } from 'react';
+import type { IconName } from '@brickninja-org/icons';
 import type { TranslationSubset } from '@/lib/translate';
 import type { translations as itemTypeTranslations, TypeTranslation } from '@/components/item/ItemType.translations';
 import type { SubType, Type } from '@/components/item/ItemType.types';
@@ -9,11 +10,11 @@ import { getLinkProperties } from '@/lib/link-properties';
 import { localizedName } from '@/lib/localized-name';
 
 import { useLanguage } from '@/components/i18n/context';
+import { EntityIcon } from '@/components/entity/EntityIcon';
 import { ItemLinkTooltip } from '@/components/item/ItemLinkTooltip';
 import { ItemType } from '@/components/item/ItemType';
+import { ProductLinkTooltip } from '@/components/product/ProductLinkTooltip';
 import { Tooltip } from '@/components/tooltip/Tooltip';
-import { EntityIcon } from '../entity/EntityIcon';
-import { ProductLinkTooltip } from '../product/ProductLinkTooltip';
 
 export interface SearchResults<Id extends string> {
   id: Id;
@@ -70,27 +71,27 @@ export function useSearchApiResults(searchValue: string, translations: Translati
   ];
 }
 
-type Page = { href: string, title: string };
+type Page = { href: string, title: string, icon?: IconName };
 const pages: Page[] = [
-  { href: '/login', title: 'Login' },
-  { href: '/status', title: 'Status' },
-  { href: '/status/jobs', title: 'Job Status' },
-  { href: '/status/api', title: 'API Status' },
-  { href: '/status/database', title: 'Database Status' },
-  { href: '/about', title: 'About' },
-  { href: '//legal/legal-notice', title: 'Legal Notice' },
-  { href: '/legal/privacy-policy', title: 'Privacy Policy' },
-  { href: '/review', title: 'Review Queues' },
+  { href: '/login', title: 'Login', icon: 'user' },
+  { href: '/status', title: 'Status', icon: 'status' },
+  { href: '/status/jobs', title: 'Job Status', icon: 'jobs' },
+  { href: '/status/api', title: 'API Status', icon: 'api-status' },
+  { href: '/status/database', title: 'Database Status', icon: 'columns' },
+  { href: '/about', title: 'About', icon: 'info' },
+  { href: '//legal/legal-notice', title: 'Legal Notice', icon: 'info' },
+  { href: '/legal/privacy-policy', title: 'Privacy Policy', icon: 'info' },
+  { href: '/review', title: 'Review Queues', icon: 'review-queue' },
 
   { href: '/item', title: 'Items' },
   { href: '/products', title: 'Products' },
 
-  { href: '/dev', title: 'Developer' },
-  { href: '/dev/api', title: 'Developer / API' },
-  { href: '/dev#applications', title: 'Developer / Your Applications' },
+  { href: '/dev', title: 'Developer', icon: 'developer' },
+  { href: '/dev/api', title: 'Developer / API', icon: 'developer' },
+  { href: '/dev#applications', title: 'Developer / Your Applications', icon: 'developer' },
 
   { href: '/build', title: 'Builds' },
-  { href: '/color', title: 'Colors' },
+  { href: '/color', title: 'Colors', icon: 'color' },
 
   { href: '/item/random', title: 'Random Item' },
   { href: '/item/empty-containers', title: 'Empty containers' },

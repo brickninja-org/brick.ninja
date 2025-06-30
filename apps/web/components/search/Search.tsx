@@ -155,7 +155,7 @@ export const Search: FC<SearchProps> = ({ translations }) => {
                     tabIndex={-1}
                     href={result.href}
                     key={result.href}
-                    className={cn([/*'grid gap-[0_8px] grid-cols-[32px_1fr_auto]',*/ 'flex flex-col py-2 px-4 rounded-2 text-foreground no-underline', activeIndex === currentIndex && 'bg-background-light'])}
+                    className={cn(['grid gap-[0_8px] grid-cols-[32px_1fr_auto] py-2 px-4 rounded-2 text-foreground no-underline', activeIndex === currentIndex && 'bg-background-light'])}
                     id={result.href}
                     target={isExternal ? '_blank' : undefined}
                     rel={isExternal ? 'noreferrer noopener' : undefined}
