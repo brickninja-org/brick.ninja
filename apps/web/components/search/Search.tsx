@@ -164,7 +164,7 @@ export const Search: FC<SearchProps> = ({ translations }) => {
                       onClick: (e) => !e.defaultPrevented && setOpen(false)
                     })}
                   >
-                    {/* result.icon */}
+                    {result.icon}
                     <div className="[grid-area:title] line-clamp-1">
                       {result.title}
                     </div>
@@ -173,7 +173,7 @@ export const Search: FC<SearchProps> = ({ translations }) => {
                         {result.subtitle}
                       </div>
                     )}
-                    {isExternal && <span className="[grid-area:external] ml-2 text-muted">External</span>}
+                    {isExternal && <span className="[grid-area:external] ml-2 text-muted"><Icon icon="external"/></span>}
                   </NextLink>
                 );
               })}
