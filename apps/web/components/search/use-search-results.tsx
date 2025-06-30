@@ -5,10 +5,11 @@ import type { translations as itemTypeTranslations, TypeTranslation } from '@/co
 import type { SubType, Type } from '@/components/item/ItemType.types';
 import type { ApiSearchResponse } from 'app/[language]/api/search/route';
 
+import { Icon } from '@brickninja-org/ui/icons';
+
 import { useJsonFetch, useStaleJsonResponse } from '@/hooks/use-fetch';
 import { getLinkProperties } from '@/lib/link-properties';
 import { localizedName } from '@/lib/localized-name';
-
 import { useLanguage } from '@/components/i18n/context';
 import { EntityIcon } from '@/components/entity/EntityIcon';
 import { ItemLinkTooltip } from '@/components/item/ItemLinkTooltip';
@@ -45,7 +46,7 @@ export function useSearchApiResults(searchValue: string, translations: Translati
 
   const products = response.loading ? [] : response.data.products.map<SearchResult>((product) => ({
     title: localizedName(product, language),
-    icon: product.icon && <EntityIcon icon={product.icon} size={32}/>,
+    icon: product.icon && <EntityIcon icon={product.icon} size={32} type="product"/>,
     subtitle: (
       <>
         {product.id}
@@ -101,7 +102,7 @@ export function usePageResults(searchValue: string): SearchResults<'pages'> {
   const results = pages
     .filter(({ title }) => title.toLowerCase().includes(searchValue.toLowerCase()))
     .filter((_, index) => index < 5)
-    .map(({ title, href }) => ({ title, href }));
+    .map(({ title, icon, href }) => ({ title, href, icon: icon ? <Icon icon={icon}/> : undefined }));
 
   return { id: 'pages', results, loading: false };
 }
