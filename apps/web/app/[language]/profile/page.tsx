@@ -2,7 +2,7 @@ import { cache, Suspense } from 'react';
 import { redirect } from 'next/navigation';
 
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
-import { Table } from '@brickninja-org/ui/components/table/Table';
+// import { Table } from '@brickninja-org/ui/components/table/Table';
 
 import { getUser } from '@/lib/get-user';
 import { db } from '@/lib/prisma';
@@ -14,6 +14,7 @@ import { revalidatePath } from 'next/cache';
 import { SubmitButton } from '@brickninja-org/ui/components/form/buttons/SubmitButton';
 import { ExternalLink } from '@brickninja-org/ui/components/link/ExternalLink';
 import { Skeleton } from '@/components/skeleton/Skeleton';
+import { Table, TableBody, TableColumn, TableColumnHeader, TableHeader, TableRow } from '@/components/table/StaticTable';
 import { Accounts } from './Accounts';
 
 const getUserData = cache(async () => {
@@ -57,22 +58,22 @@ export default async function ProfilePage() {
 
       <Headline id="sessions" actions={<form action={revokeAllSessions}><SubmitButton icon="delete">Revoke all</SubmitButton></form>}>Sessions</Headline>
       <Table>
-        <thead>
-          <tr>
-            <th>Session</th>
-            <th>Started</th>
-            <th>Last Active</th>
-          </tr>
-        </thead>
-        <tbody>
+        <TableHeader>
+          <TableRow>
+            <TableColumnHeader>Session</TableColumnHeader>
+            <TableColumnHeader>Started</TableColumnHeader>
+            <TableColumnHeader>Last Active</TableColumnHeader>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
           {user.sessions.map((session) => (
-            <tr key={session.id}>
-              <td>{session.info}{session.id === sessionId && ' (Current Session)'}</td>
-              <td><FormatDate relative date={session.createdAt}/></td>
-              <td>{session.id === sessionId ? 'now' : <FormatDate relative date={session.lastUsedAt}/>}</td>
-            </tr>
+            <TableRow key={session.id}>
+              <TableColumn>{session.info}{session.id === sessionId && ' (Current Session)'}</TableColumn>
+              <TableColumn><FormatDate relative date={session.createdAt}/></TableColumn>
+              <TableColumn>{session.id === sessionId ? 'now' : <FormatDate relative date={session.lastUsedAt}/>}</TableColumn>
+            </TableRow>
           ))}
-        </tbody>
+        </TableBody>
       </Table>
     </HeroLayout>
   );
