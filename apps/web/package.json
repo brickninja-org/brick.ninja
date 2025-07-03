@@ -29,7 +29,7 @@
     "@formatjs/intl-localematcher": "0.6.1",
     "@heroui/react": "2.8.0-beta.10",
     "@heroui/theme": "2.4.16-beta.2",
-    "@prisma/nextjs-monorepo-workaround-plugin": "6.10.1",
+    "@prisma/nextjs-monorepo-workaround-plugin": "6.11.1",
     "@visx/axis": "3.12.0",
     "@visx/brush": "3.12.0",
     "@visx/clip-path": "3.12.0",
