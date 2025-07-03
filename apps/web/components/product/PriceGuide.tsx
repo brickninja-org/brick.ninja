@@ -10,12 +10,7 @@ import { DataList } from '@/components/info-box/DataList';
 import { FormatNumber } from '../format/FormatNumber';
 
 interface PriceGuideProps {
-  data: Product & {
-    details: {
-      region_info?: Record<string, { price: number }>;
-      attributes?: Array<{ type: string; value: number }>;
-    };
-  };
+  data: Product;
   translations: TranslationSubset<
     | 'priceGuide.rrp'
     | 'priceGuide.ppp'
