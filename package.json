@@ -23,7 +23,7 @@
     "node": "20 || >=22",
     "npm": "please-use-pnpm",
     "yarn": "please-use-pnpm",
-    "pnpm": "10.12.4"
+    "pnpm": "10.13.1"
   },
   "pnpm": {
     "overrides": {
@@ -42,5 +42,5 @@
       "unrs-resolver"
     ]
   },
-  "packageManager": "pnpm@10.12.4"
+  "packageManager": "pnpm@10.13.1"
 }
