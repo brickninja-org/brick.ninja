@@ -53,7 +53,7 @@
     "isbot": "5.1.28",
     "jose": "6.0.11",
     "negotiator": "1.0.0",
-    "next": "15.3.4",
+    "next": "15.3.5",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-error-boundary": "6.0.0",
@@ -67,7 +67,7 @@
   "devDependencies": {
     "@brickninja-org/eslint-config": "workspace:*",
     "@brickninja-org/tsconfig": "workspace:*",
-    "@next/eslint-plugin-next": "15.3.4",
+    "@next/eslint-plugin-next": "15.3.5",
     "@tailwindcss/postcss": "4.1.11",
     "@tailwindcss/typography": "0.5.16",
     "@testing-library/jest-dom": "6.6.3",
