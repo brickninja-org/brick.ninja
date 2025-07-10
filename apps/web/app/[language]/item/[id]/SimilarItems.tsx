@@ -15,7 +15,10 @@ export async function SimilarItems({ item }: { item: Item }) {
         { name_en: item.name_en },
         { name_nl: item.name_nl },
         // { iconId: item.iconId },
-        { type: item.type, subtype: item.subtype },
+        {
+          type: item.type,
+          subtype: item.subtype,
+        },
       ],
       NOT: {
         name_en: { endsWith: 'V39' },

@@ -33,6 +33,7 @@ import { ItemTableColumnsButton } from '@/components/item-table/ItemTableColumns
 import { ItemTable } from '@/components/item-table/ItemTable';
 import { Json } from '@/components/format/Json';
 import DetailLayout from '@/components/layout/DetailLayout';
+import { RemovedFromApiNotice } from '@/components/notice/RemovedFromApiNotice';
 import { ProductTable } from '@/components/product/ProductTable';
 import { Tooltip } from '@/components/tooltip/Tooltip';
 
@@ -104,10 +105,13 @@ export const ItemPageComponent: FC<ItemPageComponentProps> = async ({ language, 
       ]}
     >
       {item[`currentId_${language}`] !== revision.id && (
-        <Notice>You are viewing an old revision of this item. Some data is only available when viewing the latest version. <NextLink href={`/item/${item.id}`}>View latest</NextLink>.</Notice>
+        <Notice>You are viewing an old revision of this item{revision.buildId !== 0 && (<> (<NextLink href={`/build/${revision.buildId}`}>Build {revision.buildId}</NextLink>)</>)}. Some data is only available when viewing the latest version. <NextLink href={`/item/${item.id}`}>View latest</NextLink>.</Notice>
       )}
       {item[`currentId_${language}`] === revision.id && fixedRevision && (
-        <Notice>You are viewing this item at a fixed revision. Some data is only available when viewing the latest version. <NextLink href={`/item/${item.id}`}>View latest</NextLink>.</Notice>
+        <Notice>You are viewing this item at a fixed revision{revision.buildId !== 0 && (<> (<NextLink href={`/build/${revision.buildId}`}>Build {revision.buildId}</NextLink>)</>)}. Some data is only available when viewing the latest version. <NextLink href={`/item/${item.id}`}>View latest</NextLink>.</Notice>
+      )}
+      {!fixedRevision && item.removedFromApi && (
+        <RemovedFromApiNotice type="item"/>
       )}
 
       <TableOfContentAnchor id="tooltip">Tooltip</TableOfContentAnchor>
