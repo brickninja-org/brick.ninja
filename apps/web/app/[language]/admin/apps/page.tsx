@@ -1,16 +1,23 @@
-import { db } from '@/lib/prisma';
+import type { FC } from 'react';
 
 import { cache, Suspense } from 'react';
-import { ensureUserIsAdmin } from '../admin';
-import { createDataTable } from '@brickninja-org/ui/components/table/DataTable';
-import { PageLayout } from '@/components/layout/PageLayout';
+import { groups } from 'd3-array';
+import { FlexRow } from '@brickninja-org/ui/components/flex-row/FlexRow';
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
-import { Skeleton } from '@/components/skeleton/Skeleton';
-import { ColumnSelect } from '@/components/table/ColumnSelect';
-import { Code } from '@/components/layout/Code';
 import { List } from '@brickninja-org/ui/components/layout/List';
+import { createDataTable } from '@brickninja-org/ui/components/table/DataTable';
+import { Table } from '@brickninja-org/ui/components/table/Table';
+
+import { createMetadata } from '@/lib/metadata';
+import { db } from '@/lib/prisma';
+import { Chart, getColor } from '@/components/chart/Chart';
 import { FormatNumber } from '@/components/format/FormatNumber';
 import { FormatDate } from '@/components/format/FormatDate';
+import { PageLayout } from '@/components/layout/PageLayout';
+import { Code } from '@/components/layout/Code';
+import { Skeleton } from '@/components/skeleton/Skeleton';
+import { ColumnSelect } from '@/components/table/ColumnSelect';
+import { ensureUserIsAdmin } from '../admin';
 
 const getApplications = cache(() => {
   const lastDay = new Date();
@@ -35,7 +42,7 @@ export default async function AdminAppsPage() {
       <Headline id="requests">API Requests</Headline>
 
       <Suspense fallback={<Skeleton height={300} width="100%"/>}>
-        Charts
+        <RequestsChart/>
       </Suspense>
 
       <Headline id="apps" actions={<ColumnSelect table={Apps}/>}>Applications ({apps.length})</Headline>
@@ -63,6 +70,42 @@ export default async function AdminAppsPage() {
   );
 }
 
-export const metadata = {
+export const generateMetadata = createMetadata({
   title: 'Applications',
+});
+
+const RequestsChart: FC = async () => {
+  const requests = await db.$queryRaw<{ time: Date, endpoint: string, value: number }[]>`
+      SELECT
+        time_bucket_gapfill('1 hour'::INTERVAL, time) AS "time",
+        endpoint,
+        COUNT(*)::int AS "value"
+      FROM "ApplicationApiRequest"
+      WHERE time >= NOW() - '7 day'::INTERVAL  AND time <= NOW()
+      GROUP BY 1, 2
+      ORDER BY 1`;
+
+  const byEndpoint = groups(requests, ({ endpoint }) => endpoint);
+
+  return (
+    <FlexRow>
+      <Chart lines={byEndpoint}/>
+
+      <div>
+        <Table>
+          <thead>
+            <tr><th>Endpoint</th><th align="right">Count</th></tr>
+          </thead>
+          <tbody>
+            {byEndpoint.map(([endpoint, data], index) => (
+              <tr key={endpoint}>
+                <th><span style={{ backgroundColor: getColor(index), width: 8, height: 8, borderRadius: 8, display: 'inline-block' }}/> {endpoint}</th>
+                <td align="right"><FormatNumber value={data.reduce((total, { value }) => total + value, 0)}/></td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+      </div>
+    </FlexRow>
+  );
 };

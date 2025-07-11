@@ -1,10 +1,8 @@
-import type { Metadata } from 'next';
 import type { PageProps } from '@/lib/next';
 
 import { notFound } from 'next/navigation';
 
-import { getAlternateUrls } from '@/lib/url';
-
+import { createMetadata } from '@/lib/metadata';
 import { getRevision } from './data';
 import { ItemPageComponent } from './Component';
 
@@ -17,18 +15,17 @@ export default async function ItemPage({ params }: ItemPageProps) {
   return <ItemPageComponent language={language} itemId={itemId}/>;
 }
 
-export async function generateMetadata({ params }: ItemPageProps): Promise<Metadata> {
+export const generateMetadata = createMetadata<ItemPageProps>(async ({ params }) => {
   const { language, id } = await params;
-
   const itemId = Number(id);
   const { data } = await getRevision(itemId, language);
 
-  if (!data) {
+  if(!data) {
     notFound();
   }
 
   return {
     title: data.name || id,
-    alternates: getAlternateUrls(`/item/${id}`, language),
+    url: `/item/${id}`,
   };
-}
+});

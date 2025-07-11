@@ -6,8 +6,8 @@ import Link from 'next/link';
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 import { List } from '@brickninja-org/ui/components/layout/List';
 
+import { createMetadata } from '@/lib/metadata';
 import { PageLayout } from '@/components/layout/PageLayout';
-
 import { TranslationEditor } from './TranslationEditor';
 
 const dictionaries = { en, nl };
@@ -47,3 +47,7 @@ export default function TranslatePage() {
     </PageLayout>
   );
 }
+
+export const generateMetadata = createMetadata({
+  title: 'Translate',
+});

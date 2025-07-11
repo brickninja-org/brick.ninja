@@ -1,16 +1,15 @@
-import type { Metadata } from 'next';
+import type { PageProps } from '@/lib/next';
 
 import { cache } from '@/lib/cache';
-import { db } from '@/lib/prisma';
-import { Translate } from '@/components/i18n/Translate';
 import { localizedName } from '@/lib/localized-name';
-import type { PageProps } from '@/lib/next';
-import { createSearchIndex, TableFilterButton, TableFilterProvider, TableSearchInput } from '@/components/table/TableFilter';
+import { createMetadata } from '@/lib/metadata';
+import { db } from '@/lib/prisma';
+import { getTranslate } from '@/lib/translate';
+import { Translate } from '@/components/i18n/Translate';
 import { Description } from '@/components/layout/Description';
-import { ColumnSelect } from '@/components/table/ColumnSelect';
-import { translate } from '@/lib/translate';
-import { getAlternateUrls } from '@/lib/url';
 import { Notice } from '@/components/notice/Notice';
+import { ColumnSelect } from '@/components/table/ColumnSelect';
+import { createSearchIndex, TableFilterButton, TableFilterProvider, TableSearchInput } from '@/components/table/TableFilter';
 import { CatalogProductDataTable, createProductTable } from '../Table';
 
 const getSets = cache(
@@ -79,12 +78,12 @@ function strip(text: string | undefined | null) {
     .replace(/<br\/?>/g, '\n');
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export const generateMetadata = createMetadata(async ({ params }) => {
   const { language } = await params;
+  const t = getTranslate(language);
 
   return {
-    title: translate('catalog.sets', language),
-    description: translate('catalog.sets.description', language),
-    alternates: getAlternateUrls('/catalog/sets', language),
+    title: t('catalog.sets'),
+    description: t('catalog.sets.description'),
   };
-}
+});

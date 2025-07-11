@@ -1,5 +1,4 @@
 import type { FC } from 'react';
-import type { Metadata } from 'next';
 import type { Language } from '@brickninja-org/database';
 import type { PageProps } from '@/lib/next';
 
@@ -8,11 +7,11 @@ type BuildPageProps = PageProps<{ id: string }>;
 import { Suspense } from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 
 import { cache } from '@/lib/cache';
 import { linkProperties } from '@/lib/link-properties';
+import { createMetadata } from '@/lib/metadata';
 import { pageView } from '@/lib/page-view';
 import { db } from '@/lib/prisma';
 import { FormatDate } from '@/components/format/FormatDate';
@@ -153,10 +152,10 @@ const UpdatedProducts: FC<{ productsPromise: ReturnType<typeof getUpdatedProduct
 
 export default BuildDetail;
 
-export async function generateMetadata({ params }: BuildPageProps): Promise<Metadata> {
+export const generateMetadata = createMetadata<BuildPageProps>(async ({ params }) => {
   const { id } = await params;
 
   return {
     title: `Build ${id}`,
   };
-}
+});

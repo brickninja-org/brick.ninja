@@ -2,6 +2,7 @@ import type { Language } from '@brickninja-org/database';
 import type { PageProps } from '@/lib/next';
 
 import { cache } from '@/lib/cache';
+import { createMetadata } from '@/lib/metadata';
 import { db } from '@/lib/prisma';
 import { BuildTable } from './BuildTable';
 
@@ -34,6 +35,6 @@ export default async function BuildPage({ params }: PageProps) {
   );
 }
 
-export const metadata = {
+export const generateMetadata = createMetadata({
   title: 'Builds',
-};
+});

@@ -1,17 +1,20 @@
+import type { Product } from '@brickninjaapi/types/data/product';
+import type { PageProps } from '@/lib/next';
+
+import { Fragment } from 'react';
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
+import { Separator } from '@brickninja-org/ui/components/layout/Separator';
+import { Notice } from '@brickninja-org/ui/components/notice/Notice';
+
+import { cache } from '@/lib/cache';
+import { createMetadata } from '@/lib/metadata';
+import { parseIcon } from '@/lib/parse-icon';
+import { db } from '@/lib/prisma';
 import { EntityIcon } from '@/components/entity/EntityIcon';
 import { FormatDate } from '@/components/format/FormatDate';
 import { Json } from '@/components/format/Json';
 import { DiffLayout, DiffLayoutHeader, DiffLayoutRow } from '@/components/layout/DiffLayout';
-import { cache } from '@/lib/cache';
-import type { PageProps } from '@/lib/next';
-import { parseIcon } from '@/lib/parse-icon';
-import { db } from '@/lib/prisma';
-import { Separator } from '@brickninja-org/ui/components/layout/Separator';
-import { Notice } from '@brickninja-org/ui/components/notice/Notice';
-import Link from 'next/link';
-import { notFound } from 'next/navigation';
-import { Fragment } from 'react';
-import type { Product } from 'types/product';
 
 const getRevisions = cache(async (idA: string, idB: string) => {
   const [a, b] = await Promise.all([
@@ -75,7 +78,7 @@ async function ProductDiffPage({ params }: PageProps<{ a: string, b: string }>) 
 
 export default ProductDiffPage;
 
-export const metadata = {
+export const generateMetadata = createMetadata({
   title: 'Compare Products',
   robots: { index: false },
-};
+});

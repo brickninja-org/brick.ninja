@@ -1,9 +1,9 @@
-import type { Metadata } from 'next';
 import type { LayoutProps } from '@/lib/next';
 
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 
-import { translate as t } from '@/lib/translate';
+import { createMetadata } from '@/lib/metadata';
+import { translate } from '@/lib/translate';
 import { Translate } from '@/components/i18n/Translate';
 import { HeroLayout } from '@/components/layout/HeroLayout';
 import { Navbar } from '@/components/layout/Navbar';
@@ -29,13 +29,13 @@ export default function CatalogLayout({ children }: LayoutProps) {
   );
 }
 
-export async function generateMetadata({ params }: LayoutProps): Promise<Metadata> {
+export const generateMetadata = createMetadata(async ({ params }) => {
   const { language } = await params;
 
   return {
     title: {
-      template: `${t('navigation.catalog', language)}: %s · brick.ninja`,
+      template: `${translate('navigation.catalog', language)}: %s · brick-catalog.eu`,
       default: '',
     },
   };
-}
+});

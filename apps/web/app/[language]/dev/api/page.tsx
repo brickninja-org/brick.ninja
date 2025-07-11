@@ -1,9 +1,11 @@
-import { Code } from '@/components/layout/Code';
-import { HeroLayout } from '@/components/layout/HeroLayout';
-import { getCurrentUrl } from '@/lib/url';
+import Link from 'next/link';
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 import { ExternalLink } from '@brickninja-org/ui/components/link/ExternalLink';
-import Link from 'next/link';
+
+import { createMetadata } from '@/lib/metadata';
+import { getCurrentUrl } from '@/lib/url';
+import { Code } from '@/components/layout/Code';
+import { HeroLayout } from '@/components/layout/HeroLayout';
 
 export default async function DeveloperApiPage() {
   const apiUrl = await getCurrentUrl();
@@ -37,3 +39,9 @@ export default async function DeveloperApiPage() {
     </HeroLayout>
   );
 }
+
+export const generateMetadata = createMetadata({
+  title: 'API',
+  description: 'Use the brick-catalog.eu API to access content not available in the official brick.ninja API.',
+  keywords: ['api', 'whitelist', 'deleted', 'community', 'api key', 'container', 'item', 'data', 'bulk'],
+});

@@ -1,18 +1,18 @@
 import { cache, Suspense } from 'react';
 import { redirect } from 'next/navigation';
 
+import { revalidatePath } from 'next/cache';
+import { SubmitButton } from '@brickninja-org/ui/components/form/buttons/SubmitButton';
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
+import { ExternalLink } from '@brickninja-org/ui/components/link/ExternalLink';
 // import { Table } from '@brickninja-org/ui/components/table/Table';
 
 import { getUser } from '@/lib/get-user';
+import { createMetadata } from '@/lib/metadata';
+import { pageView } from '@/lib/page-view';
 import { db } from '@/lib/prisma';
 import { HeroLayout } from '@/components/layout/HeroLayout';
-import { pageView } from '@/lib/page-view';
 import { FormatDate } from '@/components/format/FormatDate';
-import type { Metadata } from 'next';
-import { revalidatePath } from 'next/cache';
-import { SubmitButton } from '@brickninja-org/ui/components/form/buttons/SubmitButton';
-import { ExternalLink } from '@brickninja-org/ui/components/link/ExternalLink';
 import { Skeleton } from '@/components/skeleton/Skeleton';
 import { Table, TableBody, TableColumn, TableColumnHeader, TableHeader, TableRow } from '@/components/table/StaticTable';
 import { Accounts } from './Accounts';
@@ -79,13 +79,13 @@ export default async function ProfilePage() {
   );
 }
 
-export async function generateMetadata(): Promise<Metadata> {
+export const generateMetadata = createMetadata(async () => {
   const { user } = await getUserData();
 
   return {
     title: user.name,
   };
-}
+});
 
 async function revokeAllSessions() {
   'use server';

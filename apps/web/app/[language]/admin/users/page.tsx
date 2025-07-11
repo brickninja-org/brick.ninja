@@ -1,15 +1,15 @@
 import { cache } from 'react';
-
 import { FlexRow } from '@brickninja-org/ui/components/flex-row/FlexRow';
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 import { createDataTable } from '@brickninja-org/ui/components/table/DataTable';
 import { Icon } from '@brickninja-org/ui/icons';
 
+import { createMetadata } from '@/lib/metadata';
 import { db } from '@/lib/prisma';
-import { ensureUserIsAdmin } from '../admin';
 import { FormatDate } from '@/components/format/FormatDate';
 import { PageLayout } from '@/components/layout/PageLayout';
 import { ColumnSelect } from '@/components/table/ColumnSelect';
+import { ensureUserIsAdmin } from '../admin';
 
 const getUsers = cache(() => {
   return db.user.findMany({
@@ -44,6 +44,6 @@ export default async function AdminUserPage() {
   );
 }
 
-export const metadata = {
-  title: 'Users'
-};
+export const generateMetadata = createMetadata({
+  title: 'Users',
+});

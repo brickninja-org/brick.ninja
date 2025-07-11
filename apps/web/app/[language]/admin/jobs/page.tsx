@@ -8,10 +8,10 @@ import { TextInput } from '@brickninja-org/ui/components/form/TextInput';
 import { FlexRow } from '@brickninja-org/ui/components/flex-row/FlexRow';
 import { SubmitButton } from '@brickninja-org/ui/components/form/buttons/SubmitButton';
 
-import { db } from '@/lib/prisma';
 import { getUser } from '@/lib/get-user';
+import { createMetadata } from '@/lib/metadata';
+import { db } from '@/lib/prisma';
 import { PageLayout } from '@/components/layout/PageLayout';
-
 import { ensureUserIsAdmin } from '../admin';
 
 export default async function AdminQueueJobPage() {
@@ -69,6 +69,6 @@ async function submit(_: FormState, payload: FormData): Promise<FormState> {
   return { success: 'Queued' };
 }
 
-export const metadata = {
-  title: 'Jobs'
-};
+export const generateMetadata = createMetadata({
+  title: 'Jobs',
+});

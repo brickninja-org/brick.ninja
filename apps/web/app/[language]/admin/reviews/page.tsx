@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 import { createDataTable } from '@brickninja-org/ui/components/table/DataTable';
 
+import { createMetadata } from '@/lib/metadata';
 import { db } from '@/lib/prisma';
 import { getReviewUrlKeyFromQueue } from '@/lib/review-url';
 import { FormatDate } from '@/components/format/FormatDate';
@@ -41,6 +42,6 @@ export default async function AdminReviewsPage() {
   );
 }
 
-export const metadata = {
+export const generateMetadata = createMetadata({
   title: 'Reviews',
-};
+});

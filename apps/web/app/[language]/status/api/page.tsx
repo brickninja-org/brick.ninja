@@ -2,17 +2,16 @@ import type { ApiRequest } from '@brickninja-org/database';
 import type { PageProps } from '@/lib/next';
 
 import { Fragment } from 'react';
-
 import { cn } from '@brickninja-org/ui/lib';
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 import { table, Table } from '@brickninja-org/ui/components/table/Table';
 import { Tip } from '@brickninja-org/ui/components/tip/Tip';
 
+import { createMetadata } from '@/lib/metadata';
 import { db } from '@/lib/prisma';
 import { FormatNumber } from '@/components/format/FormatNumber';
 import { PageLayout } from '@/components/layout/PageLayout';
 import { ReloadCheckbox } from '@/components/reload/ReloadCheckbox';
-
 import { availablePeriods } from './available-periods';
 import { PeriodSelect } from './period-select';
 
@@ -184,6 +183,6 @@ function toBuckets<T>(count: number, by: (value: T) => number): (previousValue: 
   };
 }
 
-export const metadata = {
+export const generateMetadata = createMetadata({
   title: 'API Status',
-};
+});

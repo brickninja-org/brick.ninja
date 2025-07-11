@@ -1,9 +1,7 @@
-import type { Metadata } from 'next';
 import type { PageProps } from '@/lib/next';
 
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
-
 import { Scope } from '@bn2me/client';
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 import { Notice } from '@brickninja-org/ui/components/notice/Notice';
@@ -11,11 +9,11 @@ import { Icon } from '@brickninja-org/ui/icons';
 
 import { getUser } from '@/lib/get-user';
 import { getReturnToUrl } from '@/lib/login-url';
-import { getAlternateUrls } from '@/lib/url';
-import { LoginButton } from './Login.client';
+import { createMetadata } from '@/lib/metadata';
+import { getTranslate, translateMany } from '@/lib/translate';
 import { Translate } from '@/components/i18n/Translate';
 import { PageLayout } from '@/components/layout/PageLayout';
-import { translateMany } from '@/lib/translate';
+import { LoginButton } from './Login.client';
 
 export default async function LoginPage({ searchParams, params }: PageProps) {
   const { language } = await params;
@@ -66,14 +64,14 @@ export default async function LoginPage({ searchParams, params }: PageProps) {
   );
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export const generateMetadata = createMetadata(async ({ params }) => {
   const { language } = await params;
+  const t = getTranslate(language);
 
   return {
-    title: 'Login',
-    alternates: getAlternateUrls('/login', language),
+    title: t('login'),
   };
-}
+});
 
 const validScopes = new Set(Object.values(Scope));
 

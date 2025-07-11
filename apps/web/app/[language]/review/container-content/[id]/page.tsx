@@ -3,7 +3,6 @@ import type { EditContentOrder } from 'app/[language]/item/[id]/_edit-content/ty
 
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-
 import { ReviewState, UserRole } from '@brickninja-org/database';
 import { FlexRow } from '@brickninja-org/ui/components/flex-row/FlexRow';
 import { Button, LinkButton } from '@brickninja-org/ui/components/form/Button';
@@ -14,7 +13,9 @@ import { Table } from '@brickninja-org/ui/components/table/Table';
 
 import { getUser } from '@/lib/get-user';
 import { linkProperties } from '@/lib/link-properties';
+import { localizedName } from '@/lib/localized-name';
 import { getLoginUrlWithReturnTo } from '@/lib/login-url';
+import { createMetadata } from '@/lib/metadata';
 import { db } from '@/lib/prisma';
 import { FormatDate } from '@/components/format/FormatDate';
 import { FormatNumber } from '@/components/format/FormatNumber';
@@ -132,3 +133,12 @@ export default async function ReviewContainerContentPage({ params, searchParams 
     </HeroLayout>
   );
 }
+
+export const generateMetadata = createMetadata<ReviewContainerContentPageProps>(async ({ params }) => {
+  const { language, id } = await params;
+  const { item } = await getReview(id);
+
+  return {
+    title: `Review Container Content: ${localizedName(item, language)}`,
+  };
+});

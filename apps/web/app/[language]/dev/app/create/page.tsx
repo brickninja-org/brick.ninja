@@ -1,22 +1,21 @@
 import type { FormState } from '@brickninja-org/ui/components/form/Form';
 
-import { Form } from '@brickninja-org/ui/components/form/Form';
-import { Headline } from '@brickninja-org/ui/components/headline/Headline';
-import { Notice } from '@brickninja-org/ui/components/notice/Notice';
-
 import { cache } from 'react';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
-
 import { Scope } from '@bn2me/client';
+import { FlexRow } from '@brickninja-org/ui/components/flex-row/FlexRow';
+import { Form } from '@brickninja-org/ui/components/form/Form';
 import { SubmitButton } from '@brickninja-org/ui/components/form/buttons/SubmitButton';
 import { Label } from '@brickninja-org/ui/components/form/Label';
 import { TextInput } from '@brickninja-org/ui/components/form/TextInput';
-import { FlexRow } from '@brickninja-org/ui/components/flex-row/FlexRow';
+import { Headline } from '@brickninja-org/ui/components/headline/Headline';
+import { Notice } from '@brickninja-org/ui/components/notice/Notice';
 
 import { getUser } from '@/lib/get-user';
-import { db } from '@/lib/prisma';
 import { getLoginUrlWithReturnTo } from '@/lib/login-url';
+import { createMetadata } from '@/lib/metadata';
+import { db } from '@/lib/prisma';
 import { reauthorize } from '@/components/bn2-api/reauthorize';
 import { PageLayout } from '@/components/layout/PageLayout';
 
@@ -87,3 +86,7 @@ export default async function DevApplicationCreatePage() {
     </PageLayout>
   );
 }
+
+export const generateMetadata = createMetadata({
+  title: 'Create Application',
+});

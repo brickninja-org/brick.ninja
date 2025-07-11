@@ -1,9 +1,8 @@
-import type { Metadata } from 'next';
 import type { PageProps } from '@/lib/next';
 
 import { notFound } from 'next/navigation';
 
-
+import { createMetadata } from '@/lib/metadata';
 import { ItemPageComponent } from '../Component';
 import { getRevision } from '../data';
 
@@ -16,13 +15,12 @@ export default async function ItemRevisionPage({ params }: ItemRevisionPageProps
   return <ItemPageComponent language={language} itemId={itemId} revisionId={revisionId}/>;
 }
 
-export async function generateMetadata({ params }: ItemRevisionPageProps): Promise<Metadata> {
+export const generateMetadata = createMetadata<ItemRevisionPageProps>(async ({ params }) => {
   const { language, id, revisionId } = await params;
   const itemId = Number(id);
-
   const { data } = await getRevision(itemId, language, revisionId);
 
-  if (!data) {
+  if(!data) {
     notFound();
   }
 
@@ -30,4 +28,4 @@ export async function generateMetadata({ params }: ItemRevisionPageProps): Promi
     title: `${data.name || id} @ ${revisionId}`,
     robots: { index: false },
   };
-}
+});

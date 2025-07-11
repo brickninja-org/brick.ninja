@@ -1,16 +1,16 @@
-import type { Metadata } from 'next';
+import type { PageProps } from '@/lib/next';
+
+import { Notice } from '@brickninja-org/ui/components/notice/Notice';
 
 import { cache } from '@/lib/cache';
-import { db } from '@/lib/prisma';
-import { Translate } from '@/components/i18n/Translate';
 import { localizedName } from '@/lib/localized-name';
-import type { PageProps } from '@/lib/next';
-import { createSearchIndex, TableFilterButton, TableFilterProvider, TableSearchInput } from '@/components/table/TableFilter';
+import { createMetadata } from '@/lib/metadata';
+import { db } from '@/lib/prisma';
+import { getTranslate } from '@/lib/translate';
+import { Translate } from '@/components/i18n/Translate';
 import { Description } from '@/components/layout/Description';
 import { ColumnSelect } from '@/components/table/ColumnSelect';
-import { translate } from '@/lib/translate';
-import { getAlternateUrls } from '@/lib/url';
-import { Notice } from '@brickninja-org/ui/components/notice/Notice';
+import { createSearchIndex, TableFilterButton, TableFilterProvider, TableSearchInput } from '@/components/table/TableFilter';
 import { CatalogProductDataTable, createProductTable } from '../Table';
 
 const getGear = cache(
@@ -72,12 +72,12 @@ export default async function GearPage({ params }: PageProps) {
   );
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export const generateMetadata = createMetadata(async ({ params }) => {
   const { language } = await params;
+  const t = getTranslate(language);
 
   return {
-    title: translate('catalog.gear', language),
-    description: translate('catalog.gear.description', language),
-    alternates: getAlternateUrls('/catalog/gear', language),
+    title: t('catalog.gear'),
+    description: t('catalog.gear.description'),
   };
-}
+});

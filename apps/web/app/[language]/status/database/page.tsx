@@ -5,6 +5,7 @@ import { createDataTable } from '@brickninja-org/ui/components/table/DataTable';
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 
 import { cache } from '@/lib/cache';
+import { createMetadata } from '@/lib/metadata';
 import { db } from '@/lib/prisma';
 import { FormatNumber } from '@/components/format/FormatNumber';
 import { PageLayout } from '@/components/layout/PageLayout';
@@ -62,9 +63,9 @@ export default async function StatusDatabasePage() {
   );
 }
 
-export const metadata = {
-  title: 'Database Status'
-};
+export const generateMetadata = createMetadata({
+  title: 'Database Status',
+});
 
 function formatSize(size: bigint | null): ReactNode {
   if(size === null) {

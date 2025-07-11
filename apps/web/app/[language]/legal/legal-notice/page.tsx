@@ -1,5 +1,6 @@
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 
+import { createMetadata } from '@/lib/metadata';
 import { HeroLayout } from '@/components/layout/HeroLayout';
 
 export default function LegalNoticePage() {
@@ -13,7 +14,7 @@ export default function LegalNoticePage() {
   );
 }
 
-export const metadata = {
+export const generateMetadata = createMetadata({
   title: 'Legal Notice',
   description: 'Last updated May 4, 2025',
-};
+});

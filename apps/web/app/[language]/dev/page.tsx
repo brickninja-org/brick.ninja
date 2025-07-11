@@ -1,10 +1,10 @@
 import Link from 'next/link';
-
 import { LinkButton } from '@brickninja-org/ui/components/form/Button';
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 import { List } from '@brickninja-org/ui/components/layout/List';
 
 import { getUser } from '@/lib/get-user';
+import { createMetadata } from '@/lib/metadata';
 import { db } from '@/lib/prisma';
 import { HeroLayout } from '@/components/layout/HeroLayout';
 
@@ -56,6 +56,6 @@ export default async function DeveloperPage() {
   );
 }
 
-export const metadata = {
+export const generateMetadata = createMetadata({
   title: 'Developer Resources',
-};
+});

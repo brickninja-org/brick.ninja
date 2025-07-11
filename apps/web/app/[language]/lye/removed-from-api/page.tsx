@@ -1,14 +1,16 @@
+import { CopyButton } from '@brickninja-org/ui/components/form/buttons/CopyButton';
+import { Headline } from '@brickninja-org/ui/components/headline/Headline';
+import { createDataTable } from '@brickninja-org/ui/components/table/DataTable';
+
+import { linkProperties } from '@/lib/link-properties';
+import { createMetadata } from '@/lib/metadata';
+import { db } from '@/lib/prisma';
 import { FormatDate } from '@/components/format/FormatDate';
 import { FormatNumber } from '@/components/format/FormatNumber';
 import { Translate } from '@/components/i18n/Translate';
 import { ItemLink } from '@/components/item/ItemLink';
 import { PageLayout } from '@/components/layout/PageLayout';
 import { ProductLink } from '@/components/product/ProductLink';
-import { linkProperties } from '@/lib/link-properties';
-import { db } from '@/lib/prisma';
-import { CopyButton } from '@brickninja-org/ui/components/form/buttons/CopyButton';
-import { Headline } from '@brickninja-org/ui/components/headline/Headline';
-import { createDataTable } from '@brickninja-org/ui/components/table/DataTable';
 
 const after = new Date('2023-01-01T00:00:00Z');
 // const afterArchievements = new Date('2024-03-28T00:00:00Z');
@@ -105,3 +107,8 @@ export default async function LyeRemovedFromApiPage() {
     </PageLayout>
   );
 }
+
+export const generateMetadata = createMetadata({
+  title: 'Removed From API',
+  robots: { index: false },
+});

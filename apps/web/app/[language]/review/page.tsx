@@ -1,9 +1,9 @@
 import NextLink from 'next/link';
-
 import { ReviewQueue } from '@brickninja-org/database';
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 import { Table } from '@brickninja-org/ui/components/table/Table';
 
+import { createMetadata } from '@/lib/metadata';
 import { db } from '@/lib/prisma';
 import { HeroLayout } from '@/components/layout/HeroLayout';
 import { FormatNumber } from '@/components/format/FormatNumber';
@@ -43,6 +43,6 @@ export default async function ReviewPage() {
   );
 }
 
-export const metadata = {
+export const generateMetadata = createMetadata({
   title: 'Review Queues',
-};
+});

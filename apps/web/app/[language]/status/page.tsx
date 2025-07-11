@@ -1,14 +1,13 @@
 import type { FC, ReactNode } from 'react';
-import type { Metadata } from 'next';
 
 import Link from 'next/link';
-
 import { cn } from '@brickninja-org/ui/lib';
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 
+import { createMetadata } from '@/lib/metadata';
 import { db } from '@/lib/prisma';
-import { HeroLayout } from '@/components/layout/HeroLayout';
 import { FormatNumber } from '@/components/format/FormatNumber';
+import { HeroLayout } from '@/components/layout/HeroLayout';
 
 function getStatus() {
   const last30minutes = new Date();
@@ -64,6 +63,6 @@ export default async function StatusPage() {
   );
 }
 
-export const metadata: Metadata = {
+export const generateMetadata = createMetadata({
   title: 'Status',
-};
+});

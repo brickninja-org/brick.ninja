@@ -58,16 +58,16 @@ export default async function RootLayout({ children, modal, params }: LayoutProp
 
 export const metadata: Metadata = {
   title: {
-    template: '%s · brick.ninja',
+    template: '%s · brick-catalog.eu',
     default: '',
   },
   description: 'Unofficial LEGO® Database and tool collection',
   keywords: ['lego', 'brick', 'part', 'element', 'set', 'minifigure', 'collection'],
   manifest: '/site.webmanifest',
-  applicationName: 'brick.ninja',
+  applicationName: 'brick-catalog.eu',
   appleWebApp: {
     capable: true,
-    title: 'brick.ninja',
+    title: 'brick-catalg.eu',
     statusBarStyle: 'default',
   },
   formatDetection: { address: false, date: false, email: false, telephone: false, url: false },

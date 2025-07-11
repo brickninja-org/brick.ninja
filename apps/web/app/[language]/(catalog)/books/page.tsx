@@ -1,16 +1,16 @@
-import type { Metadata } from 'next';
 import type { PageProps } from '@/lib/next';
 
+import { Notice } from '@brickninja-org/ui/components/notice/Notice';
+
 import { cache } from '@/lib/cache';
-import { db } from '@/lib/prisma';
-import { Translate } from '@/components/i18n/Translate';
 import { localizedName } from '@/lib/localized-name';
-import { createSearchIndex, TableFilterButton, TableFilterProvider, TableSearchInput } from '@/components/table/TableFilter';
+import { createMetadata } from '@/lib/metadata';
+import { db } from '@/lib/prisma';
+import { getTranslate } from '@/lib/translate';
+import { Translate } from '@/components/i18n/Translate';
 import { Description } from '@/components/layout/Description';
 import { ColumnSelect } from '@/components/table/ColumnSelect';
-import { translate } from '@/lib/translate';
-import { getAlternateUrls } from '@/lib/url';
-import { Notice } from '@brickninja-org/ui/components/notice/Notice';
+import { createSearchIndex, TableFilterButton, TableFilterProvider, TableSearchInput } from '@/components/table/TableFilter';
 import { CatalogProductDataTable, createProductTable } from '../Table';
 
 const getBooks = cache(
@@ -79,12 +79,12 @@ function strip(text: string | undefined | null) {
     .replace(/<br\/?>/g, '\n');
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export const generateMetadata = createMetadata(async ({ params }) => {
   const { language } = await params;
+  const t = getTranslate(language);
 
   return {
-    title: translate('catalog.books', language),
-    description: translate('catalog.books.description', language),
-    alternates: getAlternateUrls('/catalog/books', language),
+    title: t('catalog.books'),
+    description: t('catalog.books.description'),
   };
-}
+});

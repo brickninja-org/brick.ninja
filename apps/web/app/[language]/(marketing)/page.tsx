@@ -8,8 +8,8 @@ import { GiNinjaHead } from 'react-icons/gi';
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 
 import { cache } from '@/lib/cache';
+import { createMetadata } from '@/lib/metadata';
 import { db } from '@/lib/prisma';
-import { getAlternateUrls } from '@/lib/url';
 import { FormatDate } from '@/components/format/FormatDate';
 import { FormatNumber } from '@/components/format/FormatNumber';
 import { ItemList, ItemListItem } from '@/components/item/ItemList';
@@ -124,11 +124,6 @@ async function DbStats() {
 
 export default MarketingPage;
 
-export async function generateMetadata({ params }: PageProps) {
-  const { language } = await params;
-
-  return {
-    title: 'Home',
-    alternates: getAlternateUrls('/', language),
-  };
-}
+export const generateMetadata = createMetadata({
+  title: 'Home',
+});

@@ -1,15 +1,15 @@
 import type { PageProps } from '@/lib/next';
 
 import { cache } from 'react';
-
-import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 import { Switch } from '@brickninja-org/ui/components/form/Switch';
+import { Headline } from '@brickninja-org/ui/components/headline/Headline';
+import { Table } from '@brickninja-org/ui/components/table/Table';
 
+import { createMetadata } from '@/lib/metadata';
 import { db } from '@/lib/prisma';
+import { Chart } from '@/components/chart/Chart';
 import { PageLayout } from '@/components/layout/PageLayout';
 import { ensureUserIsAdmin } from '../admin';
-import { Chart } from '@/components/chart/Chart';
-import { Table } from '@brickninja-org/ui/components/table/Table';
 
 type Interval = 'hour' | 'day';
 type Days = '7' | '30';
@@ -98,6 +98,6 @@ export default async function AdminViewsPage({ searchParams }: PageProps) {
   );
 }
 
-export const metadata = {
-  title: 'Page Views',
-};
+export const generateMetadata = createMetadata({
+  title: 'Page Views'
+});

@@ -1,8 +1,7 @@
-import type { Metadata } from 'next';
-
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 import { TableOfContentAnchor } from '@brickninja-org/ui/components/table-of-content/TableOfContents';
 
+import { createMetadata } from '@/lib/metadata';
 import { HeroLayout } from '@/components/layout/HeroLayout';
 
 export default function AboutPage() {
@@ -16,6 +15,6 @@ export default function AboutPage() {
   );
 }
 
-export const metadata: Metadata = {
+export const generateMetadata = createMetadata({
   title: 'About',
-};
+});

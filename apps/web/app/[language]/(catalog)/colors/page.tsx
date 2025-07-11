@@ -5,7 +5,9 @@ import { unstable_cache } from 'next/cache';
 import { createDataTable } from '@brickninja-org/ui/components/table/DataTable';
 
 import { compareLocalizedName, localizedName } from '@/lib/localized-name';
+import { createMetadata } from '@/lib/metadata';
 import { db } from '@/lib/prisma';
+import { getTranslate } from '@/lib/translate';
 import { Translate } from '@/components/i18n/Translate';
 import { Description } from '@/components/layout/Description';
 import { ColumnSelect } from '@/components/table/ColumnSelect';
@@ -54,3 +56,13 @@ export default async function ColorsPage({ params }: PageProps) {
     </>
   );
 }
+
+export const generateMetadata = createMetadata(async ({ params }) => {
+  const { language } = await params;
+  const t = getTranslate(language);
+
+  return {
+    title: t('catalog.colors'),
+    description: t('catalog.colors.description'),
+  };
+});

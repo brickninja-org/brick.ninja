@@ -1,11 +1,11 @@
 import type { VariantProps } from 'tailwind-variants';
 
 import { tv } from 'tailwind-variants';
-
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 import { table, Table } from '@brickninja-org/ui/components/table/Table';
 
 import { cache } from '@/lib/cache';
+import { createMetadata } from '@/lib/metadata';
 import { db } from '@/lib/prisma';
 import { FormatDate } from '@/components/format/FormatDate';
 import { FormatNumber } from '@/components/format/FormatNumber';
@@ -109,6 +109,6 @@ async function JobsPage() {
 
 export default JobsPage;
 
-export const metadata = {
+export const generateMetadata = createMetadata({
   title: 'Job Status',
-};
+});

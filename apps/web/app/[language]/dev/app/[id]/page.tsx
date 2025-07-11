@@ -2,7 +2,6 @@ import type { PageProps } from '@/lib/next';
 
 import Link from 'next/link';
 import { notFound, redirect } from 'next/navigation';
-
 import { FlexRow } from '@brickninja-org/ui/components/flex-row/FlexRow';
 import { Button } from '@brickninja-org/ui/components/form/Button';
 import { CopyButton } from '@brickninja-org/ui/components/form/buttons/CopyButton';
@@ -15,6 +14,7 @@ import { Table } from '@brickninja-org/ui/components/table/Table';
 
 import { getUser } from '@/lib/get-user';
 import { getLoginUrlWithReturnTo } from '@/lib/login-url';
+import { createMetadata } from '@/lib/metadata';
 import { db } from '@/lib/prisma';
 import { PageLayout } from '@/components/layout/PageLayout';
 import { deleteApplication, saveApplication, updateOrigins } from './actions';
@@ -101,7 +101,7 @@ export default async function DevAppPage({ params }: DevAppPageProps) {
   );
 }
 
-export async function generateMetadata({ params }: DevAppPageProps) {
+export const generateMetadata = createMetadata<DevAppPageProps>(async ({ params }) => {
   const { id } = await params;
   const application = getApplication(id);
 
@@ -110,6 +110,6 @@ export async function generateMetadata({ params }: DevAppPageProps) {
   }
 
   return {
-    title: `Application: ${(await application).name}`
+    title: `Application: ${(await application).name}`,
   };
-}
+});

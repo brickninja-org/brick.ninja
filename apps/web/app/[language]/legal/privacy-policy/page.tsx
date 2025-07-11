@@ -1,5 +1,6 @@
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 
+import { createMetadata } from '@/lib/metadata';
 import { HeroLayout } from '@/components/layout/HeroLayout';
 
 export default function PrivacyPolicyPage() {
@@ -21,7 +22,7 @@ export default function PrivacyPolicyPage() {
   );
 }
 
-export const metadata = {
+export const generateMetadata = createMetadata({
   title: 'Privacy Policy',
   description: 'Last updated May 4, 2025',
-};
+});
