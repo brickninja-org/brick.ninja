@@ -49,7 +49,7 @@ export const EntityIcon: FC<EntityIconProps> = ({ icon, size = 64, type, classNa
         referrerPolicy="no-referrer"
         srcSet={iconSize < 64 ? `${getIconUrl(icon, iconSize * 2 as FixedIconSize, type)} 2x` : undefined}
         style={style}
-        className={cn(loading && 'loading', 'align-middle')}
+        className={cn(loading && 'loading', 'scale-down')}
         onLoad={handleLoad}/>
     </span>
   );
