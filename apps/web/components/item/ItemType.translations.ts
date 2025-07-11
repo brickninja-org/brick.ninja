@@ -6,7 +6,7 @@ export type TypeTranslation<T extends Type, S extends SubType<T>> = T extends Ty
 const typeTranslationKeys = ['Container', 'Element', 'Product', 'Set'] as const satisfies Type[];
 const subtypeTranslationKeys = [
   'Container.Default',
-  'Element.AnimalCreature', 'Element.Brick', 'Element.BrickBowArch', 'Element.BrickModified', 'Element.BrickModifiedBowArch', 'Element.BrickRoundAngle', 'Element.CableHose', 'Element.Connector', 'Element.DecorationElement', 'Element.FoodDrink', 'Element.FunctionalElement', 'Element.MinifigureHandheldAccessory', 'Element.MinifigureToolAccessory', 'Element.MiscellaneousElement', 'Element.Plate', 'Element.PlateModified', 'Element.PlateRoundAngle', 'Element.SignFlagPole', 'Element.TreePlant', 'Element.VehiclePart', 'Element.WindowWallDoor',
+  'Element.DUPLO', 'Element.LEGO', 'Element.TECHNIC', 'Element.BrickModified', 'Element.BrickModifiedBowArch', 'Element.BrickRoundAngle', 'Element.CableHose', 'Element.Connector', 'Element.DecorationElement', 'Element.FoodDrink', 'Element.FunctionalElement', 'Element.MinifigureHandheldAccessory', 'Element.MinifigureToolAccessory', 'Element.MiscellaneousElement', 'Element.Plate', 'Element.PlateModified', 'Element.PlateRoundAngle', 'Element.SignFlagPole', 'Element.TreePlant', 'Element.VehiclePart', 'Element.WindowWallDoor',
   'Product.Instruction',
 ] as const satisfies TranslationKey<TypeWithSubtype>[];
 
