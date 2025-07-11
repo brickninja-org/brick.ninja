@@ -129,9 +129,16 @@ export const ItemPageComponent: FC<ItemPageComponentProps> = async ({ language, 
         </>
       )}
 
+      {item._count.instructionItems > 0 && (
+        <ItemTableContext id="instructionItems">
+          <Headline id="instructions" actions={<ItemTableColumnsButton/>}>Instructions</Headline>
+          <ItemTable query={{ where: { instructionIn: { some: { id: item.id }}}}} defaultColumns={['item', 'type']}/>
+        </ItemTableContext>
+      )}
+
       {item._count.instructionIn > 0 && (
         <ItemTableContext id="instructionIn">
-          <Headline id="instruction" actions={<ItemTableColumnsButton/>}>Instruction in</Headline>
+          <Headline id="instruction-in" actions={<ItemTableColumnsButton/>}>Instruction in</Headline>
           <ItemTable query={{ where: { instructionItems: { some: { id: item.id }}}}} defaultColumns={['item', 'type']}/>
         </ItemTableContext>
       )}
