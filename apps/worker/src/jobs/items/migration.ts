@@ -5,9 +5,9 @@ import { Prisma } from '@brickninja-org/database';
 import { LocalizedObject } from '../helper/types';
 import { db } from '../../db';
 import { toId } from '../helper/to-id';
-import { isDefined } from '@brickninja-org/helper/is';
+import { isDefined, isTruthy } from '@brickninja-org/helper/is';
 
-export const CURRENT_VERSION = 1;
+export const CURRENT_VERSION = 2;
 
 /** @see Prisma.ItemUpdateInput */
 interface MigratedItem {
@@ -23,13 +23,16 @@ interface MigratedItem {
   createdAt?: Date | string;
   updatedAt?: Date | string;
 
+  instructionItemIds?: number[];
+  instructionItems?: Prisma.ItemUpdateManyWithoutInstructionInNestedInput;
+
   productIds?: number[];
   products?: Prisma.ProductCreateNestedManyWithoutItemsInput;
 }
 
 export async function createMigrator() {
+  const knownItemIds = (await db.item.findMany({ select: { id: true }})).map(toId);
   const knownProductIds = (await db.product.findMany({ select: { id: true }})).map(toId);
-  // const knownItemIds = (await db.item.findMany({ select: { id: true }})).map(({ id }) => id);
 
   // eslint-disable-next-line require-await
   return async function migrate({ en }: LocalizedObject<Item>, currentVersion = -1) {
@@ -51,13 +54,15 @@ export async function createMigrator() {
       update.products = { connect: products.filter((id) => knownProductIds.includes(id)).map((id) => ({ id })) };
     }
 
-    /*
+    // version 2: add instruction items
     if (currentVersion < 2) {
-      update.productCode = en.number;
-      update.pieceCount = en.pieces;
-      update.minifigureCount = en.minifigs;
+      const instructionItemIds = [...(en.details?.instruction_item_ids || [])].map(Number).filter(isTruthy);
+
+      update.instructionItemIds = instructionItemIds;
+      update.instructionItems = { connect: instructionItemIds.filter((id) => knownItemIds.includes(id)).map((id) => ({ id })) };
     }
 
+    /*
     if (currentVersion < 4) {
       // Books / Magazines
       if (en.theme === 'Books') {

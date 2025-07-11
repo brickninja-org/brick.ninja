@@ -17,7 +17,7 @@ export const getItem = cache((id: number, language: Language) => {
       icon: true,
       products: { select: { ...linkProperties, type: true, subtype: true, pieceCount: true, figureCount: true }},
       contains: { include: { contentItem: { select: { ...linkProperties, type: true, subtype: true }}}},
-      _count: { select: { contains: true, containedIn: true }},
+      _count: { select: { instructionIn: true, contains: true, containedIn: true }},
     }
   });
 }, ['item'], { revalidate: 60 });

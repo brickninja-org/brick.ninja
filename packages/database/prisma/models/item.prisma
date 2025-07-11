@@ -10,6 +10,11 @@ model Item {
   type String @default("")
   subtype String?
 
+  // items
+  instructionItems Item[] @relation(name: "instruction")
+  instructionItemIds Int[]
+  instructionIn Item[] @relation(name: "instruction")
+
   products Product[]
   productIds Int[]
 
