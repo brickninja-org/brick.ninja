@@ -91,6 +91,7 @@ export const ItemPageComponent: FC<ItemPageComponentProps> = async ({ language, 
     <DetailLayout
       title={data.name}
       icon={icon?.id === item.icon?.id ? item.icon : (icon ? { ...icon, color: null } : <EntityIconMissing size={48}/>)}
+      iconType={icon?.signature.includes('product') ? 'product' : undefined}
       className=""
       breadcrumb={(
         <Breadcrumb>
