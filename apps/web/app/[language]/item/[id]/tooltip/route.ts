@@ -1,7 +1,7 @@
 import type { Language } from '@brickninja-org/database';
 // import type { GetSets } from '@brickset-api/types/data/get-sets';
 import type { RouteHandler } from '@/lib/next';
-import type { Item } from 'types/item';
+import type { Item } from '@brickninjaapi/types/data/item';
 
 import { notFound } from 'next/navigation';
 import { NextResponse } from 'next/server';
