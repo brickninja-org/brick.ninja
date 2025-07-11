@@ -37,7 +37,7 @@ export const EntityIcon: FC<EntityIconProps> = ({ icon, size = 64, type, classNa
   const style = useMemo(() => icon.color ? { '--loading-color': icon.color } : undefined, [icon.color]);
 
   return (
-    <span className={cn('[grid-area:icon] w-fit inline-flex items-center justify-center bg-background border border-(--color-border-dark) shrink-0 rounded-xs aspect-square overflow-hidden', className)} data-icon-type={type}>
+    <span className={cn('[grid-area:icon] inline-flex items-center justify-center bg-background border border-(--color-border-dark) shrink-0 rounded-xs aspect-square overflow-hidden', className)} data-icon-type={type}>
       <img
         loading="lazy"
         decoding="async"
@@ -49,7 +49,7 @@ export const EntityIcon: FC<EntityIconProps> = ({ icon, size = 64, type, classNa
         referrerPolicy="no-referrer"
         srcSet={iconSize < 64 ? `${getIconUrl(icon, iconSize * 2 as FixedIconSize, type)} 2x` : undefined}
         style={style}
-        className={cn(loading && 'loading', 'scale-down')}
+        className={cn(loading && 'bg-background-light', 'object-cover')}
         onLoad={handleLoad}/>
     </span>
   );
