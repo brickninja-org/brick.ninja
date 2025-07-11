@@ -8,7 +8,7 @@ import { localizedName, type LocalizedEntity } from '@/lib/localized-name';
 import { parseIcon } from '@/lib/parse-icon';
 import { ClientItemTooltip } from '@/components/item/ItemTooltip.client';
 import { getTranslate, type TranslationId } from '@/lib/translate';
-import type { Item } from 'types/item';
+import type { Item } from '@brickninjaapi/types/data/item';
 // import { isTruthy } from '@brickninja-org/helper/is';
 import { db } from '@/lib/prisma';
 

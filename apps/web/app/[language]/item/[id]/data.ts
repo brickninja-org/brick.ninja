@@ -1,5 +1,5 @@
 import type { Language } from '@brickninja-org/database';
-import type { Item } from 'types/item';
+import type { Item } from '@brickninjaapi/types/data/item';
 
 import { cache } from '@/lib/cache';
 import { linkProperties } from '@/lib/link-properties';
@@ -15,7 +15,7 @@ export const getItem = cache((id: number, language: Language) => {
         orderBy: { revision: { createdAt: 'desc' }},
       },
       icon: true,
-      products: { select: { ...linkProperties, type: true, subtype: true, pieceCount: true }},
+      products: { select: { ...linkProperties, type: true, subtype: true, pieceCount: true, figureCount: true }},
       contains: { include: { contentItem: { select: { ...linkProperties, type: true, subtype: true }}}},
       _count: { select: { contains: true, containedIn: true }},
     }

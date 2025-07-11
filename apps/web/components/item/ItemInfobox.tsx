@@ -1,17 +1,14 @@
 import type { FC } from 'react';
 import type { Item, Language } from '@brickninja-org/database';
-import type { Item as ApiItem } from 'types/item';
+import type { Item as ApiItem } from '@brickninjaapi/types/data/item';
 //import type { GetSets } from '@brickset-api/types/data/get-sets';
 
 import { FlexRow } from '@brickninja-org/ui/components/flex-row/FlexRow';
 import { LinkButton } from '@brickninja-org/ui/components/form/Button';
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 
-// import { translateMany } from '@/lib/translate';
 import { LanguageLinks } from '@/components/info-box/LanguageLinks';
 import { ItemLink } from '@/components/item/ItemLink';
-// import { PriceGuide } from '@/components/item/PriceGuide';
-// import { FormatNumber } from '../format/FormatNumber';
 import { ShareButton } from '../share-button/ShareButton';
 import { localizedName } from '@/lib/localized-name';
 import { getCurrentUrl } from '@/lib/url';
@@ -27,19 +24,9 @@ interface ItemInfoboxProps {
 export const ItemInfobox: FC<ItemInfoboxProps> = async ({ item, data, language }) => {
   const currentUrl = await getCurrentUrl();
 
-  /*
-  const priceGuideTranslations = translateMany([
-    'priceGuide.official_price',
-    'priceGuide.per_piece',
-  ], language);
-  */
-
   return (
     <div>
       <LanguageLinks language={language} link={<ItemLink icon="none" item={item}/>}/>
-
-      {/* <Headline id="price-guide" noToc>Price Guide</Headline> */}
-      {/* <PriceGuide data={data} translations={priceGuideTranslations}/> */}
 
       <Headline id="links" noToc>Links</Headline>
       <FlexRow wrap>
