@@ -30,7 +30,10 @@ export const ColorsJob: Job = {
         // if this is a new color lets check if there are items waiting for it
         
         return {
+          name_de: color.de.name,
           name_en: color.en.name,
+          name_es: color.es.name,
+          name_fr: color.fr.name,
           name_nl: color.nl.name,
 
           plastic_code: rgbToHex(color.en.plastic.rgb),

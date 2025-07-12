@@ -30,7 +30,10 @@ export const ItemsRediscovered: Job = {
 
       const update: Prisma.ItemUpdateArgs['data'] = {
         removedFromApi: false,
+        name_de: data.de.name,
         name_en: data.en.name,
+        name_es: data.es.name,
+        name_fr: data.fr.name,
         name_nl: data.nl.name,
         iconId,
         ...migratedData,

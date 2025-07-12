@@ -101,7 +101,7 @@ type GetEntitiesArgs<Id> = {
 
 type GetLocalizedEntitiesArgs<Id> = {
   where: { id: { in: Id[] }},
-  include: { current_en: true, current_nl: true },
+  include: { current_de: true, current_en: true, current_es: true, current_fr: true, current_nl: true },
 };
 
 type DbEntityBase<Id extends string | number> = {
@@ -113,7 +113,10 @@ type DbEntityBase<Id extends string | number> = {
 
 type DbLocalizedEntityBase<Id extends string | number> = {
   id: Id,
+  current_de: Revision,
   current_en: Revision,
+  current_es: Revision,
+  current_fr: Revision,
   current_nl: Revision,
   removedFromApi: boolean,
   version: number,
@@ -154,11 +157,17 @@ export type InputData<Id, HistoryId> = {
 
 export type InputDataLocalized<Id, HistoryId> = {
   id: Id,
+  currentId_de: string,
   currentId_en: string,
+  currentId_es: string,
+  currentId_fr: string,
   currentId_nl: string,
 
   history: {
     connectOrCreate: [
+      { where: HistoryId, create: { revisionId: string }},
+      { where: HistoryId, create: { revisionId: string }},
+      { where: HistoryId, create: { revisionId: string }},
       { where: HistoryId, create: { revisionId: string }},
       { where: HistoryId, create: { revisionId: string }},
     ]
@@ -195,7 +204,7 @@ export async function processLocalizedEntities<Id extends string | number, DbEnt
   // load the current ids from the db
   const dbEntities = await createEntityMap(getEntitiesFromDb({
     where: { id: { in: data.ids }},
-    include: { current_en: true, current_nl: true }
+    include: { current_de: true, current_en: true, current_es: true, current_fr: true, current_nl: true },
   }));
 
   // fetch latest from api
@@ -213,18 +222,24 @@ export async function processLocalizedEntities<Id extends string | number, DbEnt
 
       // parse known data
       const dbData: undefined | LocalizedObject<ApiEntity> = dbEntity ? {
+        de: JSON.parse(dbEntity.current_de.data),
         en: JSON.parse(dbEntity.current_en.data),
+        es: JSON.parse(dbEntity.current_es.data),
+        fr: JSON.parse(dbEntity.current_fr.data),
         nl: JSON.parse(dbEntity.current_nl.data),
       } : undefined;
 
       // create revisions
-      const [revision_en, revision_nl] = await Promise.all([
+      const [revision_de, revision_en, revision_es, revision_fr, revision_nl] = await Promise.all([
+        (await createRevision(tx, dbData?.de, apiData?.de, dbEntity?.removedFromApi, { buildId, entity: entityName, language: 'de', previousRevisionId: dbEntity?.current_de.id ?? null })) ?? dbEntity!.current_de,
         (await createRevision(tx, dbData?.en, apiData?.en, dbEntity?.removedFromApi, { buildId, entity: entityName, language: 'en', previousRevisionId: dbEntity?.current_en.id ?? null })) ?? dbEntity!.current_en,
+        (await createRevision(tx, dbData?.de, apiData?.es, dbEntity?.removedFromApi, { buildId, entity: entityName, language: 'es', previousRevisionId: dbEntity?.current_es.id ?? null })) ?? dbEntity!.current_es,
+        (await createRevision(tx, dbData?.de, apiData?.fr, dbEntity?.removedFromApi, { buildId, entity: entityName, language: 'fr', previousRevisionId: dbEntity?.current_fr.id ?? null })) ?? dbEntity!.current_fr,
         (await createRevision(tx, dbData?.nl, apiData?.nl, dbEntity?.removedFromApi, { buildId, entity: entityName, language: 'nl', previousRevisionId: dbEntity?.current_nl.id ?? null })) ?? dbEntity!.current_nl,
       ]);
 
       // check if nothing changed
-      const revisionsChanged = !dbEntity || revision_en !== dbEntity.current_en || revision_nl !== dbEntity.current_nl;
+      const revisionsChanged = !dbEntity || revision_de !== dbEntity.current_de || revision_en !== dbEntity.current_en || revision_es !== dbEntity.current_es || revision_fr !== dbEntity.current_fr || revision_nl !== dbEntity.current_nl;
 
       // check if the db has an old migration version
       const migrationVersionChanged = dbEntity?.version != currentVersion;
@@ -250,12 +265,18 @@ export async function processLocalizedEntities<Id extends string | number, DbEnt
 
         ...await migrate(apiData ?? dbData!, migrationVersion, changes),
 
+        currentId_de: revision_de.id,
         currentId_en: revision_en.id,
+        currentId_es: revision_es.id,
+        currentId_fr: revision_fr.id,
         currentId_nl: revision_nl.id,
 
         history: {
           connectOrCreate: [
+            { where: createHistoryId(id, revision_de.id), create: { revisionId: revision_de.id }},
             { where: createHistoryId(id, revision_en.id), create: { revisionId: revision_en.id }},
+            { where: createHistoryId(id, revision_es.id), create: { revisionId: revision_es.id }},
+            { where: createHistoryId(id, revision_fr.id), create: { revisionId: revision_fr.id }},
             { where: createHistoryId(id, revision_nl.id), create: { revisionId: revision_nl.id }},
           ]
         },

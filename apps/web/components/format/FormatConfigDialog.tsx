@@ -18,7 +18,7 @@ export interface FormatConfigDialogProps {
   onClose: () => void;
 }
 
-const defaultLocales = { languages: ['en', 'nl'], regions: ['BE', 'CA', 'DE', 'GB', 'NL', 'US'] };
+const defaultLocales = { languages: ['de', 'en', 'es', 'fr', 'nl'], regions: ['BE', 'CA', 'DE', 'GB', 'NL', 'US'] };
 const localeRegex = /^([a-z]{2,4})([_-][a-z]{4})?[_-]([a-z]{2,3})?/i;
 
 const { languages: availableLanguages, regions: availableRegions } = typeof window === 'undefined'

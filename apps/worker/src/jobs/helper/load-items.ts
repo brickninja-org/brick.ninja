@@ -9,8 +9,11 @@ import { SchemaVersion } from './schema';
 export async function loadItems(ids: number[]) {
   const start = new Date();
 
-  const [en, nl] = await Promise.all([
+  const [de, en, nl] = await Promise.all([
+    fetchApi(`/v1/items?ids=${ids.join(',')}`, { language: 'de' }).then(normalizeItems),
     fetchApi(`/v1/items?ids=${ids.join(',')}`, { language: 'en' }).then(normalizeItems),
+    fetchApi(`/v1/items?ids=${ids.join(',')}`, { language: 'es' }).then(normalizeItems),
+    fetchApi(`/v1/items?ids=${ids.join(',')}`, { language: 'fr' }).then(normalizeItems),
     fetchApi(`/v1/items?ids=${ids.join(',')}`, { language: 'nl' }).then(normalizeItems),
 
     // data.items.filter((item) => ids.includes(item.id)).map(normalizeItem),
@@ -28,7 +31,7 @@ export async function loadItems(ids: number[]) {
 
   console.log(`Fetched ${ids.length} items in ${(new Date().valueOf() - start.valueOf()) / 1000}s`);
 
-  return groupLocalizedEntitiesById(en, nl);
+  return groupLocalizedEntitiesById(de, en, es, fr, nl);
 }
 
 function normalizeItem(item: Item<SchemaVersion>): Item<SchemaVersion> {

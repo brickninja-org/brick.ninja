@@ -1,7 +1,7 @@
 import { db } from '../../db';
 import { loadItems } from '../helper/load-items';
 import { localeExists } from '../helper/locale-exists';
-import { queuedJobsForIds } from '../helper/queued-job-for-ids';
+import { queueJobForIds } from '../helper/queue-job-for-ids';
 import { Job } from '../job';
 import { createMigrator } from './migration';
 import { toId } from '../helper/to-id';
@@ -35,14 +35,14 @@ export const ItemsUpdate: Job = {
         select: { id: true },
       })).map(toId);
 
-      await queuedJobsForIds('items.update', idsToUpdate, { priority: 1 });
+      await queueJobForIds('items.update', idsToUpdate, { priority: 1 });
       return `Queued update for ${idsToUpdate.length} items (Build ${build.id})`;
     }
 
     const itemsToUpdate = await db.item.findMany({
       where: { id: { in: ids }},
       orderBy: { lastCheckedAt: 'asc' },
-      include: { current_en: true, current_nl: true },
+      include: { current_de: true, current_en: true, current_es: true, current_fr: true, current_nl: true },
       take: 200,
     });
 
@@ -62,8 +62,11 @@ export const ItemsUpdate: Job = {
 
     let updatedItems = 0;
 
-    for(const { existing, en, nl } of items) {
+    for(const { existing, de, en, es, fr, nl } of items) {
+      const changed_de = existing.current_de.data !== JSON.stringify(de);
       const changed_en = existing.current_en.data !== JSON.stringify(en);
+      const changed_es = existing.current_es.data !== JSON.stringify(es);
+      const changed_fr = existing.current_fr.data !== JSON.stringify(fr);
       const changed_nl = existing.current_nl.data !== JSON.stringify(nl);
 
       if (!changed_en && !changed_nl) {
@@ -72,25 +75,34 @@ export const ItemsUpdate: Job = {
         continue;
       }
 
+      const revision_de = changed_de ? await db.revision.create({ data: { data: JSON.stringify(de), language: 'de', buildId, type: 'Updated', entity: 'Item', description: 'Updated in API', previousRevisionId: existing.currentId_de }}) : existing.current_de;
       const revision_en = changed_en ? await db.revision.create({ data: { data: JSON.stringify(en), language: 'en', buildId, type: 'Updated', entity: 'Item', description: 'Updated in API', previousRevisionId: existing.currentId_en }}) : existing.current_en;
+      const revision_es = changed_es ? await db.revision.create({ data: { data: JSON.stringify(es), language: 'es', buildId, type: 'Updated', entity: 'Item', description: 'Updated in API', previousRevisionId: existing.currentId_es }}) : existing.current_es;
+      const revision_fr = changed_fr ? await db.revision.create({ data: { data: JSON.stringify(fr), language: 'fr', buildId, type: 'Updated', entity: 'Item', description: 'Updated in API', previousRevisionId: existing.currentId_fr }}) : existing.current_fr;
       const revision_nl = changed_nl ? await db.revision.create({ data: { data: JSON.stringify(nl), language: 'nl', buildId, type: 'Updated', entity: 'Item', description: 'Updated in API', previousRevisionId: existing.currentId_nl }}) : existing.current_nl;
 
       const iconId = await createIcon(en.icon);
-      const data = await migrate({ en, nl });
+      const data = await migrate({ de, en, es, fr, nl });
 
       await db.item.update({
         where: { id: existing.id },
         data: {
+          name_de: de.name,
           name_en: en.name,
+          name_es: es.name,
+          name_fr: fr.name,
           name_nl: nl.name,
           iconId,
 
           ...data,
 
+          currentId_de: revision_de.id,
           currentId_en: revision_en.id,
+          currentId_es: revision_es.id,
+          currentId_fr: revision_fr.id,
           currentId_nl: revision_nl.id,
           lastCheckedAt: new Date(),
-          history: { createMany: { data: [{ revisionId: revision_en.id }, { revisionId: revision_nl.id }], skipDuplicates: true }}
+          history: { createMany: { data: [{ revisionId: revision_de.id }, { revisionId: revision_en.id }, { revisionId: revision_es.id }, { revisionId: revision_fr.id }, { revisionId: revision_nl.id }], skipDuplicates: true }}
         }
       });
 

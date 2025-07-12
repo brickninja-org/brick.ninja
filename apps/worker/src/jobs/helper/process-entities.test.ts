@@ -8,7 +8,7 @@ import { processLocalizedEntities } from './process-entities';
 import { db } from '../../db';
 
 function loadFromApi<T extends { id: number }>(entity: T) {
-  return Promise.resolve(new Map<number, LocalizedObject<T>>([[entity.id, { en: entity, nl: entity }]]));
+  return Promise.resolve(new Map<number, LocalizedObject<T>>([[entity.id, { de: entity, en: entity, es: entity, fr: entity, nl: entity }]]));
 }
 
 jest.mock('./revision-create', () => ({
@@ -27,7 +27,10 @@ afterAll(() => { db.$transaction = originalTransaction; });
 
 type TestDbEntity = {
   id: number,
+  current_de: Revision,
   current_en: Revision,
+  current_es: Revision,
+  current_fr: Revision,
   current_nl: Revision,
   removedFromApi: boolean,
   version: number,
@@ -37,7 +40,10 @@ const revisionBase: Revision = { buildId: 1, /* schema: 'test', */ createdAt: ne
 
 const TestDbEntityBase: TestDbEntity = {
   id: 1,
+  current_de: revisionBase,
   current_en: revisionBase,
+  current_es: revisionBase,
+  current_fr: revisionBase,
   current_nl: revisionBase,
   removedFromApi: false,
   version: 1,

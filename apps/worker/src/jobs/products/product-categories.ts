@@ -29,7 +29,10 @@ export const ProductCategoriesJob: Job = {
       (categoryId, revisionId) => ({ categoryId_revisionId: { revisionId, categoryId }}),
       async (category, _, change) => {
         return {
+          name_de: category.de.name,
           name_en: category.en.name,
+          name_es: category.es.name,
+          name_fr: category.fr.name,
           name_nl: category.nl.name,
 
           products: change === Changes.New

@@ -1,6 +1,6 @@
 import { db, dbDebug } from '../../db';
 import { fetchApi } from '../helper/fetch-api';
-import { queuedJobsForIds } from '../helper/queued-job-for-ids';
+import { queueJobForIds } from '../helper/queue-job-for-ids';
 import { Job } from '../job';
 
 export const ItemsCheck: Job = {
@@ -26,9 +26,9 @@ export const ItemsCheck: Job = {
     const removedIds = knownIds.filter((id) => !ids.includes(id) && !knownRemovedIds.includes(id));
     const rediscoveredIds = knownRemovedIds.filter((id) => ids.includes(id));
 
-    await queuedJobsForIds('items.new', newIds);
-    await queuedJobsForIds('items.removed', removedIds);
-    await queuedJobsForIds('items.rediscovered', rediscoveredIds);
+    await queueJobForIds('items.new', newIds);
+    await queueJobForIds('items.removed', removedIds);
+    await queueJobForIds('items.rediscovered', rediscoveredIds);
 
     dbDebug.log = false;
 

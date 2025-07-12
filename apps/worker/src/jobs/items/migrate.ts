@@ -2,7 +2,7 @@ import { Item } from '@brickninjaapi/types/data/item';
 
 // import { GetSets } from '@brickset-api/types/data/get-sets';
 import { db } from '../../db';
-import { queuedJobsForIds } from '../helper/queued-job-for-ids';
+import { queueJobForIds } from '../helper/queue-job-for-ids';
 import { Job } from '../job';
 import { createMigrator, CURRENT_VERSION } from './migration';
 import { toId } from '../helper/to-id';
@@ -25,13 +25,13 @@ export const ItemsMigrate: Job = {
         select: { id: true },
       })).map(toId);
 
-      queuedJobsForIds('items.migrate', idsToUpdate, { priority: 1, batchSize: 1000 });
+      queueJobForIds('items.migrate', idsToUpdate, { priority: 1, batchSize: 1000 });
       return `Queued migration for ${idsToUpdate.length} items`;
     }
 
     const itemsToMigrate = await db.item.findMany({
       where: { id: { in: ids }},
-      include: { current_en: true, current_nl: true },
+      include: { current_de: true, current_en: true, current_es: true, current_fr: true, current_nl: true },
     });
 
     if (itemsToMigrate.length === 0) {
@@ -41,10 +41,13 @@ export const ItemsMigrate: Job = {
     const migrate = await createMigrator();
 
     for (const item of itemsToMigrate) {
+      const de: Item<SchemaVersion> = JSON.parse(item.current_de.data);
       const en: Item<SchemaVersion> = JSON.parse(item.current_en.data);
+      const es: Item<SchemaVersion> = JSON.parse(item.current_es.data);
+      const fr: Item<SchemaVersion> = JSON.parse(item.current_fr.data);
       const nl: Item<SchemaVersion> = JSON.parse(item.current_nl.data);
 
-      const data = await migrate({ en, nl }, item.version);
+      const data = await migrate({ de, en, es, fr, nl }, item.version);
 
       await db.item.update({ where: { id: item.id }, data });
     }

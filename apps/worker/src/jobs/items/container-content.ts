@@ -2,7 +2,7 @@ import { Prisma } from '@brickninja-org/database';
 import { isTruthy } from '@brickninja-org/helper/is';
 
 import { db } from '../../db';
-import { queuedJobsForIds } from '../helper/queued-job-for-ids';
+import { queueJobForIds } from '../helper/queue-job-for-ids';
 import { toId } from '../helper/to-id';
 import { Job } from '../job';
 
@@ -19,7 +19,7 @@ export const ItemContainerContent: Job = {
         select: { id: true },
       });
 
-      await queuedJobsForIds('items.container-content', containerIds.map(toId));
+      await queueJobForIds('items.container-content', containerIds.map(toId));
 
       return `Queued jobs for ${containerIds.length} containers`;
     }

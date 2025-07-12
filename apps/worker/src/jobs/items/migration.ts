@@ -13,7 +13,10 @@ export const CURRENT_VERSION = 2;
 interface MigratedItem {
   version: number;
 
+  name_de?: string;
   name_en?: string;
+  name_es?: string;
+  name_fr?: string;
   name_nl?: string;
   type?: string;
   subtype?: string;
