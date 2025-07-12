@@ -19,22 +19,34 @@ model Revision {
   nextRevision Revision? @relation("previous")
 
   // items
+  currentItem_de Item? @relation("current_de")
   currentItem_en Item? @relation("current_en")
+  currentItem_es Item? @relation("current_es")
+  currentItem_fr Item? @relation("current_fr")
   currentItem_nl Item? @relation("current_nl")
   itemHistory ItemHistory?
 
   // products
+  currentProduct_de Product? @relation("current_de")
   currentProduct_en Product? @relation("current_en")
+  currentProduct_es Product? @relation("current_es")
+  currentProduct_fr Product? @relation("current_fr")
   currentProduct_nl Product? @relation("current_nl")
   productHistory ProductHistory[]
 
   // categories
+  currentCategory_de Category? @relation("current_de")
   currentCategory_en Category? @relation("current_en")
+  currentCategory_es Category? @relation("current_es")
+  currentCategory_fr Category? @relation("current_fr")
   currentCategory_nl Category? @relation("current_nl")
   categoryHistory CategoryHistory?
 
   // colors
+  currentColor_de Color? @relation("current_de")
   currentColor_en Color? @relation("current_en")
+  currentColor_es Color? @relation("current_es")
+  currentColor_fr Color? @relation("current_fr")
   currentColor_nl Color? @relation("current_nl")
   colorHistory ColorHistory[]
 
