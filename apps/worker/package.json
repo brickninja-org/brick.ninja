@@ -15,7 +15,7 @@
   "dependencies": {
     "@brickninja-org/database": "workspace:*",
     "@brickninja-org/helper": "workspace:*",
-    "@brickninjaapi/fetch": "0.0.10",
+    "@brickninjaapi/fetch": "0.0.12",
     "@brickninjaapi/types": "0.0.16",
     "@brickset-api/fetch": "0.0.18",
     "@brickset-api/types": "0.0.16",
