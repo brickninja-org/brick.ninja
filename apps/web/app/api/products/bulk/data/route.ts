@@ -12,7 +12,10 @@ const getData = cache(async (ids: number[], language: Language): Promise<PublicA
   const products = await db.product.findMany({
     where: { id: { in: ids }},
     select: {
+      current_de: language === 'de' ? { select: { data: true }} : false,
       current_en: language === 'en' ? { select: { data: true }} : false,
+      current_es: language === 'es' ? { select: { data: true }} : false,
+      current_fr: language === 'fr' ? { select: { data: true }} : false,
       current_nl: language === 'nl' ? { select: { data: true }} : false,
     },
   });

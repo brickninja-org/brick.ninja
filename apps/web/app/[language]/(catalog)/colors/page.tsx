@@ -18,7 +18,10 @@ const getColors = unstable_cache((language: Language) => {
   return db.color.findMany({
     select: {
       id: true,
+      name_de: language === 'de',
       name_en: language === 'en',
+      name_es: language === 'es',
+      name_fr: language === 'fr',
       name_nl: language === 'nl',
       color_family: true,
       plastic_code: true,
@@ -44,7 +47,7 @@ export default async function ColorsPage({ params }: PageProps) {
           {({ id }) => id}
         </Colors.Column>
         <Colors.Column id="name" title={<Translate id="itemTable.column.name"/>} sort={compareLocalizedName(language)}>
-          {(name) => localizedName(name, language)}
+          {(entity) => localizedName(entity, language)}
         </Colors.Column>
         <Colors.Column id="family" title={<Translate id="colors.family"/>} sortBy="color_family">
           {({ color_family }) => color_family}

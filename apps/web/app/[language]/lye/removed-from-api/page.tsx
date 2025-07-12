@@ -41,7 +41,10 @@ export default async function LyeRemovedFromApiPage() {
       orderBy: { createdAt: 'desc' },
       select: {
         id: true,
+        name_de: true,
         name_en: true,
+        name_es: true,
+        name_fr: true,
         name_nl: true,
         createdAt: true,
         current_en: { select: { createdAt: true }},

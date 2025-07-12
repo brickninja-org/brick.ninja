@@ -1,4 +1,7 @@
+import de from '../../../dictionary/de.json';
 import en from '../../../dictionary/en.json';
+import es from '../../../dictionary/es.json';
+import fr from '../../../dictionary/fr.json';
 import nl from '../../../dictionary/nl.json';
 
 import Link from 'next/link';
@@ -10,7 +13,7 @@ import { createMetadata } from '@/lib/metadata';
 import { PageLayout } from '@/components/layout/PageLayout';
 import { TranslationEditor } from './TranslationEditor';
 
-const dictionaries = { en, nl };
+const dictionaries = { de, en, es, fr, nl };
 
 export default function TranslatePage() {
   return (

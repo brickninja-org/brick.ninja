@@ -37,7 +37,10 @@ function toNumber(value: string): number | undefined {
 type LocalizedNameInput = {
   AND?: LocalizedNameInput[];
   OR?: LocalizedNameInput[];
+  name_de?: Prisma.StringFilter | string;
   name_en?: Prisma.StringFilter | string;
+  name_es?: Prisma.StringFilter | string;
+  name_fr?: Prisma.StringFilter | string;
   name_nl?: Prisma.StringFilter | string;
 };
 
@@ -69,7 +72,10 @@ export const searchItems = cache(async (terms: string[], filter?: ItemFilters) =
     filter,
     {
       OR: [
+        { name_de: { equals: joinedTerms, mode: 'insensitive' as const }},
         { name_en: { equals: joinedTerms, mode: 'insensitive' as const }},
+        { name_es: { equals: joinedTerms, mode: 'insensitive' as const }},
+        { name_fr: { equals: joinedTerms, mode: 'insensitive' as const }},
         { name_nl: { equals: joinedTerms, mode: 'insensitive' as const }},
         { id: { in: numberTerms }},
       ],

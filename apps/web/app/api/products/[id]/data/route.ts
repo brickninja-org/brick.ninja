@@ -13,7 +13,10 @@ const getData = cache(async (id: number, language: Language): Promise<PublicApiR
     where: { id },
     select: {
       createdAt: true,
+      current_de: language === 'de' ? { select: { data: true }} : false,
       current_en: language === 'en' ? { select: { data: true }} : false,
+      current_es: language === 'es' ? { select: { data: true }} : false,
+      current_fr: language === 'fr' ? { select: { data: true }} : false,
       current_nl: language === 'nl' ? { select: { data: true }} : false,
     },
   });

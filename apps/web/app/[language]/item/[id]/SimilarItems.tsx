@@ -12,7 +12,10 @@ export async function SimilarItems({ item }: { item: Item }) {
     where: {
       id: { not: item.id },
       OR: [
+        { name_de: item.name_de },
         { name_en: item.name_en },
+        { name_es: item.name_es },
+        { name_fr: item.name_fr },
         { name_nl: item.name_nl },
         // { iconId: item.iconId },
         {

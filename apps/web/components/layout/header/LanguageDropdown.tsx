@@ -17,7 +17,10 @@ import { useLanguage } from '@/components/i18n/context';
 import { FormatConfigDialog } from '@/components/format/FormatConfigDialog';
 
 const languages = {
+  de: 'Deutsch',
   en: 'English',
+  es: 'Español',
+  fr: 'Français',
   nl: 'Nederlands',
 };
 
@@ -47,7 +50,10 @@ export const LanguageDropdown: FC = () => {
         )}
       >
         <MenuList>
+          <Radiobutton checked={language === 'de'} onChange={() => changeLanguage('de')}>{languages.de}</Radiobutton>
           <Radiobutton checked={language === 'en'} onChange={() => changeLanguage('en')}>{languages.en}</Radiobutton>
+          <Radiobutton checked={language === 'es'} onChange={() => changeLanguage('es')}>{languages.es}</Radiobutton>
+          <Radiobutton checked={language === 'fr'} onChange={() => changeLanguage('fr')}>{languages.fr}</Radiobutton>
           <Radiobutton checked={language === 'nl'} onChange={() => changeLanguage('nl')}>{languages.nl}</Radiobutton>
           <Separator/>
           <Button radius="sm" variant="light" onPress={() => setFormatDialogOpen(true)}>Formatting Settings</Button>
