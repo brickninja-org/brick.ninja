@@ -9,7 +9,7 @@ import { SchemaVersion } from './schema';
 export async function loadItems(ids: number[]) {
   const start = new Date();
 
-  const [de, en, nl] = await Promise.all([
+  const [de, en, es, fr, nl] = await Promise.all([
     fetchApi(`/v1/items?ids=${ids.join(',')}`, { language: 'de' }).then(normalizeItems),
     fetchApi(`/v1/items?ids=${ids.join(',')}`, { language: 'en' }).then(normalizeItems),
     fetchApi(`/v1/items?ids=${ids.join(',')}`, { language: 'es' }).then(normalizeItems),
