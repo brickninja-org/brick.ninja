@@ -79,6 +79,10 @@ export const FormatProvider: FC<FormatProviderProps> = ({ children }) => {
   const locale = Intl.DateTimeFormat.supportedLocalesOf([customLocale, defaultLocale])[0];
   const currency = getCurrencyByRegion(region);
 
+  useEffect(() => {
+    document.documentElement.lang = locale;
+  }, [locale]);
+
   // creeate context
   const context: FormatContextProps = useMemo(() => ({
     language, region, locale, setLocale: (language, region) => { setLanguage(language); setRegion(region); }, defaultLocale, defaultRegion, currency,
