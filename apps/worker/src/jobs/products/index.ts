@@ -6,7 +6,7 @@ import { isEmptyObject } from '@brickninja-org/helper/is';
 import { db } from '../../db';
 import { createIcon } from '../helper/create-icon';
 import { fetchApi } from '../helper/fetch-api';
-import { getNamesWithFallback } from '../helper/helper';
+// import { getNamesWithFallback } from '../helper/helper';
 import { loadLocalizedEntities } from '../helper/load-entities';
 import { Changes, createSubJobs, processLocalizedEntities } from '../helper/process-entities';
 import { toId } from '../helper/to-id';
@@ -32,7 +32,7 @@ export const ProductsJob: Job = {
       (ids) => loadLocalizedEntities('/v1/products', ids),
       (productId, revisionId) => ({ productId_revisionId: { revisionId, productId }}),
       async (product, version, changes) => {
-        const names = getNamesWithFallback(product, product.en.name);
+        // const names = getNamesWithFallback(product, product.en.name);
         const iconId = await createIcon(product.en.icon);
 
         // for new products we check if there are known items include this product
@@ -41,7 +41,13 @@ export const ProductsJob: Job = {
           : undefined;
 
         return {
-          ...names,
+          // ...names,
+          name_de: product.de.name,
+          name_en: product.en.name,
+          name_es: product.es.name,
+          name_fr: product.fr.name,
+          name_nl: product.nl.name,
+
           iconId,
 
           type: product.en.type,
