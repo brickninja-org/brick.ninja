@@ -4,7 +4,7 @@ export function groupLocalizedEntitiesById<T extends { id: string | number }>(en
   const map = new Map<T['id'], LocalizedObject<T>>();
 
   for(const en of entitiesEn) {
-    const de = entitiesEn.find(({ id }) => id === en.id);
+    const de = entitiesDe.find(({ id }) => id === en.id);
     const es = entitiesEs.find(({ id }) => id === en.id);
     const fr = entitiesFr.find(({ id }) => id === en.id);
     const nl = entitiesNl.find(({ id }) => id === en.id);
