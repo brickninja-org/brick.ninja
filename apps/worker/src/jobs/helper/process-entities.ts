@@ -233,8 +233,8 @@ export async function processLocalizedEntities<Id extends string | number, DbEnt
       const [revision_de, revision_en, revision_es, revision_fr, revision_nl] = await Promise.all([
         (await createRevision(tx, dbData?.de, apiData?.de, dbEntity?.removedFromApi, { buildId, entity: entityName, language: 'de', previousRevisionId: dbEntity?.current_de.id ?? null })) ?? dbEntity!.current_de,
         (await createRevision(tx, dbData?.en, apiData?.en, dbEntity?.removedFromApi, { buildId, entity: entityName, language: 'en', previousRevisionId: dbEntity?.current_en.id ?? null })) ?? dbEntity!.current_en,
-        (await createRevision(tx, dbData?.de, apiData?.es, dbEntity?.removedFromApi, { buildId, entity: entityName, language: 'es', previousRevisionId: dbEntity?.current_es.id ?? null })) ?? dbEntity!.current_es,
-        (await createRevision(tx, dbData?.de, apiData?.fr, dbEntity?.removedFromApi, { buildId, entity: entityName, language: 'fr', previousRevisionId: dbEntity?.current_fr.id ?? null })) ?? dbEntity!.current_fr,
+        (await createRevision(tx, dbData?.es, apiData?.es, dbEntity?.removedFromApi, { buildId, entity: entityName, language: 'es', previousRevisionId: dbEntity?.current_es.id ?? null })) ?? dbEntity!.current_es,
+        (await createRevision(tx, dbData?.fr, apiData?.fr, dbEntity?.removedFromApi, { buildId, entity: entityName, language: 'fr', previousRevisionId: dbEntity?.current_fr.id ?? null })) ?? dbEntity!.current_fr,
         (await createRevision(tx, dbData?.nl, apiData?.nl, dbEntity?.removedFromApi, { buildId, entity: entityName, language: 'nl', previousRevisionId: dbEntity?.current_nl.id ?? null })) ?? dbEntity!.current_nl,
       ]);
 
@@ -278,7 +278,7 @@ export async function processLocalizedEntities<Id extends string | number, DbEnt
             { where: createHistoryId(id, revision_es.id), create: { revisionId: revision_es.id }},
             { where: createHistoryId(id, revision_fr.id), create: { revisionId: revision_fr.id }},
             { where: createHistoryId(id, revision_nl.id), create: { revisionId: revision_nl.id }},
-          ]
+          ],
         },
 
         lastCheckedAt: new Date(),
