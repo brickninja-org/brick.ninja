@@ -94,6 +94,8 @@ export const FormatProvider: FC<FormatProviderProps> = ({ children }) => {
 function getCurrencyByRegion(region: string) {
   switch (region) {
     case 'NL':
+    case 'FR':
+    case 'ES':
     case 'DE':
     case 'BE':
       return 'EUR';
