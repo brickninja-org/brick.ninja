@@ -8,7 +8,6 @@ import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 
 import { localizedName } from '@/lib/localized-name';
 import { getCurrentUrl } from '@/lib/url';
-import { DataList } from '@/components/info-box/DataList';
 import { LanguageLinks } from '@/components/info-box/LanguageLinks';
 import { ShareButton } from '@/components/share-button/ShareButton';
 
@@ -30,11 +29,6 @@ export const ProductInfobox: FC<ProductInfoboxProps> = async ({ product, data, l
   return (
     <div>
       <LanguageLinks link={<ProductLink product={product} icon="none"/>} language={language}/>
-
-      <Headline id="info" noToc>Info</Headline>
-      <DataList data={[
-        data.type && { key: 'type', label: 'Type', value: data.type },
-      ]}/>
 
       <Headline id="price-guide" noToc>Price Guide</Headline>
       <PriceGuide data={data} translations={priceGuideTranslations}/>
