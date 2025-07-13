@@ -55,6 +55,8 @@ export const ProductPageComponent: FC<ProductPageComponentProps> = async ({ lang
     localizedName(product.categories[0], language),
   ].filter(Boolean).join(' › ');
 
+  const hasItems = product._count.items > 0;
+
   const icon = parseIcon(data.icon);
 
   const styles = table();
@@ -77,10 +79,12 @@ export const ProductPageComponent: FC<ProductPageComponentProps> = async ({ lang
       <TableOfContentAnchor id="tooltip">Tooltip</TableOfContentAnchor>
       <ProductTooltip product={data} language={language} hideTitle/>
 
-      <ItemTableContext id="productItems">
-        <Headline id="items" actions={<ItemTableColumnsButton/>}>Items</Headline>
-        <ItemTable query={{ where: { products: { some: { id: productId }}}}} collapsed defaultColumns={['item', 'type']}/>
-      </ItemTableContext>
+      {hasItems && (
+        <ItemTableContext id="productItems">
+          <Headline id="items" actions={<ItemTableColumnsButton/>}>Items</Headline>
+          <ItemTable query={{ where: { products: { some: { id: productId }}}}} collapsed defaultColumns={['item', 'type']}/>
+        </ItemTableContext>
+      )}
 
       <Headline id="history">History</Headline>
       <Table>

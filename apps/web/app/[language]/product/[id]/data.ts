@@ -17,6 +17,9 @@ export const getProduct = cache(async (id: number, language: Language) => {
       },
       icon: true,
       categories: true,
+      _count: {
+        select: { items: true },
+      },
     },
   });
 
