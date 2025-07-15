@@ -6,7 +6,8 @@ import { queueJobForIds } from '../helper/queue-job-for-ids';
 import { toId } from '../helper/to-id';
 import { Job } from '../job';
 
-import data from '../../data/item-contents.json';
+// import data from '../../data/item-contents.json';
+import { fetchApi } from '../helper/fetch-api';
 
 export const ItemContainerContent: Job = {
   run: async (ids: number[] | undefined) => {
@@ -29,10 +30,11 @@ export const ItemContainerContent: Job = {
     let inserts = 0;
 
     for (const id of ids) {
-      const results = data.contents.filter(({ containerId }) => containerId === id);
+      const results = await fetchApi(`/v1/items/${id}/container-contents`);
+      // const results = data.contents.filter(({ containerId }) => containerId === id);
       const contents = Object.values(results).map<Prisma.ContentCreateManyInput>((entry) => ({
         containerItemId: id,
-        contentItemId: entry.contentItemId,
+        contentItemId: entry.item_id,
         quantity: entry.quantity,
       })).filter((content) => isTruthy(content.contentItemId) && isTruthy(content.quantity) && knownItemIds.includes(content.contentItemId));
 
