@@ -84,7 +84,6 @@ export const globalColumnDefinitions = {
     order: 105,
     select: { barcode: true },
     orderBy: [{ barcode: 'asc' }, { barcode: 'desc' }],
-    translations: ['item.barcode'] as TranslationId[],
   }),
 };
 
