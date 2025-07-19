@@ -56,19 +56,19 @@ export const globalColumnDefinitions = {
   }),
   name_es: createColumn({
     id: 'name_es',
-    order: 55,
+    order: 60,
     select: { name_es: true },
     orderBy: [{ name_es: 'asc' }, { name_es: 'desc' }]
   }),
   name_fr: createColumn({
     id: 'name_fr',
-    order: 58,
+    order: 70,
     select: { name_fr: true },
     orderBy: [{ name_fr: 'asc' }, { name_fr: 'desc' }]
   }),
   name_nl: createColumn({
     id: 'name_nl',
-    order: 60,
+    order: 80,
     select: { name_nl: true },
     orderBy: [{ name_nl: 'asc' }, { name_nl: 'desc' }]
   }),
@@ -78,6 +78,13 @@ export const globalColumnDefinitions = {
     select: { type: true, subtype: true },
     orderBy: [[{ type: 'asc' }, { subtype: 'asc' }], [{ type: 'desc' }, { subtype: 'desc' }]],
     translations: translations.long
+  }),
+  barcode: createColumn({
+    id: 'barcode',
+    order: 105,
+    select: { barcode: true },
+    orderBy: [{ barcode: 'asc' }, { barcode: 'desc' }],
+    translations: ['item.barcode'] as TranslationId[],
   }),
 };
 
@@ -102,6 +109,7 @@ export const globalColumnRenderer: Renderer = {
   // level: (item) => item.level,
   // rarity: (item, t) => <Rarity rarity={item.rarity}>{t[`rarity.${item.rarity}`]}</Rarity>,
   type: (item, t) => <ItemType type={item.type as Type} subtype={item.subtype as SubType<Type>} translations={t as Record<TypeTranslation<Type, SubType<Type>>, string>} display="long"/>,
+  barcode: (item) => item.barcode,
   // vendorValue: (item, t) => item.vendorValue === null ? empty(t['item.flag.NoSell']) : <Coins value={item.vendorValue}/>,
   // buyPrice: (item) => !item.tpTradeable ? empty() : renderPriceWithOptionalWarning(item.tpCheckedAt, item.buyPrice),
   // buyQuantity: (item) => !item.tpTradeable ? empty() : <FormatNumber value={item.buyQuantity ?? 0}/>,

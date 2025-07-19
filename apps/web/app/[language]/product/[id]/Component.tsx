@@ -82,7 +82,7 @@ export const ProductPageComponent: FC<ProductPageComponentProps> = async ({ lang
       {hasItems && (
         <ItemTableContext id="productItems">
           <Headline id="items" actions={<ItemTableColumnsButton/>}>Items</Headline>
-          <ItemTable query={{ where: { products: { some: { id: productId }}}}} collapsed defaultColumns={['item', 'type']}/>
+          <ItemTable query={{ where: { products: { some: { id: productId }}}}} collapsed defaultColumns={['item', 'type', 'barcode']}/>
         </ItemTableContext>
       )}
 

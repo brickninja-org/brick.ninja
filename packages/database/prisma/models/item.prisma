@@ -12,6 +12,7 @@ model Item {
 
   type String @default("")
   subtype String?
+  barcode String?
 
   // items
   instructionItems Item[] @relation(name: "instruction")
