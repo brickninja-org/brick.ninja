@@ -117,7 +117,7 @@ async function DbStats() {
     <div className="flex flex-wrap justify-center gap-[16px_32px] min-h-[82px] -mt-4 mb-8 -mx-4 py-8 px-4 bg-gray-200 max-sm:flex-col max-sm:items-center sm:min-h-[100px] sm:gap-[32px_64px]">
       {/* counts.items.map((i) => <Stat key={i.type} href={`/catalog${i.type !== 'Gear' ? `/${i.type.toLowerCase()}s` : '/item'}`} title={`${i.type}${i.type !== 'Gear' ? 's' : ''}`} value={i._count}/>) */}
       <Stat href="/item" title={<Translate id="navigation.items"/>} value={counts.items}/>
-      <Stat href="/products" title={<Translate id="navigation.products"/>} value={counts.products}/>
+      <Stat href="/sets" title={<Translate id="navigation.products"/>} value={counts.products}/>
     </div>
   );
 }
