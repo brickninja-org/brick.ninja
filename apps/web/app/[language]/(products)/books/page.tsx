@@ -34,7 +34,7 @@ const getProductCategories = cache(
   { revalidate: 60 },
 );
 
-export default async function ProductPage({ params }: PageProps) {
+export default async function BooksPage({ params }: PageProps) {
   const { language } = await params;
   const [books, productCategories] = await Promise.all([
     getBooks(),
@@ -64,7 +64,7 @@ export default async function ProductPage({ params }: PageProps) {
             <ColumnSelect key="columns" table={Products}/>,
           ]}
         >
-          <Translate id="catalog.books.description"/>
+          <Translate id="products.books.description"/>
         </Description>
         <CatalogProductDataTable language={language} table={Products} filtered/>
       </TableFilterProvider>
@@ -84,7 +84,7 @@ export const generateMetadata = createMetadata(async ({ params }) => {
   const t = getTranslate(language);
 
   return {
-    title: t('catalog.books'),
-    description: t('catalog.books.description'),
+    title: t('products.books'),
+    description: t('products.books.description'),
   };
 });

@@ -16,7 +16,7 @@ const Navigation: FC<NavigationProps> = ({ language }) => {
     <HorizontalOverflowContainer>
       <Composite render={<ul className="flex py-1.5 bg-background first:border-l-0"/>}>
         <NavigationItem href="/item"><Translate language={language} id="navigation.items"/></NavigationItem>
-        <NavigationItem href="/sets"><Translate language={language} id="navigation.catalog"/></NavigationItem>
+        <NavigationItem href="/sets"><Translate language={language} id="navigation.products"/></NavigationItem>
       </Composite>
     </HorizontalOverflowContainer>
   );

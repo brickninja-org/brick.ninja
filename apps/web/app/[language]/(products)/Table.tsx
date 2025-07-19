@@ -36,13 +36,13 @@ export const CatalogProductDataTable: FC<CatalogProductTableProps> = ({ language
           <FlexRow>{icon ? <EntityIcon icon={icon} size={32} type="product"/> : <EntityIconMissing size={32}/>} <span>{product[`name_${language}`]}</span></FlexRow>
         )}
       </products.Column>
-      <products.Column id="categories" title={<Translate id="catalog.product.categories"/>}>
+      <products.Column id="categories" title={<Translate id="productTable.column.categories"/>}>
         {({ categories }) => categories.map((category) => localizedName(category, language)).join(', ')}
       </products.Column>
-      <products.Column id="pieces" title={<Translate id="catalog.product.pieces"/>} align="end" small sortBy="pieceCount">
+      <products.Column id="pieces" title={<Translate id="productTable.column.pieces"/>} align="end" small sortBy="pieceCount">
         {({ pieceCount }) => <FormatNumber value={pieceCount ?? 0}/>}
       </products.Column>
-      <products.Column id="figures" title={<Translate id="catalog.product.figures"/>} align="end" small sortBy="figureCount">
+      <products.Column id="figures" title={<Translate id="productTable.column.figures"/>} align="end" small sortBy="figureCount">
         {({ figureCount }) => <FormatNumber value={figureCount ?? 0}/>}
       </products.Column>
       <products.Column id="actions" title="" small fixed>

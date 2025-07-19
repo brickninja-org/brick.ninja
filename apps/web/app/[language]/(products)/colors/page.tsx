@@ -65,7 +65,7 @@ export const generateMetadata = createMetadata(async ({ params }) => {
   const t = getTranslate(language);
 
   return {
-    title: t('catalog.colors'),
-    description: t('catalog.colors.description'),
+    title: t('element.colors'),
+    description: t('element.colors.description'),
   };
 });

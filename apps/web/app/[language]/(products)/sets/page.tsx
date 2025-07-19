@@ -63,7 +63,7 @@ export default async function ProductPage({ params }: PageProps) {
             <ColumnSelect key="columns" table={Products}/>,
           ]}
         >
-          <Translate id="catalog.products.description"/>
+          <Translate id="products.sets.description"/>
         </Description>
         <CatalogProductDataTable language={language} table={Products} filtered/>
       </TableFilterProvider>
@@ -83,7 +83,7 @@ export const generateMetadata = createMetadata(async ({ params }) => {
   const t = getTranslate(language);
 
   return {
-    title: t('catalog.sets'),
-    description: t('catalog.sets.description'),
+    title: t('products.sets'),
+    description: t('products.sets.description'),
   };
 });

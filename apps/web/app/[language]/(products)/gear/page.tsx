@@ -64,7 +64,7 @@ export default async function GearPage({ params }: PageProps) {
             <ColumnSelect key="columns" table={Products}/>,
           ]}
         >
-          <Translate id="catalog.gear.description"/>
+          <Translate id="products.gear.description"/>
         </Description>
         <CatalogProductDataTable language={language} table={Products} filtered/>
       </TableFilterProvider>
@@ -77,7 +77,7 @@ export const generateMetadata = createMetadata(async ({ params }) => {
   const t = getTranslate(language);
 
   return {
-    title: t('catalog.gear'),
-    description: t('catalog.gear.description'),
+    title: t('products.gear'),
+    description: t('products.gear.description'),
   };
 });

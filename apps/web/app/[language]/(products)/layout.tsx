@@ -12,7 +12,7 @@ export default function CatalogLayout({ children }: LayoutProps) {
   return (
     <HeroLayout
       color="blue"
-      hero={<Headline id="catalog"><Translate id="navigation.catalog"/></Headline>}
+      hero={<Headline id="catalog"><Translate id="navigation.products"/></Headline>}
       navbar={(
         <Navbar
           path="/"
@@ -20,7 +20,6 @@ export default function CatalogLayout({ children }: LayoutProps) {
             { segment: 'sets', icon: 'decoration', label: <Translate id="navigation.sets"/> },
             { segment: 'gear', icon: 'settings', label: <Translate id="navigation.gear"/> },
             { segment: 'books', icon: 'notepad-edit', label: <Translate id="navigation.books"/> },
-            { segment: 'colors', icon: 'color', label: <Translate id="navigation.colors"/> },
           ]}/>
       )}
     >
