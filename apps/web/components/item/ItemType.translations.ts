@@ -3,11 +3,12 @@ import type { SubType, Type, TypeWithSubtype } from './ItemType.types';
 type TranslationKey<T extends Type> = T extends TypeWithSubtype ? `${T}.${SubType<T>}` : T;
 export type TypeTranslation<T extends Type, S extends SubType<T>> = T extends TypeWithSubtype ? `${'item.type' | 'item.type.short'}.${T}.${S}` | `item.type.${T}` : `item.type.${T}`;
 
-const typeTranslationKeys = ['Container', 'Element', 'Product', 'Set'] as const satisfies Type[];
+const typeTranslationKeys = ['Container', 'Documentation', 'Element', 'Packaging', 'Product', 'Set'] as const satisfies Type[];
 const subtypeTranslationKeys = [
   'Container.Default',
-  'Element.DUPLO', 'Element.LEGO', 'Element.TECHNIC', 'Element.BrickModified', 'Element.BrickModifiedBowArch', 'Element.BrickRoundAngle', 'Element.CableHose', 'Element.Connector', 'Element.DecorationElement', 'Element.FoodDrink', 'Element.FunctionalElement', 'Element.MinifigureHandheldAccessory', 'Element.MinifigureToolAccessory', 'Element.MiscellaneousElement', 'Element.Plate', 'Element.PlateModified', 'Element.PlateRoundAngle', 'Element.SignFlagPole', 'Element.TreePlant', 'Element.VehiclePart', 'Element.WindowWallDoor',
-  'Product.Instruction',
+  'Documentation.Instruction',
+  'Element.DUPLO', 'Element.LEGO', 'Element.TECHNIC',
+  'Packaging.Bag'
 ] as const satisfies TranslationKey<TypeWithSubtype>[];
 
 export const translations = {

@@ -1,9 +1,11 @@
-export type Type = 'Container' | 'Element' | 'Minifigure' | 'Product' | 'Book' | 'Set';
+export type Type = 'Container' | 'Documentation' | 'Element' | 'Minifigure' | 'Packaging' | 'Product' | 'Book' | 'Set';
 export type SubType<T extends Type> =
   T extends 'Container' ? 'Default' :
-  T extends 'Element' ? 'DUPLO' | 'LEGO' | 'TECHNIC' | 'BrickModified' | 'BrickModifiedBowArch' | 'BrickRoundAngle' | 'CableHose' | 'Connector' | 'DecorationElement' | 'FoodDrink' | 'FunctionalElement' | 'MinifigureHandheldAccessory' | 'MinifigureToolAccessory' | 'MiscellaneousElement' | 'Plate' | 'PlateModified' | 'PlateRoundAngle' | 'SignFlagPole' | 'TreePlant' | 'VehiclePart' | 'WindowWallDoor' :
-  T extends 'Product' ? 'Instruction' :
+  T extends 'Documentation' ? 'Instruction' :
+  T extends 'Element' ? 'DUPLO' | 'LEGO' | 'TECHNIC' :
+  T extends 'Packaging' ? 'Bag' :
+  T extends 'Product' ? 'Set' :
   never;
 
-export type TypeWithSubtype = 'Container' | 'Element' | 'Minifigure' | 'Product';
+export type TypeWithSubtype = 'Container' | 'Documentation' | 'Element' | 'Minifigure' | 'Packaging' | 'Product';
 export type TypeWithoutSubtype = Exclude<Type, TypeWithSubtype>;
