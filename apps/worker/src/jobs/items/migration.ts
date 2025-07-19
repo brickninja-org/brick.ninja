@@ -7,7 +7,7 @@ import { db } from '../../db';
 import { toId } from '../helper/to-id';
 import { isDefined, isTruthy } from '@brickninja-org/helper/is';
 
-export const CURRENT_VERSION = 2;
+export const CURRENT_VERSION = 3;
 
 /** @see Prisma.ItemUpdateInput */
 interface MigratedItem {
@@ -20,6 +20,7 @@ interface MigratedItem {
   name_nl?: string;
   type?: string;
   subtype?: string;
+  barcode?: string;
 
   removedFromApi?: boolean;
   lastCheckedAt?: Date | string;
@@ -63,6 +64,11 @@ export async function createMigrator() {
 
       update.instructionItemIds = instructionItemIds;
       update.instructionItems = { connect: instructionItemIds.filter((id) => knownItemIds.includes(id)).map((id) => ({ id })) };
+    }
+
+    // version 3: add item barcodes
+    if (currentVersion < 3) {
+      update.barcode = en.barcode;
     }
 
     /*
