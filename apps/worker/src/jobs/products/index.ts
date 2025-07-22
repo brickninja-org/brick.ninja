@@ -24,7 +24,7 @@ export const ProductsJob: Job = {
       );
     }
 
-    const knownCategoryIds = (await db.category.findMany({ select: { id: true }})).map(toId);
+    const knownCategoryIds = (await db.productCategory.findMany({ select: { id: true }})).map(toId);
 
     return processLocalizedEntities(
       data,

@@ -117,7 +117,7 @@ export const searchProducts = cache(async (terms: string[]) => {
       include: { icon: true, categories: true },
       orderBy: { views: 'desc' },
     }),
-    db.category.findMany({
+    db.productCategory.findMany({
       where: terms.length > 0 ? { OR: nameQueries } : undefined,
       take: 5,
     })

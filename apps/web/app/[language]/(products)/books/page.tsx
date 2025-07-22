@@ -27,7 +27,7 @@ const getBooks = cache(
 );
 
 const getProductCategories = cache(
-  () => db.category.findMany({
+  () => db.productCategory.findMany({
     where: { products: { some: { type: 'Book' }}},
   }),
   ['catalog-book-categories'],

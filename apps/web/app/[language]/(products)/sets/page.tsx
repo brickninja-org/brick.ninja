@@ -26,7 +26,7 @@ const getSets = cache(
 );
 
 const getProductCategories = cache(
-  () => db.category.findMany({
+  () => db.productCategory.findMany({
     where: { products: { some: { type: 'Set' }}},
   }),
   ['catalog-set-categories'],

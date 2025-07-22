@@ -27,7 +27,7 @@ const getGear = cache(
 );
 
 const getProductCategories = cache(
-  () => db.category.findMany({
+  () => db.productCategory.findMany({
     where: { products: { some: { type: 'Gear' }}},
   }),
   ['catalog-gear-categories'],
