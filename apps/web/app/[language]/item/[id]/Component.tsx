@@ -123,7 +123,7 @@ export const ItemPageComponent: FC<ItemPageComponentProps> = async ({ language, 
 
           {unknownProductIds.length > 0 && (
             <ItemList>
-              {unknownProductIds.map((id) => <ItemListItem key={id}>Unknown product</ItemListItem>)}
+              {unknownProductIds.map((id) => <ItemListItem key={id}>Unknown product ({id})</ItemListItem>)}
             </ItemList>
           )}
         </>
@@ -165,12 +165,14 @@ export const ItemPageComponent: FC<ItemPageComponentProps> = async ({ language, 
           </Headline>
 
           {item._count.contains > 0 && (
-            <ItemTable query={{ model: 'content', mapToItem: 'contentItem', where: { containerItemId: item.id }}}
-              extraColumns={[
-                // extraColumn<'content'>({ id: 'item', select: { quantity: true, contentItem: { select: globalColumnDefinitions.item.select }}, title: `${t('itemTable.column.item')} (${t('container.quantity')})`, component: ItemContentQuantityColumn as TODO, order: 21 }),
-                extraColumn<'content'>({ id: 'quantity', select: { quantity: true }, title: t('container.quantity'), component: ContentQuantityColumn as TODO, order: 71, align: 'end', small: true, orderBy: [{ quantity: 'desc' }, { quantity: 'asc' }] }),
-              ]}
-              defaultColumns={['item', 'quantity', 'type']}/>
+            <>
+              <ItemTable query={{ model: 'content', mapToItem: 'contentItem', where: { containerItemId: item.id }}}
+                extraColumns={[
+                  // extraColumn<'content'>({ id: 'item', select: { quantity: true, contentItem: { select: globalColumnDefinitions.item.select }}, title: `${t('itemTable.column.item')} (${t('container.quantity')})`, component: ItemContentQuantityColumn as TODO, order: 21 }),
+                  extraColumn<'content'>({ id: 'quantity', select: { quantity: true }, title: t('container.quantity'), component: ContentQuantityColumn as TODO, order: 71, align: 'end', small: true, orderBy: [{ quantity: 'desc' }, { quantity: 'asc' }] }),
+                ]}
+                defaultColumns={['item', 'quantity', 'type']}/>
+            </>
           )}
 
           {item._count.contains === 0 && (

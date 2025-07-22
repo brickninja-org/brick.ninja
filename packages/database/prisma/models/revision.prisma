@@ -34,6 +34,14 @@ model Revision {
   currentProduct_nl Product? @relation("current_nl")
   productHistory ProductHistory[]
 
+  // product categories
+  currentProductCategory_de ProductCategory? @relation("current_de")
+  currentProductCategory_en ProductCategory? @relation("current_en")
+  currentProductCategory_es ProductCategory? @relation("current_es")
+  currentProductCategory_fr ProductCategory? @relation("current_fr")
+  currentProductCategory_nl ProductCategory? @relation("current_nl")
+  productCategoryHistory ProductCategoryHistory?
+
   // categories
   currentCategory_de Category? @relation("current_de")
   currentCategory_en Category? @relation("current_en")

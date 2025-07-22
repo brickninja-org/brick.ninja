@@ -17,7 +17,7 @@ export const ProductCategoriesJob: Job = {
       return createSubJobs(
         'product.categories',
         () => fetchApi('/v1/products/categories'),
-        db.category.findMany,
+        db.productCategory.findMany,
         CURRENT_VERSION,
       );
     }
@@ -26,7 +26,7 @@ export const ProductCategoriesJob: Job = {
       data,
       'ProductCategory',
       (ids) => loadLocalizedEntities('/v1/products/categories', ids),
-      (categoryId, revisionId) => ({ categoryId_revisionId: { revisionId, categoryId }}),
+      (productCategoryId, revisionId) => ({ productCategoryId_revisionId: { revisionId, productCategoryId }}),
       async (category, _, change) => {
         return {
           name_de: category.de.name,
@@ -38,11 +38,11 @@ export const ProductCategoriesJob: Job = {
           products: change === Changes.New
             ? { connect: await db.product.findMany({ where: { categoryIds: { has: category.en.id }}, select: { id: true }}) }
             : undefined,
-        } satisfies Partial<Prisma.CategoryUncheckedCreateInput>;
+        } satisfies Partial<Prisma.ProductCategoryUncheckedCreateInput>;
       },
-      db.category.findMany,
-      (tx, data) => tx.category.create(data),
-      (tx, data) => tx.category.update(data),
+      db.productCategory.findMany,
+      (tx, data) => tx.productCategory.create(data),
+      (tx, data) => tx.productCategory.update(data),
       CURRENT_VERSION,
     );
   },

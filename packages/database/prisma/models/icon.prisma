@@ -7,4 +7,5 @@ model Icon {
 
   items Item[]
   products Product[]
+  productCategories ProductCategory[]
 }

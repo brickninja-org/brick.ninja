@@ -17,7 +17,7 @@ model Product {
 
   items Item[]
 
-  categories Category[]
+  categories ProductCategory[]
   categoryIds Int[]
 
   removedFromApi Boolean @default(false)
@@ -56,4 +56,54 @@ model ProductHistory {
   revision Revision @relation(fields: [revisionId], references: [id], onDelete: Cascade)
 
   @@id([productId, revisionId])
+}
+
+model ProductCategory {
+  id Int @id
+
+  name_de String
+  name_en String
+  name_es String
+  name_fr String
+  name_nl String
+
+  icon Icon? @relation(fields: [iconId], references: [id])
+  iconId Int?
+
+  order Int @default(0)
+
+  products Product[]
+  productIds Int[]
+
+  removedFromApi Boolean @default(false)
+
+  current_de Revision @relation("current_de", fields: [currentId_de], references: [id], onDelete: Cascade)
+  currentId_de String @unique
+  current_en Revision @relation("current_en", fields: [currentId_en], references: [id], onDelete: Cascade)
+  currentId_en String @unique
+  current_es Revision @relation("current_es", fields: [currentId_es], references: [id], onDelete: Cascade)
+  currentId_es String @unique
+  current_fr Revision @relation("current_fr", fields: [currentId_fr], references: [id], onDelete: Cascade)
+  currentId_fr String @unique
+  current_nl Revision @relation("current_nl", fields: [currentId_nl], references: [id], onDelete: Cascade)
+  currentId_nl String @unique
+
+  history ProductCategoryHistory[]
+
+  lastCheckedAt DateTime @default(now())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // migration version
+  version Int @default(0)
+}
+
+model ProductCategoryHistory {
+  productCategoryId Int
+  revisionId String @unique
+
+  productCategory ProductCategory @relation(fields: [productCategoryId], references: [id], onDelete: Cascade)
+  revision Revision @relation(fields: [revisionId], references: [id], onDelete: Cascade)
+
+  @@id([productCategoryId, revisionId])
 }

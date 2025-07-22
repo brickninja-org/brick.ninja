@@ -7,8 +7,6 @@ model Category {
   name_fr String
   name_nl String
 
-  products Product[]
-
   removedFromApi Boolean @default(false)
 
   current_de Revision @relation("current_de", fields: [currentId_de], references: [id], onDelete: Cascade)
