@@ -99,8 +99,8 @@ export const EditContents: FC<EditContentsProps> = ({ itemId, contents, appearan
               <thead>
                 <tr>
                   <Table.HeaderCell>Item</Table.HeaderCell>
-                  <Table.HeaderCell>Item ID</Table.HeaderCell>
-                  <Table.HeaderCell>Quantity</Table.HeaderCell>
+                  <Table.HeaderCell align="end">Item ID</Table.HeaderCell>
+                  <Table.HeaderCell align="end">Quantity</Table.HeaderCell>
                   <Table.HeaderCell small>Action</Table.HeaderCell>
                 </tr>
               </thead>

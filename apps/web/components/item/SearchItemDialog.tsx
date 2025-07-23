@@ -38,10 +38,13 @@ export const SearchItemDialog: FC<SearchItemDialogProps> = ({ open, onSubmitActi
 
       {search.loading ? (
         <SkeletonTable columns={['Item', 'Select']} rows={2}/>
+      ) : search.data.items.length === 0 ? (
+        <p>No items found</p>
       ) : (
         <Table>
           <thead>
             <tr>
+              <Table.HeaderCell>ID</Table.HeaderCell>
               <Table.HeaderCell>Item</Table.HeaderCell>
               <Table.HeaderCell small>Select</Table.HeaderCell>
             </tr>
@@ -49,6 +52,7 @@ export const SearchItemDialog: FC<SearchItemDialogProps> = ({ open, onSubmitActi
           <tbody>
             {search.data.items.map((item) => (
               <tr key={item.id}>
+                <td>{item.id}</td>
                 <td><ItemLink item={item}/></td>
                 <td><Button onClick={() => onSubmitAction(getLinkProperties(item))}>Select</Button></td>
               </tr>
