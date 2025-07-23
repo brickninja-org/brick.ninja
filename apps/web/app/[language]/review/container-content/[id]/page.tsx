@@ -9,7 +9,7 @@ import { Button, LinkButton } from '@brickninja-org/ui/components/form/Button';
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 import { Separator } from '@brickninja-org/ui/components/layout/Separator';
 import { Notice } from '@brickninja-org/ui/components/notice/Notice';
-import { Table } from '@brickninja-org/ui/components/table/Table';
+import { table, Table } from '@brickninja-org/ui/components/table/Table';
 
 import { getUser } from '@/lib/get-user';
 import { linkProperties } from '@/lib/link-properties';
@@ -58,6 +58,8 @@ export default async function ReviewContainerContentPage({ params, searchParams 
 
   const canReview = user && review.state === ReviewState.Open && (review.requesterId !== user.id || user.roles.includes(UserRole.Admin));
 
+  const { td, tr } = table();
+
   return (
     <HeroLayout hero={<Headline id="queue">Review Container Content</Headline>} color="blue">
       {error !== undefined && (
@@ -82,10 +84,10 @@ export default async function ReviewContainerContentPage({ params, searchParams 
           <Table>
             <thead>
               <tr>
-                <Table.HeaderCell small>Change</Table.HeaderCell>
+                <Table.HeaderCell small align="start">Change</Table.HeaderCell>
                 <Table.HeaderCell>Item</Table.HeaderCell>
-                <Table.HeaderCell>Item ID</Table.HeaderCell>
-                <Table.HeaderCell align="end">Quantity</Table.HeaderCell>
+                <Table.HeaderCell small align="end">Item ID</Table.HeaderCell>
+                <Table.HeaderCell small align="end">Quantity</Table.HeaderCell>
               </tr>
             </thead>
             <tbody>
@@ -93,21 +95,21 @@ export default async function ReviewContainerContentPage({ params, searchParams 
                 const isRemoved = removedItems.includes(content.contentItemId);
 
                 return (
-                  <tr key={content.contentItemId} data-removed={isRemoved || undefined}>
-                    <td>{isRemoved && 'Removed'}</td>
-                    <td><ItemLink item={content.contentItem}/></td>
-                    <td>{content.contentItemId}</td>
-                    <td align="right"><FormatNumber value={content.quantity}/></td>
+                  <tr key={content.contentItemId} data-removed={isRemoved || undefined} className={tr()}>
+                    <td className={td({ small: true })}>{isRemoved && 'Removed'}</td>
+                    <td className={td()}><ItemLink item={content.contentItem}/></td>
+                    <td className={td({ align: 'end', small: true })}>{content.contentItemId}</td>
+                    <td className={td({ align: 'end', small: true })}><FormatNumber value={content.quantity}/></td>
                   </tr>
                 );
               })}
               {addedItems.map((added) => {
                 return (
-                  <tr key={added._id} data-added>
-                    <td>Added</td>
-                    <td><ItemLink item={added.item}/></td>
-                    <td>{added.item.id}</td>
-                    <td align="right"><FormatNumber value={added.quantity}/></td>
+                  <tr key={added._id} data-added className={tr()}>
+                    <td className={td({ small: true })}>Added</td>
+                    <td className={td()}><ItemLink item={added.item}/></td>
+                    <td className={td({ align: 'end', small: true })}>{added.item.id}</td>
+                    <td className={td({ align: 'end', small: true })}><FormatNumber value={added.quantity}/></td>
                   </tr>
                 );
               })}
