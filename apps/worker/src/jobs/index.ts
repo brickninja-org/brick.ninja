@@ -1,5 +1,9 @@
 import { BrickNinjaApiRequestsCleanup } from './brickninjaapi-requests/cleanup';
 import { ColorsJob } from './colors';
+import { DeleteEntitiesJob } from './colors/delete';
+// import { ElementsJob } from './elements';
+// import { ElementCategoriesJob } from './elements/categories';
+// import { ElementGroupsJob } from './elements/groups';
 import { IconColors } from './icons/colors';
 import { ItemsCheck } from './items/check';
 import { ItemContainerContent } from './items/container-content';
@@ -30,11 +34,16 @@ const jobsInternal = {
   'items.relevancy': ItemsRelevancy,
   'items.views': ItemsView,
 
+  // 'elements': ElementsJob,
+  // 'elements.groups': ElementGroupsJob,
+  // 'elements.categories': ElementCategoriesJob,
+
   'products': ProductsJob,
   'product.categories': ProductCategoriesJob,
   'product.views': ProductViews,
 
   'colors': ColorsJob,
+  'colors.delete': DeleteEntitiesJob,
 
   'revisions.previous': RevisionsPrevious,
 
