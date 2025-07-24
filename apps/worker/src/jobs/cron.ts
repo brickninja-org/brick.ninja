@@ -24,11 +24,17 @@ export async function registerCronJobs() {
   await registerJob('items.container-content', schedule.daily);
   await registerJob('items.views', schedule.hourly);
 
+  // await registerJob('elements', schedule.every5Minutes);
+  // await registerJob('elements.categories', schedule.every10Minutes);
+  // await registerJob('elements.groups', schedule.every10Minutes);
+
   await registerJob('products', schedule.every5Minutes);
   await registerJob('product.categories', schedule.every10Minutes);
   await registerJob('product.views', schedule.hourly);
 
   await registerJob('colors', schedule.every5Minutes);
+  // Run colors.delete job once a month
+  await registerJob('colors.delete', '0 0 1 * *');
 
   await registerJob('brickninjaapi-requests.cleanup', 'H 3 * * *');
 
