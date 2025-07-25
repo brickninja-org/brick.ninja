@@ -48,7 +48,7 @@
     "clsx": "2.1.1",
     "d3-array": "3.2.4",
     "deepmerge": "4.3.1",
-    "framer-motion": "12.23.6",
+    "framer-motion": "12.23.9",
     "hast-util-to-jsx-runtime": "2.3.6",
     "isbot": "5.1.28",
     "jose": "6.0.12",
