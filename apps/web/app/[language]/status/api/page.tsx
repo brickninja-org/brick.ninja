@@ -21,7 +21,7 @@ async function getData(hours: number) {
   const past = new Date();
   past.setHours(now.getHours() - hours);
 
-  const apiRequests = await db.apiRequest.findMany({ where: { endpoint: { not: { contains: 'container-contents' }}, createdAt: { gte: past }}, orderBy: { createdAt: 'desc' }});
+  const apiRequests = await db.apiRequest.findMany({ where: { NOT: { endpoint: { contains: 'inventory-list' }}, createdAt: { gte: past }}, orderBy: { createdAt: 'desc' }});
 
   const endpoints: Record<string, { totalResponseTimeMs: number, requestCount: number, errors: number, lastRequests: boolean[], requests: ApiRequest[] }> = {};
   const statusCodes: Record<number, number> = {};

@@ -30,11 +30,23 @@ export const ItemContainerContent: Job = {
     let inserts = 0;
 
     for (const id of ids) {
-      const results = await fetchApi(`/v1/items/${id}/container-contents`);
+      const productId = await db.product.findFirst({ where: { items: { some: { id }}}, select: { id: true }}).then((product) => product?.id);
+      if (!productId) {
+        console.warn(`No product found for container item ${id}`);
+        continue;
+      }
+
+      const results = await fetchApi(`/v1/products/${productId}/inventory-list`);
+
+      if (!results || !results.items || !Array.isArray(results.items) || results.items.length === 0) {
+        console.warn(`No contents found for container ${id}`);
+        continue;
+      }
+
       // const results = data.contents.filter(({ containerId }) => containerId === id);
-      const contents = Object.values(results).map<Prisma.ContentCreateManyInput>((entry) => ({
+      const contents = Object.values(results.items).map<Prisma.ContentCreateManyInput>((entry) => ({
         containerItemId: id,
-        contentItemId: entry.item_id,
+        contentItemId: Number(entry.item_id),
         quantity: entry.quantity,
       })).filter((content) => isTruthy(content.contentItemId) && isTruthy(content.quantity) && knownItemIds.includes(content.contentItemId));
 
