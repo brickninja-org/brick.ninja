@@ -268,8 +268,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/helper
       '@brickninjaapi/fetch':
-        specifier: 0.0.14
-        version: 0.0.14(@brickninjaapi/types@0.0.20)
+        specifier: 0.0.15
+        version: 0.0.15(@brickninjaapi/types@0.0.20)
       '@brickninjaapi/types':
         specifier: 0.0.20
         version: 0.0.20
@@ -733,10 +733,10 @@ packages:
   '@bn2me/client@0.3.0':
     resolution: {integrity: sha512-w0nuxwKiV667k3qDiy/2pQxzWrErnI12RhxZp2RbX9LStymv0Y06nphy1eeGo7kcfFUIjn6SrxsHXq0JfTU6ag==}
 
-  '@brickninjaapi/fetch@0.0.14':
-    resolution: {integrity: sha512-yiYZ+AraXzau9ODSulX26sE5nPH23ZiRgPqEwZF9GZ+k9d6LU3sG7lODThX2xfFbI3NHVu7df4Dfo2J1nuOAaQ==}
+  '@brickninjaapi/fetch@0.0.15':
+    resolution: {integrity: sha512-Ttt4tad4ekcqStdZrE04JXHaY9uW7q4GamIalp36FaBrGJoqvQ31SZQFPonOGJRlve36f3fyxADtjt8/at1h/Q==}
     peerDependencies:
-      '@brickninjaapi/types': ~0.0.20
+      '@brickninjaapi/types': ~0.0.21
 
   '@brickninjaapi/types@0.0.20':
     resolution: {integrity: sha512-cW/vljGS8mIudOqkj1Pp/PKgEp6EQS9QZBm13gH9PAlGZmtsT8V8C+HuS8f33dhjL+jDGpPWqr6ujAIFIx7h7w==}
@@ -5931,7 +5931,7 @@ snapshots:
 
   '@bn2me/client@0.3.0': {}
 
-  '@brickninjaapi/fetch@0.0.14(@brickninjaapi/types@0.0.20)':
+  '@brickninjaapi/fetch@0.0.15(@brickninjaapi/types@0.0.20)':
     dependencies:
       '@brickninjaapi/types': 0.0.20
 
