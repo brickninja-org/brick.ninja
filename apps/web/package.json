@@ -18,7 +18,7 @@
     "@brickninja-org/icons": "workspace:*",
     "@brickninja-org/onig": "workspace:*",
     "@brickninja-org/ui": "workspace:*",
-    "@brickninjaapi/types": "0.0.19",
+    "@brickninjaapi/types": "0.0.20",
     "@brickset-api/fetch": "0.0.18",
     "@brickset-api/types": "0.0.16",
     "@dnd-kit/abstract": "0.1.20",

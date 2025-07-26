@@ -48,8 +48,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/ui
       '@brickninjaapi/types':
-        specifier: 0.0.19
-        version: 0.0.19
+        specifier: 0.0.20
+        version: 0.0.20
       '@brickset-api/fetch':
         specifier: 0.0.18
         version: 0.0.18(@brickset-api/types@0.0.16)
@@ -269,10 +269,10 @@ importers:
         version: link:../../packages/helper
       '@brickninjaapi/fetch':
         specifier: 0.0.14
-        version: 0.0.14(@brickninjaapi/types@0.0.19)
+        version: 0.0.14(@brickninjaapi/types@0.0.20)
       '@brickninjaapi/types':
-        specifier: 0.0.19
-        version: 0.0.19
+        specifier: 0.0.20
+        version: 0.0.20
       '@brickset-api/fetch':
         specifier: 0.0.18
         version: 0.0.18(@brickset-api/types@0.0.16)
@@ -738,8 +738,8 @@ packages:
     peerDependencies:
       '@brickninjaapi/types': ~0.0.20
 
-  '@brickninjaapi/types@0.0.19':
-    resolution: {integrity: sha512-gLAI06hpiPRcR81ZBw6b9Hh9aDWyj8LmxFcbGoPqxC6XrCsltzS8J53ELJul/ED0VzMxj3x+YelRxvQ/xAYZ+w==}
+  '@brickninjaapi/types@0.0.20':
+    resolution: {integrity: sha512-cW/vljGS8mIudOqkj1Pp/PKgEp6EQS9QZBm13gH9PAlGZmtsT8V8C+HuS8f33dhjL+jDGpPWqr6ujAIFIx7h7w==}
 
   '@brickset-api/fetch@0.0.18':
     resolution: {integrity: sha512-0w1yGsBHusfVhdTTb0R7B03VY3a2yeAj5xrbFUmdrEoPNHeIK+6ChthzpvA43ISqBjQE7xvMnrbAQR7Rg66ctA==}
@@ -5931,11 +5931,11 @@ snapshots:
 
   '@bn2me/client@0.3.0': {}
 
-  '@brickninjaapi/fetch@0.0.14(@brickninjaapi/types@0.0.19)':
+  '@brickninjaapi/fetch@0.0.14(@brickninjaapi/types@0.0.20)':
     dependencies:
-      '@brickninjaapi/types': 0.0.19
+      '@brickninjaapi/types': 0.0.20
 
-  '@brickninjaapi/types@0.0.19': {}
+  '@brickninjaapi/types@0.0.20': {}
 
   '@brickset-api/fetch@0.0.18(@brickset-api/types@0.0.16)':
     dependencies:
