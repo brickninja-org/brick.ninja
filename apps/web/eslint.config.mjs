@@ -1,4 +1,4 @@
-import { flatConfig as nextConfig } from '@next/eslint-plugin-next';
+import nextConfig from '@next/eslint-plugin-next';
 import reactConfig from '@brickninja-org/eslint-config/react';
 import reactCompiler from 'eslint-plugin-react-compiler';
 import tseslint from 'typescript-eslint';
@@ -8,7 +8,7 @@ export default tseslint.config(
   { ignores: ['.next'] },
 
   // extends next/core-web-vitals
-  nextConfig.coreWebVitals,
+  nextConfig.flatConfig.coreWebVitals,
 
   // extend @gw2treasures/eslint-config/react
   ...reactConfig,
