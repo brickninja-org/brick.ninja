@@ -15,9 +15,10 @@ export const getItem = cache((id: number, language: Language) => {
         orderBy: { revision: { createdAt: 'desc' }},
       },
       icon: true,
+      designs: { select: { id: true, name: true, type: true, weight: true }},
       products: { select: { ...linkProperties, type: true, subtype: true, pieceCount: true, figureCount: true }},
       contains: { include: { contentItem: { select: { ...linkProperties, type: true, subtype: true }}}},
-      _count: { select: { instructionItems: true, instructionIn: true, contains: true, containedIn: true }},
+      _count: { select: { contains: true, containedIn: true, designs: true }},
     }
   });
 }, ['item'], { revalidate: 60 });

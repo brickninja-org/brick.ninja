@@ -41,6 +41,7 @@ import { EditContents } from './_edit-content/EditContents';
 import { getItem, getRevision } from './data';
 import { SimilarItems } from './SimilarItems';
 import { ContentQuantityColumn } from './ExtraColumns';
+import { DesignTable } from '@/components/design/DesignTable';
 
 export interface ItemPageComponentProps {
   language: Language;
@@ -70,6 +71,9 @@ export const ItemPageComponent: FC<ItemPageComponentProps> = async ({ language, 
 
   const showContents = item.type === 'Container' || item._count.contains > 0;
   const canHaveContents = item.type === 'Container' || item.type === 'Set';
+
+  const hasDesigns = item.designIds.length > 0;
+  const unknownDesignIds = item.designIds.filter((id) => item.designs.every((design) => design.id !== id));
 
   const hasProducts = item.productIds.length > 0;
   const unknownProductIds = item.productIds.filter((id) => item.products.every((product) => product.id !== id));
@@ -116,6 +120,18 @@ export const ItemPageComponent: FC<ItemPageComponentProps> = async ({ language, 
 
       <TableOfContentAnchor id="tooltip">Tooltip</TableOfContentAnchor>
       <ItemTooltip item={data} language={language} hideTitle/>
+
+      {hasDesigns && (
+        <>
+          <DesignTable designs={item.designs} headline="Design" headlineId="designs"/>
+
+          {unknownDesignIds.length > 0 && (
+            <ItemList>
+              {unknownDesignIds.map((id) => <ItemListItem key={id}>Unknown design ({id})</ItemListItem>)}
+            </ItemList>
+          )}
+        </>
+      )}
 
       {hasProducts && (
         <>
