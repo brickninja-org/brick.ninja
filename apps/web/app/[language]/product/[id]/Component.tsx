@@ -28,6 +28,9 @@ import { ItemTable } from '@/components/item-table/ItemTable';
 import { ProductInfobox } from '@/components/product/ProductInfobox';
 import { ProductLinkTooltip } from '@/components/product/ProductLinkTooltip';
 import { ProductTooltip } from '@/components/product/ProductTooltip';
+import { extraColumn } from '@/components/item-table/columns';
+import type { TODO } from '@/lib/todo';
+import { ItemBarcodeColumn } from './ExtraColumns';
 
 export interface ProductPageComponentProps {
   language: Language;
@@ -82,7 +85,9 @@ export const ProductPageComponent: FC<ProductPageComponentProps> = async ({ lang
       {hasItems && (
         <ItemTableContext id="productItems">
           <Headline id="items" actions={<ItemTableColumnsButton/>}>Items</Headline>
-          <ItemTable query={{ where: { products: { some: { id: productId }}}}} collapsed defaultColumns={['item', 'type', 'barcode']}/>
+          <ItemTable
+            query={{ where: { products: { some: { id: productId }}}}} collapsed defaultColumns={['item', 'type', 'barcode']}
+            extraColumns={[extraColumn<'item'>({ id: 'barcode', select: { barcode: true }, title: t('itemTable.column.barcode'), component: ItemBarcodeColumn as TODO, order: 71, small: true })]}/>
         </ItemTableContext>
       )}
 

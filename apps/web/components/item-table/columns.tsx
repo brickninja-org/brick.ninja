@@ -79,12 +79,6 @@ export const globalColumnDefinitions = {
     orderBy: [[{ type: 'asc' }, { subtype: 'asc' }], [{ type: 'desc' }, { subtype: 'desc' }]],
     translations: translations.long
   }),
-  barcode: createColumn({
-    id: 'barcode',
-    order: 105,
-    select: { barcode: true },
-    orderBy: [{ barcode: 'asc' }, { barcode: 'desc' }],
-  }),
 };
 
 type ColumnDefinition<Id extends GlobalColumnId> = (typeof globalColumnDefinitions)[Id];
@@ -108,7 +102,6 @@ export const globalColumnRenderer: Renderer = {
   // level: (item) => item.level,
   // rarity: (item, t) => <Rarity rarity={item.rarity}>{t[`rarity.${item.rarity}`]}</Rarity>,
   type: (item, t) => <ItemType type={item.type as Type} subtype={item.subtype as SubType<Type>} translations={t as Record<TypeTranslation<Type, SubType<Type>>, string>} display="long"/>,
-  barcode: (item) => item.barcode,
   // vendorValue: (item, t) => item.vendorValue === null ? empty(t['item.flag.NoSell']) : <Coins value={item.vendorValue}/>,
   // buyPrice: (item) => !item.tpTradeable ? empty() : renderPriceWithOptionalWarning(item.tpCheckedAt, item.buyPrice),
   // buyQuantity: (item) => !item.tpTradeable ? empty() : <FormatNumber value={item.buyQuantity ?? 0}/>,
