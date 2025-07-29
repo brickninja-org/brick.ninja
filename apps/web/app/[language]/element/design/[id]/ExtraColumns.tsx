@@ -5,12 +5,12 @@ import type { Item } from '@brickninja-org/database';
 
 import { FormatNumber } from '@/components/format/FormatNumber';
 
-export interface ProductIdsColumnProps {
+export interface ProductCountColumnProps {
   productIds: Item['productIds'];
 }
 
-export const ProductIdsColumn: FC<ProductIdsColumnProps> = ({ productIds }) => {
-  const productCount = productIds.length;
+export const ProductCountColumn: FC<ProductCountColumnProps> = ({ productIds }) => {
+  const productCount = productIds.length ?? 0;
 
   return <FormatNumber value={productCount}/>;
 };

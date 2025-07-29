@@ -10,9 +10,6 @@ import { Json } from '@/components/format/Json';
 import { ItemTableContext } from '@/components/item-table/ItemTable.context';
 import { ItemTableColumnsButton } from '@/components/item-table/ItemTableColumnsButton';
 import { ItemTable } from '@/components/item-table/ItemTable';
-import { extraColumn } from '@/components/item-table/columns';
-import { ProductIdsColumn } from './ExtraColumns';
-import type { TODO } from '@/lib/todo';
 
 const getElementDesign = cache(async(id: number) => {
   const [design, revision] = await Promise.all([
@@ -48,10 +45,7 @@ async function ElementDesignPage({ params }: ElementDesignPageProps) {
         <Headline id="items" actions={<ItemTableColumnsButton/>}>Elements</Headline>
         <ItemTable
           query={{ where: { designs: { some: { id: designId }}}}}
-          extraColumns={[
-            extraColumn<'item'>({ id: 'productCount', select: { productIds: true }, title: 'In Products', component: ProductIdsColumn as TODO, order: 210 }),
-          ]}
-          defaultColumns={['id', 'item', 'type', 'productCount']}/>
+          defaultColumns={['id', 'item', 'type']}/>
       </ItemTableContext>
 
       <Headline id="data">Data</Headline>
