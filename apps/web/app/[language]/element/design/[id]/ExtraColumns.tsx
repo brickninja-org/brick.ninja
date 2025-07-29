@@ -1,5 +1,8 @@
+'use client';
+
 import type { FC } from 'react';
 import type { Item } from '@brickninja-org/database';
+
 import { FormatNumber } from '@/components/format/FormatNumber';
 
 export interface ProductIdsColumnProps {
@@ -7,5 +10,7 @@ export interface ProductIdsColumnProps {
 }
 
 export const ProductIdsColumn: FC<ProductIdsColumnProps> = ({ productIds }) => {
-  return <FormatNumber value={productIds.length}/>;
+  const productCount = productIds.length;
+
+  return <FormatNumber value={productCount}/>;
 };
