@@ -7,6 +7,9 @@ import type { ElementDesign } from '@brickninjaapi/types/data/element-design';
 import DetailLayout from '@/components/layout/DetailLayout';
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 import { Json } from '@/components/format/Json';
+import { ItemTableContext } from '@/components/item-table/ItemTable.context';
+import { ItemTableColumnsButton } from '@/components/item-table/ItemTableColumnsButton';
+import { ItemTable } from '@/components/item-table/ItemTable';
 
 const getElementDesign = cache(async(id: number) => {
   const [design, revision] = await Promise.all([
@@ -38,6 +41,11 @@ async function ElementDesignPage({ params }: ElementDesignPageProps) {
     <DetailLayout
       title={data.name}
     >
+      <ItemTableContext id="elements">
+        <Headline id="items" actions={<ItemTableColumnsButton/>}>Elements</Headline>
+        <ItemTable query={{ where: { designs: { some: { id: designId }}}}} collapsed defaultColumns={['item', 'type']}/>
+      </ItemTableContext>
+
       <Headline id="data">Data</Headline>
       <Json data={data}/>
     </DetailLayout>

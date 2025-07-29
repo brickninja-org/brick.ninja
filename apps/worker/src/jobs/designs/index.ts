@@ -6,10 +6,11 @@ import { isEmptyObject } from '@brickninja-org/helper/is';
 import { db } from '../../db';
 import { fetchApi } from '../helper/fetch-api';
 import { loadEntities } from '../helper/load-entities';
-import { createSubJobs, processEntities } from '../helper/process-entities';
+import { Changes, createSubJobs, processEntities } from '../helper/process-entities';
+import { toId } from '../helper/to-id';
 
 export const DesignsJob: Job = {
-  run(data: ProcessEntitiesData<number> | Record<string, never>) {
+  async run(data: ProcessEntitiesData<number> | Record<string, never>) {
     const CURRENT_VERSION = 1;
 
     if (isEmptyObject(data)) {
@@ -21,18 +22,22 @@ export const DesignsJob: Job = {
       );
     }
 
+    const knownItemIds = (await db.item.findMany({ where: { type: 'Element' }, select: { id: true }})).map(toId);
+
     return processEntities(
       data,
       'Design',
       (ids) => loadEntities('/v1/elements/designs', ids),
       (designId, revisionId) => ({ designId_revisionId: { revisionId, designId }}),
-      (design) => {
-        // if this is a new design lets check if there are items waiting for it
+      (design, version, changes) => {
+        const connectOrSet = changes === Changes.New ? 'connect' : 'set';
 
         return {
           name: design.name,
 
           type: design.type,
+
+          elementDesigns: { [connectOrSet]: design.element_items?.filter((id) => knownItemIds.includes(id)).map((id) => ({ id })) ?? [] },
         };
       },
       db.elementDesign.findMany,

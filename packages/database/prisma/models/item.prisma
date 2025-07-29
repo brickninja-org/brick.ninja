@@ -25,6 +25,9 @@ model Item {
   contains Content[] @relation("contains")
   containedIn Content[] @relation("containedIn")
 
+  designs ElementDesign[] @relation("elements")
+  designIds Int[]
+
   // review queue
   reviews Review[] @relation("itemReview")
 

@@ -6,6 +6,8 @@ model ElementDesign {
   type String @default("")
   weight Float?
 
+  items Item[] @relation("elements")
+
   removedFromApi Boolean @default(false)
 
   current Revision @relation("current", fields: [currentId], references: [id], onDelete: Cascade)
