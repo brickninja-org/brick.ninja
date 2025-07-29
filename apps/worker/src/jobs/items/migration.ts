@@ -5,9 +5,9 @@ import { Prisma } from '@brickninja-org/database';
 import { LocalizedObject } from '../helper/types';
 import { db } from '../../db';
 import { toId } from '../helper/to-id';
-import { isDefined, isTruthy } from '@brickninja-org/helper/is';
+import { isDefined } from '@brickninja-org/helper/is';
 
-export const CURRENT_VERSION = 3;
+export const CURRENT_VERSION = 4;
 
 /** @see Prisma.ItemUpdateInput */
 interface MigratedItem {
@@ -27,15 +27,15 @@ interface MigratedItem {
   createdAt?: Date | string;
   updatedAt?: Date | string;
 
-  instructionItemIds?: number[];
-  instructionItems?: Prisma.ItemUpdateManyWithoutInstructionInNestedInput;
+  designIds?: number[];
+  designs?: Prisma.ElementDesignCreateNestedManyWithoutItemsInput;
 
   productIds?: number[];
   products?: Prisma.ProductCreateNestedManyWithoutItemsInput;
 }
 
 export async function createMigrator() {
-  const knownItemIds = (await db.item.findMany({ select: { id: true }})).map(toId);
+  const knownDesignIds = (await db.elementDesign.findMany({ select: { id: true }})).map(toId);
   const knownProductIds = (await db.product.findMany({ select: { id: true }})).map(toId);
 
   // eslint-disable-next-line require-await
@@ -58,17 +58,17 @@ export async function createMigrator() {
       update.products = { connect: products.filter((id) => knownProductIds.includes(id)).map((id) => ({ id })) };
     }
 
-    // version 2: add instruction items
-    if (currentVersion < 2) {
-      const instructionItemIds = [...(en.details?.instruction_item_ids || [])].map(Number).filter(isTruthy);
-
-      update.instructionItemIds = instructionItemIds;
-      update.instructionItems = { connect: instructionItemIds.filter((id) => knownItemIds.includes(id)).map((id) => ({ id })) };
-    }
-
     // version 3: add item barcodes
     if (currentVersion < 3) {
       update.barcode = en.barcode;
+    }
+
+    // version 4: add design ids
+    if (currentVersion < 4) {
+      const designIds = en.details?.design_id ? [en.details.design_id] : undefined;
+
+      update.designIds = designIds;
+      update.designs = { connect: designIds?.filter((id) => knownDesignIds.includes(id)).map((id) => ({ id })) ?? [] };
     }
 
     /*
