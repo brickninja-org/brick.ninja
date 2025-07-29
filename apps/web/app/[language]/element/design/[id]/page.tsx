@@ -49,9 +49,9 @@ async function ElementDesignPage({ params }: ElementDesignPageProps) {
         <ItemTable
           query={{ where: { designs: { some: { id: designId }}}}}
           extraColumns={[
-            extraColumn<'item'>({ id: 'item', select: { productIds: true }, title: 'In Products', component: ProductIdsColumn as TODO, order: 210 }),
+            extraColumn<'item'>({ id: 'productCount', select: { productIds: true }, title: 'In Products', component: ProductIdsColumn as TODO, order: 210 }),
           ]}
-          defaultColumns={['id', 'item', 'type']}/>
+          defaultColumns={['id', 'item', 'type', 'productCount']}/>
       </ItemTableContext>
 
       <Headline id="data">Data</Headline>

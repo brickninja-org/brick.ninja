@@ -87,7 +87,7 @@ export const ProductPageComponent: FC<ProductPageComponentProps> = async ({ lang
           <Headline id="items" actions={<ItemTableColumnsButton/>}>Items</Headline>
           <ItemTable
             query={{ where: { products: { some: { id: productId }}}}} collapsed defaultColumns={['item', 'type', 'barcode']}
-            extraColumns={[extraColumn<'item'>({ id: 'barcode', select: { barcode: true }, title: t('itemTable.column.barcode'), component: ItemBarcodeColumn as TODO, order: 71, small: true })]}/>
+            extraColumns={[extraColumn<'item'>({ id: 'barcode', select: { barcode: true }, title: t('itemTable.column.barcode'), component: ItemBarcodeColumn as TODO, order: 201, small: true })]}/>
         </ItemTableContext>
       )}
 
