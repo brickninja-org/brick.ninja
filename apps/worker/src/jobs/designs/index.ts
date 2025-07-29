@@ -37,7 +37,7 @@ export const DesignsJob: Job = {
 
           type: design.type,
 
-          elementDesigns: { [connectOrSet]: design.element_items?.filter((id) => knownItemIds.includes(id)).map((id) => ({ id })) ?? [] },
+          items: { [connectOrSet]: design.element_items?.filter((id) => knownItemIds.includes(id)).map((id) => ({ id })) ?? [] },
         };
       },
       db.elementDesign.findMany,
