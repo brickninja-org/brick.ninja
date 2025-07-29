@@ -2,14 +2,13 @@ import type { EndpointType, KnownBulkExpandedEndpoint, KnownLocalizedEndpoint } 
 import type { SchemaVersion } from './schema';
 import type { LocalizedObject } from './types';
 
-// import { groupById } from '@brickninja-org/helper/group-by';
+import { groupById } from '@brickninja-org/helper/group-by';
 
 import { fetchApi } from './fetch-api';
 import { groupLocalizedEntitiesById } from './group-by-id';
 
 type ModelOfBulkEndpoint<E extends KnownBulkExpandedEndpoint> = EndpointType<`${E}?ids=$`, SchemaVersion> extends Array<infer T> ? T : never;
 
-/*
 export async function loadEntities<Endpoint extends Exclude<KnownBulkExpandedEndpoint, KnownLocalizedEndpoint>>(
   endpoint: Endpoint,
   ids: EndpointType<Endpoint>,
@@ -21,9 +20,8 @@ export async function loadEntities<Endpoint extends Exclude<KnownBulkExpandedEnd
 
   console.log(`Fetched ${ids.length} entities in ${(new Date().valueOf() - start.valueOf()) / 1000}s`);
 
-  return groupById(entities);
+  return groupById(entities) as Map<EndpointType<Endpoint>[number], ModelOfBulkEndpoint<Endpoint>>;
 }
-*/
 
 export async function loadLocalizedEntities<Endpoint extends KnownBulkExpandedEndpoint & KnownLocalizedEndpoint>(
   endpoint: Endpoint,

@@ -1,6 +1,7 @@
 import { BrickNinjaApiRequestsCleanup } from './brickninjaapi-requests/cleanup';
 import { ColorsJob } from './colors';
 import { DeleteEntitiesJob } from './colors/delete';
+import { DesignsJob } from './designs';
 // import { ElementsJob } from './elements';
 // import { ElementCategoriesJob } from './elements/categories';
 // import { ElementGroupsJob } from './elements/groups';
@@ -33,6 +34,8 @@ const jobsInternal = {
   'items.container-content': ItemContainerContent,
   'items.relevancy': ItemsRelevancy,
   'items.views': ItemsView,
+
+  'designs': DesignsJob,
 
   // 'elements': ElementsJob,
   // 'elements.groups': ElementGroupsJob,

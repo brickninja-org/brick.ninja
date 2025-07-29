@@ -24,6 +24,8 @@ export async function registerCronJobs() {
   await registerJob('items.container-content', schedule.daily);
   await registerJob('items.views', schedule.hourly);
 
+  await registerJob('designs', schedule.every5Minutes);
+
   // await registerJob('elements', schedule.every5Minutes);
   // await registerJob('elements.categories', schedule.every10Minutes);
   // await registerJob('elements.groups', schedule.every10Minutes);

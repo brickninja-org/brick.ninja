@@ -27,11 +27,7 @@ model Revision {
   itemHistory ItemHistory?
 
   // elements
-  currentDesign_de ElementDesign? @relation("current_de")
-  currentDesign_en ElementDesign? @relation("current_en")
-  currentDesign_es ElementDesign? @relation("current_es")
-  currentDesign_fr ElementDesign? @relation("current_fr")
-  currentDesign_nl ElementDesign? @relation("current_nl")
+  currentDesign ElementDesign? @relation("current")
   designHistory DesignHistory[]
 
   // products
