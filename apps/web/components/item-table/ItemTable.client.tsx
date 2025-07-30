@@ -7,6 +7,7 @@ import type { ItemTableLoadOptions } from './ItemTable.actions';
 import type { AvailableColumns, GlobalColumnId, ItemTableQuery, LoadItemsResult, QueryModel } from './types';
 
 import { createElement, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import scrollIntoView from 'scroll-into-view-if-needed';
 
 import { isEmptyObject } from '@brickninja-org/helper/is';
 import { Dropdown } from '@brickninja-org/ui/components/dropdown/Dropdown';
@@ -82,8 +83,7 @@ export const ItemTable = <ExtraColumnId extends string = never, Model extends Qu
     const options = {
       columns: columns.map(({ globalColumnId, select }) => globalColumnId ?? select),
       orderBy: orderBy ? columns.find(({ id }) => id === orderBy.column)?.orderBy?.[orderBy.order === 'desc' ? 1 : 0] : undefined,
-      take,
-      skip,
+      take, skip,
     };
     setLoading(true);
     const currentRequestId = ++requestId.current;
@@ -106,6 +106,18 @@ export const ItemTable = <ExtraColumnId extends string = never, Model extends Qu
   useEffect(() => updateHistoryState(id, { page }), [id, page]);
   useEffect(() => updateHistoryState(id, { orderBy }), [id, orderBy]);
 
+  // ensure the top of the table is visible inside the viewport when changing page
+  const topRef = useRef<HTMLTableElement>(null);
+  useEffect(() => {
+    if(topRef.current) {
+      scrollIntoView(topRef.current, {
+        behavior: 'smooth',
+        block: 'start',
+        scrollMode: 'if-needed',
+      });
+    }
+  }, [page]);
+
   const handleSort = useCallback((column: ColumnId) => {
     setCollapsed(false);
     setOrderBy(
@@ -114,6 +126,8 @@ export const ItemTable = <ExtraColumnId extends string = never, Model extends Qu
         : undefined
     );
   }, []);
+
+  // const language = useLanguage();
 
   if(items === LOADING) {
     return (<SkeletonTable icons columns={columns.map((column) => column.title)} rows={Math.min(totalItems, collapsed ? collapsedSize : pageSize)}/>);
