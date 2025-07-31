@@ -6,14 +6,16 @@ import { tv } from 'tailwind-variants';
 import { cn } from '../../lib/tailwind';
 import { Icon } from '../../icons';
 import { TableWrapper } from './TableWrapper';
+import type { RefProp } from '../../lib/react';
 
-export interface TableProps extends Pick<TableVariantProps, 'layout' | 'fullWidth'> {
+export interface TableProps extends RefProp<HTMLTableElement>, Pick<TableVariantProps, 'layout' | 'fullWidth'> {
   children: ReactNode;
 }
 
 export interface HeaderCellProps extends TableVariantProps {
   children?: ReactNode;
   colSpan?: number;
+  width?: number | string;
   sort?: boolean | 'asc' | 'desc';
   onSort?: () => void;
 }
@@ -26,7 +28,7 @@ const table = tv({
   slots: {
     base: '',
     wrapper: [],
-    table: 'max-content min-w-full md:w-full border-separate border-spacing-0 border-none',
+    table: 'max-content min-w-full md:w-full border-separate border-spacing-0 border-none scroll-mt-8',
     tbody: '',
     tr: ['group/tr', 'first:border-t-0', 'outline-none'],
     th: ['group/th', 'sticky', 'top-(--table-sticky-top,_48px)', 'py-2', 'px-4', 'border-b-2', 'bg-background', 'font-medium', 'text-left', 'whitespace-nowrap', 'z-1'],
@@ -82,21 +84,23 @@ export type TableReturnType = ReturnType<typeof table>;
 
 export { table };
 
-const Table: FC<TableProps> & { HeaderCell: FC<HeaderCellProps>, BodyRow: FC<BodyRowProps> } = ({ children, layout }: TableProps) => {
+const TableComponent: FC<TableProps> = ({ children, layout, ref }: TableProps) => {
   const { table: style } = table();
   return (
     <TableWrapper>
-      <table className={cn([style({ layout })])}>
+      <table className={cn([style({ layout })])} ref={ref}>
         {children}
       </table>
     </TableWrapper>
   );
 };
 
-Table.HeaderCell = function HeaderCell({ children, small = false, align, colSpan, sort, onSort }: HeaderCellProps) {
+TableComponent.displayName = 'Table';
+
+const HeaderCell = function HeaderCell({ children, small = false, align, colSpan, sort, width, onSort }: HeaderCellProps) {
   const { th } = table();
   return (
-    <th scope="col" colSpan={colSpan} className={cn(th({ small, align }))} aria-sort={sort === 'asc' ? 'ascending' : sort === 'desc' ? 'descending' : undefined}>
+    <th scope="col" colSpan={colSpan} className={cn(th({ small, align }))} aria-sort={sort === 'asc' ? 'ascending' : sort === 'desc' ? 'descending' : undefined} style={width ? { width } : undefined} onClick={onSort}>
       {sort ? (
         <button className={cn(['block [width:calc(100%+32px)] -my-2 -mx-4 py-2 px-4 rounded-xs [text-align:inherit] cursor-pointer'])} onClick={onSort}>
           {children}
@@ -107,7 +111,9 @@ Table.HeaderCell = function HeaderCell({ children, small = false, align, colSpan
   );
 };
 
-Table.BodyRow = function BodyRow({ children }: BodyRowProps) {
+HeaderCell.displayName = 'Table.HeaderCell';
+
+const BodyRow = function BodyRow({ children }: BodyRowProps) {
   const { tr } = table();
 
   return (
@@ -117,6 +123,6 @@ Table.BodyRow = function BodyRow({ children }: BodyRowProps) {
   );
 };
 
-export {
-  Table,
-};
+BodyRow.displayName = 'Table.BodyRow';
+
+export const Table = Object.assign(TableComponent, { HeaderCell, BodyRow });

@@ -138,7 +138,7 @@ export const ItemTable = <ExtraColumnId extends string = never, Model extends Qu
   return (
     <>
       {process.env.NODE_ENV === 'development' && isGlobalContext && (<Notice type="warning">Missing ItemTableContext</Notice>)}
-      <Table>
+      <Table ref={topRef}>
         <thead>
           <tr>
             {columns.map((column) => (

@@ -50,10 +50,10 @@ export default async function ColorsPage({ params }: PageProps) {
         <Colors.Column id="name" title={<Translate id="itemTable.column.name"/>} sort={compareLocalizedName(language)}>
           {(entity) => localizedName(entity, language)}
         </Colors.Column>
-        <Colors.Column id="type" title={<Translate id="itemTable.column.type"/>} sortBy="type">
+        <Colors.Column id="type" title={<Translate id="itemTable.column.type"/>} sortBy="type" small>
           {({ type }) => type}
         </Colors.Column>
-        <Colors.Column id="family" title={<Translate id="colors.family"/>} sortBy="color_family">
+        <Colors.Column id="family" title={<Translate id="colors.family"/>} sortBy="color_family" small fixed>
           {({ color_family }) => color_family}
         </Colors.Column>
         <Colors.Column id="plastic" title={<Translate id="colors.plastic"/>} small>
