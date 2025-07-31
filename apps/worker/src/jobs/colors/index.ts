@@ -10,7 +10,7 @@ import { createSubJobs, processLocalizedEntities } from '../helper/process-entit
 
 export const ColorsJob: Job = {
   run(data: ProcessEntitiesData<number> | Record<string, never>) {
-    const CURRENT_VERSION = 1;
+    const CURRENT_VERSION = 2;
 
     if (isEmptyObject(data)) {
       return createSubJobs(
@@ -36,6 +36,7 @@ export const ColorsJob: Job = {
           name_fr: color.fr.name,
           name_nl: color.nl.name,
 
+          // version 2: add color type
           type: color.en.type,
           plastic_code: rgbToHex(color.en.plastic.rgb),
           color_family: color.en.categories[0],
