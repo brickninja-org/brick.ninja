@@ -36,6 +36,7 @@ export const ColorsJob: Job = {
           name_fr: color.fr.name,
           name_nl: color.nl.name,
 
+          type: color.en.type,
           plastic_code: rgbToHex(color.en.plastic.rgb),
           color_family: color.en.categories[0],
         };
