@@ -7,6 +7,8 @@ model Color {
   name_fr String
   name_nl String
 
+  type String @default("")
+
   plastic_code String @default("")
   color_family String @default("")
 
