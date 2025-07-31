@@ -3,8 +3,10 @@
 import type { FC, ReactElement, HTMLProps } from 'react';
 
 import { Children, cloneElement, useCallback, useLayoutEffect, useRef, useState } from 'react';
-import { useResizeObserver } from '../../lib/hooks/resize-observer';
+import { useMergeRefs } from '@floating-ui/react';
 import { tv } from 'tailwind-variants';
+
+import { useResizeObserver } from '../../lib/hooks/resize-observer';
 
 export interface TableWrapperProps {
   children: ReactElement<HTMLProps<HTMLElement>>;
@@ -46,7 +48,7 @@ export const TableWrapper: FC<TableWrapperProps> = ({ children }) => {
 
   return (
     <div className={wrapperStyles({ overflow: isOverflowing })} ref={wrapper} data-table-overflow={isOverflowing ? '' : undefined}>
-      {cloneElement(Children.only(children), { ref: table })}
+      {cloneElement(Children.only(children), { ref: useMergeRefs([table, children.props.ref]) })}
     </div>
   );
 };
