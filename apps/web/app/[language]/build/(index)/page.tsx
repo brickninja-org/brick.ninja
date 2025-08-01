@@ -14,7 +14,7 @@ const getBuilds = cache(async (language: Language) => {
 
   const updates = await db.revision.groupBy({
     by: ['buildId', 'entity'],
-    where: { type: 'Updated', entity: { in: ['Item', 'Product'] }, language, buildId: { in: builds.map((build) => build.id) }},
+    where: { type: 'Updated', entity: { in: ['Item', 'Product', 'Design', 'Color'] }, language, buildId: { in: builds.map((build) => build.id) }},
     _count: { _all: true },
   });
 
