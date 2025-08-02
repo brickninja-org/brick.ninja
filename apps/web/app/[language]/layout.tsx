@@ -18,7 +18,7 @@ import { ItemTableContext } from '@/components/item-table/ItemTable.context';
 import Layout from '@/components/layout/Layout';
 import { UserProvider } from '@/components/user/UserProvider';
 import { Bn2APIProvider } from '@/components/bn2-api/Bn2APIProvider';
-import { HeroUIProvider } from '@/components/heoui/HeroUIProvider';
+import { HeroUIProvider } from '@/components/heroui/HeroUIProvider';
 
 const bitter = Bitter({
   subsets: ['latin'],
@@ -33,9 +33,9 @@ export default async function RootLayout({ children, modal, params }: LayoutProp
     <html lang={language} className={cn(bitter.variable)}>
       <head/>
       <body>
-        <HeroUIProvider>
-          <I18nProvider language={language}>
-            <FormatProvider>
+        <I18nProvider language={language}>
+          <FormatProvider>
+            <HeroUIProvider>
               <ItemTableContext global id="global">
                 <DataTableContext>
                   <UserProvider>
@@ -48,9 +48,9 @@ export default async function RootLayout({ children, modal, params }: LayoutProp
                   </UserProvider>
                 </DataTableContext>
               </ItemTableContext>
-            </FormatProvider>
-          </I18nProvider>
-        </HeroUIProvider>
+            </HeroUIProvider>
+          </FormatProvider>
+        </I18nProvider>
       </body>
     </html>
   );
