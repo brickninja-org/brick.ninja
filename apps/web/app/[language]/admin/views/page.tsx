@@ -3,13 +3,14 @@ import type { PageProps } from '@/lib/next';
 import { cache } from 'react';
 import { Switch } from '@brickninja-org/ui/components/form/Switch';
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
-import { Table } from '@brickninja-org/ui/components/table/Table';
 
 import { createMetadata } from '@/lib/metadata';
 import { db } from '@/lib/prisma';
 import { Chart } from '@/components/chart/Chart';
 import { PageLayout } from '@/components/layout/PageLayout';
 import { ensureUserIsAdmin } from '../admin';
+import { createDataTable } from '@brickninja-org/ui/components/table/DataTable';
+import { FormatNumber } from '@/components/format/FormatNumber';
 
 type Interval = 'hour' | 'day';
 type Days = '7' | '30';
@@ -56,6 +57,8 @@ export default async function AdminViewsPage({ searchParams }: PageProps) {
 
   const { views, mostViewed } = await getViews(interval, days);
 
+  const Views = createDataTable(mostViewed, (view) => view.pageId);
+
   return (
     <PageLayout>
       <Headline id="views" actions={[
@@ -76,24 +79,11 @@ export default async function AdminViewsPage({ searchParams }: PageProps) {
       <Headline id="most-viewed">
         Most Viewed Pages
       </Headline>
-      <Table>
-        <thead>
-          <tr>
-            <th>Page</th>
-            <th>ID</th>
-            <th>Views</th>
-          </tr>
-        </thead>
-        <tbody>
-          {mostViewed.map((view) => (
-            <tr key={`${view.page}-${view.pageId}`}>
-              <td>{view.page}</td>
-              <td>{view.pageId}</td>
-              <td>{view._sum.count}</td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
+      <Views.Table>
+        <Views.Column id="page" title="Page">{({ page }) => page}</Views.Column>
+        <Views.Column id="pageId" title="ID" align="end" small>{({ pageId }) => pageId}</Views.Column>
+        <Views.Column id="views" title="Views" align="end" small>{({ _sum }) => <FormatNumber value={_sum.count}/>}</Views.Column>
+      </Views.Table>
     </PageLayout>
   );
 }
