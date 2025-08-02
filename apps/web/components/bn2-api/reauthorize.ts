@@ -16,7 +16,7 @@ export async function reauthorize(requiredScopes: Scope[], prompt?: Authorizatio
   const redirect_uri = new URL('/auth/callback', currentUrl).toString();
 
   // get scopes
-  const scopes = Array.from(new Set([Scope.Identify, Scope.Accounts, Scope.Accounts_DisplayName, ...requiredScopes]));
+  const scopes = Array.from(new Set([Scope.Identify, /* Scope.Accounts, Scope.Accounts_DisplayName, */ ...requiredScopes]));
 
   const auth = await prepareAuthRequest(currentUrl.pathname + currentUrl.search);
 
