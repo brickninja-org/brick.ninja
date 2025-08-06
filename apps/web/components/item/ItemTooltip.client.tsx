@@ -40,10 +40,10 @@ export const ClientItemTooltip: FC<ClientItemTooltipProps> = ({ tooltip, hideTit
         <div className="mb-1">
           {tooltip.color.name}
         </div>
-        {tooltip.color.code && (
+        {tooltip.color && (
           <div className="flex gap-2">
-            <Tip preferredPlacement="bottom" tip="Element">
-              <DyeColor color={hexToRgb(tooltip.color.code)}/>
+            <Tip preferredPlacement="bottom" tip="Plastic">
+              <DyeColor color={hexToRgb(tooltip.color.colors.plastic)}/>
             </Tip>
           </div>
 )}

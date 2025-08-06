@@ -55,9 +55,9 @@ export async function createTooltip(item: Item, language: Language) {
     name: item.name || '???',
     icon,
     type: item.details?.type ? t(`item.type.short.${item.type}.${item.details.type}` as TranslationId) : t(`item.type.${item.type}`),
-    category: item.details?.category ? item.details.category : undefined,
+    category: item.details?.category_id ? item.details.category_id : undefined,
     elementId: item.details?.design_id ? `${item.id.toString()}/${item.details.design_id.toString()}` : undefined,
-    color: elementColor ? { id: elementColor.id, name: localizedName(elementColor, language), code: elementColor.plastic_code } : undefined,
+    color: elementColor ? { id: elementColor.id, name: localizedName(elementColor, language), colors: { plastic: elementColor.plastic_code }} : undefined,
     /*
     flags: [
       item.flags.includes('NoInstructions') && t('item.flag.NoInstructions'),
@@ -101,9 +101,9 @@ export interface ItemTooltip {
   name: string;
   icon?: { id: number; signature: string; extension: string; };
   type?: string;
-  category?: string;
+  category?: number;
   elementId?: string;
-  color?: { id: number; name: string; code: string | null; };
+  color?: { id: number; name: string; colors: { plastic: string }};
   // flags: string[];
   /*
   number: string;
