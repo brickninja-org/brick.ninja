@@ -5,9 +5,10 @@ import type { Product } from '@brickninjaapi/types/data/product';
 import type { TranslationSubset } from '@/lib/translate';
 
 import { useEffect, useState } from 'react';
+
 import { useFormatContext } from '@/components/format/Format.context';
 import { DataList } from '@/components/info-box/DataList';
-import { FormatNumber } from '../format/FormatNumber';
+import { FormatNumber } from '@/components/format/FormatNumber';
 
 interface PriceGuideProps {
   data: Product;
