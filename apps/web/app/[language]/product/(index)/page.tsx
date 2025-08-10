@@ -1,9 +1,10 @@
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 
 import { db } from '@/lib/prisma';
-import { Scanner } from '@/components/barcode-scanner/Scanner';
 // import { Translate } from '@/components/i18n/Translate';
 import { HeroLayout } from '@/components/layout/HeroLayout';
+import { isTruthy } from '@brickninja-org/helper/is';
+import { ScannerClient } from './Scanner.client';
 
 const getBarcodes = async () => {
   const items = await db.item.findMany({
@@ -11,22 +12,16 @@ const getBarcodes = async () => {
     select: { barcode: true },
   });
 
-  return items.map((item) => item.barcode);
+  return items.map((item) => item.barcode).filter(isTruthy);
 };
 
 export default async function BarcodeScannerPage() {
-  const codes = await getBarcodes();
+  const barcodes = await getBarcodes();
 
   return (
     <HeroLayout hero={<Headline id="scanner">Barcode Scanner</Headline>}>
       <div>
-        <Scanner onScanAction={(code) => {
-          if (codes.includes(code)) {
-            console.log(`Scanned barcode: ${code}`);
-          } else {
-            console.log(`Unknown barcode: ${code}`);
-          }
-        }}/>
+        <ScannerClient barcodes={barcodes}/>
       </div>
     </HeroLayout>
   );

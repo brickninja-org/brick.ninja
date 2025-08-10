@@ -1,11 +1,11 @@
-'use client';
+import type { FC } from 'react';
 
-import { useState, type FC } from 'react';
+import { useState } from 'react';
 import { useTailwindBreakpoint } from '../tailwind/Tailwind.context';
 import { BarcodeScanner } from './BarcodeScanner';
 
 export type ScannerProps = {
-  onScanAction: (code: string) => void;
+  onScan: (code: string) => void;
 };
 
 const SCANNER_SIZES = {
@@ -30,7 +30,7 @@ export const ScannerSizes = {
   'forced-lg': SCANNER_SIZES.LG,
 } as const;
 
-export const Scanner: FC<ScannerProps> = ({ onScanAction }) => {
+export const Scanner: FC<ScannerProps> = ({ onScan }) => {
   const breakpoint = useTailwindBreakpoint() ?? 'loading';
 
   const [forcedSize, setForcedSize] = useState<keyof typeof ScannerSizes>();
@@ -55,7 +55,7 @@ export const Scanner: FC<ScannerProps> = ({ onScanAction }) => {
     }
     codes.push(code);
     setCodes(codes);
-    onScanAction(code);
+    onScan(code);
   };
 
   const onDevices = (devices: MediaDeviceInfo[]) => {
