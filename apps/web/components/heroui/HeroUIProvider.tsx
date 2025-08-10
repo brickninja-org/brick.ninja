@@ -4,7 +4,9 @@ import type { ReactNode } from 'react';
 
 import { useRouter } from 'next/navigation';
 import { HeroUIProvider as Provider } from '@heroui/react';
-import { useFormatContext } from '../format/Format.context';
+
+import { TailwindProvider } from '@/components/tailwind/Tailwind.context';
+import { useFormatContext } from '@/components/format/Format.context';
 
 export interface HeroUIProps {
   children: ReactNode;
@@ -25,8 +27,10 @@ export const HeroUIProvider = ({ children }: HeroUIProps) => {
   ];
 
   return (
-    <Provider navigate={router.push} locale={supportedLocaleValues.includes(locale) ? locale : 'en-US'}>
-      {children}
-    </Provider>
+    <TailwindProvider>
+      <Provider navigate={router.push} locale={supportedLocaleValues.includes(locale) ? locale : 'en-US'}>
+        {children}
+      </Provider>
+    </TailwindProvider>
   );
 };
