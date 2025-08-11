@@ -127,16 +127,16 @@
   --animate-slide-in: slideIn 0.1s ease-out;
 
   @keyframes slide-in {
-    0% { tranform: translateY(-48px) }
+    0% { transform: translateY(-48px) }
   }
 
   @keyframes grow-scanner-container {
-    from {
+    0% {
       --animated-video-width: 0;
       --animated-video-height: 0;
       transform: scale(0);
     }
-    to {
+    100% {
       --animated-video-width: var(--video-crop-width);
       --animated-video-height: var(--video-crop-height);
       width: var(--video-crop-width);
@@ -146,12 +146,22 @@
   }
 
   @keyframes scanline {
-    from {
+    0% {
       top: var(--canvas-element-top);
     }
-    to {
+    100% {
       top: calc(var(--canvas-element-top) + var(--canvas-height));
     }
+  }
+}
+
+@layer utilities {
+  .animate-grow-scanner-container {
+    animation: grow-scanner-container 0.4s linear 1 paused;
+  }
+
+  .animate-scanline {
+    animation: scanline 1.5s linear infinite;
   }
 }
 
