@@ -2,17 +2,13 @@
 
 import type { FC } from 'react';
 
-import { Suspense, useCallback, useEffect } from 'react';
+import { Suspense, useCallback } from 'react';
 
 // import { useTailwindBreakpoint } from '@/components/tailwind/Tailwind.context';
 import { Scanner } from '@/components/barcode-scanner/Scanner';
 import { BarcodeProvider, useBarcodes } from './Barcodes.context';
 
-export type ScannerClientProps = {
-  barcodes: string[];
-};
-
-export const ScannerClient: FC<ScannerClientProps> = ({ barcodes }) => {
+export const ScannerClient: FC = () => {
   // const breakpoint = useTailwindBreakpoint();
   const { codes, setCodes } = useBarcodes();
 
@@ -26,14 +22,6 @@ export const ScannerClient: FC<ScannerClientProps> = ({ barcodes }) => {
       updateCodes(codes);
     }
   };
-
-  useEffect(() => {
-    if (!barcodes) {
-      return;
-    }
-
-    updateCodes(barcodes);
-  }, [barcodes, updateCodes]);
 
   return (
     <BarcodeProvider>
