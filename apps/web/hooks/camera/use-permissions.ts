@@ -40,7 +40,7 @@ async function getHasDeviceLabels(): Promise<boolean> {
   const mediaDeviceInfos = await navigator.mediaDevices?.enumerateDevices?.();
 
   return !!mediaDeviceInfos?.find((mediaDeviceInfo: MediaDeviceInfo) => {
-    return mediaDeviceInfo.deviceId?.length > 0 && mediaDeviceInfo.kind === 'videoinput';
+    return mediaDeviceInfo.deviceId?.length > 0;
   });
 }
 

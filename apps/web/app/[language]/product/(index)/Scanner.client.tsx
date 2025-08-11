@@ -30,6 +30,23 @@ export const ScannerClient: FC = () => {
           <Scanner onScan={onScan}/>
         </div>
       </Suspense>
+      <Suspense>
+        <div id="scan-list" className="relative w-full h-hull">
+          <div className="flex flex-col justify-center h-full w-full">
+            {codes.length > 0
+              ? (
+                <div>
+                  <p>Scanned ({codes.length})</p>
+                </div>
+              )
+              : (
+                <div>
+                  <p>No barcodes scanned</p>
+                </div>
+              )}
+          </div>
+        </div>
+      </Suspense>
     </BarcodeProvider>
   );
 };
