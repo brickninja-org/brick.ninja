@@ -5,11 +5,11 @@ import type { Language } from '@brickninja-org/database';
 
 import { useCallback, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Button } from '@heroui/react';
+import { Button, Radio, RadioGroup } from '@heroui/react';
 
 import { Dropdown } from '@brickninja-org/ui/components/dropdown/Dropdown';
-import { Radiobutton } from '@brickninja-org/ui/components/form/Radiobutton';
-import { MenuList } from '@brickninja-org/ui/components/layout/MenuList';
+// import { Radiobutton } from '@brickninja-org/ui/components/form/Radiobutton';
+// import { MenuList } from '@brickninja-org/ui/components/layout/MenuList';
 import { Separator } from '@brickninja-org/ui/components/layout/Separator';
 import { Icon } from '@brickninja-org/ui/icons';
 
@@ -49,15 +49,16 @@ export const LanguageDropdown: FC = () => {
           </Button>
         )}
       >
-        <MenuList>
-          <Radiobutton checked={language === 'de'} onChange={() => changeLanguage('de')}>{languages.de}</Radiobutton>
-          <Radiobutton checked={language === 'en'} onChange={() => changeLanguage('en')}>{languages.en}</Radiobutton>
-          <Radiobutton checked={language === 'es'} onChange={() => changeLanguage('es')}>{languages.es}</Radiobutton>
-          <Radiobutton checked={language === 'fr'} onChange={() => changeLanguage('fr')}>{languages.fr}</Radiobutton>
-          <Radiobutton checked={language === 'nl'} onChange={() => changeLanguage('nl')}>{languages.nl}</Radiobutton>
-          <Separator/>
-          <Button radius="sm" variant="light" onPress={() => setFormatDialogOpen(true)}>Formatting Settings</Button>
-        </MenuList>
+        <RadioGroup
+          value={language}
+          onValueChange={(value) => changeLanguage(value as Language)}
+        >
+          {Object.entries(languages).map(([code, label]) => (
+            <Radio key={code} value={code}>{label}</Radio>
+          ))}
+        </RadioGroup>
+        <Separator/>
+        <Button radius="sm" variant="light" onPress={() => setFormatDialogOpen(true)}>Formatting Settings</Button>
       </Dropdown>
 
       <FormatConfigDialog open={formatDialogOpen} onClose={() => setFormatDialogOpen(false)}/>

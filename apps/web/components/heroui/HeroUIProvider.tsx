@@ -8,6 +8,12 @@ import { HeroUIProvider as Provider } from '@heroui/react';
 import { TailwindProvider } from '@/components/tailwind/Tailwind.context';
 import { useFormatContext } from '@/components/format/Format.context';
 
+declare module '@react-types/shared' {
+  interface RouterConfig {
+    routerOptions: NonNullable<Parameters<ReturnType<typeof useRouter>['push']>[1]>;
+  }
+}
+
 export interface HeroUIProps {
   children: ReactNode;
 }

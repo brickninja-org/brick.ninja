@@ -1,11 +1,12 @@
 import type { FC } from 'react';
 
 import { useMemo } from 'react';
+import { Select, SelectItem } from '@heroui/react';
 
 import { Dialog } from '@brickninja-org/ui/components/dialog/Dialog';
-import { Label } from '@brickninja-org/ui/components/form/Label';
+// import { Label } from '@brickninja-org/ui/components/form/Label';
 import { MenuList } from '@brickninja-org/ui/components/layout/MenuList';
-import { Select } from '@brickninja-org/ui/components/form/Select';
+// import { Select } from '@brickninja-org/ui/components/form/Select';
 
 import { useFormatContext } from '@/components/format/Format.context';
 import { FormatDate } from '@/components/format/FormatDate';
@@ -62,13 +63,33 @@ export const FormatConfigDialog: FC<FormatConfigDialogProps> = ({ open, onClose 
         <CookieNotification/>
 
         <div className="flex flex-col sm:flex-row gap-4">
-          <Label label="Language">
-            <Select options={[{ label: `Current language (${currentLanguage})`, value: 'auto' }, ...languages]} value={language} onChange={(language) => setLocale(language, region)}/>
-          </Label>
+          <Select
+            items={[{ label: `Current language (${currentLanguage})`, value: 'auto' }, ...languages]}
+            selectedKeys={[language]}
+            label="Language"
+            placeholder="Select a language"
+            radius="sm"
+            variant="bordered"
+            className="max-w-xs"
+            onChange={(e) => setLocale(e.target.value, region)}
+          >
+            {(item) => <SelectItem key={item.value}>{item.label}</SelectItem>}
+          </Select>
+
           <div className="hidden sm:block mt-6 leading-9">-</div>
-          <Label label="Region">
-            <Select options={[{ label: `Browser region (${defaultRegion})`, value: 'browser' }, ...regions]} value={region} onChange={(region) => setLocale(language, region)}/>
-          </Label>
+
+          <Select
+            items={[{ label: `Browser region (${defaultRegion})`, value: 'browser' }, ...regions]}
+            selectedKeys={[region]}
+            label="Region"
+            placeholder="Select a region"
+            radius="sm"
+            variant="bordered"
+            className="max-w-xs"
+            onChange={(e) => setLocale(language, e.target.value)}
+          >
+            {(item) => <SelectItem key={item.value}>{item.label}</SelectItem>}
+          </Select>
         </div>
 
         <div className="p-4 rounded-xs border bg-(--color-background-light) border-(--color-border-dark)">
