@@ -15,6 +15,14 @@ import { Icon } from '@brickninja-org/ui/icons';
 
 import { useLanguage } from '@/components/i18n/context';
 import { FormatConfigDialog } from '@/components/format/FormatConfigDialog';
+import type { TranslationSubset } from '@/lib/translate';
+
+export interface LanguageDropdownProps {
+  translations: TranslationSubset<
+    | 'language.dropdown.label'
+    | 'language.dropdown.settings'
+  >;
+}
 
 const languages = {
   de: 'Deutsch',
@@ -24,7 +32,7 @@ const languages = {
   nl: 'Nederlands',
 };
 
-export const LanguageDropdown: FC = () => {
+export const LanguageDropdown: FC<LanguageDropdownProps> = ({ translations }) => {
   const { push } = useRouter();
 
   const [formatDialogOpen, setFormatDialogOpen] = useState(false);
@@ -50,6 +58,9 @@ export const LanguageDropdown: FC = () => {
         )}
       >
         <RadioGroup
+          className="pl-0 my-2"
+          label={translations['language.dropdown.label']}
+          size="sm"
           value={language}
           onValueChange={(value) => changeLanguage(value as Language)}
         >
@@ -58,7 +69,7 @@ export const LanguageDropdown: FC = () => {
           ))}
         </RadioGroup>
         <Separator/>
-        <Button radius="sm" variant="light" onPress={() => setFormatDialogOpen(true)}>Formatting Settings</Button>
+        <Button radius="sm" variant="light" onPress={() => setFormatDialogOpen(true)}>{translations['language.dropdown.settings']}</Button>
       </Dropdown>
 
       <FormatConfigDialog open={formatDialogOpen} onClose={() => setFormatDialogOpen(false)}/>
