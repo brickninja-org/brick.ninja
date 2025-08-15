@@ -31,8 +31,11 @@ const Layout: FC<LayoutProps> = ({ children, language }) => {
   ], language);
 
   const languageTranslations = translateMany([
-    'language.dropdown.label',
-    'language.dropdown.settings',
+    'locale.formatting.settings',
+    'language.select.label',
+    'language.select.placeholder',
+    'region.select.label',
+    'region.select.placeholder',
   ], language);
 
   return (

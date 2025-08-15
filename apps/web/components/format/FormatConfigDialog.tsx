@@ -13,8 +13,16 @@ import { FormatDate } from '@/components/format/FormatDate';
 import { FormatNumber } from '@/components/format/FormatNumber';
 import { useLanguage } from '@/components/i18n/context';
 import { CookieNotification } from '@/components/user/CookieNotification';
+import type { TranslationSubset } from '@/lib/translate';
 
 export interface FormatConfigDialogProps {
+  translations: TranslationSubset<
+    | 'locale.formatting.settings'
+    | 'language.select.label'
+    | 'language.select.placeholder'
+    | 'region.select.label'
+    | 'region.select.placeholder'
+  >;
   open: boolean;
   onClose: () => void;
 }
@@ -41,7 +49,7 @@ const { languages: availableLanguages, regions: availableRegions } = typeof wind
     return { ...available, languages: [match[1], ...available.languages.filter((l) => l !== match[1])] };
   }, defaultLocales);
 
-export const FormatConfigDialog: FC<FormatConfigDialogProps> = ({ open, onClose }) => {
+export const FormatConfigDialog: FC<FormatConfigDialogProps> = ({ translations, open, onClose }) => {
   const { locale, language, region, setLocale, defaultRegion, currency } = useFormatContext();
   const currentLanguage = useLanguage();
 
@@ -58,7 +66,7 @@ export const FormatConfigDialog: FC<FormatConfigDialogProps> = ({ open, onClose 
   }, [currentLanguage]);
 
   return (
-    <Dialog title="Formatting Settings" onClose={onClose} open={open}>
+    <Dialog title={translations['locale.formatting.settings']} onClose={onClose} open={open}>
       <div className="flex flex-col gap-4">
         <CookieNotification/>
 
@@ -66,11 +74,11 @@ export const FormatConfigDialog: FC<FormatConfigDialogProps> = ({ open, onClose 
           <Select
             items={[{ label: `Current language (${currentLanguage})`, value: 'auto' }, ...languages]}
             selectedKeys={[language]}
-            label="Language"
-            placeholder="Select a language"
+            label={translations['language.select.label']}
+            placeholder={translations['language.select.placeholder']}
             radius="sm"
             variant="bordered"
-            className="max-w-xs"
+            className="w-full md:max-w-xs"
             onChange={(e) => setLocale(e.target.value, region)}
           >
             {(item) => <SelectItem key={item.value}>{item.label}</SelectItem>}
@@ -81,11 +89,11 @@ export const FormatConfigDialog: FC<FormatConfigDialogProps> = ({ open, onClose 
           <Select
             items={[{ label: `Browser region (${defaultRegion})`, value: 'browser' }, ...regions]}
             selectedKeys={[region]}
-            label="Region"
-            placeholder="Select a region"
+            label={translations['region.select.label']}
+            placeholder={translations['region.select.placeholder']}
             radius="sm"
             variant="bordered"
-            className="max-w-xs"
+            className="w-full md:max-w-xs"
             onChange={(e) => setLocale(language, e.target.value)}
           >
             {(item) => <SelectItem key={item.value}>{item.label}</SelectItem>}

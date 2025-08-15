@@ -5,12 +5,9 @@ import type { Language } from '@brickninja-org/database';
 
 import { useCallback, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Button, Radio, RadioGroup } from '@heroui/react';
+import { Button, Divider, Radio, RadioGroup } from '@heroui/react';
 
 import { Dropdown } from '@brickninja-org/ui/components/dropdown/Dropdown';
-// import { Radiobutton } from '@brickninja-org/ui/components/form/Radiobutton';
-// import { MenuList } from '@brickninja-org/ui/components/layout/MenuList';
-import { Separator } from '@brickninja-org/ui/components/layout/Separator';
 import { Icon } from '@brickninja-org/ui/icons';
 
 import { useLanguage } from '@/components/i18n/context';
@@ -19,8 +16,11 @@ import type { TranslationSubset } from '@/lib/translate';
 
 export interface LanguageDropdownProps {
   translations: TranslationSubset<
-    | 'language.dropdown.label'
-    | 'language.dropdown.settings'
+    | 'locale.formatting.settings'
+    | 'language.select.label'
+    | 'language.select.placeholder'
+    | 'region.select.label'
+    | 'region.select.placeholder'
   >;
 }
 
@@ -52,14 +52,19 @@ export const LanguageDropdown: FC<LanguageDropdownProps> = ({ translations }) =>
         hideTop={false}
         preferredPlacement="bottom"
         button={(
-          <Button radius="sm" variant="light" aria-label={localeName} className="min-w-10 w-10 md:min-w-20 md:w-fit" startContent={<Icon icon="globe"/>}>
+          <Button
+            aria-label={localeName}
+            className="min-w-10 w-10 md:min-w-20 md:w-fit"
+            radius="sm"
+            startContent={<Icon icon="globe"/>}
+            variant="light"
+          >
             <span className="hidden md:block">{localeName}</span>
           </Button>
         )}
       >
         <RadioGroup
-          className="pl-0 my-2"
-          label={translations['language.dropdown.label']}
+          className="px-2 my-2"
           size="sm"
           value={language}
           onValueChange={(value) => changeLanguage(value as Language)}
@@ -68,11 +73,11 @@ export const LanguageDropdown: FC<LanguageDropdownProps> = ({ translations }) =>
             <Radio key={code} value={code}>{label}</Radio>
           ))}
         </RadioGroup>
-        <Separator/>
-        <Button radius="sm" variant="light" onPress={() => setFormatDialogOpen(true)}>{translations['language.dropdown.settings']}</Button>
+        <Divider/>
+        <Button radius="sm" variant="light" onPress={() => setFormatDialogOpen(true)}>{translations['locale.formatting.settings']}</Button>
       </Dropdown>
 
-      <FormatConfigDialog open={formatDialogOpen} onClose={() => setFormatDialogOpen(false)}/>
+      <FormatConfigDialog translations={translations} open={formatDialogOpen} onClose={() => setFormatDialogOpen(false)}/>
     </>
   );
 };
