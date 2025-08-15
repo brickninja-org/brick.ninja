@@ -65,7 +65,6 @@ export const LanguageDropdown: FC<LanguageDropdownProps> = ({ translations }) =>
       >
         <RadioGroup
           className="px-2 my-2"
-          size="sm"
           value={language}
           onValueChange={(value) => changeLanguage(value as Language)}
         >

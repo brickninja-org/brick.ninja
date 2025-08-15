@@ -1,19 +1,17 @@
 import type { FC } from 'react';
+import type { TranslationSubset } from '@/lib/translate';
 
 import { useMemo } from 'react';
 import { Select, SelectItem } from '@heroui/react';
 
 import { Dialog } from '@brickninja-org/ui/components/dialog/Dialog';
-// import { Label } from '@brickninja-org/ui/components/form/Label';
 import { MenuList } from '@brickninja-org/ui/components/layout/MenuList';
-// import { Select } from '@brickninja-org/ui/components/form/Select';
 
 import { useFormatContext } from '@/components/format/Format.context';
 import { FormatDate } from '@/components/format/FormatDate';
 import { FormatNumber } from '@/components/format/FormatNumber';
 import { useLanguage } from '@/components/i18n/context';
 import { CookieNotification } from '@/components/user/CookieNotification';
-import type { TranslationSubset } from '@/lib/translate';
 
 export interface FormatConfigDialogProps {
   translations: TranslationSubset<
