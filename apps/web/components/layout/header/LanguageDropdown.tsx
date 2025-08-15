@@ -61,13 +61,13 @@ export const LanguageDropdown: FC<LanguageDropdownProps> = ({ translations }) =>
         </PopoverTrigger>
         <PopoverContent>
           <RadioGroup
-            className="px-2 my-2"
+            classNames={{ base: 'w-full' }}
             size="sm"
             value={language}
             onValueChange={(value) => changeLanguage(value as Language)}
           >
             {Object.entries(languages).map(([code, label]) => (
-              <Radio key={code} value={code}>{label}</Radio>
+              <Radio classNames={{ base: 'w-full bg-content1 hover:bg-content2' }} key={code} value={code}>{label}</Radio>
             ))}
           </RadioGroup>
           <Divider className="mb-2"/>
