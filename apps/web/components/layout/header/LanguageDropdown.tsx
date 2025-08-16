@@ -73,7 +73,7 @@ export const LanguageDropdown: FC<LanguageDropdownProps> = ({ translations }) =>
           ))}
         </RadioGroup>
         <Divider className="mb-2"/>
-        <Button radius="sm" variant="light" onPress={() => setFormatDialogOpen(true)}>{translations['locale.formatting.settings']}</Button>
+        <Button radius="sm" size="md" variant="light" onPress={() => setFormatDialogOpen(true)}>{translations['locale.formatting.settings']}</Button>
       </Dropdown>
 
       <FormatConfigDialog translations={translations} open={formatDialogOpen} onClose={() => setFormatDialogOpen(false)}/>

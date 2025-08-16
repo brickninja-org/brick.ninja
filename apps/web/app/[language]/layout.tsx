@@ -32,7 +32,7 @@ export default async function RootLayout({ children, modal, params }: LayoutProp
   return (
     <html lang={language} className={cn(bitter.variable)}>
       <head/>
-      <body>
+      <body className="bg-background text-foreground antialiased">
         <I18nProvider language={language}>
           <FormatProvider>
             <HeroUIProvider>
