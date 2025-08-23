@@ -7,13 +7,14 @@ import { LinkButton } from '@brickninja-org/ui/components/form/Button';
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 
 import { localizedName } from '@/lib/localized-name';
+import { translateMany } from '@/lib/translate';
 import { getCurrentUrl } from '@/lib/url';
 import { LanguageLinks } from '@/components/info-box/LanguageLinks';
 import { ShareButton } from '@/components/share-button/ShareButton';
 
 import { ProductLink } from './ProductLink';
-import { translateMany } from '@/lib/translate';
 import { RegionInfo } from './RegionInfo';
+import { Translate } from '../i18n/Translate';
 
 interface ProductInfoboxProps {
   product: Product;
@@ -24,13 +25,13 @@ interface ProductInfoboxProps {
 export const ProductInfobox: FC<ProductInfoboxProps> = async ({ product, data, language }) => {
   const currentUrl = await getCurrentUrl();
 
-  const regionInfoTranslations = translateMany(['priceGuide.rrp', 'priceGuide.ppp'], language);
+  const regionInfoTranslations = translateMany(['regionInfo.rrp', 'regionInfo.ppp', 'regionInfo.release.date', 'regionInfo.discontinuation.date', 'regionInfo.points'], language);
 
   return (
     <div>
       <LanguageLinks link={<ProductLink product={product} icon="none"/>} language={language}/>
 
-      <Headline id="region-info" noToc>Region Info</Headline>
+      <Headline id="region-info" noToc><Translate id="regionInfo.title"/></Headline>
       <RegionInfo data={data} translations={regionInfoTranslations}/>
 
       <Headline id="links" noToc>Links</Headline>
