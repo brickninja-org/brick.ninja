@@ -26,9 +26,9 @@
   "item.type.Gear.KeyChain": "Sleutelhanger",
   "item.type.Minifigure": "Minifiguur",
   "items.new": "Nieuwe items",
-  "priceGuide.title": "Prijsgids",
-  "priceGuide.rrp": "Officiële prijs",
-  "priceGuide.ppp": "per steen",
+  "regionInfo.title": "Regio-informatie",
+  "regionInfo.rrp": "Officiële prijs",
+  "regionInfo.ppp": "per steen",
   "catalog.books": "Boeken",
   "catalog.books.description": "Ontdek een veelzijdige collectie LEGO®-boeken, van avonturen binnen bekende LEGO®-thema’s tot inspirerende gidsen vol unieke creaties voor alle leeftijden."
 }
