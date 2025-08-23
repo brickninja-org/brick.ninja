@@ -3,7 +3,8 @@
 import type { FC, FormEventHandler } from 'react';
 import type { TranslationSubset } from '@/lib/translate';
 
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 
 import { Scope } from '@bn2me/client';
 import { SubmitButton } from '@brickninja-org/ui/components/form/buttons/SubmitButton';
@@ -29,6 +30,9 @@ export interface LoginButtonProps {
 }
 
 export const LoginButton: FC<LoginButtonProps> = ({ scopes, returnTo, logout, translations }) => {
+  const form = useRef<HTMLFormElement>(null);
+  const [error, setError] = useState(false);
+
   const bn2me = useBn2MeClient();
   const triggerFedCM = useFedCM();
   const [fullPermissions, setFullPermissions] = useState(true);
@@ -58,7 +62,7 @@ export const LoginButton: FC<LoginButtonProps> = ({ scopes, returnTo, logout, tr
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = useCallback((e) => {
     // only handle submit if FedCM is supported
-    if (!bn2me.fedCM.isSupported()) {
+    if (!bn2me.fedCM.isSupported() || error) {
       return;
     }
 
@@ -70,8 +74,16 @@ export const LoginButton: FC<LoginButtonProps> = ({ scopes, returnTo, logout, tr
       mediation: 'optional',
       mode: 'active',
       returnTo,
+    }).catch((error) => {
+      console.error(error);
+      setError(true);
+
+      // attempt resubmit without FedCM if FedCM is not supported
+      if (error instanceof Error && error.name === 'NotSupportedError') {
+        form.current?.requestSubmit();
+      }
     });
-  }, [bn2me.fedCM, fullPermissions, returnTo, scopes, triggerFedCM]);
+  }, [bn2me.fedCM, error, fullPermissions, returnTo, scopes, triggerFedCM]);
 
   return (
     <>
@@ -79,7 +91,9 @@ export const LoginButton: FC<LoginButtonProps> = ({ scopes, returnTo, logout, tr
         <span className="relative top-[-1] leading-normal">{translations['login.grant-all']}</span>
       </Checkbox>
       {!fullPermissions && (
-        <div className="mt-4 text-[15px] text-muted leading-tight">{translations['login.grant-all.hint']}</div>
+        <div className="mt-4 text-[15px] text-muted leading-tight">
+          {translations['login.grant-all.hint']}
+        </div>
       )}
 
       <form action={redirectToBn2Me.bind(null, returnTo, (fullPermissions ? fullScopes : scopes).join(' '))} onSubmit={handleSubmit}>
@@ -87,6 +101,12 @@ export const LoginButton: FC<LoginButtonProps> = ({ scopes, returnTo, logout, tr
           {translations['login.button']}
         </SubmitButton>
       </form>
+
+      {error && (
+        <div className="mt-2 text-medium text-red-600 leading-tight">
+          Error during authentication. Please contact <Link href="/about#contact">support</Link> if this error persists.
+        </div>
+      )}
     </>
   );
 };
