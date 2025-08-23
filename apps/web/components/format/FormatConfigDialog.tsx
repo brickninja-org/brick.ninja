@@ -26,7 +26,7 @@ export interface FormatConfigDialogProps {
 }
 
 const defaultLocales = { languages: ['de', 'en', 'es', 'fr', 'nl'], regions: ['BE', 'CA', 'DE', 'ES', 'FR', 'GB', 'NL', 'US'] };
-const localeRegex = /^([a-z]{2,4})([_-][a-z]{4})?[_-]([a-z]{2,3})?/i;
+const localeRegex = /^([a-z]{2,4})([_-][a-z]{4})?[_-]([a-z]{2,3})?\b/i;
 
 const { languages: availableLanguages, regions: availableRegions } = typeof window === 'undefined'
   ? defaultLocales
@@ -52,15 +52,15 @@ export const FormatConfigDialog: FC<FormatConfigDialogProps> = ({ translations, 
   const currentLanguage = useLanguage();
 
   const languages = useMemo(() => {
-    const formatter = new Intl.DisplayNames(currentLanguage, { type: 'language' });
+    const formatter = new Intl.DisplayNames(currentLanguage, { type: 'language', fallback: 'none' });
 
-    return availableLanguages.map((lang) => ({ value: lang, label: `${formatter.of(lang)} (${lang})` }));
+    return availableLanguages.map((lang) => ({ value: lang, label: tryFormat(formatter, lang) }));
   }, [currentLanguage]);
 
   const regions = useMemo(() => {
-    const formatter = new Intl.DisplayNames(currentLanguage, { type: 'region' });
+    const formatter = new Intl.DisplayNames(currentLanguage, { type: 'region', fallback: 'none' });
 
-    return availableRegions.map((region) => ({ value: region, label: `${formatter.of(region)} (${region})` }));
+    return availableRegions.map((region) => ({ value: region, label: tryFormat(formatter, region) }));
   }, [currentLanguage]);
 
   return (
@@ -103,11 +103,20 @@ export const FormatConfigDialog: FC<FormatConfigDialogProps> = ({ translations, 
             <div className="flex justify-between py-0.5 px-2">Locale <span>{locale}</span></div>
             <div className="flex justify-between py-0.5 px-2">Date <FormatDate date={new Date()}/></div>
             <div className="flex justify-between py-0.5 px-2">Relative Date <FormatDate relative date={new Date()}/></div>
-            <div className="flex justify-between py-0.5 px-2">Number <span><FormatNumber value={123456.89}/></span></div>
-            <div className="flex justify-between py-0.5 px-2">Currency <span><FormatNumber value={123456.89} options={{ style: 'currency', currency }}/></span></div>
+            <div className="flex justify-between py-0.5 px-2">Number <span><FormatNumber value={1234567.89}/></span></div>
+            <div className="flex justify-between py-0.5 px-2">Currency <span><FormatNumber value={1234567.89} options={{ style: 'currency', currency }}/></span></div>
           </MenuList>
         </div>
       </div>
     </Dialog>
   );
 };
+
+function tryFormat(formatter: Intl.DisplayNames, code: string) {
+  try {
+    const formatted = formatter.of(code);
+    return formatted ? `${formatted} (${code})` : code;
+  } catch {
+    return code;
+  }
+}
