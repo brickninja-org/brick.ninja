@@ -36,10 +36,10 @@ export const RegionInfo: FC<RegionInfoProps> = ({ data, translations }) => {
   return (
     <DataList data={[
       currentRegion && currentRegion.release_date
-        ? { label: translations['regionInfo.release.date'], value: <FormatDate date={currentRegion.release_date}/>, key: 'release_date' }
+        ? { label: translations['regionInfo.release.date'], value: <FormatDate date={new Date(currentRegion.release_date)}/>, key: 'release_date' }
         : false,
       currentRegion && currentRegion.discontinuation_date
-        ? { label: translations['regionInfo.discontinuation.date'], value: <FormatDate date={currentRegion.discontinuation_date} relative/>, key: 'discontinuation_date' }
+        ? { label: translations['regionInfo.discontinuation.date'], value: <FormatDate date={new Date(currentRegion.discontinuation_date)} relative/>, key: 'discontinuation_date' }
         : false,
       currentRegion
         ? { label: translations['regionInfo.rrp'], value: <FormatNumber value={currentRegion.price / 100} options={{ style: 'currency', currency, currencyDisplay: 'narrowSymbol' }}/>, key: 'rrp' }
