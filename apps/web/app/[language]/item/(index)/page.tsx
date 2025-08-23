@@ -1,5 +1,4 @@
 import type { Language } from '@brickninja-org/database';
-import type { PageProps } from '@/lib/next';
 
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 
@@ -7,6 +6,7 @@ import { cache } from '@/lib/cache';
 import { linkProperties } from '@/lib/link-properties';
 import { createMetadata } from '@/lib/metadata';
 import { db } from '@/lib/prisma';
+import { getLanguage } from '@/lib/translate';
 import { FormatDate } from '@/components/format/FormatDate';
 import { ItemLink } from '@/components/item/ItemLink';
 import { ItemList, ItemListItem } from '@/components/item/ItemList';
@@ -30,8 +30,8 @@ const getItems = cache(async (language: Language) => {
   return { recentlyAdded, recentlyUpdated };
 }, ['items'], { revalidate: 60 });
 
-export default async function ItemPage({ params }: PageProps) {
-  const { language } = await params;
+export default async function ItemPage() {
+  const language = await getLanguage();
 
   const { recentlyAdded, recentlyUpdated } = await getItems(language);
 

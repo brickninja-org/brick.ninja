@@ -3,20 +3,23 @@ import type { PageProps } from '@/lib/next';
 import { notFound } from 'next/navigation';
 
 import { createMetadata } from '@/lib/metadata';
+import { getLanguage } from '@/lib/translate';
 import { getRevision } from '../data';
 import { ProductPageComponent } from '../Component';
 
 export type ProductRevisionPageProps = PageProps<{ id: string; revisionId: string }>;
 
 export default async function ProductRevisionPage({ params }: ProductRevisionPageProps) {
-  const { id, revisionId, language } = await params;
+  const language = await getLanguage();
+  const { id, revisionId } = await params;
   const productId = Number(id);
 
   return <ProductPageComponent productId={productId} revisionId={revisionId} language={language}/>;
 }
 
 export const generateMetadata = createMetadata<ProductRevisionPageProps>(async ({ params }) => {
-  const { language, id, revisionId } = await params;
+  const language = await getLanguage();
+  const { id, revisionId } = await params;
   const productId = Number(id);
   const { data } = await getRevision(productId, language, revisionId);
 

@@ -1,10 +1,8 @@
-import type { PageProps } from '@/lib/next';
-
 import { cache } from '@/lib/cache';
 import { localizedName } from '@/lib/localized-name';
 import { createMetadata } from '@/lib/metadata';
 import { db } from '@/lib/prisma';
-import { getTranslate } from '@/lib/translate';
+import { getLanguage, getTranslate } from '@/lib/translate';
 import { Translate } from '@/components/i18n/Translate';
 import { Description } from '@/components/layout/Description';
 import { Notice } from '@/components/notice/Notice';
@@ -33,8 +31,8 @@ const getProductCategories = cache(
   { revalidate: 60 },
 );
 
-export default async function ProductPage({ params }: PageProps) {
-  const { language } = await params;
+export default async function ProductPage() {
+  const language = await getLanguage();
   const [sets, productCategories] = await Promise.all([
     getSets(),
     getProductCategories(),
@@ -78,8 +76,8 @@ function strip(text: string | undefined | null) {
     .replace(/<br\/?>/g, '\n');
 }
 
-export const generateMetadata = createMetadata(async ({ params }) => {
-  const { language } = await params;
+export const generateMetadata = createMetadata(async () => {
+  const language = await getLanguage();
   const t = getTranslate(language);
 
   return {

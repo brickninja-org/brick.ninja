@@ -1,9 +1,9 @@
 import type { Language } from '@brickninja-org/database';
-import type { PageProps } from '@/lib/next';
 
 import { cache } from '@/lib/cache';
 import { createMetadata } from '@/lib/metadata';
 import { db } from '@/lib/prisma';
+import { getLanguage } from '@/lib/translate';
 import { BuildTable } from './BuildTable';
 
 const getBuilds = cache(async (language: Language) => {
@@ -21,8 +21,8 @@ const getBuilds = cache(async (language: Language) => {
   return { builds, updates };
 }, ['builds'], { revalidate: 600 });
 
-export default async function BuildPage({ params }: PageProps) {
-  const { language } = await params;
+export default async function BuildPage() {
+  const language = await getLanguage();
   const { builds, updates } = await getBuilds(language);
 
   const buildsWithUpdates = builds.map((build) => ({

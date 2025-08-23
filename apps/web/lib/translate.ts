@@ -1,8 +1,9 @@
 import 'server-only';
 
-import type { Language } from '@brickninja-org/database';
+import { Language } from '@brickninja-org/database';
 
 import { headers } from 'next/headers';
+import { unstable_rootParams } from 'next/server';
 
 import de from '../dictionary/de.json';
 import en from '../dictionary/en.json';
@@ -50,8 +51,25 @@ export function translateMany<T extends TranslationId>(ids: T[], language: Langu
 }
 
 export async function getLanguage() {
-  // TODO: use getRootParams once those are supported
-  const language = (await headers()).get('x-bn-lang') as Language;
+ // TODO: replace with `next/rootParams`
+  const { language } = await unstable_rootParams();
 
-  return language;
+  return isValidLanguage(language)
+    ? language
+    : await getFallbackLanguageFromHeaders();
+}
+
+async function getFallbackLanguageFromHeaders(): Promise<Language> {
+  // get language from internal `x-bn-lang` header
+  const language = (await headers()).get('x-bn-lang');
+
+  if (isValidLanguage(language)) {
+    return language;
+  }
+
+  throw new Error('Could not detect language');
+}
+
+function isValidLanguage(language: unknown): language is Language {
+  return !!language && typeof language === 'string' && language in Language;
 }

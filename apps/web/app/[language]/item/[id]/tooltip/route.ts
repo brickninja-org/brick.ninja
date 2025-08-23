@@ -8,6 +8,7 @@ import { NextResponse } from 'next/server';
 
 import { cache } from '@/lib/cache';
 import { db } from '@/lib/prisma';
+import { getLanguage } from '@/lib/translate';
 import { createTooltip } from '@/components/item/ItemTooltip';
 
 const getItemRevision = cache(function (id: number, language: Language, revisionId?: string) {
@@ -17,7 +18,8 @@ const getItemRevision = cache(function (id: number, language: Language, revision
 }, ['item-tooltip'], { revalidate: 60 });
 
 export const GET: RouteHandler<{ id: string }> = async (request, { params }) => {
-  const { language, id } = await params;
+  const language = await getLanguage();
+  const { id } = await params;
   const itemId = Number(id);
 
   const { searchParams } = new URL(request.url);

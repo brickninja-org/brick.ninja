@@ -3,7 +3,7 @@ import type { LayoutProps } from '@/lib/next';
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 
 import { createMetadata } from '@/lib/metadata';
-import { translate } from '@/lib/translate';
+import { getLanguage, translate } from '@/lib/translate';
 import { Translate } from '@/components/i18n/Translate';
 import { HeroLayout } from '@/components/layout/HeroLayout';
 import { Navbar } from '@/components/layout/Navbar';
@@ -28,8 +28,8 @@ export default function CatalogLayout({ children }: LayoutProps) {
   );
 }
 
-export const generateMetadata = createMetadata(async ({ params }) => {
-  const { language } = await params;
+export const generateMetadata = createMetadata(async () => {
+  const language = await getLanguage();
 
   return {
     title: {

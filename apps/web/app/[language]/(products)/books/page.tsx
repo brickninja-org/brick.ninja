@@ -1,12 +1,10 @@
-import type { PageProps } from '@/lib/next';
-
 import { Notice } from '@brickninja-org/ui/components/notice/Notice';
 
 import { cache } from '@/lib/cache';
 import { localizedName } from '@/lib/localized-name';
 import { createMetadata } from '@/lib/metadata';
 import { db } from '@/lib/prisma';
-import { getTranslate } from '@/lib/translate';
+import { getLanguage, getTranslate } from '@/lib/translate';
 import { Translate } from '@/components/i18n/Translate';
 import { Description } from '@/components/layout/Description';
 import { ColumnSelect } from '@/components/table/ColumnSelect';
@@ -34,8 +32,8 @@ const getProductCategories = cache(
   { revalidate: 60 },
 );
 
-export default async function BooksPage({ params }: PageProps) {
-  const { language } = await params;
+export default async function BooksPage() {
+  const language = await getLanguage();
   const [books, productCategories] = await Promise.all([
     getBooks(),
     getProductCategories(),
@@ -79,8 +77,8 @@ function strip(text: string | undefined | null) {
     .replace(/<br\/?>/g, '\n');
 }
 
-export const generateMetadata = createMetadata(async ({ params }) => {
-  const { language } = await params;
+export const generateMetadata = createMetadata(async () => {
+  const language = await getLanguage();
   const t = getTranslate(language);
 
   return {

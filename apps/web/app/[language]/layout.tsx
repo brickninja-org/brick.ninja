@@ -11,6 +11,7 @@ import { cn } from '@brickninja-org/ui/lib';
 import { DataTableContext } from '@brickninja-org/ui/components/table/DataTable.context';
 
 import { client_id } from '@/lib/bn2me';
+import { getLanguage } from '@/lib/translate';
 import { Bn2MeProvider } from '@/components/bn2me/Bn2Me.context';
 import { FormatProvider } from '@/components/format/Format.context';
 import { I18nProvider } from '@/components/i18n/I18nProvider';
@@ -26,8 +27,8 @@ const bitter = Bitter({
   variable: '--font-bitter',
 });
 
-export default async function RootLayout({ children, modal, params }: LayoutProps & { modal?: ReactNode }) {
-  const { language } = await params;
+export default async function RootLayout({ children, modal }: LayoutProps & { modal?: ReactNode }) {
+  const language = await getLanguage();
 
   return (
     <html lang={language} className={cn(bitter.variable)}>

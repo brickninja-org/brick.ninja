@@ -2,10 +2,12 @@ import type { RouteHandler } from '@/lib/next';
 
 import { notFound } from 'next/navigation';
 
+import { getLanguage } from '@/lib/translate';
 import { pageSize, sitemaps } from '../../sitemaps';
 
 export const GET: RouteHandler<{ type: string, page: string }> = async (_, { params }) => {
-  const { language, type, page } = await params;
+  const language = await getLanguage();
+  const { type, page } = await params;
 
   if(!(type in sitemaps)) {
     notFound();

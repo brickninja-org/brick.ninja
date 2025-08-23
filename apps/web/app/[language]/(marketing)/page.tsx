@@ -1,5 +1,4 @@
 import type { FC, ReactNode } from 'react';
-import type { PageProps } from '@/lib/next';
 
 import { Suspense } from 'react';
 import Link from 'next/link';
@@ -10,6 +9,7 @@ import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 import { cache } from '@/lib/cache';
 import { createMetadata } from '@/lib/metadata';
 import { db } from '@/lib/prisma';
+import { getLanguage } from '@/lib/translate';
 import { FormatDate } from '@/components/format/FormatDate';
 import { FormatNumber } from '@/components/format/FormatNumber';
 import { ItemList, ItemListItem } from '@/components/item/ItemList';
@@ -20,8 +20,8 @@ import { PageView } from '@/components/page-view/PageView';
 import { Translate } from '@/components/i18n/Translate';
 import { ProductLink } from '@/components/product/ProductLink';
 
-async function MarketingPage({ params }: PageProps) {
-  const { language } = await params;
+async function MarketingPage() {
+  const language = await getLanguage();
 
   return (
     <HeroLayout hero={(

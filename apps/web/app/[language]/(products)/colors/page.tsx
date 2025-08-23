@@ -1,5 +1,4 @@
 import type { Language } from '@brickninja-org/database';
-import type { PageProps } from '@/lib/next';
 
 import { unstable_cache } from 'next/cache';
 import { createDataTable } from '@brickninja-org/ui/components/table/DataTable';
@@ -7,7 +6,7 @@ import { createDataTable } from '@brickninja-org/ui/components/table/DataTable';
 import { compareLocalizedName, localizedName } from '@/lib/localized-name';
 import { createMetadata } from '@/lib/metadata';
 import { db } from '@/lib/prisma';
-import { getTranslate } from '@/lib/translate';
+import { getLanguage, getTranslate } from '@/lib/translate';
 import { Translate } from '@/components/i18n/Translate';
 import { Description } from '@/components/layout/Description';
 import { ColumnSelect } from '@/components/table/ColumnSelect';
@@ -31,8 +30,8 @@ const getColors = unstable_cache((language: Language) => {
   });
 }, ['get-colors']);
 
-export default async function ColorsPage({ params }: PageProps) {
-  const { language } = await params;
+export default async function ColorsPage() {
+  const language = await getLanguage();
   const colors = await getColors(language);
 
   const Colors = createDataTable(colors, ({ id }) => id);
@@ -64,8 +63,8 @@ export default async function ColorsPage({ params }: PageProps) {
   );
 }
 
-export const generateMetadata = createMetadata(async ({ params }) => {
-  const { language } = await params;
+export const generateMetadata = createMetadata(async () => {
+  const language = await getLanguage();
   const t = getTranslate(language);
 
   return {

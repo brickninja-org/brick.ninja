@@ -17,6 +17,7 @@ import { localizedName } from '@/lib/localized-name';
 import { getLoginUrlWithReturnTo } from '@/lib/login-url';
 import { createMetadata } from '@/lib/metadata';
 import { db } from '@/lib/prisma';
+import { getLanguage } from '@/lib/translate';
 import { FormatDate } from '@/components/format/FormatDate';
 import { FormatNumber } from '@/components/format/FormatNumber';
 import { ItemLink } from '@/components/item/ItemLink';
@@ -137,7 +138,8 @@ export default async function ReviewContainerContentPage({ params, searchParams 
 }
 
 export const generateMetadata = createMetadata<ReviewContainerContentPageProps>(async ({ params }) => {
-  const { language, id } = await params;
+  const language = await getLanguage();
+  const { id } = await params;
   const { item } = await getReview(id);
 
   return {

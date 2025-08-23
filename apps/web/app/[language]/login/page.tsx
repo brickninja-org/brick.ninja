@@ -10,13 +10,13 @@ import { Icon } from '@brickninja-org/ui/icons';
 import { getUser } from '@/lib/get-user';
 import { getReturnToUrl } from '@/lib/login-url';
 import { createMetadata } from '@/lib/metadata';
-import { getTranslate, translateMany } from '@/lib/translate';
+import { getLanguage, getTranslate, translateMany } from '@/lib/translate';
 import { Translate } from '@/components/i18n/Translate';
 import { PageLayout } from '@/components/layout/PageLayout';
 import { LoginButton } from './Login.client';
 
-export default async function LoginPage({ searchParams, params }: PageProps) {
-  const { language } = await params;
+export default async function LoginPage({ searchParams }: PageProps) {
+  const language = await getLanguage();
   const { returnTo: returnToParam, scopes: scopesParam, error } = await searchParams;
   const returnTo = Array.isArray(returnToParam) ? returnToParam[0] : returnToParam;
 
@@ -64,8 +64,8 @@ export default async function LoginPage({ searchParams, params }: PageProps) {
   );
 }
 
-export const generateMetadata = createMetadata(async ({ params }) => {
-  const { language } = await params;
+export const generateMetadata = createMetadata(async () => {
+  const language = await getLanguage();
   const t = getTranslate(language);
 
   return {
