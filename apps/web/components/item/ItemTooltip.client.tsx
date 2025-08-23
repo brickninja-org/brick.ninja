@@ -35,7 +35,7 @@ export const ClientItemTooltip: FC<ClientItemTooltipProps> = ({ tooltip, hideTit
     tooltip.elementId && (<div className="text-muted">ID: {tooltip.elementId}</div>),
     tooltip.type,
     tooltip.barcode,
-    tooltip.category,
+    // tooltip.category,
     tooltip.color && (
       <div>
         <div className="mb-1">
