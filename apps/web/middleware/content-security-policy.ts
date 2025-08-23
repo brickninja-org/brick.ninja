@@ -31,7 +31,7 @@ export const contentSecurityPolicyMiddleware: NextMiddleware = async (request, n
     script-src 'self' 'nonce-${nonce}' 'strict-dynamic' ${process.env.NODE_ENV !== 'production' ? '\'unsafe-eval\'' : ''};
     style-src 'self' 'unsafe-inline';
     img-src 'self' images.brickset.com cdn.rebrickable.com www.lego.com;
-    connect-src 'self' ${alternateLanguageDomains.join(' ')} brickset.com rebrickable.com bn2me.vercel.app;
+    connect-src 'self' ${alternateLanguageDomains.join(' ')} brickset.com rebrickable.com bn2me.vercel.app brick-ninja-api.vercel.app;
     font-src 'self';
     object-src 'none';
     base-uri 'self';
