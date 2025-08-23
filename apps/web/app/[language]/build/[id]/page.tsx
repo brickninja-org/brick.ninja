@@ -20,6 +20,7 @@ import { ItemList, ItemListItem } from '@/components/item/ItemList';
 import DetailLayout from '@/components/layout/DetailLayout';
 import { ProductLink } from '@/components/product/ProductLink';
 import { SkeletonLink } from '@/components/skeleton/SkeletonLink';
+import { getLanguage } from '@/lib/translate';
 
 function timed<Args extends unknown[], Out>(callback: (...args: Args) => Promise<Out>): (...args: Args) => Promise<Out> {
   const timedFunction = async (...args: Args): Promise<Out> => {
@@ -78,7 +79,8 @@ const getUpdatedProducts = cache(timed(function getUpdatedProducts(buildId: numb
 }), ['build-updated-products'], { revalidate: 600 });
 
 async function BuildDetail({ params }: BuildPageProps) {
-  const { language, id } = await params;
+  const language = await getLanguage();
+  const { id } = await params;
   const buildId: number = Number(id);
 
   const itemsPromise = getUpdatedItems(buildId, language);
