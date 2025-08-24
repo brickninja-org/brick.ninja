@@ -20,7 +20,7 @@ function renderAttributes(attributes: ProductTooltip['attributes']) {
 
   return (
     <dl className="grid grid-cols-[auto_1fr] leading-5">
-      {attributes.map((attribute, index) => (
+      {attributes.map((attribute, index) => attribute.type !== 'dimensionsInMillimeters' && (
         <Attribute key={index} attribute={attribute}/>
       ))}
     </dl>
