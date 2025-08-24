@@ -58,6 +58,8 @@ function getApiRegion(region: string) {
   switch (region) {
     case 'BE':
     case 'DE':
+    case 'ES':
+    case 'FR':
     case 'NL':
       return 'DE';
     case 'GB':
