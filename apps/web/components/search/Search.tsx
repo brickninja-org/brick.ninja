@@ -1,6 +1,6 @@
 'use client';
 
-import type { FC, ChangeEventHandler, KeyboardEventHandler, ReactElement } from 'react';
+import type { FC, ChangeEventHandler, KeyboardEventHandler, ReactElement, FormEventHandler } from 'react';
 import type { TranslationSubset } from '@/lib/translate';
 import type { translations as itemTypeTranslations } from '@/components/item/ItemType.translations';
 
@@ -82,8 +82,11 @@ export const Search: FC<SearchProps> = ({ translations }) => {
   }, []);
 
   const handleKeyDown: KeyboardEventHandler<HTMLInputElement> = useCallback((e) => {
-    if(e.key === 'Enter' && activeIndex !== null) {
-      const current = listRef.current[activeIndex];
+    if(e.key === 'Enter') {
+      // get active element, fallback to first element
+      const current = listRef.current.length > 0
+        ? listRef.current[activeIndex ?? 0]
+        : null;
 
       if(current === null) {
         return;
@@ -114,8 +117,13 @@ export const Search: FC<SearchProps> = ({ translations }) => {
     return () => window.removeEventListener('keypress', handler);
   }, []);
 
+  const handleSubmit: FormEventHandler<HTMLFormElement> = useCallback((e) => {
+    // prevent form submission
+    e.preventDefault();
+  }, []);
+
   return (
-    <form className="relative flex items-center w-[468px] bg-gray-100 focus-within:bg-background focus-within:shadow-base rounded-xs [--icon-size:20px]" ref={refs.setReference} {...getReferenceProps()}>
+    <form className="relative flex items-center w-[468px] bg-gray-100 focus-within:bg-background focus-within:shadow-base rounded-xs [--icon-size:20px]" ref={refs.setReference} {...getReferenceProps()} onSubmit={handleSubmit}>
       <Icon icon="search" className="mr-2 ml-4 align-[-2px] shrink-0 text-gray-600"/>
       {/* <div className={styles.restriciton}>Item</div> */}
 
