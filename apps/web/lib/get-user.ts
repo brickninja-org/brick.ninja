@@ -4,7 +4,6 @@ import type { UserRole } from '@brickninja-org/database';
 
 import { cache } from 'react';
 import { cookies, headers } from 'next/headers';
-import { redirect } from 'next/navigation';
 
 import { authCookieSettings } from '@/lib/auth/cookie';
 import { db } from '@/lib/prisma';
@@ -23,11 +22,13 @@ export const getUser = cache(async function getUser(): Promise<SessionUser | und
   const sessionId = (await headers()).get('x-bn-session');
   const session = await getSessionFromDb(sessionId);
 
-  // if a session id is set but the session was not found in the db,
-  // delete the cookie and redirect to login page
+  // attempt to delete the session cookie if a session id is set but the session was not found in the db
   if (sessionId && !session) {
-    (await cookies()).delete(authCookieSettings);
-    redirect('/login');
+    try {
+      (await cookies()).delete(authCookieSettings);
+    } catch {
+      // cookies can't be deleted in some contexts, but that is okay
+    }
   }
 
   return session
