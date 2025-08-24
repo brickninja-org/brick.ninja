@@ -22,7 +22,7 @@ export const ClientProductTooltip: FC<ClientProductTooltipProps> = ({ tooltip, h
         </div>
       )}
 
-      <dl className="grid grid-cols-2 leading-5">
+      <dl className="grid grid-cols-[auto_1fr] leading-5">
         {tooltip.attributes?.map((attribute, index) => (attribute.type !== 'dimensionsInMillimeters') && <Attribute key={index} attribute={attribute}/>)}
       </dl>
     </div>

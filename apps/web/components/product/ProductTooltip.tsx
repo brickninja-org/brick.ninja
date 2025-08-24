@@ -47,8 +47,8 @@ export interface AttributeProps {
 export const Attribute: FC<AttributeProps> = ({ attribute }) => {
   return (
     <>
-      <dt>{renderText(attribute)}</dt>
-      <dd>{attribute.text.toLocaleLowerCase()}</dd>
+      <dt className="text-right">{renderText(attribute)}</dt>
+      <dd className="ml-2">{attribute.text.toLocaleLowerCase()}</dd>
     </>
   );
 };
