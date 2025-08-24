@@ -23,6 +23,7 @@ export const ProductTooltip: FC<ProductTooltipProps> = async ({ product, languag
 
 export interface ProductTooltip {
   language: Language;
+  id: number;
   name: string;
   icon?: { id: number, signature: string; extension: string };
   attributes?: ProductAttribute[];
@@ -34,6 +35,7 @@ export async function createTooltip(product: ApiProduct, language: Language): Pr
 
   return {
     language,
+    id: product.id,
     name: product.name,
     icon,
     attributes: product.details?.attributes

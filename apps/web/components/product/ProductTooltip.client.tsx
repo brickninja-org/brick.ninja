@@ -1,8 +1,9 @@
 /* eslint-disable react/no-array-index-key */
 
-import type { FC } from 'react';
+import type { FC, ReactNode } from 'react';
 import type { ProductTooltip } from './ProductTooltip';
 
+import { isTruthy } from '@brickninja-org/helper/is';
 import { EntityIcon } from '@/components/entity/EntityIcon';
 
 import { Attribute } from './ProductTooltip';
@@ -12,7 +13,26 @@ export interface ClientProductTooltipProps {
   hideTitle?: boolean;
 }
 
+function renderAttributes(attributes: ProductTooltip['attributes']) {
+  if (!attributes) {
+    return;
+  }
+
+  return (
+    <dl className="grid grid-cols-[auto_1fr] leading-5">
+      {attributes.map((attribute, index) => (
+        <Attribute key={index} attribute={attribute}/>
+      ))}
+    </dl>
+  );
+}
+
 export const ClientProductTooltip: FC<ClientProductTooltipProps> = ({ tooltip, hideTitle = false }) => {
+  const data: ReactNode[] = [
+    tooltip.id && (<><span className="text-gray-500">#</span> {tooltip.id} item</>),
+    renderAttributes(tooltip.attributes)
+  ];
+
   return (
     <div className="not-first:mt-2">
       {!hideTitle && (
@@ -22,9 +42,9 @@ export const ClientProductTooltip: FC<ClientProductTooltipProps> = ({ tooltip, h
         </div>
       )}
 
-      <dl className="grid grid-cols-[auto_1fr] leading-5">
-        {tooltip.attributes?.map((attribute, index) => (attribute.type !== 'dimensionsInMillimeters') && <Attribute key={index} attribute={attribute}/>)}
-      </dl>
+      {data.filter(isTruthy).map((content, index) => {
+        return <div className="mt-2" key={index}>{content}</div>;
+      })}
     </div>
   );
 };
