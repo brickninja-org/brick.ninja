@@ -31,6 +31,7 @@ import { ProductTooltip } from '@/components/product/ProductTooltip';
 import { extraColumn } from '@/components/item-table/columns';
 import type { TODO } from '@/lib/todo';
 import { ItemBarcodeColumn } from './ExtraColumns';
+import { EntityIconMissing } from '@/components/entity/EntityIconMissing';
 
 export interface ProductPageComponentProps {
   language: Language;
@@ -67,7 +68,7 @@ export const ProductPageComponent: FC<ProductPageComponentProps> = async ({ lang
   return (
     <DetailLayout
       title={data.name}
-      icon={icon?.id === product.icon?.id ? product.icon : (icon ? { ...icon, color: null } : null)}
+      icon={icon?.id === product.icon?.id ? product.icon : (icon ? { ...icon, color: null } : <EntityIconMissing size={48}/>)}
       iconType="product"
       breadcrumb={breadcrumb}
       infobox={<ProductInfobox product={product} data={data} language={language}/>}
