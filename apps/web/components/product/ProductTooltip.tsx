@@ -46,19 +46,20 @@ export interface AttributeProps {
 
 export const Attribute: FC<AttributeProps> = ({ attribute }) => {
   return (
-    <div>
-      {renderText(attribute)}
-    </div>
+    <>
+      <dt>{renderText(attribute)}</dt>
+      <dd>{attribute.text.toLocaleLowerCase()}</dd>
+    </>
   );
 };
 
 function renderText(attribute: ProductAttribute) {
   switch (attribute.type) {
     case 'ageRange':
-      return (<span><FormatNumber value={Number(attribute.value)}/>+ {attribute.text.toLocaleLowerCase()}</span>);
+      return <><FormatNumber value={Number(attribute.value)}/>+</>;
     case 'figureCount':
     case 'pieceCount':
-      return (<span><FormatNumber value={Number(attribute.value)}/> {attribute.text.toLocaleLowerCase()}</span>);
+      return <FormatNumber value={Number(attribute.value)}/>;
     case 'weightInGrams':
       return <FormatWeight grams={Number(attribute.value)}/>;
     default:
