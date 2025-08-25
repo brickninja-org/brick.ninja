@@ -70,7 +70,7 @@
     "@brickninja-org/eslint-config": "workspace:*",
     "@brickninja-org/tsconfig": "workspace:*",
     "@next/eslint-plugin-next": "15.5.0",
-    "@react-types/shared": "3.31.0",
+    "@react-types/shared": "3.32.0",
     "@tailwindcss/postcss": "4.1.12",
     "@tailwindcss/typography": "0.5.16",
     "@testing-library/jest-dom": "6.8.0",
