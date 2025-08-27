@@ -59,6 +59,8 @@ export default async function ReviewContainerContentPage({ params, searchParams 
 
   const canReview = user && review.state === ReviewState.Open && (review.requesterId !== user.id || user.roles.includes(UserRole.Admin));
 
+  const addedItemIds = addedItems.map((content) => content.item.id);
+
   const { td, tr } = table();
 
   return (
@@ -92,7 +94,7 @@ export default async function ReviewContainerContentPage({ params, searchParams 
               </tr>
             </thead>
             <tbody>
-              {item.contains.map((content) => {
+              {item.contains.filter((content) => !addedItemIds.includes(content.contentItemId)).map((content) => {
                 const isRemoved = removedItems.includes(content.contentItemId);
 
                 return (
