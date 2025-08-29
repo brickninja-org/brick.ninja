@@ -4,9 +4,9 @@ import { useActionState } from 'react';
 import { addToast, Alert, Button, Form, Input, Select, SelectItem } from '@heroui/react';
 import { FlexRow } from '@brickninja-org/ui/components/flex-row/FlexRow';
 
-import { submit } from './page';
+import { submit } from './actions';
 
-export function QueueJobForm(jobs: { value: string; label: string }[]) {
+export function QueueJobForm({ jobs }: { jobs: { value: string; label: string }[] }) {
   const [state, formAction, isPending] = useActionState(submit, {});
 
   return (
