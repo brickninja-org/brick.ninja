@@ -20,6 +20,7 @@ import { JobsCleanup } from './jobs/cleanup';
 import { ProductsJob } from './products';
 import { ProductCategoriesJob } from './products/product-categories';
 import { ProductViews } from './products/views';
+import { RevisionsHash } from './revisions/hash';
 import { RevisionsPrevious } from './revisions/previous';
 
 const jobsInternal = {
@@ -48,6 +49,7 @@ const jobsInternal = {
   'colors': ColorsJob,
   'colors.delete': DeleteEntitiesJob,
 
+  'revisions.hash': RevisionsHash,
   'revisions.previous': RevisionsPrevious,
 
   'brickninjaapi-requests.cleanup': BrickNinjaApiRequestsCleanup,
