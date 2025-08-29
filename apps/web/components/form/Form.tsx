@@ -13,10 +13,11 @@ export interface FormProps<State> {
   action: (state: State, payload: FormData) => Promise<State>;
   initialState?: State;
   children: ReactNode;
+  className?: string;
   id?: string;
 }
 
-export const Form: FC<FormProps<FormState>> = ({ action, id, initialState, children }) => {
+export const Form: FC<FormProps<FormState>> = ({ action, id, initialState, children, className }) => {
   const [state, formAction] = useActionState(action, initialState ?? {});
 
   const showAlert = useCallback((alert: HTMLElement | null) => {
@@ -30,7 +31,7 @@ export const Form: FC<FormProps<FormState>> = ({ action, id, initialState, child
   }, [state.success]);
 
   return (
-    <HeroUIForm id={id} action={formAction}>
+    <HeroUIForm className={className} id={id} action={formAction}>
       {state.error && (
         <Alert color="danger" ref={showAlert} key={crypto.randomUUID()}>{state.error}</Alert>
       )}
