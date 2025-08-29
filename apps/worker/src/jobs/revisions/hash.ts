@@ -2,6 +2,7 @@ import type { Job } from '../job';
 
 import { db } from '../../db';
 import { createRevisionHash } from '../helper/revision';
+import { batch } from '../helper/batch';
 
 export const RevisionsHash: Job = {
   run: async () => {
@@ -22,14 +23,16 @@ export const RevisionsHash: Job = {
     }
 
     // update hash in db
-    await db.$transaction(revisions.map(
-      ({ id, data }) => db.revision.update({
-        where: { id },
-        data: { hash: createRevisionHash(data) },
-      })
-    ));
+    for (const revisionBatch of batch(revisions, 250)) {
+      await db.$transaction(revisionBatch.map(
+        ({ id, data }) => db.revision.update({
+          where: { id },
+          data: { hash: createRevisionHash(data) },
+        })
+      ));
+    }
 
-    // queye follow up job in 10s
+      // queye follow up job in 10s
     const scheduledAt = new Date();
     scheduledAt.setSeconds(scheduledAt.getSeconds() + 10);
     await db.job.create({ data: { type: 'revisions.hash', data: {}, priority: 0, scheduledAt }});
