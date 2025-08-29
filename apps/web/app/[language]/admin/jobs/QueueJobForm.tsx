@@ -29,7 +29,6 @@ export function QueueJobForm({ className, jobs }: QueueJobFormProps) {
   return (
     <Form id="queue" className={cn(className)} action={submit}>
       <Select
-        isRequired
         className="max-w-xs"
         items={jobs}
         label="Type"
