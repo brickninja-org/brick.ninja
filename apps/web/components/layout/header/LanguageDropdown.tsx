@@ -1,15 +1,16 @@
 'use client';
 
 import type { FC } from 'react';
+import type { TranslationSubset } from '@/lib/translate';
 
-import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { useCallback, useState } from 'react';
 import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownSection, DropdownTrigger } from '@heroui/react';
-
 import { Icon } from '@brickninja-org/ui/icons';
 
 import { useLanguage } from '@/components/i18n/context';
 import { FormatConfigDialog } from '@/components/format/FormatConfigDialog';
-import type { TranslationSubset } from '@/lib/translate';
+import type { Language } from '@brickninja-org/database';
 
 export interface LanguageDropdownProps {
   translations: TranslationSubset<
@@ -30,12 +31,18 @@ const languages = {
 };
 
 export const LanguageDropdown: FC<LanguageDropdownProps> = ({ translations }) => {
+  const { push } = useRouter();
+
   const [formatDialogOpen, setFormatDialogOpen] = useState(false);
 
   const language = useLanguage();
   const localeName = languages[language];
-  const localizedUrl = new URL(window.location.href);
-  localizedUrl.hostname = language + localizedUrl.hostname.substring(2);
+
+  const changeLanguage = useCallback((language: Language) => {
+    const url = new URL(window.location.href);
+    url.hostname = language + url.hostname.substring(2);
+    push(url.href);
+  }, [push]);
 
   return (
     <>
@@ -56,7 +63,7 @@ export const LanguageDropdown: FC<LanguageDropdownProps> = ({ translations }) =>
             {Object.entries(languages).map(([code, label]) => (
               <DropdownItem
                 key={code}
-                href={localizedUrl.href}
+                onPress={() => changeLanguage(code as Language)}
               >
                 {label}
               </DropdownItem>
