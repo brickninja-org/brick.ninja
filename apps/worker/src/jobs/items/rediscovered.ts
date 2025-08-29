@@ -6,6 +6,7 @@ import { loadItems } from '../helper/load-items';
 import { Job } from '../job';
 import { createMigrator } from './migration';
 import { appendHistory } from '../helper/append-history';
+import { createRevisionHash } from '../helper/revision';
 
 export const ItemsRediscovered: Job = {
   run: async (rediscoveredIds: number[]) => {
@@ -42,11 +43,13 @@ export const ItemsRediscovered: Job = {
       };
 
       // create a new revision
-      for (const language of ['en', 'nl'] as const) {
+      for (const language of ['de', 'en', 'es', 'fr', 'nl'] as const) {
+        const serializedData = JSON.stringify(data[language]);
         const revision = await db.revision.create({
           data: {
             previousRevisionId: item[`currentId_${language}`],
-            data: JSON.stringify(data[language]),
+            data: serializedData,
+            hash: createRevisionHash(serializedData),
             description: 'Rediscovered in API',
             entity: 'Item',
             language,

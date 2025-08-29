@@ -8,6 +8,7 @@ import { toId } from '../helper/to-id';
 import { getCurrentBuild } from '../helper/get-current-build';
 import { getUpdateCheckpoint } from '../helper/update-checkpoint';
 import { createIcon } from '../helper/create-icon';
+import { createRevisionHash } from '../helper/revision';
 
 export const ItemsUpdate: Job = {
   run: async (ids: number[] | Record<string, never>) => {
@@ -63,11 +64,17 @@ export const ItemsUpdate: Job = {
     let updatedItems = 0;
 
     for(const { existing, de, en, es, fr, nl } of items) {
-      const changed_de = existing.current_de.data !== JSON.stringify(de);
-      const changed_en = existing.current_en.data !== JSON.stringify(en);
-      const changed_es = existing.current_es.data !== JSON.stringify(es);
-      const changed_fr = existing.current_fr.data !== JSON.stringify(fr);
-      const changed_nl = existing.current_nl.data !== JSON.stringify(nl);
+      const data_de = JSON.stringify(de);
+      const data_en = JSON.stringify(en);
+      const data_es = JSON.stringify(es);
+      const data_fr = JSON.stringify(fr);
+      const data_nl = JSON.stringify(nl);
+
+      const changed_de = existing.current_de.data !== data_de;
+      const changed_en = existing.current_en.data !== data_en;
+      const changed_es = existing.current_es.data !== data_es;
+      const changed_fr = existing.current_fr.data !== data_fr;
+      const changed_nl = existing.current_nl.data !== data_nl;
 
       if (!changed_en && !changed_nl) {
         // nothing changed
@@ -75,11 +82,11 @@ export const ItemsUpdate: Job = {
         continue;
       }
 
-      const revision_de = changed_de ? await db.revision.create({ data: { data: JSON.stringify(de), language: 'de', buildId, type: 'Updated', entity: 'Item', description: 'Updated in API', previousRevisionId: existing.currentId_de }}) : existing.current_de;
-      const revision_en = changed_en ? await db.revision.create({ data: { data: JSON.stringify(en), language: 'en', buildId, type: 'Updated', entity: 'Item', description: 'Updated in API', previousRevisionId: existing.currentId_en }}) : existing.current_en;
-      const revision_es = changed_es ? await db.revision.create({ data: { data: JSON.stringify(es), language: 'es', buildId, type: 'Updated', entity: 'Item', description: 'Updated in API', previousRevisionId: existing.currentId_es }}) : existing.current_es;
-      const revision_fr = changed_fr ? await db.revision.create({ data: { data: JSON.stringify(fr), language: 'fr', buildId, type: 'Updated', entity: 'Item', description: 'Updated in API', previousRevisionId: existing.currentId_fr }}) : existing.current_fr;
-      const revision_nl = changed_nl ? await db.revision.create({ data: { data: JSON.stringify(nl), language: 'nl', buildId, type: 'Updated', entity: 'Item', description: 'Updated in API', previousRevisionId: existing.currentId_nl }}) : existing.current_nl;
+      const revision_de = changed_de ? await db.revision.create({ data: { data: data_de, hash: createRevisionHash(data_de), language: 'de', buildId, type: 'Updated', entity: 'Item', description: 'Updated in API', previousRevisionId: existing.currentId_de }}) : existing.current_de;
+      const revision_en = changed_en ? await db.revision.create({ data: { data: data_en, hash: createRevisionHash(data_en), language: 'en', buildId, type: 'Updated', entity: 'Item', description: 'Updated in API', previousRevisionId: existing.currentId_en }}) : existing.current_en;
+      const revision_es = changed_es ? await db.revision.create({ data: { data: data_es, hash: createRevisionHash(data_es), language: 'es', buildId, type: 'Updated', entity: 'Item', description: 'Updated in API', previousRevisionId: existing.currentId_es }}) : existing.current_es;
+      const revision_fr = changed_fr ? await db.revision.create({ data: { data: data_fr, hash: createRevisionHash(data_fr), language: 'fr', buildId, type: 'Updated', entity: 'Item', description: 'Updated in API', previousRevisionId: existing.currentId_fr }}) : existing.current_fr;
+      const revision_nl = changed_nl ? await db.revision.create({ data: { data: data_nl, hash: createRevisionHash(data_nl), language: 'nl', buildId, type: 'Updated', entity: 'Item', description: 'Updated in API', previousRevisionId: existing.currentId_nl }}) : existing.current_nl;
 
       const iconId = await createIcon(en.icon);
       const data = await migrate({ de, en, es, fr, nl });

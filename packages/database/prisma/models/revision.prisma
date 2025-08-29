@@ -4,6 +4,7 @@ model Revision {
   entity String?
 
   data String
+  hash String @default("")
   description String?
   type RevisionType @default(Updated)
 
@@ -63,6 +64,7 @@ model Revision {
   colorHistory ColorHistory[]
 
   @@index([language, type])
+  @@index([hash], type: Hash)
 }
 
 enum RevisionType {

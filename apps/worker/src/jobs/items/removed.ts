@@ -4,6 +4,7 @@ import { db } from '../../db';
 import { appendHistory } from '../helper/append-history';
 import { getCurrentBuild } from '../helper/get-current-build';
 import { Job } from '../job';
+import { createRevisionHash } from '../helper/revision';
 
 export const ItemsRemoved: Job = {
   run: async (removedIds: number[]) => {
@@ -27,6 +28,7 @@ export const ItemsRemoved: Job = {
           data: {
             previousRevisionId: item[`currentId_${language}`],
             data: item[`current_${language}`].data,
+            hash: createRevisionHash(item[`current_${language}`].data),
             description: 'Removed from API',
             type: 'Removed',
             entity: 'Item',

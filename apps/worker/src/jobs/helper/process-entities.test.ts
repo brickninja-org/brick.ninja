@@ -6,6 +6,7 @@ import { Build, Prisma, Revision } from '@brickninja-org/database';
 
 import { processLocalizedEntities } from './process-entities';
 import { db } from '../../db';
+import { createRevisionHash } from './revision';
 
 function loadFromApi<T extends { id: number }>(entity: T) {
   return Promise.resolve(new Map<number, LocalizedObject<T>>([[entity.id, { de: entity, en: entity, es: entity, fr: entity, nl: entity }]]));
@@ -36,7 +37,7 @@ type TestDbEntity = {
   version: number,
 };
 
-const revisionBase: Revision = { buildId: 1, /* schema: 'test', */ createdAt: new Date(), data: JSON.stringify({ id: 1 }), description: 'Test', entity: 'test', id: 'test-revision', language: 'en', type: 'Imported', previousRevisionId: null };
+const revisionBase: Revision = { buildId: 1, /* schema: 'test', */ createdAt: new Date(), data: '{"id":1}', hash: createRevisionHash('{"id":1}'), description: 'Test', entity: 'test', id: 'test-revision', language: 'en', type: 'Imported', previousRevisionId: null };
 
 const TestDbEntityBase: TestDbEntity = {
   id: 1,

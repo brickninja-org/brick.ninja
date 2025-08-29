@@ -3,6 +3,7 @@ import type { Prisma, Revision } from '@brickninja-org/database';
 import { db } from '../../db';
 
 import { LocalizedObject } from './types';
+import { createHash } from 'crypto';
 
 export async function createRevisions(data: LocalizedObject, revision: Omit<Prisma.RevisionUncheckedCreateInput, 'data' | 'language'>): Promise<LocalizedObject<Revision>> {
   const [de, en, es, fr, nl] = await Promise.all([
@@ -14,4 +15,8 @@ export async function createRevisions(data: LocalizedObject, revision: Omit<Pris
   ]);
 
   return { de, en, es, fr, nl };
+}
+
+export function createRevisionHash(data: string) {
+  return createHash('sha256').update(data).digest('base64');
 }
