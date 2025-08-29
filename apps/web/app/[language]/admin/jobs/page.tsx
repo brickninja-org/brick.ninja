@@ -51,7 +51,7 @@ export default async function AdminQueueJobPage() {
   );
 }
 
-async function submit(_: FormState, payload: FormData): Promise<FormState> {
+export async function submit(_: FormState, payload: FormData): Promise<FormState> {
   'use server';
 
   const user = await getUser();

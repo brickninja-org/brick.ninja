@@ -3,7 +3,7 @@
 import type { ReactNode } from 'react';
 
 import { useRouter } from 'next/navigation';
-import { HeroUIProvider as Provider } from '@heroui/react';
+import { HeroUIProvider as Provider, ToastProvider } from '@heroui/react';
 
 import { TailwindProvider } from '@/components/tailwind/Tailwind.context';
 import { useFormatContext } from '@/components/format/Format.context';
@@ -35,6 +35,7 @@ export const HeroUIProvider = ({ children }: HeroUIProps) => {
   return (
     <TailwindProvider>
       <Provider navigate={router.push} locale={supportedLocaleValues.includes(locale) ? locale : 'en-US'}>
+        <ToastProvider/>
         {children}
       </Provider>
     </TailwindProvider>
