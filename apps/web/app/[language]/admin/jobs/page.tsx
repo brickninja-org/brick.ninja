@@ -8,7 +8,7 @@ import { ensureUserIsAdmin } from '../admin';
 import { QueueJobForm } from './QueueJobForm';
 
 const getJobsTypes = cache(async () => {
-  const jobs = await db.job.findMany({ select: { type: true }, distinct: ['type'], orderBy: { type: 'asc' }});
+  const jobs = await db.job.findMany({ where: { type: { not: '' }}, select: { type: true }, distinct: ['type'], orderBy: { type: 'asc' }});
   return jobs.map((j) => ({ key: j.type, label: j.type }));
 }, ['get-job-types'], { revalidate: 60 });
 
