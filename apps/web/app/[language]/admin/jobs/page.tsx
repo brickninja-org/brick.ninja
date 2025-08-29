@@ -57,7 +57,7 @@ export const generateMetadata = createMetadata({
   title: 'Jobs',
 });
 
-export async function submit(_: FormState, payload: FormData): Promise<FormState> {
+async function submit(_: FormState, payload: FormData): Promise<FormState> {
   'use server';
 
   const user = await getUser();
