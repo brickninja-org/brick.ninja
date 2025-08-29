@@ -1,16 +1,18 @@
 'use client';
 
 import type { FC } from 'react';
-import type { TranslationSubset } from '@/lib/translate';
+import type { Language } from '@brickninja-org/database';
 
-import { useRouter } from 'next/navigation';
 import { useCallback, useState } from 'react';
-import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownSection, DropdownTrigger } from '@heroui/react';
+import { useRouter } from 'next/navigation';
+import { Button, Divider, Radio, RadioGroup } from '@heroui/react';
+
+import { Dropdown } from '@brickninja-org/ui/components/dropdown/Dropdown';
 import { Icon } from '@brickninja-org/ui/icons';
 
 import { useLanguage } from '@/components/i18n/context';
 import { FormatConfigDialog } from '@/components/format/FormatConfigDialog';
-import type { Language } from '@brickninja-org/database';
+import type { TranslationSubset } from '@/lib/translate';
 
 export interface LanguageDropdownProps {
   translations: TranslationSubset<
@@ -46,8 +48,10 @@ export const LanguageDropdown: FC<LanguageDropdownProps> = ({ translations }) =>
 
   return (
     <>
-      <Dropdown>
-        <DropdownTrigger>
+      <Dropdown
+        hideTop={false}
+        preferredPlacement="bottom"
+        button={(
           <Button
             aria-label={localeName}
             className="min-w-10 w-10 md:min-w-20 md:w-fit"
@@ -57,28 +61,19 @@ export const LanguageDropdown: FC<LanguageDropdownProps> = ({ translations }) =>
           >
             <span className="hidden md:block">{localeName}</span>
           </Button>
-        </DropdownTrigger>
-        <DropdownMenu>
-          <DropdownSection showDivider>
-            {Object.entries(languages).map(([code, label]) => (
-              <DropdownItem
-                key={code}
-                onPress={() => changeLanguage(code as Language)}
-              >
-                {label}
-              </DropdownItem>
-            ))}
-          </DropdownSection>
-
-          <DropdownSection>
-            <DropdownItem
-              key="formatting-settings"
-              onPress={() => setFormatDialogOpen(true)}
-            >
-              {translations['locale.formatting.settings']}
-            </DropdownItem>
-          </DropdownSection>
-        </DropdownMenu>
+        )}
+      >
+        <RadioGroup
+          className="px-2 my-2"
+          value={language}
+          onValueChange={(value) => changeLanguage(value as Language)}
+        >
+          {Object.entries(languages).map(([code, label]) => (
+            <Radio key={code} value={code}>{label}</Radio>
+          ))}
+        </RadioGroup>
+        <Divider className="mb-2"/>
+        <Button radius="sm" size="md" variant="light" onPress={() => setFormatDialogOpen(true)}>{translations['locale.formatting.settings']}</Button>
       </Dropdown>
 
       <FormatConfigDialog translations={translations} open={formatDialogOpen} onClose={() => setFormatDialogOpen(false)}/>
