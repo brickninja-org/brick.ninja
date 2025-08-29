@@ -9,7 +9,7 @@ import { QueueJobForm } from './QueueJobForm';
 
 const getJobsTypes = cache(async () => {
   const jobs = await db.job.findMany({ select: { type: true }, distinct: ['type'], orderBy: { type: 'asc' }});
-  return jobs.map((j) => j.type);
+  return jobs.map((j) => ({ key: j.type, label: j.type }));
 }, ['get-job-types'], { revalidate: 60 });
 
 export default async function AdminQueueJobPage() {
@@ -20,7 +20,7 @@ export default async function AdminQueueJobPage() {
   return (
     <PageLayout>
       <Headline id="apps">Queue Job</Headline>
-      <QueueJobForm jobs={jobs.map((job) => ({ value: job, label: job }))}/>
+      <QueueJobForm jobs={jobs}/>
     </PageLayout>
   );
 }

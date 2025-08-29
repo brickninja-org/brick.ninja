@@ -6,7 +6,7 @@ import { FlexRow } from '@brickninja-org/ui/components/flex-row/FlexRow';
 
 import { submit } from './actions';
 
-export function QueueJobForm({ jobs }: { jobs: { value: string; label: string }[] }) {
+export function QueueJobForm({ jobs }: { jobs: { key: string; label: string }[] }) {
   const [state, formAction, isPending] = useActionState(submit, {});
 
   return (
