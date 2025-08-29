@@ -5,18 +5,17 @@ import type { RefProp } from '@brickninja-org/ui/lib/react';
 import type { ReloadProps } from './Reload';
 
 import { useState } from 'react';
-
-import { Checkbox } from '@brickninja-org/ui/components/form/Checkbox';
+import { Checkbox } from '@heroui/react';
 
 import { Reload } from './Reload';
 
-export const ReloadCheckbox: FC<ReloadProps & RefProp<HTMLLabelElement>> = (({ ref, ...reloadProps }) => {
+export const ReloadCheckbox: FC<ReloadProps & RefProp<HTMLInputElement>> = (({ ref, ...reloadProps }) => {
   const [autoRefresh, setAutorefresh] = useState(false);
 
   return (
     <>
       {autoRefresh && <Reload {...reloadProps}/>}
-      <Checkbox checked={autoRefresh} onChange={setAutorefresh} ref={ref}>
+      <Checkbox isSelected={autoRefresh} radius="sm" color="primary" onValueChange={setAutorefresh} ref={ref}>
         Auto Refresh
       </Checkbox>
     </>

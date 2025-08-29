@@ -1,18 +1,19 @@
 'use client';
 
 import type { FC } from 'react';
-import type { ButtonProps } from '@brickninja-org/ui/components/form/Button';
+import type { ButtonProps } from '@heroui/react';
 
 import { useCallback, useEffect, useState } from 'react';
-import { Button } from '@brickninja-org/ui/components/form/Button';
+import { Button, cn } from '@heroui/react';
+import { Icon } from '@brickninja-org/ui/icons';
 
 export interface ShareButtonProps {
   data: ShareData;
-  appearance?: ButtonProps['appearance'];
-  flex?: ButtonProps['flex'];
+  flex?: boolean;
+  variant?: ButtonProps['variant'];
 }
 
-export const ShareButton: FC<ShareButtonProps> = ({ data, appearance, flex }) => {
+export const ShareButton: FC<ShareButtonProps> = ({ data, flex, variant }) => {
   const [canShare, setCanShare] = useState(false);
 
   useEffect(() => setCanShare(navigator.canShare?.(data) ?? false), [data]);
@@ -26,7 +27,7 @@ export const ShareButton: FC<ShareButtonProps> = ({ data, appearance, flex }) =>
   }
 
   return (
-    <Button appearance={appearance} flex={flex} onClick={handleShare} icon="external">
+    <Button className={cn({ 'flex-1': flex })} startContent={<Icon icon="external"/>} variant={variant} onPress={handleShare}>
       Share
     </Button>
   );
