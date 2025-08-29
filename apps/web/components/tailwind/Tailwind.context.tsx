@@ -35,7 +35,7 @@ export const TailwindProvider = ({ children }: TailwindProviderProps) => {
 
   return (
     <>
-      <div className="absolute top-0 left-0 w-0 h-0"
+      <div className="absolute top-0 left-0 w-0 h-0 dark:w-2 dark:h-2"
         id="darkmode-detect"/>
       <div className="w-2 h-2 sm:w-0 sm:h-0 md:w-0 md:h-0 lg:w-0 lg:h-0 xl:w-0 xl:h-0 2xl:w-0 2xl:h-0 absolute top-0 left-0"
         id="mobile-breakpoint-detect"/>
