@@ -13,6 +13,7 @@ import { Icon } from '@brickninja-org/ui/icons';
 
 import { useDebounce } from '@/hooks/use-debounce';
 import { usePageResults, useSearchApiResults } from './use-search-results';
+import { Form, Input, Kbd, Spinner } from '@heroui/react';
 
 export interface SearchProps {
   translations: TranslationSubset<
@@ -122,26 +123,29 @@ export const Search: FC<SearchProps> = ({ translations }) => {
     e.preventDefault();
   }, []);
 
-  return (
-    <form className="relative flex items-center w-[468px] bg-gray-100 focus-within:bg-background focus-within:shadow-base rounded-xs [--icon-size:20px]" ref={refs.setReference} {...getReferenceProps()} onSubmit={handleSubmit}>
-      <Icon icon="search" className="mr-2 ml-4 align-[-2px] shrink-0 text-gray-600"/>
-      {/* <div className={styles.restriciton}>Item</div> */}
+  const endContent = !loading
+    ? !open && (
+      <div className="hidden sm:inline-block">
+        <Kbd keys={[]}>/</Kbd> or <Kbd keys={[]}>s</Kbd>
+      </div>
+    ) : (open || searchValue) && <Spinner size="sm"/>;
 
-      <input
-        id="search"
-        ref={inputRef}
-        className="flex-1 w-full py-1.5 px-2 bg-transparent focus:outline-hidden placeholder:text-muted"
-        placeholder={translations['search.placeholder']}
+  return (
+    <Form className="relative flex items-center w-[468px] bg-gray-100 focus-within:bg-background focus-within:shadow-base rounded-xs [--icon-size:20px]" ref={refs.setReference} {...getReferenceProps()} onSubmit={handleSubmit}>
+      <Input
         autoComplete="off"
-        spellCheck="false"
+        className="flex-1"
+        endContent={endContent}
         enterKeyHint="search"
+        id="search"
+        placeholder={translations['search.placeholder']}
+        radius="sm"
+        ref={inputRef}
+        spellCheck="false"
+        startContent={<Icon icon="search"/>}
         value={value}
         onChange={handleSearchChange}
         onKeyDown={handleKeyDown}/>
-
-      {!loading && !open && (<div className="hidden sm:inline-block absolute right-2 rounded-xs text-sm text-muted"><kbd className="py-0.25 px-0.75 rounded-xs border border-(--color-border-dark)">/</kbd> or <kbd className="py-0.25 px-0.75 rounded-xs border border-(--color-border-dark)">s</kbd></div>)}
-
-      {loading && (open || searchValue) && <div className="block w-4 h-4 rounded-lg ml-4 mr-2 border border-transparent border-t-(--color-border) will-change-transform animate-rotate"/>}
 
       {open && (
         <div className="absolute top-0 left-0 w-max max-h-[calc(100vh-56px)] p-2 rounded-xs shadow-md border bg-background text-base overflow-y-auto overscroll-contain transition-opacity [scrollbar-width:thin] z-10" ref={refs.setFloating} {...getFloatingProps()} style={{
@@ -190,6 +194,6 @@ export const Search: FC<SearchProps> = ({ translations }) => {
           ))}
         </div>
       )}
-    </form>
+    </Form>
   );
 };
