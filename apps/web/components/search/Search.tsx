@@ -128,13 +128,14 @@ export const Search: FC<SearchProps> = ({ translations }) => {
       <div className="hidden sm:inline-flex gap-1.5">
         <Kbd keys={[]}>/</Kbd> or <Kbd keys={[]}>s</Kbd>
       </div>
-    ) : (open || searchValue) && <Spinner size="sm"/>;
+    ) : (open || searchValue) && <Spinner size="sm" variant="dots"/>;
 
   return (
     <Form className="relative flex items-center w-[468px] bg-gray-100 focus-within:bg-background focus-within:shadow-base rounded-xs [--icon-size:20px]" ref={refs.setReference} {...getReferenceProps()} onSubmit={handleSubmit}>
       <Input
         aria-label="Search"
         autoComplete="off"
+        baseRef={inputRef}
         classNames={{
           base: 'flex-1',
           inputWrapper: 'bg-content2 dark:bg-content1',
@@ -144,7 +145,6 @@ export const Search: FC<SearchProps> = ({ translations }) => {
         id="search"
         placeholder={translations['search.placeholder']}
         radius="sm"
-        ref={inputRef}
         spellCheck="false"
         startContent={<Icon className="text-default-500" icon="search"/>}
         value={value}
