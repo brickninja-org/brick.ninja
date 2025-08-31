@@ -133,10 +133,11 @@ export const Search: FC<SearchProps> = ({ translations }) => {
   return (
     <Form className="relative flex items-center w-[468px] bg-gray-100 focus-within:bg-background focus-within:shadow-base rounded-xs [--icon-size:20px]" ref={refs.setReference} {...getReferenceProps()} onSubmit={handleSubmit}>
       <Input
+        fullWidth
         aria-label="Search"
         autoComplete="off"
         classNames={{
-          base: 'flex-1',
+          base: 'flex-1 p-2 text-default-500',
           inputWrapper: 'bg-content2 dark:bg-content1',
         }}
         endContent={endContent}
@@ -152,8 +153,8 @@ export const Search: FC<SearchProps> = ({ translations }) => {
         onKeyDown={handleKeyDown}/>
 
       {open && (
-        <div className="absolute top-0 left-0 w-max max-h-[calc(100vh-56px)] p-2 rounded-xs shadow-md border bg-background text-base overflow-y-auto overscroll-contain transition-opacity [scrollbar-width:thin] z-10" ref={refs.setFloating} {...getFloatingProps()} style={{
-          top: y ?? 0,
+        <div className="absolute top-6 left-0 w-max max-h-[calc(100vh-56px)] p-2 rounded-xs shadow-md border bg-background text-base overflow-y-auto overscroll-contain transition-opacity [scrollbar-width:thin] z-10" ref={refs.setFloating} {...getFloatingProps()} style={{
+          top: y ?? 48,
           left: x ?? 0,
         }}
         >
