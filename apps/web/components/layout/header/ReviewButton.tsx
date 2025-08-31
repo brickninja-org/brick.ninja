@@ -2,8 +2,7 @@ import type { FC } from 'react';
 import type { Language, ReviewQueue } from '@brickninja-org/database';
 
 import { Suspense, use } from 'react';
-import Link from 'next/link';
-import { Button, Card, CardBody, CardHeader, Chip, Divider, Popover, PopoverContent, PopoverTrigger } from '@heroui/react';
+import { Button, Card, CardBody, CardHeader, Chip, Divider, Link, Popover, PopoverContent, PopoverTrigger } from '@heroui/react';
 
 import { groupByUnique } from '@brickninja-org/helper/group-by';
 import { Icon } from '@brickninja-org/ui/icons';
@@ -57,7 +56,7 @@ const InternalReviewButton: FC<InternalReviewButtonProps> = ({ language, data })
   );
 
   return (
-    <Popover showArrow placement="bottom-end" radius="sm">
+    <Popover offset={8} placement="bottom-end" radius="sm">
       <PopoverTrigger>{button}</PopoverTrigger>
       <PopoverContent className="max-w-[90vw] sm:max-w-[380px] p-0">
         <Card className="w-full max-w-[420px]" radius="sm" shadow="none">
