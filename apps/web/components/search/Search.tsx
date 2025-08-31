@@ -7,13 +7,13 @@ import type { translations as itemTypeTranslations } from '@/components/item/Ite
 import { Fragment, useCallback, useEffect, useRef, useState } from 'react';
 import NextLink from 'next/link';
 import { autoUpdate, offset, shift, size, useDismiss, useFloating, useFocus, useInteractions, useListNavigation } from '@floating-ui/react';
+import { Form, Input, Kbd, Spinner } from '@heroui/react';
 
 import { cn } from '@brickninja-org/ui/lib';
 import { Icon } from '@brickninja-org/ui/icons';
 
 import { useDebounce } from '@/hooks/use-debounce';
 import { usePageResults, useSearchApiResults } from './use-search-results';
-import { Form, Input, Kbd, Spinner } from '@heroui/react';
 
 export interface SearchProps {
   translations: TranslationSubset<
@@ -125,7 +125,7 @@ export const Search: FC<SearchProps> = ({ translations }) => {
 
   const endContent = !loading
     ? !open && (
-      <div className="hidden sm:inline-flex">
+      <div className="hidden sm:inline-flex gap-1.5">
         <Kbd keys={[]}>/</Kbd> or <Kbd keys={[]}>s</Kbd>
       </div>
     ) : (open || searchValue) && <Spinner size="sm"/>;
@@ -133,9 +133,11 @@ export const Search: FC<SearchProps> = ({ translations }) => {
   return (
     <Form className="relative flex items-center w-[468px] bg-gray-100 focus-within:bg-background focus-within:shadow-base rounded-xs [--icon-size:20px]" ref={refs.setReference} {...getReferenceProps()} onSubmit={handleSubmit}>
       <Input
+        aria-label="Search"
         autoComplete="off"
         classNames={{
-          base: 'flex-1'
+          base: 'flex-1',
+          inputWrapper: 'bg-content2 dark:bg-content1',
         }}
         endContent={endContent}
         enterKeyHint="search"
@@ -144,7 +146,7 @@ export const Search: FC<SearchProps> = ({ translations }) => {
         radius="sm"
         ref={inputRef}
         spellCheck="false"
-        startContent={<Icon icon="search"/>}
+        startContent={<Icon className="text-default-500" icon="search"/>}
         value={value}
         onChange={handleSearchChange}
         onKeyDown={handleKeyDown}/>
