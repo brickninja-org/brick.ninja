@@ -135,7 +135,6 @@ export const Search: FC<SearchProps> = ({ translations }) => {
       <Input
         aria-label="Search"
         autoComplete="off"
-        baseRef={inputRef}
         classNames={{
           base: 'flex-1',
           inputWrapper: 'bg-content2 dark:bg-content1',
@@ -145,6 +144,7 @@ export const Search: FC<SearchProps> = ({ translations }) => {
         id="search"
         placeholder={translations['search.placeholder']}
         radius="sm"
+        ref={inputRef}
         spellCheck="false"
         startContent={<Icon className="text-default-500" icon="search"/>}
         value={value}
