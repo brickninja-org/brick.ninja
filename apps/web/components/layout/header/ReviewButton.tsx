@@ -2,13 +2,11 @@ import type { FC } from 'react';
 import type { Language, ReviewQueue } from '@brickninja-org/database';
 
 import { Suspense, use } from 'react';
-import { Button, Popover, PopoverContent, PopoverTrigger } from '@heroui/react';
+import { Button, Card, CardBody, CardHeader, Divider, Link, Popover, PopoverContent, PopoverTrigger } from '@heroui/react';
 
 import { groupByUnique } from '@brickninja-org/helper/group-by';
 import { Icon } from '@brickninja-org/ui/icons';
-import { LinkButton } from '@brickninja-org/ui/components/form/Button';
 import { Translate } from '@/components/i18n/Translate';
-import { MenuList } from '@brickninja-org/ui/components/layout/MenuList';
 
 import { cache } from '@/lib/cache';
 import { db } from '@/lib/prisma';
@@ -58,15 +56,25 @@ const InternalReviewButton: FC<InternalReviewButtonProps> = ({ language, data })
   );
 
   return (
-    <Popover placement="bottom">
+    <Popover showArrow placement="bottom" radius="sm">
       <PopoverTrigger>{button}</PopoverTrigger>
       <PopoverContent>
-        <MenuList>
-          <div className="max-w-[320px] -mt-2 -mx-2 mb-3 py-4 px-6 bg-background-light border-b border-(--color-border-dark) leading-normal">
+        <Card className="w-full max-w-[360px]" radius="sm">
+          <CardHeader className="px-0 pb-0 bg-content2 dark:bg-content1">
             <Translate language={language} id="review.description"/>
-          </div>
-          <LinkButton appearance="menu" className="flex-1 flex items-center justify-between gap-4" href="/review/container-content"><Translate language={language} id="review.queue.ContainerContent"/> <ReviewCountBadge count={reviewCounts?.ContainerContent}/></LinkButton>
-        </MenuList>
+          </CardHeader>
+          <Divider/>
+          <CardBody>
+            <Button
+              as={Link}
+              className="flex-1 flex items-center justify-between gap-4"
+              href="/review/container-content"
+            >
+              <Translate language={language} id="review.queue.ContainerContent"/>
+              <ReviewCountBadge count={reviewCounts?.ContainerContent}/>
+            </Button>
+          </CardBody>
+        </Card>
       </PopoverContent>
     </Popover>
   );
