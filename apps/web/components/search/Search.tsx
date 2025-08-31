@@ -125,7 +125,7 @@ export const Search: FC<SearchProps> = ({ translations }) => {
 
   const endContent = !loading
     ? !open && (
-      <div className="hidden sm:inline-block">
+      <div className="hidden sm:inline-flex">
         <Kbd keys={[]}>/</Kbd> or <Kbd keys={[]}>s</Kbd>
       </div>
     ) : (open || searchValue) && <Spinner size="sm"/>;
@@ -134,7 +134,9 @@ export const Search: FC<SearchProps> = ({ translations }) => {
     <Form className="relative flex items-center w-[468px] bg-gray-100 focus-within:bg-background focus-within:shadow-base rounded-xs [--icon-size:20px]" ref={refs.setReference} {...getReferenceProps()} onSubmit={handleSubmit}>
       <Input
         autoComplete="off"
-        className="flex-1"
+        classNames={{
+          base: 'flex-1'
+        }}
         endContent={endContent}
         enterKeyHint="search"
         id="search"
