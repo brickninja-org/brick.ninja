@@ -32,7 +32,7 @@ export const ItemInfobox: FC<ItemInfoboxProps> = async ({ item, data, language }
       <FlexRow wrap>
         {/* <LinkButton appearance="tertiary" flex external href={`https://brickset.com/api/v3.asmx/getSets?apiKey=${process.env.BRICKSET_API_KEY}&userHash=&params={setID=${item.id}}`} target="api">API</LinkButton> */}
         <LinkButton appearance="tertiary" flex external href={`https://www.lego.com${item.type === 'Container' && data.default_product ? `/product/${data.default_product.toString()}` : item.subtype === 'Instruction' ? `/cdn/product-assets/product.bi.core.pdf/${item.id}.pdf` : `/pick-and-build/pick-a-brick?query=${item.id}`}`} target="product">LEGO.com</LinkButton>
-        <ShareButton radius="sm" variant="ghost" flex data={{ title: localizedName(item, language), url: currentUrl.toString() }}/>
+        <ShareButton className="flex-1" radius="sm" variant="ghost" data={{ title: localizedName(item, language), url: currentUrl.toString() }}/>
       </FlexRow>
 
       {/* data.collections?.ownedBy && data.collections.ownedBy > 0 && (

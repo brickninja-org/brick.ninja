@@ -38,7 +38,7 @@ export const ProductInfobox: FC<ProductInfoboxProps> = async ({ product, data, l
       <FlexRow wrap>
         {product.type === 'Set' && <LinkButton appearance="tertiary" flex icon="external" external href={`https://www.lego.com/pick-and-build/pick-a-brick?appearsIn=${product.id}`} target="_blank">Pick a Brick</LinkButton>}
         <LinkButton appearance="tertiary" flex icon="external" external href={`https://www.lego.com/product/${product.id}`} target="product">LEGO.com</LinkButton>
-        <ShareButton radius="sm" variant="ghost" flex data={{ title: localizedName(product, language), url: currentUrl.toString() }}/>
+        <ShareButton className="flex-1" radius="sm" variant="ghost" data={{ title: localizedName(product, language), url: currentUrl.toString() }}/>
       </FlexRow>
     </div>
   );
