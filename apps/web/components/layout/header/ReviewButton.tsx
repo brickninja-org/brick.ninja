@@ -58,8 +58,8 @@ const InternalReviewButton: FC<InternalReviewButtonProps> = ({ language, data })
   return (
     <Popover showArrow placement="bottom" radius="sm">
       <PopoverTrigger>{button}</PopoverTrigger>
-      <PopoverContent>
-        <Card className="w-full max-w-[360px]" radius="sm">
+      <PopoverContent className="max-w-[90vw] sm:max-w-[380px] p-0">
+        <Card className="w-full max-w-[420px]" radius="sm" shadow="none">
           <CardHeader className="px-0 pb-0 bg-content2 dark:bg-content1">
             <Translate language={language} id="review.description"/>
           </CardHeader>
@@ -67,7 +67,7 @@ const InternalReviewButton: FC<InternalReviewButtonProps> = ({ language, data })
           <CardBody>
             <Button
               as={Link}
-              className="flex-1 flex items-center justify-between gap-4"
+              className="flex items-center justify-between gap-4"
               href="/review/container-content"
             >
               <Translate language={language} id="review.queue.ContainerContent"/>
