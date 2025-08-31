@@ -2,7 +2,8 @@ import type { FC } from 'react';
 import type { Language, ReviewQueue } from '@brickninja-org/database';
 
 import { Suspense, use } from 'react';
-import { Button, Card, CardBody, CardHeader, Divider, Link, Popover, PopoverContent, PopoverTrigger } from '@heroui/react';
+import Link from 'next/link';
+import { Button, Card, CardBody, CardHeader, Chip, Divider, Popover, PopoverContent, PopoverTrigger } from '@heroui/react';
 
 import { groupByUnique } from '@brickninja-org/helper/group-by';
 import { Icon } from '@brickninja-org/ui/icons';
@@ -56,11 +57,11 @@ const InternalReviewButton: FC<InternalReviewButtonProps> = ({ language, data })
   );
 
   return (
-    <Popover showArrow placement="bottom" radius="sm">
+    <Popover showArrow placement="bottom-end" radius="sm">
       <PopoverTrigger>{button}</PopoverTrigger>
       <PopoverContent className="max-w-[90vw] sm:max-w-[380px] p-0">
         <Card className="w-full max-w-[420px]" radius="sm" shadow="none">
-          <CardHeader className="px-0 pb-0 bg-content2 dark:bg-content1">
+          <CardHeader className="bg-content2 dark:bg-content1">
             <Translate language={language} id="review.description"/>
           </CardHeader>
           <Divider/>
@@ -69,6 +70,7 @@ const InternalReviewButton: FC<InternalReviewButtonProps> = ({ language, data })
               as={Link}
               className="flex items-center justify-between gap-4"
               href="/review/container-content"
+              variant="light"
             >
               <Translate language={language} id="review.queue.ContainerContent"/>
               <ReviewCountBadge count={reviewCounts?.ContainerContent}/>
@@ -91,6 +93,6 @@ export const ReviewCountBadge: FC<ReviewCountBadgeProps> = ({ count, hideEmpty }
   }
 
   return (
-    <span className="ml-2 px-2 rounded-full bg-background-light border border-(--color-border-dark) text-sm [font-feature-settings:'tnum'_1]">{count ?? 0}</span>
+    <Chip>{count ?? 0}</Chip>
   );
 };
