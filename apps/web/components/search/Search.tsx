@@ -131,7 +131,7 @@ export const Search: FC<SearchProps> = ({ translations }) => {
     ) : (open || searchValue) && <Spinner size="sm" variant="dots"/>;
 
   return (
-    <Form className="relative flex items-center w-[468px] bg-gray-100 focus-within:bg-background focus-within:shadow-base rounded-xs [--icon-size:20px]" ref={refs.setReference} {...getReferenceProps()} onSubmit={handleSubmit}>
+    <Form className="relative flex items-center w-[468px] focus-within:bg-background focus-within:shadow-base rounded-xs [--icon-size:20px]" ref={refs.setReference} {...getReferenceProps()} onSubmit={handleSubmit}>
       <Input
         fullWidth
         aria-label="Search"

@@ -70,11 +70,13 @@ export const FormatConfigDialog: FC<FormatConfigDialogProps> = ({ translations, 
 
         <div className="flex flex-col sm:flex-row gap-4">
           <Select
+            defaultSelectedKeys={['auto']}
             items={[{ label: `Current language (${currentLanguage})`, value: 'auto' }, ...languages]}
-            selectedKeys={[language]}
             label={translations['language.select.label']}
             placeholder={translations['language.select.placeholder']}
             radius="sm"
+            selectedKeys={[language]}
+            selectionMode="single"
             variant="bordered"
             className="w-full md:max-w-xs"
             onChange={(e) => setLocale(e.target.value, region)}
@@ -85,11 +87,13 @@ export const FormatConfigDialog: FC<FormatConfigDialogProps> = ({ translations, 
           <div className="hidden sm:block mt-6 leading-9">-</div>
 
           <Select
+            defaultSelectedKeys={['browser']}
             items={[{ label: `Browser region (${defaultRegion})`, value: 'browser' }, ...regions]}
-            selectedKeys={[region]}
             label={translations['region.select.label']}
             placeholder={translations['region.select.placeholder']}
             radius="sm"
+            selectedKeys={[region]}
+            selectionMode="single"
             variant="bordered"
             className="w-full md:max-w-xs"
             onChange={(e) => setLocale(language, e.target.value)}

@@ -69,6 +69,7 @@ const InternalReviewButton: FC<InternalReviewButtonProps> = ({ language, data })
               as={Link}
               className="flex items-center justify-between gap-4"
               href="/review/container-content"
+              radius="sm"
               variant="light"
             >
               <Translate language={language} id="review.queue.ContainerContent"/>
