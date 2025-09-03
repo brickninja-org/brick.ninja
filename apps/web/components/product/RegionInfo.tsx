@@ -8,9 +8,10 @@ import { useEffect, useState } from 'react';
 import { fetchBrickNinjaApi } from '@brickninjaapi/fetch';
 
 import { useFormatContext } from '@/components/format/Format.context';
-import { DataList } from '@/components/info-box/DataList';
+import { useCurrency } from '@/components/format/Currency.context';
 import { FormatNumber } from '@/components/format/FormatNumber';
-import { FormatDate } from '../format/FormatDate';
+import { FormatDate } from '@/components/format/FormatDate';
+import { DataList } from '@/components/info-box/DataList';
 
 interface RegionInfoProps {
   data: Product;
@@ -24,7 +25,8 @@ interface RegionInfoProps {
 }
 
 export const RegionInfo: FC<RegionInfoProps> = ({ data, translations }) => {
-  const { currency, region } = useFormatContext();
+  const { region } = useFormatContext();
+  const { currency } = useCurrency();
   const [regionData, setRegionData] = useState<RegionInfoData>();
 
   useEffect(() => {
