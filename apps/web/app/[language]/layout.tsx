@@ -20,6 +20,7 @@ import Layout from '@/components/layout/Layout';
 import { UserProvider } from '@/components/user/UserProvider';
 import { Bn2APIProvider } from '@/components/bn2-api/Bn2APIProvider';
 import { HeroUIProvider } from '@/components/heroui/HeroUIProvider';
+import { CurrencyProvider } from '@/components/format/Currency.context';
 
 const bitter = Bitter({
   subsets: ['latin'],
@@ -36,20 +37,22 @@ export default async function RootLayout({ children, modal }: LayoutProps & { mo
       <body className="bg-background text-foreground antialiased">
         <I18nProvider language={language}>
           <FormatProvider>
-            <HeroUIProvider>
-              <ItemTableContext global id="global">
-                <DataTableContext>
-                  <UserProvider>
-                    <Bn2MeProvider clientId={client_id} baseUrl={process.env.BN2ME_URL}>
-                      <Bn2APIProvider>
-                        <Layout language={language}>{children}</Layout>
-                        {modal}
-                      </Bn2APIProvider>
-                    </Bn2MeProvider>
-                  </UserProvider>
-                </DataTableContext>
-              </ItemTableContext>
-            </HeroUIProvider>
+            <CurrencyProvider>
+              <HeroUIProvider>
+                <ItemTableContext global id="global">
+                  <DataTableContext>
+                    <UserProvider>
+                      <Bn2MeProvider clientId={client_id} baseUrl={process.env.BN2ME_URL}>
+                        <Bn2APIProvider>
+                          <Layout language={language}>{children}</Layout>
+                          {modal}
+                        </Bn2APIProvider>
+                      </Bn2MeProvider>
+                    </UserProvider>
+                  </DataTableContext>
+                </ItemTableContext>
+              </HeroUIProvider>
+            </CurrencyProvider>
           </FormatProvider>
         </I18nProvider>
       </body>

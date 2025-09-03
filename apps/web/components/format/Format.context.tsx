@@ -28,9 +28,7 @@ interface FormatContextProps {
   language: string;
   region: string;
   locale: string;
-  currency: string;
   setLocale: (language: string | 'auto', region: string) => void;
-  setCurrency: (currency: string) => void;
   defaultLocale: string;
   defaultRegion: string;
 
@@ -39,19 +37,6 @@ interface FormatContextProps {
   relativeFormat: Intl.RelativeTimeFormat;
   numberFormat: Intl.NumberFormat;
 }
-
-// Region -> currency mapping
-const regionToCurrency: Record<string, string> = {
-  NL: 'EUR',
-  FR: 'EUR',
-  ES: 'EUR',
-  DE: 'EUR',
-  BE: 'EUR',
-  CA: 'CAD',
-  GB: 'GBP',
-  UK: 'GBP',
-  US: 'USD',
-};
 
 const FormatContext = createContext<FormatContextProps>(null!);
 
@@ -65,7 +50,6 @@ export const FormatProvider: FC<FormatProviderProps> = ({ children }) => {
   const currentLanguage = useLanguage();
   const [region, setRegion] = useState<string>('browser');
   const [language, setLanguage] = useState<string>('auto');
-  const [currency, setCurrency] = useState<string>('auto');
 
   const hydrated = useHydrated();
 
@@ -73,22 +57,12 @@ export const FormatProvider: FC<FormatProviderProps> = ({ children }) => {
   useEffect(() => {
     if (!hydrated) return;
 
-    const storedLang = localStorage.getItem('app.format.language');
-    const storedRegion = localStorage.getItem('app.format.region');
-    const storedCurrency = localStorage.getItem('app.format.currency');
+    const storedLang = localStorage.getItem('bn.format.language');
+    const storedRegion = localStorage.getItem('bn.format.region');
 
     if (storedLang) setLanguage(storedLang);
     if (storedRegion) setRegion(storedRegion);
-    if (storedCurrency) setCurrency(storedCurrency);
   }, [hydrated]);
-
-  // auto-update currency on region change
-  useEffect(() => {
-    if (!hydrated) return;
-
-    const regionCurrency = regionToCurrency[region === 'browser' ? defaultRegion : region];
-    setCurrency(regionCurrency);
-  }, [hydrated, region]);
 
   // save locale to localStorage if it changes after hydration
   useEffect(() => {
@@ -98,10 +72,9 @@ export const FormatProvider: FC<FormatProviderProps> = ({ children }) => {
     localStorage.setItem('bn.format.language', language);
   }, [hydrated, region, language]);
 
-  // build locale with language, region and currency and validate it
+  // build locale with language, region and validate it
   const customLocale = `${language === 'auto' ? currentLanguage : language}-${region === 'browser' ? defaultRegion : region}`;
   const locale = Intl.DateTimeFormat.supportedLocalesOf([customLocale, defaultLocale])[0];
-  const currency = regionToCurrency[currency === 'auto' ? defaultRegion : region];
 
   useLayoutEffect(() => {
     document.documentElement.lang = locale;
@@ -112,16 +85,14 @@ export const FormatProvider: FC<FormatProviderProps> = ({ children }) => {
     language,
     region,
     locale,
-    currency,
     setLocale: (language, region) => { setLanguage(language); setRegion(region); },
-    setCurrency: (currency) => { setCurrency(currency); },
     defaultLocale,
     defaultRegion,
     utcFormat: new Intl.DateTimeFormat(locale, { timeZone: 'UTC', dateStyle: 'short', timeStyle: 'short' }),
     localFormat: new Intl.DateTimeFormat(locale, { dateStyle: 'short', timeStyle: 'short' }),
     relativeFormat: new Intl.RelativeTimeFormat(locale, { numeric: 'auto' }),
     numberFormat: new Intl.NumberFormat(locale, { useGrouping: true }),
-  }), [language, region, locale, currency]);
+  }), [language, region, locale]);
 
   return <FormatContext.Provider value={context}>{children}</FormatContext.Provider>;
 };
