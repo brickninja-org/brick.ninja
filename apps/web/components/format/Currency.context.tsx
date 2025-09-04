@@ -8,7 +8,7 @@ import { useHydrated } from '@/hooks/use-hydrated';
 
 interface CurrencyContextProps {
   currency: string;
-  setCurrency: (currency: string) => void;
+  setCurrency: (currency: string | 'auto') => void;
 }
 
 const regionToCurrency: Record<string, string> = {
@@ -35,25 +35,23 @@ export const CurrencyProvider: FC<CurrencyProviderProps> = ({ children }) => {
 
   const hydrated = useHydrated();
 
-  // load saved currency
+  // Load saved settings on hydration
   useEffect(() => {
-    if (!hydrated) return;
-
     const storedCurrency = localStorage.getItem('bn.format.currency');
     if (storedCurrency) {
       setCurrency(storedCurrency);
     }
-  }, [hydrated]);
+  }, []);
 
   // auto-update currency when currency is 'auto' and region changes
   useEffect(() => {
     if (currency === 'auto') {
-      const newCurrency = regionToCurrency[region === 'browser' ? defaultRegion : region];
-      setCurrency(newCurrency);
+      const resolvedRegion = region === 'browser' ? defaultRegion : region;
+      setCurrency(regionToCurrency[resolvedRegion] || 'USD');
     }
-  }, [region, defaultRegion, currency]);
+  }, [currency, region, defaultRegion]);
 
-  // persist currency
+  // Save currency to localStorage
   useEffect(() => {
     if (!hydrated) return;
 
