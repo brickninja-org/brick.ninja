@@ -92,7 +92,7 @@ const UserButtonInternal: FC<UserButtonInternalProps> = ({ user, language }) => 
               <Translate id="user.role.admin" language={language}/>
             </DropdownItem>
           ) : null}
-          <DropdownItem key="logout">
+          <DropdownItem as="div" key="logout">
             <form action="/logout" method="POST" className="flex w-full">
               <SubmitButton
                 radius="sm"
@@ -106,7 +106,7 @@ const UserButtonInternal: FC<UserButtonInternalProps> = ({ user, language }) => 
           </DropdownItem>
         </DropdownSection>
         <DropdownSection title="accounts">
-          <DropdownItem key="manage-accounts">
+          <DropdownItem as="div" key="manage-accounts">
             <form action={reauthorize.bind(null, [], 'consent')} className="flex w-full">
               <SubmitButton
                 radius="sm"
