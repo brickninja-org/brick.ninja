@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import type { Language, ReviewQueue } from '@brickninja-org/database';
 
 import { Suspense, use } from 'react';
-import { Button, Card, CardBody, CardHeader, Chip, Divider, Link, Popover, PopoverContent, PopoverTrigger } from '@heroui/react';
+import { Button, Card, CardBody, CardHeader, Chip, Divider, Link, Popover, PopoverContent, PopoverTrigger, type ChipProps } from '@heroui/react';
 
 import { groupByUnique } from '@brickninja-org/helper/group-by';
 import { Icon } from '@brickninja-org/ui/icons';
@@ -53,7 +53,7 @@ const InternalReviewButton: FC<InternalReviewButtonProps> = ({ language, data })
     <Button
       aria-label="Review"
       className="min-w-10 w-10 md:min-w-20 md:w-fit"
-      endContent={<ReviewCountBadge count={reviewCounts?._total} hideEmpty/>}
+      endContent={<ReviewCountChip hideEmpty count={reviewCounts?._total} classNames={{ base: 'hidden md:inline-flex' }}/>}
       href="/review"
       radius="sm"
       startContent={<Icon icon="review-queue"/>}
@@ -83,7 +83,7 @@ const InternalReviewButton: FC<InternalReviewButtonProps> = ({ language, data })
               variant="light"
             >
               <Translate language={language} id="review.queue.ContainerContent"/>
-              <ReviewCountBadge count={reviewCounts?.ContainerContent}/>
+              <ReviewCountChip count={reviewCounts?.ContainerContent}/>
             </Button>
           </CardBody>
         </Card>
@@ -92,17 +92,17 @@ const InternalReviewButton: FC<InternalReviewButtonProps> = ({ language, data })
   );
 };
 
-export interface ReviewCountBadgeProps {
+export interface ReviewCountChipProps extends ChipProps {
   count: number | undefined;
   hideEmpty?: boolean;
 }
 
-export const ReviewCountBadge: FC<ReviewCountBadgeProps> = ({ count, hideEmpty }) => {
+export const ReviewCountChip: FC<ReviewCountChipProps> = ({ count, hideEmpty, ...props }) => {
   if (!count && hideEmpty) {
     return null;
   }
 
   return (
-    <Chip size="sm">{count ?? 0}</Chip>
+    <Chip size="sm" {...props}>{count ?? 0}</Chip>
   );
 };
