@@ -19,7 +19,7 @@ export interface UserButtonProps {
 
 export const UserButton: FC<UserButtonProps> = ({ language }) => {
   return (
-    <Suspense>
+    <Suspense fallback={<UserButtonInternal language={language} user="loading"/>}>
       <UserButtonLoader language={language}/>
     </Suspense>
   );
