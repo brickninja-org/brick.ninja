@@ -50,13 +50,23 @@ const InternalReviewButton: FC<InternalReviewButtonProps> = ({ language, data })
   const reviewCounts = data ? use(data) : undefined;
 
   const button = (
-    <Button radius="sm" variant="light" href="/review" startContent={<Icon icon="review-queue"/>} className="min-w-10 w-10 md:min-w-20 md:w-fit" aria-label="Review">
-      <span className="hidden md:block"><Translate language={language} id="review"/><ReviewCountBadge count={reviewCounts?._total} hideEmpty/></span>
+    <Button
+      aria-label="Review"
+      className="min-w-10 w-10 md:min-w-20 md:w-fit"
+      endContent={<ReviewCountBadge count={reviewCounts?._total} hideEmpty/>}
+      href="/review"
+      radius="sm"
+      startContent={<Icon icon="review-queue"/>}
+      variant="light"
+    >
+      <span className="hidden md:block">
+        <Translate language={language} id="review"/>
+      </span>
     </Button>
   );
 
   return (
-    <Popover offset={8} placement="bottom-end" radius="sm">
+    <Popover offset={8} placement="bottom-end" radius="sm" shadow="md">
       <PopoverTrigger>{button}</PopoverTrigger>
       <PopoverContent className="max-w-[90vw] sm:max-w-[380px] p-0">
         <Card className="w-full max-w-[420px]" radius="sm" shadow="none">
@@ -93,6 +103,6 @@ export const ReviewCountBadge: FC<ReviewCountBadgeProps> = ({ count, hideEmpty }
   }
 
   return (
-    <Chip>{count ?? 0}</Chip>
+    <Chip size="sm">{count ?? 0}</Chip>
   );
 };
