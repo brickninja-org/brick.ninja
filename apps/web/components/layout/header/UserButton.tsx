@@ -4,7 +4,7 @@ import type { SessionUser } from '@/lib/get-user';
 
 import { Suspense } from 'react';
 import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownSection, DropdownTrigger, Skeleton } from '@heroui/react';
-import { UserRole } from '@brickninja-org/database';
+// import { UserRole } from '@brickninja-org/database';
 import { Icon } from '@brickninja-org/ui/icons';
 
 import { getUser } from '@/lib/get-user';
@@ -83,7 +83,8 @@ const UserButtonInternal: FC<UserButtonInternalProps> = ({ user, language }) => 
           >
             <Translate id="user.profile" language={language}/>
           </DropdownItem>
-          {user !== 'loading' && user.roles.includes(UserRole.Admin) ? (
+          {/*
+          user !== 'loading' && user.roles.includes(UserRole.Admin) && (
             <DropdownItem
               key="admin"
               href="/admin/users"
@@ -91,7 +92,7 @@ const UserButtonInternal: FC<UserButtonInternalProps> = ({ user, language }) => 
             >
               <Translate id="user.role.admin" language={language}/>
             </DropdownItem>
-          ) : null}
+          )*/}
           <DropdownItem as="div" key="logout">
             <form action="/logout" method="POST" className="flex w-full">
               <SubmitButton
