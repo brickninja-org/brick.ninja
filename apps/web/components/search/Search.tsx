@@ -170,13 +170,14 @@ export const Search: FC<SearchProps> = ({ translations }) => {
                     tabIndex={-1}
                     href={result.href}
                     key={result.href}
-                    className={cn(['grid gap-x-2 gap-y-0 grid-cols-[32px_1fr_auto] py-2 px-4 rounded-2 text-foreground', activeIndex === currentIndex && 'bg-background-light'])}
+                    className={cn(['grid gap-x-2 gap-y-0 grid-cols-[32px_1fr_auto] py-2 px-4 rounded-2', activeIndex === currentIndex && 'bg-content1'])}
                     id={result.href}
                     ref={(node) => { listRef.current[currentIndex] = node; }}
                     {...getItemProps({
                       onClick: (e) => !e.defaultPrevented && setOpen(false)
                     })}
                     isBlock
+                    color="foreground"
                     isExternal={isExternal}
                     underline="none"
                     style={{ gridTemplateAreas: '"icon title external" "icon subtitle external"' }}
@@ -186,7 +187,7 @@ export const Search: FC<SearchProps> = ({ translations }) => {
                       {result.title}
                     </div>
                     {result.subtitle && (
-                      <div className="[grid-area:subtitle] text-sm text-muted">
+                      <div className="[grid-area:subtitle] text-sm text-default-500">
                         {result.subtitle}
                       </div>
                     )}
