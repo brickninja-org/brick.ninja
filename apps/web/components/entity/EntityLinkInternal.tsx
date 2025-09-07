@@ -29,10 +29,10 @@ export const EntityLinkInternal: FC<EntityLinkProps> = ({ ref, className, entity
       className={cn([
         'inline-flex',
         'items-center',
-        '[justify-self:_flex-start]',
+        'justify-self-start',
         'gap-2',
         'overflow-hidden',
-        'text-focus',
+        'text-primary',
         '[&>span]:hover:decoration-black',
       ], className)}
       {...props}
