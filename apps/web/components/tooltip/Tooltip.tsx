@@ -2,8 +2,9 @@
 
 import type { FC, ReactElement, ReactNode, HTMLProps } from 'react';
 
-import { Children, cloneElement, use, useMemo, useState } from 'react';
+import { Children, cloneElement, use, useMemo } from 'react';
 import { autoUpdate, flip, FloatingPortal, offset, shift, useClick, useClientPoint, useDismiss, useFloating, useHover, useInteractions, useMergeRefs, useRole, useTransitionStyles } from '@floating-ui/react';
+import { useDisclosure } from '@heroui/react';
 
 export interface TooltipProps {
   children: ReactElement<HTMLProps<HTMLElement>>;
@@ -11,11 +12,11 @@ export interface TooltipProps {
 }
 
 export const Tooltip: FC<TooltipProps> = ({ children, content }) => {
-  const [open, setOpen] = useState(false);
+  const { isOpen, onOpenChange } = useDisclosure();
 
   const { refs, context, floatingStyles } = useFloating({
-    open,
-    onOpenChange: setOpen,
+    open: isOpen,
+    onOpenChange,
     placement: 'bottom-start',
     whileElementsMounted: autoUpdate,
     middleware: [
