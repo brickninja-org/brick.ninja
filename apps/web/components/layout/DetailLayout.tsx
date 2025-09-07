@@ -5,7 +5,7 @@ import type { EntityIconType } from '@/components/entity/EntityIcon';
 import './detail-layout.css';
 
 import { cloneElement, isValidElement } from 'react';
-import { tv } from 'tailwind-variants';
+import { tv } from '@heroui/react';
 
 import { Dropdown } from '@brickninja-org/ui/components/dropdown/Dropdown';
 import { Button } from '@brickninja-org/ui/components/form/Button';

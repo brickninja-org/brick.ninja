@@ -1,9 +1,7 @@
 import type { FC, ReactNode } from 'react';
 
 import { Source_Code_Pro } from 'next/font/google';
-import { tv } from 'tailwind-variants';
-
-import { cn } from '@brickninja-org/ui/lib';
+import { cn, tv } from '@heroui/react';
 
 interface CodeProps {
   children: ReactNode;

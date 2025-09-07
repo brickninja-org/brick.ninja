@@ -5,9 +5,9 @@ import type { FC, RefCallback } from 'react';
 import type { Icon } from '@brickninja-org/database';
 
 import { useCallback, useMemo, useState } from 'react';
+import { cn } from '@heroui/react';
 
 import { getIconSize, getIconUrl, type FixedIconSize, type IconSize } from '@/lib/get-icon-url';
-import { cn } from '@brickninja-org/ui/lib';
 
 export type EntityIconType = 'product';
 

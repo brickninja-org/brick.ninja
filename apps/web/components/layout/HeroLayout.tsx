@@ -1,7 +1,7 @@
 import type { FC, ReactNode } from 'react';
-import type { VariantProps } from 'tailwind-variants';
+import type { VariantProps } from '@heroui/react';
 
-import { tv } from 'tailwind-variants';
+import { tv } from '@heroui/react';
 
 import { PageLayout } from '@/components/layout/PageLayout';
 

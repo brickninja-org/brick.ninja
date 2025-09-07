@@ -3,8 +3,7 @@
 import type { FC, ReactNode } from 'react';
 
 import { useEffect, useState } from 'react';
-
-import { cn } from '@brickninja-org/ui/lib';
+import { cn } from '@heroui/react';
 import { Icon } from '@brickninja-org/ui/icons';
 
 export interface MenuProps {

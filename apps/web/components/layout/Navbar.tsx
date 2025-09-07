@@ -5,7 +5,7 @@ import type { IconProp } from '@brickninja-org/ui/icons';
 
 import { useSelectedLayoutSegments } from 'next/navigation';
 import { Composite, CompositeItem } from '@floating-ui/react';
-import { tv } from 'tailwind-variants';
+import { tv } from '@heroui/react';
 
 import { LinkButton } from '@brickninja-org/ui/components/form/Button';
 import { HorizontalOverflowContainer } from './HorizontalOverflowContainer';

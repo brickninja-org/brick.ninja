@@ -6,8 +6,8 @@ import type { LayoutProps } from '@/lib/next';
 
 import '@/styles/globals.css';
 import { Bitter } from 'next/font/google';
+import { cn } from '@heroui/react';
 
-import { cn } from '@brickninja-org/ui/lib';
 import { DataTableContext } from '@brickninja-org/ui/components/table/DataTable.context';
 
 import { client_id } from '@/lib/bn2me';

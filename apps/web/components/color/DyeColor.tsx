@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import type { RGB } from './types';
 
-import { cn } from '@brickninja-org/ui/lib';
+import { cn } from '@heroui/react';
 
 import { isDark } from './is-dark';
 

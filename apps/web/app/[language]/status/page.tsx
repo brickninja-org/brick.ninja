@@ -1,7 +1,7 @@
 import type { FC, ReactNode } from 'react';
 
 import Link from 'next/link';
-import { cn } from '@brickninja-org/ui/lib';
+import { cn } from '@heroui/react';
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 
 import { createMetadata } from '@/lib/metadata';

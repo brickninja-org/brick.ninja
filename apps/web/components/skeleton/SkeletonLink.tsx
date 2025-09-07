@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 
-import { cn } from '@brickninja-org/ui/lib';
+import { cn } from '@heroui/react';
 
 import { Skeleton } from '@/components/skeleton/Skeleton';
 

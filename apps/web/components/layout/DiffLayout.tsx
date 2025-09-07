@@ -1,7 +1,6 @@
 import type { FC, ReactNode } from 'react';
 
-import { cn } from '@brickninja-org/ui/lib';
-import { tv } from 'tailwind-variants';
+import { cn, tv } from '@heroui/react';
 
 export interface DiffLayoutProps {
   children: ReactNode;
@@ -110,18 +109,18 @@ const diff = tv({
 });
 
 export const DiffLayoutHeader: FC<DiffLayoutHeaderProps> = ({ title, subtitle, icons }) => {
-  const { base, title: name, header, breadcrumb } = diff();
+  const diffSlots = diff();
   return (
-    <div className={base()}>
-      <div className={cn(header(), 'py-4')}>
+    <div className={diffSlots.base()}>
+      <div className={cn(diffSlots.header(), 'py-4')}>
         {icons[0]}
-        <div className={name()}>{title[0]}</div>
-        <div className={breadcrumb()}>{subtitle[0]}</div>
+        <div className={diffSlots.title()}>{title[0]}</div>
+        <div className={diffSlots.breadcrumb()}>{subtitle[0]}</div>
       </div>
-      <div className={cn(header({ right: true }))}>
+      <div className={cn(diffSlots.header({ right: true }))}>
         {icons[1]}
-        <div className={name()}>{title[1]}</div>
-        <div className={breadcrumb()}>{subtitle[1]}</div>
+        <div className={diffSlots.title()}>{title[1]}</div>
+        <div className={diffSlots.breadcrumb()}>{subtitle[1]}</div>
       </div>
     </div>
   );

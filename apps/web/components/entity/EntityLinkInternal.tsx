@@ -4,8 +4,7 @@ import type { FC } from 'react';
 import type { EntityLinkProps } from '@/components/entity/EntityLink';
 
 import NextLink from 'next/link';
-
-import { cn } from '@brickninja-org/ui/lib';
+import { cn } from '@heroui/react';
 
 import { localizedName } from '@/lib/localized-name';
 import { localizedUrl } from '@/lib/localized-url';

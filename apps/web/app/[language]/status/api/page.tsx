@@ -2,7 +2,7 @@ import type { ApiRequest } from '@brickninja-org/database';
 import type { PageProps } from '@/lib/next';
 
 import { Fragment } from 'react';
-import { cn } from '@brickninja-org/ui/lib';
+import { cn } from '@heroui/react';
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 import { table, Table } from '@brickninja-org/ui/components/table/Table';
 import { Tip } from '@brickninja-org/ui/components/tip/Tip';

@@ -3,7 +3,7 @@
 import { useMemo, type FC } from 'react';
 import type { RefProp } from '@brickninja-org/ui/lib/react';
 
-import { cn } from '@brickninja-org/ui/lib';
+import { cn } from '@heroui/react';
 
 import { useFormatContext } from './Format.context';
 

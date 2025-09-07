@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 
-import { cn } from '@brickninja-org/ui/lib';
+import { cn } from '@heroui/react';
 
 export interface SkeletonProps {
   width?: number | string;

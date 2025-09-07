@@ -1,6 +1,6 @@
-import type { VariantProps } from 'tailwind-variants';
+import type { VariantProps } from '@heroui/react';
 
-import { tv } from 'tailwind-variants';
+import { tv } from '@heroui/react';
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 import { table, Table } from '@brickninja-org/ui/components/table/Table';
 

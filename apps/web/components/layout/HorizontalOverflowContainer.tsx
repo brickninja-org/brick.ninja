@@ -1,11 +1,12 @@
 'use client';
 
-import { Icon } from '@brickninja-org/ui/icons';
-import { cn } from '@brickninja-org/ui/lib';
-import { useResizeObserver } from '@brickninja-org/ui/lib/hooks/resize-observer';
 import type { FC, ReactNode } from 'react';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { cn } from '@heroui/react';
+import { Icon } from '@brickninja-org/ui/icons';
+import { useResizeObserver } from '@brickninja-org/ui/lib/hooks/resize-observer';
+
 
 export interface HorizontalOverflowContainerProps {
   children: ReactNode;

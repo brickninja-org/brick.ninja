@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import type { IconSize } from '@/lib/get-icon-url';
 
-import { cn } from '@brickninja-org/ui/lib';
+import { cn } from '@heroui/react';
 
 export interface EntityIconMissingProps {
   size: IconSize | number;

@@ -1,8 +1,6 @@
 import type { FC, ReactNode } from 'react';
 
-import { tv } from 'tailwind-variants';
-
-import { cn } from '@brickninja-org/ui/lib';
+import { cn, tv } from '@heroui/react';
 
 export interface ItemListProps {
   children: ReactNode[];
