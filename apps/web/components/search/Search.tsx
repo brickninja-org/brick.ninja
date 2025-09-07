@@ -1,6 +1,6 @@
 'use client';
 
-import type { FC, ChangeEventHandler, KeyboardEventHandler, ReactElement, FormEventHandler } from 'react';
+import type { FC, KeyboardEventHandler, ReactElement, FormEventHandler } from 'react';
 import type { TranslationSubset } from '@/lib/translate';
 import type { translations as itemTypeTranslations } from '@/components/item/ItemType.translations';
 
@@ -75,11 +75,6 @@ export const Search: FC<SearchProps> = ({ translations }) => {
 
   let index = 0;
 
-  const handleSearchChange: ChangeEventHandler<HTMLInputElement> = useCallback((e) => {
-    setValue(e.target.value);
-    setOpen(true);
-  }, []);
-
   const handleKeyDown: KeyboardEventHandler<HTMLInputElement> = useCallback((e) => {
     if(e.key === 'Enter') {
       // get active element, fallback to first element
@@ -124,15 +119,16 @@ export const Search: FC<SearchProps> = ({ translations }) => {
   const endContent = !loading
     ? !open && (
       <div className="hidden sm:inline-flex gap-1.5">
-        <Kbd keys={[]}>/</Kbd> or <Kbd keys={[]}>s</Kbd>
+        <Kbd>/</Kbd> or <Kbd>s</Kbd>
       </div>
-    ) : (open || searchValue) && <Spinner size="sm" variant="dots"/>;
+    ) : (open || searchValue) && <Spinner color="default" size="sm" variant="wave"/>;
 
   return (
     <Form className="relative flex items-center w-[468px] focus-within:bg-background focus-within:shadow-base rounded-xs [--icon-size:20px]" ref={refs.setReference} {...getReferenceProps()} onSubmit={handleSubmit}>
       <Input
         fullWidth
         aria-label="Search"
+        aria-expanded={open}
         autoComplete="off"
         classNames={{
           base: 'text-default-400',
@@ -144,10 +140,12 @@ export const Search: FC<SearchProps> = ({ translations }) => {
         placeholder={translations['search.placeholder']}
         radius="sm"
         ref={inputRef}
+        role="combobox"
         spellCheck="false"
         startContent={<Icon className="text-default-400" icon="search"/>}
         value={value}
-        onChange={handleSearchChange}
+        onFocus={() => setOpen(true)}
+        onValueChange={setValue}
         onKeyDown={handleKeyDown}/>
 
       {open && (
