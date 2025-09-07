@@ -5,11 +5,9 @@ import type { TranslationSubset } from '@/lib/translate';
 import type { translations as itemTypeTranslations } from '@/components/item/ItemType.translations';
 
 import { Fragment, useCallback, useEffect, useRef, useState } from 'react';
-import NextLink from 'next/link';
 import { autoUpdate, offset, shift, size, useDismiss, useFloating, useFocus, useInteractions, useListNavigation } from '@floating-ui/react';
-import { Form, Input, Kbd, Spinner } from '@heroui/react';
+import { cn, Form, Input, Kbd, Link, Spinner } from '@heroui/react';
 
-import { cn } from '@brickninja-org/ui/lib';
 import { Icon } from '@brickninja-org/ui/icons';
 
 import { useDebounce } from '@/hooks/use-debounce';
@@ -168,18 +166,19 @@ export const Search: FC<SearchProps> = ({ translations }) => {
                 const isExternal = result.href.startsWith('http');
 
                 return render(
-                  <NextLink
+                  <Link
                     tabIndex={-1}
                     href={result.href}
                     key={result.href}
-                    className={cn(['grid gap-x-2 gap-y-0 [grid-template-columns:32px_1fr_auto] py-2 px-4 rounded-2 text-foreground no-underline', activeIndex === currentIndex && 'bg-background-light'])}
+                    className={cn(['grid gap-x-2 gap-y-0 grid-cols-[32px_1fr_auto] py-2 px-4 rounded-2 text-foreground', activeIndex === currentIndex && 'bg-background-light'])}
                     id={result.href}
-                    target={isExternal ? '_blank' : undefined}
-                    rel={isExternal ? 'noreferrer noopener' : undefined}
                     ref={(node) => { listRef.current[currentIndex] = node; }}
                     {...getItemProps({
                       onClick: (e) => !e.defaultPrevented && setOpen(false)
                     })}
+                    isBlock
+                    isExternal={isExternal}
+                    underline="none"
                     style={{ gridTemplateAreas: '"icon title external" "icon subtitle external"' }}
                   >
                     {result.icon}
@@ -191,8 +190,7 @@ export const Search: FC<SearchProps> = ({ translations }) => {
                         {result.subtitle}
                       </div>
                     )}
-                    {isExternal && <span className="[grid-area:external] ml-2 text-muted"><Icon icon="external"/></span>}
-                  </NextLink>
+                  </Link>
                 );
               })}
             </Fragment>
