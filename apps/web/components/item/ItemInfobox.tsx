@@ -32,10 +32,11 @@ export const ItemInfobox: FC<ItemInfoboxProps> = async ({ item, data, language }
       <FlexRow wrap>
         {/* <LinkButton appearance="tertiary" flex external href={`https://brickset.com/api/v3.asmx/getSets?apiKey=${process.env.BRICKSET_API_KEY}&userHash=&params={setID=${item.id}}`} target="api">API</LinkButton> */}
         <Button
+          isExternal
           as={Link}
           className="flex-1"
           href={`https://www.lego.com${item.type === 'Container' && data.default_product ? `/product/${data.default_product.toString()}` : item.subtype === 'Instruction' ? `/cdn/product-assets/product.bi.core.pdf/${item.id}.pdf` : `/pick-and-build/pick-a-brick?query=${item.id}`}`}
-          isExternal
+          radius="sm"
           target="product"
           variant="ghost"
         >
