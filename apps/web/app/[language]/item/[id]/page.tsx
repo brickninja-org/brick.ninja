@@ -1,5 +1,3 @@
-import type { PageProps } from '@/lib/next';
-
 import { notFound } from 'next/navigation';
 
 import { createMetadata } from '@/lib/metadata';
@@ -7,7 +5,7 @@ import { getLanguage } from '@/lib/translate';
 import { getRevision } from './data';
 import { ItemPageComponent } from './Component';
 
-export type ItemPageProps = PageProps<{ id: string }>;
+export type ItemPageProps = PageProps<'/[language]/item/[id]'>;
 
 export default async function ItemPage({ params }: ItemPageProps) {
   const language = await getLanguage();
@@ -17,8 +15,7 @@ export default async function ItemPage({ params }: ItemPageProps) {
   return <ItemPageComponent language={language} itemId={itemId}/>;
 }
 
-export const generateMetadata = createMetadata<ItemPageProps>(async ({ params }) => {
-  const language = await getLanguage();
+export const generateMetadata = createMetadata<ItemPageProps>(async ({ params }, { language }) => {
   const { id } = await params;
   const itemId = Number(id);
   const { data } = await getRevision(itemId, language);
