@@ -1,20 +1,23 @@
 /* eslint-disable @typescript-eslint/no-empty-object-type */
 import type { ReactNode } from 'react';
-import type { SearchParams } from '@/lib/search-params';
 import type { NextRequest } from 'next/server';
+import type { SearchParams } from '@/lib/search-params';
 
 type Params = Record<string, string | string[] | undefined>;
 
+/** @deprecated Use Next.js `PageProps` instead */
 export interface PageProps<P extends Params = {}> {
   params: Promise<P>;
   searchParams: Promise<SearchParams>;
 }
 
+/** @deprecated Use Next.js `LayoutProps` instead */
 export interface LayoutProps<P extends Params = {}> {
   params: Promise<P>;
   children: ReactNode;
 }
 
+/** @deprecated Use Next.js `RouteContext` instead */
 export interface RouteProps<P extends Params = {}> {
   params: Promise<P>;
 }
