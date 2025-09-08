@@ -34,7 +34,6 @@ export const NavigationItem: FC<NavigationItemProps> = (props) => {
         render={(
           <Button
             as={Link}
-            color="default"
             radius="sm"
             variant="light"
             {...props}/>
