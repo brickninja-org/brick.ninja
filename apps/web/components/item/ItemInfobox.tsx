@@ -3,8 +3,8 @@ import type { Item, Language } from '@brickninja-org/database';
 import type { Item as ApiItem } from '@brickninjaapi/types/data/item';
 //import type { GetSets } from '@brickset-api/types/data/get-sets';
 
+import { Button, Link } from '@heroui/react';
 import { FlexRow } from '@brickninja-org/ui/components/flex-row/FlexRow';
-import { LinkButton } from '@brickninja-org/ui/components/form/Button';
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 
 import { LanguageLinks } from '@/components/info-box/LanguageLinks';
@@ -31,7 +31,16 @@ export const ItemInfobox: FC<ItemInfoboxProps> = async ({ item, data, language }
       <Headline id="links" noToc>Links</Headline>
       <FlexRow wrap>
         {/* <LinkButton appearance="tertiary" flex external href={`https://brickset.com/api/v3.asmx/getSets?apiKey=${process.env.BRICKSET_API_KEY}&userHash=&params={setID=${item.id}}`} target="api">API</LinkButton> */}
-        <LinkButton appearance="tertiary" flex external href={`https://www.lego.com${item.type === 'Container' && data.default_product ? `/product/${data.default_product.toString()}` : item.subtype === 'Instruction' ? `/cdn/product-assets/product.bi.core.pdf/${item.id}.pdf` : `/pick-and-build/pick-a-brick?query=${item.id}`}`} target="product">LEGO.com</LinkButton>
+        <Button
+          as={Link}
+          className="flex-1"
+          href={`https://www.lego.com${item.type === 'Container' && data.default_product ? `/product/${data.default_product.toString()}` : item.subtype === 'Instruction' ? `/cdn/product-assets/product.bi.core.pdf/${item.id}.pdf` : `/pick-and-build/pick-a-brick?query=${item.id}`}`}
+          isExternal
+          target="product"
+          variant="ghost"
+        >
+          LEGO.com
+        </Button>
         <ShareButton className="flex-1" radius="sm" variant="ghost" data={{ title: localizedName(item, language), url: currentUrl.toString() }}/>
       </FlexRow>
 
