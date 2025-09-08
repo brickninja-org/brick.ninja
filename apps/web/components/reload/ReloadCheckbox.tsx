@@ -21,7 +21,7 @@ export const ReloadCheckbox: FC<ReloadProps & RefProp<HTMLInputElement>> = (({ r
         isSelected={autoRefresh}
         classNames={{
           base: cn(
-            'inline-flex items-center justify-start gap-2',
+            'inline-flex items-center justify-start',
             'rounded-sm bg-content1 hover:bg-content2'
           ),
         }}
