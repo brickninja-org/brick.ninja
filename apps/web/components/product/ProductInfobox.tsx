@@ -2,8 +2,8 @@ import type { FC } from 'react';
 import type { Language, Product } from '@brickninja-org/database';
 import type { Product as ApiProduct } from '@brickninjaapi/types/data/product';
 
+import { Button, Link } from '@heroui/react';
 import { FlexRow } from '@brickninja-org/ui/components/flex-row/FlexRow';
-import { LinkButton } from '@brickninja-org/ui/components/form/Button';
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 
 import { localizedName } from '@/lib/localized-name';
@@ -36,8 +36,29 @@ export const ProductInfobox: FC<ProductInfoboxProps> = async ({ product, data, l
 
       <Headline id="links" noToc>Links</Headline>
       <FlexRow wrap>
-        {product.type === 'Set' && <LinkButton appearance="tertiary" flex icon="external" external href={`https://www.lego.com/pick-and-build/pick-a-brick?appearsIn=${product.id}`} target="_blank">Pick a Brick</LinkButton>}
-        <LinkButton appearance="tertiary" flex icon="external" external href={`https://www.lego.com/product/${product.id}`} target="product">LEGO.com</LinkButton>
+        {product.type === 'Set' && (
+          <Button
+            isExternal
+            as={Link}
+            className="flex-1"
+            href={`https://www.lego.com/pick-and-build/pick-a-brick?appearsIn=${product.id}`}
+            radius="sm"
+            variant="ghost"
+          >
+            Pick a Brick
+          </Button>
+        )}
+        <Button
+          isExternal
+          as={Link}
+          className="flex-1"
+          href={`https://www.lego.com/product/${product.id}`}
+          radius="sm"
+          target="product"
+          variant="ghost"
+        >
+          LEGO.com
+        </Button>
         <ShareButton className="flex-1" radius="sm" variant="ghost" data={{ title: localizedName(product, language), url: currentUrl.toString() }}/>
       </FlexRow>
     </div>
