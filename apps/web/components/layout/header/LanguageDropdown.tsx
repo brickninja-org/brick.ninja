@@ -77,6 +77,7 @@ export const LanguageDropdown: FC<LanguageDropdownProps> = ({ translations }) =>
           classNames={{
             base: 'rounded-sm'
           }}
+          selectedKeys={[currentLanguage]}
           selectionMode="single"
           variant="flat"
           onAction={handleAction}
