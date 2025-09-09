@@ -60,7 +60,7 @@ export const LanguageDropdown: FC<LanguageDropdownProps> = ({ translations }) =>
 
   return (
     <>
-      <Dropdown placement="bottom">
+      <Dropdown placement="bottom" radius="sm" shadow="md">
         <DropdownTrigger>
           <Button
             aria-label={currentLanguageLabel}
