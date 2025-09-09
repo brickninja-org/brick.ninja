@@ -74,6 +74,9 @@ export const LanguageDropdown: FC<LanguageDropdownProps> = ({ translations }) =>
         </DropdownTrigger>
         <DropdownMenu
           aria-label={translations['language.select.label']}
+          classNames={{
+            base: 'rounded-sm'
+          }}
           selectionMode="single"
           variant="flat"
           onAction={handleAction}
