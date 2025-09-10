@@ -1,6 +1,6 @@
 'use client';
 
-import type { FC } from 'react';
+import type { FC, ReactNode } from 'react';
 import type { Item, Language } from '@brickninja-org/database';
 import type { IconSize } from '@/lib/get-icon-url';
 import type { LocalizedEntity } from '@/lib/localized-name';
@@ -17,9 +17,10 @@ export interface ItemLinkProps {
   icon?: IconSize | 'none';
   language?: Language;
   revision?: string;
+  children?: ReactNode;
 }
 
-export const ItemLink: FC<ItemLinkProps> = ({ className, item, icon = 32, language, revision }) => {
+export const ItemLink: FC<ItemLinkProps> = ({ className, item, icon = 32, language, revision, children }) => {
   const entity = getLinkProperties(item);
 
   return (
@@ -29,7 +30,10 @@ export const ItemLink: FC<ItemLinkProps> = ({ className, item, icon = 32, langua
         entity={entity}
         icon={icon}
         href={`/item/${entity.id}${revision ? `/${revision}` : ''}`}
-        language={language}/>
+        language={language}
+      >
+        {children}
+      </EntityLink>
     </Tooltip>
   );
 };
