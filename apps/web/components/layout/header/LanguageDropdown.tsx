@@ -33,7 +33,6 @@ const availableLanguages: Record<Language, string> = {
 
 export const LanguageDropdown: FC<LanguageDropdownProps> = ({ translations }) => {
   const { push } = useRouter();
-
   const [isFormatDialogOpen, setIsFormatDialogOpen] = useState(false);
 
   const currentLanguage = useLanguage();
@@ -63,7 +62,6 @@ export const LanguageDropdown: FC<LanguageDropdownProps> = ({ translations }) =>
           classNames={{
             base: 'rounded-sm'
           }}
-          defaultSelectedKeys={[currentLanguage]}
           selectedKeys={[currentLanguage]}
           selectionMode="single"
           variant="flat"
@@ -78,17 +76,22 @@ export const LanguageDropdown: FC<LanguageDropdownProps> = ({ translations }) =>
             }
 
             if (isLanguageKey(selectedKey)) {
-              const url = new URL(window.location.href);
-              url.hostname = selectedKey + url.hostname.substring(2);
-              push(url.href);
+              try {
+                const url = new URL(window.location.href);
+                if (url.hostname.includes('.')) {
+                  url.hostname = `${selectedKey}.${url.hostname.split('.').slice(1).join('.')}`;
+                  push(url.href);
+                }
+              } catch {
+                // fallback: ignore invalid url
+              }
             }
-            // Ignore unknown keys
           }}
         >
           <DropdownSection
             showDivider
             title="Language"
-            items={(Object.entries(availableLanguages) as [Language, string][])
+            items={(Object.entries(availableLanguages))
               .map(([code, label]) => ({ key: code, label }))}
           >
             {(item) => <DropdownItem key={item.key}>{item.label}</DropdownItem>}
