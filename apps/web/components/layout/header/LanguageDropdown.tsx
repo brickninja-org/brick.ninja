@@ -4,7 +4,7 @@ import type { FC, Key } from 'react';
 import type { Language } from '@brickninja-org/database';
 import type { TranslationSubset } from '@/lib/translate';
 
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownSection, DropdownTrigger } from '@heroui/react';
 
@@ -44,24 +44,6 @@ export const LanguageDropdown: FC<LanguageDropdownProps> = ({ translations }) =>
   const isLanguageKey = (key: Key): key is Language =>
     typeof key === 'string' && Object.hasOwn(availableLanguages, key);
 
-  const handleSelectionChange = useCallback((keys: Set<Key>) => {
-    const key = keys.values().next().value;
-
-    if (!key) return;
-
-    if (isSettingsKey(key)) {
-      setIsFormatDialogOpen(true);
-      return;
-    }
-
-    if (isLanguageKey(key)) {
-      const url = new URL(window.location.href);
-      url.hostname = key + url.hostname.substring(2);
-      push(url.href);
-    }
-    // Ignore unknown keys
-  }, [push]);
-
   return (
     <>
       <Dropdown placement="bottom" radius="sm" shadow="md">
@@ -85,7 +67,23 @@ export const LanguageDropdown: FC<LanguageDropdownProps> = ({ translations }) =>
           selectedKeys={[currentLanguage]}
           selectionMode="single"
           variant="flat"
-          onSelectionChange={handleSelectionChange}
+          onSelectionChange={(keys) => {
+            const selectedKey = Array.from(keys)[0];
+
+            if (!selectedKey) return;
+
+            if (isSettingsKey(selectedKey)) {
+              setIsFormatDialogOpen(true);
+              return;
+            }
+
+            if (isLanguageKey(selectedKey)) {
+              const url = new URL(window.location.href);
+              url.hostname = selectedKey + url.hostname.substring(2);
+              push(url.href);
+            }
+            // Ignore unknown keys
+          }}
         >
           <DropdownSection
             showDivider
