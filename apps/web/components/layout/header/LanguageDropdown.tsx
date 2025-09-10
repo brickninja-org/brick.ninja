@@ -44,7 +44,7 @@ export const LanguageDropdown: FC<LanguageDropdownProps> = ({ translations }) =>
   const isLanguageKey = (key: Key): key is Language =>
     typeof key === 'string' && Object.hasOwn(availableLanguages, key);
 
-  const handleAction = useCallback((key: Key) => {
+  const handleSelection = useCallback((key: Key) => {
     if (isSettingsKey(key)) {
       setIsFormatDialogOpen(true);
       return;
@@ -81,7 +81,7 @@ export const LanguageDropdown: FC<LanguageDropdownProps> = ({ translations }) =>
           selectedKeys={[currentLanguage]}
           selectionMode="single"
           variant="flat"
-          onAction={handleAction}
+          onSelectionChange={handleSelection}
         >
           <DropdownSection
             showDivider
