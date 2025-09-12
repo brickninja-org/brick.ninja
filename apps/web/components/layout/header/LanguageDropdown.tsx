@@ -8,10 +8,9 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownSection, DropdownTrigger } from '@heroui/react';
 
-import { Icon } from '@brickninja-org/ui/icons';
-
 import { useLanguage } from '@/components/i18n/context';
 import { FormatConfigDialog } from '@/components/format/FormatConfigDialog';
+import { Iconify } from '@/components/iconify/iconify.client';
 
 export interface LanguageDropdownProps {
   translations: TranslationSubset<
@@ -51,7 +50,7 @@ export const LanguageDropdown: FC<LanguageDropdownProps> = ({ translations }) =>
             aria-label={currentLanguageLabel}
             className="min-w-10 w-10 md:min-w-20 md:w-fit"
             radius="sm"
-            startContent={<Icon icon="globe"/>}
+            startContent={<Iconify icon="globe"/>}
             variant="light"
           >
             <span className="hidden md:block">{currentLanguageLabel}</span>
