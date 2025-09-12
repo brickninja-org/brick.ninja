@@ -1,4 +1,4 @@
-import type { FC } from 'react';
+import type { FC, ReactNode } from 'react';
 import type { Language, Product } from '@brickninja-org/database';
 import type { LocalizedEntity } from '@/lib/localized-name';
 
@@ -13,14 +13,17 @@ export interface ProductLinkProps {
   icon?: IconSize | 'none';
   language?: Language;
   revision?: string;
+  children?: ReactNode;
 }
 
-export const ProductLink: FC<ProductLinkProps> = ({ product, icon = 32, language, revision }) => {
+export const ProductLink: FC<ProductLinkProps> = ({ product, icon = 32, language, revision, children }) => {
   const entity = getLinkProperties(product);
 
   return (
     <Tooltip content={<ProductLinkTooltip product={product} language={language} revision={revision}/>}>
-      <EntityLink href={`/product/${product.id}`} entity={entity} icon={icon} iconType="product" language={language}/>
+      <EntityLink href={`/product/${product.id}`} entity={entity} icon={icon} iconType="product" language={language}>
+        {children}
+      </EntityLink>
     </Tooltip>
   );
 };

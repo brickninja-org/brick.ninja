@@ -1,37 +1,31 @@
 import type { FC } from 'react';
 import type { Language } from '@brickninja-org/database';
 import type { TranslationId } from '@/lib/translate';
+import type { TODO } from '@/lib/todo';
 
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { FlexRow } from '@brickninja-org/ui/components/flex-row/FlexRow';
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
-import { Icon } from '@brickninja-org/ui/icons';
 import { Notice } from '@brickninja-org/ui/components/notice/Notice';
-import { table, Table } from '@brickninja-org/ui/components/table/Table';
 import { TableOfContentAnchor } from '@brickninja-org/ui/components/table-of-content/TableOfContents';
-import { Tip } from '@brickninja-org/ui/components/tip/Tip';
 
-import { getLinkProperties } from '@/lib/link-properties';
 import { localizedName } from '@/lib/localized-name';
 import { pageView } from '@/lib/page-view';
 import { parseIcon } from '@/lib/parse-icon';
 import { getTranslate } from '@/lib/translate';
-import { FormatDate } from '@/components/format/FormatDate';
 import { Json } from '@/components/format/Json';
 import DetailLayout from '@/components/layout/DetailLayout';
-import { Tooltip } from '@/components/tooltip/Tooltip';
 import { getProduct, getRevision } from './data';
 import { ItemTableContext } from '@/components/item-table/ItemTable.context';
 import { ItemTableColumnsButton } from '@/components/item-table/ItemTableColumnsButton';
 import { ItemTable } from '@/components/item-table/ItemTable';
 import { ProductInfobox } from '@/components/product/ProductInfobox';
-import { ProductLinkTooltip } from '@/components/product/ProductLinkTooltip';
 import { ProductTooltip } from '@/components/product/ProductTooltip';
 import { extraColumn } from '@/components/item-table/columns';
-import type { TODO } from '@/lib/todo';
-import { ItemBarcodeColumn } from './ExtraColumns';
 import { EntityIconMissing } from '@/components/entity/EntityIconMissing';
+import { RevisionTable } from '@/components/revision/RevisionTable';
+import { ProductLink } from '@/components/product/ProductLink';
+import { ItemBarcodeColumn } from './ExtraColumns';
 
 export interface ProductPageComponentProps {
   language: Language;
@@ -63,8 +57,6 @@ export const ProductPageComponent: FC<ProductPageComponentProps> = async ({ lang
 
   const icon = parseIcon(data.icon);
 
-  const styles = table();
-
   return (
     <DetailLayout
       title={data.name}
@@ -93,39 +85,11 @@ export const ProductPageComponent: FC<ProductPageComponentProps> = async ({ lang
       )}
 
       <Headline id="history">History</Headline>
-      <Table>
-        <thead>
-          <tr>
-            <Table.HeaderCell small/>
-            <Table.HeaderCell>Description</Table.HeaderCell>
-            <Table.HeaderCell small>Date</Table.HeaderCell>
-            <Table.HeaderCell small>Actions</Table.HeaderCell>
-          </tr>
-        </thead>
-        <tbody>
-          {product.history.map((history) => (
-            <tr key={history.revisionId} className={styles.tr()}>
-              <td className="pr-0">{history.revisionId === revision.id && <Tip tip="Currently viewing"><Icon icon="eye"/></Tip>}</td>
-              <td className={styles.td()}>
-                <Tooltip content={<ProductLinkTooltip product={getLinkProperties(product)} language={language} revision={history.revisionId}/>}>
-                  <Link href={`/product/${product.id}/${history.revisionId}`}>
-                    {history.revision.description}
-                  </Link>
-                </Tooltip>
-              </td>
-              <td className={styles.td()}><FormatDate date={history.revision.createdAt} relative/></td>
-              <td className={styles.td()}>
-                {history.revisionId !== revision.id && (
-                  <FlexRow>
-                    <Link href={`/product/${product.id}/${history.revisionId}`}>View</Link>
-                    <Link href={`/product/diff/${history.revisionId}/${revision.id}`}>Compare</Link>
-                  </FlexRow>
-                )}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
+      <RevisionTable
+        revisions={product.history.map(({ revision }) => revision)}
+        link={
+          ({ revisionId, children }) => <ProductLink product={product} language={language} revision={revisionId} icon="none">{children}</ProductLink>
+        }/>
 
       <Headline id="data">Data</Headline>
       <Json data={data}/>
