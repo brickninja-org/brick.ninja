@@ -6,7 +6,7 @@ import { cn, Link } from '@heroui/react';
 import { getLanguage, translate } from '@/lib/translate';
 import { FormatDate } from '@/components/format/FormatDate';
 import { Translate } from '@/components/i18n/Translate';
-import { Table as StaticTable, TableBody, TableCell, TableHeader, TableRoot, TableRow } from '@/components/table/StaticTable';
+import { Table as StaticTable, TableBody, TableCell, TableColumnHeader, TableHeader, TableRoot, TableRow } from '@/components/table/StaticTable';
 import { RevisionTableHiddenRows } from './RevisionTable.client';
 
 export interface RevisionTableProps {
@@ -44,10 +44,10 @@ export const RevisionTable: FC<RevisionTableProps> = async ({ revisions, current
       <StaticTable aria-label="History table" className="w-full" layout="auto">
         <TableHeader>
           <TableRow>
-            <TableRow><Translate id="revisions.build"/></TableRow>
-            <TableRow><Translate id="revisions.description"/></TableRow>
-            <TableRow><Translate id="revisions.date"/></TableRow>
-            <TableRow><Translate id="actions"/></TableRow>
+            <TableColumnHeader><Translate id="revisions.build"/></TableColumnHeader>
+            <TableColumnHeader><Translate id="revisions.description"/></TableColumnHeader>
+            <TableColumnHeader><Translate id="revisions.date"/></TableColumnHeader>
+            <TableColumnHeader><Translate id="actions"/></TableColumnHeader>
           </TableRow>
         </TableHeader>
         <TableBody>
