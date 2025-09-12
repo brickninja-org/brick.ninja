@@ -53,9 +53,9 @@ export const RevisionTable: FC<RevisionTableProps> = async ({ revisions, current
         <TableBody>
           <RevisionTableHiddenRows hiddenIndexes={Array.from(hiddenIndexes)} label={translate('revisions.showHidden', language)}>
             {revisions.map((revision) => (
-              <TableRow key={revision.id}>
+              <TableRow key={revision.id} className="[&>td]:px-2 [&>td]:py-1.5 first:[&>td]:pt-4">
                 <TableCell>{revision.buildId !== 0 ? (<Link href={`/build/${revision.buildId}`}>{revision.buildId}</Link>) : '-'}</TableCell>
-                <TableCell className={cn(currentRevisionId === revision.id && 'font-medium')}>
+                <TableCell className={cn(currentRevisionId === revision.id && 'font-medium', 'whitespace-nowrap')}>
                   {link({ revisionId: revision.id, children: revision.description })}
                 </TableCell>
                 <TableCell className="whitespace-nowrap"><FormatDate date={revision.createdAt} relative/></TableCell>
