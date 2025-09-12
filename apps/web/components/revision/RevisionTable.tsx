@@ -2,11 +2,11 @@ import type { FC, ReactNode } from 'react';
 import type { Revision } from '@brickninja-org/database';
 
 import { cn, Link } from '@heroui/react';
-import { Table } from '@brickninja-org/ui/components/table/Table';
 
 import { getLanguage, translate } from '@/lib/translate';
 import { FormatDate } from '@/components/format/FormatDate';
 import { Translate } from '@/components/i18n/Translate';
+import { Table as StaticTable, TableBody, TableCell, TableHeader, TableRoot, TableRow } from '@/components/table/StaticTable';
 import { RevisionTableHiddenRows } from './RevisionTable.client';
 
 export interface RevisionTableProps {
@@ -40,33 +40,33 @@ export const RevisionTable: FC<RevisionTableProps> = async ({ revisions, current
   }
 
   return (
-    <>
-      <Table>
-        <thead>
-          <tr>
-            <Table.HeaderCell><Translate id="revisions.build"/></Table.HeaderCell>
-            <Table.HeaderCell><Translate id="revisions.description"/></Table.HeaderCell>
-            <Table.HeaderCell small><Translate id="revisions.date"/></Table.HeaderCell>
-            <Table.HeaderCell small><Translate id="actions"/></Table.HeaderCell>
-          </tr>
-        </thead>
-        <tbody>
+    <TableRoot className="overflow-x-auto overflow-y-hidden">
+      <StaticTable aria-label="History table" className="w-full" layout="auto">
+        <TableHeader>
+          <TableRow>
+            <TableRow><Translate id="revisions.build"/></TableRow>
+            <TableRow><Translate id="revisions.description"/></TableRow>
+            <TableRow><Translate id="revisions.date"/></TableRow>
+            <TableRow><Translate id="actions"/></TableRow>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
           <RevisionTableHiddenRows hiddenIndexes={Array.from(hiddenIndexes)} label={translate('revisions.showHidden', language)}>
             {revisions.map((revision) => (
-              <tr key={revision.id}>
-                <td>{revision.buildId !== 0 ? (<Link href={`/build/${revision.buildId}`}>{revision.buildId}</Link>) : '-'}</td>
-                <td className={cn(currentRevisionId === revision.id && 'font-medium')}>
+              <TableRow key={revision.id}>
+                <TableCell>{revision.buildId !== 0 ? (<Link href={`/build/${revision.buildId}`}>{revision.buildId}</Link>) : '-'}</TableCell>
+                <TableCell className={cn(currentRevisionId === revision.id && 'font-medium')}>
                   {link({ revisionId: revision.id, children: revision.description })}
-                </td>
-                <td><FormatDate date={revision.createdAt} relative/></td>
-                <td>
+                </TableCell>
+                <TableCell className="whitespace-nowrap"><FormatDate date={revision.createdAt} relative/></TableCell>
+                <TableCell>
                   {currentRevisionId !== revision.id && link({ revisionId: revision.id, children: <Translate id="revisions.view"/> })}
-                </td>
-              </tr>
+                </TableCell>
+              </TableRow>
             ))}
           </RevisionTableHiddenRows>
-        </tbody>
-      </Table>
-    </>
+        </TableBody>
+      </StaticTable>
+    </TableRoot>
   );
 };
