@@ -14,7 +14,7 @@ import { Chart, getColor } from '@/components/chart/Chart';
 import { FormatNumber } from '@/components/format/FormatNumber';
 import { FormatDate } from '@/components/format/FormatDate';
 import { PageLayout } from '@/components/layout/PageLayout';
-import { Code } from '@/components/layout/Code';
+import { Code } from '@/components/layout/code';
 import { Skeleton } from '@/components/skeleton/Skeleton';
 import { ColumnSelect } from '@/components/table/ColumnSelect';
 import { ensureUserIsAdmin } from '../admin';

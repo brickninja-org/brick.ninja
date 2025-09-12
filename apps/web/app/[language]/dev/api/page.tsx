@@ -4,7 +4,7 @@ import { ExternalLink } from '@brickninja-org/ui/components/link/ExternalLink';
 
 import { createMetadata } from '@/lib/metadata';
 import { getCurrentUrl } from '@/lib/url';
-import { Code } from '@/components/layout/Code';
+import { Code } from '@/components/layout/code';
 import { HeroLayout } from '@/components/layout/HeroLayout';
 
 export default async function DeveloperApiPage() {

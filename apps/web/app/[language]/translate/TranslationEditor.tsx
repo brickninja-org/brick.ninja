@@ -11,7 +11,7 @@ import { MenuList } from '@brickninja-org/ui/components/layout/MenuList';
 import { Table } from '@brickninja-org/ui/components/table/Table';
 
 import type { TranslationId } from '@/lib/translate';
-import { Code } from '@/components/layout/Code';
+import { Code } from '@/components/layout/code';
 
 export interface TranslationEditorProps {
   dictionaries: {

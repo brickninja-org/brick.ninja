@@ -2,7 +2,7 @@ import type { FC } from 'react';
 
 import { Tip } from '@brickninja-org/ui/components/tip/Tip';
 
-import { Code } from '@/components/layout/Code';
+import { Code } from '@/components/layout/code';
 
 export interface JsonProps {
   data: object;
