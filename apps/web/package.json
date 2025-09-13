@@ -30,7 +30,7 @@
     "@formatjs/intl-localematcher": "0.6.1",
     "@heroui/react": "2.8.4",
     "@heroui/theme": "2.4.22",
-    "@iconify-json/lucide": "1.2.10",
+    "@iconify-json/lucide": "1.2.67",
     "@iconify/react": "6.0.1",
     "@prisma/nextjs-monorepo-workaround-plugin": "6.16.1",
     "@radix-ui/react-slot": "1.2.3",
