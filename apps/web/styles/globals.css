@@ -1,24 +1,5 @@
-@layer theme, base, components, utilities;
-
 /* Base layer - Tailwind CSS v4 */
 @import "tailwindcss";
-
-/* Base styles */
-@import "./base/base.css" layer(base);
-
-/* Utilities */
-/* @import "./utilities/index.css" layer(utilities); */
-
-/* Base component structures (unstyled) */
-@import "./components/index.css" layer(components);
-
-/* Share theme variables - used in all themes */
-@import "./themes/shared/theme.css" layer(theme);
-
-/* Default theme (variables + component customizations) */
-@import "./themes/default/index.css" layer(theme);
-
-@import "./variables.css" layer(theme);
 
 @plugin "@tailwindcss/typography";
 @plugin "./heroui.ts";
