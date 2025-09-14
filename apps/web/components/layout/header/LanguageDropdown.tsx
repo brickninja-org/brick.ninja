@@ -6,9 +6,8 @@ import type { TranslationSubset } from '@/lib/translate';
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Dropdown, DropdownItem, DropdownMenu, DropdownSection, DropdownTrigger } from '@heroui/react';
+import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownSection, DropdownTrigger } from '@heroui/react';
 
-import { Button } from '@/components/button';
 import { useLanguage } from '@/components/i18n/context';
 import { FormatConfigDialog } from '@/components/format/FormatConfigDialog';
 import { Iconify } from '@/components/iconify/iconify.client';
@@ -50,9 +49,10 @@ export const LanguageDropdown: FC<LanguageDropdownProps> = ({ translations }) =>
           <Button
             aria-label={currentLanguageLabel}
             className="min-w-10 w-10 md:min-w-20 md:w-fit"
-            variant="ghost"
+            radius="sm"
+            startContent={<Iconify icon="globe"/>}
+            variant="light"
           >
-            <Iconify icon="globe"/>
             <span className="hidden md:block">{currentLanguageLabel}</span>
           </Button>
         </DropdownTrigger>
