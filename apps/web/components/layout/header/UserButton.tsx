@@ -10,13 +10,13 @@ import { LinkButton } from '@brickninja-org/ui/components/form/Button';
 import { SubmitButton } from '@brickninja-org/ui/components/form/buttons/SubmitButton';
 import { MenuList } from '@brickninja-org/ui/components/layout/MenuList';
 import { Separator } from '@brickninja-org/ui/components/layout/Separator';
-import { Icon } from '@brickninja-org/ui/icons';
 
 import { getUser } from '@/lib/get-user';
 import { getTranslate } from '@/lib/translate';
 import { reauthorize } from '@/components/bn2-api/reauthorize';
 import { Skeleton } from '@/components/skeleton/Skeleton';
 import { Translate } from '@/components/i18n/Translate';
+import { Iconify } from '@/components/iconify/iconify.client';
 
 export interface UserButtonProps {
   language: Language;
@@ -48,14 +48,14 @@ const UserButtonInternal: FC<UserButtonInternalProps> = ({ user, language }) => 
 
   if (!user) {
     return (
-      <Button as={Link} radius="sm" variant="light" href="/login" className="min-w-10 w-10 md:min-w-20 md:w-fit" aria-label={t('login')}>
-        <Icon icon="user"/><span className="hidden md:block"> <Translate id="login" language={language}/></span>
+      <Button as={Link} startContent={<Iconify icon="log-in"/>} radius="sm" variant="light" href="/login" className="min-w-10 w-10 md:min-w-20 md:w-fit" aria-label={t('login')}>
+        <span className="hidden md:block"> <Translate id="login" language={language}/></span>
       </Button>
     );
   }
 
   const button = (
-    <Button as={Link} startContent={<Icon icon="user"/>} radius="sm" variant="light" href="/profile" className="min-w-10 w-10 md:min-w-20 md:w-fit" aria-label={user === 'loading' ? undefined : user.name}>
+    <Button as={Link} startContent={<Iconify icon="user-round"/>} radius="sm" variant="light" href="/profile" className="min-w-10 w-10 md:min-w-20 md:w-fit" aria-label={user === 'loading' ? undefined : user.name}>
       <span className="hidden md:block">{user === 'loading' ? <Skeleton width={90}/> : user.name}</span>
     </Button>
   );
@@ -63,16 +63,16 @@ const UserButtonInternal: FC<UserButtonInternalProps> = ({ user, language }) => 
   return (
     <Dropdown hideTop={false} button={button} preferredPlacement="bottom">
       <MenuList>
-        <LinkButton appearance="menu" href="/profile" icon="user">Profile</LinkButton>
+        <LinkButton appearance="menu" href="/profile" icon={<Iconify icon="user-round"/>}>Profile</LinkButton>
         {user !== 'loading' && user.roles.includes('Admin') && (
-          <LinkButton appearance="menu" icon="developer" href="/admin/users">Admin</LinkButton>
+          <LinkButton appearance="menu" icon={<Iconify icon="tool-case"/>} href="/admin/users">Admin</LinkButton>
         )}
         <form action="/logout" method="POST" className="flex">
-          <SubmitButton appearance="menu" icon="logout" flex>Logout</SubmitButton>
+          <SubmitButton appearance="menu" icon={<Iconify icon="log-out"/>} flex>Logout</SubmitButton>
         </form>
         <Separator/>
         <form action={reauthorize.bind(null, [], 'consent')} className="flex">
-          <SubmitButton appearance="menu" icon="unlock" flex>Manage Accounts</SubmitButton>
+          <SubmitButton appearance="menu" icon={<Iconify icon="lock"/>} flex>Manage Accounts</SubmitButton>
         </form>
       </MenuList>
     </Dropdown>

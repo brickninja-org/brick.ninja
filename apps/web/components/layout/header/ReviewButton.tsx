@@ -5,11 +5,11 @@ import { Suspense, use } from 'react';
 import { Button, Card, CardBody, CardHeader, Chip, Divider, Link, Popover, PopoverContent, PopoverTrigger, type ChipProps } from '@heroui/react';
 
 import { groupByUnique } from '@brickninja-org/helper/group-by';
-import { Icon } from '@brickninja-org/ui/icons';
 import { Translate } from '@/components/i18n/Translate';
 
 import { cache } from '@/lib/cache';
 import { db } from '@/lib/prisma';
+import { Iconify } from '@/components/iconify/iconify.client';
 
 const getOpenReviews = cache(
   async () => {
@@ -56,7 +56,7 @@ const InternalReviewButton: FC<InternalReviewButtonProps> = ({ language, data })
       endContent={<ReviewCountChip hideEmpty count={reviewCounts?._total} classNames={{ base: 'hidden md:inline-flex' }}/>}
       href="/review"
       radius="sm"
-      startContent={<Icon icon="review-queue"/>}
+      startContent={<Iconify icon="edit"/>}
       variant="light"
     >
       <span className="hidden md:block">
