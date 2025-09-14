@@ -50,7 +50,7 @@ export const LanguageDropdown: FC<LanguageDropdownProps> = ({ translations }) =>
             aria-label={currentLanguageLabel}
             className="min-w-10 w-10 md:min-w-20 md:w-fit"
             radius="sm"
-            startContent={<Iconify icon="globe"/>}
+            startContent={<Iconify icon="lucide:globe"/>}
             variant="light"
           >
             <span className="hidden md:block">{currentLanguageLabel}</span>

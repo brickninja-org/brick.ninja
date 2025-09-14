@@ -56,7 +56,7 @@ const InternalReviewButton: FC<InternalReviewButtonProps> = ({ language, data })
       endContent={<ReviewCountChip hideEmpty count={reviewCounts?._total} classNames={{ base: 'hidden md:inline-flex' }}/>}
       href="/review"
       radius="sm"
-      startContent={<Iconify icon="edit"/>}
+      startContent={<Iconify icon="lucide:edit"/>}
       variant="light"
     >
       <span className="hidden md:block">

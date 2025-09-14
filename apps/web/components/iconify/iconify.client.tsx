@@ -28,12 +28,12 @@ const Iconify: FC<IconifyProps> = ({ ref, icon: iconProp, ...props }) => {
     const lucideIconData = icons[iconProp as IconName];
 
     if (lucideIconData) {
-      return <OfflineIcon height={24} width={24} {...props} ref={ref} icon={lucideIconData}/>;
+      return <OfflineIcon {...props} ref={ref} icon={lucideIconData}/>;
     }
   }
 
   // Use online version for other icon sets (like simple-icons:vite, lineicons:nextjs)
-  return <Icon height={24} width={24} {...props} ref={ref} icon={iconProp}/>;
+  return <Icon {...props} ref={ref} icon={iconProp}/>;
 };
 
 Iconify.displayName = 'BrickCatalog.Iconify';
