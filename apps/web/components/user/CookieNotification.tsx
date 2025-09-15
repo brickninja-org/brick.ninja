@@ -11,7 +11,7 @@ export const CookieNotification = withSuspense(() => {
   }
 
   return (
-    <div className="flex gap-3 items-center py-1 px-4 max-w-[264px] min-w-full mb-2 bg-(--color-background-light) rounded-xs border border-(--color-border-dark) leading-normal">
+    <div className="flex gap-3 items-center py-1 px-4 max-w-[264px] min-w-full mb-2 bg-surface-2 rounded-xs border border-border leading-normal">
       <Icon icon="cookie"/>
       Changing settings will store cookies in your browser.
     </div>

@@ -61,7 +61,7 @@ export const Tooltip: FC<TooltipProps> = ({ children, content }) => {
         <FloatingPortal>
           <div
             ref={refs.setFloating}
-            className="max-w-[min(500px,_calc(100vw_-_16px))] p-4 rounded-xs z-10 will-change-transform pointer-events-none shadow bg-white"
+            className="max-w-[min(500px,_calc(100vw_-_16px))] p-4 rounded-xs z-10 will-change-transform pointer-events-none shadow bg-background"
             style={{ ...transitionStyles, ...floatingStyles }}
             {...getFloatingProps()}
           >

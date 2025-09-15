@@ -131,7 +131,7 @@ export const Search: FC<SearchProps> = ({ translations }) => {
         aria-expanded={open}
         autoComplete="off"
         classNames={{
-          base: 'text-default-400',
+          base: 'text-muted',
           // inputWrapper: 'bg-content2 dark:bg-content1',
         }}
         endContent={endContent}
@@ -142,7 +142,7 @@ export const Search: FC<SearchProps> = ({ translations }) => {
         ref={inputRef}
         role="combobox"
         spellCheck="false"
-        startContent={<Icon className="text-default-400" icon="search"/>}
+        startContent={<Icon className="text-muted" icon="search"/>}
         value={value}
         onFocus={() => setOpen(true)}
         onValueChange={setValue}
@@ -168,7 +168,7 @@ export const Search: FC<SearchProps> = ({ translations }) => {
                     tabIndex={-1}
                     href={result.href}
                     key={result.href}
-                    className={cn(['grid gap-x-2 gap-y-0 grid-cols-[32px_1fr_auto] py-2 px-4 rounded-2', activeIndex === currentIndex && 'bg-content1'])}
+                    className={cn(['grid gap-x-2 gap-y-0 grid-cols-[32px_1fr_auto] py-2 px-4 rounded-2', activeIndex === currentIndex && 'bg-panel'])}
                     id={result.href}
                     ref={(node) => { listRef.current[currentIndex] = node; }}
                     {...getItemProps({
@@ -185,7 +185,7 @@ export const Search: FC<SearchProps> = ({ translations }) => {
                       {result.title}
                     </div>
                     {result.subtitle && (
-                      <div className="[grid-area:subtitle] text-sm text-default-500">
+                      <div className="[grid-area:subtitle] text-sm text-muted">
                         {result.subtitle}
                       </div>
                     )}
