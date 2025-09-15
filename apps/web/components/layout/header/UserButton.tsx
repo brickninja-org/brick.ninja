@@ -3,7 +3,7 @@ import type { Language } from '@brickninja-org/database';
 import type { SessionUser } from '@/lib/get-user';
 
 import { Suspense } from 'react';
-import { Button, Link } from '@heroui/react';
+import Link from 'next/link';
 
 import { Dropdown } from '@brickninja-org/ui/components/dropdown/Dropdown';
 import { LinkButton } from '@brickninja-org/ui/components/form/Button';
@@ -14,6 +14,7 @@ import { Separator } from '@brickninja-org/ui/components/layout/Separator';
 import { getUser } from '@/lib/get-user';
 import { getTranslate } from '@/lib/translate';
 import { reauthorize } from '@/components/bn2-api/reauthorize';
+import { Button } from '@/components/button';
 import { Skeleton } from '@/components/skeleton/Skeleton';
 import { Translate } from '@/components/i18n/Translate';
 import { Iconify } from '@/components/iconify/iconify.client';
@@ -48,15 +49,21 @@ const UserButtonInternal: FC<UserButtonInternalProps> = ({ user, language }) => 
 
   if (!user) {
     return (
-      <Button as={Link} startContent={<Iconify icon="lucide:log-in"/>} radius="sm" variant="light" href="/login" className="min-w-10 w-10 md:min-w-20 md:w-fit text-base" aria-label={t('login')}>
-        <span className="hidden md:block"> <Translate id="login" language={language}/></span>
+      <Button asChild variant="ghost" className="min-w-10 w-10 md:min-w-20 md:w-fit rounded-sm font-normal" aria-label={t('login')}>
+        <Link href="/login">
+          <Iconify icon="lucide:login"/>
+          <span className="hidden md:block"> <Translate id="login" language={language}/></span>
+        </Link>
       </Button>
     );
   }
 
   const button = (
-    <Button as={Link} startContent={<Iconify icon="lucide:user-round"/>} radius="sm" variant="light" href="/profile" className="min-w-10 w-10 md:min-w-20 md:w-fit text-base" aria-label={user === 'loading' ? undefined : user.name}>
-      <span className="hidden md:block">{user === 'loading' ? <Skeleton width={90}/> : user.name}</span>
+    <Button asChild variant="ghost" className="min-w-10 w-10 md:min-w-20 md:w-fit rounded-sm font-normal" aria-label={user === 'loading' ? undefined : user.name}>
+      <Link href="/profile">
+        <Iconify icon="lucide:user-round"/>
+        <span className="hidden md:block">{user === 'loading' ? <Skeleton width={90}/> : user.name}</span>
+      </Link>
     </Button>
   );
 

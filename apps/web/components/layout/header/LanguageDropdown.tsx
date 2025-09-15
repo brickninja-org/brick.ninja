@@ -49,7 +49,7 @@ export const LanguageDropdown: FC<LanguageDropdownProps> = ({ translations }) =>
         <DropdownTrigger>
           <Button
             aria-label={currentLanguageLabel}
-            className="min-w-10 w-10 md:min-w-20 md:w-fit rounded-sm text-base"
+            className="min-w-10 w-10 md:min-w-20 md:w-fit rounded-sm font-normal"
             variant="ghost"
           >
             <Iconify icon="lucide:globe"/>
