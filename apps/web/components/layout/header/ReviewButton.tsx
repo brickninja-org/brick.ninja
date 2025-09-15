@@ -2,14 +2,15 @@ import type { FC } from 'react';
 import type { Language, ReviewQueue } from '@brickninja-org/database';
 
 import { Suspense, use } from 'react';
-import { Button, Card, CardBody, CardHeader, Chip, Divider, Link, Popover, PopoverContent, PopoverTrigger, type ChipProps } from '@heroui/react';
+import { Card, CardBody, CardHeader, Chip, Divider, Link, Popover, PopoverContent, PopoverTrigger, type ChipProps } from '@heroui/react';
 
 import { groupByUnique } from '@brickninja-org/helper/group-by';
-import { Translate } from '@/components/i18n/Translate';
 
 import { cache } from '@/lib/cache';
 import { db } from '@/lib/prisma';
+import { Button } from '@/components/button';
 import { Iconify } from '@/components/iconify/iconify.client';
+import { Translate } from '@/components/i18n/Translate';
 
 const getOpenReviews = cache(
   async () => {
@@ -51,17 +52,18 @@ const InternalReviewButton: FC<InternalReviewButtonProps> = ({ language, data })
 
   const button = (
     <Button
+      asChild
       aria-label="Review"
-      className="min-w-10 w-10 md:min-w-20 md:w-fit text-base"
-      endContent={<ReviewCountChip hideEmpty count={reviewCounts?._total} classNames={{ base: 'hidden md:inline-flex' }}/>}
-      href="/review"
-      radius="sm"
-      startContent={<Iconify icon="lucide:edit"/>}
-      variant="light"
+      className="min-w-10 w-10 md:min-w-20 md:w-fit rounded-sm font-normal"
+      variant="ghost"
     >
-      <span className="hidden md:block">
-        <Translate language={language} id="review"/>
-      </span>
+      <Link href="/review">
+        <Iconify icon="lucide:edit"/>
+        <span className="hidden md:block">
+          <Translate language={language} id="review"/>
+        </span>
+        <ReviewCountChip hideEmpty count={reviewCounts?._total} classNames={{ base: 'hidden md:inline-flex' }}/>
+      </Link>
     </Button>
   );
 
@@ -76,14 +78,14 @@ const InternalReviewButton: FC<InternalReviewButtonProps> = ({ language, data })
           <Divider/>
           <CardBody>
             <Button
-              as={Link}
-              className="flex items-center justify-between gap-4"
-              href="/review/container-content"
-              radius="sm"
-              variant="light"
+              asChild
+              className="flex items-center justify-between gap-4 rounded-sm font-normal"
+              variant="ghost"
             >
-              <Translate language={language} id="review.queue.ContainerContent"/>
-              <ReviewCountChip count={reviewCounts?.ContainerContent}/>
+              <Link href="/review/container-content">
+                <Translate language={language} id="review.queue.ContainerContent"/>
+                <ReviewCountChip count={reviewCounts?.ContainerContent}/>
+              </Link>
             </Button>
           </CardBody>
         </Card>
