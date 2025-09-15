@@ -150,7 +150,7 @@
   ::before,
   ::backdrop,
   ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
+    border-color: var(--border, currentColor);
   }
 
   html {
@@ -163,7 +163,7 @@
   }
 
   a:where(:any-link) {
-    color: var(--link-color, var(--color-focus));
+    color: var(--link-color, var(--link));
     text-decoration: underline;
     text-decoration-thickness: 2px;
     text-underline-offset: 2px;
