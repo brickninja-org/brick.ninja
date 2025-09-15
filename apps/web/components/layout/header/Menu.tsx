@@ -35,7 +35,7 @@ export const Menu: FC<MenuProps> = ({ children, navigation }) => {
     <div className="[grid-area:_menu]">
       <header
         className={cn([
-          'fixed top-0 left-0 right-0',
+          'fixed top-0 inset-x-0',
           'flex items-center gap-4 md:gap-8',
           'h-12 px-4',
           'bg-background',
