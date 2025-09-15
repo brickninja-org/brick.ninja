@@ -87,8 +87,8 @@ importers:
         specifier: 1.2.68
         version: 1.2.68
       '@iconify/react':
-        specifier: 6.0.1
-        version: 6.0.1(react@19.1.1)
+        specifier: 6.0.2
+        version: 6.0.2(react@19.1.1)
       '@prisma/nextjs-monorepo-workaround-plugin':
         specifier: 6.16.1
         version: 6.16.1
@@ -1457,8 +1457,8 @@ packages:
   '@iconify-json/lucide@1.2.68':
     resolution: {integrity: sha512-lR5xNJdn2CT0iR7lM25G4SewBO4G2hbr3fTWOc3AE9BspflEcneh02E3l9TBaCU/JOHozTJevWLrxBGypD7Tng==}
 
-  '@iconify/react@6.0.1':
-    resolution: {integrity: sha512-fCocnAfiGXjrA0u7KkS3W/OQHNp9LRFICudvOtxmS3Mf7U92aDhP50wyzRbobZli51zYt9ksZ9g0J7H586XvOQ==}
+  '@iconify/react@6.0.2':
+    resolution: {integrity: sha512-SMmC2sactfpJD427WJEDN6PMyznTFMhByK9yLW0gOTtnjzzbsi/Ke/XqsumsavFPwNiXs8jSiYeZTmLCLwO+Fg==}
     peerDependencies:
       react: 19.1.1
 
@@ -7439,7 +7439,7 @@ snapshots:
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify/react@6.0.1(react@19.1.1)':
+  '@iconify/react@6.0.2(react@19.1.1)':
     dependencies:
       '@iconify/types': 2.0.0
       react: 19.1.1
