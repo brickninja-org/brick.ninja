@@ -48,7 +48,7 @@ export const LanguageDropdown: FC<LanguageDropdownProps> = ({ translations }) =>
         <DropdownTrigger>
           <Button
             aria-label={currentLanguageLabel}
-            className="min-w-10 w-10 md:min-w-20 md:w-fit"
+            className="min-w-10 w-10 md:min-w-20 md:w-fit text-base"
             radius="sm"
             startContent={<Iconify icon="lucide:globe"/>}
             variant="light"

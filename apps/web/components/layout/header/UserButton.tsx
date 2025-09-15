@@ -48,14 +48,14 @@ const UserButtonInternal: FC<UserButtonInternalProps> = ({ user, language }) => 
 
   if (!user) {
     return (
-      <Button as={Link} startContent={<Iconify icon="lucide:log-in"/>} radius="sm" variant="light" href="/login" className="min-w-10 w-10 md:min-w-20 md:w-fit" aria-label={t('login')}>
+      <Button as={Link} startContent={<Iconify icon="lucide:log-in"/>} radius="sm" variant="light" href="/login" className="min-w-10 w-10 md:min-w-20 md:w-fit text-base" aria-label={t('login')}>
         <span className="hidden md:block"> <Translate id="login" language={language}/></span>
       </Button>
     );
   }
 
   const button = (
-    <Button as={Link} startContent={<Iconify icon="lucide:user-round"/>} radius="sm" variant="light" href="/profile" className="min-w-10 w-10 md:min-w-20 md:w-fit" aria-label={user === 'loading' ? undefined : user.name}>
+    <Button as={Link} startContent={<Iconify icon="lucide:user-round"/>} radius="sm" variant="light" href="/profile" className="min-w-10 w-10 md:min-w-20 md:w-fit text-base" aria-label={user === 'loading' ? undefined : user.name}>
       <span className="hidden md:block">{user === 'loading' ? <Skeleton width={90}/> : user.name}</span>
     </Button>
   );

@@ -52,7 +52,7 @@ const InternalReviewButton: FC<InternalReviewButtonProps> = ({ language, data })
   const button = (
     <Button
       aria-label="Review"
-      className="min-w-10 w-10 md:min-w-20 md:w-fit"
+      className="min-w-10 w-10 md:min-w-20 md:w-fit text-base"
       endContent={<ReviewCountChip hideEmpty count={reviewCounts?._total} classNames={{ base: 'hidden md:inline-flex' }}/>}
       href="/review"
       radius="sm"
