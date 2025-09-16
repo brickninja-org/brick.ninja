@@ -7,14 +7,13 @@ import Link from 'next/link';
 
 import { Dropdown } from '@brickninja-org/ui/components/dropdown/Dropdown';
 import { LinkButton } from '@brickninja-org/ui/components/form/Button';
-import { SubmitButton } from '@brickninja-org/ui/components/form/buttons/SubmitButton';
 import { MenuList } from '@brickninja-org/ui/components/layout/MenuList';
 import { Separator } from '@brickninja-org/ui/components/layout/Separator';
 
 import { getUser } from '@/lib/get-user';
 import { getTranslate } from '@/lib/translate';
 import { reauthorize } from '@/components/bn2-api/reauthorize';
-import { Button } from '@/components/button';
+import { Button, SubmitButton } from '@/components/button';
 import { Skeleton } from '@/components/skeleton';
 import { Translate } from '@/components/i18n/Translate';
 import { Iconify } from '@/components/iconify/iconify.client';
@@ -75,11 +74,11 @@ const UserButtonInternal: FC<UserButtonInternalProps> = ({ user, language }) => 
           <LinkButton appearance="menu" icon={<Iconify icon="lucide:tool-case"/>} href="/admin/users">Admin</LinkButton>
         )}
         <form action="/logout" method="POST" className="flex">
-          <SubmitButton appearance="menu" icon={<Iconify icon="lucide:log-out"/>} flex>Logout</SubmitButton>
+          <SubmitButton variant="ghost" icon={<Iconify icon="lucide:log-out"/>} flex>Logout</SubmitButton>
         </form>
         <Separator/>
         <form action={reauthorize.bind(null, [], 'consent')} className="flex">
-          <SubmitButton appearance="menu" icon={<Iconify icon="lucide:lock"/>} flex>Manage Accounts</SubmitButton>
+          <SubmitButton variant="ghost" icon={<Iconify icon="lucide:lock"/>} flex>Manage Accounts</SubmitButton>
         </form>
       </MenuList>
     </Dropdown>
