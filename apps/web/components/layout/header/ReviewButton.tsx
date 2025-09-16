@@ -54,7 +54,7 @@ const InternalReviewButton: FC<InternalReviewButtonProps> = ({ language, data })
     <Button
       asChild
       aria-label="Review"
-      className="min-w-10 w-10 md:min-w-20 md:w-fit rounded-sm font-normal"
+      className="group min-w-10 w-10 md:min-w-20 md:w-fit rounded-sm font-normal"
       variant="ghost"
     >
       <Link href="/review">
@@ -105,6 +105,6 @@ export const ReviewCountChip: FC<ReviewCountChipProps> = ({ count, hideEmpty, ..
   }
 
   return (
-    <Chip size="sm" {...props}>{count ?? 0}</Chip>
+    <Chip className="bg-surface-3 group-hover:bg-surface-1 border-border" size="sm" {...props}>{count ?? 0}</Chip>
   );
 };
