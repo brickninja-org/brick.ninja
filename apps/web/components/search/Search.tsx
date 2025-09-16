@@ -6,8 +6,9 @@ import type { translations as itemTypeTranslations } from '@/components/item/Ite
 
 import { Fragment, useCallback, useEffect, useRef, useState } from 'react';
 import { autoUpdate, offset, shift, size, useDismiss, useFloating, useFocus, useInteractions, useListNavigation } from '@floating-ui/react';
-import { cn, Form, Input, Kbd, Link, Spinner } from '@heroui/react';
+import { cn, Form, Input, Link, Spinner } from '@heroui/react';
 
+import { Kbd } from '@/components/kbd';
 import { Icon } from '@brickninja-org/ui/icons';
 
 import { useDebounce } from '@/hooks/use-debounce';
@@ -119,7 +120,7 @@ export const Search: FC<SearchProps> = ({ translations }) => {
   const endContent = !loading
     ? !open && (
         <div className="hidden sm:inline-flex gap-1.5">
-          <Kbd>/</Kbd> or <Kbd>s</Kbd>
+          <Kbd><Kbd.Content>/</Kbd.Content></Kbd> or <Kbd><Kbd.Content>s</Kbd.Content></Kbd>
         </div>
       ) : (open || searchValue) && <Spinner color="default" size="sm" variant="wave"/>;
 
