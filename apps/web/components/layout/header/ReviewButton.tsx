@@ -81,7 +81,7 @@ const InternalReviewButton: FC<InternalReviewButtonProps> = ({ language, data })
           <CardBody>
             <Button
               asChild
-              className="flex items-center justify-between gap-4 rounded-sm font-normal"
+              className="group flex items-center justify-between gap-4 rounded-sm font-normal"
               variant="ghost"
             >
               <Link href="/review/container-content">
