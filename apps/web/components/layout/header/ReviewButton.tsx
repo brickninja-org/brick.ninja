@@ -2,7 +2,8 @@ import type { FC } from 'react';
 import type { Language, ReviewQueue } from '@brickninja-org/database';
 
 import { Suspense, use } from 'react';
-import { Card, CardBody, CardHeader, Chip, Divider, Link, Popover, PopoverContent, PopoverTrigger, type ChipProps } from '@heroui/react';
+import Link from 'next/link';
+import { Card, CardBody, CardHeader, Chip, cn, Divider, Popover, PopoverContent, PopoverTrigger, type ChipProps } from '@heroui/react';
 
 import { groupByUnique } from '@brickninja-org/helper/group-by';
 
@@ -99,12 +100,12 @@ export interface ReviewCountChipProps extends ChipProps {
   hideEmpty?: boolean,
 }
 
-export const ReviewCountChip: FC<ReviewCountChipProps> = ({ count, hideEmpty, ...props }) => {
+export const ReviewCountChip: FC<ReviewCountChipProps> = ({ className, count, hideEmpty, ...props }) => {
   if (!count && hideEmpty) {
     return null;
   }
 
   return (
-    <Chip className="bg-surface-3 group-hover:bg-surface-1 border-border" size="sm" {...props}>{count ?? 0}</Chip>
+    <Chip className={cn('bg-surface-2 group-hover:bg-background border border-border', className)} size="sm" {...props}>{count ?? 0}</Chip>
   );
 };
