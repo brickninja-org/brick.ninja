@@ -74,11 +74,11 @@ const UserButtonInternal: FC<UserButtonInternalProps> = ({ user, language }) => 
           <LinkButton appearance="menu" icon={<Iconify icon="lucide:tool-case"/>} href="/admin/users">Admin</LinkButton>
         )}
         <form action="/logout" method="POST" className="flex">
-          <SubmitButton className="rounded-sm" variant="ghost" icon="lucide:log-out" flex>Logout</SubmitButton>
+          <SubmitButton className="justify-start rounded-sm font-normal" variant="ghost" icon="lucide:log-out" flex>Logout</SubmitButton>
         </form>
         <Separator/>
         <form action={reauthorize.bind(null, [], 'consent')} className="flex">
-          <SubmitButton className="rounded-sm" variant="ghost" icon="lucide:lock" flex>Manage Accounts</SubmitButton>
+          <SubmitButton className="justify-start rounded-sm font-normal" variant="ghost" icon="lucide:lock" flex>Manage Accounts</SubmitButton>
         </form>
       </MenuList>
     </Dropdown>
