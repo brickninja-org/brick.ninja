@@ -107,6 +107,6 @@ export const ReviewCountChip: FC<ReviewCountChipProps> = ({ className, count, hi
   }
 
   return (
-    <Chip className={cn('bg-accent-soft text-accent-foreground group-hover:bg-background group-hover:text-foreground border border-border', className)} size="sm" {...props}>{count ?? 0}</Chip>
+    <Chip className={cn('bg-accent-soft group-hover:bg-background border border-border', className)} size="sm" {...props}>{count ?? 0}</Chip>
   );
 };
