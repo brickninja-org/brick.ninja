@@ -6,9 +6,9 @@ import { LinkButton } from '@brickninja-org/ui/components/form/Button';
 import { Notice } from '@brickninja-org/ui/components/notice/Notice';
 
 export interface Bn2AccountLoginNoticeProps {
-  children?: ReactNode;
-  requiredScopes: Scope[];
-  optionalScopes?: Scope[];
+  children?: ReactNode,
+  requiredScopes: Scope[],
+  optionalScopes?: Scope[],
 }
 
 export const Bn2AccountLoginNotice: FC<Bn2AccountLoginNoticeProps> = ({ children, requiredScopes, optionalScopes = [] }) => {

@@ -16,8 +16,8 @@ import { UserButton } from '@/components/layout/header/UserButton';
 import './layout.css';
 
 interface LayoutProps {
-  children: ReactNode;
-  language: Language;
+  children: ReactNode,
+  language: Language,
 }
 
 const Layout: FC<LayoutProps> = ({ children, language }) => {

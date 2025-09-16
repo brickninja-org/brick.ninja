@@ -9,19 +9,19 @@ import { TableWrapper } from './TableWrapper';
 import type { RefProp } from '../../lib/react';
 
 export interface TableProps extends RefProp<HTMLTableElement>, Pick<TableVariantProps, 'layout' | 'fullWidth'> {
-  children: ReactNode;
+  children: ReactNode,
 }
 
 export interface HeaderCellProps extends TableVariantProps {
-  children?: ReactNode;
-  colSpan?: number;
-  width?: number | string;
-  sort?: boolean | 'asc' | 'desc';
-  onSort?: () => void;
+  children?: ReactNode,
+  colSpan?: number,
+  width?: number | string,
+  sort?: boolean | 'asc' | 'desc',
+  onSort?: () => void,
 }
 
 export interface BodyRowProps {
-  children: ReactNode;
+  children: ReactNode,
 }
 
 const table = tv({

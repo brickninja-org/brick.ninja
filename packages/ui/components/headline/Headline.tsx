@@ -5,10 +5,10 @@ import type { FC, ReactNode } from 'react';
 import { useTableOfContentAnchor } from '../table-of-content/TableOfContents';
 
 export interface HeadlineProps {
-  children: ReactNode;
-  id: string;
-  noToc?: boolean;
-  actions?: ReactNode;
+  children: ReactNode,
+  id: string,
+  noToc?: boolean,
+  actions?: ReactNode,
 }
 
 export const Headline: FC<HeadlineProps> = ({ children, id, noToc, actions }) => {

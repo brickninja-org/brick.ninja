@@ -7,10 +7,10 @@ import type { Signed } from './query';
 export type GlobalColumnId = 'id' | 'item' | 'icon' | 'name_de' | 'name_en' | 'name_es' | 'name_fr' | 'name_nl' | 'type';
 
 export interface ItemTableQuery<Model extends QueryModel = 'item'> {
-  model?: Model;
-  where: ColumnModelTypes[Model]['where'];
-  mapToItem?: ColumnModelTypes[Model]['map'];
-  orderBy?: OrderBy<ColumnModelTypes[Model]['orderBy']>;
+  model?: Model,
+  where: ColumnModelTypes[Model]['where'],
+  mapToItem?: ColumnModelTypes[Model]['map'],
+  orderBy?: OrderBy<ColumnModelTypes[Model]['orderBy']>,
 }
 
 export type QueryModel = keyof ColumnModelTypes;
@@ -27,7 +27,7 @@ export interface ItemTableColumn<Select extends Prisma.ItemSelect, Translations 
   align?: 'end',
   small?: boolean,
   orderBy?: [asc: OrderBy, desc: OrderBy],
-  translations?: Translations[]
+  translations?: Translations[],
 }
 
 export type ColumnModelTypes = {
@@ -38,28 +38,28 @@ export type ColumnModelTypes = {
 export interface ExtraColumn<Id extends string, Model extends QueryModel, Select extends ColumnModelTypes[Model]['select']> {
   id: Id,
   select: Select,
-  title: string;
+  title: string,
   order?: number,
-  component: FC<{ item: Result<Select & { id: true }> }>
+  component: FC<{ item: Result<Select & { id: true }> }>,
   align?: 'end',
   small?: boolean,
-  orderBy?: [asc: OrderBy<ColumnModelTypes[Model]['orderBy']>, desc: OrderBy<ColumnModelTypes[Model]['orderBy']>]
+  orderBy?: [asc: OrderBy<ColumnModelTypes[Model]['orderBy']>, desc: OrderBy<ColumnModelTypes[Model]['orderBy']>],
 }
 
 export type AvailableColumn<ColumnId extends string, Model extends QueryModel = QueryModel, Select extends ColumnModelTypes[Model]['select'] = ColumnModelTypes[Model]['select']> = {
   id: ColumnId,
-  globalColumnId?: Signed<GlobalColumnId>
+  globalColumnId?: Signed<GlobalColumnId>,
   title: string,
   select: Signed<Select>,
   orderBy?: [asc: Signed<OrderBy<ColumnModelTypes[Model]['orderBy']>>, desc: Signed<OrderBy<ColumnModelTypes[Model]['orderBy']>>],
   align?: 'end',
   small?: boolean,
-  component?: FC<{ item: Result<Select & { id: true }> }>
+  component?: FC<{ item: Result<Select & { id: true }> }>,
 };
 
 export type AvailableColumns<ColumnId extends string> = Record<ColumnId, AvailableColumn<ColumnId>>;
 
 export type LoadItemsResult = Promise<{
   items: { id: number }[],
-  translations: Partial<Record<TranslationId, string>>
+  translations: Partial<Record<TranslationId, string>>,
 }>;

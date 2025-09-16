@@ -5,15 +5,15 @@ import { Fragment, useState, useMemo, useCallback, memo } from 'react';
 import { Table } from './Table';
 
 export interface DataTableColumn<T> {
-  key: Key;
-  label: ReactNode;
-  value: (row: T) => ReactNode;
-  small?: boolean;
-  sort?: (a: T, b: T) => number;
+  key: Key,
+  label: ReactNode,
+  value: (row: T) => ReactNode,
+  small?: boolean,
+  sort?: (a: T, b: T) => number,
 }
 
 export interface DataTableProps<T> {
-  rows: T[];
+  rows: T[],
 }
 
 /** @deprecated Use DataTable instead */
@@ -25,7 +25,7 @@ export function useDataTable<T>(columns: DataTableColumn<T>[], rowKey: (row: T) 
       const sortedRows = useMemo(() => (sortBy?.column?.sort !== undefined)
         ? rows.slice().sort((a, b) => sortBy.reverse ? sortBy.column.sort!(a, b) : sortBy.column.sort!(b, a))
         : rows,
-        [rows, sortBy]
+      [rows, sortBy]
       );
 
       const handleSort = useCallback((column: DataTableColumn<T>) => {
@@ -67,15 +67,15 @@ export function useDataTable<T>(columns: DataTableColumn<T>[], rowKey: (row: T) 
         </Table>
       );
     },
-    [columns, rowKey, groups]
+  [columns, rowKey, groups]
   ));
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 interface ColumnHeaderProps<T = any> {
-  column: DataTableColumn<T>;
-  onSort: (column: DataTableColumn<T>) => void;
-  sortBy: { column: DataTableColumn<T>, reverse: boolean } | undefined;
+  column: DataTableColumn<T>,
+  onSort: (column: DataTableColumn<T>) => void,
+  sortBy: { column: DataTableColumn<T>, reverse: boolean } | undefined,
 }
 
 const ColumnHeader: FC<ColumnHeaderProps> = ({ column, onSort, sortBy }) => {

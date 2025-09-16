@@ -8,9 +8,9 @@ import { cn } from '../lib';
 import { getIcon } from './index';
 
 export interface IconProps extends RefProp {
-  icon: IconProp;
-  color?: IconColor;
-  className?: string;
+  icon: IconProp,
+  color?: IconColor,
+  className?: string,
 }
 
 export const Icon: FC<IconProps> = ({ ref, icon, color, className }) => {

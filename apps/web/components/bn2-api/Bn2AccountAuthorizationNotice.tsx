@@ -8,10 +8,10 @@ import { Notice } from '@brickninja-org/ui/components/notice/Notice';
 import { reauthorize } from './reauthorize';
 
 export interface Bn2AccountAuthorizationNoticeProps {
-  children?: ReactNode;
-  scopes: Scope[];
-  requiredScopes: Scope[];
-  optionalScopes?: Scope[];
+  children?: ReactNode,
+  scopes: Scope[],
+  requiredScopes: Scope[],
+  optionalScopes?: Scope[],
 }
 
 export const Bn2AccountAuthorizationNotice: FC<Bn2AccountAuthorizationNoticeProps> = ({ children, scopes, requiredScopes, optionalScopes = [] }) => {

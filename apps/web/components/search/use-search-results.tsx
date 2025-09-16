@@ -18,17 +18,17 @@ import { ProductLinkTooltip } from '@/components/product/ProductLinkTooltip';
 import { Tooltip } from '@/components/tooltip/Tooltip';
 
 export interface SearchResults<Id extends string> {
-  id: Id;
-  results: SearchResult[];
-  loading: boolean;
+  id: Id,
+  results: SearchResult[],
+  loading: boolean,
 }
 
 export interface SearchResult {
-  href: string;
-  title: ReactNode;
-  icon?: ReactNode;
-  subtitle?: ReactNode;
-  render?: (link: ReactElement<HTMLProps<HTMLElement>>) => ReactNode;
+  href: string,
+  title: ReactNode,
+  icon?: ReactNode,
+  subtitle?: ReactNode,
+  render?: (link: ReactElement<HTMLProps<HTMLElement>>) => ReactNode,
 }
 
 export function useSearchApiResults(searchValue: string, translations: TranslationSubset<typeof itemTypeTranslations.short[0]>) {

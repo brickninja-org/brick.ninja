@@ -8,8 +8,8 @@ import { SubmitButton } from '@/components/form/SubmitButton';
 import { submit } from './actions';
 
 export interface QueueJobFormProps {
-  jobs: { key: string; label: string }[];
-  className?: string;
+  jobs: { key: string, label: string }[],
+  className?: string,
 }
 
 export function QueueJobForm({ className, jobs }: QueueJobFormProps) {

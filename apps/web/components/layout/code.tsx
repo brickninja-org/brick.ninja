@@ -13,7 +13,7 @@ const font = Source_Code_Pro({
 });
 
 interface CodeProps extends CodeVariants {
-  children: ReactNode;
+  children: ReactNode,
 }
 
 const Code: FC<CodeProps> = ({ children, borderless = false, inline = false }) => {

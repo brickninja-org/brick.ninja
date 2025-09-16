@@ -3,16 +3,16 @@ import type { FC, ChangeEvent, HTMLInputAutoCompleteAttribute } from 'react';
 import { useCallback } from 'react';
 
 export interface TextInputProps {
-  type?: 'text' | 'password' | 'search' | 'date';
-  value?: string;
-  defaultValue?: string;
-  onChange?: (value: string) => void;
-  placeholder?: string;
-  name?: string;
-  readOnly?: boolean;
-  autoFocus?: boolean;
-  autoComplete?: HTMLInputAutoCompleteAttribute;
-  form?: string;
+  type?: 'text' | 'password' | 'search' | 'date',
+  value?: string,
+  defaultValue?: string,
+  onChange?: (value: string) => void,
+  placeholder?: string,
+  name?: string,
+  readOnly?: boolean,
+  autoFocus?: boolean,
+  autoComplete?: HTMLInputAutoCompleteAttribute,
+  form?: string,
 }
 
 export const TextInput: FC<TextInputProps> = ({ type = 'text', onChange, ...props }) => {

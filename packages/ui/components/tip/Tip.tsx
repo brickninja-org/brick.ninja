@@ -7,9 +7,9 @@ import { Children, cloneElement, useRef, useState } from 'react';
 import { arrow, autoUpdate, flip, FloatingArrow, FloatingPortal, offset, shift, useDismiss, useFloating, useFocus, useHover, useInteractions, useRole, useTransitionStyles } from '@floating-ui/react';
 
 export interface TipProps {
-  children: ReactElement<HTMLProps<HTMLElement>>;
-  tip: ReactNode;
-  preferredPlacement?: Placement;
+  children: ReactElement<HTMLProps<HTMLElement>>,
+  tip: ReactNode,
+  preferredPlacement?: Placement,
 }
 
 export const Tip: FC<TipProps> = ({ children, tip, preferredPlacement = 'top' }) => {

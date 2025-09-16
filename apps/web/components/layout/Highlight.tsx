@@ -10,8 +10,8 @@ import { toJsxRuntime } from 'hast-util-to-jsx-runtime';
 import { url } from '@brickninja-org/onig';
 
 interface HighlightProps {
-  code: string;
-  language: string;
+  code: string,
+  language: string,
 }
 
 export const Highlight: FC<HighlightProps> = ({ code, language }) => {

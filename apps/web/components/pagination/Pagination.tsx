@@ -8,11 +8,11 @@ import { Tip } from '@brickninja-org/ui/components/tip/Tip';
 import { Icon } from '@brickninja-org/ui/icons';
 
 export interface PaginationProps {
-  current: number;
-  total: number;
-  onPageChange: (page: number) => void;
-  disabled?: boolean;
-  translations: TranslationSubset<'pagination.next' | 'pagination.previous'>
+  current: number,
+  total: number,
+  onPageChange: (page: number) => void,
+  disabled?: boolean,
+  translations: TranslationSubset<'pagination.next' | 'pagination.previous'>,
 }
 
 export const Pagination: FC<PaginationProps> = ({ current, total, onPageChange, disabled, translations }) => {

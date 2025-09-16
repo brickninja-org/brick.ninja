@@ -15,12 +15,12 @@ import { Code } from '@/components/layout/code';
 
 export interface TranslationEditorProps {
   dictionaries: {
-    de: Partial<Record<TranslationId, string>>;
-    en: Partial<Record<TranslationId, string>>;
-    es: Partial<Record<TranslationId, string>>;
-    fr: Partial<Record<TranslationId, string>>;
-    nl: Partial<Record<TranslationId, string>>;
-  };
+    de: Partial<Record<TranslationId, string>>,
+    en: Partial<Record<TranslationId, string>>,
+    es: Partial<Record<TranslationId, string>>,
+    fr: Partial<Record<TranslationId, string>>,
+    nl: Partial<Record<TranslationId, string>>,
+  },
 }
 
 export const TranslationEditor: FC<TranslationEditorProps> = ({ dictionaries }) => {
@@ -48,19 +48,19 @@ export const TranslationEditor: FC<TranslationEditorProps> = ({ dictionaries }) 
 
   const suggestions = useMemo(() => edit?.key
     ? Array.from(new Set([
-      ...Object.entries(dictionaries.de).filter(([id, value]) => id !== edit.key && (value === dictionaries.en[edit.key] || value === changes.de[edit.key] || (edit.value.length > 2 && value.startsWith(edit.value)))).map(([id]) => dictionaries[edit.language][id as TranslationId]),
-      ...Object.entries(dictionaries.en).filter(([id, value]) => id !== edit.key && (value === dictionaries.en[edit.key] || value === changes.en[edit.key] || (edit.value.length > 2 && value.startsWith(edit.value)))).map(([id]) => dictionaries[edit.language][id as TranslationId]),
-      ...Object.entries(dictionaries.es).filter(([id, value]) => id !== edit.key && (value === dictionaries.en[edit.key] || value === changes.es[edit.key] || (edit.value.length > 2 && value.startsWith(edit.value)))).map(([id]) => dictionaries[edit.language][id as TranslationId]),
-      ...Object.entries(dictionaries.fr).filter(([id, value]) => id !== edit.key && (value === dictionaries.en[edit.key] || value === changes.fr[edit.key] || (edit.value.length > 2 && value.startsWith(edit.value)))).map(([id]) => dictionaries[edit.language][id as TranslationId]),
-      ...Object.entries(dictionaries.nl).filter(([id, value]) => id !== edit.key && (value === dictionaries.en[edit.key] || value === changes.nl[edit.key] || (edit.value.length > 2 && value.startsWith(edit.value)))).map(([id]) => dictionaries[edit.language][id as TranslationId]),
-      ...Object.entries(changes.de).filter(([id, value]) => id !== edit.key && (value === dictionaries.en[edit.key] || value === changes.de[edit.key] || (edit.value.length > 2 && value.startsWith(edit.value)))).map(([id]) => changes[edit.language][id as TranslationId]),
-      ...Object.entries(changes.en).filter(([id, value]) => id !== edit.key && (value === dictionaries.en[edit.key] || value === changes.en[edit.key] || (edit.value.length > 2 && value.startsWith(edit.value)))).map(([id]) => changes[edit.language][id as TranslationId]),
-      ...Object.entries(changes.es).filter(([id, value]) => id !== edit.key && (value === dictionaries.en[edit.key] || value === changes.es[edit.key] || (edit.value.length > 2 && value.startsWith(edit.value)))).map(([id]) => changes[edit.language][id as TranslationId]),
-      ...Object.entries(changes.fr).filter(([id, value]) => id !== edit.key && (value === dictionaries.en[edit.key] || value === changes.fr[edit.key] || (edit.value.length > 2 && value.startsWith(edit.value)))).map(([id]) => changes[edit.language][id as TranslationId]),
-      ...Object.entries(changes.nl).filter(([id, value]) => id !== edit.key && (value === dictionaries.en[edit.key] || value === changes.nl[edit.key] || (edit.value.length > 2 && value.startsWith(edit.value)))).map(([id]) => changes[edit.language][id as TranslationId]),
-    ].filter(isTruthy)))
+        ...Object.entries(dictionaries.de).filter(([id, value]) => id !== edit.key && (value === dictionaries.en[edit.key] || value === changes.de[edit.key] || (edit.value.length > 2 && value.startsWith(edit.value)))).map(([id]) => dictionaries[edit.language][id as TranslationId]),
+        ...Object.entries(dictionaries.en).filter(([id, value]) => id !== edit.key && (value === dictionaries.en[edit.key] || value === changes.en[edit.key] || (edit.value.length > 2 && value.startsWith(edit.value)))).map(([id]) => dictionaries[edit.language][id as TranslationId]),
+        ...Object.entries(dictionaries.es).filter(([id, value]) => id !== edit.key && (value === dictionaries.en[edit.key] || value === changes.es[edit.key] || (edit.value.length > 2 && value.startsWith(edit.value)))).map(([id]) => dictionaries[edit.language][id as TranslationId]),
+        ...Object.entries(dictionaries.fr).filter(([id, value]) => id !== edit.key && (value === dictionaries.en[edit.key] || value === changes.fr[edit.key] || (edit.value.length > 2 && value.startsWith(edit.value)))).map(([id]) => dictionaries[edit.language][id as TranslationId]),
+        ...Object.entries(dictionaries.nl).filter(([id, value]) => id !== edit.key && (value === dictionaries.en[edit.key] || value === changes.nl[edit.key] || (edit.value.length > 2 && value.startsWith(edit.value)))).map(([id]) => dictionaries[edit.language][id as TranslationId]),
+        ...Object.entries(changes.de).filter(([id, value]) => id !== edit.key && (value === dictionaries.en[edit.key] || value === changes.de[edit.key] || (edit.value.length > 2 && value.startsWith(edit.value)))).map(([id]) => changes[edit.language][id as TranslationId]),
+        ...Object.entries(changes.en).filter(([id, value]) => id !== edit.key && (value === dictionaries.en[edit.key] || value === changes.en[edit.key] || (edit.value.length > 2 && value.startsWith(edit.value)))).map(([id]) => changes[edit.language][id as TranslationId]),
+        ...Object.entries(changes.es).filter(([id, value]) => id !== edit.key && (value === dictionaries.en[edit.key] || value === changes.es[edit.key] || (edit.value.length > 2 && value.startsWith(edit.value)))).map(([id]) => changes[edit.language][id as TranslationId]),
+        ...Object.entries(changes.fr).filter(([id, value]) => id !== edit.key && (value === dictionaries.en[edit.key] || value === changes.fr[edit.key] || (edit.value.length > 2 && value.startsWith(edit.value)))).map(([id]) => changes[edit.language][id as TranslationId]),
+        ...Object.entries(changes.nl).filter(([id, value]) => id !== edit.key && (value === dictionaries.en[edit.key] || value === changes.nl[edit.key] || (edit.value.length > 2 && value.startsWith(edit.value)))).map(([id]) => changes[edit.language][id as TranslationId]),
+      ].filter(isTruthy)))
     : [],
-    [changes, dictionaries, edit],
+  [changes, dictionaries, edit],
   );
 
   return (
@@ -91,7 +91,7 @@ export const TranslationEditor: FC<TranslationEditorProps> = ({ dictionaries }) 
               <td><TranslationButton language="fr" id={key} dictionaries={dictionaries} changes={changes} editAction={setEdit}/></td>
               <td><TranslationButton language="nl" id={key} dictionaries={dictionaries} changes={changes} editAction={setEdit}/></td>
             </tr>
-            ))}
+          ))}
         </tbody>
       </Table>
 
@@ -118,11 +118,11 @@ export const TranslationEditor: FC<TranslationEditorProps> = ({ dictionaries }) 
 };
 
 export interface TranslationButtonProps {
-  language: Language;
-  id: TranslationId;
-  dictionaries: Record<Language, Partial<Record<TranslationId, string>>>;
-  changes: Record<Language, Partial<Record<TranslationId, string>>>;
-  editAction: (edit: { language: Language, key: TranslationId, value: string }) => void;
+  language: Language,
+  id: TranslationId,
+  dictionaries: Record<Language, Partial<Record<TranslationId, string>>>,
+  changes: Record<Language, Partial<Record<TranslationId, string>>>,
+  editAction: (edit: { language: Language, key: TranslationId, value: string }) => void,
 }
 
 export const TranslationButton: FC<TranslationButtonProps> = ({ language, id, dictionaries, changes, editAction }) => {

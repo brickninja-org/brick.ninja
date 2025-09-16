@@ -6,10 +6,10 @@ import { isTruthy } from '@brickninja-org/helper/is';
 
 interface DataListProps {
   data: ({
-    label: ReactNode;
-    value: ReactNode;
-    key: string;
-  } | false | undefined)[];
+    label: ReactNode,
+    value: ReactNode,
+    key: string,
+  } | false | undefined)[],
 }
 
 export const DataList: FC<DataListProps> = ({ data }) => {

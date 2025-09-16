@@ -8,7 +8,7 @@ import { Button } from '@heroui/react';
 import { Icon } from '@brickninja-org/ui/icons';
 
 export interface ShareButtonProps extends Omit<ButtonProps, 'startContent' | 'onPress'> {
-  data: ShareData;
+  data: ShareData,
 }
 
 export const ShareButton: FC<ShareButtonProps> = ({ data, ...props }) => {

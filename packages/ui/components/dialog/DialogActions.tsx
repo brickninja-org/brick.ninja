@@ -3,8 +3,8 @@ import type { FC, ReactNode } from 'react';
 import { FlexRow } from '../flex-row/FlexRow';
 
 export interface DialogActionsProps {
-  description?: ReactNode;
-  children: ReactNode;
+  description?: ReactNode,
+  children: ReactNode,
 }
 
 export const DialogActions: FC<DialogActionsProps> = ({ description, children }) => {

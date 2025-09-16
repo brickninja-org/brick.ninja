@@ -9,7 +9,7 @@ import { tv } from 'tailwind-variants';
 import { useResizeObserver } from '../../lib/hooks/resize-observer';
 
 export interface TableWrapperProps {
-  children: ReactElement<HTMLProps<HTMLElement>>;
+  children: ReactElement<HTMLProps<HTMLElement>>,
 }
 
 const wrapperStyles = tv({

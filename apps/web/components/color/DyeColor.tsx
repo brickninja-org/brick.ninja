@@ -6,7 +6,7 @@ import { cn } from '@heroui/react';
 import { isDark } from './is-dark';
 
 interface DyeColorProps {
-  color: RGB;
+  color: RGB,
 }
 
 export const DyeColor: FC<DyeColorProps> = ({ color }) => {

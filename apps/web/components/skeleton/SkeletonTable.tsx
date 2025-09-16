@@ -7,9 +7,9 @@ import { Skeleton } from '@/components/skeleton/Skeleton';
 import { SkeletonLink } from '@/components/skeleton/SkeletonLink';
 
 interface SkeletonTableProps {
-  columns: ReactNode[];
-  rows?: number;
-  icons?: boolean;
+  columns: ReactNode[],
+  rows?: number,
+  icons?: boolean,
 }
 
 export const SkeletonTable: FC<SkeletonTableProps> = ({ columns, rows = 3, icons = false }) => {

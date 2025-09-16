@@ -17,9 +17,9 @@ import { RegionInfo } from './RegionInfo';
 import { Translate } from '../i18n/Translate';
 
 interface ProductInfoboxProps {
-  product: Product;
-  data: ApiProduct;
-  language: Language;
+  product: Product,
+  data: ApiProduct,
+  language: Language,
 }
 
 export const ProductInfobox: FC<ProductInfoboxProps> = async ({ product, data, language }) => {

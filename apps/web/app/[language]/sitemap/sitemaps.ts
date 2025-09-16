@@ -4,23 +4,23 @@ import { db } from '@/lib/prisma';
 import { getAlternateUrls } from '@/lib/url';
 
 interface SitemapEntry {
-  url: string | URL;
-  lastmod?: Date;
+  url: string | URL,
+  lastmod?: Date,
   alternates?: {
-    lang: string;
-    href: string | URL;
-  }[];
+    lang: string,
+    href: string | URL,
+  }[],
 }
 
 interface Sitemap {
-  getCount(): number | Promise<number>;
-  getEntries(language: Language, skip: number, take: number): SitemapEntry[] | Promise<SitemapEntry[]>;
+  getCount(): number | Promise<number>,
+  getEntries(language: Language, skip: number, take: number): SitemapEntry[] | Promise<SitemapEntry[]>,
 }
 
 export const pageSize = 20_000;
 
 export const sitemaps: Record<string, Sitemap> = {
-  'items': {
+  items: {
     getCount() {
       return db.item.count();
     },
@@ -35,7 +35,7 @@ export const sitemaps: Record<string, Sitemap> = {
       ));
     }
   },
-  'static': {
+  static: {
     getCount() {
       // always returning 1 is okay because 1 page will always be enough for all static pages
       return 1;

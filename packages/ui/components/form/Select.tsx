@@ -1,11 +1,11 @@
 import type { FC } from 'react';
 
 export interface SelectProps {
-  value?: string;
-  onChange?: (value: string) => void;
-  options: { value: string; label: string }[];
-  name?: string;
-  defaultValue?: string;
+  value?: string,
+  onChange?: (value: string) => void,
+  options: { value: string, label: string }[],
+  name?: string,
+  defaultValue?: string,
 }
 
 export const Select: FC<SelectProps> = ({ value, onChange, options, name, defaultValue }) => {

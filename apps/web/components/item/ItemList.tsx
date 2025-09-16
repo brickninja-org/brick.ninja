@@ -3,8 +3,8 @@ import type { FC, ReactNode } from 'react';
 import { cn, tv } from '@heroui/react';
 
 export interface ItemListProps {
-  children: ReactNode[];
-  singleColumn?: boolean;
+  children: ReactNode[],
+  singleColumn?: boolean,
 }
 
 const list = tv({
@@ -28,7 +28,7 @@ export const ItemList: FC<ItemListProps> = ({ children, singleColumn = false }) 
 };
 
 export interface ItemListItemProps {
-  children: ReactNode;
+  children: ReactNode,
 }
 
 export const ItemListItem: FC<ItemListItemProps> = ({ children }) => {

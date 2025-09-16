@@ -28,8 +28,8 @@ const flex = tv({
 export type FlexVariants = VariantProps<typeof flex>;
 
 interface FlexRowProps extends FlexVariants {
-  className?: string;
-  children: ReactNode;
+  className?: string,
+  children: ReactNode,
 }
 
 export const FlexRow: FC<FlexRowProps> = (props) => {

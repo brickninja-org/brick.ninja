@@ -1,8 +1,8 @@
 import type { FC, ReactNode } from 'react';
 
 export interface TableRowButtonProps {
-  onClick: () => void;
-  children: ReactNode;
+  onClick: () => void,
+  children: ReactNode,
 }
 
 export const TableRowButton: FC<TableRowButtonProps> = ({ onClick, children }) => {

@@ -21,8 +21,8 @@ import { SkeletonTable } from '@/components/skeleton/SkeletonTable';
 export type SearchItemDialogSubmitHandler = (item?: Pick<Item, 'id' | keyof LocalizedEntity>) => void;
 
 export interface SearchItemDialogProps {
-  open: boolean;
-  onSubmitAction: SearchItemDialogSubmitHandler;
+  open: boolean,
+  onSubmitAction: SearchItemDialogSubmitHandler,
 }
 
 export const SearchItemDialog: FC<SearchItemDialogProps> = ({ open, onSubmitAction }) => {

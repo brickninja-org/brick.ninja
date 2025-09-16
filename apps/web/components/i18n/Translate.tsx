@@ -7,8 +7,8 @@ import type { TranslationId } from '@/lib/translate';
 import { getLanguage, translate } from '@/lib/translate';
 
 export interface TranslateProps {
-  id: TranslationId;
-  language?: Language;
+  id: TranslationId,
+  language?: Language,
 }
 
 export const Translate: FC<TranslateProps> = async ({ id, language }) => {

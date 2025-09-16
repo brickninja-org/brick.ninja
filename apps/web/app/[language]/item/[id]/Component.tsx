@@ -37,9 +37,9 @@ import { ItemLink } from '@/components/item/ItemLink';
 import { RevisionTable } from '@/components/revision/RevisionTable';
 
 export interface ItemPageComponentProps {
-  language: Language;
-  itemId: number;
-  revisionId?: string;
+  language: Language,
+  itemId: number,
+  revisionId?: string,
 }
 
 export const ItemPageComponent: FC<ItemPageComponentProps> = async ({ language, itemId, revisionId }) => {

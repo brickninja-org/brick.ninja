@@ -4,8 +4,8 @@ import { signingKey } from './signing-key';
 
 export interface Signed<T> {
   /** @deprecated Don't access `data` directly. Use `verify` instead */
-  data: T;
-  signature: string;
+  data: T,
+  signature: string,
 }
 
 export async function sign<T>(data: T): Promise<Signed<T>> {

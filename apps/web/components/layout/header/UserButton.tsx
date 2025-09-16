@@ -20,7 +20,7 @@ import { Translate } from '@/components/i18n/Translate';
 import { Iconify } from '@/components/iconify/iconify.client';
 
 export interface UserButtonProps {
-  language: Language;
+  language: Language,
 }
 
 export const UserButton: FC<UserButtonProps> = ({ language }) => {
@@ -32,8 +32,8 @@ export const UserButton: FC<UserButtonProps> = ({ language }) => {
 };
 
 interface UserButtonInternalProps {
-  user?: SessionUser | 'loading';
-  language: Language;
+  user?: SessionUser | 'loading',
+  language: Language,
 }
 
 // internal component to load the user

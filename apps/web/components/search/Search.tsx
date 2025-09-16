@@ -21,7 +21,7 @@ export interface SearchProps {
     | 'search.results.product.categories'
     | 'search.results.pages'
     | typeof itemTypeTranslations.short[0]
-  >;
+  >,
 }
 
 export const Search: FC<SearchProps> = ({ translations }) => {
@@ -118,10 +118,10 @@ export const Search: FC<SearchProps> = ({ translations }) => {
 
   const endContent = !loading
     ? !open && (
-      <div className="hidden sm:inline-flex gap-1.5">
-        <Kbd>/</Kbd> or <Kbd>s</Kbd>
-      </div>
-    ) : (open || searchValue) && <Spinner color="default" size="sm" variant="wave"/>;
+        <div className="hidden sm:inline-flex gap-1.5">
+          <Kbd>/</Kbd> or <Kbd>s</Kbd>
+        </div>
+      ) : (open || searchValue) && <Spinner color="default" size="sm" variant="wave"/>;
 
   return (
     <Form className="relative flex items-center w-[468px] focus-within:bg-background focus-within:shadow-base rounded-xs [--icon-size:20px]" ref={refs.setReference} {...getReferenceProps()} onSubmit={handleSubmit}>

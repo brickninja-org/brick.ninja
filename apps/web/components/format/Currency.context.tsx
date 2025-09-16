@@ -7,8 +7,8 @@ import { useHydrated } from '@/hooks/use-hydrated';
 import { useFormatContext } from '@/components/format/Format.context';
 
 interface CurrencyContextProps {
-  currency: string;
-  setCurrency: (currency: string | 'auto') => void;
+  currency: string,
+  setCurrency: (currency: string | 'auto') => void,
 }
 
 const regionToCurrency: Record<string, string> = {
@@ -26,7 +26,7 @@ const CurrencyContext = createContext<CurrencyContextProps>(null!);
 export const useCurrency = () => useContext(CurrencyContext);
 
 export interface CurrencyProviderProps {
-  children: ReactNode;
+  children: ReactNode,
 }
 
 export const CurrencyProvider: FC<CurrencyProviderProps> = ({ children }) => {

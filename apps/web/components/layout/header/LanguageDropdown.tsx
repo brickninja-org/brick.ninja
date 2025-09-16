@@ -20,7 +20,7 @@ export interface LanguageDropdownProps {
     | 'language.select.placeholder'
     | 'region.select.label'
     | 'region.select.placeholder'
-  >;
+  >,
 }
 
 const availableLanguages: Record<Language, string> = {

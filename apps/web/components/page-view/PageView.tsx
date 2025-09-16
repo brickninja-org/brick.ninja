@@ -7,7 +7,7 @@ import { Suspense } from 'react';
 import { pageView } from '@/lib/page-view';
 
 interface PageViewProps {
-  page: string;
+  page: string,
 }
 
 // run this in a suspence, so this does not block rendering

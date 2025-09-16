@@ -9,13 +9,13 @@ import { authCookieSettings } from '@/lib/auth/cookie';
 import { db } from '@/lib/prisma';
 
 export interface SessionUser {
-  id: string;
-  name: string;
-  roles: UserRole[];
+  id: string,
+  name: string,
+  roles: UserRole[],
   session: {
-    id: string;
-    expiresAt?: Date;
-  };
+    id: string,
+    expiresAt?: Date,
+  },
 }
 
 export const getUser = cache(async function getUser(): Promise<SessionUser | undefined> {

@@ -16,7 +16,7 @@ import { useUser } from '@/components/user/use-user';
 import { useItemTableContext } from './context';
 
 export interface ItemTableColumnsButtonProps {
-  translations: TranslationSubset<'table.columns' | 'table.columns.reset'>
+  translations: TranslationSubset<'table.columns' | 'table.columns.reset'>,
 }
 
 export const ItemTableColumnsButton: FC<ItemTableColumnsButtonProps> = ({ translations }) => {

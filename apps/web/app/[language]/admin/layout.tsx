@@ -5,7 +5,7 @@ import { Navbar } from '@/components/layout/Navbar';
 import { ensureUserIsAdmin } from './admin';
 
 interface AdminLayoutProps {
-  children: ReactNode;
+  children: ReactNode,
 }
 
 export default async function AdminLayout({ children }: AdminLayoutProps) {

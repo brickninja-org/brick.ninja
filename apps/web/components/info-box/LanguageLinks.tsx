@@ -4,8 +4,8 @@ import type { Language } from '@brickninja-org/database';
 import { cloneElement } from 'react';
 
 interface LanguageLinksProps {
-  link: ReactElement<{ language: string }>;
-  language: Language;
+  link: ReactElement<{ language: string }>,
+  language: Language,
 }
 
 export const LanguageLinks: FC<LanguageLinksProps> = ({ link, language }) => {

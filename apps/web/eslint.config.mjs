@@ -1,16 +1,20 @@
+import { defineConfig, globalIgnores } from 'eslint/config';
 import nextConfig from '@next/eslint-plugin-next';
-import reactConfig from '@brickninja-org/eslint-config/react';
 import reactCompiler from 'eslint-plugin-react-compiler';
-import tseslint from 'typescript-eslint';
 
-export default tseslint.config(
-  // ignore all files in .next
-  { ignores: ['.next'] },
+import reactConfig from '@brickninja-org/eslint-config/react';
+
+export default defineConfig(
+  // ignore Next.js generated files
+  globalIgnores([
+    '.next/',
+    'next-env.d.ts'
+  ]),
 
   // extends next/core-web-vitals
   nextConfig.flatConfig.coreWebVitals,
 
-  // extend @gw2treasures/eslint-config/react
+  // extend @brickninja-org/eslint-config/react
   ...reactConfig,
 
   // enable enable react-compiler plugin (no flat preset yet)

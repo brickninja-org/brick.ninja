@@ -15,9 +15,9 @@ import { Skeleton } from '@/components/skeleton/Skeleton';
 import { ClientProductTooltip } from './ProductTooltip.client';
 
 export interface ProductLinkTooltipProps {
-  product: Pick<Product, 'id' | keyof LocalizedEntity>;
-  language?: Language;
-  revision?: string;
+  product: Pick<Product, 'id' | keyof LocalizedEntity>,
+  language?: Language,
+  revision?: string,
 }
 
 export const ProductLinkTooltip: FC<ProductLinkTooltipProps> = ({ product, language, revision }) => {

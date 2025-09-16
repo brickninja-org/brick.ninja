@@ -1,7 +1,7 @@
 import type { FC, ReactNode } from 'react';
 
 export interface MenuListProps {
-  children: ReactNode;
+  children: ReactNode,
 }
 
 export const MenuList: FC<MenuListProps> = ({ children }) => {

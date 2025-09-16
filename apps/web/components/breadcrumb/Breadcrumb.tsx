@@ -8,7 +8,7 @@ import { isTruthy, type Falsy } from '@brickninja-org/helper/is';
 import { absoluteUrl } from '@/lib/url';
 
 export interface BreadcrumbProps {
-  children: (ReactElement<BreadcrumbItemProps, typeof BreadcrumbItem> | Falsy)[];
+  children: (ReactElement<BreadcrumbItemProps, typeof BreadcrumbItem> | Falsy)[],
 }
 
 export const Breadcrumb: FC<BreadcrumbProps> = ({ children }) => {
@@ -21,7 +21,7 @@ export const Breadcrumb: FC<BreadcrumbProps> = ({ children }) => {
         __html: JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'BreadcrumbList',
-          itemListElement: children.filter(isTruthy).map(({ props: { name, href }}, index) => ({
+          'itemListElement': children.filter(isTruthy).map(({ props: { name, href }}, index) => ({
             '@type': 'ListItem',
             'position': index + 1,
             // eslint-disable-next-line object-shorthand
@@ -35,9 +35,9 @@ export const Breadcrumb: FC<BreadcrumbProps> = ({ children }) => {
 };
 
 interface BreadcrumbItemProps {
-  name: string;
-  href?: string;
-  children?: ReactNode;
+  name: string,
+  href?: string,
+  children?: ReactNode,
 }
 
 export const BreadcrumbItem: FC<BreadcrumbItemProps> = ({ name, href, children }) => {

@@ -14,13 +14,13 @@ import { Bn2AccountAuthorizationNotice } from './Bn2AccountAuthorizationNotice';
 import { Bn2AccountLoginNotice } from './Bn2AccountLoginNotice';
 
 export interface Bn2AccountsProps {
-  children?: ((accounts: Bn2Account[], scopes: Scope[]) => ReactElement | ReactElement[]) | ReactNode;
-  requiredScopes: Scope[];
-  optionalScopes?: Scope[];
-  options?: GetAccountsOptions;
-  loading?: ReactNode;
-  authorizationMessage?: ReactNode;
-  loginMessage?: ReactNode;
+  children?: ((accounts: Bn2Account[], scopes: Scope[]) => ReactElement | ReactElement[]) | ReactNode,
+  requiredScopes: Scope[],
+  optionalScopes?: Scope[],
+  options?: GetAccountsOptions,
+  loading?: ReactNode,
+  authorizationMessage?: ReactNode,
+  loginMessage?: ReactNode,
 }
 
 export const Bn2Accounts: FC<Bn2AccountsProps> = ({ loading, ...props }) => {
@@ -43,10 +43,10 @@ const B2AccountsInternal: FC<Bn2AccountsProps> = ({ children, requiredScopes, op
     return loginMessage === null
       ? null
       : (
-        <Bn2AccountLoginNotice requiredScopes={requiredScopes} optionalScopes={optionalScopes}>
-          {loginMessage ?? authorizationMessage}
-        </Bn2AccountLoginNotice>
-      );
+          <Bn2AccountLoginNotice requiredScopes={requiredScopes} optionalScopes={optionalScopes}>
+            {loginMessage ?? authorizationMessage}
+          </Bn2AccountLoginNotice>
+        );
   }
 
   if (accounts.error) {
@@ -59,10 +59,10 @@ const B2AccountsInternal: FC<Bn2AccountsProps> = ({ children, requiredScopes, op
     return authorizationMessage === null
       ? null
       : (
-        <Bn2AccountAuthorizationNotice scopes={accounts.scopes} requiredScopes={requiredScopes} optionalScopes={optionalScopes}>
-          {authorizationMessage ?? loginMessage}
-        </Bn2AccountAuthorizationNotice>
-      );
+          <Bn2AccountAuthorizationNotice scopes={accounts.scopes} requiredScopes={requiredScopes} optionalScopes={optionalScopes}>
+            {authorizationMessage ?? loginMessage}
+          </Bn2AccountAuthorizationNotice>
+        );
   }
 
   if (typeof children === 'function') {

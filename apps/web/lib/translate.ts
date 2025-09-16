@@ -51,7 +51,7 @@ export function translateMany<T extends TranslationId>(ids: T[], language: Langu
 }
 
 export async function getLanguage() {
- // TODO: replace with `next/rootParams`
+  // TODO: replace with `next/rootParams`
   const { language } = await unstable_rootParams();
 
   return isValidLanguage(language)

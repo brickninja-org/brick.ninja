@@ -7,8 +7,8 @@ import { cn } from '@heroui/react';
 import { Icon } from '@brickninja-org/ui/icons';
 
 export interface MenuProps {
-  children: ReactNode;
-  navigation: ReactNode;
+  children: ReactNode,
+  navigation: ReactNode,
 }
 
 export const Menu: FC<MenuProps> = ({ children, navigation }) => {
@@ -65,7 +65,7 @@ export const Menu: FC<MenuProps> = ({ children, navigation }) => {
 
       <nav
         className={cn([
-        'absolute left-0 right-0 mt-12 z-9',
+          'absolute left-0 right-0 mt-12 z-9',
           menuOpen && 'fixed border-b border-transparent animate-slide-in',
         ])}
       >

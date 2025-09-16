@@ -14,23 +14,23 @@ export const Accounts: FC = async () => {
     <>
       {accounts.error !== undefined
         ? (
-          <form action={reauthorize.bind(null, [], undefined)}>
-            <p>Authorize brick.ninja to view your collection.</p>
-            <FlexRow>
-              <SubmitButton icon="unlock">Authorize</SubmitButton>
-            </FlexRow>
-          </form>
-        )
+            <form action={reauthorize.bind(null, [], undefined)}>
+              <p>Authorize brick.ninja to view your collection.</p>
+              <FlexRow>
+                <SubmitButton icon="unlock">Authorize</SubmitButton>
+              </FlexRow>
+            </form>
+          )
         : (
-          <form action={reauthorize.bind(null, [], 'consent')}>
-            <p>brick.ninja is authorized to view your collection of these accounts.</p>
-            <List>
-              {accounts.accounts.map((account) => (
-                <li key={account.id}><Bn2AccountName account={account} long/></li>
-              ))}
-            </List>
-          </form>
-        )
+            <form action={reauthorize.bind(null, [], 'consent')}>
+              <p>brick.ninja is authorized to view your collection of these accounts.</p>
+              <List>
+                {accounts.accounts.map((account) => (
+                  <li key={account.id}><Bn2AccountName account={account} long/></li>
+                ))}
+              </List>
+            </form>
+          )
       }
     </>
   );

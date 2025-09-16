@@ -10,7 +10,7 @@ import { Slot as SlotPrimitive } from '@radix-ui/react-slot';
 import { textVariants, type TextVariants } from './text.styles';
 
 interface TextProps extends TextPrimitiveProps, TextVariants, RefProp<HTMLElement> {
-  asChild?: boolean;
+  asChild?: boolean,
 }
 
 const Text: FC<TextProps> = ({ asChild = false, children, className, ref, size, variant, ...props }) => {

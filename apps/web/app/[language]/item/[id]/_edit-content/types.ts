@@ -2,16 +2,16 @@ import type { LocalizedEntity } from '@/lib/localized-name';
 import type { WithIcon } from '@/lib/with';
 
 export interface AddedItem {
-  _id: string;
+  _id: string,
   item: WithIcon<{
-    id: number;
-  } & LocalizedEntity>;
-  quantity: number;
+    id: number,
+  } & LocalizedEntity>,
+  quantity: number,
 }
 
 export interface EditContentOrder {
-  removedItems: number[];
-  addedItems: AddedItem[];
+  removedItems: number[],
+  addedItems: AddedItem[],
 }
 
 export enum EditContentSubmitError {

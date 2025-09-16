@@ -11,8 +11,8 @@ import { LinkButton } from '@brickninja-org/ui/components/form/Button';
 import { HorizontalOverflowContainer } from './HorizontalOverflowContainer';
 
 interface NavbarProps {
-  items: { label: ReactNode, segment: string, href?: string, icon?: IconProp }[];
-  path?: '/' | `/${string}/`;
+  items: { label: ReactNode, segment: string, href?: string, icon?: IconProp }[],
+  path?: '/' | `/${string}/`,
 }
 
 const nav = tv({

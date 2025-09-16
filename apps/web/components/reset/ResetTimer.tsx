@@ -13,7 +13,7 @@ type ResetModifier = 'next' | 'current' | 'last';
 export type Reset = `${ResetModifier}-${ResetType}`;
 
 export interface ResetTimerProps {
-  reset?: Reset | Date
+  reset?: Reset | Date,
 }
 
 export const ResetTimer: FC<ResetTimerProps> = ({ reset = 'current-daily' }) => {
@@ -34,10 +34,10 @@ export const ResetTimer: FC<ResetTimerProps> = ({ reset = 'current-daily' }) => 
   return (
     <time dateTime={resetDate.toISOString()} style={{ whiteSpace: 'nowrap', fontFeatureSettings: '"tnum"' }} suppressHydrationWarning>
       {[remaining > 60 * 60 * 24 ? format(remaining / (60 * 60 * 24), 31) : undefined,
-          format(remaining / (60 * 60), 24),
-          format(remaining / 60, 60),
-          format(remaining, 60)
-        ].filter(isDefined).join(':')}
+        format(remaining / (60 * 60), 24),
+        format(remaining / 60, 60),
+        format(remaining, 60)
+      ].filter(isDefined).join(':')}
     </time>
   );
 };

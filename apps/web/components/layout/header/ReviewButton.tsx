@@ -32,7 +32,7 @@ const getOpenReviews = cache(
 );
 
 export interface ReviewButtonProps {
-  language: Language;
+  language: Language,
 }
 
 export const ReviewButton: FC<ReviewButtonProps> = ({ language }) => {
@@ -44,7 +44,7 @@ export const ReviewButton: FC<ReviewButtonProps> = ({ language }) => {
 };
 
 interface InternalReviewButtonProps extends ReviewButtonProps {
-  data: ReturnType<typeof getOpenReviews> | undefined;
+  data: ReturnType<typeof getOpenReviews> | undefined,
 }
 
 const InternalReviewButton: FC<InternalReviewButtonProps> = ({ language, data }) => {
@@ -95,8 +95,8 @@ const InternalReviewButton: FC<InternalReviewButtonProps> = ({ language, data })
 };
 
 export interface ReviewCountChipProps extends ChipProps {
-  count: number | undefined;
-  hideEmpty?: boolean;
+  count: number | undefined,
+  hideEmpty?: boolean,
 }
 
 export const ReviewCountChip: FC<ReviewCountChipProps> = ({ count, hideEmpty, ...props }) => {

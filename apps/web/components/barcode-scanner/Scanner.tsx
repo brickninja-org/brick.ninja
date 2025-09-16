@@ -5,7 +5,7 @@ import { useTailwindBreakpoint } from '../tailwind/Tailwind.context';
 import { BarcodeScanner } from './BarcodeScanner';
 
 export type ScannerProps = {
-  onScan: (code: string) => void;
+  onScan: (code: string) => void,
 };
 
 const SCANNER_SIZES = {
@@ -17,12 +17,12 @@ const SCANNER_SIZES = {
 };
 
 export const ScannerSizes = {
-  loading: SCANNER_SIZES.NONE,
-  mobile: SCANNER_SIZES.SM,
-  sm: SCANNER_SIZES.MD,
-  md: SCANNER_SIZES.MD,
-  lg: SCANNER_SIZES.MD,
-  xl: SCANNER_SIZES.LG,
+  'loading': SCANNER_SIZES.NONE,
+  'mobile': SCANNER_SIZES.SM,
+  'sm': SCANNER_SIZES.MD,
+  'md': SCANNER_SIZES.MD,
+  'lg': SCANNER_SIZES.MD,
+  'xl': SCANNER_SIZES.LG,
   '2xl': SCANNER_SIZES.LG,
   'forced-xs': SCANNER_SIZES.XS,
   'forced-sm': SCANNER_SIZES.SM,

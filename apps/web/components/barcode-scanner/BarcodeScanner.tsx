@@ -7,25 +7,25 @@ import { cn } from '@heroui/theme';
 import { useBarcodeScanner } from './use-barcode-scanner';
 
 export type BarcodeScannerProps = {
-  animate?: boolean;
-  autoStart?: boolean;
-  barcodeDetectorOptions?: BarcodeDetectorOptions;
-  blur?: number;
-  canvasHeight?: number;
-  canvasWidth?: number;
-  className?: string;
-  deviceChoiceOptions?: DeviceChoiceOptions;
-  devices?: MediaDeviceInfo[];
+  animate?: boolean,
+  autoStart?: boolean,
+  barcodeDetectorOptions?: BarcodeDetectorOptions,
+  blur?: number,
+  canvasHeight?: number,
+  canvasWidth?: number,
+  className?: string,
+  deviceChoiceOptions?: DeviceChoiceOptions,
+  devices?: MediaDeviceInfo[],
   // preferDeviceLabelMatch?: RegExp;
-  settings?: Record<string, string | RegExp>;
-  videoCropHeight?: number;
-  videoCropWidth?: number;
-  videoHeight?: number;
-  videoWidth?: number;
-  waitElement?: ReactNode;
-  zoom?: number;
-  onDevices?: (devices: MediaDeviceInfo[]) => void;
-  onScan: (code: string) => void;
+  settings?: Record<string, string | RegExp>,
+  videoCropHeight?: number,
+  videoCropWidth?: number,
+  videoHeight?: number,
+  videoWidth?: number,
+  waitElement?: ReactNode,
+  zoom?: number,
+  onDevices?: (devices: MediaDeviceInfo[]) => void,
+  onScan: (code: string) => void,
 };
 
 export const BarcodeScanner = ({

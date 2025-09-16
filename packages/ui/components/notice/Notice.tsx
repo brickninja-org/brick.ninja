@@ -28,11 +28,11 @@ const notice = tv({
 type NoticeVariants = VariantProps<typeof notice>;
 
 export interface NoticeProps extends NoticeVariants, RefProp<HTMLDivElement> {
-  icon?: IconName;
-  children: ReactNode;
+  icon?: IconName,
+  children: ReactNode,
 
   /** Hide this notice from Google and other search engines */
-  index?: boolean;
+  index?: boolean,
 }
 
 export const Notice: FC<NoticeProps> = ({ ref, type, icon, index, children }) => {

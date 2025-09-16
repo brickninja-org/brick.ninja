@@ -1,8 +1,8 @@
 import type { FC, ReactNode } from 'react';
 
 interface DescriptionProps {
-  children: ReactNode;
-  actions?: ReactNode;
+  children: ReactNode,
+  actions?: ReactNode,
 }
 
 export const Description: FC<DescriptionProps> = ({ children, actions }) => {

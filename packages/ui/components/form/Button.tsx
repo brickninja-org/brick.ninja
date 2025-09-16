@@ -49,14 +49,14 @@ const button = tv({
 export type ButtonVariantProps = VariantProps<typeof button>;
 
 export interface CommonButtonProps extends Pick<HTMLAttributes<HTMLElement>, 'aria-label' | 'className'>, ButtonVariantProps {
-  icon?: IconProp;
-  iconColor?: IconColor;
-  children?: ReactNode;
+  icon?: IconProp,
+  iconColor?: IconColor,
+  children?: ReactNode,
 }
 
 export interface ButtonProps extends CommonButtonProps, RefProp<HTMLButtonElement>, Pick<ButtonHTMLAttributes<HTMLButtonElement>, 'disabled' | 'form' | 'name' | 'value' | 'formAction' | 'aria-label'> {
-  type?: 'button' | 'submit';
-  onClick?: MouseEventHandler<HTMLButtonElement>;
+  type?: 'button' | 'submit',
+  onClick?: MouseEventHandler<HTMLButtonElement>,
 }
 
 export const Button: FC<ButtonProps> = ({ ref, appearance = 'secondary', flex, icon, iconColor, iconOnly, children, onClick, className, type = 'button', ...props }) => {
@@ -69,11 +69,11 @@ export const Button: FC<ButtonProps> = ({ ref, appearance = 'secondary', flex, i
 };
 
 export interface LinkButtonProps extends CommonButtonProps, RefProp<HTMLAnchorElement>, Pick<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'target' | 'rel'> {
-  onClick?: MouseEventHandler<HTMLAnchorElement>;
-  href: string;
-  locale?: string | false;
-  prefetch?: boolean;
-  external?: boolean;
+  onClick?: MouseEventHandler<HTMLAnchorElement>,
+  href: string,
+  locale?: string | false,
+  prefetch?: boolean,
+  external?: boolean,
 }
 
 export const LinkButton: FC<LinkButtonProps> = ({ ref, appearance, children, className, icon, iconColor, external, flex, fullWidth, ...props }) => {

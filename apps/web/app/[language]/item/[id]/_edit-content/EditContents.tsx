@@ -30,11 +30,11 @@ import { Skeleton } from '@/components/skeleton/Skeleton';
 import { canSubmit, submitToReview } from './actions';
 
 export interface EditContentsProps {
-  appearance?: ButtonProps['appearance'];
-  itemId: number;
+  appearance?: ButtonProps['appearance'],
+  itemId: number,
   contents: (Content & {
-    contentItem: WithIcon<Pick<Item, 'id' | keyof LocalizedEntity>>;
-  })[];
+    contentItem: WithIcon<Pick<Item, 'id' | keyof LocalizedEntity>>,
+  })[],
 }
 
 export const EditContents: FC<EditContentsProps> = ({ itemId, contents, appearance }) => {
@@ -89,7 +89,7 @@ export const EditContents: FC<EditContentsProps> = ({ itemId, contents, appearan
               ? (<p>You must wait for your <NextLink href={`/review/container-content/${canSubmitState.reviewId}`}>suggested change</NextLink> to be reviewed before you can submit another change.</p>)
               : (<p>There is already a suggested change for this item. You can <NextLink href={`/review/container-content/${canSubmitState.reviewId}`}>review the change now</NextLink>.</p>)
           ) :
-          (<p>Unknown error</p>)
+              (<p>Unknown error</p>)
         ) : (
           <>
             {error && <Notice type="error">Your changes could not be saved ({error}).</Notice>}

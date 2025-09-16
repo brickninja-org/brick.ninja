@@ -10,9 +10,9 @@ import { Table as StaticTable, TableBody, TableCell, TableColumnHeader, TableHea
 import { RevisionTableHiddenRows } from './RevisionTable.client';
 
 export interface RevisionTableProps {
-  revisions: Pick<Revision, 'id' | 'type' | 'buildId' | 'hash' | 'description' | 'createdAt'>[];
-  currentRevisionId?: string;
-  link: ({ revisionId, children }: { revisionId: string, children: ReactNode }) => ReactNode;
+  revisions: Pick<Revision, 'id' | 'type' | 'buildId' | 'hash' | 'description' | 'createdAt'>[],
+  currentRevisionId?: string,
+  link: ({ revisionId, children }: { revisionId: string, children: ReactNode }) => ReactNode,
 }
 
 export const RevisionTable: FC<RevisionTableProps> = async ({ revisions, currentRevisionId, link }) => {

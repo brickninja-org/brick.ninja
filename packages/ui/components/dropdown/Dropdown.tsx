@@ -9,11 +9,11 @@ import { arrow, autoUpdate, flip, FloatingArrow, FloatingFocusManager, FloatingP
 import { isTruthy } from '@brickninja-org/helper/is';
 
 export interface DropdownProps {
-  button: ReactElement<HTMLProps<HTMLElement>>;
-  children: ReactNode;
-  preferredPlacement?: Placement;
-  hideTop?: boolean;
-  arrowColor?: string;
+  button: ReactElement<HTMLProps<HTMLElement>>,
+  children: ReactNode,
+  preferredPlacement?: Placement,
+  hideTop?: boolean,
+  arrowColor?: string,
 }
 
 export const Dropdown: FC<DropdownProps> = ({ children, button, preferredPlacement = 'bottom-end', hideTop = true, arrowColor }) => {

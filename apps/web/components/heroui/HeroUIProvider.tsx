@@ -10,12 +10,12 @@ import { useFormatContext } from '@/components/format/Format.context';
 
 declare module '@react-types/shared' {
   interface RouterConfig {
-    routerOptions: NonNullable<Parameters<ReturnType<typeof useRouter>['push']>[1]>;
+    routerOptions: NonNullable<Parameters<ReturnType<typeof useRouter>['push']>[1]>,
   }
 }
 
 export interface HeroUIProps {
-  children: ReactNode;
+  children: ReactNode,
 }
 
 export const HeroUIProvider = ({ children }: HeroUIProps) => {

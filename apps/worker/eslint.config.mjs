@@ -1,3 +1,8 @@
-import config from "@brickninja-org/eslint-config";
+import { defineConfig, globalIgnores } from 'eslint/config';
 
-export default config;
+import config from '@brickninja-org/eslint-config';
+
+export default defineConfig([
+  globalIgnores(['dist/']),
+  ...config
+]);

@@ -7,15 +7,15 @@ import { useActionState, useCallback } from 'react';
 import { Notice } from '../notice/Notice';
 
 export interface FormState {
-  error?: string;
-  success?: string;
+  error?: string,
+  success?: string,
 }
 
 export interface FormProps<State> {
   action: (state: State, payload: FormData) => Promise<State>,
   initialState?: State,
-  children: ReactNode;
-  id?: string;
+  children: ReactNode,
+  id?: string,
 }
 
 export const Form: FC<FormProps<FormState>> = ({ action, initialState, children, id }) => {

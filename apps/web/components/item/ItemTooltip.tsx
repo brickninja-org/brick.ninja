@@ -13,9 +13,9 @@ import type { Item } from '@brickninjaapi/types/data/item';
 import { db } from '@/lib/prisma';
 
 export interface ItemTooltipProps {
-  item: Item;
-  language: Language;
-  hideTitle?: boolean;
+  item: Item,
+  language: Language,
+  hideTitle?: boolean,
 }
 
 export const ItemTooltip: FC<ItemTooltipProps> = async ({ item, language, hideTitle }) => {
@@ -84,7 +84,7 @@ export async function createTooltip(item: Item, language: Language) {
 }
 
 export type ItemWithAttributes = LocalizedEntity & {
-  id: number;
+  id: number,
   /*
   number: string;
   version: string;
@@ -101,14 +101,14 @@ export type ItemWithAttributes = LocalizedEntity & {
 };
 
 export interface ItemTooltip {
-  language: Language;
-  name: string;
-  icon?: { id: number; signature: string; extension: string; };
-  type?: string;
-  barcode?: string;
+  language: Language,
+  name: string,
+  icon?: { id: number, signature: string, extension: string },
+  type?: string,
+  barcode?: string,
   // category?: string;
-  elementId?: string;
-  color?: { id: number; name: string; colors: { plastic: string }};
+  elementId?: string,
+  color?: { id: number, name: string, colors: { plastic: string }},
   // flags: string[];
   /*
   number: string;

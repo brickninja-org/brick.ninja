@@ -4,7 +4,7 @@ import type { IconSize } from '@/lib/get-icon-url';
 import { Skeleton } from '@heroui/react';
 
 export interface SkeletonLinkProps {
-  icon?: IconSize | 'none';
+  icon?: IconSize | 'none',
 }
 
 export const SkeletonLink: FC<SkeletonLinkProps> = ({ icon = 32 }) => {

@@ -20,7 +20,7 @@ function updateCount(updates: Update[], type: string): number {
 
 const buildTableColumns: DataTableColumn<BuildWithUpdates>[] = [
   { key: 'id', label: 'Build', value: ({ build }) => <Link href={`/build/${build.id}`}>{build.id}</Link> },
-  { key: 'items', label: 'Item Updates', 'value': ({ updates }) => <FormatNumber value={updateCount(updates, 'Item')}/>, sort: (a, b) => updateCount(a.updates, 'Item') - updateCount(b.updates, 'Item') },
+  { key: 'items', label: 'Item Updates', value: ({ updates }) => <FormatNumber value={updateCount(updates, 'Item')}/>, sort: (a, b) => updateCount(a.updates, 'Item') - updateCount(b.updates, 'Item') },
   { key: 'products', label: 'Product Updates', value: ({ updates }) => <FormatNumber value={updateCount(updates, 'Product')}/>, sort: (a, b) => updateCount(a.updates, 'Product') - updateCount(b.updates, 'Product') },
   { key: 'designs', label: 'Design Updates', value: ({ updates }) => <FormatNumber value={updateCount(updates, 'Design')}/>, sort: (a, b) => updateCount(a.updates, 'Design') - updateCount(b.updates, 'Design') },
   { key: 'colors', label: 'Color Updates', value: ({ updates }) => <FormatNumber value={updateCount(updates, 'Color')}/>, sort: (a, b) => updateCount(a.updates, 'Color') - updateCount(b.updates, 'Color') },
@@ -30,7 +30,7 @@ const buildTableColumns: DataTableColumn<BuildWithUpdates>[] = [
 const buildRowKey = ({ build }: BuildWithUpdates) => build.id;
 
 export interface BuildTableProps {
-  rows: BuildWithUpdates[];
+  rows: BuildWithUpdates[],
 }
 
 export const BuildTable: FC<BuildTableProps> = ({ rows }) => {

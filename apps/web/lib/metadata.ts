@@ -7,7 +7,7 @@ import { getAlternateUrls, getCurrentUrl } from './url';
 import { getLanguage } from './translate';
 
 interface CreateMetadataContext {
-  language: Language;
+  language: Language,
 }
 
 type CreateMetadataCallback<T> = (props: T, context: CreateMetadataContext) => Promise<Meta> | Meta;
@@ -44,10 +44,10 @@ export function createMetadata<Props extends PageProps | LayoutProps>(
 }
 
 type Meta = {
-  title: string | TemplateString;
-  ogTitle?: string;
-  description?: string;
-  keywords?: string[];
-  url?: string;
-  robots?: Metadata['robots'];
+  title: string | TemplateString,
+  ogTitle?: string,
+  description?: string,
+  keywords?: string[],
+  url?: string,
+  robots?: Metadata['robots'],
 };

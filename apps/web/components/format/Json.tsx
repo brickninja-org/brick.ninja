@@ -5,8 +5,8 @@ import { Tip } from '@brickninja-org/ui/components/tip/Tip';
 import { Code } from '@/components/layout/code';
 
 export interface JsonProps {
-  data: object;
-  borderless?: boolean;
+  data: object,
+  borderless?: boolean,
 }
 
 const comma = <span style={{ color: '#aaa' }}>, </span>;

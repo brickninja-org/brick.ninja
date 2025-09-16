@@ -22,9 +22,9 @@ export function createProductTable(products: Pick<WithIcon<Product & { categorie
 }
 
 interface CatalogProductTableProps {
-  language: Language;
-  table: ReturnType<typeof createProductTable>;
-  filtered?: boolean;
+  language: Language,
+  table: ReturnType<typeof createProductTable>,
+  filtered?: boolean,
 }
 
 export const CatalogProductDataTable: FC<CatalogProductTableProps> = ({ language, table: products, filtered }) => {

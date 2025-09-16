@@ -15,15 +15,15 @@ import { cn } from '../../lib';
 import { TextInput } from '../form/TextInput';
 
 interface TableFilterContext {
-  filteredRows?: number[] | undefined;
-  filterMap: Map<number | string, { name: string, rowIndexes: number[] }>;
+  filteredRows?: number[] | undefined,
+  filterMap: Map<number | string, { name: string, rowIndexes: number[] }>,
 
-  filterIds: (number | string)[];
-  setFilterIds: (filterIds: (number | string)[]) => void;
+  filterIds: (number | string)[],
+  setFilterIds: (filterIds: (number | string)[]) => void,
 
-  searchIndex?: TableFilterSearchIndex;
-  searchQuery: string;
-  setSearchQuery: (query: string) => void;
+  searchIndex?: TableFilterSearchIndex,
+  searchQuery: string,
+  setSearchQuery: (query: string) => void,
 }
 
 const context = createContext<TableFilterContext>({
@@ -36,16 +36,16 @@ const context = createContext<TableFilterContext>({
 });
 
 export interface TableFilterDefinition {
-  id: number | string;
-  name: string;
-  rowIndexes: number[];
+  id: number | string,
+  name: string,
+  rowIndexes: number[],
 }
 
 export interface TableFilterProviderProps {
-  filter: TableFilterDefinition[];
-  searchIndex?: TableFilterSearchIndex;
-  children: ReactNode;
-  language: string;
+  filter: TableFilterDefinition[],
+  searchIndex?: TableFilterSearchIndex,
+  children: ReactNode,
+  language: string,
 }
 
 export const TableFilterProvider: FC<TableFilterProviderProps> = ({ filter, searchIndex, children, language }) => {
@@ -82,9 +82,9 @@ export const TableFilterRow: DataTableRowFilterComponent = ({ children, index }:
 };
 
 export interface TableFilterButtonProps {
-  totalCount: number;
-  children: ReactNode;
-  all: ReactNode;
+  totalCount: number,
+  children: ReactNode,
+  all: ReactNode,
 }
 
 export const TableFilterButton: FC<TableFilterButtonProps> = ({ totalCount: count, children, all }) => {
@@ -161,7 +161,7 @@ function toggleArray<T>(array: T[], value: T): T[] {
 }
 
 export interface TableSearchInputProps {
-  placeholder?: string;
+  placeholder?: string,
 }
 
 export const TableSearchInput: FC<TableSearchInputProps> = ({ placeholder }) => {

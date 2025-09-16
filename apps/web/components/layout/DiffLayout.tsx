@@ -3,7 +3,7 @@ import type { FC, ReactNode } from 'react';
 import { cn, tv } from '@heroui/react';
 
 export interface DiffLayoutProps {
-  children: ReactNode;
+  children: ReactNode,
 }
 
 export const DiffLayout: FC<DiffLayoutProps> = ({ children }) => {
@@ -28,7 +28,7 @@ const diff = tv({
     title: '[grid-area:_title] font-bitter font-bold text-lg lg:text-2xl', // title
     breadcrumb: '[grid-area:_breadcrumb] text-sm text-muted', // breadcrumb
     column: '', // right | left
-   },
+  },
   variants: {
     variant: {
       added: {
@@ -128,9 +128,9 @@ export const DiffLayoutHeader: FC<DiffLayoutHeaderProps> = ({ title, subtitle, i
 
 
 interface DiffLayoutRowProps {
-  left: ReactNode;
-  right: ReactNode;
-  changed?: boolean;
+  left: ReactNode,
+  right: ReactNode,
+  changed?: boolean,
 }
 
 export const DiffLayoutRow: FC<DiffLayoutRowProps> = ({ left, right, changed = false }) => {

@@ -2,7 +2,7 @@ import type { FC } from 'react';
 
 
 export interface UnknownItemProps {
-  id: number;
+  id: number,
 }
 
 export const UnknownItem: FC<UnknownItemProps> = ({ id }) => {

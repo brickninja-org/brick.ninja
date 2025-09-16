@@ -4,8 +4,8 @@ import type { IconSize } from '@/lib/get-icon-url';
 import { cn } from '@heroui/react';
 
 export interface EntityIconMissingProps {
-  size: IconSize | number;
-  className?: string;
+  size: IconSize | number,
+  className?: string,
 }
 
 export const EntityIconMissing: FC<EntityIconMissingProps> = ({ size = 64, className }) => {

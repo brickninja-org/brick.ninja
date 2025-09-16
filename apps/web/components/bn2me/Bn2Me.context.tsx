@@ -10,10 +10,10 @@ import { FedCMProvider } from './FedCM.context';
 const Bn2MeContext = createContext<Bn2MeClient | undefined>(undefined);
 
 export interface Bn2MeProviderProps {
-  clientId: string;
-  baseUrl?: string;
+  clientId: string,
+  baseUrl?: string,
 
-  children: ReactNode;
+  children: ReactNode,
 }
 
 export const Bn2MeProvider: FC<Bn2MeProviderProps> = ({ clientId, baseUrl, children }) => {

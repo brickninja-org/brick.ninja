@@ -23,7 +23,7 @@ import { ErrorCode } from './types';
 import { Bn2APIContext } from './Bn2API.context';
 
 export interface Bn2APIProviderProps {
-  children: ReactNode;
+  children: ReactNode,
 }
 
 const initialGrantedScopes: Scope[] = [];

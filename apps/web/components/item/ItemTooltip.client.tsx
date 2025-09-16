@@ -10,8 +10,8 @@ import { DyeColor } from '../color/DyeColor';
 import { hexToRgb } from '../color/hex-to-rgb';
 
 export interface ClientItemTooltipProps {
-  tooltip: ItemTooltip | Promise<ItemTooltip>;
-  hideTitle?: boolean;
+  tooltip: ItemTooltip | Promise<ItemTooltip>,
+  hideTitle?: boolean,
 }
 
 /*
@@ -47,7 +47,7 @@ export const ClientItemTooltip: FC<ClientItemTooltipProps> = ({ tooltip, hideTit
               <DyeColor color={hexToRgb(tooltip.color.colors.plastic)}/>
             </Tip>
           </div>
-)}
+        )}
       </div>
     ),
     /*

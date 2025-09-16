@@ -6,8 +6,8 @@ import type { FC } from 'react';
 import { useFormatContext } from './Format.context';
 
 export interface FormatDateProps {
-  date?: Date | null;
-  relative?: boolean;
+  date?: Date | null,
+  relative?: boolean,
 }
 
 export const FormatDate: FC<FormatDateProps> = ({ date = null, relative = false }) => {

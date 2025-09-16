@@ -16,14 +16,14 @@ import { Icon as IconComponent } from '@brickninja-org/ui/icons';
 import { EntityIcon } from '@/components/entity/EntityIcon';
 
 interface DetailLayoutProps {
-  title: ReactNode;
-  icon?: Icon | ReactElement<{ className: string }> | null;
-  iconType?: EntityIconType;
-  breadcrumb?: ReactNode;
-  children: ReactNode;
-  infobox?: ReactNode;
-  className?: string;
-  actions?: ReactNode[];
+  title: ReactNode,
+  icon?: Icon | ReactElement<{ className: string }> | null,
+  iconType?: EntityIconType,
+  breadcrumb?: ReactNode,
+  children: ReactNode,
+  infobox?: ReactNode,
+  className?: string,
+  actions?: ReactNode[],
 }
 
 const headline = tv({

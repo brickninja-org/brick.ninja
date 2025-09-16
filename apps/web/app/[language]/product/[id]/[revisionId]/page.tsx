@@ -7,7 +7,7 @@ import { getLanguage } from '@/lib/translate';
 import { getRevision } from '../data';
 import { ProductPageComponent } from '../Component';
 
-export type ProductRevisionPageProps = PageProps<{ id: string; revisionId: string }>;
+export type ProductRevisionPageProps = PageProps<{ id: string, revisionId: string }>;
 
 export default async function ProductRevisionPage({ params }: ProductRevisionPageProps) {
   const language = await getLanguage();

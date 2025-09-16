@@ -28,9 +28,9 @@ import { ProductLink } from '@/components/product/ProductLink';
 import { ItemBarcodeColumn } from './ExtraColumns';
 
 export interface ProductPageComponentProps {
-  language: Language;
-  productId: number;
-  revisionId?: string;
+  language: Language,
+  productId: number,
+  revisionId?: string,
 }
 
 export const ProductPageComponent: FC<ProductPageComponentProps> = async ({ language, productId, revisionId }) => {

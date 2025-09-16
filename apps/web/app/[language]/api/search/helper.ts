@@ -35,13 +35,13 @@ function toNumber(value: string): number | undefined {
 }
 
 type LocalizedNameInput = {
-  AND?: LocalizedNameInput[];
-  OR?: LocalizedNameInput[];
-  name_de?: Prisma.StringFilter | string;
-  name_en?: Prisma.StringFilter | string;
-  name_es?: Prisma.StringFilter | string;
-  name_fr?: Prisma.StringFilter | string;
-  name_nl?: Prisma.StringFilter | string;
+  AND?: LocalizedNameInput[],
+  OR?: LocalizedNameInput[],
+  name_de?: Prisma.StringFilter | string,
+  name_en?: Prisma.StringFilter | string,
+  name_es?: Prisma.StringFilter | string,
+  name_fr?: Prisma.StringFilter | string,
+  name_nl?: Prisma.StringFilter | string,
 };
 
 function nameQuery(terms: string[]): LocalizedNameInput[] {
@@ -123,5 +123,5 @@ export const searchProducts = cache(async (terms: string[]) => {
     })
   ]);
 
- return { products, productCategories };
+  return { products, productCategories };
 }, ['search', 'search-products'], { revalidate: 60 });

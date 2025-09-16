@@ -7,9 +7,9 @@ import type { WithIcon } from '@/lib/with';
 import { EntityLink } from '@/components/entity/EntityLink';
 
 export interface ProductCategoryLinkProps {
-  productCategory: WithIcon<LocalizedEntity> & Pick<Category, 'id'>;
-  icon?: IconSize | 'none';
-  language?: Language;
+  productCategory: WithIcon<LocalizedEntity> & Pick<Category, 'id'>,
+  icon?: IconSize | 'none',
+  language?: Language,
 }
 
 export const ProductCategoryLink: FC<ProductCategoryLinkProps> = ({ productCategory, icon = 32, language }) => {

@@ -8,7 +8,7 @@ import { Translate } from '@/components/i18n/Translate';
 import { HorizontalOverflowContainer } from '@/components/layout/HorizontalOverflowContainer';
 
 interface NavigationProps {
-  language: Language;
+  language: Language,
 }
 
 const Navigation: FC<NavigationProps> = ({ language }) => {
@@ -23,8 +23,8 @@ const Navigation: FC<NavigationProps> = ({ language }) => {
 };
 
 interface NavigationItemProps {
-  children: ReactNode;
-  href: string;
+  children: ReactNode,
+  href: string,
 }
 
 export const NavigationItem: FC<NavigationItemProps> = (props) => {

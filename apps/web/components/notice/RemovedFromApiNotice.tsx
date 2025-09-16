@@ -3,7 +3,7 @@ import type { FC } from 'react';
 import { Notice } from '@brickninja-org/ui/components/notice/Notice';
 
 export interface RemovedFromApiNoticeProps {
-  type: string;
+  type: string,
 }
 
 export const RemovedFromApiNotice: FC<RemovedFromApiNoticeProps> = ({ type }) => {

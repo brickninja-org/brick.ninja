@@ -14,7 +14,7 @@ import { buttonVariants } from './button.styles';
 import type { RefProp } from '@brickninja-org/ui/lib/react';
 
 interface ButtonProps extends ButtonPrimitiveProps, ButtonVariants, RefProp<HTMLButtonElement> {
-  asChild?: boolean;
+  asChild?: boolean,
 }
 
 const Button: FC<ButtonProps> = ({ asChild, children, className, isIconOnly, ref, size, slot, style, variant, ...props }) => {

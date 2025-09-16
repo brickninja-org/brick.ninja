@@ -8,14 +8,14 @@ import { useCallback, useEffect, useId, useRef } from 'react';
 import { Icon } from '../../icons';
 
 export interface CheckboxProps extends RefProp<HTMLLabelElement> {
-  checked?: boolean;
-  defaultChecked?: boolean;
-  formValue?: string;
-  indeterminate?: boolean;
-  onChange?: (checked: boolean) => void;
-  name?: string;
-  children?: ReactNode;
-  disabled?: boolean;
+  checked?: boolean,
+  defaultChecked?: boolean,
+  formValue?: string,
+  indeterminate?: boolean,
+  onChange?: (checked: boolean) => void,
+  name?: string,
+  children?: ReactNode,
+  disabled?: boolean,
 }
 
 export const Checkbox: FC<CheckboxProps> = ({ ref, checked, defaultChecked, formValue, indeterminate = false, onChange, name, disabled, children }) => {

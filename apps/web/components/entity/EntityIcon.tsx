@@ -12,10 +12,10 @@ import { getIconSize, getIconUrl, type FixedIconSize, type IconSize } from '@/li
 export type EntityIconType = 'product';
 
 export interface EntityIconProps {
-  icon: Omit<Icon, 'color' | 'signature' | 'extension'> & Partial<Pick<Icon, 'color' | 'signature' | 'extension'>>;
-  size?: IconSize;
-  type?: EntityIconType;
-  className?: string;
+  icon: Omit<Icon, 'color' | 'signature' | 'extension'> & Partial<Pick<Icon, 'color' | 'signature' | 'extension'>>,
+  size?: IconSize,
+  type?: EntityIconType,
+  className?: string,
 }
 
 export const EntityIcon: FC<EntityIconProps> = ({ icon, size = 64, type, className }) => {

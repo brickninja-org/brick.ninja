@@ -9,8 +9,8 @@ import { UserContext } from './context';
 import { extendUserSessionAction } from './UserProvider.actions';
 
 interface UserProviderProps {
-  children: ReactNode;
-  user: Promise<SessionUser | undefined>;
+  children: ReactNode,
+  user: Promise<SessionUser | undefined>,
 }
 
 export const UserProvider: FC<UserProviderProps> = ({ children, user }) => {

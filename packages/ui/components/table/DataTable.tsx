@@ -15,41 +15,41 @@ export type DataTableRowFilterComponent = FC<DataTableRowFilterComponentProps>;
 
 // table
 export interface DataTableProps<T> {
-  children: Array<ColumnReactElement<T> | DynamicColumnsReactElement<T>>;
-  rowFilter?: DataTableRowFilterComponent;
-  collapsed?: boolean | number;
-  initialSortBy?: string;
-  initialSortOrder?: 'asc' | 'desc';
+  children: Array<ColumnReactElement<T> | DynamicColumnsReactElement<T>>,
+  rowFilter?: DataTableRowFilterComponent,
+  collapsed?: boolean | number,
+  initialSortBy?: string,
+  initialSortOrder?: 'asc' | 'desc',
 }
 
 type ColumnReactElement<T> = ReactElement<DataTableColumnProps<T>, FC<DataTableColumnProps<T>>>;
 type DynamicColumnsReactElement<T> = ReactElement<DataTableDynamicColumnsProps<T>, FC<DataTableDynamicColumnsProps<T>>>;
 
 export interface DataTableColumnProps<T> extends Pick<HeaderCellProps, 'align' | 'small'> {
-  id: string;
-  title: ReactNode;
-  children: ((row: T, index: number) => ReactNode);
-  sort?: (a: T, b: T, aIndex: number, bIndex: number) => number;
-  sortBy?: ComparableProperties<T> | ((row: T) => Comparable);
-  hidden?: boolean;
-  fixed?: boolean;
+  id: string,
+  title: ReactNode,
+  children: ((row: T, index: number) => ReactNode),
+  sort?: (a: T, b: T, aIndex: number, bIndex: number) => number,
+  sortBy?: ComparableProperties<T> | ((row: T) => Comparable),
+  hidden?: boolean,
+  fixed?: boolean,
 }
 
 export interface DataTableDynamicColumnsProps<T> {
-  children: (row: T, index: number) => ReactNode;
-  headers: ReactNode;
+  children: (row: T, index: number) => ReactNode,
+  headers: ReactNode,
 }
 
 export interface DataTableColumnSelectionProps {
-  children: ReactNode;
-  reset: ReactNode;
+  children: ReactNode,
+  reset: ReactNode,
 }
 
 export function createDataTable<T>(rows: T[], getRowKey: (row: T, index: number) => Key): {
-  Table: FC<DataTableProps<T>>;
-  Column: FC<DataTableColumnProps<T>>;
-  DynamicColumns: FC<DataTableDynamicColumnsProps<T>>;
-  ColumnSelection: FC<DataTableColumnSelectionProps>;
+  Table: FC<DataTableProps<T>>,
+  Column: FC<DataTableColumnProps<T>>,
+  DynamicColumns: FC<DataTableDynamicColumnsProps<T>>,
+  ColumnSelection: FC<DataTableColumnSelectionProps>,
 } {
   const datatableId = crypto.randomUUID();
 

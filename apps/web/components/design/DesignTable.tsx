@@ -12,10 +12,10 @@ import { MenuList } from '@brickninja-org/ui/components/layout/MenuList';
 import Link from 'next/link';
 
 export interface DesignTableProps {
-  designs: Pick<ElementDesign, 'id' | 'name' | 'type' | 'weight'>[];
-  headline?: ReactNode;
-  headlineId?: string;
-  children?: (table: ReactNode, columnSelect: ReactNode) => ReactNode;
+  designs: Pick<ElementDesign, 'id' | 'name' | 'type' | 'weight'>[],
+  headline?: ReactNode,
+  headlineId?: string,
+  children?: (table: ReactNode, columnSelect: ReactNode) => ReactNode,
 }
 
 export const DesignTable: FC<DesignTableProps> = ({ designs, headline, headlineId, children }) => {

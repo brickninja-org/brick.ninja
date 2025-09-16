@@ -16,9 +16,9 @@ import { getCurrentUrl } from '@/lib/url';
 // const TOTAL_COUNT_BRICKSET_USERS = 335274;
 
 interface ItemInfoboxProps {
-  item: Item;
-  data: ApiItem;
-  language: Language;
+  item: Item,
+  data: ApiItem,
+  language: Language,
 }
 
 export const ItemInfobox: FC<ItemInfoboxProps> = async ({ item, data, language }) => {

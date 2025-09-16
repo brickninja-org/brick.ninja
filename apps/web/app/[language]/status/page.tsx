@@ -23,10 +23,10 @@ function getStatus() {
 }
 
 interface StatusRowProps {
-  status: 'running' | 'success' | 'error';
-  title: string;
-  description: ReactNode;
-  href: string;
+  status: 'running' | 'success' | 'error',
+  title: string,
+  description: ReactNode,
+  href: string,
 }
 
 const StatusRow: FC<StatusRowProps> = ({ status, title, description, href }) => {
@@ -55,8 +55,8 @@ export default async function StatusPage() {
         apiErrorsPercentage > apiErrorThreshold
           ? <><FormatNumber value={apiErrors}/> errors in the last 30 minutes</>
           : (apiSlowPercentage > apiSlowThreshold)
-            ? <><FormatNumber value={apiSlow}/> slow requests in the last 30 minutes</>
-            : <><FormatNumber value={apiTotal}/> requests in the last 30 minutes</>
+              ? <><FormatNumber value={apiSlow}/> slow requests in the last 30 minutes</>
+              : <><FormatNumber value={apiTotal}/> requests in the last 30 minutes</>
       } status={apiErrorsPercentage > apiErrorThreshold ? 'error' : (apiSlowPercentage > apiErrorThreshold ? 'running' : 'success')}/>
       <StatusRow title="Database" href="/status/database" description={dbTotal.size} status="success"/>
     </HeroLayout>

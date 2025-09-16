@@ -14,14 +14,14 @@ import { FormatDate } from '@/components/format/FormatDate';
 import { DataList } from '@/components/info-box/DataList';
 
 interface RegionInfoProps {
-  data: Product;
+  data: Product,
   translations: TranslationSubset<
     | 'regionInfo.rrp'
     | 'regionInfo.ppp'
     | 'regionInfo.points'
     | 'regionInfo.release.date'
     | 'regionInfo.discontinuation.date'
-  >;
+  >,
 }
 
 export const RegionInfo: FC<RegionInfoProps> = ({ data, translations }) => {

@@ -22,9 +22,9 @@ const DataTableContext = createContext<{ state: DataTableContext, setState: (sta
 DataTableContext.displayName = 'DataTableContext';
 
 export interface DataTableClientProps {
-  children: ReactNode;
-  id: string;
-  columns: AvailableColumn[];
+  children: ReactNode,
+  id: string,
+  columns: AvailableColumn[],
 }
 
 export const DataTableClient: FC<DataTableClientProps> = ({ children, id, columns }) => {
@@ -51,8 +51,8 @@ export const DataTableClient: FC<DataTableClientProps> = ({ children, id, column
 };
 
 export interface DataTableClientRowsProps {
-  children: ReactNode[];
-  sortableColumns: Record<string, number[]>;
+  children: ReactNode[],
+  sortableColumns: Record<string, number[]>,
 }
 
 export const DataTableClientRows: FC<DataTableClientRowsProps> = ({ children, sortableColumns }) => {
@@ -72,9 +72,9 @@ export const DataTableClientRows: FC<DataTableClientRowsProps> = ({ children, so
 };
 
 export interface DataTableClientColumnProps extends Pick<HeaderCellProps, 'align' | 'small'> {
-  id: string;
-  children: ReactNode;
-  sortable: boolean;
+  id: string,
+  children: ReactNode,
+  sortable: boolean,
 }
 
 export const DataTableClientColumn: FC<DataTableClientColumnProps> = ({ id, children, sortable, ...props }) => {
@@ -96,9 +96,9 @@ export const DataTableClientColumn: FC<DataTableClientColumnProps> = ({ id, chil
 };
 
 export interface DataTableClientCellProps {
-  columnId: string;
-  align: TableVariantProps['align'];
-  children: ReactNode;
+  columnId: string,
+  align: TableVariantProps['align'],
+  children: ReactNode,
 }
 
 export const DataTableClientCell: FC<DataTableClientCellProps> = ({ columnId, children, align }) => {
@@ -111,9 +111,9 @@ export const DataTableClientCell: FC<DataTableClientCellProps> = ({ columnId, ch
 };
 
 export interface DataTableClientColumnSelectionProps {
-  id: string;
-  children: ReactNode;
-  reset: ReactNode;
+  id: string,
+  children: ReactNode,
+  reset: ReactNode,
 }
 
 export const DataTableClientColumnSelection: FC<DataTableClientColumnSelectionProps> = ({ id, reset, children }) => {

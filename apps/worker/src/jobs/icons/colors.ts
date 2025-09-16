@@ -7,7 +7,7 @@ export const IconColors: Job = {
   run: async () => {
     const icons = await db.icon.findMany({ where: { color: null }, take: 2500 });
 
-    const colors: { id: number; color: string }[] = [];
+    const colors: { id: number, color: string }[] = [];
 
     for (const iconBatch of batch(icons, 10)) {
       await Promise.all(iconBatch.map(async ({ id, signature }) => {

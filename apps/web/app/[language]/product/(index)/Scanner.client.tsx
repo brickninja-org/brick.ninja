@@ -35,15 +35,15 @@ export const ScannerClient: FC = () => {
           <div className="flex flex-col justify-center h-full w-full">
             {codes.length > 0
               ? (
-                <div>
-                  <p>Scanned ({codes.length})</p>
-                </div>
-              )
+                  <div>
+                    <p>Scanned ({codes.length})</p>
+                  </div>
+                )
               : (
-                <div>
-                  <p>No barcodes scanned</p>
-                </div>
-              )}
+                  <div>
+                    <p>No barcodes scanned</p>
+                  </div>
+                )}
           </div>
         </div>
       </Suspense>

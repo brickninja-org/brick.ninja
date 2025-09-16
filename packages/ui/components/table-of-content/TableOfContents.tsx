@@ -6,14 +6,14 @@ import { createContext, useCallback, useContext, useEffect, useReducer, useRef, 
 import { tv } from 'tailwind-variants';
 
 type Anchor = {
-  id: string;
-  element: HTMLElement;
-  label: ReactNode;
+  id: string,
+  element: HTMLElement,
+  label: ReactNode,
 };
 
 type Context = {
-  anchors: Anchor[];
-  registerAnchor: (anchor: Anchor) => () => void;
+  anchors: Anchor[],
+  registerAnchor: (anchor: Anchor) => () => void,
 };
 
 const Context = createContext<Context>({
@@ -22,15 +22,15 @@ const Context = createContext<Context>({
 });
 
 export interface TableOfContentContextProps {
-  children: ReactNode;
+  children: ReactNode,
 }
 
 type Action = {
-  type: 'register';
-  anchor: Anchor;
+  type: 'register',
+  anchor: Anchor,
 } | {
-  type: 'unregister';
-  anchor: Anchor;
+  type: 'unregister',
+  anchor: Anchor,
 };
 
 export const TableOfContentContext: FC<TableOfContentContextProps> = ({ children }) => {
@@ -57,8 +57,8 @@ export const TableOfContentContext: FC<TableOfContentContextProps> = ({ children
 };
 
 export interface TableOfContentAnchorProps {
-  id: string;
-  children?: ReactNode;
+  id: string,
+  children?: ReactNode,
 }
 
 export const TableOfContentAnchor: FC<TableOfContentAnchorProps> = ({ id, children }) => {
@@ -101,7 +101,7 @@ export const TableOfContent: FC = () => {
 
   // gets the id of the anchor that is currently in view
   const getActiveIdFromScroll = useCallback(() => {
-        // get vertical scroll of window
+    // get vertical scroll of window
     // round because high dpi screens might scroll to x.5 when using .scrollIntoView()
     // and this function then would detect the wrong active anchor
     const scrollTop = Math.round(window.scrollY);

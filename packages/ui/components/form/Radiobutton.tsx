@@ -4,9 +4,9 @@ import { useCallback, useId, useRef } from 'react';
 import { tv } from 'tailwind-variants';
 
 export interface RadiobuttonProps {
-  checked: boolean;
-  onChange: (checked: boolean) => void;
-  children: ReactNode;
+  checked: boolean,
+  onChange: (checked: boolean) => void,
+  children: ReactNode,
 }
 
 const radio = tv({

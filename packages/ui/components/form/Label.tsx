@@ -1,8 +1,8 @@
 import type { FC, ReactNode } from 'react';
 
 export interface LabelProps {
-  label: ReactNode;
-  children: ReactNode;
+  label: ReactNode,
+  children: ReactNode,
 }
 
 export const Label: FC<LabelProps> = ({ label, children }) => {

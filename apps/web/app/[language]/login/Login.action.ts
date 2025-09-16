@@ -39,8 +39,8 @@ export async function redirectToBn2Me(returnTo?: string, additionalScopes?: stri
 }
 
 interface AuthRequest {
-  state: string;
-  pkce: PKCEChallenge;
+  state: string,
+  pkce: PKCEChallenge,
 }
 
 export async function prepareAuthRequest(returnTo?: string): Promise<AuthRequest> {

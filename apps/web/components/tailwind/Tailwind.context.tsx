@@ -3,11 +3,11 @@ import type { ReactNode } from 'react';
 import { createContext, useContext, useLayoutEffect, useState } from 'react';
 
 const tailwindCSSBreakIds = {
-  mobile: 'mobile',
-  sm: 'sm',
-  md: 'md',
-  lg: 'lg',
-  xl: 'xl',
+  'mobile': 'mobile',
+  'sm': 'sm',
+  'md': 'md',
+  'lg': 'lg',
+  'xl': 'xl',
   '2xl': '2xl',
 } as const;
 
@@ -26,7 +26,7 @@ const TailwindBreakpointContext = createContext<TailwindCSSBreakId | undefined>(
 const TailwindDarkModeContext = createContext<boolean>(false);
 
 type TailwindProviderProps = {
-  children: ReactNode;
+  children: ReactNode,
 };
 
 export const TailwindProvider = ({ children }: TailwindProviderProps) => {

@@ -2,9 +2,9 @@ import type { FC, ReactNode } from 'react';
 import { Icon } from '../../icons';
 
 export interface ExternalLinkProps {
-  href: string;
-  target?: string;
-  children: ReactNode;
+  href: string,
+  target?: string,
+  children: ReactNode,
 }
 
 export const ExternalLink: FC<ExternalLinkProps> = ({ href, target, children }) => {

@@ -7,8 +7,8 @@ import { autoUpdate, flip, FloatingPortal, offset, shift, useClick, useClientPoi
 import { useDisclosure } from '@heroui/react';
 
 export interface TooltipProps {
-  children: ReactElement<HTMLProps<HTMLElement>>;
-  content: ReactNode;
+  children: ReactElement<HTMLProps<HTMLElement>>,
+  content: ReactNode,
 }
 
 export const Tooltip: FC<TooltipProps> = ({ children, content }) => {

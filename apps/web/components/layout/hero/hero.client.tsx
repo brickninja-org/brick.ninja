@@ -7,7 +7,7 @@ import { createContext, useContext } from 'react';
 import { heroVariants } from './hero.styles';
 
 type HeroContext = {
-  slots?: ReturnType<typeof heroVariants>;
+  slots?: ReturnType<typeof heroVariants>,
 };
 
 const HeroContext = createContext<HeroContext>({});

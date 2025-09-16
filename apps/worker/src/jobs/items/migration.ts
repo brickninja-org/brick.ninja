@@ -11,27 +11,27 @@ export const CURRENT_VERSION = 4;
 
 /** @see Prisma.ItemUpdateInput */
 interface MigratedItem {
-  version: number;
+  version: number,
 
-  name_de?: string;
-  name_en?: string;
-  name_es?: string;
-  name_fr?: string;
-  name_nl?: string;
-  type?: string;
-  subtype?: string;
-  barcode?: string;
+  name_de?: string,
+  name_en?: string,
+  name_es?: string,
+  name_fr?: string,
+  name_nl?: string,
+  type?: string,
+  subtype?: string,
+  barcode?: string,
 
-  removedFromApi?: boolean;
-  lastCheckedAt?: Date | string;
-  createdAt?: Date | string;
-  updatedAt?: Date | string;
+  removedFromApi?: boolean,
+  lastCheckedAt?: Date | string,
+  createdAt?: Date | string,
+  updatedAt?: Date | string,
 
-  designIds?: number[];
-  designs?: Prisma.ElementDesignCreateNestedManyWithoutItemsInput;
+  designIds?: number[],
+  designs?: Prisma.ElementDesignCreateNestedManyWithoutItemsInput,
 
-  productIds?: number[];
-  products?: Prisma.ProductCreateNestedManyWithoutItemsInput;
+  productIds?: number[],
+  products?: Prisma.ProductCreateNestedManyWithoutItemsInput,
 }
 
 export async function createMigrator() {

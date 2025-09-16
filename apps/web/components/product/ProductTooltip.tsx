@@ -8,9 +8,9 @@ import { FormatNumber } from '../format/FormatNumber';
 import { FormatWeight } from '../format/FormatWeight';
 
 export interface ProductTooltipProps {
-  product: ApiProduct;
-  language: Language;
-  hideTitle?: boolean;
+  product: ApiProduct,
+  language: Language,
+  hideTitle?: boolean,
 }
 
 export const ProductTooltip: FC<ProductTooltipProps> = async ({ product, language, hideTitle }) => {
@@ -22,11 +22,11 @@ export const ProductTooltip: FC<ProductTooltipProps> = async ({ product, languag
 };
 
 export interface ProductTooltip {
-  language: Language;
-  id: number;
-  name: string;
-  icon?: { id: number, signature: string; extension: string };
-  attributes?: ProductAttribute[];
+  language: Language,
+  id: number,
+  name: string,
+  icon?: { id: number, signature: string, extension: string },
+  attributes?: ProductAttribute[],
 }
 
 // eslint-disable-next-line require-await
@@ -43,7 +43,7 @@ export async function createTooltip(product: ApiProduct, language: Language): Pr
 }
 
 export interface AttributeProps {
-  attribute: ProductAttribute;
+  attribute: ProductAttribute,
 }
 
 export const Attribute: FC<AttributeProps> = ({ attribute }) => {

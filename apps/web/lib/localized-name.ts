@@ -1,11 +1,11 @@
 import type { Language } from '@brickninja-org/database';
 
 export interface LocalizedEntity {
-  name_de: string;
-  name_en: string;
-  name_es: string;
-  name_fr: string;
-  name_nl: string;
+  name_de: string,
+  name_en: string,
+  name_es: string,
+  name_fr: string,
+  name_nl: string,
 }
 
 export function localizedName(entity: LocalizedEntity, language: Language): string {

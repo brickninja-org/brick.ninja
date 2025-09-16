@@ -3,15 +3,15 @@ import type { FC, ChangeEvent } from 'react';
 import { useCallback } from 'react';
 
 export interface NumberInputProps {
-  value?: number;
-  defaultValue?: number;
-  onChange?: (value: number) => void;
-  placeholder?: string;
-  name?: string;
-  readOnly?: boolean;
-  autoFocus?: boolean;
-  min?: number;
-  max?: number;
+  value?: number,
+  defaultValue?: number,
+  onChange?: (value: number) => void,
+  placeholder?: string,
+  name?: string,
+  readOnly?: boolean,
+  autoFocus?: boolean,
+  min?: number,
+  max?: number,
 }
 
 export const NumberInput: FC<NumberInputProps> = ({ value, defaultValue, placeholder, name, readOnly, min, max, onChange }) => {

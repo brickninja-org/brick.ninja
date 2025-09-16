@@ -16,9 +16,9 @@ import { Skeleton } from '../skeleton/Skeleton';
 import type { WithIcon } from '@/lib/with';
 
 export interface ItemLinkTooltipProps {
-  item: WithIcon<Pick<Item, 'id' | keyof LocalizedEntity>>;
-  language?: Language;
-  revision?: string;
+  item: WithIcon<Pick<Item, 'id' | keyof LocalizedEntity>>,
+  language?: Language,
+  revision?: string,
 }
 
 export const ItemLinkTooltip: FC<ItemLinkTooltipProps> = ({ item, language, revision }) => {
@@ -38,7 +38,7 @@ export const ItemLinkTooltip: FC<ItemLinkTooltipProps> = ({ item, language, revi
   );
 };
 
-type ItemLinkTooltipInternalProps = ItemLinkTooltipProps & { language: Language; error?: boolean; };
+type ItemLinkTooltipInternalProps = ItemLinkTooltipProps & { language: Language, error?: boolean };
 
 const ItemLinkTooltipFallback: FC<ItemLinkTooltipInternalProps> = ({ item, language, error }) => {
   return (

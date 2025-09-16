@@ -7,11 +7,11 @@ import { Icon } from '../../icons';
 import { TableOfContentContext } from '../table-of-content/TableOfContents';
 
 export interface DialogProps {
-  children: ReactNode;
-  title: ReactNode;
-  open?: boolean;
-  onClose: () => void;
-  initialFocus?: number | RefObject<HTMLElement | null>;
+  children: ReactNode,
+  title: ReactNode,
+  open?: boolean,
+  onClose: () => void,
+  initialFocus?: number | RefObject<HTMLElement | null>,
 }
 
 export const Dialog: FC<DialogProps> = ({ children, title, open, initialFocus, onClose }) => {

@@ -12,12 +12,12 @@ import { ItemLinkTooltip } from '@/components/item/ItemLinkTooltip';
 import { Tooltip } from '@/components/tooltip/Tooltip';
 
 export interface ItemLinkProps {
-  className?: string;
-  item: WithIcon<Pick<Item, 'id' | keyof LocalizedEntity>>;
-  icon?: IconSize | 'none';
-  language?: Language;
-  revision?: string;
-  children?: ReactNode;
+  className?: string,
+  item: WithIcon<Pick<Item, 'id' | keyof LocalizedEntity>>,
+  icon?: IconSize | 'none',
+  language?: Language,
+  revision?: string,
+  children?: ReactNode,
 }
 
 export const ItemLink: FC<ItemLinkProps> = ({ className, item, icon = 32, language, revision, children }) => {

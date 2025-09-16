@@ -9,8 +9,8 @@ import { useResizeObserver } from '@brickninja-org/ui/lib/hooks/resize-observer'
 
 
 export interface HorizontalOverflowContainerProps {
-  children: ReactNode;
-  inverted?: boolean;
+  children: ReactNode,
+  inverted?: boolean,
 }
 
 export const HorizontalOverflowContainer: FC<HorizontalOverflowContainerProps> = ({ children, inverted = false }) => {

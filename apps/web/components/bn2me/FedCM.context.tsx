@@ -9,14 +9,14 @@ import { prepareAuthRequest } from 'app/[language]/login/Login.action';
 import { useBn2MeClient } from './Bn2Me.context';
 
 export interface FedCMTriggerOptions extends Omit<FedCMRequestOptions, 'state' | 'code_challenge' | 'code_challenge_method'> {
-  returnTo?: string;
+  returnTo?: string,
 }
 
 const FedCMContext = createContext<(options: FedCMTriggerOptions) => Promise<void>>(() => new Promise(() => {}));
 
 export interface FedCMProviderProps {
-  baseUrl?: string;
-  children: ReactNode;
+  baseUrl?: string,
+  children: ReactNode,
 }
 
 export const FedCMProvider: FC<FedCMProviderProps> = ({ baseUrl, children }) => {

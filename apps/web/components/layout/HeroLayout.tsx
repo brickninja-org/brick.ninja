@@ -6,12 +6,12 @@ import { tv } from '@heroui/react';
 import { PageLayout } from '@/components/layout/PageLayout';
 
 export interface HeroLayoutProps extends HeroVariants {
-  children: ReactNode;
-  hero: ReactNode;
-  navbar?: ReactNode;
-  toc?: boolean;
+  children: ReactNode,
+  hero: ReactNode,
+  navbar?: ReactNode,
+  toc?: boolean,
   // skipPreload?: boolean;
-  skipLayout?: boolean;
+  skipLayout?: boolean,
 }
 
 const styles = tv({

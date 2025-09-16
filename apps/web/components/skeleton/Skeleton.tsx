@@ -3,9 +3,9 @@ import type { FC } from 'react';
 import { cn } from '@heroui/react';
 
 export interface SkeletonProps {
-  width?: number | string;
-  height?: number | string;
-  className?: string;
+  width?: number | string,
+  height?: number | string,
+  className?: string,
 }
 
 export const Skeleton: FC<SkeletonProps> = ({ width = '100%', height = 16, className }) => {

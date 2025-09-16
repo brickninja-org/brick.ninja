@@ -5,16 +5,16 @@ import { addToast, Alert, Form as HeroUIForm } from '@heroui/react';
 import { useActionState, useCallback, useEffect } from 'react';
 
 export interface FormState {
-  error?: string;
-  success?: string;
+  error?: string,
+  success?: string,
 }
 
 export interface FormProps<State> {
-  action: (state: State, payload: FormData) => Promise<State>;
-  initialState?: State;
-  children: ReactNode;
-  className?: string;
-  id?: string;
+  action: (state: State, payload: FormData) => Promise<State>,
+  initialState?: State,
+  children: ReactNode,
+  className?: string,
+  id?: string,
 }
 
 export const Form: FC<FormProps<FormState>> = ({ action, id, initialState, children, className }) => {

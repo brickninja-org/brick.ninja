@@ -7,7 +7,7 @@ import { createContext, useContext } from 'react';
 import type { Language } from '@brickninja-org/database';
 
 interface I18nContext {
-  language: Language;
+  language: Language,
 }
 
 export const I18nContext = createContext<I18nContext>({ language: 'en' });
@@ -19,8 +19,8 @@ export function useLanguage() {
 }
 
 export interface I18nProviderProps {
-  children: ReactNode;
-  language: Language;
+  children: ReactNode,
+  language: Language,
 }
 
 export const I18nProvider: FC<I18nProviderProps> = ({ children, language }) => {

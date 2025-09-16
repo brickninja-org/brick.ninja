@@ -1,7 +1,7 @@
 import type { FC, ReactNode } from 'react';
 
 export interface BadgeProps {
-  children: ReactNode
+  children: ReactNode,
 }
 
 export const Badge: FC<BadgeProps> = ({ children }) => (

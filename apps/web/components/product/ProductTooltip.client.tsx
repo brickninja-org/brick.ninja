@@ -9,8 +9,8 @@ import { EntityIcon } from '@/components/entity/EntityIcon';
 import { Attribute } from './ProductTooltip';
 
 export interface ClientProductTooltipProps {
-  tooltip: ProductTooltip;
-  hideTitle?: boolean;
+  tooltip: ProductTooltip,
+  hideTitle?: boolean,
 }
 
 function renderAttributes(attributes: ProductTooltip['attributes']) {

@@ -3,8 +3,8 @@ import type { FC, ReactNode } from 'react';
 import { tv } from 'tailwind-variants';
 
 interface ListProps {
-  children: ReactNode;
-  numbered?: boolean;
+  children: ReactNode,
+  numbered?: boolean,
 }
 
 const list = tv({

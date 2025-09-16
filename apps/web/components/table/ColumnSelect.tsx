@@ -4,8 +4,8 @@ import type { DataTableColumnSelectionProps } from '@brickninja-org/ui/component
 import { Translate } from '@/components/i18n/Translate';
 
 export interface ColumnSelectProps {
-  table: { ColumnSelection: FC<DataTableColumnSelectionProps> };
-  children?: ReactNode;
+  table: { ColumnSelection: FC<DataTableColumnSelectionProps> },
+  children?: ReactNode,
 }
 
 export const ColumnSelect: FC<ColumnSelectProps> = ({ table: { ColumnSelection }, children }) => {

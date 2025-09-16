@@ -4,8 +4,8 @@ import type { Bn2Account } from './types';
 import { Tip } from '@brickninja-org/ui/components/tip/Tip';
 
 interface Bn2AccountNameProps {
-  account: Bn2Account;
-  long?: boolean;
+  account: Bn2Account,
+  long?: boolean,
 }
 
 export const Bn2AccountName: FC<Bn2AccountNameProps> = ({ account, long }) => {

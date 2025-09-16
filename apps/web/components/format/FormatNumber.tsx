@@ -10,12 +10,12 @@ import { useFormatContext } from './Format.context';
 const NARROW_NO_BREAK_SPACE = '\u{202F}';
 
 interface FormatNumberProps extends RefProp<HTMLDataElement> {
-  value: number | bigint | undefined | null;
-  className?: string;
-  variant?: 'normal-nums' | 'tabular-nums';
-  unit?: string;
-  options?: Intl.NumberFormatOptions;
-  approx?: boolean;
+  value: number | bigint | undefined | null,
+  className?: string,
+  variant?: 'normal-nums' | 'tabular-nums',
+  unit?: string,
+  options?: Intl.NumberFormatOptions,
+  approx?: boolean,
 }
 
 const format = new Intl.NumberFormat(undefined, { useGrouping: true });

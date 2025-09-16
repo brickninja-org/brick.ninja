@@ -9,9 +9,9 @@ import { useEffect, useMemo, useState } from 'react';
 import { context } from './context';
 
 interface ItemTableContextProps {
-  children: ReactNode;
-  id: string;
-  global?: boolean;
+  children: ReactNode,
+  id: string,
+  global?: boolean,
 }
 
 const emptyAvailableColumns = {} as AvailableColumns<string>;

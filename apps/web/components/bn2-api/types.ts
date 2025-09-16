@@ -7,24 +7,24 @@ export enum ErrorCode {
 }
 
 export type ErrorResponse = {
-  error: ErrorCode;
+  error: ErrorCode,
 };
 
 export interface Bn2Account {
-  id: string;
-  name: string;
-  verified?: boolean;
-  displayName?: string | null;
+  id: string,
+  name: string,
+  verified?: boolean,
+  displayName?: string | null,
 }
 
 export interface Bn2AccountWithHidden extends Bn2Account {
-  hidden: boolean;
+  hidden: boolean,
 }
 
 export type FetchAccountSuccessResponse = {
-  error: undefined;
-  accounts: Bn2Account[];
-  scopes: Scope[];
+  error: undefined,
+  accounts: Bn2Account[],
+  scopes: Scope[],
 };
 
 export type FetchAccountResponse = ErrorResponse | FetchAccountSuccessResponse;
@@ -35,6 +35,6 @@ export type FetchAccessTokenResponse = ErrorResponse | {
 };
 
 export type AccessToken = {
-  accessToken: string;
-  expiresAt: Date;
+  accessToken: string,
+  expiresAt: Date,
 };

@@ -6,12 +6,12 @@ import { useWebcam } from '@/hooks/camera/use-webcam';
 import { useVideoCanvas } from '@/hooks/camera/use-video-canvas';
 
 export type UseBarcodeScannerOptions = {
-  barcodeDetectorOptions?: BarcodeDetectorOptions;
-  deviceChoiceOptions?: DeviceChoiceOptions;
-  shouldPlay?: boolean;
-  zoom?: number;
-  onDevices?: (deviceList: MediaDeviceInfo[]) => void;
-  onScan: (barcode: string) => void;
+  barcodeDetectorOptions?: BarcodeDetectorOptions,
+  deviceChoiceOptions?: DeviceChoiceOptions,
+  shouldPlay?: boolean,
+  zoom?: number,
+  onDevices?: (deviceList: MediaDeviceInfo[]) => void,
+  onScan: (barcode: string) => void,
 };
 
 export const useBarcodeScanner = (options: UseBarcodeScannerOptions) => {

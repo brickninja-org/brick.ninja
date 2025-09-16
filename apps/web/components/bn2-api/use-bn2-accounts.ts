@@ -7,9 +7,9 @@ import { Scope } from '@bn2me/client';
 import { Bn2APIContext } from './Bn2API.context';
 
 type UseBn2AccountsResult =
-  | { loading: true; }
-  | { loading: false; error: true; }
-  | { loading: false; error: false; accounts: Bn2AccountWithHidden[]; scopes: Scope[]; };
+  | { loading: true }
+  | { loading: false, error: true }
+  | { loading: false, error: false, accounts: Bn2AccountWithHidden[], scopes: Scope[] };
 
 const loading: Bn2AccountWithHidden[] = [];
 const defaultOptionalScopes: Scope[] = [];

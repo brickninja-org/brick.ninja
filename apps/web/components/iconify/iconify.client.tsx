@@ -11,7 +11,7 @@ import lucideIcons from '@iconify-json/lucide/icons.json';
 type IconName = keyof typeof lucideIcons.icons;
 
 export interface IconifyProps extends IconProps, RefProp<SVGSVGElement> {
-  icon: IconProps['icon'] | string;
+  icon: IconProps['icon'] | string,
 }
 
 const icons = {

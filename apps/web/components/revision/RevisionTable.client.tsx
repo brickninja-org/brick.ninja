@@ -7,9 +7,9 @@ import { Icon } from '@brickninja-org/ui/icons';
 import { TableRowButton } from '@brickninja-org/ui/components/table/TableRowButton';
 
 export interface RevisionTableHiddenRowsProps {
-  label: string;
-  hiddenIndexes: number[];
-  children: ReactNode[];
+  label: string,
+  hiddenIndexes: number[],
+  children: ReactNode[],
 }
 
 export const RevisionTableHiddenRows: FC<RevisionTableHiddenRowsProps> = ({ label, hiddenIndexes, children }) => {

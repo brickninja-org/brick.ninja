@@ -20,10 +20,10 @@ import { ProductLink } from './ProductLink';
 import { FormatNumber } from '../format/FormatNumber';
 
 export interface ProductTableProps {
-  products: Pick<Product, 'id' | 'type' | 'subtype' | 'pieceCount' | 'figureCount' | keyof LocalizedEntity>[];
-  headline?: ReactNode;
-  headlineId?: string;
-  children?: (table: ReactNode, columnSelect: ReactNode) => ReactNode;
+  products: Pick<Product, 'id' | 'type' | 'subtype' | 'pieceCount' | 'figureCount' | keyof LocalizedEntity>[],
+  headline?: ReactNode,
+  headlineId?: string,
+  children?: (table: ReactNode, columnSelect: ReactNode) => ReactNode,
 }
 
 export const ProductTable: FC<ProductTableProps> = async ({ products, headline, headlineId, children }) => {

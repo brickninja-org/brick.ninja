@@ -1,8 +1,8 @@
 import type { FC, ReactNode } from 'react';
 
 export interface KbdProps {
-  children: ReactNode;
-  className?: string;
+  children: ReactNode,
+  className?: string,
 }
 
 export const Kbd: FC<KbdProps> = ({ children, className }) => {

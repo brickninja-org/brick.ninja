@@ -9,11 +9,11 @@ import { ProductLinkTooltip } from './ProductLinkTooltip';
 import type { IconSize } from '@/lib/get-icon-url';
 
 export interface ProductLinkProps {
-  product: Pick<Product, 'id' | keyof LocalizedEntity>;
-  icon?: IconSize | 'none';
-  language?: Language;
-  revision?: string;
-  children?: ReactNode;
+  product: Pick<Product, 'id' | keyof LocalizedEntity>,
+  icon?: IconSize | 'none',
+  language?: Language,
+  revision?: string,
+  children?: ReactNode,
 }
 
 export const ProductLink: FC<ProductLinkProps> = ({ product, icon = 32, language, revision, children }) => {

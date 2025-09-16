@@ -10,13 +10,13 @@ import { getLinkProperties } from '@/lib/link-properties';
 import { EntityLinkInternal } from '@/components/entity/EntityLinkInternal';
 
 interface CustomEntityLinkProps extends RefProp<HTMLAnchorElement> {
-  href: string;
-  entity: WithIcon<LocalizedEntity> & ({ id: unknown });
-  icon?: IconSize | 'none' | ReactElement;
-  iconType?: EntityIconType;
-  language?: Language;
-  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
-  children?: ReactNode
+  href: string,
+  entity: WithIcon<LocalizedEntity> & ({ id: unknown }),
+  icon?: IconSize | 'none' | ReactElement,
+  iconType?: EntityIconType,
+  language?: Language,
+  onClick?: React.MouseEventHandler<HTMLAnchorElement>,
+  children?: ReactNode,
 }
 
 export type EntityLinkProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof CustomEntityLinkProps> & CustomEntityLinkProps;

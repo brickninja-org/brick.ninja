@@ -33,12 +33,12 @@ const LOADING = false;
 type LOADING = typeof LOADING;
 
 export interface ItemTableProps<ExtraColumnId extends string, Model extends QueryModel> {
-  query: Signed<ItemTableQuery<Model>>;
-  defaultColumns?: (GlobalColumnId | ExtraColumnId)[];
-  availableColumns: AvailableColumns<GlobalColumnId | ExtraColumnId>;
-  collapsed?: boolean;
-  pageSize?: number;
-  translations: PaginationProps['translations'] & TranslationSubset<'itemTable.viewItem' | 'actions'>
+  query: Signed<ItemTableQuery<Model>>,
+  defaultColumns?: (GlobalColumnId | ExtraColumnId)[],
+  availableColumns: AvailableColumns<GlobalColumnId | ExtraColumnId>,
+  collapsed?: boolean,
+  pageSize?: number,
+  translations: PaginationProps['translations'] & TranslationSubset<'itemTable.viewItem' | 'actions'>,
 }
 
 const globalDefaultColumns: GlobalColumnId[] = [
@@ -153,8 +153,8 @@ export const ItemTable = <ExtraColumnId extends string = never, Model extends Qu
           {items.map((item) => {
             const properties = query.data.mapToItem && query.data.model !== undefined && query.data.model !== 'item'
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            ? { item: (item as any)[query.data.mapToItem], [query.data.model]: item, translations: dynamicTranslations }
-            : { item, translations: dynamicTranslations };
+              ? { item: (item as any)[query.data.mapToItem], [query.data.model]: item, translations: dynamicTranslations }
+              : { item, translations: dynamicTranslations };
 
             return (
               <tr key={item.id ?? properties.item.id} className={tr()}>
