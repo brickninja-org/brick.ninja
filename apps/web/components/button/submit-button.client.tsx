@@ -19,6 +19,9 @@ const submitButtonVariants = tv({
       true: 'flex-1',
     },
   },
+  defaultVariants: {
+    flex: false,
+  },
 });
 
 type SubmitButtonVariants = VariantProps<typeof submitButtonVariants>;
@@ -28,11 +31,11 @@ export interface SubmitButtonProps extends Omit<ButtonProps, 'asChild' | 'childr
   children?: ReactNode,
 }
 
-export const SubmitButton: FC<SubmitButtonProps> = ({ flex, isPending, icon, className, children, ...props }) => {
+export const SubmitButton: FC<SubmitButtonProps> = ({ flex, icon, className, children, ...props }) => {
   const { pending } = useFormStatus();
 
   return (
-    <Button type="submit" isDisabled={pending} isPending={pending} className={submitButtonVariants({ flex, isPending, className })} {...props}>
+    <Button type="submit" isDisabled={pending} isPending={pending} className={submitButtonVariants({ flex, className })} {...props}>
       {({ isPending }) => (
         <>
           {isPending ? <Spinner/> : icon ? <Iconify icon={icon}/> : null}
