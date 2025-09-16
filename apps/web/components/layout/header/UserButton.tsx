@@ -15,7 +15,7 @@ import { getUser } from '@/lib/get-user';
 import { getTranslate } from '@/lib/translate';
 import { reauthorize } from '@/components/bn2-api/reauthorize';
 import { Button } from '@/components/button';
-import { Skeleton } from '@/components/skeleton/Skeleton';
+import { Skeleton } from '@/components/skeleton';
 import { Translate } from '@/components/i18n/Translate';
 import { Iconify } from '@/components/iconify/iconify.client';
 
@@ -62,7 +62,7 @@ const UserButtonInternal: FC<UserButtonInternalProps> = ({ user, language }) => 
     <Button asChild variant="ghost" className="min-w-10 w-10 md:min-w-20 md:w-fit rounded-sm font-normal" aria-label={user === 'loading' ? undefined : user.name}>
       <Link href="/profile">
         <Iconify icon="lucide:user-round"/>
-        <span className="hidden md:block">{user === 'loading' ? <Skeleton width={90}/> : user.name}</span>
+        <span className="hidden md:block">{user === 'loading' ? <Skeleton className="h-4 w-24 rounded-lg"/> : user.name}</span>
       </Link>
     </Button>
   );
