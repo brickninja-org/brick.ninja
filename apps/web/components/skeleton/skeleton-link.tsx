@@ -13,11 +13,9 @@ export const SkeletonLink: FC<SkeletonLinkProps> = ({ icon = 32 }) => {
   }
 
   return (
-    <div className="flex items-center justify-self-start gap-2 overflow-hidden">
+    <div className="inline-flex items-center justify-self-start gap-2 overflow-hidden">
       <Skeleton className={`h-${icon / 4} w-${icon / 4} shrink-0 rounded-sm`}/>
-      <div className="flex-1">
-        <Skeleton className="h-4 w-full rounded-md"/>
-      </div>
+      <Skeleton className="h-4 flex-1 rounded-md"/>
     </div>
   );
 };
