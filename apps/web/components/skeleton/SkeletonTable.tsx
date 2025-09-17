@@ -4,7 +4,7 @@ import type { FC, ReactNode } from 'react';
 import { Table } from '@brickninja-org/ui/components/table/Table';
 
 import { Skeleton } from '@/components/skeleton/Skeleton';
-import { SkeletonLink } from '@/components/skeleton/SkeletonLink';
+import { SkeletonLink } from '@/components/skeleton';
 
 interface SkeletonTableProps {
   columns: ReactNode[],

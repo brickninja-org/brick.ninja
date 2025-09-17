@@ -14,7 +14,7 @@ import { FormatDate } from '@/components/format/FormatDate';
 import { FormatNumber } from '@/components/format/FormatNumber';
 import { ItemList, ItemListItem } from '@/components/item/ItemList';
 import { ItemLink } from '@/components/item/ItemLink';
-import { SkeletonLink } from '@/components/skeleton/SkeletonLink';
+import { SkeletonLink } from '@/components/skeleton';
 import { HeroLayout } from '@/components/layout/HeroLayout';
 import { PageView } from '@/components/page-view/PageView';
 import { Translate } from '@/components/i18n/Translate';

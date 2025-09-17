@@ -19,7 +19,7 @@ import { ItemLink } from '@/components/item/ItemLink';
 import { ItemList, ItemListItem } from '@/components/item/ItemList';
 import DetailLayout from '@/components/layout/DetailLayout';
 import { ProductLink } from '@/components/product/ProductLink';
-import { SkeletonLink } from '@/components/skeleton/SkeletonLink';
+import { SkeletonLink } from '@/components/skeleton';
 import { getLanguage } from '@/lib/translate';
 
 function timed<Args extends unknown[], Out>(callback: (...args: Args) => Promise<Out>): (...args: Args) => Promise<Out> {
