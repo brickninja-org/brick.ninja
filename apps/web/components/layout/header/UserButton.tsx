@@ -16,7 +16,7 @@ import { reauthorize } from '@/components/bn2-api/reauthorize';
 import { Button, SubmitButton } from '@/components/button';
 import { Skeleton } from '@/components/skeleton';
 import { Translate } from '@/components/i18n/Translate';
-import { Iconify } from '@/components/iconify/iconify.client';
+import { Iconify } from '@/components/iconify';
 
 export interface UserButtonProps {
   language: Language,
