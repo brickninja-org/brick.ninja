@@ -60,7 +60,7 @@ const InternalReviewButton: FC<InternalReviewButtonProps> = ({ language, data })
       variant="ghost"
     >
       <Link href="/review">
-        <Iconify icon="lucide:edit"/>
+        <Iconify icon="pencil-to-square"/>
         <span className="hidden md:block">
           <Translate language={language} id="review"/>
         </span>

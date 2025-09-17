@@ -31,7 +31,7 @@
     "@heroui/react": "2.8.4",
     "@heroui/styles": "3.0.0-alpha.30",
     "@heroui/theme": "2.4.22",
-    "@iconify-json/lucide": "1.2.68",
+    "@iconify-json/gravity-ui": "1.2.10",
     "@iconify/react": "6.0.2",
     "@prisma/nextjs-monorepo-workaround-plugin": "6.16.2",
     "@radix-ui/react-slot": "1.2.3",

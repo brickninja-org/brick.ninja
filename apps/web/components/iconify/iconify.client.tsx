@@ -6,29 +6,29 @@ import type { RefProp } from '@brickninja-org/ui/lib/react';
 
 import { Icon } from '@iconify/react';
 import { Icon as OfflineIcon } from '@iconify/react/dist/offline';
-import lucideIcons from '@iconify-json/lucide/icons.json';
+import gravityIcons from "@iconify-json/gravity-ui/icons.json";
 
-type IconName = keyof typeof lucideIcons.icons;
+type IconName = keyof typeof gravityIcons.icons;
 
 export interface IconifyProps extends IconProps, RefProp<SVGSVGElement> {
   icon: IconProps['icon'] | string,
 }
 
 const icons = {
-  ...lucideIcons.icons,
+  ...gravityIcons.icons,
 };
 
 // TODO: Hydration error
 const Iconify: FC<IconifyProps> = ({ ref, icon: iconProp, ...props }) => {
-  // Check if it's a lucide icon (no prefix or explicitly in lucide icons)
-  const isLucideIcon =
+  // Check if it's a gravity icon (no prefix or explicitly in gravity icons)
+  const isGravityIcon =
     typeof iconProp === 'string' && (iconProp in icons || !iconProp.includes(':'));
 
-  if (isLucideIcon && typeof iconProp === 'string') {
-    const lucideIconData = icons[iconProp as IconName];
+  if (isGravityIcon && typeof iconProp === 'string') {
+    const gravityIconData = icons[iconProp as IconName];
 
-    if (lucideIconData) {
-      return <OfflineIcon {...props} ref={ref} icon={lucideIconData}/>;
+    if (gravityIconData) {
+      return <OfflineIcon {...props} ref={ref} icon={gravityIconData}/>;
     }
   }
 

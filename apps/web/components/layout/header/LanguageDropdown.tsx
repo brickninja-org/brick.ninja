@@ -52,7 +52,7 @@ export const LanguageDropdown: FC<LanguageDropdownProps> = ({ translations }) =>
             className="min-w-10 w-10 md:min-w-20 md:w-fit rounded-sm font-normal"
             variant="ghost"
           >
-            <Iconify icon="lucide:globe"/>
+            <Iconify icon="globe"/>
             <span className="hidden md:block">{currentLanguageLabel}</span>
           </Button>
         </DropdownTrigger>
