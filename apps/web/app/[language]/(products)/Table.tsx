@@ -5,14 +5,15 @@ import type { WithIcon } from '@/lib/with';
 
 import { Dropdown } from '@brickninja-org/ui/components/dropdown/Dropdown';
 import { FlexRow } from '@brickninja-org/ui/components/flex-row/FlexRow';
-import { Button, LinkButton } from '@brickninja-org/ui/components/form/Button';
+import { LinkButton } from '@brickninja-org/ui/components/form/Button';
 import { MenuList } from '@brickninja-org/ui/components/layout/MenuList';
 import { createDataTable } from '@brickninja-org/ui/components/table/DataTable';
-import { Icon } from '@brickninja-org/ui/icons';
 
 import { localizedName } from '@/lib/localized-name';
+import { Button } from '@/components/button';
 import { EntityIcon } from '@/components/entity/EntityIcon';
 import { EntityIconMissing } from '@/components/entity/EntityIconMissing';
+import { Iconify } from '@/components/iconify';
 import { Translate } from '@/components/i18n/Translate';
 import { TableFilterRow } from '@/components/table/TableFilter';
 import { FormatNumber } from '@/components/format/FormatNumber';
@@ -47,7 +48,7 @@ export const CatalogProductDataTable: FC<CatalogProductTableProps> = ({ language
       </products.Column>
       <products.Column id="actions" title="" small fixed>
         {({ id }) => (
-          <Dropdown button={<Button iconOnly appearance="menu"><Icon icon="more"/></Button>} preferredPlacement="right-start">
+          <Dropdown button={<Button isIconOnly variant="ghost"><Iconify icon="ellipsis-vertical"/></Button>} preferredPlacement="right-start">
             <MenuList>
               <LinkButton appearance="menu" icon="eye" href={`/product/${id}`}>View Product</LinkButton>
             </MenuList>
