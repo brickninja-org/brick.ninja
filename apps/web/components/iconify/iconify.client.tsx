@@ -6,7 +6,7 @@ import type { RefProp } from '@brickninja-org/ui/lib/react';
 
 import { Icon } from '@iconify/react';
 import { Icon as OfflineIcon } from '@iconify/react/dist/offline';
-import gravityIcons from "@iconify-json/gravity-ui/icons.json";
+import gravityIcons from '@iconify-json/gravity-ui/icons.json';
 
 type IconName = keyof typeof gravityIcons.icons;
 
