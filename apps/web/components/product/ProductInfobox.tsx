@@ -10,7 +10,7 @@ import { localizedName } from '@/lib/localized-name';
 import { translateMany } from '@/lib/translate';
 import { getCurrentUrl } from '@/lib/url';
 import { LanguageLinks } from '@/components/info-box/LanguageLinks';
-import { ShareButton } from '@/components/share-button/ShareButton';
+import { ShareButton } from '@/components/button';
 
 import { ProductLink } from './ProductLink';
 import { RegionInfo } from './RegionInfo';
@@ -59,7 +59,7 @@ export const ProductInfobox: FC<ProductInfoboxProps> = async ({ product, data, l
         >
           LEGO.com
         </Button>
-        <ShareButton className="flex-1" radius="sm" variant="ghost" data={{ title: localizedName(product, language), url: currentUrl.toString() }}/>
+        <ShareButton className="flex-1 rounded-sm" variant="tertiary" data={{ title: localizedName(product, language), url: currentUrl.toString() }}/>
       </FlexRow>
     </div>
   );

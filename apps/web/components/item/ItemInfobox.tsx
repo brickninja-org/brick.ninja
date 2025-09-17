@@ -9,7 +9,7 @@ import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 
 import { LanguageLinks } from '@/components/info-box/LanguageLinks';
 import { ItemLink } from '@/components/item/ItemLink';
-import { ShareButton } from '../share-button/ShareButton';
+import { ShareButton } from '@/components/button';
 import { localizedName } from '@/lib/localized-name';
 import { getCurrentUrl } from '@/lib/url';
 
@@ -42,7 +42,7 @@ export const ItemInfobox: FC<ItemInfoboxProps> = async ({ item, data, language }
         >
           LEGO.com
         </Button>
-        <ShareButton className="flex-1" radius="sm" variant="ghost" data={{ title: localizedName(item, language), url: currentUrl.toString() }}/>
+        <ShareButton className="flex-1 rounded-sm" variant="tertiary" data={{ title: localizedName(item, language), url: currentUrl.toString() }}/>
       </FlexRow>
 
       {/* data.collections?.ownedBy && data.collections.ownedBy > 0 && (
