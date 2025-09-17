@@ -48,7 +48,7 @@ export const CatalogProductDataTable: FC<CatalogProductTableProps> = ({ language
       </products.Column>
       <products.Column id="actions" title="" small fixed>
         {({ id }) => (
-          <Dropdown button={<Button isIconOnly variant="ghost"><Iconify icon="ellipsis-vertical"/></Button>} preferredPlacement="right-start">
+          <Dropdown button={<Button isIconOnly variant="ghost" className="rounded-sm"><Iconify icon="ellipsis-vertical"/></Button>} preferredPlacement="right-start">
             <MenuList>
               <LinkButton appearance="menu" icon="eye" href={`/product/${id}`}>View Product</LinkButton>
             </MenuList>
