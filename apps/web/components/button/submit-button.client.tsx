@@ -35,13 +35,9 @@ export const SubmitButton: FC<SubmitButtonProps> = ({ flex, icon, className, chi
   const { pending } = useFormStatus();
 
   return (
-    <Button type="submit" isDisabled={pending} isPending={pending} className={submitButtonVariants({ flex, className })} {...props}>
-      {({ isPending }) => (
-        <>
-          {isPending ? <Spinner/> : icon ? <Iconify icon={icon}/> : null}
-          {isPending ? 'Submitting...' : children}
-        </>
-      )}
+    <Button type="submit" isDisabled={pending} className={submitButtonVariants({ flex, className })} {...props}>
+      {pending ? <Spinner/> : icon ? <Iconify icon={icon}/> : null}
+      {children}
     </Button>
   );
 };
