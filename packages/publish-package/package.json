@@ -34,7 +34,7 @@
   "devDependencies": {
     "@brickninja-org/eslint-config": "workspace:*",
     "@brickninja-org/tsconfig": "workspace:*",
-    "@types/node": "22.18.5",
+    "@types/node": "22.18.6",
     "eslint": "9.35.0",
     "typescript": "5.9.2"
   },
