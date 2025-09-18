@@ -51,6 +51,8 @@ export const ProductInfobox: FC<ProductInfoboxProps> = async ({ product, data, l
         <Link
           className={buttonVariants({ variant: 'tertiary', className: 'flex-1 rounded-sm' })}
           href={`https://www.lego.com/product/${product.id}`}
+          rel="noopener noreferrer"
+          target="product"
         >
           <Iconify icon="arrow-up-right-from-square"/>
           LEGO.com

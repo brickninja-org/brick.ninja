@@ -3,15 +3,16 @@ import type { Item, Language } from '@brickninja-org/database';
 import type { Item as ApiItem } from '@brickninjaapi/types/data/item';
 //import type { GetSets } from '@brickset-api/types/data/get-sets';
 
-import { Button, Link } from '@heroui/react';
+import Link from 'next/link';
 import { FlexRow } from '@brickninja-org/ui/components/flex-row/FlexRow';
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 
-import { LanguageLinks } from '@/components/info-box/LanguageLinks';
-import { ItemLink } from '@/components/item/ItemLink';
-import { ShareButton } from '@/components/button';
 import { localizedName } from '@/lib/localized-name';
 import { getCurrentUrl } from '@/lib/url';
+import { buttonVariants, ShareButton } from '@/components/button';
+import { Iconify } from '@/components/iconify';
+import { LanguageLinks } from '@/components/info-box/LanguageLinks';
+import { ItemLink } from '@/components/item/ItemLink';
 
 // const TOTAL_COUNT_BRICKSET_USERS = 335274;
 
@@ -31,17 +32,15 @@ export const ItemInfobox: FC<ItemInfoboxProps> = async ({ item, data, language }
       <Headline id="links" noToc>Links</Headline>
       <FlexRow wrap>
         {/* <LinkButton appearance="tertiary" flex external href={`https://brickset.com/api/v3.asmx/getSets?apiKey=${process.env.BRICKSET_API_KEY}&userHash=&params={setID=${item.id}}`} target="api">API</LinkButton> */}
-        <Button
-          isExternal
-          as={Link}
-          className="flex-1"
+        <Link
+          className={buttonVariants({ variant: 'tertiary', className: 'flex-1 rounded-sm' })}
           href={`https://www.lego.com${item.type === 'Container' && data.default_product ? `/product/${data.default_product.toString()}` : item.subtype === 'Instruction' ? `/cdn/product-assets/product.bi.core.pdf/${item.id}.pdf` : `/pick-and-build/pick-a-brick?query=${item.id}`}`}
-          radius="sm"
-          target="product"
-          variant="ghost"
+          rel="noopener noreferrer"
+          target="_blank"
         >
+          <Iconify icon="arrow-up-right-from-square"/>
           LEGO.com
-        </Button>
+        </Link>
         <ShareButton className="flex-1 rounded-sm" variant="tertiary" data={{ title: localizedName(item, language), url: currentUrl.toString() }}/>
       </FlexRow>
 
