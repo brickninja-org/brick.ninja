@@ -11,7 +11,6 @@ import { groupByUnique } from '@brickninja-org/helper/group-by';
 import { cache } from '@/lib/cache';
 import { db } from '@/lib/prisma';
 import { Button } from '@/components/button';
-import { Iconify } from '@/components/iconify/iconify.client';
 import { Translate } from '@/components/i18n/Translate';
 
 const getOpenReviews = cache(
@@ -57,10 +56,10 @@ const InternalReviewButton: FC<InternalReviewButtonProps> = ({ language, data })
       asChild
       aria-label="Review"
       className="group min-w-10 w-10 md:min-w-20 md:w-fit rounded-sm font-normal"
+      icon="pencil-to-square"
       variant="ghost"
     >
       <Link href="/review">
-        <Iconify icon="pencil-to-square"/>
         <span className="hidden md:block">
           <Translate language={language} id="review"/>
         </span>

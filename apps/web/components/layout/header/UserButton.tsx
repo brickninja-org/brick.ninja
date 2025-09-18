@@ -48,9 +48,8 @@ const UserButtonInternal: FC<UserButtonInternalProps> = ({ user, language }) => 
 
   if (!user) {
     return (
-      <Button asChild variant="ghost" className="min-w-10 w-10 md:min-w-20 md:w-fit rounded-sm font-normal" aria-label={t('login')}>
+      <Button asChild icon="arrow-right-to-square" variant="ghost" className="min-w-10 w-10 md:min-w-20 md:w-fit rounded-sm font-normal" aria-label={t('login')}>
         <Link href="/login">
-          <Iconify icon="arrow-right-to-square"/>
           <span className="hidden md:block"> <Translate id="login" language={language}/></span>
         </Link>
       </Button>
@@ -58,9 +57,8 @@ const UserButtonInternal: FC<UserButtonInternalProps> = ({ user, language }) => 
   }
 
   const button = (
-    <Button asChild variant="ghost" className="min-w-10 w-10 md:min-w-20 md:w-fit rounded-sm font-normal" aria-label={user === 'loading' ? undefined : user.name}>
+    <Button asChild icon="person" variant="ghost" className="min-w-10 w-10 md:min-w-20 md:w-fit rounded-sm font-normal" aria-label={user === 'loading' ? undefined : user.name}>
       <Link href="/profile">
-        <Iconify icon="person"/>
         <span className="hidden md:block">{user === 'loading' ? <Skeleton className="h-4 w-24 rounded-lg"/> : user.name}</span>
       </Link>
     </Button>

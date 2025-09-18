@@ -51,7 +51,7 @@ const Button: FC<ButtonProps> = ({ asChild, children, className, isIconOnly, ref
   );
 };
 
-Button.displayName = 'BrickCatalog.Button';
+Button.displayName = 'HeroUI.Button';
 
 export type { ButtonProps };
 export { Button };

@@ -5,12 +5,12 @@ import { useCallback, useMemo, useState, type FC } from 'react';
 import { Language } from '@brickninja-org/database';
 import { isTruthy } from '@brickninja-org/helper/is';
 import { Dialog } from '@brickninja-org/ui/components/dialog/Dialog';
-import { Button } from '@brickninja-org/ui/components/form/Button';
 import { Textarea } from '@brickninja-org/ui/components/form/Textarea';
 import { MenuList } from '@brickninja-org/ui/components/layout/MenuList';
 import { Table } from '@brickninja-org/ui/components/table/Table';
 
 import type { TranslationId } from '@/lib/translate';
+import { Button } from '@/components/button';
 import { Code } from '@/components/layout/code';
 
 export interface TranslationEditorProps {
@@ -76,11 +76,11 @@ export const TranslationEditor: FC<TranslationEditorProps> = ({ dictionaries }) 
         <tbody>
           <tr className="bg-gray-100">
             <th/>
-            <th><Button onClick={() => handleExport('de')}>Export</Button></th>
-            <th><Button onClick={() => handleExport('en')}>Export</Button></th>
-            <th><Button onClick={() => handleExport('es')}>Export</Button></th>
-            <th><Button onClick={() => handleExport('fr')}>Export</Button></th>
-            <th><Button onClick={() => handleExport('nl')}>Export</Button></th>
+            <th><Button variant="primary" onPress={() => handleExport('de')}>Export</Button></th>
+            <th><Button variant="primary" onPress={() => handleExport('en')}>Export</Button></th>
+            <th><Button variant="primary" onPress={() => handleExport('es')}>Export</Button></th>
+            <th><Button variant="primary" onPress={() => handleExport('fr')}>Export</Button></th>
+            <th><Button variant="primary" onPress={() => handleExport('nl')}>Export</Button></th>
           </tr>
           {keys.map((key) => (
             <tr key={key}>
@@ -130,7 +130,7 @@ export const TranslationButton: FC<TranslationButtonProps> = ({ language, id, di
   // const isFallback = !isChanged && dictionaries[language][id] !== undefined;
 
   return (
-    <Button appearance="menu" iconOnly onClick={() => editAction({ language, key: id, value: changes[language][id] ?? dictionaries[language][id] ?? '' })} className="block w-[calc(100%_+_32px)]">
+    <Button variant="ghost" iconOnly onPress={() => editAction({ language, key: id, value: changes[language][id] ?? dictionaries[language][id] ?? '' })} className="block w-[calc(100%_+_32px)]">
       <div className="max-w-[calc((100vw_-_700px)_/_4)] min-w-[200px] overflow-hidden text-ellipsis">
         <span className="">
           {changes[language][id] ?? dictionaries[language][id] ?? dictionaries.en[id]}

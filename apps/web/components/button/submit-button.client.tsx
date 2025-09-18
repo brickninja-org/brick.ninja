@@ -1,42 +1,23 @@
 'use client';
 
 import type { FC, ReactNode } from 'react';
-import type { VariantProps } from 'tailwind-variants';
-import type { IconProps } from '@iconify/react';
 import type { ButtonProps } from '@/components/button';
 
 import { useFormStatus } from 'react-dom';
-import { tv } from 'tailwind-variants';
 
-import { Button, buttonVariants } from '@/components/button';
-import { Iconify } from '@/components/iconify/iconify.client';
+import { Button } from '@/components/button';
 import { Spinner } from '@/components/spinner';
 
-const submitButtonVariants = tv({
-  extend: buttonVariants,
-  variants: {
-    flex: {
-      true: 'flex-1',
-    },
-  },
-  defaultVariants: {
-    flex: false,
-  },
-});
-
-type SubmitButtonVariants = VariantProps<typeof submitButtonVariants>;
-export interface SubmitButtonProps extends Omit<ButtonProps, 'asChild' | 'children' | 'className' | 'isPending' | 'type'>, SubmitButtonVariants {
+export interface SubmitButtonProps extends Omit<ButtonProps, 'asChild' | 'children' | 'className' | 'isPending' | 'type'> {
   className?: string,
-  icon?: IconProps['icon'],
   children?: ReactNode,
 }
 
-export const SubmitButton: FC<SubmitButtonProps> = ({ flex, icon, className, children, ...props }) => {
+export const SubmitButton: FC<SubmitButtonProps> = ({ icon, children, ...props }) => {
   const { pending } = useFormStatus();
 
   return (
-    <Button type="submit" isDisabled={pending} className={submitButtonVariants({ flex, className })} {...props}>
-      {pending ? <Spinner/> : icon ? <Iconify icon={icon}/> : null}
+    <Button type="submit" isDisabled={pending} icon={pending ? <Spinner/> : icon} {...props}>
       {children}
     </Button>
   );

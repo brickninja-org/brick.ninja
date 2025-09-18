@@ -11,7 +11,6 @@ import { Dropdown, DropdownItem, DropdownMenu, DropdownSection, DropdownTrigger 
 import { Button } from '@/components/button';
 import { useLanguage } from '@/components/i18n/context';
 import { FormatConfigDialog } from '@/components/format/FormatConfigDialog';
-import { Iconify } from '@/components/iconify/iconify.client';
 
 export interface LanguageDropdownProps {
   translations: TranslationSubset<
@@ -50,9 +49,9 @@ export const LanguageDropdown: FC<LanguageDropdownProps> = ({ translations }) =>
           <Button
             aria-label={currentLanguageLabel}
             className="min-w-10 w-10 md:min-w-20 md:w-fit rounded-sm font-normal"
+            icon="globe"
             variant="ghost"
           >
-            <Iconify icon="globe"/>
             <span className="hidden md:block">{currentLanguageLabel}</span>
           </Button>
         </DropdownTrigger>

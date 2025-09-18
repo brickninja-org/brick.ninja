@@ -8,10 +8,10 @@ import { Icon } from '@iconify/react';
 import { Icon as OfflineIcon } from '@iconify/react/dist/offline';
 import gravityIcons from '@iconify-json/gravity-ui/icons.json';
 
-type IconName = keyof typeof gravityIcons.icons;
+export type IconifyName = keyof typeof gravityIcons.icons;
 
 export interface IconifyProps extends IconProps, RefProp<SVGSVGElement> {
-  icon: IconProps['icon'] | string,
+  icon: IconifyName,
 }
 
 const icons = {
@@ -25,7 +25,7 @@ const Iconify: FC<IconifyProps> = ({ ref, icon: iconProp, ...props }) => {
     typeof iconProp === 'string' && (iconProp in icons || !iconProp.includes(':'));
 
   if (isGravityIcon && typeof iconProp === 'string') {
-    const gravityIconData = icons[iconProp as IconName];
+    const gravityIconData = icons[iconProp as IconifyName];
 
     if (gravityIconData) {
       return <OfflineIcon {...props} ref={ref} icon={gravityIconData}/>;

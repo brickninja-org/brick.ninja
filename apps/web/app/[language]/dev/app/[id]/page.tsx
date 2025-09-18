@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { notFound, redirect } from 'next/navigation';
 import { FlexRow } from '@brickninja-org/ui/components/flex-row/FlexRow';
 import { Button } from '@brickninja-org/ui/components/form/Button';
-import { CopyButton } from '@brickninja-org/ui/components/form/buttons/CopyButton';
 import { Label } from '@brickninja-org/ui/components/form/Label';
 import { TextInput } from '@brickninja-org/ui/components/form/TextInput';
 import { Form } from '@brickninja-org/ui/components/form/Form';
@@ -16,6 +15,7 @@ import { getUser } from '@/lib/get-user';
 import { getLoginUrlWithReturnTo } from '@/lib/login-url';
 import { createMetadata } from '@/lib/metadata';
 import { db } from '@/lib/prisma';
+import { CopyButton } from '@/components/button';
 import { PageLayout } from '@/components/layout/PageLayout';
 import { deleteApplication, saveApplication, updateOrigins } from './actions';
 

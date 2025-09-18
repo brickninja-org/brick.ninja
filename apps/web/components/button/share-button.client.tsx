@@ -6,9 +6,8 @@ import type { ButtonProps } from '@/components/button';
 import { useCallback, useEffect, useState } from 'react';
 
 import { Button } from '@/components/button';
-import { Iconify } from '@/components/iconify';
 
-export interface ShareButtonProps extends Omit<ButtonProps, 'onPress'> {
+export interface ShareButtonProps extends Pick<ButtonProps, 'className' | 'flex' | 'ref' | 'variant'> {
   data: ShareData,
 }
 
@@ -26,8 +25,7 @@ export const ShareButton: FC<ShareButtonProps> = ({ data, variant = 'tertiary', 
   }
 
   return (
-    <Button variant={variant} onPress={handleShare} {...props}>
-      <Iconify icon="nodes-right"/>
+    <Button icon="nodes-right" variant={variant} onPress={handleShare} {...props}>
       Share
     </Button>
   );

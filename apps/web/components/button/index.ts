@@ -1,9 +1,12 @@
 
-export { Button } from './button.client';
-export type { ButtonProps } from './button.client';
+export { Button } from './button';
+export type { ButtonProps } from './button';
 
 export { buttonVariants } from './button.styles';
 export type { ButtonVariants } from './button.styles';
+
+export { CopyButton } from './copy-button.client';
+export type { CopyButtonProps } from './copy-button.client';
 
 export { ShareButton } from './share-button.client';
 export type { ShareButtonProps } from './share-button.client';
