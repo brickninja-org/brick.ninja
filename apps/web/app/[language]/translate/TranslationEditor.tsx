@@ -106,7 +106,7 @@ export const TranslationEditor: FC<TranslationEditorProps> = ({ dictionaries }) 
               <>
                 <div className="m-4 font-medium">Suggestions</div>
                 {suggestions.map((suggestion) => (
-                  <Button key={suggestion} appearance="menu" onClick={() => setEdit({ ...edit, value: suggestion })}>{suggestion}</Button>
+                  <Button key={suggestion} variant="ghost" onClick={() => setEdit({ ...edit, value: suggestion })}>{suggestion}</Button>
                 ))}
               </>
             )}
@@ -130,7 +130,7 @@ export const TranslationButton: FC<TranslationButtonProps> = ({ language, id, di
   // const isFallback = !isChanged && dictionaries[language][id] !== undefined;
 
   return (
-    <Button variant="ghost" iconOnly onPress={() => editAction({ language, key: id, value: changes[language][id] ?? dictionaries[language][id] ?? '' })} className="block w-[calc(100%_+_32px)]">
+    <Button variant="ghost" isIconOnly onPress={() => editAction({ language, key: id, value: changes[language][id] ?? dictionaries[language][id] ?? '' })} className="block w-[calc(100%_+_32px)]">
       <div className="max-w-[calc((100vw_-_700px)_/_4)] min-w-[200px] overflow-hidden text-ellipsis">
         <span className="">
           {changes[language][id] ?? dictionaries[language][id] ?? dictionaries.en[id]}
