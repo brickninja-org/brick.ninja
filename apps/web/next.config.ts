@@ -14,6 +14,8 @@ const nextConfig: NextConfig = {
 
   // enable experimental features
   experimental: {
+    optimizePackageImports: ['@heroui/react'],
+
     reactCompiler: true,
 
     // generate server source maps for better errors
@@ -39,7 +41,7 @@ const nextConfig: NextConfig = {
 
   // transpile @gw2treasures/ui package
   outputFileTracingRoot: path.join(__dirname, '../../'),
-  transpilePackages: ['@brickninja-org/ui', '@heroui/react', '@heroui/theme'],
+  transpilePackages: ['@brickninja-org/ui', '@heroui/react', '@heroui/styles', '@heroui/theme'],
   
   webpack: (config, { isServer }) => {
     if (isServer) {
