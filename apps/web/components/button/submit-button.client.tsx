@@ -6,7 +6,6 @@ import type { ButtonProps } from '@/components/button';
 import { useFormStatus } from 'react-dom';
 
 import { Button } from '@/components/button';
-import { Spinner } from '@/components/spinner';
 
 export interface SubmitButtonProps extends Omit<ButtonProps, 'asChild' | 'children' | 'className' | 'isPending' | 'type'> {
   className?: string,
@@ -17,7 +16,7 @@ export const SubmitButton: FC<SubmitButtonProps> = ({ icon, children, ...props }
   const { pending } = useFormStatus();
 
   return (
-    <Button type="submit" isDisabled={pending} icon={pending ? <Spinner/> : icon} {...props}>
+    <Button type="submit" isDisabled={pending} icon={pending ? 'arrow-rotate-right' : icon} {...props}>
       {children}
     </Button>
   );
