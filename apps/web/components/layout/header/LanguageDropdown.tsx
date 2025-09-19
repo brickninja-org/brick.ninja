@@ -5,14 +5,14 @@ import type { Language } from '@brickninja-org/database';
 
 import { useCallback, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Separator } from '@heroui/react';
+import { Button, Separator } from '@heroui/react';
 
-import { Button } from '@/components/button';
 import { useLanguage } from '@/components/i18n/context';
 import { FormatConfigDialog } from '@/components/format/FormatConfigDialog';
 import { MenuList } from '@brickninja-org/ui/components/layout/MenuList';
 import { Dropdown } from '@brickninja-org/ui/components/dropdown/Dropdown';
 import { Radiobutton } from '@brickninja-org/ui/components/form/Radiobutton';
+import { Iconify } from '@/components/iconify';
 
 const languages: Record<Language, string> = {
   de: 'Deutsch',
@@ -45,9 +45,9 @@ export const LanguageDropdown: FC = () => {
           <Button
             aria-label={localeName}
             className="min-w-10 w-10 md:min-w-20 md:w-fit rounded-sm font-normal"
-            icon="globe"
             variant="ghost"
           >
+            <Iconify icon="globe"/>
             <span className="hidden md:block">{localeName}</span>
           </Button>
         )}
@@ -58,8 +58,8 @@ export const LanguageDropdown: FC = () => {
           <Radiobutton checked={language === 'es'} onChange={() => changeLanguage('es')}>{languages.es}</Radiobutton>
           <Radiobutton checked={language === 'fr'} onChange={() => changeLanguage('fr')}>{languages.fr}</Radiobutton>
           <Radiobutton checked={language === 'nl'} onChange={() => changeLanguage('nl')}>{languages.nl}</Radiobutton>
-          <Separator/>
-          <Button className="rounded-sm" variant="ghost" onPress={() => setFormatDialogOpen(true)}>Formatting Settings</Button>
+          <Separator className="my-2"/>
+          <Button className="rounded-sm font-normal" variant="ghost" onPress={() => setFormatDialogOpen(true)}>Formatting Settings</Button>
         </MenuList>
       </Dropdown>
 
