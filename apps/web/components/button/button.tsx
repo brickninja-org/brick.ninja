@@ -1,19 +1,33 @@
+'use client';
+
 import type { FC } from 'react';
 import type { IconName } from '@/components/iconify';
 import type { ButtonProps as HeroUIButtonProps } from './button.client';
 
 import { Iconify } from '@/components/iconify';
 import { Button as HeroUIButton } from './button.client';
-import { cn } from '@heroui/react';
+import { tv, type VariantProps } from 'tailwind-variants';
+import { buttonVariants as heroUIButtonVariantsHeroUI } from './button.styles';
 
-interface ButtonProps extends HeroUIButtonProps {
-  flex?: boolean,
+const buttonVariants = tv({
+  extend: heroUIButtonVariantsHeroUI,
+  variants: {
+    flex: {
+      true: 'flex-1',
+    },
+  },
+  defaultVariants: { flex: false },
+});
+
+type ButtonVariants = VariantProps<typeof buttonVariants>;
+interface ButtonProps extends Omit<HeroUIButtonProps, 'className'>, ButtonVariants {
+  className?: string,
   icon?: IconName,
 }
 
 const Button: FC<ButtonProps> = ({ children, className, flex, icon, ...props }) => {
   return (
-    <HeroUIButton className={cn({ 'flex-1': flex, className })} {...props}>
+    <HeroUIButton className={buttonVariants({ flex, className })} {...props}>
       {(renderProps) => (
         <>
           {icon && <Iconify icon={icon}/>}
