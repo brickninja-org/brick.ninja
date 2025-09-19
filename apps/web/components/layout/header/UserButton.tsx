@@ -4,7 +4,7 @@ import type { SessionUser } from '@/lib/get-user';
 
 import { Suspense } from 'react';
 import Link from 'next/link';
-import { Skeleton } from '@heroui/react';
+import { Button, Skeleton } from '@heroui/react';
 
 import { Dropdown } from '@brickninja-org/ui/components/dropdown/Dropdown';
 import { LinkButton } from '@brickninja-org/ui/components/form/Button';
@@ -14,7 +14,7 @@ import { Separator } from '@brickninja-org/ui/components/layout/Separator';
 import { getUser } from '@/lib/get-user';
 import { getTranslate } from '@/lib/translate';
 import { reauthorize } from '@/components/bn2-api/reauthorize';
-import { Button, SubmitButton } from '@/components/button';
+import { SubmitButton } from '@/components/button';
 import { Translate } from '@/components/i18n/Translate';
 import { Iconify } from '@/components/iconify';
 
@@ -48,8 +48,9 @@ const UserButtonInternal: FC<UserButtonInternalProps> = ({ user, language }) => 
 
   if (!user) {
     return (
-      <Button asChild icon="arrow-right-to-square" variant="ghost" className="min-w-10 w-10 md:min-w-20 md:w-fit rounded-sm font-normal" aria-label={t('login')}>
+      <Button asChild variant="ghost" className="min-w-10 w-10 md:min-w-20 md:w-fit rounded-sm font-normal" aria-label={t('login')}>
         <Link href="/login">
+          <Iconify icon="arrow-right-to-square"/>
           <span className="hidden md:block"> <Translate id="login" language={language}/></span>
         </Link>
       </Button>
@@ -57,8 +58,9 @@ const UserButtonInternal: FC<UserButtonInternalProps> = ({ user, language }) => 
   }
 
   const button = (
-    <Button asChild icon="person" variant="ghost" className="min-w-10 w-10 md:min-w-20 md:w-fit rounded-sm font-normal" aria-label={user === 'loading' ? undefined : user.name}>
+    <Button asChild variant="ghost" className="min-w-10 w-10 md:min-w-20 md:w-fit rounded-sm font-normal" aria-label={user === 'loading' ? undefined : user.name}>
       <Link href="/profile">
+        <Iconify icon="person"/>
         <span className="hidden md:block">{user === 'loading' ? <Skeleton className="h-4 w-24 rounded-lg"/> : user.name}</span>
       </Link>
     </Button>
