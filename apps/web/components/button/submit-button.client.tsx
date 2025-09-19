@@ -9,8 +9,7 @@ import { Button } from '@/components/button';
 import { Spinner } from '@/components/spinner';
 import { Iconify } from '@/components/iconify';
 
-interface SubmitButtonProps extends Omit<ButtonProps, 'asChild' | 'children' | 'className' | 'isPending' | 'type'> {
-  className?: string,
+interface SubmitButtonProps extends Omit<ButtonProps, 'asChild' | 'children' | 'isPending' | 'type'> {
   children: ReactNode,
 }
 
