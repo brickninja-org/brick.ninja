@@ -1,13 +1,15 @@
 'use client';
 
 import type { FC } from 'react';
-import type { ButtonProps } from '@/components/button';
+import type { ButtonProps } from '@heroui/react';
 
 import { useCallback, useEffect, useState } from 'react';
 
-import { Button } from '@/components/button';
+import { Button } from '@heroui/react';
 
-interface ShareButtonProps extends Pick<ButtonProps, 'className' | 'flex' | 'ref' | 'variant'> {
+import { Iconify } from '@/components/iconify';
+
+interface ShareButtonProps extends Pick<ButtonProps, 'className' | 'ref' | 'variant'> {
   data: ShareData,
 }
 
@@ -25,13 +27,12 @@ const ShareButton: FC<ShareButtonProps> = ({ data, variant = 'tertiary', ...prop
   }
 
   return (
-    <Button icon="nodes-right" variant={variant} onPress={handleShare} {...props}>
+    <Button variant={variant} onPress={handleShare} {...props}>
+      <Iconify icon="nodes-right"/>
       Share
     </Button>
   );
 };
-
-ShareButton.displayName = 'BrickCatalog.ShareButton';
 
 export type { ShareButtonProps };
 export { ShareButton };
