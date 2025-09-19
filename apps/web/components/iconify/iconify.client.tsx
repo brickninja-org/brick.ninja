@@ -38,5 +38,5 @@ const Iconify: FC<IconifyProps> = ({ ref, icon: iconProp, ...props }) => {
 
 Iconify.displayName = 'BrickCatalog.Iconify';
 
-export { Iconify };
 export type { IconifyName, IconifyProps };
+export { Iconify };
