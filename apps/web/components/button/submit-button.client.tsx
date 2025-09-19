@@ -6,18 +6,30 @@ import type { ButtonProps } from '@/components/button';
 import { useFormStatus } from 'react-dom';
 
 import { Button } from '@/components/button';
+import { Spinner } from '@/components/spinner';
+import { Iconify } from '@/components/iconify';
 
-export interface SubmitButtonProps extends Omit<ButtonProps, 'asChild' | 'children' | 'className' | 'isPending' | 'type'> {
+interface SubmitButtonProps extends Omit<ButtonProps, 'asChild' | 'children' | 'className' | 'isPending' | 'type'> {
   className?: string,
-  children?: ReactNode,
+  children: ReactNode,
 }
 
-export const SubmitButton: FC<SubmitButtonProps> = ({ icon, children, ...props }) => {
+const SubmitButton: FC<SubmitButtonProps> = ({ icon, children, ...props }) => {
   const { pending } = useFormStatus();
 
   return (
-    <Button type="submit" isDisabled={pending} icon={pending ? 'arrow-rotate-right' : icon} {...props}>
-      {children}
+    <Button type="submit" isDisabled={pending} isPending={pending} {...props}>
+      {({ isPending }) => (
+        <>
+          {isPending ? <Spinner/> : icon && <Iconify icon={icon}/>}
+          {isPending ? 'Submitting...' : children}
+        </>
+      )}
     </Button>
   );
 };
+
+SubmitButton.displayName = 'BrickCatalog.SubmitButton';
+
+export type { SubmitButtonProps };
+export { SubmitButton };
