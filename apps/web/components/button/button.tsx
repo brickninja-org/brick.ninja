@@ -1,16 +1,17 @@
 'use client';
 
 import type { FC } from 'react';
+import type { VariantProps } from 'tailwind-variants';
 import type { IconName } from '@/components/iconify';
 import type { ButtonProps as HeroUIButtonProps } from './button.client';
 
 import { Iconify } from '@/components/iconify';
 import { Button as HeroUIButton } from './button.client';
-import { tv, type VariantProps } from 'tailwind-variants';
-import { buttonVariants as heroUIButtonVariantsHeroUI } from './button.styles';
+import { tv } from 'tailwind-variants';
+import { buttonVariants as heroUIButtonVariants } from './button.styles';
 
 const buttonVariants = tv({
-  extend: heroUIButtonVariantsHeroUI,
+  extend: heroUIButtonVariants,
   variants: {
     flex: {
       true: 'flex-1',
