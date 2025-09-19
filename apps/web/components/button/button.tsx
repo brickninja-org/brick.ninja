@@ -1,20 +1,20 @@
 import type { FC } from 'react';
-import type { IconProp } from '@/components/iconify';
+import type { IconName } from '@/components/iconify';
 import type { ButtonProps as ButtonInternalProps } from './button.client';
 
-import { Icon } from '@/components/iconify';
+import { Iconify } from '@/components/iconify';
 import { Button as ButtonInternal } from './button.client';
 import { cn } from '@heroui/react';
 
 interface ButtonProps extends ButtonInternalProps {
   flex?: boolean,
-  icon?: IconProp,
+  icon?: IconName,
 }
 
 const Button: FC<ButtonProps> = ({ children, className, flex, icon, ...props }) => {
   return (
     <ButtonInternal className={cn({ 'flex-1': flex, className })} {...props}>
-      {icon && <Icon icon={icon}/>}
+      {icon && <Iconify icon={icon}/>}
       {typeof children === 'function' ? children({} as never) : children}
     </ButtonInternal>
   );
