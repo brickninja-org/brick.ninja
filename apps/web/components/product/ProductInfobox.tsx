@@ -3,13 +3,14 @@ import type { Language, Product } from '@brickninja-org/database';
 import type { Product as ApiProduct } from '@brickninjaapi/types/data/product';
 
 import Link from 'next/link';
+import { buttonVariants } from '@heroui/react';
 import { FlexRow } from '@brickninja-org/ui/components/flex-row/FlexRow';
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 
 import { localizedName } from '@/lib/localized-name';
 import { translateMany } from '@/lib/translate';
 import { getCurrentUrl } from '@/lib/url';
-import { buttonVariants, ShareButton } from '@/components/button';
+import { ShareButton } from '@/components/button';
 import { Iconify } from '@/components/iconify';
 import { LanguageLinks } from '@/components/info-box/LanguageLinks';
 
