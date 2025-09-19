@@ -8,9 +8,9 @@ import { Icon } from '@iconify/react';
 import { Icon as OfflineIcon } from '@iconify/react/dist/offline';
 import gravityIcons from '@iconify-json/gravity-ui/icons.json';
 
-export type IconifyName = keyof typeof gravityIcons.icons;
+type IconifyName = keyof typeof gravityIcons.icons;
 
-export interface IconifyProps extends IconProps, RefProp<SVGSVGElement> {
+interface IconifyProps extends IconProps, RefProp<SVGSVGElement> {
   icon: IconifyName,
 }
 
@@ -39,3 +39,4 @@ const Iconify: FC<IconifyProps> = ({ ref, icon: iconProp, ...props }) => {
 Iconify.displayName = 'BrickCatalog.Iconify';
 
 export { Iconify };
+export type { IconifyName, IconifyProps };
