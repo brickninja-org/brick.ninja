@@ -7,11 +7,11 @@ import { useCallback, useEffect, useState } from 'react';
 
 import { Button } from '@/components/button';
 
-export interface CopyButtonProps extends Omit<ButtonProps, 'onClick' | 'onPress'> {
+interface CopyButtonProps extends Omit<ButtonProps, 'onClick' | 'onPress'> {
   copy: string,
 }
 
-export const CopyButton: FC<CopyButtonProps> = ({ ref, copy, ...props }) => {
+const CopyButton: FC<CopyButtonProps> = ({ ref, copy, ...props }) => {
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
@@ -38,3 +38,8 @@ export const CopyButton: FC<CopyButtonProps> = ({ ref, copy, ...props }) => {
     <Button onPress={handleCopy} {...props} {...overrideProps} ref={ref}/>
   );
 };
+
+CopyButton.displayName = 'BrickCatalog.CopyButton';
+
+export type { CopyButtonProps };
+export { CopyButton };

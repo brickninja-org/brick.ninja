@@ -1,57 +1,45 @@
 'use client';
 
 import type { FC } from 'react';
-import type { ButtonProps as ButtonPrimitiveProps } from 'react-aria-components';
-import type { ButtonVariants } from './button.styles';
+import type { VariantProps } from 'tailwind-variants';
+import type { IconName } from '@/components/iconify';
+import type { ButtonProps as HeroUIButtonProps } from './button.heroui';
 
-import React from 'react';
-import { Button as ButtonPrimitive } from 'react-aria-components';
-import { Slot as SlotPrimitive } from '@radix-ui/react-slot';
+import { Iconify } from '@/components/iconify';
+import { Button as HeroUIButton } from './button.heroui';
+import { tv } from 'tailwind-variants';
+import { buttonVariants as heroUIButtonVariants } from './button.styles';
 
-import { composeTwRenderProps } from '../../utils';
+const buttonVariants = tv({
+  extend: heroUIButtonVariants,
+  variants: {
+    flex: {
+      true: 'flex-1',
+    },
+  },
+  defaultVariants: { flex: false },
+});
 
-import { buttonVariants } from './button.styles';
-import type { RefProp } from '@brickninja-org/ui/lib/react';
-
-interface ButtonProps extends ButtonPrimitiveProps, ButtonVariants, RefProp<HTMLButtonElement> {
-  asChild?: boolean,
+type ButtonVariants = VariantProps<typeof buttonVariants>;
+interface ButtonProps extends Omit<HeroUIButtonProps, 'className'>, ButtonVariants {
+  className?: string,
+  icon?: IconName,
 }
 
-const Button: FC<ButtonProps> = ({ asChild, children, className, isIconOnly, ref, size, slot, style, variant, ...props }) => {
-  const styles = buttonVariants({
-    isIconOnly,
-    size,
-    variant,
-    class: typeof className === 'string' ? className : undefined,
-  });
-
-  if (asChild) {
-    return (
-      <SlotPrimitive
-        className={styles}
-        slot={slot as string}
-        style={style as React.CSSProperties}
-        {...props}
-      >
-        {typeof children === 'function' ? children({} as never) : children}
-      </SlotPrimitive>
-    );
-  }
-
+const Button: FC<ButtonProps> = ({ children, className, flex, icon, ...props }) => {
   return (
-    <ButtonPrimitive
-      ref={ref}
-      className={composeTwRenderProps(className, styles)}
-      slot={slot}
-      style={style}
-      {...props}
-    >
-      {(renderProps) => (typeof children === 'function' ? children(renderProps) : children)}
-    </ButtonPrimitive>
+    <HeroUIButton className={buttonVariants({ flex, className })} {...props}>
+      {(renderProps) => (
+        <>
+          {icon && <Iconify icon={icon}/>}
+          {typeof children === 'function' ? children(renderProps) : children}
+        </>
+      )}
+    </HeroUIButton>
   );
 };
 
-Button.displayName = 'HeroUI.Button';
+Button.displayName = 'BrickCatalog.Button';
 
 export type { ButtonProps };
 export { Button };

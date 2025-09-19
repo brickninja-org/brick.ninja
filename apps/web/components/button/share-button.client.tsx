@@ -7,11 +7,11 @@ import { useCallback, useEffect, useState } from 'react';
 
 import { Button } from '@/components/button';
 
-export interface ShareButtonProps extends Pick<ButtonProps, 'className' | 'flex' | 'ref' | 'variant'> {
+interface ShareButtonProps extends Pick<ButtonProps, 'className' | 'flex' | 'ref' | 'variant'> {
   data: ShareData,
 }
 
-export const ShareButton: FC<ShareButtonProps> = ({ data, variant = 'tertiary', ...props }) => {
+const ShareButton: FC<ShareButtonProps> = ({ data, variant = 'tertiary', ...props }) => {
   const [canShare, setCanShare] = useState(false);
 
   useEffect(() => setCanShare(navigator.canShare?.(data) ?? false), [data]);
@@ -30,3 +30,8 @@ export const ShareButton: FC<ShareButtonProps> = ({ data, variant = 'tertiary', 
     </Button>
   );
 };
+
+ShareButton.displayName = 'BrickCatalog.ShareButton';
+
+export type { ShareButtonProps };
+export { ShareButton };
