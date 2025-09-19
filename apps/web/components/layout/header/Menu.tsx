@@ -4,7 +4,7 @@ import type { FC, ReactNode } from 'react';
 
 import { useEffect, useState } from 'react';
 import { cn } from '@heroui/react';
-import { Icon } from '@brickninja-org/ui/icons';
+import { Iconify } from '@/components/iconify';
 
 export interface MenuProps {
   children: ReactNode,
@@ -58,7 +58,7 @@ export const Menu: FC<MenuProps> = ({ children, navigation }) => {
           tabIndex={-1}
           aria-label="Menu"
         >
-          <Icon icon="navigation"/>
+          <Iconify icon="bars"/>
         </button>
         {children}
       </header>
