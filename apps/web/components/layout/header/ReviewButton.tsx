@@ -2,16 +2,17 @@ import type { FC } from 'react';
 import type { Language, ReviewQueue } from '@brickninja-org/database';
 
 import { Suspense, use } from 'react';
+import { Button } from '@heroui/react';
 
 import { groupByUnique } from '@brickninja-org/helper/group-by';
-
-import { cache } from '@/lib/cache';
-import { db } from '@/lib/prisma';
-import { Button } from '@/components/button';
-import { Translate } from '@/components/i18n/Translate';
 import { Dropdown } from '@brickninja-org/ui/components/dropdown/Dropdown';
 import { MenuList } from '@brickninja-org/ui/components/layout/MenuList';
 import { LinkButton } from '@brickninja-org/ui/components/form/Button';
+
+import { cache } from '@/lib/cache';
+import { db } from '@/lib/prisma';
+import { Iconify } from '@/components/iconify';
+import { Translate } from '@/components/i18n/Translate';
 
 const getOpenReviews = cache(
   async () => {
@@ -55,9 +56,9 @@ const InternalReviewButton: FC<InternalReviewButtonProps> = ({ language, data })
     <Button
       aria-label="Review"
       className="group min-w-10 w-10 md:min-w-20 md:w-fit rounded-sm font-normal"
-      icon="pencil-to-square"
       variant="ghost"
     >
+      <Iconify icon="pencil-to-square"/>
       <span className="hidden md:block">
         <Translate language={language} id="review"/>
       </span>
@@ -90,6 +91,6 @@ export const ReviewCountChip: FC<ReviewCountChipProps> = ({ count, hideEmpty }) 
   }
 
   return (
-    <span className="ml-2 px-2 rounded-full bg-background border border-border text-sm [font-feature-settings:'tnum'_1]">{count ?? 0}</span>
+    <span className="hidden md:block ml-2 px-2 rounded-full bg-background border border-border text-sm [font-feature-settings:'tnum'_1]">{count ?? 0}</span>
   );
 };
