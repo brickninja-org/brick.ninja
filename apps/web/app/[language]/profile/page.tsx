@@ -1,7 +1,8 @@
 import { cache, Suspense } from 'react';
-import { redirect } from 'next/navigation';
-
 import { revalidatePath } from 'next/cache';
+import { redirect } from 'next/navigation';
+import { Skeleton } from '@heroui/react';
+
 import { SubmitButton } from '@brickninja-org/ui/components/form/buttons/SubmitButton';
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 import { ExternalLink } from '@brickninja-org/ui/components/link/ExternalLink';
@@ -13,7 +14,6 @@ import { pageView } from '@/lib/page-view';
 import { db } from '@/lib/prisma';
 import { HeroLayout } from '@/components/layout/HeroLayout';
 import { FormatDate } from '@/components/format/FormatDate';
-import { Skeleton } from '@/components/skeleton/Skeleton';
 import { Table, TableBody, TableColumn, TableColumnHeader, TableHeader, TableRow } from '@/components/table/StaticTable';
 import { Accounts } from './Accounts';
 
@@ -52,7 +52,7 @@ export default async function ProfilePage() {
       </p>
 
       <Headline id="accounts">Accounts</Headline>
-      <Suspense fallback={<Skeleton/>}>
+      <Suspense fallback={<Skeleton className="h-4 w-full"/>}>
         <Accounts/>
       </Suspense>
 

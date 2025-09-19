@@ -1,9 +1,9 @@
 /* eslint-disable react/no-array-index-key */
 import type { FC, ReactNode } from 'react';
 
+import { Skeleton } from '@heroui/react';
 import { Table } from '@brickninja-org/ui/components/table/Table';
 
-import { Skeleton } from '@/components/skeleton/Skeleton';
 import { SkeletonLink } from '@/components/skeleton';
 
 interface SkeletonTableProps {
@@ -23,7 +23,7 @@ export const SkeletonTable: FC<SkeletonTableProps> = ({ columns, rows = 3, icons
       <tbody>
         {[...Array(rows).keys()].map((row) => (
           <tr key={row}>
-            {columns.map((_, i) => (<td key={i}>{i === 0 && (icons ? <SkeletonLink/> : <Skeleton/>)}</td>))}
+            {columns.map((_, i) => (<td key={i}>{i === 0 && (icons ? <SkeletonLink/> : <Skeleton className="h-4 w-full"/>)}</td>))}
           </tr>
         ))}
       </tbody>

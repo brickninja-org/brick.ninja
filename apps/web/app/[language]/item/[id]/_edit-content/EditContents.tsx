@@ -10,6 +10,7 @@ import type { AddedItem, CanSubmitResponse, EditContentSubmitError } from './typ
 
 import { useCallback, useEffect, useState } from 'react';
 import NextLink from 'next/link';
+import { Skeleton } from '@heroui/react';
 
 import { Dialog } from '@brickninja-org/ui/components/dialog/Dialog';
 import { DialogActions } from '@brickninja-org/ui/components/dialog/DialogActions';
@@ -25,7 +26,6 @@ import { toggleArray } from '@/lib/toggle-array';
 import { FormatNumber } from '@/components/format/FormatNumber';
 import { SearchItemDialog } from '@/components/item/SearchItemDialog';
 import { ItemLink } from '@/components/item/ItemLink';
-import { Skeleton } from '@/components/skeleton/Skeleton';
 
 import { canSubmit, submitToReview } from './actions';
 
@@ -81,7 +81,7 @@ export const EditContents: FC<EditContentsProps> = ({ itemId, contents, appearan
       <Button appearance={appearance} onClick={toggleDialog}>Edit Content</Button>
       <Dialog open={dialogOpen} onClose={toggleDialog} title="Edit Contents">
         {canSubmitState === undefined ? (
-          <Skeleton/>
+          <Skeleton className="h-4 w-full"/>
         ) : canSubmitState.canSubmit === false ? (
           canSubmitState.reason === 'LOGIN' ? (<p>You need to <NextLink href={`/login?returnTo=${encodeURIComponent(`/item/${itemId}`)}`}>Login</NextLink> to submit changes.</p>) :
           canSubmitState.reason === 'PENDING_REVIEW' ? (

@@ -1,10 +1,7 @@
 import type { FC } from 'react';
-import type { ChipProps } from '@heroui/react';
 import type { Language, ReviewQueue } from '@brickninja-org/database';
 
 import { Suspense, use } from 'react';
-import Link from 'next/link';
-import { Card, CardBody, CardHeader, Chip, cn, Divider, Popover, PopoverContent, PopoverTrigger } from '@heroui/react';
 
 import { groupByUnique } from '@brickninja-org/helper/group-by';
 
@@ -12,6 +9,9 @@ import { cache } from '@/lib/cache';
 import { db } from '@/lib/prisma';
 import { Button } from '@/components/button';
 import { Translate } from '@/components/i18n/Translate';
+import { Dropdown } from '@brickninja-org/ui/components/dropdown/Dropdown';
+import { MenuList } from '@brickninja-org/ui/components/layout/MenuList';
+import { LinkButton } from '@brickninja-org/ui/components/form/Button';
 
 const getOpenReviews = cache(
   async () => {
@@ -53,59 +53,43 @@ const InternalReviewButton: FC<InternalReviewButtonProps> = ({ language, data })
 
   const button = (
     <Button
-      asChild
       aria-label="Review"
       className="group min-w-10 w-10 md:min-w-20 md:w-fit rounded-sm font-normal"
       icon="pencil-to-square"
       variant="ghost"
     >
-      <Link href="/review">
-        <span className="hidden md:block">
-          <Translate language={language} id="review"/>
-        </span>
-        <ReviewCountChip hideEmpty count={reviewCounts?._total} classNames={{ base: 'hidden md:inline-flex' }}/>
-      </Link>
+      <span className="hidden md:block">
+        <Translate language={language} id="review"/>
+      </span>
+      <ReviewCountChip hideEmpty count={reviewCounts?._total}/>
     </Button>
   );
 
   return (
-    <Popover offset={8} placement="bottom-end" radius="sm" shadow="md">
-      <PopoverTrigger>{button}</PopoverTrigger>
-      <PopoverContent className="max-w-[90vw] sm:max-w-[380px] p-0">
-        <Card className="w-full max-w-[420px]" radius="sm" shadow="none">
-          <CardHeader className="bg-content2 dark:bg-content1">
-            <Translate language={language} id="review.description"/>
-          </CardHeader>
-          <Divider/>
-          <CardBody>
-            <Button
-              asChild
-              className="group flex items-center justify-between gap-4 rounded-sm font-normal"
-              variant="ghost"
-            >
-              <Link href="/review/container-content">
-                <Translate language={language} id="review.queue.ContainerContent"/>
-                <ReviewCountChip count={reviewCounts?.ContainerContent}/>
-              </Link>
-            </Button>
-          </CardBody>
-        </Card>
-      </PopoverContent>
-    </Popover>
+    <Dropdown
+      hideTop={false} preferredPlacement="bottom" button={button}
+    >
+      <MenuList>
+        <div className="max-w-[320px] -mt-2 -mx-2 mb-3 py-4 px-6 bg-background-light border-b border-(--color-border-dark) leading-normal">
+          <Translate language={language} id="review.description"/>
+        </div>
+        <LinkButton appearance="menu" className="flex-1 flex items-center justify-between gap-4" href="/review/container-content"><Translate language={language} id="review.queue.ContainerContent"/> <ReviewCountChip count={reviewCounts?.ContainerContent}/></LinkButton>
+      </MenuList>
+    </Dropdown>
   );
 };
 
-export interface ReviewCountChipProps extends ChipProps {
+export interface ReviewCountChipProps {
   count: number | undefined,
   hideEmpty?: boolean,
 }
 
-export const ReviewCountChip: FC<ReviewCountChipProps> = ({ className, count, hideEmpty, ...props }) => {
+export const ReviewCountChip: FC<ReviewCountChipProps> = ({ count, hideEmpty }) => {
   if (!count && hideEmpty) {
     return null;
   }
 
   return (
-    <Chip className={cn('bg-accent-soft group-hover:bg-background border border-border', className)} size="sm" {...props}>{count ?? 0}</Chip>
+    <span className="ml-2 px-2 rounded-full bg-background border border-border text-sm [font-feature-settings:'tnum'_1]">{count ?? 0}</span>
   );
 };

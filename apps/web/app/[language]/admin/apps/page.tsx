@@ -2,6 +2,8 @@ import type { FC } from 'react';
 
 import { cache, Suspense } from 'react';
 import { groups } from 'd3-array';
+import { Skeleton } from '@heroui/react';
+
 import { FlexRow } from '@brickninja-org/ui/components/flex-row/FlexRow';
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 import { List } from '@brickninja-org/ui/components/layout/List';
@@ -15,7 +17,6 @@ import { FormatNumber } from '@/components/format/FormatNumber';
 import { FormatDate } from '@/components/format/FormatDate';
 import { PageLayout } from '@/components/layout/PageLayout';
 import { Code } from '@/components/layout/code';
-import { Skeleton } from '@/components/skeleton/Skeleton';
 import { ColumnSelect } from '@/components/table/ColumnSelect';
 import { ensureUserIsAdmin } from '../admin';
 
@@ -41,7 +42,7 @@ export default async function AdminAppsPage() {
     <PageLayout>
       <Headline id="requests">API Requests</Headline>
 
-      <Suspense fallback={<Skeleton height={300} width="100%"/>}>
+      <Suspense fallback={<Skeleton className="h-[300px] w-full"/>}>
         <RequestsChart/>
       </Suspense>
 

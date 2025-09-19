@@ -4,6 +4,7 @@ import type { SessionUser } from '@/lib/get-user';
 
 import { Suspense } from 'react';
 import Link from 'next/link';
+import { Skeleton } from '@heroui/react';
 
 import { Dropdown } from '@brickninja-org/ui/components/dropdown/Dropdown';
 import { LinkButton } from '@brickninja-org/ui/components/form/Button';
@@ -14,7 +15,6 @@ import { getUser } from '@/lib/get-user';
 import { getTranslate } from '@/lib/translate';
 import { reauthorize } from '@/components/bn2-api/reauthorize';
 import { Button, SubmitButton } from '@/components/button';
-import { Skeleton } from '@/components/skeleton';
 import { Translate } from '@/components/i18n/Translate';
 import { Iconify } from '@/components/iconify';
 

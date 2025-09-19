@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import type { ItemTableQuery } from '@/components/item-table/types';
 
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
@@ -24,6 +25,6 @@ export default function ItemEmptyContainersPage() {
   );
 }
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Empty Containers',
 };

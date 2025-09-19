@@ -1,6 +1,9 @@
 'use client';
 
-import { useCallback, useMemo, useState, type FC } from 'react';
+import type { FC } from 'react';
+import type { TranslationId } from '@/lib/translate';
+
+import { useCallback, useMemo, useState } from 'react';
 
 import { Language } from '@brickninja-org/database';
 import { isTruthy } from '@brickninja-org/helper/is';
@@ -9,7 +12,6 @@ import { Textarea } from '@brickninja-org/ui/components/form/Textarea';
 import { MenuList } from '@brickninja-org/ui/components/layout/MenuList';
 import { Table } from '@brickninja-org/ui/components/table/Table';
 
-import type { TranslationId } from '@/lib/translate';
 import { Button } from '@/components/button';
 import { Code } from '@/components/layout/code';
 
@@ -100,13 +102,13 @@ export const TranslationEditor: FC<TranslationEditorProps> = ({ dictionaries }) 
           <MenuList>
             <Textarea value={edit.value} onChange={(value) => setEdit({ ...edit, value })} autoFocus/>
             <div className="flex mt-2">
-              <Button onClick={() => { setChanges({ ...changes, [edit.language]: { ...changes[edit.language], [edit.key]: edit.value === '' || edit.value === dictionaries[edit.language][edit.key] ? undefined : edit.value }}); setEdit(undefined); }} flex>Save</Button>
+              <Button onPress={() => { setChanges({ ...changes, [edit.language]: { ...changes[edit.language], [edit.key]: edit.value === '' || edit.value === dictionaries[edit.language][edit.key] ? undefined : edit.value }}); setEdit(undefined); }} flex>Save</Button>
             </div>
             {suggestions.length > 0 && (
               <>
                 <div className="m-4 font-medium">Suggestions</div>
                 {suggestions.map((suggestion) => (
-                  <Button key={suggestion} variant="ghost" onClick={() => setEdit({ ...edit, value: suggestion })}>{suggestion}</Button>
+                  <Button key={suggestion} variant="ghost" onPress={() => setEdit({ ...edit, value: suggestion })}>{suggestion}</Button>
                 ))}
               </>
             )}

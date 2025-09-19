@@ -5,6 +5,7 @@ import type { Item, Language } from '@brickninja-org/database';
 import { localizedName, type LocalizedEntity } from '@/lib/localized-name';
 
 import { ErrorBoundary } from 'react-error-boundary';
+import { Skeleton } from '@heroui/react';
 
 import { useJsonFetchPromise } from '@/hooks/use-fetch';
 import { localizedUrl } from '@/lib/localized-url';
@@ -12,7 +13,6 @@ import { useLanguage } from '@/components/i18n/context';
 import { ItemTooltip } from '@/components/item/ItemTooltip';
 import { ClientItemTooltip } from '@/components/item/ItemTooltip.client';
 import { EntityIcon } from '../entity/EntityIcon';
-import { Skeleton } from '../skeleton/Skeleton';
 import type { WithIcon } from '@/lib/with';
 
 export interface ItemLinkTooltipProps {
@@ -49,7 +49,7 @@ const ItemLinkTooltipFallback: FC<ItemLinkTooltipInternalProps> = ({ item, langu
       </div>
       {error
         ? (<div className="text-(--color-error)">Error loading tooltip</div>)
-        : (<div className="leading-normal"><Skeleton/><br/><Skeleton width={120}/></div>)}
+        : (<div className="leading-normal"><Skeleton className="h-4 w-full"/><br/><Skeleton className="h-4 w-30"/><br/><Skeleton className="h-4 w-20"/></div>)}
     </>
   );
 };

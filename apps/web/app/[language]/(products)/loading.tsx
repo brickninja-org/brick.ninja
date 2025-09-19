@@ -1,7 +1,7 @@
-import { Skeleton } from '@/components/skeleton/Skeleton';
+import { Skeleton } from '@heroui/react';
 
 export default function CatalogLoading() {
   return (
-    <Skeleton/>
+    <Skeleton className="h-4 w-full max-w-md"/>
   );
 }

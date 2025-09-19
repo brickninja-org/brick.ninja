@@ -1,11 +1,11 @@
 import type { FC, ReactNode } from 'react';
 import type { Language } from '@brickninja-org/database';
 
-import { Button, Link } from '@heroui/react';
 import { Composite, CompositeItem } from '@brickninja-org/ui/components/focus/Composite';
 
 import { Translate } from '@/components/i18n/Translate';
 import { HorizontalOverflowContainer } from '@/components/layout/HorizontalOverflowContainer';
+import { LinkButton } from '@brickninja-org/ui/components/form/Button';
 
 interface NavigationProps {
   language: Language,
@@ -30,14 +30,7 @@ interface NavigationItemProps {
 export const NavigationItem: FC<NavigationItemProps> = (props) => {
   return (
     <li className="border-l border-default">
-      <CompositeItem
-        render={(
-          <Button
-            as={Link}
-            radius="sm"
-            variant="light"
-            {...props}/>
-        )}/>
+      <CompositeItem render={<LinkButton appearance="menu" {...props}/>}/>
     </li>
   );
 };

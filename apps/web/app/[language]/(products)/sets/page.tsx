@@ -5,7 +5,7 @@ import { db } from '@/lib/prisma';
 import { getLanguage, getTranslate } from '@/lib/translate';
 import { Translate } from '@/components/i18n/Translate';
 import { Description } from '@/components/layout/Description';
-import { Notice } from '@/components/notice/Notice';
+import { Notice } from '@brickninja-org/ui/components/notice/Notice';
 import { ColumnSelect } from '@/components/table/ColumnSelect';
 import { createSearchIndex, TableFilterButton, TableFilterProvider, TableSearchInput } from '@/components/table/TableFilter';
 import { CatalogProductDataTable, createProductTable } from '../Table';
@@ -53,7 +53,7 @@ export default async function ProductPage() {
   return (
     <>
       <TableFilterProvider filter={productFilter} searchIndex={productSearchIndex}>
-        <Notice color="primary" radius="sm" className="mb-4">This is a preview page and more features will be added in the future.</Notice>
+        <Notice type="default">This is a preview page and more features will be added in the future.</Notice>
         <Description
           actions={[
             <TableSearchInput key="search"/>,

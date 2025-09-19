@@ -1,14 +1,14 @@
 'use client';
 
-import type { FC, KeyboardEventHandler, ReactElement, FormEventHandler } from 'react';
+import type { FC, ChangeEventHandler, KeyboardEventHandler, ReactElement } from 'react';
 import type { TranslationSubset } from '@/lib/translate';
 import type { translations as itemTypeTranslations } from '@/components/item/ItemType.translations';
 
 import { Fragment, useCallback, useEffect, useRef, useState } from 'react';
+import NextLink from 'next/link';
 import { autoUpdate, offset, shift, size, useDismiss, useFloating, useFocus, useInteractions, useListNavigation } from '@floating-ui/react';
-import { cn, Form, Input, Link, Spinner } from '@heroui/react';
 
-import { Kbd } from '@/components/kbd';
+import { cn } from '@brickninja-org/ui/lib';
 import { Icon } from '@brickninja-org/ui/icons';
 
 import { useDebounce } from '@/hooks/use-debounce';
@@ -76,12 +76,14 @@ export const Search: FC<SearchProps> = ({ translations }) => {
 
   let index = 0;
 
+  const handleSearchChange: ChangeEventHandler<HTMLInputElement> = useCallback((e) => {
+    setValue(e.target.value);
+    setOpen(true);
+  }, []);
+
   const handleKeyDown: KeyboardEventHandler<HTMLInputElement> = useCallback((e) => {
-    if(e.key === 'Enter') {
-      // get active element, fallback to first element
-      const current = listRef.current.length > 0
-        ? listRef.current[activeIndex ?? 0]
-        : null;
+    if(e.key === 'Enter' && activeIndex !== null) {
+      const current = listRef.current[activeIndex];
 
       if(current === null) {
         return;
@@ -112,46 +114,30 @@ export const Search: FC<SearchProps> = ({ translations }) => {
     return () => window.removeEventListener('keypress', handler);
   }, []);
 
-  const handleSubmit: FormEventHandler<HTMLFormElement> = useCallback((e) => {
-    // prevent form submission
-    e.preventDefault();
-  }, []);
-
-  const endContent = !loading
-    ? !open && (
-        <div className="hidden sm:inline-flex gap-1.5">
-          <Kbd><Kbd.Content>/</Kbd.Content></Kbd> or <Kbd><Kbd.Content>s</Kbd.Content></Kbd>
-        </div>
-      ) : (open || searchValue) && <Spinner color="default" size="sm" variant="wave"/>;
-
   return (
-    <Form className="relative flex items-center w-[468px] focus-within:bg-background focus-within:shadow-base rounded-xs [--icon-size:20px]" ref={refs.setReference} {...getReferenceProps()} onSubmit={handleSubmit}>
-      <Input
-        fullWidth
-        aria-label="Search"
-        aria-expanded={open}
-        autoComplete="off"
-        classNames={{
-          base: 'text-muted',
-          // inputWrapper: 'bg-content2 dark:bg-content1',
-        }}
-        endContent={endContent}
-        enterKeyHint="search"
+    <form className="relative flex items-center w-[468px] bg-gray-100 focus-within:bg-background focus-within:shadow-base rounded-xs [--icon-size:20px]" ref={refs.setReference} {...getReferenceProps()}>
+      <Icon icon="search" className="mr-2 ml-4 align-[-2px] shrink-0 text-gray-600"/>
+      {/* <div className={styles.restriciton}>Item</div> */}
+
+      <input
         id="search"
-        placeholder={translations['search.placeholder']}
-        radius="sm"
         ref={inputRef}
-        role="combobox"
+        className="flex-1 w-full py-1.5 px-2 bg-transparent focus:outline-hidden placeholder:text-muted"
+        placeholder={translations['search.placeholder']}
+        autoComplete="off"
         spellCheck="false"
-        startContent={<Icon className="text-muted" icon="search"/>}
+        enterKeyHint="search"
         value={value}
-        onFocus={() => setOpen(true)}
-        onValueChange={setValue}
+        onChange={handleSearchChange}
         onKeyDown={handleKeyDown}/>
 
+      {!loading && !open && (<div className="hidden sm:inline-block absolute right-2 rounded-xs text-sm text-muted"><kbd className="py-0.25 px-0.75 rounded-xs border border-(--color-border-dark)">/</kbd> or <kbd className="py-0.25 px-0.75 rounded-xs border border-(--color-border-dark)">s</kbd></div>)}
+
+      {loading && (open || searchValue) && <div className="block w-4 h-4 rounded-lg ml-4 mr-2 border border-transparent border-t-(--color-border) will-change-transform animate-rotate"/>}
+
       {open && (
-        <div className="absolute top-6 left-0 w-max max-h-[calc(100vh-56px)] p-2 rounded-xs shadow-md border bg-background text-base overflow-y-auto overscroll-contain transition-opacity [scrollbar-width:thin] z-10" ref={refs.setFloating} {...getFloatingProps()} style={{
-          top: (y ?? 0) + 48,
+        <div className="absolute top-0 left-0 w-max max-h-[calc(100vh-56px)] p-2 rounded-xs shadow-md border bg-background text-base overflow-y-auto overscroll-contain transition-opacity [scrollbar-width:thin] z-10" ref={refs.setFloating} {...getFloatingProps()} style={{
+          top: y ?? 0,
           left: x ?? 0,
         }}
         >
@@ -165,20 +151,18 @@ export const Search: FC<SearchProps> = ({ translations }) => {
                 const isExternal = result.href.startsWith('http');
 
                 return render(
-                  <Link
+                  <NextLink
                     tabIndex={-1}
                     href={result.href}
                     key={result.href}
-                    className={cn(['grid gap-x-2 gap-y-0 grid-cols-[32px_1fr_auto] py-2 px-4 rounded-2', activeIndex === currentIndex && 'bg-panel'])}
+                    className={cn(['grid gap-x-2 gap-y-0 [grid-template-columns:32px_1fr_auto] py-2 px-4 rounded-2 text-foreground no-underline', activeIndex === currentIndex && 'bg-background-light'])}
                     id={result.href}
+                    target={isExternal ? '_blank' : undefined}
+                    rel={isExternal ? 'noreferrer noopener' : undefined}
                     ref={(node) => { listRef.current[currentIndex] = node; }}
                     {...getItemProps({
                       onClick: (e) => !e.defaultPrevented && setOpen(false)
                     })}
-                    isBlock
-                    color="foreground"
-                    isExternal={isExternal}
-                    underline="none"
                     style={{ gridTemplateAreas: '"icon title external" "icon subtitle external"' }}
                   >
                     {result.icon}
@@ -190,13 +174,14 @@ export const Search: FC<SearchProps> = ({ translations }) => {
                         {result.subtitle}
                       </div>
                     )}
-                  </Link>
+                    {isExternal && <span className="[grid-area:external] ml-2 text-muted"><Icon icon="external"/></span>}
+                  </NextLink>
                 );
               })}
             </Fragment>
           ))}
         </div>
       )}
-    </Form>
+    </form>
   );
 };

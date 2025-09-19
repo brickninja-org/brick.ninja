@@ -1,4 +1,3 @@
-import { CopyButton } from '@brickninja-org/ui/components/form/buttons/CopyButton';
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 import { createDataTable } from '@brickninja-org/ui/components/table/DataTable';
 
@@ -11,6 +10,7 @@ import { Translate } from '@/components/i18n/Translate';
 import { ItemLink } from '@/components/item/ItemLink';
 import { PageLayout } from '@/components/layout/PageLayout';
 import { ProductLink } from '@/components/product/ProductLink';
+import { CopyButton } from '@/components/button';
 
 const after = new Date('2023-01-01T00:00:00Z');
 // const afterArchievements = new Date('2024-03-28T00:00:00Z');

@@ -6,8 +6,8 @@ import type { Bn2Account } from './types';
 import type { GetAccountsOptions } from './Bn2API.context';
 
 import { Suspense } from 'react';
+import { Skeleton } from '@heroui/react';
 
-import { Skeleton } from '@/components/skeleton/Skeleton';
 import { useUser } from '@/components/user/use-user';
 import { useBn2Accounts } from './use-bn2-accounts';
 import { Bn2AccountAuthorizationNotice } from './Bn2AccountAuthorizationNotice';
@@ -25,7 +25,7 @@ export interface Bn2AccountsProps {
 
 export const Bn2Accounts: FC<Bn2AccountsProps> = ({ loading, ...props }) => {
   return (
-    <Suspense fallback={loading !== undefined ? loading : <Skeleton/>}>
+    <Suspense fallback={loading !== undefined ? loading : <Skeleton className="h-4 w-full"/>}>
       <B2AccountsInternal loading={loading} {...props}/>
     </Suspense>
   );
@@ -36,7 +36,7 @@ const B2AccountsInternal: FC<Bn2AccountsProps> = ({ children, requiredScopes, op
   const accounts = useBn2Accounts(requiredScopes, optionalScopes, options);
 
   if (accounts.loading) {
-    return loading !== undefined ? loading : <Skeleton/>;
+    return loading !== undefined ? loading : <Skeleton className="h-4 w-full"/>;
   }
 
   if (!user) {

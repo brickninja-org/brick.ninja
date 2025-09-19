@@ -39,9 +39,9 @@ const nextConfig: NextConfig = {
   eslint: { ignoreDuringBuilds: !!process.env.SKIP_LINT },
   typescript: { ignoreBuildErrors: !!process.env.SKIP_TYPES },
 
-  // transpile @gw2treasures/ui package
+  // transpile @brickninja-org/ui, @heroui/react, and @heroui/styles packages
   outputFileTracingRoot: path.join(__dirname, '../../'),
-  transpilePackages: ['@brickninja-org/ui', '@heroui/react', '@heroui/styles', '@heroui/theme'],
+  transpilePackages: ['@brickninja-org/ui', '@heroui/react', '@heroui/styles'],
   
   webpack: (config, { isServer }) => {
     if (isServer) {

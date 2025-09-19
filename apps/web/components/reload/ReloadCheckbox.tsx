@@ -5,30 +5,18 @@ import type { RefProp } from '@brickninja-org/ui/lib/react';
 import type { ReloadProps } from './Reload';
 
 import { useState } from 'react';
-import { Checkbox, cn } from '@heroui/react';
+
+import { Checkbox } from '@brickninja-org/ui/components/form/Checkbox';
 
 import { Reload } from './Reload';
 
-export const ReloadCheckbox: FC<ReloadProps & RefProp<HTMLInputElement>> = (({ ref, ...reloadProps }) => {
+export const ReloadCheckbox: FC<ReloadProps & RefProp<HTMLLabelElement>> = (({ ref, ...reloadProps }) => {
   const [autoRefresh, setAutorefresh] = useState(false);
 
   return (
     <>
       {autoRefresh && <Reload {...reloadProps}/>}
-      <Checkbox
-        ref={ref}
-        aria-label="Auto Refresh"
-        isSelected={autoRefresh}
-        classNames={{
-          base: cn(
-            'inline-flex items-center justify-start',
-            'rounded-sm bg-content1 hover:bg-content2'
-          ),
-        }}
-        color="primary"
-        radius="sm"
-        onValueChange={setAutorefresh}
-      >
+      <Checkbox checked={autoRefresh} onChange={setAutorefresh} ref={ref}>
         Auto Refresh
       </Checkbox>
     </>

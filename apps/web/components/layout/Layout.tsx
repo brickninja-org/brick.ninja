@@ -30,14 +30,6 @@ const Layout: FC<LayoutProps> = ({ children, language }) => {
     ...itemTypeTranslations.short,
   ], language);
 
-  const languageTranslations = translateMany([
-    'locale.formatting.settings',
-    'language.select.label',
-    'language.select.placeholder',
-    'region.select.label',
-    'region.select.placeholder',
-  ], language);
-
   return (
     <div>
       <div className="layout grid min-h-dvh">
@@ -49,7 +41,7 @@ const Layout: FC<LayoutProps> = ({ children, language }) => {
           <Search translations={searchTranslations}/>
           <div className="flex -mr-2 ml-auto">
             <ReviewButton language={language}/>
-            <LanguageDropdown translations={languageTranslations}/>
+            <LanguageDropdown/>
             <UserButton language={language}/>
           </div>
         </Menu>

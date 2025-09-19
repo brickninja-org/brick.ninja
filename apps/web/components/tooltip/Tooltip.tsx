@@ -2,9 +2,8 @@
 
 import type { FC, ReactElement, ReactNode, HTMLProps } from 'react';
 
-import { Children, cloneElement, use, useMemo } from 'react';
+import { Children, cloneElement, use, useMemo, useState } from 'react';
 import { autoUpdate, flip, FloatingPortal, offset, shift, useClick, useClientPoint, useDismiss, useFloating, useHover, useInteractions, useMergeRefs, useRole, useTransitionStyles } from '@floating-ui/react';
-import { useDisclosure } from '@heroui/react';
 
 export interface TooltipProps {
   children: ReactElement<HTMLProps<HTMLElement>>,
@@ -12,11 +11,11 @@ export interface TooltipProps {
 }
 
 export const Tooltip: FC<TooltipProps> = ({ children, content }) => {
-  const { isOpen, onOpenChange } = useDisclosure();
+  const [open, setOpen] = useState(false);
 
   const { refs, context, floatingStyles } = useFloating({
-    open: isOpen,
-    onOpenChange,
+    open,
+    onOpenChange: setOpen,
     placement: 'bottom-start',
     whileElementsMounted: autoUpdate,
     middleware: [
@@ -61,7 +60,7 @@ export const Tooltip: FC<TooltipProps> = ({ children, content }) => {
         <FloatingPortal>
           <div
             ref={refs.setFloating}
-            className="max-w-[min(500px,_calc(100vw_-_16px))] p-4 rounded-xs z-10 will-change-transform pointer-events-none shadow bg-background"
+            className="max-w-[min(500px,_calc(100vw_-_16px))] p-4 rounded-xs z-10 will-change-transform pointer-events-none shadow bg-white"
             style={{ ...transitionStyles, ...floatingStyles }}
             {...getFloatingProps()}
           >

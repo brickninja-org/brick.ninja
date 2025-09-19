@@ -1,14 +1,15 @@
 'use client';
 
-import { Suspense, type FC } from 'react';
+import type { FC } from 'react';
 import type { TranslationSubset } from '@/lib/translate';
+
+import { Suspense } from 'react';
+import { Separator, Skeleton } from '@heroui/react';
 
 import { Dropdown } from '@brickninja-org/ui/components/dropdown/Dropdown';
 import { Button } from '@brickninja-org/ui/components/form/Button';
 import { Checkbox } from '@brickninja-org/ui/components/form/Checkbox';
 import { MenuList } from '@brickninja-org/ui/components/layout/MenuList';
-import { Separator } from '@brickninja-org/ui/components/layout/Separator';
-import { Skeleton } from '@/components/skeleton/Skeleton';
 import { Icon } from '@brickninja-org/ui/icons';
 
 import { useUser } from '@/components/user/use-user';
@@ -28,7 +29,7 @@ export const ItemTableColumnsButton: FC<ItemTableColumnsButtonProps> = ({ transl
   return (
     <Dropdown button={<Button icon={<Icon icon="table-insert-column"/>}>{translations['table.columns']}</Button>} preferredPlacement="right-start">
       <MenuList>
-        <Suspense fallback={<Skeleton/>}>
+        <Suspense fallback={<Skeleton className="h-4 w-full"/>}>
           <ItemTableColumnsButtonCookieNotice/>
         </Suspense>
         {values.map((column) => (

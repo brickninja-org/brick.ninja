@@ -7,6 +7,7 @@ import type { ItemTableLoadOptions } from './ItemTable.actions';
 import type { AvailableColumns, GlobalColumnId, ItemTableQuery, LoadItemsResult, QueryModel } from './types';
 
 import { createElement, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { Skeleton } from '@heroui/react';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
 import { isEmptyObject } from '@brickninja-org/helper/is';
@@ -21,7 +22,6 @@ import { TableRowButton } from '@brickninja-org/ui/components/table/TableRowButt
 
 import { FormatNumber } from '@/components/format/FormatNumber';
 import { Pagination } from '@/components/pagination/Pagination';
-import { Skeleton } from '@/components/skeleton/Skeleton';
 import { SkeletonTable } from '@/components/skeleton/SkeletonTable';
 
 import { globalColumnRenderer } from './columns';
@@ -163,7 +163,7 @@ export const ItemTable = <ExtraColumnId extends string = never, Model extends Qu
                     <td className={td({ align: column.align })} key={column.id}>
                       {loadedColumns.includes(column.id) ? (
                         column.component ? createElement(column.component, properties) : globalColumnRenderer[column.id as GlobalColumnId](properties.item, properties.translations as Record<TranslationId, string>)
-                      ) : <Skeleton width={48}/>}
+                      ) : <Skeleton className="h-4 w-12"/>}
                     </td>
                   );
                 })}

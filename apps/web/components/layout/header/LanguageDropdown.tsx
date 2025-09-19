@@ -1,28 +1,20 @@
 'use client';
 
-import type { FC, Key } from 'react';
+import type { FC } from 'react';
 import type { Language } from '@brickninja-org/database';
-import type { TranslationSubset } from '@/lib/translate';
 
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Dropdown, DropdownItem, DropdownMenu, DropdownSection, DropdownTrigger } from '@heroui/react';
+import { Separator } from '@heroui/react';
 
 import { Button } from '@/components/button';
 import { useLanguage } from '@/components/i18n/context';
 import { FormatConfigDialog } from '@/components/format/FormatConfigDialog';
+import { MenuList } from '@brickninja-org/ui/components/layout/MenuList';
+import { Dropdown } from '@brickninja-org/ui/components/dropdown/Dropdown';
+import { Radiobutton } from '@brickninja-org/ui/components/form/Radiobutton';
 
-export interface LanguageDropdownProps {
-  translations: TranslationSubset<
-    | 'locale.formatting.settings'
-    | 'language.select.label'
-    | 'language.select.placeholder'
-    | 'region.select.label'
-    | 'region.select.placeholder'
-  >,
-}
-
-const availableLanguages: Record<Language, string> = {
+const languages: Record<Language, string> = {
   de: 'Deutsch',
   en: 'English',
   es: 'Español',
@@ -30,83 +22,48 @@ const availableLanguages: Record<Language, string> = {
   nl: 'Nederlands',
 };
 
-export const LanguageDropdown: FC<LanguageDropdownProps> = ({ translations }) => {
+export const LanguageDropdown: FC = () => {
   const { push } = useRouter();
-  const [isFormatDialogOpen, setIsFormatDialogOpen] = useState(false);
 
-  const currentLanguage = useLanguage();
-  const currentLanguageLabel = availableLanguages[currentLanguage];
+  const [formatDialogOpen, setFormatDialogOpen] = useState(false);
 
-  // ✅ Type guards
-  const isSettingsKey = (key: Key): key is 'settings' => key === 'settings';
-  const isLanguageKey = (key: Key): key is Language =>
-    typeof key === 'string' && Object.hasOwn(availableLanguages, key);
+  const language = useLanguage();
+  const localeName = languages[language];
+
+  const changeLanguage = useCallback((language: Language) => {
+    const url = new URL(window.location.href);
+    url.hostname = language + url.hostname.substring(2);
+    push(url.href);
+  }, [push]);
 
   return (
     <>
-      <Dropdown placement="bottom" radius="sm" shadow="md">
-        <DropdownTrigger>
+      <Dropdown
+        hideTop={false}
+        preferredPlacement="bottom"
+        button={(
           <Button
-            aria-label={currentLanguageLabel}
+            aria-label={localeName}
             className="min-w-10 w-10 md:min-w-20 md:w-fit rounded-sm font-normal"
             icon="globe"
             variant="ghost"
           >
-            <span className="hidden md:block">{currentLanguageLabel}</span>
+            <span className="hidden md:block">{localeName}</span>
           </Button>
-        </DropdownTrigger>
-        <DropdownMenu
-          aria-label={translations['language.select.label']}
-          classNames={{
-            base: 'rounded-sm'
-          }}
-          selectedKeys={[currentLanguage]}
-          selectionMode="single"
-          variant="flat"
-          onSelectionChange={(keys) => {
-            const selectedKey = Array.from(keys)[0];
-
-            if (!selectedKey) return;
-
-            if (isSettingsKey(selectedKey)) {
-              setIsFormatDialogOpen(true);
-              return;
-            }
-
-            if (isLanguageKey(selectedKey)) {
-              try {
-                const url = new URL(window.location.href);
-                if (url.hostname.includes('.')) {
-                  url.hostname = `${selectedKey}.${url.hostname.split('.').slice(1).join('.')}`;
-                  push(url.href);
-                }
-              } catch {
-                // fallback: ignore invalid url
-              }
-            }
-          }}
-        >
-          <DropdownSection
-            showDivider
-            title="Language"
-            items={(Object.entries(availableLanguages))
-              .map(([code, label]) => ({ key: code, label }))}
-          >
-            {(item) => <DropdownItem key={item.key}>{item.label}</DropdownItem>}
-          </DropdownSection>
-
-          <DropdownSection title="Locale">
-            <DropdownItem key="settings">
-              {translations['locale.formatting.settings']}
-            </DropdownItem>
-          </DropdownSection>
-        </DropdownMenu>
+        )}
+      >
+        <MenuList>
+          <Radiobutton checked={language === 'de'} onChange={() => changeLanguage('de')}>{languages.de}</Radiobutton>
+          <Radiobutton checked={language === 'en'} onChange={() => changeLanguage('en')}>{languages.en}</Radiobutton>
+          <Radiobutton checked={language === 'es'} onChange={() => changeLanguage('es')}>{languages.es}</Radiobutton>
+          <Radiobutton checked={language === 'fr'} onChange={() => changeLanguage('fr')}>{languages.fr}</Radiobutton>
+          <Radiobutton checked={language === 'nl'} onChange={() => changeLanguage('nl')}>{languages.nl}</Radiobutton>
+          <Separator/>
+          <Button className="rounded-sm" variant="ghost" onPress={() => setFormatDialogOpen(true)}>Formatting Settings</Button>
+        </MenuList>
       </Dropdown>
 
-      <FormatConfigDialog
-        translations={translations}
-        open={isFormatDialogOpen}
-        onClose={() => setIsFormatDialogOpen(false)}/>
+      <FormatConfigDialog open={formatDialogOpen} onClose={() => setFormatDialogOpen(false)}/>
     </>
   );
 };

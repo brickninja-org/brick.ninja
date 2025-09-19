@@ -2,13 +2,12 @@
 
 import type { FC } from 'react';
 import type { VariantProps } from 'tailwind-variants';
+import type { ButtonProps as HeroUIButtonProps } from '@heroui/react';
 import type { IconName } from '@/components/iconify';
-import type { ButtonProps as HeroUIButtonProps } from './button.heroui';
+
+import { Button as HeroUIButton, buttonVariants as heroUIButtonVariants, tv } from '@heroui/react';
 
 import { Iconify } from '@/components/iconify';
-import { Button as HeroUIButton } from './button.heroui';
-import { tv } from 'tailwind-variants';
-import { buttonVariants as heroUIButtonVariants } from './button.styles';
 
 const buttonVariants = tv({
   extend: heroUIButtonVariants,
