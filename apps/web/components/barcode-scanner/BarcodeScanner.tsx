@@ -3,7 +3,7 @@ import type { BarcodeDetectorOptions } from '@/hooks/barcode/types';
 import type { DeviceChoiceOptions } from '@/hooks/camera/use-stream';
 
 import { useEffect, useMemo, useRef } from 'react';
-import { cn } from '@heroui/theme';
+import { cn } from '@heroui/react';
 import { useBarcodeScanner } from './use-barcode-scanner';
 
 export type BarcodeScannerProps = {
