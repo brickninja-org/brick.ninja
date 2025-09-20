@@ -54,7 +54,7 @@ export const Dropdown: FC<DropdownProps> = ({ children, button, preferredPlaceme
         <FloatingPortal>
           <div
             ref={refs.setFloating}
-            className="max-h-(--max-height) rounded-xs shadow-base border bg-background z-10"
+            className="max-h-(--max-height) rounded-sm border bg-panel shadow-md z-10 dark:shadow-none"
             style={{
               ...transitionStyles,
               ...floatingStyles,
@@ -67,7 +67,7 @@ export const Dropdown: FC<DropdownProps> = ({ children, button, preferredPlaceme
                 {children}
               </div>
             </FloatingFocusManager>
-            <FloatingArrow context={context} ref={arrowRef} width={12} height={6} tipRadius={1} fill={arrowColor ?? 'var(--color-background)'} stroke="var(--color-border-dark)" strokeWidth={1}/>
+            <FloatingArrow context={context} ref={arrowRef} width={12} height={6} tipRadius={1} fill={arrowColor ?? 'bg-panel'} stroke="border-border" strokeWidth={1}/>
           </div>
         </FloatingPortal>
       )}
