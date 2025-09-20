@@ -5,6 +5,9 @@ export type { ButtonProps } from './button.client';
 export { CopyButton } from './copy-button.client';
 export type { CopyButtonProps } from './copy-button.client';
 
+export { LinkButton } from './link-button';
+export type { LinkButtonProps } from './link-button';
+
 export { ShareButton } from './share-button.client';
 export type { ShareButtonProps } from './share-button.client';
 
