@@ -2,16 +2,14 @@ import type { FC } from 'react';
 import type { Language, ReviewQueue } from '@brickninja-org/database';
 
 import { Suspense, use } from 'react';
-import { Button } from '@heroui/react';
 
 import { groupByUnique } from '@brickninja-org/helper/group-by';
 import { Dropdown } from '@brickninja-org/ui/components/dropdown/Dropdown';
 import { MenuList } from '@brickninja-org/ui/components/layout/MenuList';
-import { LinkButton } from '@brickninja-org/ui/components/form/Button';
 
 import { cache } from '@/lib/cache';
 import { db } from '@/lib/prisma';
-import { Iconify } from '@/components/iconify';
+import { LinkButton } from '@/components/button';
 import { Translate } from '@/components/i18n/Translate';
 
 const getOpenReviews = cache(
@@ -53,17 +51,18 @@ const InternalReviewButton: FC<InternalReviewButtonProps> = ({ language, data })
   const reviewCounts = data ? use(data) : undefined;
 
   const button = (
-    <Button
+    <LinkButton
       aria-label="Review"
       className="group min-w-10 w-10 md:min-w-20 md:w-fit rounded-sm font-normal"
+      href="/review"
+      icon="pencil-to-square"
       variant="ghost"
     >
-      <Iconify icon="pencil-to-square"/>
       <span className="hidden md:block">
         <Translate language={language} id="review"/>
       </span>
       <ReviewCountChip hideEmpty count={reviewCounts?._total}/>
-    </Button>
+    </LinkButton>
   );
 
   return (
@@ -71,10 +70,17 @@ const InternalReviewButton: FC<InternalReviewButtonProps> = ({ language, data })
       hideTop={false} preferredPlacement="bottom" button={button}
     >
       <MenuList>
-        <div className="max-w-[320px] -mt-2 -mx-2 mb-3 py-4 px-6 bg-background-light border-b border-(--color-border-dark) leading-normal">
+        <div className="max-w-[320px] -mt-2 -mx-2 mb-3 py-4 px-6 bg-surface-2 border-b border-border leading-normal">
           <Translate language={language} id="review.description"/>
         </div>
-        <LinkButton appearance="menu" className="flex-1 flex items-center justify-between gap-4" href="/review/container-content"><Translate language={language} id="review.queue.ContainerContent"/> <ReviewCountChip count={reviewCounts?.ContainerContent}/></LinkButton>
+        <LinkButton
+          variant="ghost"
+          className="flex-1 flex items-center justify-between gap-4 rounded-sm font-normal"
+          href="/review/container-content"
+        >
+          <Translate language={language} id="review.queue.ContainerContent"/>
+          <ReviewCountChip count={reviewCounts?.ContainerContent}/>
+        </LinkButton>
       </MenuList>
     </Dropdown>
   );
