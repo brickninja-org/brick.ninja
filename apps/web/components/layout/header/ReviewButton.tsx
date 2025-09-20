@@ -67,7 +67,10 @@ const InternalReviewButton: FC<InternalReviewButtonProps> = ({ language, data })
 
   return (
     <Dropdown
-      hideTop={false} preferredPlacement="bottom" button={button}
+      arrowColor="var(--accent-soft)"
+      hideTop={false}
+      preferredPlacement="bottom"
+      button={button}
     >
       <MenuList>
         <div className="max-w-[320px] -mt-2 -mx-2 mb-3 py-4 px-6 border-b border-border bg-accent-soft text-accent-soft-background leading-normal">
