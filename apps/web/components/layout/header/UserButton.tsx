@@ -3,20 +3,17 @@ import type { Language } from '@brickninja-org/database';
 import type { SessionUser } from '@/lib/get-user';
 
 import { Suspense } from 'react';
-import Link from 'next/link';
-import { Button, Skeleton } from '@heroui/react';
+import { Skeleton } from '@heroui/react';
 
 import { Dropdown } from '@brickninja-org/ui/components/dropdown/Dropdown';
-import { LinkButton } from '@brickninja-org/ui/components/form/Button';
 import { MenuList } from '@brickninja-org/ui/components/layout/MenuList';
 import { Separator } from '@brickninja-org/ui/components/layout/Separator';
 
 import { getUser } from '@/lib/get-user';
 import { getTranslate } from '@/lib/translate';
 import { reauthorize } from '@/components/bn2-api/reauthorize';
-import { SubmitButton } from '@/components/button';
+import { LinkButton, SubmitButton } from '@/components/button';
 import { Translate } from '@/components/i18n/Translate';
-import { Iconify } from '@/components/iconify';
 
 export interface UserButtonProps {
   language: Language,
@@ -48,30 +45,24 @@ const UserButtonInternal: FC<UserButtonInternalProps> = ({ user, language }) => 
 
   if (!user) {
     return (
-      <Button asChild variant="ghost" className="min-w-10 w-10 md:min-w-20 md:w-fit rounded-sm font-normal" aria-label={t('login')}>
-        <Link href="/login">
-          <Iconify icon="arrow-right-to-square"/>
-          <span className="hidden md:block"> <Translate id="login" language={language}/></span>
-        </Link>
-      </Button>
+      <LinkButton href="/login" icon="arrow-right-to-square" variant="ghost" className="min-w-10 w-10 md:min-w-20 md:w-fit rounded-sm font-normal" aria-label={t('login')}>
+        <span className="hidden md:block"> <Translate id="login" language={language}/></span>
+      </LinkButton>
     );
   }
 
   const button = (
-    <Button asChild variant="ghost" className="min-w-10 w-10 md:min-w-20 md:w-fit rounded-sm font-normal" aria-label={user === 'loading' ? undefined : user.name}>
-      <Link href="/profile">
-        <Iconify icon="person"/>
-        <span className="hidden md:block">{user === 'loading' ? <Skeleton className="h-4 w-24 rounded-lg"/> : user.name}</span>
-      </Link>
-    </Button>
+    <LinkButton href="/profile" icon="person" variant="ghost" className="min-w-10 w-10 md:min-w-20 md:w-fit rounded-sm font-normal" aria-label={user === 'loading' ? undefined : user.name}>
+      <span className="hidden md:block">{user === 'loading' ? <Skeleton className="h-4 w-24 rounded-lg"/> : user.name}</span>
+    </LinkButton>
   );
 
   return (
     <Dropdown hideTop={false} button={button} preferredPlacement="bottom">
       <MenuList>
-        <LinkButton appearance="menu" href="/profile" icon={<Iconify icon="person-pencil"/>}>Profile</LinkButton>
+        <LinkButton variant="ghost" href="/profile" icon="person-pencil" className="justify-start rounded-sm font-normal">Profile</LinkButton>
         {user !== 'loading' && user.roles.includes('Admin') && (
-          <LinkButton appearance="menu" icon={<Iconify icon="person-gear"/>} href="/admin/users">Admin</LinkButton>
+          <LinkButton variant="ghost" icon="person-gear" href="/admin/users" className="justify-start rounded-sm font-normal">Admin</LinkButton>
         )}
         <form action="/logout" method="POST" className="flex">
           <SubmitButton className="justify-start rounded-sm font-normal" variant="ghost" icon="arrow-right-from-square" flex>Logout</SubmitButton>
