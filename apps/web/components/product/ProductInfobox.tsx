@@ -38,6 +38,7 @@ export const ProductInfobox: FC<ProductInfoboxProps> = async ({ product, data, l
       <FlexRow wrap>
         {product.type === 'Set' && (
           <LinkButton
+            isExternal
             className="flex-1 rounded-sm"
             href={`https://www.lego.com/pick-and-build/pick-a-brick?appearsIn=${product.id}`}
             rel="noopener noreferrer"
@@ -49,9 +50,9 @@ export const ProductInfobox: FC<ProductInfoboxProps> = async ({ product, data, l
           </LinkButton>
         )}
         <LinkButton
+          isExternal
           className="flex-1 rounded-sm"
           href={`https://www.lego.com/product/${product.id}`}
-          rel="noopener noreferrer"
           target="product"
           variant="tertiary"
         >

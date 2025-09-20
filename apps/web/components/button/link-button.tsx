@@ -2,17 +2,27 @@
 
 import type { AnchorHTMLAttributes, FC } from 'react';
 import type { ButtonProps } from '@heroui/react';
+import type { RefProp } from '@brickninja-org/ui/lib/react';
+import { Iconify, type IconName } from '@/components/iconify';
 
+import Link from 'next/link';
 import { buttonVariants } from '@heroui/react';
 
-interface LinkButtonProps extends AnchorHTMLAttributes<HTMLAnchorElement>, Pick<ButtonProps, 'variant'> {
+interface LinkButtonProps extends AnchorHTMLAttributes<HTMLAnchorElement>, RefProp<HTMLAnchorElement>, Pick<ButtonProps, 'variant'> {
+  href: string,
+  isExternal?: boolean,
+  icon?: IconName,
+  prefetch?: boolean,
 }
 
-const LinkButton: FC<LinkButtonProps> = ({ href, variant, className, children, ...props }) => {
+const LinkButton: FC<LinkButtonProps> = ({ ref, href, variant = 'secondary', icon, isExternal, className, children, ...props }) => {
+  const LinkElement = isExternal ? 'a' : Link;
+
   return (
-    <a href={href} className={buttonVariants({ variant, className })} {...props}>
+    <LinkElement ref={ref} href={href} className={buttonVariants({ variant, className })} {...props}>
+      {icon && <Iconify icon={icon}/>}
       {children}
-    </a>
+    </LinkElement>
   );
 };
 
