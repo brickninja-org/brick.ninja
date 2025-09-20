@@ -1,7 +1,8 @@
 'use client';
 
 import type { FC, ReactNode } from 'react';
-import type { ButtonProps } from '@/components/button';
+import type { ButtonProps } from '@heroui/react';
+import type { IconName } from '@/components/iconify';
 
 import { useFormStatus } from 'react-dom';
 import { Button, Spinner } from '@heroui/react';
@@ -10,6 +11,7 @@ import { Iconify } from '@/components/iconify';
 
 interface SubmitButtonProps extends Omit<ButtonProps, 'asChild' | 'children' | 'isPending' | 'type'> {
   children: ReactNode,
+  icon?: IconName,
 }
 
 const SubmitButton: FC<SubmitButtonProps> = ({ icon, children, ...props }) => {
