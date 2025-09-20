@@ -73,7 +73,7 @@ export const FormatConfigDialog: FC<FormatConfigDialogProps> = ({ open, onClose 
           </Label>
         </div>
 
-        <div className="p-4 rounded-md border bg-accent-soft border-accent-soft">
+        <div className="p-4 rounded-md border bg-surface-2">
           <MenuList>
             <div className="flex justify-between py-0.5 px-2">Locale <span>{locale}</span></div>
             <div className="flex justify-between py-0.5 px-2">Date <FormatDate date={new Date()}/></div>
