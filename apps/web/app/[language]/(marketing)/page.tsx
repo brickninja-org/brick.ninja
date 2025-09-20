@@ -34,7 +34,7 @@ async function MarketingPage() {
     )}
     >
       <PageView page="/"/>
-      <Suspense fallback={<div className="flex justify-center gap-[32px_64px] min-h-24 flex-wrap -mt-4 mb-8 -mx-4 py-8 px-4 bg-gray-200"/>}>
+      <Suspense fallback={<div className="flex justify-center gap-[32px_64px] min-h-24 flex-wrap -mt-4 mb-8 -mx-4 py-8 px-4 bg-surface-3"/>}>
         <DbStats/>
       </Suspense>
 
@@ -106,7 +106,7 @@ const getDbStats = cache(async () => {
 
 const Stat: FC<{ href: string, title: ReactNode, value: number }> = ({ href, title, value }) => {
   return (
-    <Link href={href} className="text-lg text-gray-600 sm:text-2xl"><span className="inline font-medium text-xl sm:text-4xl"><FormatNumber value={value}/></span> {title}</Link>
+    <Link href={href} className="text-lg text-surface-3-foreground sm:text-2xl"><span className="inline font-medium text-xl sm:text-4xl"><FormatNumber value={value}/></span> {title}</Link>
   );
 };
 
@@ -114,7 +114,7 @@ async function DbStats() {
   const counts = await getDbStats();
 
   return (
-    <div className="flex flex-wrap justify-center gap-[16px_32px] min-h-[82px] -mt-4 mb-8 -mx-4 py-8 px-4 bg-gray-200 max-sm:flex-col max-sm:items-center sm:min-h-[100px] sm:gap-[32px_64px]">
+    <div className="flex flex-wrap justify-center gap-[16px_32px] min-h-[82px] -mt-4 mb-8 -mx-4 py-8 px-4  bg-surface-3 max-sm:flex-col max-sm:items-center sm:min-h-[100px] sm:gap-[32px_64px]">
       {/* counts.items.map((i) => <Stat key={i.type} href={`/catalog${i.type !== 'Gear' ? `/${i.type.toLowerCase()}s` : '/item'}`} title={`${i.type}${i.type !== 'Gear' ? 's' : ''}`} value={i._count}/>) */}
       <Stat href="/item" title={<Translate id="navigation.items"/>} value={counts.items}/>
       <Stat href="/sets" title={<Translate id="navigation.products"/>} value={counts.products}/>
