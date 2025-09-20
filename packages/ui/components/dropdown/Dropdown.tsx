@@ -67,7 +67,7 @@ export const Dropdown: FC<DropdownProps> = ({ children, button, preferredPlaceme
                 {children}
               </div>
             </FloatingFocusManager>
-            <FloatingArrow context={context} ref={arrowRef} width={12} height={6} tipRadius={1} fill={arrowColor ?? 'bg-panel'} stroke="border-border" strokeWidth={1}/>
+            <FloatingArrow context={context} ref={arrowRef} width={12} height={6} tipRadius={1} fill={arrowColor ?? 'var(--panel)'} stroke="var(--border)" strokeWidth={1}/>
           </div>
         </FloatingPortal>
       )}
