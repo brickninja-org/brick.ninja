@@ -7,6 +7,10 @@
 @source "../node_modules/@brickninja-org/ui/components";
 @source "../node_modules/@brickninja-org/ui/icons";
 
+:root {
+    --surface-2-foreground: color-mix(in oklab, var(--color-surface-2) 3.5%, var(--color-foreground) 80%);
+}
+
 @custom-variant dark (&:is(.dark *));
 
 :root {
