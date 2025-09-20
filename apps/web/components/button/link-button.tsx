@@ -1,25 +1,18 @@
 'use client';
 
-import type { FC } from 'react';
-import type { ButtonProps, LinkProps } from '@heroui/react';
+import type { AnchorHTMLAttributes, FC } from 'react';
+import type { ButtonProps } from '@heroui/react';
 
-import { buttonVariants, Link } from '@heroui/react';
+import { buttonVariants } from '@heroui/react';
 
-interface LinkButtonProps extends LinkProps, Pick<ButtonProps, 'variant'> {
-  href: string,
-  className?: string,
-  children: React.ReactNode,
+interface LinkButtonProps extends AnchorHTMLAttributes<HTMLAnchorElement>, Pick<ButtonProps, 'variant'> {
 }
 
 const LinkButton: FC<LinkButtonProps> = ({ href, variant, className, children, ...props }) => {
   return (
-    <Link href={href} className={buttonVariants({ variant, className })} {...props}>
-      {typeof children === 'string' ? (
-        <>
-          {children}
-        </>
-      ) : children}
-    </Link>
+    <a href={href} className={buttonVariants({ variant, className })} {...props}>
+      {children}
+    </a>
   );
 };
 
