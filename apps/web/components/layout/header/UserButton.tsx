@@ -60,16 +60,16 @@ const UserButtonInternal: FC<UserButtonInternalProps> = ({ user, language }) => 
   return (
     <Dropdown hideTop={false} button={button} preferredPlacement="bottom">
       <MenuList>
-        <LinkButton variant="ghost" href="/profile" icon="person-pencil" className="justify-start rounded-sm font-normal">Profile</LinkButton>
+        <LinkButton variant="ghost" href="/profile" icon="person-pencil" className="flex-1 justify-start rounded-sm font-normal">Profile</LinkButton>
         {user !== 'loading' && user.roles.includes('Admin') && (
-          <LinkButton variant="ghost" icon="person-gear" href="/admin/users" className="justify-start rounded-sm font-normal">Admin</LinkButton>
+          <LinkButton variant="ghost" icon="person-gear" href="/admin/users" className="flex-1 justify-start rounded-sm font-normal">Admin</LinkButton>
         )}
         <form action="/logout" method="POST" className="flex">
-          <SubmitButton className="justify-start rounded-sm font-normal" variant="ghost" icon="arrow-right-from-square" flex>Logout</SubmitButton>
+          <SubmitButton className="flex-1 justify-start rounded-sm font-normal" variant="ghost" icon="arrow-right-from-square">Logout</SubmitButton>
         </form>
         <Separator/>
         <form action={reauthorize.bind(null, [], 'consent')} className="flex">
-          <SubmitButton className="justify-start rounded-sm font-normal" variant="ghost" icon="persons-lock" flex>Manage Accounts</SubmitButton>
+          <SubmitButton className="flex-1 justify-start rounded-sm font-normal" variant="ghost" icon="persons-lock">Manage Accounts</SubmitButton>
         </form>
       </MenuList>
     </Dropdown>
