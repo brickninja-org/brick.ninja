@@ -11,15 +11,15 @@ export interface RadiobuttonProps {
 
 const radio = tv({
   slots: {
-    base: 'inline-flex flex-row items-center gap-2 rounded-xs py-2 px-4 leading-5 cursor-pointer hover:bg-gray-100 focus-visible:outline-hidden',
+    base: 'inline-flex flex-row items-center gap-2 rounded-xs py-2 px-4 leading-5 cursor-pointer hover:bg-panel-hover hover:text-panel-hover focus-visible:outline-hidden',
     input: 'hidden',
-    circle: 'relative flex w-5 h-5 rounded-full border-2 bg-white text-transparent appearance-none after:content-[""] after:absolute after:top-1 after:left-1 after:block after:w-2 after:h-2 after:rounded-full after:bg-white [stroke-dasharray:_16_16] [strokepffset:_16]',
+    circle: 'relative flex w-5 h-5 rounded-full border-2 bg-accent-soft text-transparent appearance-none after:content-[""] after:absolute after:top-1 after:left-1 after:block after:w-2 after:h-2 after:rounded-full after:bg-accent-soft-foreground [stroke-dasharray:_16_16] [strokepffset:_16]',
     content: 'flex-1 flex items-center gap-1',
   },
   variants: {
     checked: {
       true: {
-        circle: 'color-white border-blue-800 bg-blue-800',
+        circle: 'border-blue-800 bg-blue-800',
       }
     }
   }
