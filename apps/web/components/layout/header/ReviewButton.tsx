@@ -67,13 +67,13 @@ const InternalReviewButton: FC<InternalReviewButtonProps> = ({ language, data })
 
   return (
     <Dropdown
-      arrowColor="var(--accent-soft)"
+      arrowColor="var(--surface-2)"
       hideTop={false}
       preferredPlacement="bottom"
       button={button}
     >
       <MenuList>
-        <div className="max-w-[320px] -mt-2 -mx-2 mb-3 py-4 px-6 border-b border-border bg-accent-soft text-surface-1-background leading-normal">
+        <div className="max-w-[320px] -mt-2 -mx-2 mb-3 py-4 px-6 border-b border-border bg-surface-2 text-muted leading-normal">
           <Translate language={language} id="review.description"/>
         </div>
         <LinkButton
