@@ -60,9 +60,9 @@ const UserButtonInternal: FC<UserButtonInternalProps> = ({ user, language }) => 
   return (
     <Dropdown hideTop={false} button={button} preferredPlacement="bottom">
       <MenuList>
-        <LinkButton variant="ghost" href="/profile" icon="person-pencil" className="flex-1 justify-start rounded-sm font-normal">Profile</LinkButton>
+        <LinkButton variant="ghost" href="/profile" icon="person-pencil" className="justify-start rounded-sm font-normal">Profile</LinkButton>
         {user !== 'loading' && user.roles.includes('Admin') && (
-          <LinkButton variant="ghost" icon="person-gear" href="/admin/users" className="flex-1 justify-start rounded-sm font-normal">Admin</LinkButton>
+          <LinkButton variant="ghost" icon="person-gear" href="/admin/users" className="justify-start rounded-sm font-normal">Admin</LinkButton>
         )}
         <form action="/logout" method="POST" className="flex">
           <SubmitButton className="flex-1 justify-start rounded-sm font-normal" variant="ghost" icon="arrow-right-from-square">Logout</SubmitButton>

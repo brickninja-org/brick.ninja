@@ -70,12 +70,12 @@ const InternalReviewButton: FC<InternalReviewButtonProps> = ({ language, data })
       hideTop={false} preferredPlacement="bottom" button={button}
     >
       <MenuList>
-        <div className="max-w-[320px] -mt-2 -mx-2 mb-3 py-4 px-6 bg-surface-2 border-b border-border leading-normal">
+        <div className="max-w-[320px] -mt-2 -mx-2 mb-3 py-4 px-6 border-b border-border bg-surface-2 text-surface-2-foreground leading-normal">
           <Translate language={language} id="review.description"/>
         </div>
         <LinkButton
           variant="ghost"
-          className="flex-1 flex items-center justify-between gap-4 rounded-sm font-normal"
+          className="flex items-center justify-between gap-4 rounded-sm font-normal"
           href="/review/container-content"
         >
           <Translate language={language} id="review.queue.ContainerContent"/>
@@ -97,6 +97,6 @@ export const ReviewCountChip: FC<ReviewCountChipProps> = ({ count, hideEmpty }) 
   }
 
   return (
-    <span className="hidden md:block ml-2 px-2 rounded-full bg-background border border-border text-sm [font-feature-settings:'tnum'_1]">{count ?? 0}</span>
+    <span className="hidden md:block px-2 rounded-full bg-surface-2 border border-border text-sm [font-feature-settings:'tnum'_1]">{count ?? 0}</span>
   );
 };
