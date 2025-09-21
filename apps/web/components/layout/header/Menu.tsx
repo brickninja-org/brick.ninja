@@ -66,7 +66,7 @@ export const Menu: FC<MenuProps> = ({ children, navigation }) => {
       <nav
         className={cn([
           'absolute left-0 right-0 mt-12 z-9',
-          menuOpen && 'fixed border-b border-transparent animate-slide-in',
+          menuOpen && 'fixed border-b border-transparent animate-menu-slide-in',
         ])}
       >
         {navigation}
