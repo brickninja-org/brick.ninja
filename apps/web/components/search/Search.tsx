@@ -116,7 +116,7 @@ export const Search: FC<SearchProps> = ({ translations }) => {
   }, []);
 
   return (
-    <form className="relative flex items-center w-[468px] bg-surface-2 dark:focus-within:bg-panel focus-within:shadow-md rounded-xs [--icon-size:20px]" ref={refs.setReference} {...getReferenceProps()}>
+    <form className="relative flex items-center w-[468px] bg-surface-2 focus-within:bg-background focus-within:shadow-md dark:focus-within:bg-panel dark:focus-within:shadow-none dark:focus-within:border rounded-xs [--icon-size:20px]" ref={refs.setReference} {...getReferenceProps()}>
       <Icon icon="search" className="mr-2 ml-4 align-[-2px] shrink-0 text-muted"/>
       {/* <div className={styles.restriciton}>Item</div> */}
 
@@ -132,7 +132,7 @@ export const Search: FC<SearchProps> = ({ translations }) => {
         onChange={handleSearchChange}
         onKeyDown={handleKeyDown}/>
 
-      {!loading && !open && (<div className="absolute right-2 hidden sm:inline-flex items-center justify-center gap-2"><Kbd>/</Kbd> or <Kbd>s</Kbd></div>)}
+      {!loading && !open && (<div className="absolute right-2 hidden sm:inline-flex items-center justify-center gap-2 text-muted"><Kbd>/</Kbd> or <Kbd>s</Kbd></div>)}
 
       {loading && (open || searchValue) && <Spinner className="mr-4 ml-2" size="sm"/>}
 
