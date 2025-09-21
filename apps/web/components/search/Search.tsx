@@ -132,9 +132,9 @@ export const Search: FC<SearchProps> = ({ translations }) => {
         onChange={handleSearchChange}
         onKeyDown={handleKeyDown}/>
 
-      {!loading && !open && (<div className="absolute right-2 hidden sm:inline-flex items-center justify-center"><Kbd>/</Kbd> or <Kbd>s</Kbd></div>)}
+      {!loading && !open && (<div className="absolute right-2 hidden sm:inline-flex items-center justify-center gap-2"><Kbd>/</Kbd> or <Kbd>s</Kbd></div>)}
 
-      {loading && (open || searchValue) && <Spinner size="sm"/>}
+      {loading && (open || searchValue) && <Spinner className="mr-4 ml-2" size="sm"/>}
 
       {open && (
         <div className="absolute top-0 left-0 w-max max-h-[calc(100vh-56px)] p-2 rounded-xs shadow-md border bg-panel text-base overflow-y-auto overscroll-contain transition-opacity [scrollbar-width:thin] z-10" ref={refs.setFloating} {...getFloatingProps()} style={{
