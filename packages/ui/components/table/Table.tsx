@@ -88,7 +88,7 @@ const TableComponent: FC<TableProps> = ({ children, layout, ref }: TableProps) =
   const { table: style } = table();
   return (
     <TableWrapper>
-      <table className={cn([style({ layout })])} ref={ref}>
+      <table className={cn(['table', style({ layout })])} ref={ref}>
         {children}
       </table>
     </TableWrapper>

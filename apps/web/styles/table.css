@@ -1,17 +1,9 @@
-@import 'tailwindcss';
-@import '@heroui/styles';
-
-@import './table.css';
-
-@theme {
-  --color-background: var(--color-white);
-  --color-foreground: var(--color-black);
-
-  --icon-size: 20px;
-}
-
 @layer components {
   .table {
+    @apply min-w-full md:w-full border-separate border-spacing-0 scroll-mt-8;
+
+    contain: layout style;
+
     :where(tbody > tr > th, tbody > tr > td) {
       @apply h-[1px] px-4 py-2 leading-6 font-normal text-left ltr:text-right;
     }
@@ -25,7 +17,7 @@
     }
 
     :where(tbody > tr:hover > td, tbody > tr:hover > th) {
-      @apply bg-gray-100;
+      @apply bg-accent-soft;
     }
   }
 }
