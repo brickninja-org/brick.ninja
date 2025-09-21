@@ -10,9 +10,9 @@ import { Button, tv } from '@heroui/react';
 import { Dropdown } from '@brickninja-org/ui/components/dropdown/Dropdown';
 import { MenuList } from '@brickninja-org/ui/components/layout/MenuList';
 import { TableOfContent, TableOfContentContext } from '@brickninja-org/ui/components/table-of-content/TableOfContents';
-import { Icon as IconComponent } from '@brickninja-org/ui/icons';
 
 import { EntityIcon } from '@/components/entity/EntityIcon';
+import { Iconify } from '@/components/iconify';
 
 interface DetailLayoutProps {
   title: ReactNode,
@@ -44,7 +44,7 @@ const DetailLayout: FC<DetailLayoutProps> = ({ title, icon, iconType, children, 
           {breadcrumb && <div className="[grid-area:breadcrumb] mt-2 text-sm text-muted leading-none">{breadcrumb}</div>}
           {actions && (
             <div className="[grid-area:actions] flex flex-col justify-center">
-              <Dropdown button={<Button isIconOnly className="rounded-sm" variant="ghost" aria-label="Actions"><IconComponent icon="more"/></Button>}>
+              <Dropdown button={<Button isIconOnly className="rounded-sm" variant="ghost" aria-label="Actions"><Iconify icon="ellipsis-vertical"/></Button>}>
                 <MenuList>{actions}</MenuList>
               </Dropdown>
             </div>

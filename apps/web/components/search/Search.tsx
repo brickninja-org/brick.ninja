@@ -116,7 +116,7 @@ export const Search: FC<SearchProps> = ({ translations }) => {
   }, []);
 
   return (
-    <form className="relative flex items-center w-[468px] bg-surface-2 focus-within:bg-background focus-within:shadow-md rounded-xs [--icon-size:20px]" ref={refs.setReference} {...getReferenceProps()}>
+    <form className="relative flex items-center w-[468px] bg-surface-2 dark:focus-within:bg-panel focus-within:shadow-md rounded-xs [--icon-size:20px]" ref={refs.setReference} {...getReferenceProps()}>
       <Icon icon="search" className="mr-2 ml-4 align-[-2px] shrink-0 text-muted"/>
       {/* <div className={styles.restriciton}>Item</div> */}
 
