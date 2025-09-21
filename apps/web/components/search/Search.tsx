@@ -6,6 +6,7 @@ import type { translations as itemTypeTranslations } from '@/components/item/Ite
 
 import { Fragment, useCallback, useEffect, useRef, useState } from 'react';
 import NextLink from 'next/link';
+import { Kbd, Spinner } from '@heroui/react';
 import { autoUpdate, offset, shift, size, useDismiss, useFloating, useFocus, useInteractions, useListNavigation } from '@floating-ui/react';
 
 import { cn } from '@brickninja-org/ui/lib';
@@ -115,8 +116,8 @@ export const Search: FC<SearchProps> = ({ translations }) => {
   }, []);
 
   return (
-    <form className="relative flex items-center w-[468px] bg-gray-100 focus-within:bg-background focus-within:shadow-base rounded-xs [--icon-size:20px]" ref={refs.setReference} {...getReferenceProps()}>
-      <Icon icon="search" className="mr-2 ml-4 align-[-2px] shrink-0 text-gray-600"/>
+    <form className="relative flex items-center w-[468px] bg-surface-2 focus-within:bg-background focus-within:shadow-md rounded-xs [--icon-size:20px]" ref={refs.setReference} {...getReferenceProps()}>
+      <Icon icon="search" className="mr-2 ml-4 align-[-2px] shrink-0 text-muted"/>
       {/* <div className={styles.restriciton}>Item</div> */}
 
       <input
@@ -131,12 +132,12 @@ export const Search: FC<SearchProps> = ({ translations }) => {
         onChange={handleSearchChange}
         onKeyDown={handleKeyDown}/>
 
-      {!loading && !open && (<div className="hidden sm:inline-block absolute right-2 rounded-xs text-sm text-muted"><kbd className="py-0.25 px-0.75 rounded-xs border border-(--color-border-dark)">/</kbd> or <kbd className="py-0.25 px-0.75 rounded-xs border border-(--color-border-dark)">s</kbd></div>)}
+      {!loading && !open && (<div className="absolute right-2 hidden sm:inline-flex items-center justify-center"><Kbd>/</Kbd> or <Kbd>s</Kbd></div>)}
 
-      {loading && (open || searchValue) && <div className="block w-4 h-4 rounded-lg ml-4 mr-2 border border-transparent border-t-(--color-border) will-change-transform animate-rotate"/>}
+      {loading && (open || searchValue) && <Spinner size="sm"/>}
 
       {open && (
-        <div className="absolute top-0 left-0 w-max max-h-[calc(100vh-56px)] p-2 rounded-xs shadow-md border bg-background text-base overflow-y-auto overscroll-contain transition-opacity [scrollbar-width:thin] z-10" ref={refs.setFloating} {...getFloatingProps()} style={{
+        <div className="absolute top-0 left-0 w-max max-h-[calc(100vh-56px)] p-2 rounded-xs shadow-md border bg-panel text-base overflow-y-auto overscroll-contain transition-opacity [scrollbar-width:thin] z-10" ref={refs.setFloating} {...getFloatingProps()} style={{
           top: y ?? 0,
           left: x ?? 0,
         }}
@@ -155,7 +156,7 @@ export const Search: FC<SearchProps> = ({ translations }) => {
                     tabIndex={-1}
                     href={result.href}
                     key={result.href}
-                    className={cn(['grid gap-x-2 gap-y-0 [grid-template-columns:32px_1fr_auto] py-2 px-4 rounded-2 text-foreground no-underline', activeIndex === currentIndex && 'bg-background-light'])}
+                    className={cn(['grid gap-x-2 gap-y-0 [grid-template-columns:32px_1fr_auto] py-2 px-4 rounded-2 text-foreground no-underline', activeIndex === currentIndex && 'bg-accent-soft'])}
                     id={result.href}
                     target={isExternal ? '_blank' : undefined}
                     rel={isExternal ? 'noreferrer noopener' : undefined}
