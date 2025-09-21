@@ -53,12 +53,12 @@ const InternalReviewButton: FC<InternalReviewButtonProps> = ({ language, data })
   const button = (
     <LinkButton
       aria-label="Review"
-      className="group min-w-10 w-10 md:min-w-20 md:w-fit rounded-sm font-normal"
+      className="group min-w-10 w-10 lg:min-w-20 lg:w-fit rounded-sm font-normal"
       href="/review"
       icon="pencil-to-square"
       variant="ghost"
     >
-      <span className="hidden md:flex gap-2">
+      <span className="hidden lg:flex gap-2">
         <Translate language={language} id="review"/>
         <ReviewCountChip hideEmpty count={reviewCounts?._total}/>
       </span>

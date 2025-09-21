@@ -48,11 +48,11 @@ export const Menu: FC<MenuProps> = ({ children, navigation }) => {
           className={cn([
             'absolute',
             'h-12 w-12',
-            '-mx-4',
             'bg-transparent text-foreground',
-            'opacity-0 transition-opacity delay-0',
-            'cursor-pointer pointer-events-none',
-            scrolledDown && 'opacity-100 delay-150 [pointer-events:all]',
+            'transition-opacity',
+            'cursor-pointer',
+            !scrolledDown && 'opacity-0 delay-0 pointer-event-none',
+            scrolledDown && 'opacity-100 delay-150 pointer-events-auto',
           ])}
           onClick={() => setMenuOpen(!menuOpen)}
           tabIndex={-1}

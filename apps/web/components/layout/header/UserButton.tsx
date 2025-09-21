@@ -45,15 +45,15 @@ const UserButtonInternal: FC<UserButtonInternalProps> = ({ user, language }) => 
 
   if (!user) {
     return (
-      <LinkButton href="/login" icon="arrow-right-to-square" variant="ghost" className="min-w-10 w-10 md:min-w-20 md:w-fit rounded-sm font-normal" aria-label={t('login')}>
-        <span className="hidden md:block"> <Translate id="login" language={language}/></span>
+      <LinkButton href="/login" icon="arrow-right-to-square" variant="ghost" className="min-w-10 w-10 lg:min-w-20 lg:w-fit rounded-sm font-normal" aria-label={t('login')}>
+        <span className="hidden lg:block"> <Translate id="login" language={language}/></span>
       </LinkButton>
     );
   }
 
   const button = (
-    <LinkButton href="/profile" icon="person" variant="ghost" className="min-w-10 w-10 md:min-w-20 md:w-fit rounded-sm font-normal" aria-label={user === 'loading' ? undefined : user.name}>
-      <span className="hidden md:block">{user === 'loading' ? <Skeleton className="h-4 w-24 rounded-lg"/> : user.name}</span>
+    <LinkButton href="/profile" icon="person" variant="ghost" className="min-w-10 w-10 lg:min-w-20 lg:w-fit rounded-sm font-normal" aria-label={user === 'loading' ? undefined : user.name}>
+      <span className="hidden lg:block">{user === 'loading' ? <Skeleton className="h-4 w-24 rounded-lg"/> : user.name}</span>
     </LinkButton>
   );
 

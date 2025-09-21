@@ -44,11 +44,11 @@ export const LanguageDropdown: FC = () => {
         button={(
           <Button
             aria-label={localeName}
-            className="min-w-10 w-10 md:min-w-20 md:w-fit rounded-sm font-normal"
+            className="min-w-10 w-10 lg:min-w-20 lg:w-fit rounded-sm font-normal"
             variant="ghost"
           >
             <Iconify icon="globe"/>
-            <span className="hidden md:block">{localeName}</span>
+            <span className="hidden lg:block">{localeName}</span>
           </Button>
         )}
       >

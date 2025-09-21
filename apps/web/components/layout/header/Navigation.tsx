@@ -29,7 +29,7 @@ interface NavigationItemProps {
 
 export const NavigationItem: FC<NavigationItemProps> = (props) => {
   return (
-    <li className="border-l border-border">
+    <li className="border-l">
       <CompositeItem render={<LinkButton className="rounded-none font-normal" variant="ghost" {...props}/>}/>
     </li>
   );
