@@ -31,6 +31,8 @@
   "dependencies": {
     "@floating-ui/react": "0.27.16",
     "@floating-ui/react-dom": "2.1.6",
+    "@heroui/react": "3.0.0-alpha.30",
+    "@heroui/styles": "3.0.0-alpha.30",
     "client-only": "0.0.1",
     "clsx": "2.1.1",
     "server-only": "0.0.1",
@@ -39,6 +41,7 @@
   },
   "devDependencies": {
     "@brickninja-org/eslint-config": "workspace:*",
+    "@radix-ui/react-slot": "1.2.3",
     "@types/react": "19.1.13",
     "@types/react-dom": "19.1.9",
     "csstype": "3.1.3",

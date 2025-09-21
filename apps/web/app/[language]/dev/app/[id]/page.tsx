@@ -2,7 +2,7 @@ import type { PageProps } from '@/lib/next';
 
 import Link from 'next/link';
 import { notFound, redirect } from 'next/navigation';
-import { FlexRow } from '@brickninja-org/ui/components/flex-row/FlexRow';
+import { FlexRow } from '@brickninja-org/ui/components/flex-row';
 import { Button } from '@brickninja-org/ui/components/form/Button';
 import { Label } from '@brickninja-org/ui/components/form/Label';
 import { TextInput } from '@brickninja-org/ui/components/form/TextInput';
