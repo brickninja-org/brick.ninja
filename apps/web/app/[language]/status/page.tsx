@@ -14,9 +14,7 @@ type JobCount = Awaited<ReturnType<typeof db.job.count>>;
 type ApiRequestCount = Awaited<ReturnType<typeof db.apiRequest.count>>;
 type DbSize = { size: string };
 
-function getStatus(): Promise<
-  readonly [JobCount, ApiRequestCount, ApiRequestCount, ApiRequestCount, readonly DbSize[]],
-> {
+function getStatus(): readonly [JobCount, ApiRequestCount, ApiRequestCount, ApiRequestCount, readonly DbSize[]] {
   const last30minutes = new Date();
   last30minutes.setMinutes(last30minutes.getMinutes() - 30);
 
