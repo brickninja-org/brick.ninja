@@ -3,9 +3,9 @@ import type { Language } from '@brickninja-org/database';
 
 import { Composite, CompositeItem } from '@brickninja-org/ui/components/focus/Composite';
 
+import { LinkButton } from '@/components/button';
 import { Translate } from '@/components/i18n/Translate';
 import { HorizontalOverflowContainer } from '@/components/layout/HorizontalOverflowContainer';
-import { LinkButton } from '@brickninja-org/ui/components/form/Button';
 
 interface NavigationProps {
   language: Language,
@@ -30,7 +30,7 @@ interface NavigationItemProps {
 export const NavigationItem: FC<NavigationItemProps> = (props) => {
   return (
     <li className="border-l border-border">
-      <CompositeItem render={<LinkButton appearance="menu" {...props}/>}/>
+      <CompositeItem render={<LinkButton className="rounded-none font-normal" variant="ghost" {...props}/>}/>
     </li>
   );
 };
