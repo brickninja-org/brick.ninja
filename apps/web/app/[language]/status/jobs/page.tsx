@@ -64,13 +64,14 @@ async function JobsPage() {
                 </Chip>
               </td>
               <th scope="row" className={td()}><b>{job.type}</b></th>
-              <td className={td({ align: 'end' })} style={{ whiteSpace: 'nowrap' }} align="right">{job.state === 'Running' ? formatTime(Math.round((now.valueOf() - job.startedAt!.valueOf()) / 1000)) : '-'}</td>
+              <td className={cn(['whitespace-nowrap', td({ align: 'end' })])}>{job.state === 'Running' ? formatTime(Math.round((now.valueOf() - job.startedAt!.valueOf()) / 1000)) : '-'}</td>
               <td className={td({ align: 'end' })}><FormatDate key={job.id} date={job.scheduledAt} relative/></td>
             </tr>
           ))}
           {active.length === 0 && scheduled.length === 0 && <tr><td colSpan={5} style={{ textAlign: 'center' }}>No jobs currently running</td></tr>}
         </tbody>
       </Table>
+
       <Headline id="jobs">Finished Jobs ({finished.length})</Headline>
       <Table>
         <thead>
@@ -91,8 +92,8 @@ async function JobsPage() {
                   {job.state}
                 </Chip>
               </td>
-              <th scope="row" className={td()}><b>{job.type}</b></th>
-              <td className={td()} style={{ whiteSpace: 'pre-wrap', wordBreak: 'break-word' }}>{job.output}</td>
+              <th scope="row" className={cn(['whitespace-nowrap', td()])}><b>{job.type}</b></th>
+              <td className={cn(['whitespace-pre-wrap break-normal', td()])}>{job.output}</td>
               <td className={td({ align: 'end' })} style={{ whiteSpace: 'nowrap' }}>{formatTime((job.finishedAt!.valueOf() - job.startedAt!.valueOf()) / 1000)}</td>
               <td className={td({ align: 'end' })}><FormatDate date={job.finishedAt} relative/></td>
             </tr>
