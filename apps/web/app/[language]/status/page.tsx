@@ -1,38 +1,50 @@
 import type { FC, ReactNode } from 'react';
 
 import Link from 'next/link';
-import { cn } from '@heroui/react';
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 
 import { createMetadata } from '@/lib/metadata';
 import { db } from '@/lib/prisma';
-import { FormatNumber } from '@/components/format/FormatNumber';
 import { HeroLayout } from '@/components/layout/HeroLayout';
+import { Iconify } from '@/components/iconify';
+import { getStatusRow } from './status.helper';
 
-function getStatus() {
+// Prisma return types
+type JobCount = Awaited<ReturnType<typeof db.job.count>>;
+type ApiRequestCount = Awaited<ReturnType<typeof db.apiRequest.count>>;
+type DbSize = { size: string };
+
+function getStatus(): Promise<
+  readonly [JobCount, ApiRequestCount, ApiRequestCount, ApiRequestCount, readonly DbSize[]],
+> {
   const last30minutes = new Date();
   last30minutes.setMinutes(last30minutes.getMinutes() - 30);
 
-  return Promise.all([
+  const results = await Promise.all([
     db.job.count({ where: { state: 'Queued', scheduledAt: { lt: new Date() }}}),
     db.apiRequest.count({ where: { createdAt: { gt: last30minutes }}}),
     db.apiRequest.count({ where: { createdAt: { gt: last30minutes }, status: { notIn: [200, 206] }}}),
     db.apiRequest.count({ where: { createdAt: { gt: last30minutes }, responseTimeMs: { gt: 5000 }}}),
     db.$queryRaw<[{ size: string }]>`SELECT pg_size_pretty(pg_database_size(current_database())) as size;`,
   ]);
+
+  return results as const;
 }
 
 interface StatusRowProps {
-  status: 'running' | 'success' | 'error',
   title: string,
   description: ReactNode,
   href: string,
+  statusColor: string,
 }
 
-const StatusRow: FC<StatusRowProps> = ({ status, title, description, href }) => {
+const StatusRow: FC<StatusRowProps> = ({ title, description, href, statusColor }) => {
   return (
-    <Link href={href} className="group flex items-center py-3 px-4 border-t hover:bg-gray-100 hover:transition-colors first:border-none">
-      <span className={cn(['inline-block w-2.5 h-2.5 mr-2 rounded-[5px]', status === 'running' ? 'bg-blue-600' : status === 'success' ? 'bg-green-600' : 'bg-red-600'])}/>
+    <Link
+      href={href}
+      className="group flex items-center gap-2 py-3 px-4 border-t hover:bg-accent-soft hover:transition-colors first:border-none"
+    >
+      <Iconify className={statusColor} icon="circle-fill" width={12}/>
       <span className="group-hover:underline decoration-2">{title}</span>
       <span className="ml-auto">{description}</span>
     </Link>
@@ -40,25 +52,13 @@ const StatusRow: FC<StatusRowProps> = ({ status, title, description, href }) => 
 };
 
 export default async function StatusPage() {
-  const [queuedJobs, apiTotal, apiErrors, apiSlow, [dbTotal]] = await getStatus();
-
-  const apiErrorsPercentage = apiErrors / apiTotal;
-  const apiSlowPercentage = apiSlow / apiTotal;
-
-  const apiErrorThreshold = 0.1;
-  const apiSlowThreshold = 0.1;
+  const [queuedJobs, apiTotal, apiErrors, apiSlow, dbSize] = await getStatus();
 
   return (
     <HeroLayout color="green" hero={<Headline id="status">Status</Headline>}>
-      <StatusRow title="Jobs" href="/status/jobs" description={`${queuedJobs} queued jobs`} status={queuedJobs > 25 ? 'running' : 'success'}/>
-      <StatusRow title="API" href="/status/api" description={
-        apiErrorsPercentage > apiErrorThreshold
-          ? <><FormatNumber value={apiErrors}/> errors in the last 30 minutes</>
-          : (apiSlowPercentage > apiSlowThreshold)
-              ? <><FormatNumber value={apiSlow}/> slow requests in the last 30 minutes</>
-              : <><FormatNumber value={apiTotal}/> requests in the last 30 minutes</>
-      } status={apiErrorsPercentage > apiErrorThreshold ? 'error' : (apiSlowPercentage > apiErrorThreshold ? 'running' : 'success')}/>
-      <StatusRow title="Database" href="/status/database" description={dbTotal.size} status="success"/>
+      <StatusRow title="Jobs" href="/status/jobs" {...getStatusRow('jobs', queuedJobs)}/>
+      <StatusRow title="API" href="/status/api" {...getStatusRow('api', apiTotal, apiErrors, apiSlow)}/>
+      <StatusRow title="Database" href="/status/database" {...getStatusRow('database', dbSize[0].size)}/>
     </HeroLayout>
   );
 }
