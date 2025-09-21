@@ -11,6 +11,6 @@
   "tailwindCSS.classFunctions": ["tv", "clsx", "cn"],
   "tailwindCSS.classAttributes": ["className", "classNames"],
   "tailwindCSS.experimental.configFile": {
-    "apps/web/styles/globals.css": "apps/web/**/**",
+    "apps/web/styles/globals.css": "apps/web/**/**"
   }
 }
