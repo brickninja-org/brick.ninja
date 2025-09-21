@@ -1,6 +1,4 @@
-import type { VariantProps } from '@heroui/react';
-
-import { tv } from '@heroui/react';
+import { Chip, cn } from '@heroui/react';
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 import { table, Table } from '@brickninja-org/ui/components/table/Table';
 
@@ -11,24 +9,7 @@ import { FormatDate } from '@/components/format/FormatDate';
 import { FormatNumber } from '@/components/format/FormatNumber';
 import { PageLayout } from '@/components/layout/PageLayout';
 import { ReloadCheckbox } from '@/components/reload/ReloadCheckbox';
-
-const status = tv({
-  base: 'mr-2 w-2.5 h-2.5 inline-block rounded-[5px]',
-  variants: {
-    color: {
-      success: 'bg-green-600',
-      running: 'bg-yellow-500',
-      error: 'bg-red-500',
-      scheduled: 'bg-blue-500/50',
-      queued: 'bg-blue-500',
-    },
-  },
-  defaultVariants: {
-    color: 'queued',
-  },
-});
-
-export type StatusVariants = VariantProps<typeof status>;
+import { Iconify } from '@/components/iconify';
 
 const getJobs = cache(async () => {
   const now = new Date();
@@ -76,7 +57,12 @@ async function JobsPage() {
         <tbody>
           {[...active, ...scheduled].map((job) => (
             <tr key={job.id} className={tr()}>
-              <td className={td()} style={{ whiteSpace: 'nowrap' }}><span className={status({ color: job.state === 'Running' ? 'running' : ((job.scheduledAt < now) ? 'queued' : 'scheduled') })}/>{job.state === 'Running' ? 'Running' : 'Queued'}</td>
+              <td className={cn(['whitespace-nowrap', td()])}>
+                <Chip color={job.state === 'Running' ? 'warning' : ((job.scheduledAt < now) ? 'accent' : 'default')} variant="primary">
+                  <Iconify icon="circle-fill" width={8}/>
+                  {job.state === 'Running' ? 'Running' : 'Queued'}
+                </Chip>
+              </td>
               <th scope="row" className={td()}><b>{job.type}</b></th>
               <td className={td({ align: 'end' })} style={{ whiteSpace: 'nowrap' }} align="right">{job.state === 'Running' ? formatTime(Math.round((now.valueOf() - job.startedAt!.valueOf()) / 1000)) : '-'}</td>
               <td className={td({ align: 'end' })}><FormatDate key={job.id} date={job.scheduledAt} relative/></td>
@@ -99,7 +85,12 @@ async function JobsPage() {
         <tbody>
           {finished.map((job) => (
             <tr key={job.id} className={tr()}>
-              <td className={td()} style={{ whiteSpace: 'nowrap' }}><span className={status({ color: job.state === 'Error' ? 'error' : 'success' })}/>{job.state}</td>
+              <td className={cn(['whitespace-nowrap', td()])}>
+                <Chip color={job.state === 'Error' ? 'danger' : 'success'} variant="primary">
+                  <Iconify icon="circle-fill" width={8}/>
+                  {job.state}
+                </Chip>
+              </td>
               <th scope="row" className={td()}><b>{job.type}</b></th>
               <td className={td()} style={{ whiteSpace: 'pre-wrap', wordBreak: 'break-word' }}>{job.output}</td>
               <td className={td({ align: 'end' })} style={{ whiteSpace: 'nowrap' }}>{formatTime((job.finishedAt!.valueOf() - job.startedAt!.valueOf()) / 1000)}</td>

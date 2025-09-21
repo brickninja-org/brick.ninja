@@ -5,12 +5,11 @@ import type { WithIcon } from '@/lib/with';
 
 import { Dropdown } from '@brickninja-org/ui/components/dropdown/Dropdown';
 import { FlexRow } from '@brickninja-org/ui/components/flex-row';
-import { LinkButton } from '@brickninja-org/ui/components/form/Button';
 import { MenuList } from '@brickninja-org/ui/components/layout/MenuList';
 import { createDataTable } from '@brickninja-org/ui/components/table/DataTable';
 
 import { localizedName } from '@/lib/localized-name';
-import { Button } from '@/components/button';
+import { Button, LinkButton } from '@/components/button';
 import { EntityIcon } from '@/components/entity/EntityIcon';
 import { EntityIconMissing } from '@/components/entity/EntityIconMissing';
 import { Translate } from '@/components/i18n/Translate';
@@ -49,7 +48,7 @@ export const CatalogProductDataTable: FC<CatalogProductTableProps> = ({ language
         {({ id }) => (
           <Dropdown button={<Button isIconOnly icon="ellipsis-vertical" variant="ghost" className="rounded-sm"/>} preferredPlacement="right-start">
             <MenuList>
-              <LinkButton appearance="menu" icon="eye" href={`/product/${id}`}>View Product</LinkButton>
+              <LinkButton className="justify-start rounded-sm font-normal" variant="ghost" icon="eye" href={`/product/${id}`}>View Product</LinkButton>
             </MenuList>
           </Dropdown>
         )}
