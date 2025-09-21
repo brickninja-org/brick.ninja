@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import type { Language, Product } from '@brickninja-org/database';
 import type { Product as ApiProduct } from '@brickninjaapi/types/data/product';
 
-import { FlexRow } from '@brickninja-org/ui/components/flex-row/FlexRow';
+import { FlexRow } from '@brickninja-org/ui/components/flex-row';
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 
 import { localizedName } from '@/lib/localized-name';

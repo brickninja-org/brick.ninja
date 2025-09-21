@@ -1,6 +1,6 @@
 import type { FC, ReactNode } from 'react';
 
-import { FlexRow } from '../flex-row/FlexRow';
+import { FlexRow } from '../flex-row';
 
 export interface DialogActionsProps {
   description?: ReactNode,

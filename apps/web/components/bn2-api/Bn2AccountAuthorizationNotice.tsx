@@ -1,7 +1,7 @@
 import type { Scope } from '@bn2me/client';
 import type { FC, ReactNode } from 'react';
 
-import { FlexRow } from '@brickninja-org/ui/components/flex-row/FlexRow';
+import { FlexRow } from '@brickninja-org/ui/components/flex-row';
 import { SubmitButton } from '@brickninja-org/ui/components/form/buttons/SubmitButton';
 import { Notice } from '@brickninja-org/ui/components/notice/Notice';
 

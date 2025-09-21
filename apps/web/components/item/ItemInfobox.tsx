@@ -3,7 +3,7 @@ import type { Item, Language } from '@brickninja-org/database';
 import type { Item as ApiItem } from '@brickninjaapi/types/data/item';
 //import type { GetSets } from '@brickset-api/types/data/get-sets';
 
-import { FlexRow } from '@brickninja-org/ui/components/flex-row/FlexRow';
+import { FlexRow } from '@brickninja-org/ui/components/flex-row';
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 
 import { localizedName } from '@/lib/localized-name';

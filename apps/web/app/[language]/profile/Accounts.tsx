@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 
-import { FlexRow } from '@brickninja-org/ui/components/flex-row/FlexRow';
+import { FlexRow } from '@brickninja-org/ui/components/flex-row';
 import { SubmitButton } from '@brickninja-org/ui/components/form/buttons/SubmitButton';
 import { List } from '@brickninja-org/ui/components/layout/List';
 import { fetchAccounts } from '@/components/bn2-api/fetch-account.actions';

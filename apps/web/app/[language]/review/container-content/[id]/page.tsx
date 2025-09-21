@@ -4,7 +4,7 @@ import type { EditContentOrder } from 'app/[language]/item/[id]/_edit-content/ty
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ReviewState, UserRole } from '@brickninja-org/database';
-import { FlexRow } from '@brickninja-org/ui/components/flex-row/FlexRow';
+import { FlexRow } from '@brickninja-org/ui/components/flex-row';
 import { Button, LinkButton } from '@brickninja-org/ui/components/form/Button';
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 import { Separator } from '@brickninja-org/ui/components/layout/Separator';

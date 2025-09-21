@@ -9,7 +9,7 @@ import { Dropdown } from '../dropdown/Dropdown';
 import { Button } from '../form/Button';
 import { MenuList } from '../layout/MenuList';
 import { Checkbox } from '../form/Checkbox';
-import { FlexRow } from '../flex-row/FlexRow';
+import { FlexRow } from '../flex-row';
 import { Separator } from '../layout/Separator';
 import { cn } from '../../lib';
 import { TextInput } from '../form/TextInput';

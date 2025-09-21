@@ -9,7 +9,7 @@ import type { Bn2Account } from './types';
 import { experimental_useEffectEvent as useEffectEvent, useCallback, useState, useMemo, useRef, useEffect } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 
-import { FlexRow } from '@brickninja-org/ui/components/flex-row/FlexRow';
+import { FlexRow } from '@brickninja-org/ui/components/flex-row';
 import { Button, LinkButton } from '@brickninja-org/ui/components/form/Button';
 import { SubmitButton } from '@brickninja-org/ui/components/form/buttons/SubmitButton';
 

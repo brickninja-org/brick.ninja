@@ -12,7 +12,7 @@ import scrollIntoView from 'scroll-into-view-if-needed';
 
 import { isEmptyObject } from '@brickninja-org/helper/is';
 import { Dropdown } from '@brickninja-org/ui/components/dropdown/Dropdown';
-import { FlexRow } from '@brickninja-org/ui/components/flex-row/FlexRow';
+import { FlexRow } from '@brickninja-org/ui/components/flex-row';
 import { Button, LinkButton } from '@brickninja-org/ui/components/form/Button';
 // import { CopyButton } from '@brickninja-org/ui/components/form/buttons/copy-button';
 import { MenuList } from '@brickninja-org/ui/components/layout/MenuList';
