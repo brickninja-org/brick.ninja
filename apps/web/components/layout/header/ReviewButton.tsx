@@ -58,10 +58,10 @@ const InternalReviewButton: FC<InternalReviewButtonProps> = ({ language, data })
       icon="pencil-to-square"
       variant="ghost"
     >
-      <span className="hidden md:block">
+      <span className="hidden md:flex">
         <Translate language={language} id="review"/>
+        <ReviewCountChip hideEmpty count={reviewCounts?._total}/>
       </span>
-      <ReviewCountChip hideEmpty count={reviewCounts?._total}/>
     </LinkButton>
   );
 
@@ -78,7 +78,7 @@ const InternalReviewButton: FC<InternalReviewButtonProps> = ({ language, data })
         </div>
         <LinkButton
           variant="ghost"
-          className="flex items-center justify-between gap-4 rounded-sm font-normal"
+          className="justify-between rounded-sm font-normal"
           href="/review/container-content"
         >
           <Translate language={language} id="review.queue.ContainerContent"/>
