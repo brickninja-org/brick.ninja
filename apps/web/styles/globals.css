@@ -31,7 +31,7 @@
 }
 
 @theme {
-  --animate-menu-slide-in: custom-slide-in 100ms ease-out forwards;
+  --animate-nav-slide-in: custom-slide-in 100ms ease-out forwards;
 
   @keyframes custom-slide-in {
     0% { transform: translateY(-48px); }
