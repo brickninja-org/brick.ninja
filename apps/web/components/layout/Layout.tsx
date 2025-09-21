@@ -36,7 +36,7 @@ const Layout: FC<LayoutProps> = ({ children, language }) => {
         <Menu navigation={<Navigation language={language}/>}>
           <Link href="/" aria-label="brick-catlog.eu" className="group relative flex items-center gap-4 mr-8 font-bitter font-bold text-xl text-foreground no-underline transition-transform">
             <GiNinjaHead className="fill-accent"/>
-            <span className="hidden group-hover:underline md:block">brick-catalog.eu</span>
+            <span className="hidden group-hover:underline lg:block">brick-catalog.eu</span>
           </Link>
           <Search translations={searchTranslations}/>
           <div className="flex -mr-2 ml-auto">
