@@ -9,7 +9,7 @@ export interface JsonProps {
   borderless?: boolean,
 }
 
-const comma = <span style={{ color: '#aaa' }}>, </span>;
+const comma = <span className="text-muted">, </span>;
 
 function renderJson([key, value]: [string, unknown], index: number, array: unknown[]) {
   return (
@@ -23,20 +23,20 @@ function renderValue(value: unknown, index: number, array: unknown[]) {
   switch(typeof value) {
     case 'string':
       return (
-        <span key={index} className="text-[#009688]">
+        <span key={index} className="text-success">
           &quot;{value.startsWith('https://www.lego.com/cdn/')
             // eslint-disable-next-line @next/next/no-img-element
-            ? <Tip tip={<img className="max-w-[190px] max-h-[190px]" src={value} alt="Preview"/>}><a href={value} style={{ color: '#009688' }}>{value}</a></Tip>
+            ? <Tip tip={<img className="max-w-[190px] max-h-[190px]" src={value} alt="Preview"/>}><a href={value} className="text-success">{value}</a></Tip>
             : value.replaceAll('"', '\\"')
           }&quot;{maybeComma}
         </span>
       );
     case 'number':
     case 'boolean':
-      return <span key={index} className="text-[#e91e63]">{value.toString()}{maybeComma}</span>;
+      return <span key={index} className="text-danger">{value.toString()}{maybeComma}</span>;
     case 'object':
       if (value === null) {
-        return <span key={index} className="text-[#e91e63]">null{maybeComma}</span>;
+        return <span key={index} className="text-danger">null{maybeComma}</span>;
       }
       return Array.isArray(value)
         ? <span key={index}>[{value.length > 0 && (<div className="m-4">{value.map(renderValue)}</div>)}]{maybeComma}</span>

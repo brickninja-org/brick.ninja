@@ -35,4 +35,4 @@ const Code: FC<CodeProps> = ({ children, borderless = false, inline = false }) =
 Code.displayName = 'BrickCatalog.Code';
 
 export type { CodeProps };
-export { Code };
+export default Code;
