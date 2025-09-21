@@ -4,11 +4,7 @@ import type { FC, ReactNode } from 'react';
 import type { ItemListVariants } from './item-list.styles';
 import type { RefProp } from '@brickninja-org/ui/lib/react';
 
-import { createContext, useMemo } from 'react';
-
 import { itemListVariants } from './item-list.styles';
-
-const ItemListContext = createContext<{ slots?: ReturnType<typeof itemListVariants> }>({});
 
 interface ItemListProps extends ItemListVariants, RefProp<HTMLUListElement> {
   children: ReactNode,
@@ -16,14 +12,12 @@ interface ItemListProps extends ItemListVariants, RefProp<HTMLUListElement> {
 }
 
 const ItemList: FC<ItemListProps> = ({ ref, children, className, singleColumn }) => {
-  const slots = useMemo(() => itemListVariants({ singleColumn }), [singleColumn]);
+  const slots = itemListVariants({ singleColumn });
 
   return (
-    <ItemListContext.Provider value={{ slots }}>
-      <ul ref={ref} className={slots.base({ singleColumn, className })}>
-        {children}
-      </ul>
-    </ItemListContext.Provider>
+    <ul ref={ref} className={slots.base({ singleColumn, className })}>
+      {children}
+    </ul>
   );
 };
 
@@ -35,14 +29,12 @@ interface ItemListItemProps {
 }
 
 const ItemListItem: FC<ItemListItemProps> = ({ children, className }) => {
+  const slots = itemListVariants();
+
   return (
-    <ItemListContext.Consumer>
-      {({ slots }) => (
-        <li className={slots?.item({ className })}>
-          {children}
-        </li>
-      )}
-    </ItemListContext.Consumer>
+    <li className={slots?.item({ className })}>
+      {children}
+    </li>
   );
 };
 
