@@ -4,7 +4,7 @@ import { cache, Suspense } from 'react';
 import { groups } from 'd3-array';
 import { Skeleton } from '@heroui/react';
 
-import { FlexRow } from '@brickninja-org/ui/components/flex-row/FlexRow';
+import { FlexRow } from '@brickninja-org/ui/components/flex-row';
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 import { List } from '@brickninja-org/ui/components/layout/List';
 import { createDataTable } from '@brickninja-org/ui/components/table/DataTable';

@@ -5,7 +5,7 @@ import { Form } from '@brickninja-org/ui/components/form/Form';
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 import { Label } from '@brickninja-org/ui/components/form/Label';
 import { TextInput } from '@brickninja-org/ui/components/form/TextInput';
-import { FlexRow } from '@brickninja-org/ui/components/flex-row/FlexRow';
+import { FlexRow } from '@brickninja-org/ui/components/flex-row';
 import { SubmitButton } from '@/components/button';
 
 import { getUser } from '@/lib/get-user';

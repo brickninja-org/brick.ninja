@@ -58,7 +58,7 @@ const InternalReviewButton: FC<InternalReviewButtonProps> = ({ language, data })
       icon="pencil-to-square"
       variant="ghost"
     >
-      <span className="hidden md:flex">
+      <span className="hidden md:flex gap-2">
         <Translate language={language} id="review"/>
         <ReviewCountChip hideEmpty count={reviewCounts?._total}/>
       </span>

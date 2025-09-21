@@ -4,7 +4,7 @@ import { cache } from 'react';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { Scope } from '@bn2me/client';
-import { FlexRow } from '@brickninja-org/ui/components/flex-row/FlexRow';
+import { FlexRow } from '@brickninja-org/ui/components/flex-row';
 import { Form } from '@brickninja-org/ui/components/form/Form';
 import { SubmitButton } from '@brickninja-org/ui/components/form/buttons/SubmitButton';
 import { Label } from '@brickninja-org/ui/components/form/Label';

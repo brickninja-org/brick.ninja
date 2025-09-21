@@ -1,5 +1,5 @@
 import { cache } from 'react';
-import { FlexRow } from '@brickninja-org/ui/components/flex-row/FlexRow';
+import { FlexRow } from '@brickninja-org/ui/components/flex-row';
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 import { createDataTable } from '@brickninja-org/ui/components/table/DataTable';
 import { Icon } from '@brickninja-org/ui/icons';

@@ -4,7 +4,7 @@ import type { LocalizedEntity } from '@/lib/localized-name';
 import type { WithIcon } from '@/lib/with';
 
 import { Dropdown } from '@brickninja-org/ui/components/dropdown/Dropdown';
-import { FlexRow } from '@brickninja-org/ui/components/flex-row/FlexRow';
+import { FlexRow } from '@brickninja-org/ui/components/flex-row';
 import { LinkButton } from '@brickninja-org/ui/components/form/Button';
 import { MenuList } from '@brickninja-org/ui/components/layout/MenuList';
 import { createDataTable } from '@brickninja-org/ui/components/table/DataTable';
