@@ -2,6 +2,8 @@
 @import "tailwindcss";
 @import "@heroui/styles";
 
+@import "./table";
+
 @plugin "@tailwindcss/typography";
 
 @source "../node_modules/@brickninja-org/ui/components";

@@ -1,8 +1,6 @@
 @layer components {
   .table {
-    @apply min-w-full md:w-full border-separate border-spacing-0 scroll-mt-8;
-
-    contain: layout style;
+    @apply group min-w-full md:w-full border-separate border-spacing-0 scroll-mt-8;
 
     :where(tbody > tr > th, tbody > tr > td) {
       @apply h-[1px] px-4 py-2 leading-6 font-normal text-left ltr:text-right;
