@@ -12,7 +12,7 @@ import { db } from '@/lib/prisma';
 import { getLanguage } from '@/lib/translate';
 import { FormatDate } from '@/components/format/FormatDate';
 import { FormatNumber } from '@/components/format/FormatNumber';
-import { ItemList, ItemListItem } from '@/components/item/ItemList';
+import { ItemList } from '@/components/item-list';
 import { ItemLink } from '@/components/item/ItemLink';
 import { SkeletonLink } from '@/components/skeleton';
 import { HeroLayout } from '@/components/layout/HeroLayout';
@@ -56,7 +56,7 @@ function ListFallback({ size }: { size: number }) {
     <ItemList>
       {[...new Array(size)].map((_, id) => {
         // eslint-disable-next-line react/no-array-index-key
-        return (<ItemListItem key={id}><SkeletonLink/></ItemListItem>);
+        return (<ItemList.Item key={id}><SkeletonLink/></ItemList.Item>);
       })}
     </ItemList>
   );
@@ -73,7 +73,7 @@ async function NewItems() {
 
   return (
     <ItemList>
-      {items.map((item) => <ItemListItem key={item.id}><ItemLink item={item}/><FormatDate date={item.createdAt} relative/></ItemListItem>)}
+      {items.map((item) => <ItemList.Item key={item.id}><ItemLink item={item}/><FormatDate date={item.createdAt} relative/></ItemList.Item>)}
     </ItemList>
   );
 }
@@ -89,7 +89,7 @@ async function NewProducts() {
 
   return (
     <ItemList>
-      {products.map((product) => <ItemListItem key={product.id}><ProductLink product={product}/><FormatDate date={product.createdAt} relative/></ItemListItem>)}
+      {products.map((product) => <ItemList.Item key={product.id}><ProductLink product={product}/><FormatDate date={product.createdAt} relative/></ItemList.Item>)}
     </ItemList>
   );
 }

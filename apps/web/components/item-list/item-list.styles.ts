@@ -4,8 +4,8 @@ import { tv } from 'tailwind-variants';
 
 export const itemListVariants = tv({
   slots: {
-    base: 'columns-1 gap-8 last:-mb-2',
-    item: 'inline-flex w-full items-center justify-between mb-2 whitespace-nowrap',
+    base: 'columns-1 not-first:mt-4 not-last:mb-[calc(1.5em-8px)] last:-mb-2',
+    item: 'inline-flex w-full items-center justify-between gap-2 mb-2 whitespace-nowrap',
   },
   variants: {
     singleColumn: {

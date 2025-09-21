@@ -27,7 +27,7 @@ const ItemList: FC<ItemListProps> = ({ ref, children, className, singleColumn })
   );
 };
 
-ItemList.displayName = 'BrickCatalog.ItemList';
+ItemList.displayName = 'BrickCatalogUI.ItemList';
 
 interface ItemListItemProps {
   children: ReactNode,
