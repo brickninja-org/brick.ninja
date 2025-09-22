@@ -18,7 +18,7 @@ function getStatus(): readonly [JobCount, ApiRequestCount, ApiRequestCount, ApiR
   const last30minutes = new Date();
   last30minutes.setMinutes(last30minutes.getMinutes() - 30);
 
-  const results = await Promise.all([
+  const results = Promise.all([
     db.job.count({ where: { state: 'Queued', scheduledAt: { lt: new Date() }}}),
     db.apiRequest.count({ where: { createdAt: { gt: last30minutes }}}),
     db.apiRequest.count({ where: { createdAt: { gt: last30minutes }, status: { notIn: [200, 206] }}}),
