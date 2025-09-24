@@ -10,7 +10,7 @@ services:
 
   web:
     environment:
-      - BRICKNINJA_URL=brickninja.docker:3000
+      - BRICKNINJA_URL=http://brickninja.docker:3000
     networks:
       default:
         aliases:
