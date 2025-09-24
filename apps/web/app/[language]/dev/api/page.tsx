@@ -7,7 +7,7 @@ import { getBaseUrl } from '@/lib/url';
 import { Code } from '@/components/layout/code';
 import { HeroLayout } from '@/components/layout/HeroLayout';
 
-export default async function DeveloperApiPage() {
+export default function DeveloperApiPage() {
   const apiUrl = getBaseUrl('api');
 
   return (

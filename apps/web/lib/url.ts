@@ -20,7 +20,7 @@ export function getBaseUrl(subdomain?: Language | 'api'): Readonly<URL> {
   localizedUrl.hostname = `${subdomain}.${localizedUrl.hostname}`;
 
   return localizedUrl;
-};
+}
 
 export async function getCurrentBaseUrl() {
   const language = await getLanguage();
@@ -65,6 +65,6 @@ export function getAlternateUrls(path: string, currentLanguage: Language) {
   // return metadata
   return {
     canonical: canonical.toString(),
-    languages: Object.fromEntries(alternates)
+    languages: Object.fromEntries(alternates),
   } satisfies Metadata['alternates'];
 }
