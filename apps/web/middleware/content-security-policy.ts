@@ -1,12 +1,12 @@
-import { Language } from '@brickninja-org/database';
-
 import type { NextMiddleware } from './types';
 
-const baseDomain = process.env.BRICKNINJA_NEXT_DOMAIN;
+import { Language } from '@brickninja-org/database';
+
+import { getBaseUrl } from '@/lib/url';
+
 const languageSubdomains = [...Object.values(Language)];
 
 export const contentSecurityPolicyMiddleware: NextMiddleware = async (request, next, data) => {
-  const url = data.url;
   const subdomain = data.subdomain;
 
   // skip CSP for API (api.brick.ninja)
@@ -17,13 +17,10 @@ export const contentSecurityPolicyMiddleware: NextMiddleware = async (request, n
   // generate nonce
   const nonce = Buffer.from(crypto.randomUUID()).toString('base64');
 
-  // set port if its not a default port (for local development) including `:`
-  const portSuffix = url?.port ? `:${url.port}` : '';
-
   // generate list of alternate language domains
-  const alternateLanguageDomains = languageSubdomains
+  const alternateLanguageHosts = languageSubdomains
     .filter((language) => language !== subdomain)
-    .map((language) => `${language}.${baseDomain}${portSuffix}`);
+    .map((language) => getBaseUrl(language).host);
 
   // construct the CSP header
   const cspHeader = `
@@ -31,7 +28,7 @@ export const contentSecurityPolicyMiddleware: NextMiddleware = async (request, n
     script-src 'self' 'nonce-${nonce}' 'strict-dynamic' ${process.env.NODE_ENV !== 'production' ? '\'unsafe-eval\'' : ''};
     style-src 'self' 'unsafe-inline';
     img-src 'self' images.brickset.com cdn.rebrickable.com www.lego.com;
-    connect-src 'self' ${alternateLanguageDomains.join(' ')} brickset.com rebrickable.com bn2me.vercel.app brick-ninja-api.vercel.app api.iconify.design api.unisvg.com api.simplesvg.com;
+    connect-src 'self' ${alternateLanguageHosts.join(' ')} brickset.com rebrickable.com bn2me.vercel.app brick-ninja-api.vercel.app api.iconify.design api.unisvg.com api.simplesvg.com;
     font-src 'self';
     object-src 'none';
     base-uri 'self';

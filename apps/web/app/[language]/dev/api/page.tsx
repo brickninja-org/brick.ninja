@@ -3,14 +3,12 @@ import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 import { ExternalLink } from '@brickninja-org/ui/components/link/ExternalLink';
 
 import { createMetadata } from '@/lib/metadata';
-import { getCurrentUrl } from '@/lib/url';
+import { getBaseUrl } from '@/lib/url';
 import { Code } from '@/components/layout/code';
 import { HeroLayout } from '@/components/layout/HeroLayout';
 
 export default async function DeveloperApiPage() {
-  const apiUrl = await getCurrentUrl();
-  apiUrl.hostname = `api.${process.env.BRICKNINJA_NEXT_DOMAIN}`;
-  apiUrl.pathname = '/';
+  const apiUrl = getBaseUrl('api');
 
   return (
     <HeroLayout hero={<Headline id="api">API</Headline>} color="green" toc>

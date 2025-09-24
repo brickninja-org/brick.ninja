@@ -7,7 +7,7 @@ services:
     restart: unless-stopped
     environment:
       - DATABASE_URL=postgresql://brickninja:brickninja@database:5432/brickninja?schema=public
-      - BRICKNINJA_NEXT_DOMAIN=brickninja.localhost
+      - BRICKNINJA_URL=http://brickninja.localhost:3000
       - HTTPS=0
       - FORCE_COLOR=1
     ports:

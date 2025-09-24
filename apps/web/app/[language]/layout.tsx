@@ -12,6 +12,7 @@ import { DataTableContext } from '@brickninja-org/ui/components/table/DataTable.
 
 import { client_id } from '@/lib/bn2me';
 import { getLanguage } from '@/lib/translate';
+import { getBaseUrl } from '@/lib/url';
 import { Bn2MeProvider } from '@/components/bn2me/Bn2Me.context';
 import { FormatProvider } from '@/components/format/Format.context';
 import { I18nProvider } from '@/components/i18n/I18nProvider';
@@ -31,7 +32,7 @@ export default async function RootLayout({ children, modal }: LayoutProps & { mo
   const language = await getLanguage();
 
   return (
-    <html lang={language} className={cn(bitter.variable)}>
+    <html lang={language} className={cn(bitter.variable)} data-base-url={getBaseUrl().toString()}>
       <head/>
       <body className="bg-background text-foreground antialiased">
         <I18nProvider language={language}>

@@ -42,11 +42,11 @@ spec:
             configMapKeyRef:
               name: next
               key: db
-        - name: BRICKNINJA_NEXT_DOMAIN
+        - name: BRICKNINJA_URL
           valueFrom:
             configMapKeyRef:
               name: next
-              key: domain
+              key: url
         - name: BN2ME_CLIENT_ID
           valueFrom:
             configMapKeyRef:

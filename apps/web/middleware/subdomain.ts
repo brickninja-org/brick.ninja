@@ -1,13 +1,13 @@
-import { NextResponse } from 'next/server';
-
-import { Language } from '@brickninja-org/database';
-
 import type { NextMiddleware } from './types';
 
-type Subdomain = string | 'api';
+import { NextResponse } from 'next/server';
+import { Language } from '@brickninja-org/database';
+
+import { getBaseUrl } from '@/lib/url';
+
+type Subdomain = Language | 'api';
 
 const validSubdomains: Subdomain[] = ['api', ...Object.values(Language)];
-const baseDomain = process.env.BRICKNINJA_NEXT_DOMAIN;
 
 declare module './types' {
   interface NextMiddlewareData {
@@ -23,7 +23,7 @@ export const subdomainMiddleware: NextMiddleware = (request, next, data) => {
   }
 
   // find the subdomain by parsing the hostname
-  const subdomain = validSubdomains.find((subdomain) => url.hostname === `${subdomain}.${baseDomain}`);
+  const subdomain = validSubdomains.find((subdomain) => url.hostname === getBaseUrl(subdomain).hostname);
   data.subdomain = subdomain;
 
   return next(request);

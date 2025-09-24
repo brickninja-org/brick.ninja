@@ -10,10 +10,13 @@ services:
 
   web:
     environment:
-      - BRICKNINJA_NEXT_DOMAIN=brickninja.docker
+      - BRICKNINJA_URL=brickninja.docker:3000
     networks:
       default:
         aliases:
           - brickninja.docker
-          - nl.brickninja.docker
+          - de.brickninja.docker
           - en.brickninja.docker
+          - es.brickninja.docker
+          - fr.brickninja.docker
+          - nl.brickninja.docker
