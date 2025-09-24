@@ -5,7 +5,7 @@ import { Language } from '@brickninja-org/database';
 
 import { getLanguage } from '@/lib/translate';
 
-const baseUrl: undefined | Readonly<URL> = process.env.BRICKNIJA_URL ? new URL(process.env.BRICKNIJA_URL) : undefined;
+const baseUrl: undefined | Readonly<URL> = process.env.BRICKNINJA_URL ? new URL(process.env.BRICKNINJA_URL) : undefined;
 
 export function getBaseUrl(subdomain?: Language | 'api'): Readonly<URL> {
   if (!baseUrl) {
