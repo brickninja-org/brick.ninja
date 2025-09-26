@@ -11,11 +11,13 @@ import { RevisionTableHiddenRows } from './RevisionTable.client';
 
 export interface RevisionTableProps {
   revisions: Pick<Revision, 'id' | 'type' | 'buildId' | 'hash' | 'description' | 'createdAt'>[],
-  currentRevisionId?: string,
+  currentRevisionId: string,
+  fixedRevision?: boolean,
   link: ({ revisionId, children }: { revisionId: string, children: ReactNode }) => ReactNode,
+  diff?: ({ revisionIdA, revisionIdB, children }: { revisionIdA: string, revisionIdB: string, children: ReactNode }) => ReactNode,
 }
 
-export const RevisionTable: FC<RevisionTableProps> = async ({ revisions, currentRevisionId, link }) => {
+export const RevisionTable: FC<RevisionTableProps> = async ({ revisions, currentRevisionId, fixedRevision, link, diff }) => {
   const language = await getLanguage();
   const hiddenIndexes = new Set<number>();
 
@@ -40,14 +42,14 @@ export const RevisionTable: FC<RevisionTableProps> = async ({ revisions, current
   }
 
   return (
-    <div className="overflow-x-auto overflow-y-hidden">
+    <>
       <Table>
         <thead>
           <tr>
-            <Table.HeaderCell><Translate id="revisions.build"/></Table.HeaderCell>
+            <Table.HeaderCell small><Translate id="revisions.build"/></Table.HeaderCell>
             <Table.HeaderCell><Translate id="revisions.description"/></Table.HeaderCell>
-            <Table.HeaderCell><Translate id="revisions.date"/></Table.HeaderCell>
-            <Table.HeaderCell><Translate id="actions"/></Table.HeaderCell>
+            <Table.HeaderCell small><Translate id="revisions.date"/></Table.HeaderCell>
+            <Table.HeaderCell small><Translate id="actions"/></Table.HeaderCell>
           </tr>
         </thead>
         <tbody>
@@ -58,15 +60,20 @@ export const RevisionTable: FC<RevisionTableProps> = async ({ revisions, current
                 <td className={cn(currentRevisionId === revision.id && 'font-medium', 'whitespace-nowrap')}>
                   {link({ revisionId: revision.id, children: revision.description })}
                 </td>
-                <td className="whitespace-nowrap"><FormatDate date={revision.createdAt} relative/></td>
-                <td>
-                  {currentRevisionId !== revision.id && link({ revisionId: revision.id, children: <Translate id="revisions.view"/> })}
+                <td><FormatDate date={revision.createdAt} relative/></td>
+                <td className="whitespace-nowrap">
+                  {(!fixedRevision || currentRevisionId !== revision.id) && link({ revisionId: revision.id, children: <Translate id="revisions.view"/> })}
+                  {diff && currentRevisionId && currentRevisionId !== revision.id && (
+                    <>
+                      {' · '}{diff({ revisionIdA: revision.id, revisionIdB: currentRevisionId, children: <Translate id="revisions.diff"/> })}
+                    </>
+                  )}
                 </td>
               </tr>
             ))}
           </RevisionTableHiddenRows>
         </tbody>
       </Table>
-    </div>
+    </>
   );
 };
