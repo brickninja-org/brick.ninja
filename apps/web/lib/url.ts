@@ -27,6 +27,7 @@ export async function getCurrentBaseUrl() {
   return getBaseUrl(language);
 }
 
+/** @deprecated Use `getBaseUrl` or `getCurrentBaseUrl` instead */
 export async function getCurrentUrl() {
   return new URL((await headers()).get('x-bn-real-url')!);
 }

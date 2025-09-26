@@ -7,13 +7,14 @@ import { redirect } from 'next/navigation';
 import { Scope } from '@bn2me/client';
 
 import { bn2me } from '@/lib/bn2me';
-import { getCurrentUrl } from '@/lib/url';
+import { absoluteUrl, getCurrentUrl } from '@/lib/url';
 import { prepareAuthRequest } from 'app/[language]/login/Login.action';
 
 export async function reauthorize(requiredScopes: Scope[], prompt?: AuthorizationUrlParams['prompt']) {
-  // build redirect url
   const currentUrl = await getCurrentUrl();
-  const redirect_uri = new URL('/auth/callback', currentUrl).toString();
+
+  // build redirect url
+  const redirect_uri = (await absoluteUrl('/auth/callback')).toString();
 
   // get scopes
   const scopes = Array.from(new Set([Scope.Identify, /* Scope.Accounts, Scope.Accounts_DisplayName, */ ...requiredScopes]));

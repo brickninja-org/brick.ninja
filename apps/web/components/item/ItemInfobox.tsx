@@ -7,7 +7,6 @@ import { FlexRow } from '@brickninja-org/ui/components/flex-row';
 import { Headline } from '@brickninja-org/ui/components/headline/Headline';
 
 import { localizedName } from '@/lib/localized-name';
-import { getCurrentUrl } from '@/lib/url';
 import { LinkButton, ShareButton } from '@/components/button';
 import { Iconify } from '@/components/iconify';
 import { LanguageLinks } from '@/components/info-box/LanguageLinks';
@@ -21,9 +20,7 @@ interface ItemInfoboxProps {
   language: Language,
 }
 
-export const ItemInfobox: FC<ItemInfoboxProps> = async ({ item, data, language }) => {
-  const currentUrl = await getCurrentUrl();
-
+export const ItemInfobox: FC<ItemInfoboxProps> = ({ item, data, language }) => {
   return (
     <div>
       <LanguageLinks language={language} link={<ItemLink icon="none" item={item}/>}/>
@@ -41,7 +38,7 @@ export const ItemInfobox: FC<ItemInfoboxProps> = async ({ item, data, language }
           <Iconify icon="arrow-up-right-from-square"/>
           LEGO.com
         </LinkButton>
-        <ShareButton className="flex-1 rounded-sm" variant="tertiary" data={{ title: localizedName(item, language), url: currentUrl.toString() }}/>
+        <ShareButton className="flex-1 rounded-sm" variant="tertiary" data={{ title: localizedName(item, language), url: `/item/${item.id}` }}/>
       </FlexRow>
 
       {/* data.collections?.ownedBy && data.collections.ownedBy > 0 && (
