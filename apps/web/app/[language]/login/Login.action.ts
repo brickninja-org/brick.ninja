@@ -13,11 +13,11 @@ import { bn2me } from '@/lib/bn2me';
 import { expiresAtFromExpiresIn } from '@/lib/expires-at-from-expires-in';
 import { isValidReturnTo } from '@/lib/login-url';
 import { db } from '@/lib/prisma';
-import { getCurrentUrl } from '@/lib/url';
+import { absoluteUrl } from '@/lib/url';
 
 export async function redirectToBn2Me(returnTo?: string, additionalScopes?: string) {
   // build redirect url
-  const redirect_uri = new URL('/auth/callback', await getCurrentUrl()).toString();
+  const redirect_uri = (await absoluteUrl('/auth/callback')).toString();
 
   // get scopes to request from bn2.me
   const scopes = getScopesFromString(additionalScopes);

@@ -4,7 +4,7 @@ import { NextRequest, userAgent } from 'next/server';
 import { authCookie } from '@/lib/auth/cookie';
 import { bn2me } from '@/lib/bn2me';
 import { db } from '@/lib/prisma';
-import { getCurrentUrl } from '@/lib/url';
+import { absoluteUrl } from '@/lib/url';
 import { expiresAtFromExpiresIn } from '@/lib/expires-at-from-expires-in';
 import { getUser } from '@/lib/get-user';
 import { getReturnToUrl } from '@/lib/login-url';
@@ -30,7 +30,7 @@ export async function GET(request: NextRequest) {
     }
 
     // build callback url
-    const callbackUrl = new URL('/auth/callback', await getCurrentUrl());
+    const callbackUrl = await absoluteUrl('/auth/callback');
 
     // exchange code for access token
     const token = await bn2me.getAccessToken({
