@@ -17,7 +17,17 @@ spec:
             name: next
             port:
               name: http
-  - host: nl.next.brickninja.kubernetes.localhost
+  - host: de.next.brickninja.kubernetes.localhost
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: next
+              port:
+                name: http
+  - host: en.next.brickninja.kubernetes.localhost
     http:
       paths:
       - path: /
@@ -27,7 +37,27 @@ spec:
             name: next
             port:
               name: http
-  - host: en.next.brickninja.kubernetes.localhost
+  - host: es.next.brickninja.kubernetes.localhost
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: next
+              port:
+                name: http
+  - host: fr.next.brickninja.kubernetes.localhost
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: next
+              port:
+                name: http
+  - host: nl.next.brickninja.kubernetes.localhost
     http:
       paths:
       - path: /
