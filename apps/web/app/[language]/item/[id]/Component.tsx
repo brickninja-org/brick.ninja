@@ -35,6 +35,7 @@ import { ContentQuantityColumn } from './ExtraColumns';
 import { DesignTable } from '@/components/design/DesignTable';
 import { ItemLink } from '@/components/item/ItemLink';
 import { RevisionTable } from '@/components/revision/RevisionTable';
+import { Translate } from '@/components/i18n/Translate';
 
 export interface ItemPageComponentProps {
   language: Language,
@@ -174,9 +175,11 @@ export const ItemPageComponent: FC<ItemPageComponentProps> = async ({ language, 
         </ItemTableContext>
       )}
 
-      <Headline id="history">History</Headline>
+      <Headline id="history"><Translate id="revisions.history"/></Headline>
       <RevisionTable
-        revisions={item.history.map(({ revision }) => revision)} currentRevisionId={fixedRevision ? revision.id : undefined}
+        revisions={item.history.map(({ revision }) => revision)}
+        currentRevisionId={revision.id}
+        fixedRevision={fixedRevision}
         link={
           ({ revisionId, children }) => <ItemLink item={item} language={language} revision={revisionId} icon="none">{children}</ItemLink>
         }/>

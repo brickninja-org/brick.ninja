@@ -26,6 +26,7 @@ import { EntityIconMissing } from '@/components/entity/EntityIconMissing';
 import { RevisionTable } from '@/components/revision/RevisionTable';
 import { ProductLink } from '@/components/product/ProductLink';
 import { ItemBarcodeColumn } from './ExtraColumns';
+import { Translate } from '@/components/i18n/Translate';
 
 export interface ProductPageComponentProps {
   language: Language,
@@ -84,9 +85,11 @@ export const ProductPageComponent: FC<ProductPageComponentProps> = async ({ lang
         </ItemTableContext>
       )}
 
-      <Headline id="history">History</Headline>
+      <Headline id="history"><Translate id="revisions.history"/></Headline>
       <RevisionTable
         revisions={product.history.map(({ revision }) => revision)}
+        currentRevisionId={revision.id}
+        fixedRevision={fixedRevision}
         link={
           ({ revisionId, children }) => <ProductLink product={product} language={language} revision={revisionId} icon="none">{children}</ProductLink>
         }/>
