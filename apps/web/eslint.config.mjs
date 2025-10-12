@@ -20,9 +20,14 @@ export default defineConfig(
   // enable enable react-compiler plugin (no flat preset yet)
   {
     plugins: { 'react-compiler': reactCompiler },
-    rules: reactCompiler.configs.recommended.rules
+    rules: {
+      ...reactCompiler.configs.recommended.rules,
+
+      'react-hooks/set-state-in-effect': 'warn',
+      'react-hooks/refs': 'warn',
+    },
   },
-  
+
   // enable @brickninja-org/nextjs plugin for page.tsx files (no flat preset yet)
   // nextJsPlugin.configs.recommended,
 );
