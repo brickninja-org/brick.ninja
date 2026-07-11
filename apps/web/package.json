@@ -27,7 +27,7 @@
     "@dnd-kit/react": "0.1.21",
     "@floating-ui/react": "0.27.16",
     "@floating-ui/react-dom": "2.1.6",
-    "@formatjs/intl-localematcher": "0.6.1",
+    "@formatjs/intl-localematcher": "0.8.12",
     "@heroui/react": "3.0.0-alpha.31",
     "@heroui/styles": "3.0.0-alpha.31",
     "@iconify-json/gravity-ui": "1.2.10",
