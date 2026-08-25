@@ -11,7 +11,7 @@
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "dependencies": {
-    "@prisma/client": "6.16.2"
+    "@prisma/client": "6.19.3"
   },
   "devDependencies": {
     "@brickninja-org/tsconfig": "workspace:*",
