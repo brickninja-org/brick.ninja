@@ -16,6 +16,6 @@
   "devDependencies": {
     "@brickninja-org/tsconfig": "workspace:*",
     "prisma": "6.16.2",
-    "typescript": "5.9.2"
+    "typescript": "5.9.3"
   }
 }
